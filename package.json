@@ -22,6 +22,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.8",
     "husky": "^8.0.3",
     "next": "^13.1.2",
     "next-seo": "^5.15.0",
