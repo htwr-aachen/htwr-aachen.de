@@ -6,8 +6,8 @@ const Index = () => {
     <Main
       meta={
         <Meta
-          title="Next.js Boilerplate Presentation"
-          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
+          title="Syscom - Das besser ComSys"
+          description="Für alle die nichts besseres zu tun haben als Datcom zu lernen"
         />
       }
     >
@@ -26,11 +26,6 @@ const Index = () => {
           className="giphy-embed"
           allowFullScreen
         ></iframe>
-        <p>
-          <a href="https://giphy.com/gifs/puss-in-boots-pout-beg-sXv0vaA4331Ti">
-            via GIPHY
-          </a>
-        </p>{' '}
       </h2>
 
       <h2>a)</h2>
