@@ -28,7 +28,7 @@ const Main = (props: IMainProps) => (
           <div className="block">
             <div className="grid justify-end">
               <Image
-                src={"/rwth/rwth.png"}
+                src={"/rwth/htwr.png"}
                 width={150}
                 height={41}
                 alt="RWTH Aachen Logo"
