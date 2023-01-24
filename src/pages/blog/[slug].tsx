@@ -2,10 +2,10 @@ import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
-} from 'next';
+} from "next";
 
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
+import { Meta } from "@/layouts/Meta";
+import { Main } from "@/templates/Main";
 
 type IBlogUrl = {
   slug: string;

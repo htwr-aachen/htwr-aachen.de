@@ -15,8 +15,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import '@testing-library/cypress/add-commands';
-import '@percy/cypress';
+import "@testing-library/cypress/add-commands";
+import "@percy/cypress";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -1,5 +1,5 @@
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
+import { Meta } from "@/layouts/Meta";
+import { Main } from "@/templates/Main";
 
 const Index = () => {
   return (
@@ -17,7 +17,7 @@ const Index = () => {
       </h1>
 
       <h2>
-        Bitte nicht frech abkopieren. Ich möcht auch Punkte{' '}
+        Bitte nicht frech abkopieren. Ich möcht auch Punkte{" "}
         <iframe
           src="https://giphy.com/embed/sXv0vaA4331Ti"
           width="480"
@@ -32,7 +32,7 @@ const Index = () => {
       <p>
         lokaler NS → a.root-servers.net: Request: ip von
         www.syscom.htwr-aachen.de <br />
-        lokaler NS → 198.41.0.4: Request: ip von www.syscom.htwr-aachen.de{' '}
+        lokaler NS → 198.41.0.4: Request: ip von www.syscom.htwr-aachen.de{" "}
         <br />
         198.41.0.4 → lokaler NS : Response NS l.de.net <br />
         lokaler NS → 198.41.0.4: Request: ip von l.de.net <br />
@@ -41,12 +41,12 @@ const Index = () => {
         10.10.10.10 → lokaler NS: Response: NS 10.10.11.12 <br />
         lokaler NS → 10.10.11.12: Reqeust: IP von l.de.net <br />
         10.10.11.12 → lokaler NS: Response: A RR 20.20.20.20.20 <br />
-        lokaler NS → 20.20.20.20: Request: IP von www.syscom.htwr-aachen.de{' '}
+        lokaler NS → 20.20.20.20: Request: IP von www.syscom.htwr-aachen.de{" "}
         <br />
         20.20.20.20 → lokaler NS: Response: NS 123.45.1.23 <br />
-        lokaler NS → 123.45.1.23: Request: IP von www.syscom.htwr-aachen.de{' '}
+        lokaler NS → 123.45.1.23: Request: IP von www.syscom.htwr-aachen.de{" "}
         <br />
-        123.45.1.23 → 123.45.54.32: Request: IP von www.syscom.htwr-aachen.de{' '}
+        123.45.1.23 → 123.45.54.32: Request: IP von www.syscom.htwr-aachen.de{" "}
         <br />
         123.45.54.32 → 123.45.1.23: Reponse: A RR 123.45.67.89 <br />
         123.45.1.23 → lokaler NS: Reponse: A RR 123.45.67.89 <br />
