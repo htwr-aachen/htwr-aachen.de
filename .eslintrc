@@ -56,7 +56,8 @@
         "unused-imports/no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "tailwindcss/no-custom-classname": "off" // Allow custom classnames
       }
     },
     // Configuration for testing

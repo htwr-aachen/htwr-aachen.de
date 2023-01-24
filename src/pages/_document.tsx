@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 import { AppConfig } from "@/utils/AppConfig";
 
@@ -9,19 +10,19 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale}>
         <Head>
-          <script
+          <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-ST53ECRQJW"
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+          ></Script>
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-            gtag('config', 'G-ST53ECRQJW');`,
-            }}
-          />
+              gtag('config', 'G-ST53ECRQJW');
+            `}
+          </Script>
         </Head>
         <body>
           <Main />
