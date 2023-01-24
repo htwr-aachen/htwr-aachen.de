@@ -25,6 +25,7 @@ class MyDocument extends Document {
           </Script>
         </Head>
         <body>
+          <div className="bg"></div>
           <Main />
           <NextScript />
         </body>

@@ -1,92 +1,104 @@
-import Link from "next/dist/client/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import type { ReactNode } from "react";
+
+import { MenuButton } from "./MenuButton";
 
 type IMainProps = {
   meta: ReactNode;
   children: ReactNode;
 };
 
-const Main = (props: IMainProps) => (
-  <div
-    className="w-{910px} mr-auto ml-auto px-1 text-gray-700 antialiased"
-    style={{ maxWidth: "910px" }}
-  >
-    {props.meta}
+const Main = (props: IMainProps) => {
+  const router = useRouter();
 
-    <div className="max-w-{910px}">
-      <div>
-        <nav className="grid grid-cols-2 mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-6">
-          <div className="">
-            <Image
-              src={"/rwth/comsys.png"}
-              width={366}
-              height={118}
-              alt="ComSys Logo"
-            />
-          </div>
-          <div className="block">
-            <div className="grid justify-end">
+  const isActive = (name: string): boolean => {
+    return router.pathname.startsWith(`/${name}`);
+  };
+
+  return (
+    <div className="mx-auto px-1 text-gray-700 antialiased md:max-w-[910px]">
+      {props.meta}
+
+      <div className="md:max-w-{910px}">
+        <div>
+          <nav className="grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
+            <div className="self-center justify-self-center">
               <Image
-                src={"/rwth/htwr.png"}
-                width={150}
-                height={41}
-                alt="RWTH Aachen Logo"
+                src={"/rwth/syscom.png"}
+                width={366}
+                height={118}
+                alt="ComSys Logo"
+                className="w-{366px} h-{118px}"
               />
             </div>
-            <ul className="flex flex-row">
-              <li className="m-4">
-                <Link href={"/"}>
-                  <Image
-                    src={"/rwth/home.png"}
-                    width={70}
-                    height={70}
-                    alt="Home Icon"
-                  />
-                </Link>
-              </li>
-              <li className="m-4">
-                <Link href={"/about"}>
-                  <Image
-                    src={"/rwth/team.png"}
-                    width={70}
-                    height={70}
-                    alt="Team Icon"
-                  />
-                </Link>
-              </li>
-              <li className="m-4">
+            <div className="block">
+              <div className="grid justify-end">
                 <Image
-                  src={"/rwth/teaching.png"}
-                  width={70}
-                  height={70}
+                  src={"/rwth/htwr.png"}
+                  width={150}
+                  height={41}
+                  alt="RWTH Aachen Logo"
+                />
+              </div>
+              <ul className="grid grid-cols-5">
+                <MenuButton
+                  src="/rwth/home.png"
+                  src_hover="/rwth/home_hover.png"
+                  alt="Home Icon"
+                  href="/"
+                  name="HOME"
+                  isActive={router.pathname === "/"}
+                />
+                <MenuButton
+                  src="/rwth/team.png"
+                  src_hover="/rwth/team_hover.png"
+                  alt="Team Icon"
+                  href="/team"
+                  name="TEAM"
+                  isActive={isActive("team")}
+                />
+                <MenuButton
+                  src="/rwth/teaching.png"
+                  src_hover="/rwth/teaching_hover.png"
                   alt="Teaching Icon"
+                  href="/teaching"
+                  name="TEACHING"
+                  isActive={isActive("teaching")}
                 />
-              </li>
-              <li className="m-4">
-                <Image
-                  src={"/rwth/research.png"}
-                  width={70}
-                  height={70}
+                <MenuButton
+                  src="/rwth/research.png"
+                  src_hover="/rwth/research_hover.png"
                   alt="Research Icon"
+                  href="/research"
+                  name="RESEARCH"
+                  isActive={isActive("research")}
                 />
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+                <MenuButton
+                  src="/rwth/contact.png"
+                  src_hover="/rwth/contact_hover.png"
+                  alt="Contact Icon"
+                  href="/contact"
+                  name="CONTACT"
+                  isActive={isActive("contact")}
+                />
+              </ul>
+            </div>
+          </nav>
+        </div>
 
-      <div className="content mt-6 rounded-2xl border-4 border-blue-500 bg-white p-6 text-xl">
-        {props.children}
-      </div>
+        <div className="content mt-6 rounded-2xl border-4 border-blue-500 bg-white p-6 text-xl">
+          {props.children}
+        </div>
 
-      <div className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()}{" "}
-        <a href="comsys.rwth-aachen.de">ComSys-Lehrstuhl</a>. Dies ist nicht die
-        echte ComSys-Lehrstuhl Webseite.
+        <div className="border-t border-gray-300 py-8 text-center text-sm">
+          © Copyright {new Date().getFullYear()}{" "}
+          <a href="comsys.rwth-aachen.de">ComSys-Lehrstuhl</a>. Dies ist nicht
+          die echte ComSys-Lehrstuhl Webseite.
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export { Main };
