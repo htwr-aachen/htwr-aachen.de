@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import type { ReactNode } from 'react';
+import Link from "next/dist/client/link";
+import Image from "next/image";
+import type { ReactNode } from "react";
 
 type IMainProps = {
   meta: ReactNode;
@@ -9,7 +10,7 @@ type IMainProps = {
 const Main = (props: IMainProps) => (
   <div
     className="w-{910px} mr-auto ml-auto px-1 text-gray-700 antialiased"
-    style={{ maxWidth: '910px' }}
+    style={{ maxWidth: "910px" }}
   >
     {props.meta}
 
@@ -18,7 +19,7 @@ const Main = (props: IMainProps) => (
         <nav className="grid grid-cols-2 mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-6">
           <div className="">
             <Image
-              src={'/rwth/comsys.png'}
+              src={"/rwth/comsys.png"}
               width={366}
               height={118}
               alt="ComSys Logo"
@@ -35,24 +36,28 @@ const Main = (props: IMainProps) => (
             </div>
             <ul className="flex flex-row">
               <li className="m-4">
-                <Image
-                  src={'/rwth/home.png'}
-                  width={70}
-                  height={70}
-                  alt="Home Icon"
-                />
+                <Link href={"/"}>
+                  <Image
+                    src={"/rwth/home.png"}
+                    width={70}
+                    height={70}
+                    alt="Home Icon"
+                  />
+                </Link>
+              </li>
+              <li className="m-4">
+                <Link href={"/about"}>
+                  <Image
+                    src={"/rwth/team.png"}
+                    width={70}
+                    height={70}
+                    alt="Team Icon"
+                  />
+                </Link>
               </li>
               <li className="m-4">
                 <Image
-                  src={'/rwth/team.png'}
-                  width={70}
-                  height={70}
-                  alt="Team Icon"
-                />
-              </li>
-              <li className="m-4">
-                <Image
-                  src={'/rwth/teaching.png'}
+                  src={"/rwth/teaching.png"}
                   width={70}
                   height={70}
                   alt="Teaching Icon"
@@ -60,7 +65,7 @@ const Main = (props: IMainProps) => (
               </li>
               <li className="m-4">
                 <Image
-                  src={'/rwth/research.png'}
+                  src={"/rwth/research.png"}
                   width={70}
                   height={70}
                   alt="Research Icon"
@@ -76,7 +81,7 @@ const Main = (props: IMainProps) => (
       </div>
 
       <div className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()}{' '}
+        © Copyright {new Date().getFullYear()}{" "}
         <a href="comsys.rwth-aachen.de">ComSys-Lehrstuhl</a>. Dies ist nicht die
         echte ComSys-Lehrstuhl Webseite.
       </div>
