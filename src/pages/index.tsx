@@ -52,6 +52,14 @@ const Index = () => {
           geschafft". Obwohl in {d2}h reicht locker.
         </div>
       </div>
+
+      <h1 className="text-center font-bold">
+        Okay aber ernsthaft,{" "}
+        <Link className="underline" href={"/teaching"}>
+          hier
+        </Link>{" "}
+        gibts was nettes
+      </h1>
     </Main>
   );
 };

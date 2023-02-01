@@ -33,3 +33,7 @@ a:hover {
 html, body {
   width: 100vw !important;
 }
+
+.katex-html{
+  display: none;
+}

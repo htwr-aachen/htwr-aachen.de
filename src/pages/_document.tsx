@@ -10,6 +10,10 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale}>
         <Head>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-twilight.min.css"
+          />
           <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-ST53ECRQJW"

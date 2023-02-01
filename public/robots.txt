@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://example.com
+Host: https://htwr-aachen.de
 
 # Sitemaps
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://htwr-aachen.de/sitemap.xml
