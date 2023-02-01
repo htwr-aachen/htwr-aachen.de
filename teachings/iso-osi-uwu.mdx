@@ -1,0 +1,66 @@
+---
+title: ISO-OSI-UWU (Referenzmodelle)
+author: Jonas Schneider
+date: 01/02/2023
+order: 0
+description: Overview der Referenzmodelle
+---
+
+## ISO-OSI
+![ISO-OSI-Modell](https://img.devrant.com/devrant/rant/r_2081122_Phhqp.jpg)
+
+ISO-OSI ist das ganz dolle Standardmodell aus den 1980ern. Es ist ein 7-Schichtenmodell, das die Kommunikation zwischen zwei Geräten beschreibt.
+Da es halt doch bissle alt ist, trifft es nicht immer ganz zu, aber im Groben ist es doch gut gelungen.
+
+- **Schicht 1: Physikalische Schicht**
+
+Naja sagt halt alles aus. Kann sowas sein wie WIFI bzw. IEEE 802.11, Ethernet, Bluetooth, etc.
+
+- **Schicht 2: Sicherheitsschicht**
+
+Das hier ist nichtmehr so ganz richtig. Diese schicht wir zuhäuft auch von den Schicht 1 Protokollen übernommen. Hier findet die Datensicherheit(-unversehrtheit) statt.
+Z.B. [CRC-Checksummen, Paritätsbits, Hamming-Code etc.](/teachings/checksum-summachtdiebiene)
+Aber teilweise auch sowas wie [Medienzugriff](/teachings/halt-haltmaldeinefressebitte).
+
+- **Schicht 3: Vermittlungsschicht**
+
+Mittlerweile hauptsächlich IP. Aber hierzu zählen auch die anderen Protokolle wir ARP etc.
+
+- **Schicht 4: Transport-Schicht**
+TCP, UDP etc. Es sorgt für die Segmentierung von einem Datemstrom zu IP-Paketen und umgekehrt. Es sorgt dafür das die oberen Schichten sich nicht mit dem Netzwerk auseinandersetzen müssen.
+
+- **Schicht 5: Sitzungsschicht**
+
+Hier sind wenige Protokolle aber eins davon ist zum Beispiel RPC (Remote-Procedure-Call). Hier kommunizieren vorallem zwei 
+
+- **Schicht 6: Darstellungsschicht**
+
+Hier sind so Sachen wie Verschlüsselung also z.B. SSL/TLS, etc. und Kompression.
+
+- **Schicht 7: Anwendungsschicht**
+
+Kann alles sein aber mittlerweile auch viel HTTP, SMPT, IMAP, SSH.
+
+## TCP/IP 
+
+TCP/IP ist tatsächlich einfacher gehalten und ist der Stack den man heute größtenteils verwendet. Es beschreibt nur die **wirklich** großen Schichten. Die anderen sind dann in denen zusammengefasst.
+
+![Das beschreibts ganz gut](https://netzmafia.ee.hm.edu/skripten/netze/tcpipiso.gif)
+
+- **Schicht 1: Host-to-Network-Schicht**
+
+Kümmert sich um das physikalische Netzwerk. Also z.B. Ethernet, IEEE 802.11, etc. aber auch Sicherungsschichtgeschichten (geiles Wort). Diese ist meist in der Netwerkkarte implementiert.
+
+- **Schicht 2: Internet-Schicht**
+
+Fast genau die Vermittlungsschicht. Diese Schicht ist meist in dem Betriebssystem implementiert.
+
+- **Schicht 3: Transport-Schicht**
+
+Fast genau die Transport-Schicht. Diese Schicht ist ebenso meisten in dem Betriebssystem implementiert und erreichbar durch APIS.
+
+- **Schicht 4: Anwendungsschicht**
+
+Kombiniert die drei Schichten Sitzungs-, Darstellungs- und Anwendungsschicht. Diese Schicht ist meist in der Anwendung (bzw. eigentlich immer in den Standardbibliotheken der Sprache) implementiert.
+
+<ISOOSI></ISOOSI>

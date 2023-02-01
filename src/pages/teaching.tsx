@@ -31,6 +31,15 @@ const Teaching: FC<TeachingProps> = ({ docs }) => {
     >
       <h1>Liste von Hilfen:</h1>
 
+      <span>
+        Wehe einer beschwert sich über Rechtschreib- und Grammatikfehler! Fix
+        die{" "}
+        <Link href={"https://github.com/JohnnyS318/htwr-aachen.de"}>
+          https://github.com/JohnnyS318/htwr-aachen.de
+        </Link>{" "}
+        selber.{" "}
+      </span>
+
       <ul className="ml-8 list-disc">
         {docs.map((teaching) => {
           return (

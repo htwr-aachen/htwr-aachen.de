@@ -82,13 +82,15 @@ export async function getTeachingBySlug(slug: string): Promise<Teaching> {
 
 export async function getAllTeachings(): Promise<TeachingMeta[]> {
   const files = readdirSync(teachingsDirectory);
-  const teachings = files.map((file) => {
-    const { data } = read(join(teachingsDirectory, file));
-    return {
-      slug: file.replace(/\.mdx$/, ""),
-      meta: metadataFromData(data).meta,
-    };
-  });
+  const teachings = files
+    .map((file) => {
+      const { data } = read(join(teachingsDirectory, file));
+      return {
+        slug: file.replace(/\.mdx$/, ""),
+        meta: metadataFromData(data).meta,
+      };
+    })
+    .sort((a, b) => a.meta.order - b.meta.order);
 
   return teachings;
 }

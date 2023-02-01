@@ -2,6 +2,7 @@ import type { GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import type { FC } from "react";
 
+import ISOOSI from "@/components/isoosi";
 import { Meta } from "@/layouts/Meta";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
@@ -12,6 +13,8 @@ import {
 import { Main } from "@/templates/Main";
 
 import TeachingsLayout from "../../templates/TeachingsLayout";
+
+const components = { ISOOSI };
 
 type TeachingProps = {
   doc: TeachingType;
@@ -30,7 +33,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
         meta={{ slug: doc.slug, meta: doc.meta }}
         context={context}
       >
-        <MDXRemote {...doc.content} />
+        <MDXRemote {...doc.content} components={components} />
       </TeachingsLayout>
     </Main>
   );
