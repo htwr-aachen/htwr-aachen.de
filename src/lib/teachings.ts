@@ -12,12 +12,14 @@ import remarkMath from "remark-math";
 
 export type Teaching = {
   slug: string;
+  url: string;
   meta: {
     title?: string;
     date?: string;
     tags?: string[];
     author?: string;
     description?: string;
+    order: number;
   };
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
@@ -29,13 +31,27 @@ export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
 const teachingsDirectory = join(process.cwd(), "teachings");
 
+function metadataFromData(data: { [key: string]: any }): TeachingMeta {
+  return {
+    slug: "",
+    meta: {
+      title: data.title || "",
+      date: data.date || "",
+      tags: data.tags || [],
+      order: parseInt(data.order, 10) || 0,
+      author: data.author || "",
+      description: data.description || "",
+    },
+  };
+}
+
 function handleHTML(html: string, info: TransformerInfo) {
   const { url, transformer } = info;
   if (
     transformer.name === "@remark-embedder/transformer-oembed" ||
     url.includes("youtube.com")
   ) {
-    return `<div class="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
+    return `<div className="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
   }
   return html;
 }
@@ -43,7 +59,7 @@ function handleHTML(html: string, info: TransformerInfo) {
 export async function getTeachingBySlug(slug: string): Promise<Teaching> {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(teachingsDirectory, `${realSlug}.mdx`);
-  const { data, content } = await read(fullPath);
+  const { data, content } = read(fullPath);
 
   const source = await serialize(content, {
     mdxOptions: {
@@ -57,8 +73,9 @@ export async function getTeachingBySlug(slug: string): Promise<Teaching> {
   });
 
   return {
+    url: `/teachings/${realSlug}`,
     slug: realSlug,
-    meta: data,
+    meta: metadataFromData(data).meta,
     content: source,
   };
 }
@@ -69,9 +86,19 @@ export async function getAllTeachings(): Promise<TeachingMeta[]> {
     const { data } = read(join(teachingsDirectory, file));
     return {
       slug: file.replace(/\.mdx$/, ""),
-      meta: data,
+      meta: metadataFromData(data).meta,
     };
   });
 
   return teachings;
+}
+
+export async function getTeachingWithOrder(
+  order: number
+): Promise<TeachingMeta[]> {
+  const teachings = await getAllTeachings();
+  const prevTeaching = teachings.filter(
+    (teaching) => teaching.meta.order === order
+  );
+  return prevTeaching;
 }

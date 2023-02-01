@@ -33,3 +33,9 @@
   height: 100%;
   aspect-ratio: 16/9;
 }
+
+.markdown iframe.custom-aspect {
+  width: 100%;
+  height: unset;
+  aspect-ratio: unset;
+}

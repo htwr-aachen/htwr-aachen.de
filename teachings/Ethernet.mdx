@@ -2,10 +2,11 @@
 title: Ethernet nett ist das gar nich
 description: Übersicht und eigentlich alles wichtige zu Ethernet
 tags: [layer1]
+order: 1
 author: Jonas Schneider
 ---
 
-<iframe src="https://giphy.com/embed/5aY2MOdRZ2y8kQfIHH" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/5aY2MOdRZ2y8kQfIHH" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
 $\uparrow$
 
 WLAN KABEL
@@ -13,6 +14,12 @@ WLAN KABEL
 ## Grundlegender Aufbau
 
 ![Aufbau](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Ethernetpaket.svg/800px-Ethernetpaket.svg.png)
+
+Ethernet ist nicht umbedingt ein Standard, es wurde oft erweitert (für z.B. 100MBit/s etc) somit unterscheiden sich die Codierungen mehr dazu [hier](/teachings/machester-werwillnachmanchaster)
+Die Verteilung sieht so aus:
+- < 100MBit/s: [Manchaster](/teachings/machester-werwillnachmanchaster##Manchaster)
+- < 1 GBit/s: [4B5B](/teachings/machester-werwillnachmanchaster##4B5B)
+- \> 1 GBit/s: 8B10B (nicht wichtig)
 
 Es besteht also aus den Folgenden Teilen:
 
@@ -44,8 +51,22 @@ Anders als praktisch alle anderen Protokolle hiernach ist, das Ethernet auch erk
 
 Hierfür kommmt zuerst das PAD-Feld, welches auch unteranderem das Frame padded bis es minimal 64 Byte hat. Hier ist natürlich wichtig das z.b. Bit-Stuffing verwendet wird, damit man das PAD-Feld erkennen kann.
 
-<p class="small">(PSSS: Bit-Stuffing war das mit dem ersteten von dem Pattern(z.b. 0111 => 01101) und dem Rückwandeln danach</p>
+<p className="small">(PSSS: Bit-Stuffing war das mit dem ersteten von dem Pattern(z.b. 0111 => 01101) und dem Rückwandeln danach</p>
 
 Und dann gibt es noch das Frame-Check-Sequence[FCS](CRC Check) also eine Prüfsumme mit [Cyclic-Redundency-Check](/teachings/checksandbalance)
 
 Viel mehr gibt es zu Ethernet eigentlich auch nicht zu wissen außer natürlich das besondere Thema des [Medienzugriff](/teachings/halt-haltmaldeinefressebitte)
+
+## Aufgaben (Viele die ich gefunden habe)
+
+Eigentlich sind die meisten Aufgaben direkt für Layer 2 und [Medienzugriff](/teachings/halt-haltmaldeinefressebitte#Aufgaben) (ist deutlich wichtiger).
+
+## HDLC
+
+Zusätzlich hatten wir ganz am Anfang auch noch das HDLC Protokoll hier schreib ich später nochmal was dazu.
+
+//TODO: HDLC
+
+
+
+

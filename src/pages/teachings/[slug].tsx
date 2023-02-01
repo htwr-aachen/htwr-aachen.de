@@ -4,16 +4,33 @@ import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
 import type { Teaching as TeachingType } from "@/lib/teachings";
-import { getAllTeachings, getTeachingBySlug } from "@/lib/teachings";
+import {
+  getAllTeachings,
+  getTeachingBySlug,
+  getTeachingWithOrder,
+} from "@/lib/teachings";
 import { Main } from "@/templates/Main";
 
 import TeachingsLayout from "../../templates/TeachingsLayout";
 
-const Teaching: FC<TeachingType> = ({ slug, meta, content }) => {
+type TeachingProps = {
+  doc: TeachingType;
+  context: {
+    prev: TeachingType | null;
+    next: TeachingType | null;
+  };
+};
+
+const Teaching: FC<TeachingProps> = ({ doc, context }) => {
   return (
-    <Main meta={<Meta title={meta.title} description={meta.description} />}>
-      <TeachingsLayout meta={{ slug, meta }}>
-        <MDXRemote {...content} />
+    <Main
+      meta={<Meta title={doc.meta.title} description={doc.meta.description} />}
+    >
+      <TeachingsLayout
+        meta={{ slug: doc.slug, meta: doc.meta }}
+        context={context}
+      >
+        <MDXRemote {...doc.content} />
       </TeachingsLayout>
     </Main>
   );
@@ -29,8 +46,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const doc = await getTeachingBySlug(params.slug as string);
+
+  const prev = await getTeachingWithOrder(doc.meta.order - 1);
+  const next = await getTeachingWithOrder(doc.meta.order + 1);
+
   return {
-    props: doc,
+    props: {
+      doc: doc || null,
+      context: {
+        prev: prev.length > 0 ? prev[0] : null || null,
+        next: next.length > 0 ? next[0] : null || null,
+      },
+    },
   };
 };
 
