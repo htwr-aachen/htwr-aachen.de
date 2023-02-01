@@ -39,3 +39,15 @@
   height: unset;
   aspect-ratio: unset;
 }
+
+.markdown .hint.tip {
+  @apply bg-green-600 px-4 py-2 rounded-md border-[1px] border-green-500 text-white;
+}
+
+.markdown .hint.warn {
+  @apply bg-yellow-300 px-4 py-2 rounded-md border-[1px] border-yellow-500;
+}
+
+.markdown .hint.error {
+  @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
+}

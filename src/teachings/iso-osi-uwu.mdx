@@ -1,10 +1,43 @@
 ---
-title: ISO-OSI-UWU (Referenzmodelle)
+title: ISO-OSI-UWU (Referenzmodelle - Theoriescheiß)
 author: Jonas Schneider
 date: 01/02/2023
 order: 0
 description: Overview der Referenzmodelle
 ---
+
+## Theroriescheiß
+Na gut weil die gerne in der ersten Aufgabe haben, hier mal ein kleiner Theoriescheiß. 
+Ich hab das mal in zwei Teile aufgeteilt. Der erste Teil ist ein Überblick über die Nomenklatur🤓. Der zweite Teil ist dann ein Überblick über die Protokolle.
+
+Also los gehts. Ich versuche sie als allgemein gültige Definition zu halten, sodass man copy paste machen kann.
+
+- Dienst
+Kommunikationsnetze stellen Dienste zur Verfügung. Bei Diensten sind immer Kommunikationsdienste gemeint, heißt fahrlässig grob: Daten übertragen
+
+Dienste sind also vom Netz bereitgestellte Kommunikationsfunktionen. (Teilweise auch Kommunikationsschnittstelle)
+
+- Dienstprimitiv
+
+Ein Dienst beitet verschiedene Funktionen. Eine einzelne Funktion wird als Dienstprimitiv bezeichnet. 
+
+- Instanz
+
+Dienste werden von bestimmten Softwareinstanzen bereitgestellt, welche sich mit bestimmten Regeln verhalten und mit anderen Instanzen interagieren
+
+- Protokolle
+
+Ein Protokoll definiert die oben gennanten Regeln einer Instanz.
+
+- Dienstzugangspunkt
+
+Schnittstelle zur Dienstnutzung z.B. Socket (IP-Adresse + Port)
+
+!> Das Zeug verwirrt mich auch immer, aber ich glaube 100% nach Folien muss es nicht sein wie in der 2011 Klausur beschrieben:
+
+Dienste beschreiben Funktionen, Instanzen implementiert Protokolle die implementieren diese Funktionen. Dienstprimitive sind die Bausteine eines Dienstes.
+
+<hr className="border-black border-1"></hr>
 
 ## ISO-OSI
 ![ISO-OSI-Modell](https://img.devrant.com/devrant/rant/r_2081122_Phhqp.jpg)
@@ -62,5 +95,29 @@ Fast genau die Transport-Schicht. Diese Schicht ist ebenso meisten in dem Betrie
 - **Schicht 4: Anwendungsschicht**
 
 Kombiniert die drei Schichten Sitzungs-, Darstellungs- und Anwendungsschicht. Diese Schicht ist meist in der Anwendung (bzw. eigentlich immer in den Standardbibliotheken der Sprache) implementiert.
+
+## Aufgaben
+
+?> Hiervon kommt eigentlich immer irgendeine kleine Abfrage. Es lohnt sich also aufjeden Fall die Schichten und die Nomenklatur(Dienst und Protokoll) zu kennen. 
+Selbst in den anderen Aufgaben ist es praktisch formal zu sein.
+
+x> Erleutern sie knapp die Begriffe Dienst, Protkoll, Dienstprimitiv, Instanz, Dienstzugangspunkt, etc.
+
+Sieh oben :D 
+
+x> Erklären sie die Unterschiede zwischen dem ISO-OSI-Modell und dem TCP/IP-Modell
+
+naja auch siehe oben. TCP fasst ein paar Schichten zusammen, da Protokolle wie Ethernet ebenfalls mehrere Schichten abdecken.
+
+x> Erklären sie den Unterschied zwischen horizontaler und vertikaler Kommunikation
+
+Horizontal ist die Kommunikation zwischen zwei Instanzen einer Schicht. Vertikal ist die Kommunikation zwischen zwei Instanzen von verschiedenen Schichten.
+
+Wenn man mit einem Webserver mit HTTP kommuniziert erfolgt die direkte Kommunikation der Anwendung nur über ein simples HTTP.Get an die andere Seite (horizontale). 
+Die Kommunikation geht dann aber eigentlich einmal komplett durch die Schichten 
+
+[HTTP] $\to$ [TCP] $\to$ [IP] $\to$ [WIFI] $\to \dots \to$ [Ethernet] $\to$ [IP] $\to$ [TCP] $\to$ [HTTP]
+
+Das ist dann vertikal.
 
 <ISOOSI></ISOOSI>

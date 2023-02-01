@@ -8,6 +8,7 @@ import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
 import rehypeKatex from "rehype-katex";
+import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
 
 export type Teaching = {
@@ -29,7 +30,7 @@ export type Teaching = {
 
 export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
-const teachingsDirectory = join(process.cwd(), "teachings");
+const teachingsDirectory = join(process.cwd(), "src/teachings");
 
 function metadataFromData(data: { [key: string]: any }): TeachingMeta {
   return {
@@ -65,6 +66,7 @@ export async function getTeachingBySlug(slug: string): Promise<Teaching> {
     mdxOptions: {
       remarkPlugins: [
         remarkMath,
+        remarkHint,
         [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
       ],
       rehypePlugins: [rehypeKatex, rehypePrism],
