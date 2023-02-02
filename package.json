@@ -24,7 +24,9 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.2.1",
+    "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
+    "@next/env": "^13.1.6",
     "@next/mdx": "^13.1.6",
     "@remark-embedder/core": "^3.0.1",
     "@remark-embedder/transformer-oembed": "^3.0.0",
@@ -35,6 +37,7 @@
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "husky": "^8.0.3",
+    "inquirer": "^9.1.4",
     "katex": "^0.16.4",
     "mdx-embed": "^1.1.2",
     "moment": "^2.29.4",
@@ -46,6 +49,7 @@
     "next-sitemap": "^3.1.45",
     "parse5": "^7.1.2",
     "prismjs": "^1.29.0",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-katex": "^3.0.1",
@@ -57,7 +61,8 @@
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
     "remark-rehype": "^10.1.0",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

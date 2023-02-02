@@ -30,7 +30,7 @@ export type Teaching = {
 
 export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
-const teachingsDirectory = join(process.cwd(), "src/teachings");
+const teachingsDirectory = join(process.cwd(), "src", "teachings");
 
 function metadataFromData(data: { [key: string]: any }): TeachingMeta {
   return {

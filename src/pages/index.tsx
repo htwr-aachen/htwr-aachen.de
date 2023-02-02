@@ -53,13 +53,20 @@ const Index = () => {
         </div>
       </div>
 
-      <h1 className="text-center font-bold">
+      <h1 className="my-6 text-center font-bold">
         Okay aber ernsthaft,{" "}
         <Link className="underline" href={"/teaching"}>
           hier
         </Link>{" "}
-        gibts was nettes
+        gibts was nettes.
       </h1>
+
+      <div>
+        <h2 className="mb-3 text-center font-medium">
+          Und den Vibe nicht vergessen!
+        </h2>
+        {/* <iframe src="https://open.spotify.com/embed/track/72FWIzbWGeZ8w0QsiVJTUo?utm_source=generator" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> */}
+      </div>
     </Main>
   );
 };
