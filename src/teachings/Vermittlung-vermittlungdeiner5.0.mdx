@@ -1,0 +1,91 @@
+---
+title: Vermittlung-vermittlungdeiner5.0 (IP, ARP, etc)
+descirption: das meiste was man über IP, ARP und die dummen hacks wissen sollte
+author: Jonas Schneider
+order: 6
+---
+
+# Ne quatsch 
+
+Willkommen im Neuland
+
+![MERKELLL](https://media.tenor.com/3B9E9xLdiAQAAAAC/das-internet-ist-fur-uns-alle-neuland-angela-merkel.gif)
+
+Wie immer erstmal nen bisschen Einführung.
+
+## IP-Aufbau
+
+Der Hauptgrund warum wir überhaupt eine IP brauchen ist, ist die IP-Adresse. Sie ist als globale Adresse eines Computers gedacht, anders als die MAC-Adresse die nur lokal gedacht ist.
+Somit verbinden wir in der Vermittlungsschicht mehrere Netzwerke miteinander.
+
+Also nun dröseln wir zunächst mal IPv4 auf.
+
+## IPv4
+
+
+Also gehen wir mal den Header durch
+
+- Version [4 Bit]: Entweder 4 oder 6.
+
+- Header Length (IHL) [4 Bit]: wie lang der Header ist, da es optionale Optionen gibt, kann es sich unterscheiden. Wichtig wo die Nutzdaten anfangen.
+
+- Type of Service (TOS) [8 Bit]: Priorität, etc. (unnötig)
+
+- Total Length [16 Bit]: Gesamtlänge des Pakets inklusive Header
+
+- Identification [16 Bit]: Identifiziert das Paket, wenn es fragmentiert wird (in mehrere Pakete aufgeteilt).
+
+- Flags [3 Bit]:
+  - Bit 0 (Reserved): Muss 0 sein
+  - Bit 1 (Don't Fragment): Wenn 1, darf das Paket nicht fragmentiert werden
+  - Bit 2 (More Fragments): Wenn 1, gibt es noch weitere Fragmente. Wichtig für die Rekonstruktion.
+
+- Fragment Offset [13 Bit]: Offset des Fragments. 
+
+- Time to Live (TTL) [8 Bit]: Wie lange das Paket noch lebt. Wenn 0, wird es verworfen. Wird in Schritten (hops) gezählt nicht in Zeit oder so :|
+
+- Protocol [8 Bit]: Welches Protokoll verwendet wird. z.B. TCP, UDP, ICMP, etc.
+
+- Header Checksum [16 Bit]: Prüft ob der Header korrekt ist. unnötig wird auch nichtmehr überprüft, wegen Stressig und so.
+
+- Source Address [32 Bit]: Quelladresse 
+
+- Destination Address [32 Bit]: Zieladresse
+
+![Ach keine Ahnung](https://media.tenor.com/_6-bilomoRMAAAAd/i-have-your-ip-address-your.gif)
+
+- Options: Zusatzinfos.
+
+## IPv6
+
+Das objektiv bessere Protokoll. Es hat mehr Adressen, ist besser, schneller, stärker. Es wurde viel weggelassen, da die Adressen auf 128-Bit erweitert wurden. Aber in IPv4 war auch viel Schwachsinn.
+
+- Version [4 Bit]: Entweder 4 oder 6.
+
+- Traffic Class [8 Bit]: Priorität, etc. (mittelmäßig unnötig... Ja DSCP gibt es aber naja) und hier ist noch bissle was wegen Congestion Notification drin.
+
+- Flow Label [20 Bit]: Pakete die den gleichen Flow Label haben, werden gleich behandelt. 
+
+- Payload Length [16 Bit]: Länge des Pakets ohne Header, da der eine feste Größe hat, finaly.
+
+- Next Header [8 Bit]: Welches Protokoll verwendet wird. z.B. TCP, UDP, ICMP, etc. Es gibt auch ein Erweiterungsheader auf den verwiesen werden könnte.
+
+- Hop Limit = TTL [8 Bit]: Wie lange das Paket noch lebt. Wenn 0, wird es verworfen. Wird in Schritten (hops) gezählt nicht in Zeit oder so :|
+
+- Source Address [128 Bit]: Quelladresse
+
+- Destination Address [128 Bit]: Zieladresse
+
+## ARP
+
+Also IP-Adressen sind eigentlich nur virtuell ausgedachte Adressen. 
+Die echte Adresse ist die MAC-Adresse. Jeder PC-hört nur ab ob seine MAC-Adresse im Ethernet Paket drin ist. Also muss man IP-Adressen auflösen zu MAC-Adressen. Das macht ARP.
+
+Erstmal wir das Paket soweit mit IP-geroutet bis es nichtmehr geht.
+
+Dann überprüft ARP als erstes einen Cache, ob an schon die MAC-Adresse kennt, falls nicht Broadcastet ARP eine Frage 
+> Heee ich brauch die MAC-Adresse von IP-xxx.xxx.xxx.xxx
+
+Die Antwort kommt dann entweder von nem anderen Router oder vom Gerät selber. 
+
+Nun hat man die MAC-Adresse

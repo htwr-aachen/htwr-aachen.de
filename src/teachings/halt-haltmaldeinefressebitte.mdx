@@ -58,10 +58,22 @@ Ethernet benutzt CSMA/CD
 ## Aufgaben
 
 ### CSMA/CD
-- CSMA/CD ist vermutlich das wichtigste. Hierbei kommt eigentlich immer die Frage ob es trotz CSMA/CD immernoch zu Kollisionen kommen kann.
+x> CSMA/CD ist vermutlich das wichtigste. Hierbei kommt eigentlich immer die Frage ob es trotz CSMA/CD immernoch zu Kollisionen kommen kann.
 
   **Antwort:** Ja, da wenn ich sende und die Leitung ist lang, braucht es länger bis das Signal bei dir ankommt. Somit hörst du in der Zwischenzeit (noch) nichts auf der Leitung und
   sendest dann auch. Zum Glück höre ich und oder (du) die Überlagerung wegen dem CD nicht wahr?  Naja nicht ganz, 
   wenn ich nur kurz sende höre ich es nicht, da ich mir nur während des Sendens zuhöre. Ich muss also mindestens doppelte Leitungszeit senden, damit ich die Überlagerung höre. (Falls die Kollision fast bei dir ist)
 
-- 
+x> Gegeben sei ein Netzwerk mit CSMA/CD und einem Bus mit $50m$ Länge. Die Ausbreitungsgeschwindigkeit des Signals beträgt $2 \cdot 10^8m/s$. Dei Datenrate beträgt $1 GBit/s$.
+- Wie lange ist die maximale Zeit bis eine Kollision vom Sender erkannt wird.
+- Welche minimale Rahmenlänge ist im LAN erforderlich
+- Nun wird ein Switch hinzugefügt ändert dies was?
+
+$x = \frac{2 \cdot 50m}{2 \cdot 10^8m/s} = 5 \cdot 10^{-7}s$, da eine Kollision nahe am Empfänger stattfinden kann und die Überlagerung dann erstmal wieder zurück zum Sender muss.
+
+Die minimale Rahmenlänge ist somit nur die Datenrate mal die maximale Kollisionsdetectionzeit also
+
+$r_{max} = 1 GBit/s \cdot 5 \cdot 10^{-7}s = 10^9 Bit/s 5 \cdot 10^{-7}s = 500 Bit$
+
+Ein Switch ändert alles, da ein Switch pro Port cached. Es können also keine Kollisionen mehr stattfinden, da der Switch koordiniert. Es können also beliebige Rahmen gesendet werden
+

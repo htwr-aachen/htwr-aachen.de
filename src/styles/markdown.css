@@ -51,3 +51,7 @@
 .markdown .hint.error {
   @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
 }
+
+.markdown blockquote {
+  @apply bg-gray-300 pl-4 py-1 rounded-md border-[1px] border-gray-500;
+}
