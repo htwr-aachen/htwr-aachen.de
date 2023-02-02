@@ -6,4 +6,119 @@ date: 01/02/2023
 order: 5
 ---
 ## Checksums 
-TODO
+Aalso eine Checksum (auf Deutsch: Prüfsumme), ist ein Bit/eine Bitfolge, die man aus den gesendeten Daten berechnet.
+Der Sender berechnet also diese Summe, und hängt sie an die Daten dran (oder wo auch immer die im Protokoll jetzt gerade sein sollte).
+Wenn die Daten nun beim Empfänger ankommen, berechnet der Empfänger wieder diese Summe, und vergleicht sie mit dem, was der Sender berechnet hat.
+Wenn die Summe nicht die gleiche ist, ist offensichtlich was schiefgelaufen, denn aus den gleichen Daten sollte eigentlich die gleiche Summe rauskommen (hab ich in AfI gelernt, glaube ich).
+Dann ist also ein Bitfehler/Übertragungsfehler aufgetreten. 
+
+Es gibt unterschiedliche Arten von Checksums, die alle ihre Vor- und Nachteile haben
+
+Fangen wir also mal einfach an:
+
+## **Parität**
+Bei der Berechnung von Parität kann man ganz viele Bit zu einer Prüfsumme von einem einzigen Bit zusammenrechnen.
+Im Grunde zählt man nur die Anzahl an Einsen (Für die Profis: XOR).
+Es gibt zwei Arten, das Bit zu berechnen:
+
+- Gerade Parität:
+  Bei einer **geraden** Anzahl an Einsen ist die Parität **0** (also auch gerade).
+  Sonst, also bei einer ungeraden Anzahl an Einsen, ist die Parität **1**.
+
+- Ungerade Parität:
+  Hier ist es genau umgekehrt: bei einer **ungeraden** Anzahl an Einsen ist die Parität **0** und sonst 1.
+  Diese Parität ist aber weird, und es wird meistens gerade Parität verwendet (Lest euch gut die Aufgabenstellung durch, welche Parität verlangt wird!!)
+
+So, jetzt haben wir die Basis.
+
+Nun kann man diese Paritätsbits von unterschiedlichen Bits berechnen. 
+Von welchen Bits genau wir die Parität berechnen, hängt davon ab, welche Art Parität wir nehmen.
+
+- Längs- oder Blockparität:
+  Man teilt die Daten (bspw 64 Bit) in Blöcke (bspw 8 Bit auf). Dann berechnet man von jedem Block das Prüfbit/die Parität, und hat so in unserem Beispiel 8 Bit Prüfsumme (genauso viele wie es Blöcke gibt)
+
+- Quer- oder Zeichenparität:
+  Man teilt die Daten (bspw 64 Bit) in Blöcke (bspw 8 Bit auf). In dem Beispiel hat man jetzt 8 Blöcke zu je 8 Bit.
+  Man nimmt dann von jedem Block das erste Bit, und berechnet aus diesen ganzen Bits die Parität. Dasselbe mach man jetzt mit dem zweiten Bit von jedem Block usw. usw.
+  Am Ende hat man dann 8 Bit Prüfsumme (genauso viele wie es Bits in einem Block gibt)
+
+- Kreuzparität:
+  Das war jetzt den Leuten nicht krass genug, jetzt machen die Kreuzparität. Hört sich kompliziert an (oder?? ich finde es hört sich kompliziert an), ist aber eigentlich nur die Kombination aus Längs- und Querparität.
+  Also macht man einfach beides :)
+
+Soo jetzt wird es etwas anspruchsvoller
+
+## **Hammingcode**
+Haben die meisten wahrscheinlich schon in DS gehört, aber versprochen, hier wird es nicht gaaanz so kompliziert
+
+Ein Hammingcode ist einfach eine Sammlung an (Code-)Wörtern. Wörter in diesem Fall sind Bitfolgen, die aus 0en und 1en bestehen.
+Ein Codewort wäre zum Beispiel 1010010101011
+
+Dann gibt es zu dem Thema noch den Hamming-Abstand (der oft mit $D$ bezeichnet wird (für Distance)).
+
+- Hamming-Abstand bei zwei Wörtern:
+  Der Hamming-Abstand zweier Wörter ist die Anzahl an Bits, in denen sie sich unterscheiden.
+  Beispiel: Der Hamming-Abstand von **1**011**1** und **0**011**0** ist 2, weil die Wörter sich an 2 Stellen unterscheiden
+
+- Hamming-Abstand eines ganzen Hamming-codes
+  Der Hamming-Abstand eines Hammingcodes ist der Abstand, den beliebige zwei Wörter (Bitfolgen) des Codes **mindestens** haben.
+
+Das war jetzt die Theorie, aber wie wir den Hamming-Code in DatKom anwenden ist etwas anders (Vergesst bitte DS!)
+
+Um eine Bitfolge abzusichern, fügen wir an jeder Zweierpotenz ein Paritätsbit ein.
+Die anderen Bits werden von den Daten der Reihe nach aufgefüllt. Nun müssen wir uns die Stellennummern (Bei 1 anfangen!) immer als Summe von Zweierpotenzen vorstellen.
+
+Das heißt: 3 wird zu 2+1, 7 wird zu 4+2+1, 10 zu 8+2,...
+
+Die Paritätsbits an den Zweierpotenzstellen berechnen wir dann, indem wir die (gerade) Parität aller Bits ausrechnen, in deren Stellennummersumme die Nummer dieser Stelle vorkommt.\
+War jetzt ein langer Satz, dafür hier ein Beispiel:
+
+1 2 3 4 5 6 7 8 9 (Stelle)
+
+_ _ 1 _ 0 1 1 _ 0 (Bits)
+
+Berechnen wir nun die Parität von Stelle 1:
+
+Die Stellen in denen die 1 vorkommt, sind 3, 5, 7 und 9. Das bedeutet, wir müssen die (gerade) Paritätt berechnen aus der Bitfolge 1010.
+Die Parität von 1010 ist, wie wir gelernt haben, 0. Also kommt an Stelle 1 eine 0
+
+1 2 3 4 5 6 7 8 9 (Stelle)
+
+**0** _ 1 _ 0 1 1 _ 0 (Bits)
+
+Nun machen wir dasselbe mit der Stelle 2. Die betroffenen Stellen sind 3 (2+1), 6 (4+2) und 7 (4+2+1). 
+Also Parität berechnen aus 111, was 1 ist. Also kommt an Stelle 2 eine 1.
+
+1 2 3 4 5 6 7 8 9 (Stelle)
+
+0 **1** 1 _ 0 1 1 _ 0 (Bits)
+
+Dasselbe macht man dann weiter mit den restlichen Zweierpotenzstellen, ich hoffe, ihr habt das Prinzip jetzt verstanden
+
+Das Coole an dieser Art Hammingcode ist, dass man damit sogar einzeln aufkommende Bitflips (1 wurde während Übertragung durch Fehler zu 0 oder umgekehrt) nicht nur erkennen, sondern sogar korrigieren kann.
+
+Der Empfänger kann, wie bei anderen Checksum-Arten, die Prüfsumme erneut berechnen, um eben zu prüfen. (werdet ihr auch in der Klausur machen)
+
+Durch die Natur dieses Codes kann man anhand der falschen Prüfsumme erkennen, welches Bit falsch ist. Wenn zum Beispiel bei den Bits 1 und 4 etwas anderes herauskommt, weiß man, dass das 5. Bit falsch ist (da 4+1=5)
+
+So eine Übung kommt ziemlich sicher in der Klausur.
+
+Auf zu dem Thema, wo man rechnen muss :o
+
+## **CRC (Cyclic Redundancy Check)**
+
+Hier geht es ganz viel um Polynomdivision. 
+
+Am Anfang einigen sich Sender und Empfänger auf ein Prüfpolynom in $$F_2$$ (also wo 1+1 = 0 und nur 0 und 1 vorkommen)
+
+Das kann zum Beispiel so aussehen: x^4 + x + 1 (wird in Binär, bzw der Rechnung 10011 geschrieben)
+
+Dann setzt der Empfänger an das Ende seiner Daten so viele Nullen, wie der Grad des Polynoms ist.
+Hier haben wir ein Polynom des Grades 4 (wegen x^4), also setzen wir 4 Nullen ans Ende der zu kodierenden Bitfolge.
+Anschließend teilt er diese entstandene Bitfolge durch das Generatorpolynom, und ersetzt diese 4 Nullen durch den Rest der entsteht. (Addiert den Rest)
+
+Das führt dazu, dass die zu sendene Bitfolge ein Vielfaches des Generatorpolynoms ist.
+
+Der Empfänger teilt dann die Bitfolge wieder durch das Generatorpolynom. Wenn dabei 0 rauskommt, wird kein Fehler erkannt (Heißt nicht dass keiner aufgetreten ist, aber es ist unwahrscheinlicher)
+
+Für eine Beispielrechnung schaut ins Moodle :)
