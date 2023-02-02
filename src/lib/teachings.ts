@@ -8,6 +8,7 @@ import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
 import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
 
@@ -66,6 +67,7 @@ export async function getTeachingBySlug(slug: string): Promise<Teaching> {
     mdxOptions: {
       remarkPlugins: [
         remarkMath,
+        remarkGfm,
         remarkHint,
         [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
       ],

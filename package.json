@@ -56,6 +56,7 @@
     "rehype-katex": "^6.0.2",
     "rehype-react": "^7.1.2",
     "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
     "remark-hint": "^1.0.10",
     "remark-math": "^5.1.1",
     "remark-parse": "^10.0.1",

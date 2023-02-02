@@ -1,12 +1,21 @@
 
 .markdown h1{
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 700;
+  border-bottom: 1px solid #222;
+  margin: 1.5rem 0.5rem;
 }
 
 .markdown h2{
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+}
+
+.markdown h3 {
   font-size: 1.25rem;
   font-weight: 500;
+  border-bottom: 1px solid #ccc;
 }
 
 .markdown ul {
@@ -19,9 +28,14 @@
   margin-left: 1.5rem;
 }
 
-.markdown p {
+.markdown p, .markdown li {
+  font-size: 1rem;
   margin: 0.5rem 0;
   font-family: "Times New Roman", serif;
+}
+
+.markdown ul ul, .markdown ol ol, .markdown ul ol, .markdown ol ul {
+  @apply mx-4 my-2;
 }
 
 .markdown .small {
@@ -53,5 +67,35 @@
 }
 
 .markdown blockquote {
-  @apply bg-gray-300 pl-4 py-1 rounded-md border-[1px] border-gray-500;
+  @apply bg-gray-300 pl-4 py-1 my-1 rounded-md border-[1px] border-gray-500;
+}
+
+.markdown thead{
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+.markdown thead th, .markdown thead td {
+  font: sans-serif;
+  font-weight: 500;
+}
+
+.markdown tr {
+  border-color: #586069;
+  border-top: 1px solid #d1d5da;
+}
+
+.markdown th, .markdown td {
+  border: 1px solid #d1d5da;
+  padding: .4em .8em;
+}
+
+.markdown tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+.markdown tbody tr {
+  font-size: 1rem;
+  font-family: "Times New Roman", serif;
 }

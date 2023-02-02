@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote";
 import type { FC } from "react";
 
 import ISOOSI from "@/components/isoosi";
+import Spoiler from "@/components/spoiler";
 import { Meta } from "@/layouts/Meta";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
@@ -14,7 +15,7 @@ import { Main } from "@/templates/Main";
 
 import TeachingsLayout from "../../templates/TeachingsLayout";
 
-const components = { ISOOSI };
+const components = { ISOOSI, Spoiler };
 
 type TeachingProps = {
   doc: TeachingType;
