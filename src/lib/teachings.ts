@@ -108,3 +108,33 @@ export async function getTeachingWithOrder(
   );
   return prevTeaching;
 }
+
+export async function getTeachingWithHigherOrder(
+  order: number
+): Promise<TeachingMeta | null> {
+  const teachings = await getAllTeachings();
+  const nextTeaching = teachings.filter(
+    (teaching) => teaching.meta.order > order
+  );
+
+  if (nextTeaching.length === 0) {
+    return null;
+  }
+
+  return nextTeaching[0] ?? null;
+}
+
+export async function getTeachingWithLowerOrder(
+  order: number
+): Promise<TeachingMeta | null> {
+  const teachings = await getAllTeachings();
+  const nextTeaching = teachings.filter(
+    (teaching) => teaching.meta.order < order
+  );
+
+  if (nextTeaching.length === 0) {
+    return null;
+  }
+
+  return nextTeaching[nextTeaching.length - 1] ?? null;
+}

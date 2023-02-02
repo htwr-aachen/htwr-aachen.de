@@ -9,7 +9,8 @@ import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
   getAllTeachings,
   getTeachingBySlug,
-  getTeachingWithOrder,
+  getTeachingWithHigherOrder,
+  getTeachingWithLowerOrder,
 } from "@/lib/teachings";
 import { Main } from "@/templates/Main";
 
@@ -51,15 +52,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const doc = await getTeachingBySlug(params.slug as string);
 
-  const prev = await getTeachingWithOrder(doc.meta.order - 1);
-  const next = await getTeachingWithOrder(doc.meta.order + 1);
+  const prev = await getTeachingWithLowerOrder(doc.meta.order);
+  const next = await getTeachingWithHigherOrder(doc.meta.order);
 
   return {
     props: {
       doc: doc || null,
       context: {
-        prev: prev.length > 0 ? prev[0] : null || null,
-        next: next.length > 0 ? next[0] : null || null,
+        prev,
+        next,
       },
     },
   };
