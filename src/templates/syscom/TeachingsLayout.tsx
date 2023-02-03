@@ -21,7 +21,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
     <article className="markdown">
       <div>
         <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1> |{" "}
-        <Link href={"/teaching"}>Back to Overview</Link>
+        <Link href={"/syscom/teaching"}>Back to Overview</Link>
       </div>
 
       <div className="rounded-md border-2 border-black bg-slate-100 px-4">

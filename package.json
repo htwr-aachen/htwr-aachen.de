@@ -66,8 +66,6 @@
     "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
     "@commitlint/cz-commitlint": "^17.4.2",
     "@next/bundle-analyzer": "^13.1.2",
     "@percy/cli": "^1.17.0",

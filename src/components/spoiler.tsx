@@ -11,6 +11,7 @@ const Spoiler: FC<SpoilerProps> = ({ children }) => {
 
   return (
     <button
+      type="button"
       className={`spoiler transition-all ${
         isSpoilerVisible ? "blur-0" : "blur-sm hover:scale-105"
       }`}
