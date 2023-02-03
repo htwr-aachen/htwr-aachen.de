@@ -25,7 +25,7 @@ const Main = (props: IMainProps) => {
           <nav className="grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
             <div className="self-center justify-self-center">
               <Image
-                src={"/rwth/syscom.png"}
+                src={"/syscom/rwth/syscom.png"}
                 width={366}
                 height={118}
                 alt="ComSys Logo"
@@ -43,31 +43,31 @@ const Main = (props: IMainProps) => {
               </div>
               <ul className="grid grid-cols-5">
                 <MenuButton
-                  src="/rwth/home.png"
-                  src_hover="/rwth/home_hover.png"
+                  src="/syscom/rwth/home.png"
+                  src_hover="/syscom/rwth/home_hover.png"
                   alt="Home Icon"
                   href="/syscom"
                   name="HOME"
                   isActive={router.pathname === "/syscom"}
                 />
                 <MenuButton
-                  src="/rwth/team.png"
-                  src_hover="/rwth/team_hover.png"
+                  src="/syscom/rwth/team.png"
+                  src_hover="/syscom/rwth/team_hover.png"
                   alt="Team Icon"
                   href="/syscom/team"
                   name="TEAM"
                   isActive={isActive("team")}
                 />
                 <MenuButton
-                  src="/rwth/teaching.png"
-                  src_hover="/rwth/teaching_hover.png"
+                  src="/syscom/rwth/teaching.png"
+                  src_hover="/syscom/rwth/teaching_hover.png"
                   alt="Teaching Icon"
                   href="/syscom/teaching"
                   name="TEACHING"
                   isActive={isActive("teaching")}
                 />
                 <MenuButton
-                  src="/rwth/research.png"
+                  src="/syscom/rwth/research.png"
                   src_hover="/rwth/research_hover.png"
                   alt="Research Icon"
                   href="/syscom/research"
