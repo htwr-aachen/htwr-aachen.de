@@ -13,7 +13,10 @@ const Main = (props: IMainProps) => {
   const router = useRouter();
 
   const isActive = (name: string): boolean => {
-    return router.pathname.startsWith(`/syscom/${name}`);
+    return (
+      router.pathname.startsWith(`/syscom/${name}`) ||
+      router.pathname.startsWith(`/${name}`)
+    );
   };
 
   return (
@@ -22,7 +25,7 @@ const Main = (props: IMainProps) => {
 
       <div className="md:max-w-{910px}">
         <div>
-          <nav className="grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
+          <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
             <div className="self-center justify-self-center">
               <Image
                 src={"/syscom/syscom.png"}
