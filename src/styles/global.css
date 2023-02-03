@@ -20,7 +20,7 @@ a:hover {
   @apply my-6;
 }
 
-.bg{
+.syscom .bg{
   z-index: -1;
   position: fixed;
   width: 100%;

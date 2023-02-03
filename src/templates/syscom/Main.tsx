@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 
@@ -99,6 +100,12 @@ const Main = (props: IMainProps) => {
           <a href="comsys.rwth-aachen.de">ComSys-Lehrstuhl</a>. Dies ist
           (leider) nicht die echte ComSys-Lehrstuhl Webseite.
         </div>
+      </div>
+
+      <div className="text-red fixed bottom-10 right-10 text-red-500">
+        <Link href="/se" className="text-red-500">
+          Next &gt;
+        </Link>
       </div>
     </div>
   );
