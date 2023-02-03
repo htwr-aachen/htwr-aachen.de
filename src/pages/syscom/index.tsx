@@ -35,7 +35,7 @@ const Index = () => {
       <div className="grid grid-cols-2">
         <div>
           <Image
-            src="/rwth/wehrle.jpg"
+            src="/syscom/wehrle.jpg"
             width={150}
             height={150}
             alt={"Prof. Dr.-Ing. Klaus Wehrle"}
