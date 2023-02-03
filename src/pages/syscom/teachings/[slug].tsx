@@ -12,9 +12,8 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/templates/Main";
-
-import TeachingsLayout from "../../templates/TeachingsLayout";
+import { Main } from "@/templates/syscom/Main";
+import TeachingsLayout from "@/templates/syscom/TeachingsLayout";
 
 const components = { ISOOSI, Spoiler };
 

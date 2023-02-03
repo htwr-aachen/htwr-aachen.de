@@ -13,7 +13,7 @@ const Main = (props: IMainProps) => {
   const router = useRouter();
 
   const isActive = (name: string): boolean => {
-    return router.pathname.startsWith(`/${name}`);
+    return router.pathname.startsWith(`/syscom/${name}`);
   };
 
   return (
@@ -46,15 +46,15 @@ const Main = (props: IMainProps) => {
                   src="/rwth/home.png"
                   src_hover="/rwth/home_hover.png"
                   alt="Home Icon"
-                  href="/"
+                  href="/syscom"
                   name="HOME"
-                  isActive={router.pathname === "/"}
+                  isActive={router.pathname === "/syscom"}
                 />
                 <MenuButton
                   src="/rwth/team.png"
                   src_hover="/rwth/team_hover.png"
                   alt="Team Icon"
-                  href="/team"
+                  href="/syscom/team"
                   name="TEAM"
                   isActive={isActive("team")}
                 />
@@ -62,7 +62,7 @@ const Main = (props: IMainProps) => {
                   src="/rwth/teaching.png"
                   src_hover="/rwth/teaching_hover.png"
                   alt="Teaching Icon"
-                  href="/teaching"
+                  href="/syscom/teaching"
                   name="TEACHING"
                   isActive={isActive("teaching")}
                 />
@@ -70,7 +70,7 @@ const Main = (props: IMainProps) => {
                   src="/rwth/research.png"
                   src_hover="/rwth/research_hover.png"
                   alt="Research Icon"
-                  href="/research"
+                  href="/syscom/research"
                   name="RESEARCH"
                   isActive={isActive("research")}
                 />
@@ -78,7 +78,7 @@ const Main = (props: IMainProps) => {
                   src="/rwth/contact.png"
                   src_hover="/rwth/contact_hover.png"
                   alt="Contact Icon"
-                  href="/contact"
+                  href="/syscom/contact"
                   name="CONTACT"
                   isActive={isActive("contact")}
                 />

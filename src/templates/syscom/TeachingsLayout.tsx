@@ -29,12 +29,12 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
       </div>
 
       <div>
-        <Link href={"/teaching"}>Back to Overview</Link> |
+        <Link href={"/syscom/teaching"}>Back to Overview</Link> |
         {context.prev != null ? (
           <>
             {" "}
             Vorheriges:{" "}
-            <Link href={`/teachings/${context.prev?.slug}`}>
+            <Link href={`/syscom/teachings/${context.prev?.slug}`}>
               {context.prev?.meta.title}
             </Link>{" "}
             |{" "}
@@ -46,7 +46,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
           <>
             {" "}
             Nächstes:{" "}
-            <Link href={`/teachings/${context.next?.slug}`}>
+            <Link href={`/syscom/teachings/${context.next?.slug}`}>
               {context.next?.meta.title}
             </Link>{" "}
             |{" "}

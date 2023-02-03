@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/Main";
+import { Main } from "@/templates/syscom/Main";
 
 const Index = () => {
   const d = -differenceInHours(new Date(2023, 0, 23, 7), new Date());

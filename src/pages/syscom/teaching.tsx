@@ -4,7 +4,7 @@ import type { FC } from "react";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/templates/Main";
+import { Main } from "@/templates/syscom/Main";
 
 export async function getStaticProps() {
   const docs = await getAllTeachings();
@@ -44,7 +44,7 @@ const Teaching: FC<TeachingProps> = ({ docs }) => {
         {docs.map((teaching) => {
           return (
             <li key={teaching.slug}>
-              <Link href={`/teachings/${teaching.slug}`}>
+              <Link href={`/syscom/teachings/${teaching.slug}`}>
                 {teaching.meta.title}
               </Link>
             </li>

@@ -1,6 +1,6 @@
 export const AppConfig = {
-  site_name: "SYSCOM",
-  title: "SYSCOM",
-  description: "",
+  site_name: "htwr-aachen.de",
+  title: "HTWR AACHEN UNIVERSITY",
+  description: "A TRUE EXZELENCE UNIVERSITY",
   locale: "de",
 };
