@@ -20,7 +20,7 @@ const Index = () => {
     >
       <h3>
         Für DatKom lernt es sich bestimmt besser nach dem ihr das{" "}
-        <Link href={"/teaching"}>SysCom Teaching</Link> gesehen habt
+        <Link href={"/syscom/teaching"}>SysCom Teaching</Link> gesehen habt
       </h3>
 
       <iframe
@@ -55,7 +55,7 @@ const Index = () => {
 
       <h1 className="my-6 text-center font-bold">
         Okay aber ernsthaft,{" "}
-        <Link className="underline" href={"/teaching"}>
+        <Link className="underline" href={"/syscom/teaching"}>
           hier
         </Link>{" "}
         gibts was nettes.

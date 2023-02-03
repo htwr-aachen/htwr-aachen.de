@@ -14,7 +14,7 @@ const Index = () => {
       }
     >
       <h1 className="font-sans text-3xl font-bold"> Was suchst du hier? </h1>
-      <Link href={"/"}>Geh zurück zur den Lösungen</Link>
+      <Link href={"/syscom/"}>Geh zurück zur den Lösungen</Link>
       <span>
         fallst du mir Vorschläge geben willst gerne an{" "}
         <a href="jonas.max.schneider@gmail.com">
