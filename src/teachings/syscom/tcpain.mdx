@@ -6,8 +6,102 @@ description: Überblick über TCP und UDP inklusive Header und Verbindungsaufbau
 order: 7
 ---
 
+> "Ich bin ehrlich jetzt wirds scheiße"
+
 ## Nutzen
 
+IP gibt und ein gutes System Datenpaket an einen anderen Empfänger zu senden. 
+Allerdings haben wir Datenströme, keine Pakete und ich würde gerne wollen, dass wenn ich 2000€ an überweise, die Bank nicht 0020€ erhält, da die Reihenfolge vertausch wurde.
 
+Also braucht man doch wieder eine Verbindungsorientierte Kommunikation, die alles sicher überträgt, mit den Vorteilen der globalen Kommunikation von IP. 
+Wir müssen praktisch die Übertragung der Daten steuern und kontrollieren => **TCP (transmission control protocol)**.
+
+Ob ihrs glaubt oder nicht, langsam gehts in den nützlichen Teil der VO über. TCP ist praktisch und durch alle Betriebssystem sehr leicht erreichbar.
 
 ## Header
+
+Ein typischer Header ist 20 Byte groß und sieht so aus:
+
+![TCP-Header](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/TCP_Header.svg/1024px-TCP_Header.svg.png)
+
+Also:
+
+### Ports
+Ports sind Nummern, die die verschiedenen Datenströme unterscheiden. Somit kann Chrome port 23000 verwenden und Firefox port 23001 und beide bekommen ihre Daten.
+
+Socket = IP + Port Identifiziert also eine bestimmte Anwendung auf einem bestimmten Rechner.
+
+### Back to Header
+<div className="center">
+![bisschen aufmunterung](https://media.tenor.com/bF9dtMBndV8AAAAC/king-of-the-hill-hank.gif)
+</div>
+
+
+- **Source Port** [2 Byte] und **Destination Port** [2 Byte]: sind die Ports, die die Datenströme identifizieren (klar)
+- **Sequence Number** [4 Byte]: ist die Nummer des ersten Byte dieses TCP--Paket oder die Initalisierungsnummer beim Verbindungsaufbau. 
+  Sie wird dafür verwendet, um die Daten zu sortieren. **Sie wird immer dann erhöht, Daten gesendet werden, oder eine Verbindung auf- oder abgebaut werden. (!NICHT BEI REINEN ACKS!)**
+- **Acknowledgement Number** [4 Byte]: ist die Nummer des nächsten Byte, das erwartet wird.
+- **Data Offset** [4 Bit]: Länge des Headers in 32-Bit Blöcken. (Weil optionen skalieren können)
+- **Reserved** [3 Bit]: Wird nicht verwendet
+- **Flags** [9 Bit]: 
+  - **NS** [1 Bit]: Nicht verwendet
+  - **CWR und ECE** [2 Bit]: ECN-Echo teilt Überlastung mit & Congestion Window Reduced zeigt, dass der Sender die Window Size reduziert hat
+  - **URG** [1 Bit]: Urgent (wird meist nicht verwendet)
+  - **ACK** [1 Bit]: Acknowledgement Erfolgreiche empfangen der Daten bis Acknowledgement Number. 
+  - **PSH** [1 Bit]: Push effizienteres Senden von Daten, da Puffer übergangen wird (juckt nicht)
+  - **RST** [1 Bit]: Reset Verbindung wird abgebrochen durch einen Fehler
+  - **SYN** [1 Bit]: Synchronisation Verbindungsaufbau-Flag
+  - **FIN** [1 Bit]: Finish Verbindung wird beendet
+- **Window Size** [2 Byte]: Größe des Empfangsfensters (wird von Receiver bestimmt)
+- **Checksum** [2 Byte]: Prüfsumme des Headers und Daten
+- **Urgent Pointer** [2 Byte]: ist egal
+- **Options** [0-40 Byte]: sind Optionen, die den Header erweitern. (z.B. Maximum Segment Size, Window Scale, Selective Acknowledgement, Time Stamp, etc.)
+- Daten...
+
+> Uff das viel, aber das wichtigste sind die Portnummern, die Sequenznummer, die Acknowledgementnummer und die ACK, SYN, FIN Flags. Der Rest ist nicht so wichtig.
+
+## Verbindungsaufbau
+
+So step by step mal ein typical tcp Kommunikation.
+
+1.  Gerät 1 [A] wählt eine Initalisierungsnummer (Sequence Number) aus (z.B. 1) und schickt sie zusammen mit dem Syn-Flag (SEQ-NO=1) 
+
+    $\longrightarrow$ Gerät 2 [B] sendet Syn Ack mit ebenfalls (*anderer!*)zufälliger Sequenznummer (SEQ-NO=42, ACK-NO=2)
+    
+    $\longrightarrow$ [A] sendet Ack (SEQ-NO=2, ACK-NO=43). Nun ist die Verbindung aktiv (hier könnten die ersten Daten gesendet werden)
+
+2.  [A] sendet Daten (5 Byte) (SEQ-NO=2, ACK-NO=43) 
+    
+    [A] sendet weiter Daten (5 Byte) (SEQ-NO=7, ACK-NO=43) \*1
+
+4.  [B] erhält beide Datenpakete leicht verschoben (zeitlich).
+  
+    [B] sendet Ack (SEQ-NO=43, ACK-NO=7) \*2.
+
+    [B] sendet Ack (SEQ-NO=43, ACK-NO=12)
+
+5. [A] erhält beide Ack Pakete und weiß, dass die Daten bei [B] angekommen sind. Nun will es die Verbindung beenden.
+
+    [A] sendet FIN-Flag (SEQ-NO=12, ACK-NO=43)
+
+    $\longrightarrow$ [B] sendet FIN-Ack-Flag (SEQ-NO=43, ACK-NO=13)
+
+    $\longrightarrow$ [A] sendet Ack (SEQ-NO=13, ACK-NO=44). Verbindung ist beendet.
+
+So jetzt gibts noch Sternchen zu klären:
+
+\*1: Hier kommt es natürlich auf das Sendefenster drauf an, ob [A] die Datenpakete hintereinander senden kann oder ob es warten muss, bis [B] das Ack gesendet hat.
+Das Sendefenster wird bei dem unteranderem beim Verbindungsaufbau festgelegt. Hier sendet [A] mit dem SYN-Flag auch die Window Size und MSS (Maximum Segment Size) die [A] haben kann mit. 
+[B] kann dann entscheiden, wie groß das Sendefenster sein soll und sendet ist mit dem SYN-ACK mit. 
+
+Das Sendefenster und MSS ist dann das minimum der beiden Werte.
+*Lasst euch bei diesen dummen Diagrammen nicht verwirren. WIN und MSS bleiben hoffentlich gleich, die SEQ-NO und ACK-NO sind die wichtigen Werte*. 
+
+\*2: Hier ist es wichtig zu wissen, dass [B] falls Paket 2 vor 1 ankommt, wartet bis 1 angekommen ist, und dann nur ein Ack mit ACK-NO 12 sendet.
+
+### Es wird komplizierter
+
+<div className="center my-2">
+### [Erlösung](bit.ly/3X3uJN6)
+</div>
+

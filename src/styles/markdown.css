@@ -99,3 +99,10 @@
   font-size: 1rem;
   font-family: "Times New Roman", serif;
 }
+
+.markdown .center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
