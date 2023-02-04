@@ -91,7 +91,7 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
       <h1>Liste von Hilfen:</h1>
 
       <p>
-        Wehe einer beschwert sich über Rechtschreib- und Grammatikfehler! Fix
+        Wehrle einer beschwert sich über Rechtschreib- und Grammatikfehler! Fix
         die{" "}
         <Link href={"https://github.com/JohnnyS318/htwr-aachen.de"}>
           https://github.com/JohnnyS318/htwr-aachen.de
