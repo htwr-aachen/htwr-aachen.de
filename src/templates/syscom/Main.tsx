@@ -96,9 +96,8 @@ const Main = (props: IMainProps) => {
         </div>
 
         <div className="border-t border-gray-300 py-8 text-center text-sm">
-          © Copyright {new Date().getFullYear()}{" "}
-          <a href="https://www.comsys.rwth-aachen.de">ComSys-Lehrstuhl</a>. Dies
-          ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.
+          Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
+          <Link href={"/syscom/impressum"}>Impressum </Link>
         </div>
       </div>
 
