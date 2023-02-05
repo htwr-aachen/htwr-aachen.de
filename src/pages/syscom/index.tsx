@@ -1,4 +1,3 @@
-import { differenceInHours } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,9 +5,6 @@ import { Meta } from "@/layouts/Meta";
 import { Main } from "@/templates/syscom/Main";
 
 const Index = () => {
-  const d = -differenceInHours(new Date(2023, 0, 23, 7), new Date());
-  const d2 = -differenceInHours(new Date(2023, 0, 30, 7), new Date());
-
   return (
     <Main
       meta={
@@ -23,17 +19,16 @@ const Index = () => {
         <Link href={"/syscom/teaching"}>SysCom Teaching</Link> gesehen habt
       </h3>
 
-      <iframe
-        src="https://giphy.com/embed/dSetRSJcR3PGqkvjRg"
-        width="200"
-        height="150"
-        frameBorder="0"
-        className="giphy-embed"
-        allowFullScreen
-      ></iframe>
-
       <div className="grid grid-cols-2">
         <div>
+          <iframe
+            src="https://giphy.com/embed/dSetRSJcR3PGqkvjRg"
+            width="200"
+            height="150"
+            frameBorder="0"
+            className="giphy-embed"
+            allowFullScreen
+          ></iframe>
           <Image
             src="/syscom/wehrle.jpg"
             width={150}
@@ -47,9 +42,22 @@ const Index = () => {
             </Link>
           </span>
         </div>
-        <div>
-          "Wenn du vor {d}h angefangen hättest zu lernen, dann hättest du es
-          geschafft". Obwohl in {d2}h reicht locker.
+        <p>
+          Jetzt ist eh zu spät für DatKom, aber für SWT reicht die Zeit noch.{" "}
+          <Link href={"https://se.htwr-aachen.de"}>se.htwr-aachen.de</Link>{" "}
+          könnt ihr (gerne) mit helfen zu bauen :D
+        </p>
+
+        <h1 className="text-5xl font-semibold">
+          Aber erstmal für Datkom viel Erfolg oder viel Glück, je nachdem.🍀
+        </h1>
+
+        <div className="grid items-center">
+          <img
+            src={
+              "https://media.tenor.com/d06PZzULbPMAAAAC/good-luck-minion.gif"
+            }
+          />
         </div>
       </div>
 
