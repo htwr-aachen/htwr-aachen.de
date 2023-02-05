@@ -1,5 +1,4 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import Script from "next/script";
 
 import { AppConfig } from "@/utils/AppConfig";
 
@@ -14,19 +13,6 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-twilight.min.css"
           />
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-ST53ECRQJW"
-          ></Script>
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-ST53ECRQJW');
-            `}
-          </Script>
         </Head>
         <body>
           <Main />
