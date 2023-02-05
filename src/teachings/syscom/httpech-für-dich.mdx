@@ -1,0 +1,141 @@
+---
+title: HTTPech für dich (Anwendungsschicht)
+description: Protokolle aus der Anwendungsschicht. Bissle DNS und so auch noch
+author: Jonas Schneider
+date: 05/02/2023
+tags: [layer7]
+order: 8
+---
+
+## HTTP
+also jetzt wirds neu. Aber echt wichtig, irgendwann werdet ihr den scheiß brauchen.
+
+HTTP besteht aus einem Request und einer Response.
+Der Request-Header ist wie folgt aufgebaut:
+
+- Method
+
+- URL
+
+- HTTP-Version
+
+- Header-Felder
+
+- Body [Kann alles sein (meist JSON, HTML, CSS, Bilder, Videos)]
+
+Der Response-Header ist wie folgt aufgebaut:
+
+- HTTP-Version
+
+- Status-Code
+
+- Status-Text
+
+- Header-Felder
+
+- Body [Kann alles sein (meist JSON, HTML, CSS, Bilder, Videos)]
+
+Letztlich ist HTTP, eigentlich das Protokoll des Internets, es benutzt leider nur alle darunterliegenden. 
+
+So aber was solls,
+
+### HTTP-Methoden
+
+Methoden sind einfach Enums, die den Typ des Requests beschreiben. Die wichtigsten sind:
+- GET: Holt sich Daten vom Server (kein Body beim Request)
+- POST: Sendet Daten an den Server (z.B. ein Formular wie Accounterstellung)
+- PUT: Sendet Daten an den Server und überschreibt die Daten, die dort schon sind
+- DELETE: Löscht Daten vom Server
+
+Was Server letzlich mit den Requests machen, ist deren Sache. Sie können z.B. auch mit einem PUT Request z.B. einen Account erstellen, wenn sie noch nicht existiert, (obwohl das eigentlich nicht der Sinn von PUT ist)
+
+### HTTP-Status-Codes
+Status Codes sind Nummern, die für den Status des Requests stehen. Die wichtigsten sind:
+- 200: OK (alles gut)
+- 201: Created (erfolgreich erstellt)
+- 404: Not Found
+- 4xx: Client Error (Client hat was falsch gemacht)
+- 5xx: Server Error (Server hat was falsch gemacht)
+- 1xx: Information (Server sagt dem Client, dass er noch warten soll)
+- 2xx: Success (alles gut)
+
+### HTTP-Header-Felder
+
+Header ist einfach eine Art Dictionary, also Key-Value-Paare. z.B.
+- Content-Type: Gibt an, was für ein Typ der Body ist (z.B. text/html, application/json, image/png)
+
+Es gibt wirklich wirklich viele abgefahrene Dinge. Auch Cookies werden über das Set-Cookie Feld gesetzt.
+
+### Urls
+
+Also über URL (uniform resource locator)'s solltet ihr ehrlich gesagt schon bissle wissen, sie stehen halt im Browser oben. Aber hier nochmal kurz:
+
+<div className="center">
+  [https://syscom.htwr-aachen.de/syscom/teachings/httpech-für-dich](https://syscom.htwr-aachen.de/syscom/teachings/httpech-für-dich)
+</div>
+
+http sagt über das verwendete Protokoll aus (http [Port 80], https(ssl) [Port 443], ftp, telnet...)
+
+syscom.htwr-aachen.de sagt aus, wo der Server ist, der die Daten hat (dns)
+
+/syscom/teachings/httpech-für-dich ist der Path, der dem Server sagt, welche Daten ich möchte.
+
+**eine URL ist zeigt wo eine Ressource ist, eine URI ist eine eindeutige Identifikation einer Ressource.** (kleiner Unterscheid aber kommt häufig vor, aber nicht in Datkom [vertrau mir Bruder])
+
+## DNS
+
+Ja gut DNS keine Ahnung wo das hin sollte aber ich hab es hier mal reingepackt. DNS ist das Protokoll, dass die IP-Adressen zu den Domains verbindet. 
+Also wenn ihr [syscom.htwr-aachen.de](https://syscom.htwr-aachen.de) eingebt, dann wird das zu einer IP-Adresse [157.230.26.155](https://157.230.26.155) umgewandelt.
+
+Wie funktioniert das:
+
+![DNS FAIL](https://media.tenor.com/b5XOCepSxyYAAAAd/facebook-down-fix-facebook.gif)
+
+DNS ist vermutlich der häufigste Fail bei großen Ausfällen :D. Früher gabs DNS nicht und es wurde nur über hosts.txt eine Text-abkürzung für IP-Adressen manuell gemacht xd.
+
+Naja eine DNS lößt eine Domain von Top-Level bis zur letzten Subdomain auf. Heißt zuerst ".de" (vermutlich irgend ein Router in deiner Nähe, da oft da [oder Frankfurt]), 
+dann "htwr-aachen.de" (vermutlich irgendein IONOS DNS Server), dann "syscom.htwr-aachen.de" (der gleiche Server).
+
+Das Verfahren kann entweder **iterativ**, heißt der lokale Name-Server geht persönlich zu jedem Server und fragt zuerst nach der Top-Level DNS Server "Gib IP von syscom.htwr-aachen.de", 
+dann wird er zu einem Server von IONOS weitergeleitet und fragt da ebenfalls nach.
+
+Bei **rekursiv** würde der Top-Level Server einfach sagen "Hier ist die IP von syscom.htwr-aachen.de" und selber zum DNS Server von IONOS gehen, also bräuchte der lokale Server nur noch eine Anfrage stellen.
+
+Natürlich machen das Top-Level Server nicht (wäre viel zu viel Traffic, aber ab einer kleineren Größe ist das deutlich effizienter). DNS läuft über UDP, weil es schnell gehen muss und nicht viel versendet wird (1 Paket).
+
+DNS Antworten werden häufig gecached, da ihr nicht immer die komplet neuste IP von Google braucht fügt nur Latenz hinzu.
+
+DNS Records heißen die Daten, die der DNS Server über ein Domain speichert. Die wichtigsten sind:
+- A: IP-Adresse
+- AAAA: IPv6-Adresse
+- CNAME: Alias für eine Domain (Weiterleitung)
+- MX: Mail-Server
+
+### SMTP
+
+SMTP ist das Protokoll, dass Emails versendet. Es ist wirklich scheiße und es ist eine gute Frage warum es immer noch gebraucht wird.
+
+Ablauf:
+
+1. HELO abc.de
+
+2. MAIL FROM: rüdiger@rwth-aachen.de
+
+3. RCPT TO: you@rwth-aachen.de
+
+4. Data
+    ... (Email) bis einzelner Punkt
+    . 
+
+5. QUIT
+
+### POP3
+Wenn ihr das wissen müsst bin ich auch am Arsch. Ihr sagt halt euer Benutzername und Passwort und bekommt dann eure Emails mit list und retr und dele.
+
+### IMAP
+Zustandsbasiert und ebenfalls mit Authentifizierung. Ihr selektiert dann Mailboxen und so. 
+
+x> Wenn das detailreich dran kommt sind wir kollektiv am Arsch
+
+-> Dieser Artikel wurde um 4:00 geschrieben fragt nicht warum. Gute Nacht.
+
