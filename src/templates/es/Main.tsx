@@ -15,7 +15,7 @@ const Main = (props: IMainProps) => {
       {props.meta}
       <nav
         id="navbar"
-        className="navbar grid grid-cols-2 items-center justify-center border-1 border-gray-400 py-4"
+        className="navbar grid grid-cols-2 items-center justify-center border-b-1 border-gray-400 py-4"
       >
         <div className="ml-auto mr-16">
           <Link href={"/es"}>
@@ -63,6 +63,10 @@ const Main = (props: IMainProps) => {
       </nav>
       <div className="container mx-auto max-w-[1000px] py-12">
         {props.children}
+      </div>
+      <div className="mt-12 border-t-1 py-12 text-center">
+        <Link href={"/syscom/impressum"}>Impressum</Link> & Bitte alles mit
+        Humor nehmen.
       </div>
       <div className="text-red fixed bottom-10 left-10 text-red-500">
         <Link href="/syscom" className="text-red-500">
