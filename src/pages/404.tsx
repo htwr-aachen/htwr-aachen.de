@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
+import { Main } from "@/templates/es/Main";
 
 const FourOhFour = () => {
   return (

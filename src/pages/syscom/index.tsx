@@ -57,6 +57,7 @@ const Index = () => {
             src={
               "https://media.tenor.com/d06PZzULbPMAAAAC/good-luck-minion.gif"
             }
+            alt="Good Luck Minion"
           />
         </div>
       </div>

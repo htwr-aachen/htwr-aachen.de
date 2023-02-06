@@ -102,8 +102,8 @@ const Main = (props: IMainProps) => {
       </div>
 
       <div className="text-red fixed bottom-10 right-10 text-red-500">
-        <Link href="/se" className="text-red-500">
-          Next &gt;
+        <Link href="/es" className="text-red-500">
+          Zur ES/SWT Website &gt;
         </Link>
       </div>
     </div>

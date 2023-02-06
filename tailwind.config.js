@@ -5,6 +5,9 @@ module.exports = {
     "./teachings/**/*.{js,ts,jsx,tsx, mdx",
   ],
   theme: {
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+    },
     fontSize: {
       xs: "0.75rem",
       sm: "0.875rem",
@@ -18,6 +21,9 @@ module.exports = {
       "6xl": "4rem",
     },
     extend: {
+      borderWidth: {
+        1: "1px",
+      },
       colors: {
         gray: {
           100: "#f7fafc",
