@@ -108,7 +108,8 @@ export async function getAllTeachings(
   ogDir: string = ""
 ): Promise<TeachingMeta[]> {
   // feels little hacky, but it works
-  const root = ogDir === "" ? dir : ogDir;
+
+  ogDir = ogDir || dir;
 
   const files = await readdir(dir);
   for (let i = 0; i < files.length; i++) {
@@ -120,7 +121,7 @@ export async function getAllTeachings(
     const fileStat = await stat(filepath);
 
     if (fileStat.isDirectory()) {
-      teachings = await getAllTeachings(filepath, teachings, root);
+      teachings = await getAllTeachings(filepath, teachings, ogDir);
     } else {
       const { data } = read(join(dir, file));
       const { meta } = metadataFromData(data);
