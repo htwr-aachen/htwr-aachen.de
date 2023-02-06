@@ -2,11 +2,11 @@ import rehypePrism from "@mapbox/rehype-prism";
 import type { TransformerInfo } from "@remark-embedder/core";
 import remarkEmbedder from "@remark-embedder/core";
 import oembedTransformer from "@remark-embedder/transformer-oembed";
-import { readdirSync } from "fs";
+import { readdir, stat } from "fs/promises";
 import { read } from "gray-matter";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import { join } from "path";
+import path, { join } from "path";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
@@ -17,6 +17,7 @@ export type Teaching = {
   url: string;
   meta: {
     title?: string;
+    fullTitle?: string;
     date?: string;
     tags?: string[];
     author?: string;
@@ -29,9 +30,12 @@ export type Teaching = {
   >;
 };
 
-export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
+export type TeachingConfiguration = {
+  mainSlug?: string;
+  includeSubdirs?: boolean;
+};
 
-const teachingsDirectory = join(process.cwd(), "src", "teachings", "syscom");
+export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
 function metadataFromData(data: { [key: string]: any }): TeachingMeta {
   return {
@@ -58,9 +62,12 @@ function handleHTML(html: string, info: TransformerInfo) {
   return html;
 }
 
-export async function getTeachingBySlug(slug: string): Promise<Teaching> {
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const fullPath = join(teachingsDirectory, `${realSlug}.mdx`);
+export async function getTeachingBySlug(
+  dir: string,
+  slug: string[]
+): Promise<Teaching> {
+  const realSlug = slug.join(path.sep).replace(/\.mdx\/$/, "");
+  const fullPath = join(dir, `${realSlug}.mdx`);
   const { data, content } = read(fullPath);
 
   const source = await serialize(content, {
@@ -76,33 +83,72 @@ export async function getTeachingBySlug(slug: string): Promise<Teaching> {
     },
   });
 
+  const { meta } = metadataFromData(data);
+  if (slug.length > 1) {
+    const subpath = slug
+      .slice(0, slug.length - 1)
+      .join("/")
+      .replace(/\.mdx\/$/, "");
+    meta.fullTitle = `${subpath}/${meta.title}`;
+  } else {
+    meta.fullTitle = meta.title;
+  }
+
   return {
     url: `/teachings/${realSlug}`,
     slug: realSlug,
-    meta: metadataFromData(data).meta,
+    meta,
     content: source,
   };
 }
 
-export async function getAllTeachings(): Promise<TeachingMeta[]> {
-  const files = readdirSync(teachingsDirectory);
-  const teachings = files
-    .map((file) => {
-      const { data } = read(join(teachingsDirectory, file));
-      return {
-        slug: file.replace(/\.mdx$/, ""),
-        meta: metadataFromData(data).meta,
-      };
-    })
-    .sort((a, b) => a.meta.order - b.meta.order);
+export async function getAllTeachings(
+  dir: string,
+  teachings: TeachingMeta[] = [],
+  ogDir: string = ""
+): Promise<TeachingMeta[]> {
+  // feels little hacky, but it works
+  const root = ogDir === "" ? dir : ogDir;
 
-  return teachings;
+  const files = await readdir(dir);
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    if (!file) continue;
+
+    const filepath = path.join(dir, file);
+    const fileStat = await stat(filepath);
+
+    if (fileStat.isDirectory()) {
+      teachings = await getAllTeachings(filepath, teachings, root);
+    } else {
+      const { data } = read(join(dir, file));
+      const { meta } = metadataFromData(data);
+
+      const subpath = dir.substring(ogDir.length + 1).replace("\\", "/");
+      if (subpath !== "") {
+        meta.fullTitle = `${subpath}/${meta.title}`;
+      } else {
+        meta.fullTitle = meta.title;
+      }
+
+      teachings.push({
+        slug: `${filepath
+          .substring(ogDir.length + 1)
+          .replace("\\", "/")
+          .replace(/\.mdx$/, "")}`,
+        meta,
+      });
+    }
+  }
+  return teachings.sort((a, b) => a.meta.order - b.meta.order);
 }
 
 export async function getTeachingWithOrder(
+  dir: string,
   order: number
 ): Promise<TeachingMeta[]> {
-  const teachings = await getAllTeachings();
+  const teachings = await getAllTeachings(dir);
   const prevTeaching = teachings.filter(
     (teaching) => teaching.meta.order === order
   );
@@ -110,9 +156,10 @@ export async function getTeachingWithOrder(
 }
 
 export async function getTeachingWithHigherOrder(
+  dir: string,
   order: number
 ): Promise<TeachingMeta | null> {
-  const teachings = await getAllTeachings();
+  const teachings = await getAllTeachings(dir);
   const nextTeaching = teachings.filter(
     (teaching) => teaching.meta.order > order
   );
@@ -125,9 +172,10 @@ export async function getTeachingWithHigherOrder(
 }
 
 export async function getTeachingWithLowerOrder(
+  dir: string,
   order: number
 ): Promise<TeachingMeta | null> {
-  const teachings = await getAllTeachings();
+  const teachings = await getAllTeachings(dir);
   const nextTeaching = teachings.filter(
     (teaching) => teaching.meta.order < order
   );

@@ -15,6 +15,8 @@ import {
 import { Main } from "@/templates/syscom/Main";
 import TeachingsLayout from "@/templates/syscom/TeachingsLayout";
 
+import { TeachingsDirectory } from "../teaching";
+
 const components = { ISOOSI, Spoiler };
 
 type TeachingProps = {
@@ -49,10 +51,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const doc = await getTeachingBySlug(params.slug as string);
+  const slug = Array.isArray(params.slug) ? params.slug : [params.slug];
 
-  const prev = await getTeachingWithLowerOrder(doc.meta.order);
-  const next = await getTeachingWithHigherOrder(doc.meta.order);
+  const doc = await getTeachingBySlug(TeachingsDirectory, slug);
+
+  const prev = await getTeachingWithLowerOrder(
+    TeachingsDirectory,
+    doc.meta.order
+  );
+  const next = await getTeachingWithHigherOrder(
+    TeachingsDirectory,
+    doc.meta.order
+  );
 
   return {
     props: {
@@ -66,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-  const docs = await getAllTeachings();
+  const docs = await getAllTeachings(TeachingsDirectory);
 
   return {
     paths: docs.map((doc) => {

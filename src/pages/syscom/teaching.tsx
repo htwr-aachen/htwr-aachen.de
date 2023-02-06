@@ -28,6 +28,13 @@ const aufgabenPath = join(
   "aufgaben"
 );
 
+export const TeachingsDirectory = join(
+  process.cwd(),
+  "src",
+  "teachings",
+  "syscom"
+);
+
 export async function getStaticProps() {
   let err = false;
   let klausuren: Document[] = [];
@@ -61,7 +68,7 @@ export async function getStaticProps() {
     err = true;
   }
 
-  const docs = await getAllTeachings();
+  const docs = await getAllTeachings(TeachingsDirectory);
   return {
     props: {
       docs,
@@ -122,7 +129,7 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
           return (
             <li key={teaching.slug}>
               <Link href={`/syscom/teachings/${teaching.slug}`}>
-                {teaching.meta.title}
+                {teaching.meta.fullTitle}
               </Link>
             </li>
           );
