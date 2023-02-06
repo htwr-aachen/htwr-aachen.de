@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import type { FC } from "react";
-import { useEffect, useState } from "react";
+import type { FC, RefObject } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type LinkType = {
   href: string;
@@ -11,14 +11,49 @@ export type LinkType = {
 type NavlinkProps = {
   display: LinkType;
   links?: LinkType[];
+  isDroped?: boolean;
+  dropdownNumer?: number;
+  dropdownCallback?: (dropdownNumer: number) => void;
 };
 
-const Navlink: FC<NavlinkProps> = ({ links, display }) => {
+function useOutsideAlerter(ref: RefObject<HTMLElement>, callback: () => void) {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback();
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+}
+
+const Navlink: FC<NavlinkProps> = ({
+  links,
+  display,
+  isDroped,
+  dropdownNumer,
+  dropdownCallback,
+}) => {
   const router = useRouter();
+  const ref = useRef<HTMLButtonElement>(null);
 
   const [isDropdown, setIsDropdown] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const [dropdownActive, setDropdownActive] = useState(false);
+  const [dropdownActive, setDropdownActive] = useState(isDroped);
+
+  useOutsideAlerter(ref, () => {
+    if (dropdownActive && dropdownCallback) {
+      dropdownCallback(dropdownNumer || 0);
+    }
+  });
 
   useEffect(() => {
     if (links) {
@@ -29,6 +64,10 @@ const Navlink: FC<NavlinkProps> = ({ links, display }) => {
       }
     }
   }, [links, router.pathname]);
+
+  useEffect(() => {
+    setDropdownActive(isDroped);
+  }, [isDroped]);
 
   return (
     <li className="p-[.5rem 1rem] mr-4 text-center text-base text-black">
@@ -44,11 +83,13 @@ const Navlink: FC<NavlinkProps> = ({ links, display }) => {
       ) : (
         <div>
           <button
+            ref={ref}
             type="button"
             className={"after-icon transition-colors hover:text-blue-400"}
             onClick={() => {
               setIsActive((x) => !x);
-              setDropdownActive((x) => !x);
+              if (dropdownCallback) dropdownCallback(dropdownNumer || 0);
+              else setDropdownActive((x) => !x);
             }}
           >
             {display.name}

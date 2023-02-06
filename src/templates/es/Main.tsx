@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { useState } from "react";
 
 import Navlink from "./Navlink";
 
@@ -10,6 +11,13 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => {
+  const [dropdownActive, setDropdownActive] = useState(-1);
+
+  const dropdownCallback = (dropdownNumer: number) => {
+    if (dropdownActive === dropdownNumer) setDropdownActive(-1);
+    else setDropdownActive(dropdownNumer);
+  };
+
   return (
     <div className="es font-roboto">
       {props.meta}
@@ -21,7 +29,7 @@ const Main = (props: IMainProps) => {
           <Link href={"/es"}>
             <Image
               src={"/es/es.png"}
-              width={366}
+              width={276}
               height={70}
               alt="ComSys Logo"
               className="h-[70px]"
@@ -33,22 +41,37 @@ const Main = (props: IMainProps) => {
             <Navlink
               display={{ name: "Essays", href: "/es/eassys" }}
               links={[{ name: "Nichts", href: "/es/404" }]}
+              isDroped={dropdownActive === 1}
+              dropdownNumer={1}
+              dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Research", href: "/es" }}
               links={[{ name: "Nichts", href: "/es/404" }]}
+              isDroped={dropdownActive === 2}
+              dropdownNumer={2}
+              dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Publications", href: "/es" }}
               links={[{ name: "Nichts", href: "/es/404" }]}
+              isDroped={dropdownActive === 3}
+              dropdownNumer={3}
+              dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Teaching", href: "/es" }}
               links={[{ name: "Klausuren", href: "/es/klausuren" }]}
+              isDroped={dropdownActive === 4}
+              dropdownNumer={4}
+              dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Projects", href: "/es" }}
               links={[{ name: "Nichts", href: "/es/404" }]}
+              isDroped={dropdownActive === 5}
+              dropdownNumer={5}
+              dropdownCallback={dropdownCallback}
             />
             <Navlink display={{ name: "Jobs", href: "/es/jobs" }} />
             <Navlink
@@ -57,6 +80,9 @@ const Main = (props: IMainProps) => {
                 { name: "About us", href: "/about" },
                 { name: "Contact", href: "/contact" },
               ]}
+              isDroped={dropdownActive === 6}
+              dropdownNumer={6}
+              dropdownCallback={dropdownCallback}
             />
           </ul>
         </div>
