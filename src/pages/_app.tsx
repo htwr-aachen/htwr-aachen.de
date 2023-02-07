@@ -6,6 +6,8 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+export { reportWebVitals } from "next-axiom";
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 

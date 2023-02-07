@@ -64,6 +64,7 @@ specifiers:
   moment: ^2.29.4
   momentjs: ^2.0.0
   next: ^13.1.2
+  next-axiom: ^0.16.0
   next-mdx-remote: ^4.3.0
   next-remote-watch: ^2.0.0
   next-seo: ^5.15.0
@@ -118,6 +119,7 @@ dependencies:
   moment: 2.29.4
   momentjs: 2.0.0
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+  next-axiom: 0.16.0_next@13.1.6
   next-mdx-remote: 4.3.0_biqbaboplfbrettd7655fr4n2y
   next-remote-watch: 2.0.0_next@13.1.6
   next-seo: 5.15.0_3vryta7zmbcsw4rrqf4axjqggm
@@ -12248,6 +12250,19 @@ packages:
       }
     dev: true
 
+  /next-axiom/0.16.0_next@13.1.6:
+    resolution:
+      {
+        integrity: sha512-WlmObMtra/OJPiJ6Gim4g8OTuLlJx9DVTeEaNmBIO3wEkR+Nt4932/xng2a9XofOVR7RgaNk1QIyPrqZW9P25w==,
+      }
+    engines: { node: ">=15" }
+    peerDependencies:
+      next: ^12.1.4 || ^13
+    dependencies:
+      next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+      whatwg-fetch: 3.6.2
+    dev: false
+
   /next-mdx-remote/4.3.0_biqbaboplfbrettd7655fr4n2y:
     resolution:
       {
@@ -17365,6 +17380,13 @@ packages:
     dependencies:
       iconv-lite: 0.6.3
     dev: true
+
+  /whatwg-fetch/3.6.2:
+    resolution:
+      {
+        integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==,
+      }
+    dev: false
 
   /whatwg-mimetype/3.0.0:
     resolution:
