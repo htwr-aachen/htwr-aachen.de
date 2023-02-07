@@ -68,7 +68,9 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
         ></Meta>
       }
     >
-      <h1 className="font-roboto text-4xl font-light">Klausuren</h1>
+      <h1 className="font-roboto text-4xl font-light" id="klausuren">
+        Klausuren
+      </h1>
       <span>
         Wenn jemand weitere hat:{" "}
         <a href="mailto:jonas.max.schneider@gmail.com">
@@ -76,10 +78,6 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
         </a>
       </span>
 
-      <h2 id="klausuren">
-        So jetzt gibts noch Klausuren zum Download (alle die ich gefunden habe)
-        schickt <Link href={"/syscom/contact"}>mir</Link> gerne mehr.
-      </h2>
       <ul className="ml-8 mt-8 list-disc">
         {klausuren.map((klausur) => {
           return (
@@ -91,6 +89,11 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
           );
         })}
       </ul>
+
+      <span className="mt-5 block">
+        Aufgaben gibts <Link href={"/es/aufgaben"}>hier</Link> und
+        Zusammenfassungen <Link href={"/es/teachings"}>hier.</Link>
+      </span>
     </Main>
   );
 };

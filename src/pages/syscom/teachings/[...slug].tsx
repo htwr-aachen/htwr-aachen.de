@@ -82,7 +82,7 @@ export async function getStaticPaths() {
     paths: docs.map((doc) => {
       return {
         params: {
-          slug: doc.slug,
+          slug: doc.slug.split("/"),
         },
       };
     }),

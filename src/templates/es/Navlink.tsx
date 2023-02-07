@@ -70,7 +70,7 @@ const Navlink: FC<NavlinkProps> = ({
   }, [isDroped]);
 
   return (
-    <li className="p-[.5rem 1rem] mr-4 text-center text-base text-black">
+    <li className="p-[.5rem 1rem] my-2 mr-4 text-right text-base text-black lg:my-0 lg:text-center">
       {!isDropdown ? (
         <Link
           href={display.href || "/es"}
@@ -97,7 +97,7 @@ const Navlink: FC<NavlinkProps> = ({
           <div
             className={
               dropdownActive
-                ? "visible absolute rounded-md border-[1px] border-gray-300 bg-white"
+                ? "visible absolute right-2 rounded-md border-[1px] border-gray-300 bg-white lg:right-auto"
                 : "visible hidden"
             }
           >

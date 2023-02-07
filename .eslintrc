@@ -38,6 +38,7 @@
         "no-continue": "off", // Allow using continue
         "no-param-reassign": "off", // Allow mutating function parameters
         "no-await-in-loop": "off", // Allow using await in loop
+        "no-empty": "off", // Allow empty catch block
         "prettier/prettier": [
           "error",
           {

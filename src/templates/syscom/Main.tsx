@@ -29,7 +29,7 @@ const Main = (props: IMainProps) => {
           <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
             <div className="self-center justify-self-center">
               <Image
-                src={"/syscom/syscom.png"}
+                src={"/assets/syscom/syscom.png"}
                 width={366}
                 height={118}
                 alt="ComSys Logo"
@@ -39,7 +39,7 @@ const Main = (props: IMainProps) => {
             <div className="block">
               <div className="grid justify-end">
                 <Image
-                  src={"/rwth/htwr.png"}
+                  src={"/assets/rwth/htwr.png"}
                   width={150}
                   height={41}
                   alt="RWTH Aachen Logo"
@@ -47,42 +47,42 @@ const Main = (props: IMainProps) => {
               </div>
               <ul className="grid grid-cols-5">
                 <MenuButton
-                  src="/syscom/home.png"
-                  src_hover="/syscom/home_hover.png"
+                  src="/assets/syscom/home.png"
+                  src_hover="/assets/syscom/home_hover.png"
                   alt="Home Icon"
                   href="/syscom"
                   name="HOME"
                   isActive={router.pathname === "/syscom"}
                 />
                 <MenuButton
-                  src="/syscom/team.png"
-                  src_hover="/syscom/team_hover.png"
+                  src="/assets/syscom/team.png"
+                  src_hover="/assets/syscom/team_hover.png"
                   alt="Team Icon"
                   href="/syscom/team"
                   name="TEAM"
                   isActive={isActive("team")}
                 />
                 <MenuButton
-                  src="/syscom/teaching.png"
-                  src_hover="/syscom/teaching_hover.png"
+                  src="/assets/syscom/teaching.png"
+                  src_hover="/assets/syscom/teaching_hover.png"
                   alt="Teaching Icon"
                   href="/syscom/teaching"
                   name="TEACHING"
                   isActive={isActive("teaching")}
                 />
                 <MenuButton
-                  src="/syscom/research.png"
-                  src_hover="/syscom/research_hover.png"
+                  src="/assets/syscom/research.png"
+                  src_hover="/assets/syscom/research_hover.png"
                   alt="Research Icon"
                   href="/syscom/research"
                   name="RESEARCH"
                   isActive={isActive("research")}
                 />
                 <MenuButton
-                  src="/syscom/contact.png"
-                  src_hover="/syscom/contact_hover.png"
+                  src="/assets/syscom/contact.png"
+                  src_hover="/assets/syscom/contact_hover.png"
                   alt="Contact Icon"
-                  href="/syscom/contact"
+                  href="/contact"
                   name="CONTACT"
                   isActive={isActive("contact")}
                 />
@@ -97,7 +97,7 @@ const Main = (props: IMainProps) => {
 
         <div className="border-t border-gray-300 py-8 text-center text-sm">
           Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
-          <Link href={"/syscom/impressum"}>Impressum </Link>
+          <Link href={"/impressum"}>Impressum </Link>
         </div>
       </div>
 

@@ -30,7 +30,7 @@ const Index = () => {
             allowFullScreen
           ></iframe>
           <Image
-            src="/syscom/wehrle.jpg"
+            src="/assets/syscom/wehrle.jpg"
             width={150}
             height={150}
             alt={"Prof. Dr.-Ing. Klaus Wehrle"}
@@ -44,7 +44,7 @@ const Index = () => {
         </div>
         <p>
           Jetzt ist eh zu spät für DatKom, aber für SWT reicht die Zeit noch.{" "}
-          <Link href={"https://se.htwr-aachen.de"}>se.htwr-aachen.de</Link>{" "}
+          <Link href={"https://es.htwr-aachen.de"}>es.htwr-aachen.de</Link>{" "}
           könnt ihr (gerne) mit helfen zu bauen :D
         </p>
 

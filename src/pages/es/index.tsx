@@ -13,7 +13,7 @@ const index: FC = () => {
 
       <p>Rumpe wartet schon</p>
 
-      <div className="mt-24 grid grid-cols-2">
+      <div className="mt-24 grid grid-rows-[auto_auto] md:grid-cols-2 md:grid-rows-none">
         <div className="grid justify-center">
           <img
             src="https://www.se-rwth.de/assets/img/staff/rumpe.jpeg"
@@ -26,7 +26,7 @@ const index: FC = () => {
             </a>
           </span>
         </div>
-        <div className="grid items-center justify-center">
+        <div className="mt-5 grid items-start justify-center md:mt-0 md:items-center">
           <p className="h-min text-center align-middle">
             "Habe ich euch eigentlich schonmal von{" "}
             <Link href="/es/klausuren">Klausuren</Link>,{" "}
@@ -42,42 +42,42 @@ const index: FC = () => {
           <li>
             <img
               alt="VW"
-              src="/es/automobilindustrie/volkswagen.svg"
+              src="/assets/es/automobilindustrie/volkswagen.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>
           <li>
             <img
               alt="Audi"
-              src="/es/automobilindustrie/audi.svg"
+              src="/assets/es/automobilindustrie/audi.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>
           <li>
             <img
               alt="Mercedes Benz"
-              src="/es/automobilindustrie/mercedes.svg"
+              src="/assets/es/automobilindustrie/mercedes.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>
           <li>
             <img
               alt="Porsche"
-              src="/es/automobilindustrie/porsche.svg"
+              src="/assets/es/automobilindustrie/porsche.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>
           <li>
             <img
               alt="Opel"
-              src="/es/automobilindustrie/opel.svg"
+              src="/assets/es/automobilindustrie/opel.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>
           <li>
             <img
               alt="Ford"
-              src="/es/automobilindustrie/ford.svg"
+              src="/assets/es/automobilindustrie/ford.svg"
               className="mx-auto h-[50px]"
             ></img>
           </li>

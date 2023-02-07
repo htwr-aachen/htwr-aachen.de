@@ -11,6 +11,7 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => {
+  const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
   const dropdownCallback = (dropdownNumer: number) => {
@@ -23,52 +24,82 @@ const Main = (props: IMainProps) => {
       {props.meta}
       <nav
         id="navbar"
-        className="navbar grid grid-cols-2 items-center justify-center border-b-1 border-gray-400 py-4"
+        className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
       >
-        <div className="ml-auto mr-16">
+        <div className="ml-8 lg:ml-auto lg:mr-16 lg:justify-self-end">
           <Link href={"/es"}>
             <Image
-              src={"/es/es.png"}
+              src={"/assets/es/es.png"}
               width={276}
               height={70}
               alt="ComSys Logo"
-              className="h-[70px]"
+              className="aspect-auto h-[70px] w-[276]"
             />
           </Link>
         </div>
-        <div>
-          <ul className="flex flex-row">
+        <button
+          type="button"
+          className="mr-5 lg:hidden"
+          onClick={() => {
+            setNavOpen((x) => !x);
+          }}
+        >
+          {!navOpen ? (
+            <Image
+              src={"/assets/menu.svg"}
+              height={32}
+              width={32}
+              alt={"Open Navbar"}
+            ></Image>
+          ) : (
+            <Image
+              src={"/assets/close.svg"}
+              height={32}
+              width={32}
+              alt={"Close Navbar"}
+            ></Image>
+          )}
+        </button>
+        <div className="col-span-2 mr-2 flex justify-center justify-self-end lg:col-span-1 lg:mr-auto lg:block lg:justify-start">
+          <ul
+            className={`flex-col lg:flex lg:flex-row ${
+              navOpen ? "flex" : "hidden"
+            }`}
+          >
             <Navlink
               display={{ name: "Essays", href: "/es/eassys" }}
-              links={[{ name: "Nichts", href: "/es/404" }]}
+              links={[{ name: "Nichts", href: "/es/nichts" }]}
               isDroped={dropdownActive === 1}
               dropdownNumer={1}
               dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Research", href: "/es" }}
-              links={[{ name: "Nichts", href: "/es/404" }]}
+              links={[{ name: "Nichts", href: "/es/nichts" }]}
               isDroped={dropdownActive === 2}
               dropdownNumer={2}
               dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Publications", href: "/es" }}
-              links={[{ name: "Nichts", href: "/es/404" }]}
+              links={[{ name: "Nichts", href: "/es/nichts" }]}
               isDroped={dropdownActive === 3}
               dropdownNumer={3}
               dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Teaching", href: "/es" }}
-              links={[{ name: "Klausuren", href: "/es/klausuren" }]}
+              links={[
+                { name: "Klausuren", href: "/es/klausuren" },
+                { name: "Aufgaben", href: "/es/aufgaben" },
+              ]}
               isDroped={dropdownActive === 4}
               dropdownNumer={4}
               dropdownCallback={dropdownCallback}
             />
             <Navlink
               display={{ name: "Projects", href: "/es" }}
-              links={[{ name: "Nichts", href: "/es/404" }]}
+              links={[{ name: "Nichts", href: "/es/nichts" }]}
               isDroped={dropdownActive === 5}
               dropdownNumer={5}
               dropdownCallback={dropdownCallback}
@@ -87,12 +118,12 @@ const Main = (props: IMainProps) => {
           </ul>
         </div>
       </nav>
-      <div className="container mx-auto max-w-[1000px] py-12">
+      <div className="container mx-auto max-w-[1000px] py-12 px-8 lg:px-0">
         {props.children}
       </div>
       <div className="mt-12 border-t-1 py-12 text-center">
-        <Link href={"/syscom/impressum"}>Impressum</Link> & Bitte alles mit
-        Humor nehmen.
+        <Link href={"/impressum"}>Impressum</Link> & Bitte alles mit Humor
+        nehmen.
       </div>
       <div className="text-red fixed bottom-10 left-10 text-red-500">
         <Link href="/syscom" className="text-red-500">
