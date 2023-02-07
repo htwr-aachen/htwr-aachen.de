@@ -1,6 +1,5 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { env } from "process";
 
 import { SubStyling } from "./lib/style";
 
@@ -24,10 +23,10 @@ export function middleware(request: NextRequest) {
   if (
     institute !== SubStyling.None &&
     !request.nextUrl.hostname.includes(institute) &&
-    env.NODE_ENV === "production"
+    process.env.REDIRECT_TO_SUBDOMAIN === "true"
   ) {
     return NextResponse.redirect(
-      `https://${institute}.htwr-aachen.de${request.nextUrl.pathname}`
+      new URL(`https://${institute}.htwr-aachen.de${request.nextUrl.pathname}`)
     );
   }
 
