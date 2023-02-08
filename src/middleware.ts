@@ -1,6 +1,5 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { log } from "next-axiom";
 
 import { SubStyling } from "./lib/style";
 
@@ -20,24 +19,6 @@ export function middleware(request: NextRequest) {
   }
 
   const institute = pathMatcher(request.nextUrl.pathname);
-
-  const host = request.headers.get("Host");
-
-  if (
-    institute !== SubStyling.None &&
-    !request.nextUrl.hostname.includes(institute) &&
-    !host?.includes(institute) &&
-    process.env.REDIRECT_TO_SUBDOMAIN === "true"
-  ) {
-    log.debug("new subdomain redirect", {
-      host: request.nextUrl.hostname,
-      institute,
-      path: request.nextUrl.pathname,
-    });
-    return NextResponse.redirect(
-      new URL(`https://${institute}.htwr-aachen.de${request.nextUrl.pathname}`)
-    );
-  }
 
   const req = request.nextUrl.clone();
   if (request.cookies.get("institute")?.value !== "") {
