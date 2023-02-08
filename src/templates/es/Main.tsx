@@ -92,6 +92,7 @@ const Main = (props: IMainProps) => {
               links={[
                 { name: "Klausuren", href: "/es/klausuren" },
                 { name: "Aufgaben", href: "/es/aufgaben" },
+                { name: "Teachings", href: "/es/teachings" },
               ]}
               isDroped={dropdownActive === 4}
               dropdownNumer={4}

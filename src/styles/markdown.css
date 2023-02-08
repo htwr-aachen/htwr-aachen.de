@@ -28,11 +28,16 @@
   margin-left: 1.5rem;
 }
 
-.markdown p, .markdown li {
+.syscom .markdown p,.syscom .markdown li {
   font-size: 1rem;
   margin: 0.5rem 0;
   font-family: "Times New Roman", serif;
 }
+
+.es .markdown p,.es .markdown li {
+  @apply my-2 font-roboto;
+}
+
 
 .markdown ul ul, .markdown ol ol, .markdown ul ol, .markdown ol ul {
   @apply mx-4 my-2;
