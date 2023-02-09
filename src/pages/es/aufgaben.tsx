@@ -32,9 +32,10 @@ export async function getStaticProps() {
       const name = file
         .replace(".pdf", "")
         .replaceAll("ue", "Übung ")
-        .replaceAll("gl", "Globalübung")
-        .replaceAll("wdh", "Wiederholungsklausur")
-        .replaceAll("lsg", "mit-Lösungen");
+        .replaceAll("gl", "Globalübung ")
+        .replaceAll("wdh", "Wiederholungsklausur ")
+        .replaceAll("lsg", "mit Lösungen ")
+        .replaceAll("-", " ");
       return {
         name,
         url: `/teaching-assets/es/klausuren/${file}`,

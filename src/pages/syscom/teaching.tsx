@@ -165,6 +165,36 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
           );
         })}
       </ul>
+
+      <h2 id="klausuren">
+        So jetzt gibts noch Klausuren zum Download (alle die ich gefunden habe)
+        schickt <Link href={"/syscom/contact"}>mir</Link> gerne mehr.
+      </h2>
+      <ul className="ml-8 list-disc">
+        {klausuren.map((klausur) => {
+          return (
+            <li key={klausur.name}>
+              <Link href={klausur.url} target={"_blank"}>
+                {klausur.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h2 id="aufgaben">Und weil es möglich ist auch alle Aufgabenblätter</h2>
+
+      <ul className="ml-8 list-disc">
+        {aufgaben.map((aufgabe) => {
+          return (
+            <li key={aufgabe.name}>
+              <Link href={aufgabe.url} target={"_blank"}>
+                {aufgabe.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </Main>
   );
 };
