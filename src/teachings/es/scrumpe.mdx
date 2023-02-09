@@ -28,19 +28,61 @@ Haha witzig 😒. Bitte helft mir.
 
 In "normalen" Softwareprojekten ist viel zu besprechen und zu organisieren:
 
-Hier geht es um die Methoden, wie man letzendtlich am besten die Arbeit organisiert zwischen verschiedenen Teammitgliedern.
+Hier geht es um die Methoden, wie man letztendlich am besten die Arbeit organisiert zwischen verschiedenen Teammitgliedern.
 
 Am Ende des Tagens: Möglichst viel *richtiges* Programmieren.
 
+Es gibt die klassischen Modelle, wo die Phasen (Analyse, Entwurf, Implementierung,....) chronologisch unterteilt sind, also eins nach dem Anderen.
+Dazu gehören Wasserfall, V und RUP.
+
+Dann gibt es agile Modelle, wo alles gleichzeitig passiert, mit vielen kleinen Iterationen und Intervallen; Scrum, XP
+
 ### Wasserfall
-
-### Scrum
-
-### Kanban
-
-### **EXTREME PROGRAMMING**
+![Wasserfallmodell](/teaching-assets/es/Wasserfallmodell.png)
+Da werden in jedem Schritt die Ergebnisse bei Änderungen und Fehlern wieder zurück(hoch)gegeben, bis alle zufrieden sind.
+In der Wartung usw werden dann auch mögliche Änderungen wieder den Berg hoch und den ganzen Wasserfall wieder runtergeschickt.
+Dieses Modell ist ziemlich klassisch
 
 ### V-Modell
+![V-Modell](/teaching-assets/es/V-Modell.jpg)
+Da wird in jedem Schritt getestet, und am Ende auch nochmal alles. Heißt V-Modell, weil obviously
+
+### Evolutionäre Entwicklung
+![Evolutionäre Entwicklung](/teaching-assets/es/Evolutionäre-Entwicklung.jpg)
+Ist ziemlich intuitiv, man machts halt einfach, und fängt vorne wieder an wenn sich was ändern soll.
+
+### RUP (rational unified process, RIP)
+Jeder Arbeitsschritt (Analyse, Entwurf, Implementierung, Test) wird in vier zeitliche Phasen aufgeteilt:
+
+- Entstehung (Projekt definieren)
+- Ausarbeitung (Planen, Spezifizieren)
+- Erstellung (Machen)
+- Übergang ("Ausgeben")
+
+Diese Phasen passieren für jeden Arbeitsschritt gleichzeitig, aber man kann jedem Arbeitsschritt eine Phase zuordnen, in der besonderen Fokus auf diesen Schritt gelegt wird.
+(In der Reihenfolge wie sie da stehen)
+
+### Scrum
+![Scrum](https://www.neonrain.com/wp-content/uploads/2022/10/What-is-Agile-Scrum-Framework-1024x596-1.webp)
+Scrum ist im Grunde "einfach machen". Man trifft sich jeden Tag kurz, und dann einmal etwas länger alle 1-4 Wochen. Dieser 1-4 Wochen Zyklus heißt Sprint. Das heißt, dass dieses Konzept iterativ ist
+
+Es gibt drei Rollen: Product Owner, Entwicklungsteam, ScrumMaster
+
+Und mehrere zeitlich beschränkte (also nicht abhängig von erreichten Zielen) Aktivitäten: Sprint Planning, Sprint Review, Sprint-Retrospektive, Daily Scrum.
+
+Scrum hat auch ein paar wichtige Artefakte (Objekte): Product Backlog (Was der User will, was noch zu implementieren ist), Sprint Backlog (Auszug aus dem Product Backlog, die Dinge, die in diesem Sprint gemacht werden),
+auslieferbares Produktinkrement (Was schon auslieferbar ist)
+
+### Kanban
+Wurde zwar in der Vorlesung erwähnt aber nicht erklärt
+
+### **EXTREME PROGRAMMING** (XP haha)
+Evolutionäre Methode in kleinen Inkrements, Code ist immer lauffähig! 
+
+Ein wichtiges Prinzip ist "Test-First": Erst Tests schreiben/definieren, und dann den Code passend dazu entwickeln
+
+Es gibt nicht wirklich einen Entwurf oder Dokumentation, der Ansatz ist eher "Ja schau doch einfach in den Code und die Tests mann", 
+XP ist deshalb eher für kleinere Projekte geeignet
 
 
 ## Tests
