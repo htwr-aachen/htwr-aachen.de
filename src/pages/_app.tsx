@@ -1,12 +1,21 @@
 import "../styles/global.css";
-import "../styles/markdown.css";
+import "../styles/markdown.scss";
 
+import { Inter, Roboto } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export { reportWebVitals } from "next-axiom";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -37,7 +46,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <div className={siteClass}>
+      <div className={`${siteClass} ${inter.className} ${roboto.className}`}>
         <div className="bg"></div>
         <Component {...pageProps} />
         <Analytics />

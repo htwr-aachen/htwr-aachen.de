@@ -131,6 +131,11 @@ const Main = (props: IMainProps) => {
           &lt; Zur SysCom/Datkom Website
         </Link>
       </div>
+      <div className="text-red fixed bottom-10 right-10 text-red-500">
+        <Link href="/scil" className="text-red-500">
+          Zur SCIL/BuK Website &gt;
+        </Link>
+      </div>
     </div>
   );
 };

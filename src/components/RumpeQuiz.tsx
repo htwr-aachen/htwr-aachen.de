@@ -81,7 +81,10 @@ const RumpeQuiz: FC<RumpeQuizProps> = ({ zitat }) => {
         )}
       </div>
       <span className="my-2 opacity-25 lg:my-4">
-        *eventuell sind ein paar Zitate frei erfunden
+        *eventuell sind ein paar Zitate frei erfunden. Sendet mir mehr:{" "}
+        <a href="mailto:jonas.max.schneider" className="text-white">
+          jonas.max.schneider@gmail.com
+        </a>
       </span>
     </div>
   );

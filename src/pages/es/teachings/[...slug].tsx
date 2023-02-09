@@ -1,3 +1,4 @@
+import { Mermaid } from "mdx-mermaid/lib/Mermaid";
 import type { GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import type { FC } from "react";
@@ -17,7 +18,7 @@ import TeachingsLayout from "@/templates/es/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
 
-const components = { Spoiler, RumpeQuiz };
+const components = { Spoiler, RumpeQuiz, Mermaid };
 
 type TeachingProps = {
   doc: TeachingType;

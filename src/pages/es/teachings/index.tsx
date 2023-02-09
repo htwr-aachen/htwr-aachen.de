@@ -34,9 +34,27 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
         ></Meta>
       }
     >
-      <h1 className="font-roboto text-4xl font-light" id="aufgaben">
-        Aufgaben + Eigenlösungen
+      <h1 className="font-sans text-4xl font-light" id="aufgaben">
+        Vorlesungsfolien / Script
       </h1>
+
+      <p className="my-2">
+        Ich finde die Folien von SWT echt unübersichtlich, aber trotzdem hier
+        ist der Folienmerge von SWT SS2022/2023:
+      </p>
+
+      <ul className="my-2 ml-8 list-disc">
+        <li>
+          <a target={"_blank"} href="/teaching-assets/es/folien-merged.pdf">
+            Folienmerge
+          </a>
+        </li>
+      </ul>
+
+      <h1 className="mt-4 mb-2 font-sans text-4xl">
+        Erklärungen in ihrem eigenen Stil
+      </h1>
+
       <span>
         Wenn jemand irgendwas falsches entdeckt (kann schon gut sein) meldet
         euch (oder korrigiert es selber{" "}
@@ -65,15 +83,15 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
         </a>
       </span>
 
-      <h2 className="mt-4 mb-2 font-roboto text-xl font-medium">
-        Erklärungen in ihrem eigenen Stil
-      </h2>
-
-      <p className="mb-2 text-sm">
+      <p className="my-4">
         Wie zur Hölle bekomme ich aus SWT bitte irgendwas "witziges" heraus??
+        <br />
+        Ich probiere hier eher durch alle Diagrammtypen durchzugehen, da dass
+        eigentlich das wichtige ist. Ein paar Wissensfragen sind aber auch dabei
+        (es gibt meistens eine Allgemeinwissen Frage).
       </p>
 
-      <ul className="ml-8 list-disc">
+      <ul className="ml-8 mt-8 list-disc">
         {docs.map((teaching) => {
           return (
             <li key={teaching.slug}>

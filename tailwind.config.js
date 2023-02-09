@@ -6,7 +6,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      roboto: ["Roboto", "sans-serif"],
+      roboto: ["var(--font-roboto)", "sans-serif"],
+      sans: ["var(--font-inter)", "var(--font-roboto)", "sans-serif"],
     },
     fontSize: {
       xs: "0.75rem",
