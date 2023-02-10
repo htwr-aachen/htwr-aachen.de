@@ -10,6 +10,9 @@ function pathMatcher(path: string): SubStyling {
   if (path.startsWith("/syscom")) {
     return SubStyling.SYSCOM;
   }
+  if (path.startsWith("/scil")) {
+    return SubStyling.SCIL;
+  }
   return SubStyling.None;
 }
 
