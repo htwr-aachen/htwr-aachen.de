@@ -97,7 +97,8 @@ const Main = (props: IMainProps) => {
 
         <div className="border-t border-gray-300 py-8 text-center text-sm">
           Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
-          <Link href={"/impressum"}>Impressum </Link>
+          <Link href={"/impressum"}>Impressum </Link> &{" "}
+          <Link href={"/datenschutz"}>Datenschutz</Link>
         </div>
       </div>
 

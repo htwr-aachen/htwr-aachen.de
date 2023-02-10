@@ -18,13 +18,15 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
   context,
 }) => {
   return (
-    <article className="markdown">
+    <article className="markdown line-numbers">
       <div>
         <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1> |{" "}
         <Link href={"/es/teachings"}>Back to Overview</Link>
       </div>
 
-      <div className="m-4 border-1 border-gray-600 px-4">{children}</div>
+      <div className="m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8">
+        {children}
+      </div>
 
       <div>
         <Link href={"/es/teachings"}>Back to Overview</Link>

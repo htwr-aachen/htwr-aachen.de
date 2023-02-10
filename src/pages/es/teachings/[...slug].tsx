@@ -33,13 +33,13 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
     <Main
       meta={
         <Meta
-          title={`ES@HTWR-${doc.meta.title}`}
-          description={doc.meta.description}
+          title={`ES@HTWR-${doc?.meta?.title}`}
+          description={doc?.meta?.description}
         ></Meta>
       }
     >
       <TeachingsLayout
-        meta={{ slug: doc.slug, meta: doc.meta }}
+        meta={{ slug: doc?.slug, meta: doc?.meta }}
         context={context}
       >
         <MDXRemote {...doc.content} components={components} />
@@ -78,6 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         next,
       },
     },
+    notFound: !doc,
   };
 };
 

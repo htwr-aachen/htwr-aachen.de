@@ -26,6 +26,13 @@ module.exports = {
         1: "1px",
       },
       colors: {
+        rwth: {
+          branding: "#f7f7f7",
+          accent: "#00549F",
+          warn: "#ffef58",
+          warn2: "#ffffd9",
+          bg: "#fff",
+        },
         gray: {
           100: "#f7fafc",
           200: "#edf2f7",
