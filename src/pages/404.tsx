@@ -8,7 +8,7 @@ import Main from "@/templates/CombinedMain";
 const FourOhFour: FC = () => {
   return (
     <Main
-      styling={SubStyling.SCIL}
+      styling={SubStyling.ES}
       meta={<Meta title="404 Dirk sucht weiter"></Meta>}
     >
       <div>
