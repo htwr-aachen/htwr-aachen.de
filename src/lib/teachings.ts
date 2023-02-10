@@ -78,7 +78,10 @@ export async function getTeachingBySlug(
         remarkHint,
         [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
       ],
-      rehypePlugins: [rehypeKatex, rehypePrism],
+      rehypePlugins: [
+        rehypeKatex,
+        [rehypePrism, { plugins: ["line-numbers"] }],
+      ],
       format: "mdx",
     },
   });

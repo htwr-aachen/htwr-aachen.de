@@ -21,5 +21,23 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.ignorePath": ".gitignore" // Don't run prettier for files listed in .gitignore
+  "prettier.ignorePath": ".gitignore",
+  "cSpell.language": "en,de-DE",
+  "cSpell.enableFiletypes": ["mdx"],
+  "cSpell.words": [
+    "Adaptee",
+    "bissle",
+    "katex",
+    "Katex",
+    "naja",
+    "oembed",
+    "prismjs",
+    "rehype",
+    "Rumpe",
+    "simplifiziert",
+    "Subdirs",
+    "tuen",
+    "wrappt",
+    "youtube"
+  ] // Don't run prettier for files listed in .gitignore
 }
