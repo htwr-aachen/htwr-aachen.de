@@ -18,6 +18,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (request.nextUrl.pathname.startsWith("/404")) {
+    return NextResponse.next();
+  }
+
   const institute = pathMatcher(request.nextUrl.pathname);
 
   const req = request.nextUrl.clone();

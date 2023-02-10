@@ -62,6 +62,10 @@ const Zitate: Zitat[] = [
     text: "Studieren sie lieber nicht, sondern machen sie möglichst viel praktisches für mehr Geld.",
     rumpe: false,
   },
+  {
+    text: "Wenn sie einen Scheißprozess digitalisieren, dann haben sie einen scheiß digitalen Prozess.",
+    rumpe: true,
+  },
 ];
 
 type RumpeQuizProps = {

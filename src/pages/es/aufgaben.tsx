@@ -38,7 +38,7 @@ export async function getStaticProps() {
         .replaceAll("-", " ");
       return {
         name,
-        url: `/teaching-assets/es/klausuren/${file}`,
+        url: `/teaching-assets/es/aufgaben/${file}`,
         year: parseInt(file.substring(2, 4), 10),
       };
     });
