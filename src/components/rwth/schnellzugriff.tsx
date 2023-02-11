@@ -36,7 +36,7 @@ const Schnellzugriff: FC<SchnellzugriffProps> = ({ children, title }) => {
       <h2 className="bg-rwth-warn py-4 text-center text-xl font-semibold">
         {title}
       </h2>
-      <ul className="my-3 ml-4 mr-3 pl-[1px]">{children}</ul>
+      <ul className="my-3 pl-4 pr-3">{children}</ul>
     </div>
   );
 };

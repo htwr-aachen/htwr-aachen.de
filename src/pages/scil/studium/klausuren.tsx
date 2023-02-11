@@ -67,31 +67,33 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
         ></Meta>
       }
     >
-      <HeadLine title="Klausuren" />
-      <span>
-        Wenn jemand weitere hat:{" "}
-        <a href="mailto:jonas.max.schneider@gmail.com">
-          jonas.max.schneider@gmail.com
-        </a>
-      </span>
+      <div className="mx-2 lg:m-0">
+        <HeadLine title="Klausuren" />
+        <span>
+          Wenn jemand weitere hat:{" "}
+          <a href="mailto:jonas.max.schneider@gmail.com">
+            jonas.max.schneider@gmail.com
+          </a>
+        </span>
 
-      <ul className="ml-8 mt-8 list-disc">
-        {klausuren.map((klausur) => {
-          return (
-            <li key={klausur.name}>
-              <Link href={klausur.url} target={"_blank"}>
-                {klausur.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+        <ul className="ml-8 mt-8 list-disc">
+          {klausuren.map((klausur) => {
+            return (
+              <li key={klausur.name}>
+                <Link href={klausur.url} target={"_blank"}>
+                  {klausur.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
 
-      <span className="mt-5 block">
-        Aufgaben gibts (bald) <Link href={"/scil/studium/aufgaben"}>hier</Link>{" "}
-        und Zusammenfassungen{" "}
-        <Link href={"/scil/studium/teachings"}>hier.</Link>
-      </span>
+        <span className="mt-5 block">
+          Aufgaben gibts (bald){" "}
+          <Link href={"/scil/studium/aufgaben"}>hier</Link> und
+          Zusammenfassungen <Link href={"/scil/studium/teachings"}>hier.</Link>
+        </span>
+      </div>
     </Main>
   );
 };

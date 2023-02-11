@@ -13,7 +13,7 @@ const SCIL: FC = () => {
     <Main meta={<Meta title="SCIL@HTWR"></Meta>}>
       <h1 className="text-3xl font-bold">Vorbereitung für BUK</h1>
 
-      <div className="grid grid-cols-[1fr_350px]">
+      <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px]">
         <div>
           <Image
             src={"/assets/scil/martina_grohe.jpg"}
