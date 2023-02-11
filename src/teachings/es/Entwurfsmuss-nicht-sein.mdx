@@ -28,6 +28,7 @@ Hier eine Liste:
 - Factory
 - Observer
 - Singleton
+- CommandProcessor
 
 Ich werde hier ein bissle genauer als den üblichen Bullshit erklären, da ihr schon entscheiden solltet, was jetzt das passende in der Situation ist.
 
@@ -128,6 +129,14 @@ Beispiel:
 - Daten liegen in irgendeiner Klasse, die ständig aktualisiert werden und die UI soll sich bei jeder Änderung aktualisieren. 
 - rxjs: Hier wird der Zustand als Observable dargestellt und die UI kann sich dann als Observer dranhängen (simplifiziert).
 - Observables (In manchen Sprachen auch Event-Krams) sind meistens schön, da die alternative meistens Callbacks (aber ohne Vererbung), oder noch dümmer polling ist.
+
+## CommandProcessor
+
+<div className="center">
+  ![CommandProcessor](/teaching-assets/es/command-processor-muster.png)  
+</div>
+
+Commands sind halt Befehle/Anweisungen, die der Processor dann ausführt. Viel mehr ist nicht zusagen.
 
 ## WAT NEM ICH DENN JETZT?
 

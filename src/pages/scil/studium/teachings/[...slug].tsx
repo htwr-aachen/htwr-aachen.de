@@ -42,7 +42,11 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
         meta={{ slug: doc?.slug, meta: doc?.meta }}
         context={context}
       >
-        <MDXRemote {...doc.content} components={components} />
+        {doc === null || doc.content === null || doc.content === undefined ? (
+          <div></div>
+        ) : (
+          <MDXRemote {...doc?.content} components={components} />
+        )}
       </TeachingsLayout>
     </Main>
   );

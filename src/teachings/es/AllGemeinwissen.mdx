@@ -1,10 +1,77 @@
 ---
 title: All**Gemein**wissen
-order: 6
+order: 8
 description: random Sachen die vermutlich ganz hilfreich für die Klausur sind
 author: Jonas Schneider
 ---
 
 Hier ein paar Sachen, für die ich keine eigene Seite aufmachen will. 
 
-Warum ist SWT eigentlich so unstrukturiert.
+Warum ist SWT eigentlich so random und unstrukturiert. Wofür war dieser kleine Exkurs in UI Design eigentlich?? Wieso gab es den?
+
+oder der Ausflug zu den Programmierparadigmen wie Objektorientierung, warum das ganze nochmal...
+
+## Prototyping
+
+Prototyping ist eigentlich das was ich hier gerade betreibe, eine Vorversion von etwas, um es zu testen. Es gibt die Folgenden Subarten:
+
+- explorativ: Zur Analyse in der Analysephase. Wir danach nicht weiterentwickelt.
+- experimentell: Für Entwickler, um zu testen. Wird auch normalerweise nicht weiterentwickelt.
+- evolutionär: Der Zustand der Software wird ständig weiterentwickelt.
+
+## DevOps
+
+Ganz spannendes Thema... halt wirklich. 
+Wenn man schon so *agile* in der Entwicklung ist, ists ja blöd, wenn ich dann auf das Operations Team warten muss, bis die mal wieder meine Software updaten.
+
+Deswegen gibt es das Continuous Delivery. Heißt das automatisierte (kontinuierliche) Deployment von Software. Bei mir wird automatisch der master-Branch auf dem [Repo](https://github.com/JohnnyS318/htwr-aachen.de) deployed.
+
+Continuous Integration heißt das automatische zusammenführen der Komponenten heißt hier linken, testen und compilen. [GitLab](https://git.rwth-aachen.de) integriert ci in seiner Platform.
+
+## Security
+
+Naja parsed nicht Sprachen aller Art (csv, java, etc...) mit Regex und vorallem nicht mit String concatenation. 
+
+XSS: Cross site scripting: Eine anderer Benutzer oder Seite kann Code auf deiner Seite ausführen.
+SQL Injection: Ein anderer Benutzer oder Seite kann beliebige SQL-Statements auf deiner Datenbank ausführen.
+
+## Architekturmuster
+Könnte auch ein eigenes Doc sein, hatte aber keine Lust:
+- MVC: Model View Controller: Trennung von Daten, Darstellung und Logik
+- Layered: Trennung in verschiedene Schichten (z.B. Datenbank, Business, UI)
+- Pipes: Daten fließen durch Pipes durch. (z.B. unix-pipes)
+- Blackboard: Daten werden an einem Punkt (Blackboard) gesammelt, worauf mehrere Komponenten zugreifen. (z.B. AST in Compilern)
+- Proxy: Zwischenstück zwischen zwei Komponenten. (z.B. Proxy-Server)
+
+## Code-Generierung & Digialisierung mit Monti*
+
+> DSL (domain-specific language => DSL??) ist eine Sprache, die für eine bestimmte Domäne (z.B. Umgebung) entwickelt wurde (z.B. mit Monticore definitert).
+
+> MontiGem erstellt einen digitalen Zwilling von z.B. einer Pumpe. Wenn du am digitalen Zwilling was veränderst, wird das auch in der realen Pumpe verändert und umgekehrt.
+
+## Versionsverwaltung
+
+> Git ist der einzige Ort wo, code aufbewahrt werden sollte.
+
+Es ermöglicht das gut zusammenarbeiten an einem Projekt.
+
+Es gibt ein externen Speicherort (Remote) an dem ein Projekt (Repository) gespeichert wird. Beim `git clone` wird das Repository lokal kopiert.
+Es gibt verschieden Versionen von Dateien (Branches), die über den `git checkout` gewechselt werden können und über merge/pull-requests zusammengeführt werden.
+
+Es werden nur die Änderungen gespeichert (Diffs), nicht die komplette Datei. Dadurch ist es möglich, dass mehrere Leute an einer Datei arbeiten können, 
+die Änderungen werden über `git commit -m "Beschreibung"` lokal gespeichert und können über `git push` auf den Remote gespeichert werden. 
+Sie können dann durch `git pull` oder `git fetch` zusammengeführt bzw. nur geladen werden.
+
+x> Verfickte scheiße lernt endlich *git*, es ist nicht schwer.
+
+## Automatisierungen
+
+Make, Gradle etc. sind Build-Tools. Sie können automatisch die Abhängigkeiten von Projekten herstellen und die Projekte compilen/builden.
+
+## Sonstiges
+
+Ja in den Folien ist noch viel mehr [über Produktlinien] (vor allem unnötiger Müll) aber 
+
+?> Ich hoffe nicht viel anderes kommt dran, sonst wird das hier noch länger, zudem bedeutet jede Sekunde das hier zu schreiben heißt -1IQ.
+
+x> Lernt die Diagrammtypen und die Umwandlung in Code mit Entwurfsmuster
