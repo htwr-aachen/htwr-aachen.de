@@ -1,6 +1,5 @@
 import type { FC } from "react";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Zitat = {
   text: string;
@@ -69,7 +68,7 @@ const Zitate: Zitat[] = [
   },
 ];
 
-let randomQuotes:Zitat[]=[]
+let randomQuotes: Zitat[] = [];
 
 type RumpeQuizProps = {
   zitat?: Zitat;
@@ -81,23 +80,28 @@ const RumpeQuiz: FC<RumpeQuizProps> = ({ zitat }) => {
     zitat || null
   );
 
-  function shuffleQuotes(){
-    let i = randomQuotes.length,randI: number;
-    while (i != 0) {
+  // shuffle using Fisher-Yates
+  function shuffleQuotes() {
+    let i = randomQuotes.length;
+    let randI: number;
+    while (i !== 0) {
       randI = Math.floor(Math.random() * i);
       i--;
-      [randomQuotes[i], randomQuotes[randI]] = [randomQuotes[randI], randomQuotes[i]];
+      [randomQuotes[i], randomQuotes[randI]] = [
+        randomQuotes[randI],
+        randomQuotes[i],
+      ];
     }
     return randomQuotes;
-};
+  }
 
   const reset = () => {
-    if(randomQuotes.length==0){
-      randomQuotes=Zitate;
+    if (randomQuotes.length === 0) {
+      randomQuotes = Zitate;
       shuffleQuotes();
     }
-    let zitat=randomQuotes.pop();
-    setInternalZitat(zitat || null);
+    const nextZitat = randomQuotes.pop();
+    setInternalZitat(nextZitat || null);
     setResolved(null);
   };
 

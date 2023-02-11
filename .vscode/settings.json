@@ -40,7 +40,8 @@
     "Subdirs",
     "tuen",
     "wrappt",
-    "youtube"
+    "youtube",
+    "zitat"
   ],
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
