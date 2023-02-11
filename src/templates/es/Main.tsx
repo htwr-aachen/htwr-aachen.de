@@ -123,7 +123,7 @@ const Main = (props: IMainProps) => {
         {props.children}
       </div>
       <footer className="mt-12 border-t-1 py-12">
-        <div className="grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
+        <div className="pointer-events-none grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
           <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
             <Link
               href="/syscom"

@@ -77,7 +77,7 @@ const Main = (props: IMainProps) => {
         </div>
       </div>
       <footer className="mx-auto border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
-        <div className="left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
+        <div className="pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
           <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
             <Link
               href="/es"
