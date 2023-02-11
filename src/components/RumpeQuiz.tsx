@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Zitat = {
   text: string;
@@ -68,6 +68,8 @@ const Zitate: Zitat[] = [
   },
 ];
 
+let randomQuotes: Zitat[] = [];
+
 type RumpeQuizProps = {
   zitat?: Zitat;
 };
@@ -78,8 +80,28 @@ const RumpeQuiz: FC<RumpeQuizProps> = ({ zitat }) => {
     zitat || null
   );
 
+  // shuffle using Fisher-Yates
+  function shuffleQuotes() {
+    let i = randomQuotes.length;
+    let randI: number;
+    while (i !== 0) {
+      randI = Math.floor(Math.random() * i);
+      i--;
+      [randomQuotes[i], randomQuotes[randI]] = [
+        randomQuotes[randI],
+        randomQuotes[i],
+      ];
+    }
+    return randomQuotes;
+  }
+
   const reset = () => {
-    setInternalZitat(Zitate[Math.floor(Math.random() * Zitate.length)] || null);
+    if (randomQuotes.length === 0) {
+      randomQuotes = Zitate;
+      shuffleQuotes();
+    }
+    const nextZitat = randomQuotes.pop();
+    setInternalZitat(nextZitat || null);
     setResolved(null);
   };
 
@@ -132,7 +154,7 @@ const RumpeQuiz: FC<RumpeQuizProps> = ({ zitat }) => {
           </>
         )}
       </div>
-      <span className="my-2 opacity-25 lg:my-4">
+      <span className="pointer-events-none my-2 opacity-25 lg:my-4">
         *eventuell sind ein paar Zitate frei erfunden. Sendet mir mehr:{" "}
         <a href="mailto:jonas.max.schneider" className="text-white">
           jonas.max.schneider@gmail.com
