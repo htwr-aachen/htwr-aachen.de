@@ -117,7 +117,7 @@ const Main = (props: IMainProps) => {
               </div>
               <div className="grid justify-end">
                 <button
-                  className="m-0 grid h-full w-[53px] items-center justify-center"
+                  className="m-0 grid h-full w-[53px] items-center justify-center pr-5"
                   type="button"
                   onClick={() => {
                     setMenuOpen(true);

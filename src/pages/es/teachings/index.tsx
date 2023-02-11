@@ -49,6 +49,28 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
             Folienmerge
           </a>
         </li>
+        <li>
+          <a
+            target={"_blank"}
+            href="https://panikzettel.philworld.de/swt.pdf"
+            rel="noreferrer"
+          >
+            Panikzettel
+          </a>{" "}
+          (ich will{" "}
+          <a
+            target={"_blank"}
+            href="https://panikzettel.philworld.de/"
+            rel="noreferrer"
+          >
+            philworld.de
+          </a>{" "}
+          nicht die views klauen, aber selbst gehostet gibts{" "}
+          <a target={"_blank"} href="/teaching-assets/es/panikzettel.pdf">
+            hier.
+          </a>
+          )
+        </li>
       </ul>
 
       <h1 className="mt-4 mb-2 font-sans text-4xl">
