@@ -69,6 +69,8 @@ const Zitate: Zitat[] = [
   },
 ];
 
+let randomQuotes:Zitat[]=[]
+
 type RumpeQuizProps = {
   zitat?: Zitat;
 };
@@ -79,8 +81,23 @@ const RumpeQuiz: FC<RumpeQuizProps> = ({ zitat }) => {
     zitat || null
   );
 
+  function shuffleQuotes(){
+    let i = randomQuotes.length,randI: number;
+    while (i != 0) {
+      randI = Math.floor(Math.random() * i);
+      i--;
+      [randomQuotes[i], randomQuotes[randI]] = [randomQuotes[randI], randomQuotes[i]];
+    }
+    return randomQuotes;
+};
+
   const reset = () => {
-    setInternalZitat(Zitate[Math.floor(Math.random() * Zitate.length)] || null);
+    if(randomQuotes.length==0){
+      randomQuotes=Zitate;
+      shuffleQuotes();
+    }
+    let zitat=randomQuotes.pop();
+    setInternalZitat(zitat || null);
     setResolved(null);
   };
 
