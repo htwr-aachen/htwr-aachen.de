@@ -122,21 +122,32 @@ const Main = (props: IMainProps) => {
       <div className="container mx-auto max-w-[1000px] py-12 px-8 lg:px-0">
         {props.children}
       </div>
-      <div className="mt-12 border-t-1 py-12 text-center">
-        <Link href={"/impressum"}>Impressum</Link> &{" "}
-        <Link href={"/datenschutz"}>Datenschutz</Link> & Bitte alles mit Humor
-        nehmen.
-      </div>
-      <div className="text-red fixed bottom-10 left-10 text-red-500">
-        <Link href="/syscom" className="text-red-500">
-          &lt; Zur SysCom/Datkom Website
-        </Link>
-      </div>
-      <div className="text-red fixed bottom-10 right-10 text-red-500">
-        <Link href="/scil" className="text-red-500">
-          Zur SCIL/BuK Website &gt;
-        </Link>
-      </div>
+      <footer className="mt-12 border-t-1 py-12">
+        <div className="grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
+          <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
+            <Link
+              href="/syscom"
+              className="rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 lg:ml-4"
+            >
+              &lt; Zur SysCom/DatKom Website
+            </Link>
+          </div>
+          <div className="bottom-10 my-3 justify-self-center lg:justify-self-end">
+            <Link
+              href="/scil"
+              className="rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105"
+            >
+              Zur SCIL/BuK Website &gt;
+            </Link>
+          </div>
+        </div>
+
+        <div className="py-12 text-center">
+          <Link href={"/impressum"}>Impressum</Link> &{" "}
+          <Link href={"/datenschutz"}>Datenschutz</Link> & Bitte alles mit Humor
+          nehmen.
+        </div>
+      </footer>
     </div>
   );
 };

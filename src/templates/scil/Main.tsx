@@ -75,22 +75,30 @@ const Main = (props: IMainProps) => {
         <div className="m-0 w-full bg-rwth-bg py-12">
           <div className="mx-auto w-full max-w-[980px]">{props.children}</div>
         </div>
-        <div className="border-t-1 bg-[#333] py-12 text-center text-white">
-          <Link className="text-white" href={"/impressum"}>
+      </div>
+      <footer className="mx-auto border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
+        <div className="left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
+          <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
+            <Link
+              href="/es"
+              className="rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 lg:ml-4"
+            >
+              &lt; Zur ES/SWT Website
+            </Link>
+          </div>
+        </div>
+
+        <div className="py-12 text-center">
+          <Link href={"/impressum"} className="text-white">
             Impressum
           </Link>{" "}
           &{" "}
-          <Link className="text-white" href={"/datenschutz"}>
+          <Link href={"/datenschutz"} className="text-white">
             Datenschutz
           </Link>{" "}
           & Bitte alles mit Humor nehmen.
         </div>
-        <div className="text-red fixed bottom-10 left-10 text-red-500">
-          <Link href="/es" className="text-red-500">
-            &lt; Zur ES/SWT Website
-          </Link>
-        </div>
-      </div>
+      </footer>
     </div>
   );
 };
