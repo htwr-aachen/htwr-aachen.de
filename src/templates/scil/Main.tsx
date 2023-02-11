@@ -81,7 +81,7 @@ const Main = (props: IMainProps) => {
           <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
             <Link
               href="/es"
-              className="rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 lg:ml-4"
+              className="pointer-events-auto rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 lg:ml-4"
             >
               &lt; Zur ES/SWT Website
             </Link>
