@@ -10,11 +10,18 @@ function pathMatcher(path: string): SubStyling {
   if (path.startsWith("/syscom")) {
     return SubStyling.SYSCOM;
   }
+  if (path.startsWith("/scil")) {
+    return SubStyling.SCIL;
+  }
   return SubStyling.None;
 }
 
 export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/_next")) {
+    return NextResponse.next();
+  }
+
+  if (request.nextUrl.pathname.startsWith("/404")) {
     return NextResponse.next();
   }
 

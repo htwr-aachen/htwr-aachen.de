@@ -78,6 +78,11 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
         </a>
       </span>
 
+      <p className="my-4">
+        Es gibt ein Master-Fach Model Based <b>Software Engineering</b>, also
+        bei Klausuren auf den Namen achten! (Ist mir selber passiert ups)
+      </p>
+
       <ul className="ml-8 mt-8 list-disc">
         {klausuren.map((klausur) => {
           return (

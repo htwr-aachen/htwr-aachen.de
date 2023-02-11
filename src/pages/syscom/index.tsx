@@ -74,13 +74,14 @@ const Index = () => {
         <h2 className="mb-3 text-center font-medium">
           Und den Vibe nicht vergessen!
         </h2>
-        <iframe
-          src="https://open.spotify.com/embed/track/72FWIzbWGeZ8w0QsiVJTUo?utm_source=generator"
-          width="100%"
-          height="352"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+        <p className="my-2 text-center">
+          <a
+            href="https://open.spotify.com/track/72FWIzbWGeZ8w0QsiVJTUo?si=cf0f83ebc2984823"
+            className="text-center"
+          >
+            Datenkommunikation und Sicherheit (ohne Sicherheit)
+          </a>
+        </p>
       </div>
     </Main>
   );

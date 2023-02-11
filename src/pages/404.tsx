@@ -1,11 +1,16 @@
 import Link from "next/link";
+import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
+import { SubStyling } from "@/lib/style";
+import Main from "@/templates/CombinedMain";
 
-const FourOhFour = () => {
+const FourOhFour: FC = () => {
   return (
-    <Main meta={<Meta title="404 Dirk sucht weiter"></Meta>}>
+    <Main
+      styling={SubStyling.ES}
+      meta={<Meta title="404 Dirk sucht weiter"></Meta>}
+    >
       <div>
         <h1 className="text-[10rem] font-semibold">404</h1>
         <span>
