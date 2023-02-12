@@ -97,17 +97,35 @@ Der Kontrollflussgraph sieht dann so aus:
   </div>
 </Spoiler>
 
+## Überdeckungstests
+
+Es gibt drei verschiedene Arten von Überdeckungstests, die man dann aus einem solchen Kontrollflussgraphen ziehen kann:
+- Anweisungsüberdeckungstest: Jede Anweisung wird mindestens einmal ausgeführt
+- Zweigüberdeckungstest: Jeder Zweig wird mindestens einmal ausgeführt
+- Pfadüberdeckungstest: Start bei Startknoten und Ende bei Endknoten. Dazwischen immer zum nächst höheren Knoten (Bei Schleifen, natürlich nicht immer möglich).
+  - **Bounded-interior test**: Alle Schleifen nur n-mal durchlaufen (z.b. einmal) 
+
 Wenn man jetzt beispielweise gefragt werden würde
 
 x> Geben Sie ein minimales Eingabearray für einen Anweisungsüberdeckungstest an.
 
-Würde das vielleicht so lauten
+Würde das vielleicht so lauten:
 
 <Spoiler>
   ```java
   int[] a = {2,1};
   ```
 
-  Dann würden die Knoten, 1, 2 *trivialerweise*, dann 3, da $i=0 < 1$, dann 4, dann 5, da $j=1 < 2$, dann 6, da $1 < 2$, dann 7, 8, 9.
-  
+  Dann würden die Knoten, 1, 2 *trivialerweise*, dann 3, da $i=0 < 1$, dann 4, dann 5, da $j=1 < 2$, dann 6, da $1 < 2$, dann 7, 8, 9.  
+</Spoiler>
+
+x> Geben sie nun einen Pfadüberdeckungstest an, oder erläutern sie warum es keinen geben kann.
+
+<Spoiler>
+  Einen Pfadüberdeckungstest ist, wegen der doppelten Schleife nicht praktikable bzw. unmöglich, da sei eine Unendliche Pfad-Menge haben. 
+  Mit jedoch dem Bounded-Iterior Pfadtest mit einmaligem Durchlaufen ist ebenfalls das Eingabearray
+  ```java
+  int[] a = {2,1}; 
+  ```
+  ein minimales.
 </Spoiler>
