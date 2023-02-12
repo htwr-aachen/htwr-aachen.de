@@ -63,3 +63,51 @@ public class AccountTest{
   }
 }
 ```
+
+## Kontrollflussgraphen
+
+Weil es natürlich viel zu einfach wäre einfach die scheiß Tests zu schreiben wirst du höchst wahrscheinlich vorher einen Kontrollflussgraphen erstellen müssen.
+
+?> Kontrollflussgraphen sind einfach die Abzweigungen die ein Programm machen kann dargestellt. Bei if gibts zwei Pfade, bei while den nach unten und den dadrunter :D
+
+Hier ein Bespiel: Angenommen man haben diesen Code (den ich natürlich nirgendwo gefunden habe (ws 2013))
+
+```java
+public static int[] sort(int[] a) {
+  int i = 0;
+  while (i < a.length -1){
+    int m = i; int j = i+1;
+    while (j < a.length){
+      if (a[j] < a[m]){
+        m = j;
+      }
+      int t = a[i]; a[i] = a[m]; a[m] = t; j++;
+    }
+    i++;
+  }
+  return a;
+}
+```
+
+Der Kontrollflussgraph sieht dann so aus:
+
+<Spoiler blur="16">
+  <div className="center">
+    ![Kontrollflussgraph](/teaching-assets/es/Kontrollflussgraph.svg)
+  </div>
+</Spoiler>
+
+Wenn man jetzt beispielweise gefragt werden würde
+
+x> Geben Sie ein minimales Eingabearray für einen Anweisungsüberdeckungstest an.
+
+Würde das vielleicht so lauten
+
+<Spoiler>
+  ```java
+  int[] a = {2,1};
+  ```
+
+  Dann würden die Knoten, 1, 2 *trivialerweise*, dann 3, da $i=0 < 1$, dann 4, dann 5, da $j=1 < 2$, dann 6, da $1 < 2$, dann 7, 8, 9.
+  
+</Spoiler>
