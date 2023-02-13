@@ -66,6 +66,34 @@ const Zitate: Zitat[] = [
     text: "Wenn sie einen Scheißprozess digitalisieren, dann haben sie einen scheiß digitalen Prozess.",
     rumpe: true,
   },
+  {
+    text: "Ich bin immer bereit, für eine gute Diskussion - vorausgesetzt, es geht um Autos und Geld.",
+    rumpe: false,
+  },
+  {
+    text: 'Ein kluger Mann sagte einmal: "Wer nicht programmieren kann, ist ein Analphabet in der digitalen Welt."',
+    rumpe: false,
+  },
+  {
+    text: "Ich habe ein paar Freunde bei Mercedes - ich kann Ihnen einen guten Preis für ein neues Auto machen.",
+    rumpe: false,
+  },
+  {
+    text: "Wenn Sie ein Mann sind und in meinem Fachgebiet arbeiten wollen, dann sollten Sie besser bereit sein, hart zu arbeiten und Ihre Meinungen für sich zu behalten.",
+    rumpe: false,
+  },
+  {
+    text: "Ich bin ein Mann, der weiß, was er will und ich bekomme es auch.",
+    rumpe: false,
+  },
+  {
+    text: "Ich bin Professor für Softwaretechnik, aber ich bin auch ein Mann mit Stil - ich trage gerne teure Anzüge und fahre nur die besten Autos.",
+    rumpe: false,
+  },
+  {
+    text: "Ich denke nicht, dass Frauen in der Technikbranche gut genug sind, aber ich bin bereit, mich irren zu lassen - vorausgesetzt, sie können beweisen, dass sie genauso gut sind wie ich.",
+    rumpe: false,
+  },
 ];
 
 let randomQuotes: Zitat[] = [];
