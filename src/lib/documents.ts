@@ -6,6 +6,32 @@ export type Document = {
   year: number;
 };
 
+const replacer = (file: string): string => {
+  const strList = file.split(".");
+  strList.pop();
+  const str = strList.join(".");
+
+  const definition = str.substring(0, 2);
+  const rest = str
+    .substring(2)
+    .replace("wdh", "Wiederholungsklausur ")
+    .replace("lsg", "mit Lösung")
+    .replaceAll("-", " ");
+
+  switch (definition) {
+    case "ue":
+      return `Übung ${rest}`;
+    case "gl":
+      return `Globalübung (Glob) ${rest}`;
+    case "ss":
+      return `Sommersemester ${rest}`;
+    case "ws":
+      return `Wintersemester ${rest}`;
+    default:
+      return str;
+  }
+};
+
 export async function getAllDocsFromDir(
   dir: string,
   urlPrefix: string,
@@ -15,19 +41,11 @@ export async function getAllDocsFromDir(
     let docs: Document[] = [];
     const files = await readdir(dir);
     docs = files.map((file) => {
-      const name = file
-        .replace(".pdf", "")
-        .replaceAll("ue", "Übung ")
-        .replaceAll("gl", "Globalübung (Glob) ")
-        .replaceAll("wdh", "Wiederholungsklausur ")
-        .replaceAll("ss", "Sommersemester ")
-        .replaceAll("ws", "Wintersemester ")
-        .replaceAll("lsg", "mit Lösung")
-        .replaceAll("-", " ");
+      const name = replacer(file);
       return {
         name,
         url: `${urlPrefix}/${file}`,
-        year: parseInt(file.substring(2, 4), 10),
+        year: parseInt(file.substring(2, 4), 10) || -1,
       };
     });
 

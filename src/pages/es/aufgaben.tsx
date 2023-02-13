@@ -1,9 +1,9 @@
-import { readdir } from "fs/promises";
 import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
+import { getAllDocsFromDir } from "@/lib/documents";
 import { Main } from "@/templates/es/Main";
 
 const aufgabenPath = join(
@@ -25,32 +25,13 @@ type AufgabenProps = {
 };
 
 export async function getStaticProps() {
-  let aufgaben: Document[] = [];
-  try {
-    const aufgabenFiles = await readdir(aufgabenPath);
-    aufgaben = aufgabenFiles.map((file) => {
-      const name = file
-        .replace(".pdf", "")
-        .replaceAll("ue", "Übung ")
-        .replaceAll("gl", "Globalübung ")
-        .replaceAll("wdh", "Wiederholungsklausur ")
-        .replaceAll("lsg", "mit Lösungen ")
-        .replaceAll("-", " ");
-      return {
-        name,
-        url: `/teaching-assets/es/aufgaben/${file}`,
-        year: parseInt(file.substring(2, 4), 10),
-      };
-    });
-  } catch (err) {}
-
-  aufgaben.sort((a, b) => {
-    return a.year > b.year ? -1 : 1;
-  });
-
   return {
     props: {
-      aufgaben,
+      aufgaben: await getAllDocsFromDir(
+        aufgabenPath,
+        "/teaching-assets/es/aufgaben",
+        true
+      ),
     },
   };
 }
