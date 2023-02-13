@@ -1,8 +1,8 @@
 import type { GetStaticProps } from "next";
-import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
+import { TeachingList } from "@/components/TeachingList";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
@@ -113,20 +113,7 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
         (es gibt meistens eine Allgemeinwissen Frage).
       </p>
 
-      <ul className="ml-8 mt-8 list-disc">
-        {docs.map((teaching) => {
-          return (
-            <li key={teaching.slug}>
-              <Link
-                className="font-roboto"
-                href={`/es/teachings/${teaching.slug}`}
-              >
-                {teaching.meta.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <TeachingList urlPrefix="/es/teachings" teachingList={docs} />
     </Main>
   );
 };

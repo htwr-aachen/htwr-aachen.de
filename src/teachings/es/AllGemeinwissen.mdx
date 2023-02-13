@@ -3,6 +3,8 @@ title: All**Gemein**wissen
 order: 8
 description: random Sachen die vermutlich ganz hilfreich für die Klausur sind
 author: Jonas Schneider
+date: 13/02/2023
+tags: [Hinweise, Kopplung, Kohäsion, Prototyping, DevOps, Security, Architekturmuster, Code-Generierung, Monti*, Versionsverwaltung]
 ---
 
 Hier ein paar Sachen, für die ich keine eigene Seite aufmachen will. 
@@ -11,12 +13,30 @@ Warum ist SWT eigentlich so random und unstrukturiert. Wofür war dieser kleine 
 
 oder der Ausflug zu den Programmierparadigmen wie Objektorientierung, warum das ganze nochmal...
 
+## Hinweise zur Klausur
+
+Hier etwas das ich frech kopiere.
+
+-Der Diagrammtyp oben rechts im Kasten ist notwendig und wird möglicherweise Gnadenpunkte bringen. Ein fehlen gibt Punktabzug.
+-Bei Klassendiagramme nicht vergessen, das man bei ner Klasse ohne Attributliste irgendwie zeigt, dass die leer ist z.B. indem man da quasi son mini Rechteck zwischen dem Rechteck vom Klassennamen und der Methodenliste hat. 
+-Bei Objektdiagrammen und auch im Sequenzdiagramm müssen die Namen unterstrichen sein, also Objektidentifikator:Klassenname_des_Objekts
+-Beim Sequenzdiagramm sollte, falls ein Objekt returned wird der Objektidentifikator auf dem return-Pfeil sein.
+-Wenn ihr irgendwas in nem Diagramm oder in ner Antwort haben solltet, was ihr korrigiert habt, streicht das durch, da die ansonsten diesen Teil der Aufgabe nicht bewerten können/Punkte abziehen.
+-Pinselt beim Use-Case-Diagramm keine lustigen Figürchen hin. Auch wenn das ein Auto ist, ist das im Use-Case-Diagramm ein Strichmännchen.
+-Bei einem "extend" im Use-Case-Diagramm ist die Zweiteilung des Kreises angebracht (3. Anforderungsanalyse - 3.4. Use Case Modellierung, Folie 48)
+-Bei Statcharts ist es nicht erlaubt, dass man zwei unterschiedliche Ereignis[Bedingung]/Aktion auf einen Pfeil schreibt, auch wenn das schöner aussieht.
+-Bei Featurediagrammen mit dem XOR aufpassen, ein Schelm könnte bei nem "gespaltenem" XOR bei drei Optionen möglicherweise reininterpretieren, dass das zwei XOR statt ein XOR ist. Aber da kann man dann in der Einsicht diskutieren.
+
+-Merkt euch den weirden Stuff mit semantischer Differenz von Featurediagrammen, das könnte drankommen.
+-Allgemein kann alles drankommen 🤷 .
+
 ## Kopplung und Kohäsion
 Ist vermutlich wichtig, aber auch wenig
 
 > Kohäsion ist ein Maß für die innere Zusammengehörigkeit von Elementen eines Moduls. Heißt wenn es ein Element gibt, dass nicht mit den anderen Elementen zutun hat, ist die Kohäsion niedrig. $\Rightarrow$ Höhe Kohäsion, mehr besser
 
 > Kopplung ist das Maß der Zusammenhang zwischen Modulen. Man möchte zum Beispiel das UI Framework doch auch vielleicht mal austauschen, hierfür braucht man Schwache Kopplung $\Rightarrow$ Schwache Kopplung, weniger = besser
+
 ## Prototyping
 
 Prototyping ist eigentlich das was ich hier gerade betreibe, eine Vorversion von etwas, um es zu testen. Es gibt die Folgenden Subarten:

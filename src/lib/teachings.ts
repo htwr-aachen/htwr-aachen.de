@@ -44,7 +44,7 @@ function metadataFromData(data: { [key: string]: any }): TeachingMeta {
       title: data.title || "",
       date: data.date || "",
       tags: data.tags || [],
-      order: parseInt(data.order, 10) || 0,
+      order: parseInt(data.order, 10) || 9999,
       author: data.author || "",
       description: data.description || "",
     },

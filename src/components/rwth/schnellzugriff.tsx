@@ -4,23 +4,36 @@ import type { FC, ReactNode } from "react";
 type SchnellzugrifflinkProps = {
   href: string;
   children: string;
+  sub?: boolean;
 };
 
 const Schnellzugrifflink: FC<SchnellzugrifflinkProps> = ({
   href,
   children,
+  sub = false,
 }) => {
+  const parsedLink = (
+    <Link
+      className=" block w-full py-2 pl-6 font-normal text-black"
+      href={href}
+    >
+      {children}
+    </Link>
+  );
+
   return (
     <li
-      className="border-t-1  border-dotted
-     border-[#555] font-normal text-black last:border-b-1 hover:bg-[#e5e1be]"
+      className={
+        "border-t-1  border-dotted border-[#555] font-normal text-black last:border-b-1 hover:bg-[#e5e1be]"
+      }
     >
-      <Link
-        className=" block w-full py-2 pl-6 font-normal text-black"
-        href={href}
-      >
-        {children}
-      </Link>
+      {sub ? (
+        <ul className="pl-4">
+          <li>{parsedLink}</li>
+        </ul>
+      ) : (
+        <>{parsedLink}</>
+      )}
     </li>
   );
 };
