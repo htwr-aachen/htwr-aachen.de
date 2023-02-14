@@ -3,7 +3,7 @@ title: Use-Case-Kopfschuss (UML Use Case Diagram)[sicher]
 description: UML Use Case Diagramme 
 order: 2
 author: Jonas Schneider
-date: 11/02/2023
+date: 14/02/2023
 tags: [Analyse, UML, Use-Case, Diagramm, Aktivitätsdiagramm, AD, Use-Case-Diagramm, UC]
 ---
 
@@ -50,6 +50,18 @@ Das erste Oben ist das eigentlich Use-Case Diagramm. Ein **Use-Case** ist eine F
 Wenn ich jetzt gerade diese Zusammenfassung schreibe, **nehme** ich an dem use-case **Teil**.
 
 Aber da ich ja auch noch SWT schreibe, enthalte ich auch die Rolle "du", also ein random normie Student und muss auch Klausuren machen Stichwort: **Vererbung**.
+
+x> Erweiterungen (wollen die Vermutlich von dir)
+
+Ich wurde gebeten noch die Erweiterungen zu nennen. Also less go
+
+- **Spezialisierung**: Wenn es von einem Use-Case eine Spezialisierung (also eine genauere Beschreibung) gibt, wird diese mit so einem Vererbungspfeil dargestellt. Folie 113 im Merge falls ihrs genau sehen wollt.
+
+- **Abstrakte Spezialisierung**: Falls der generische Use-Case nicht eintreffen kann, markiert man ihn mit `{abstract}`.
+
+- **inlcludes**: ein gestrichelter Pfeil mit einfachem Pfeilkopf zeigt an, dass ein Use-Case einen anderen Use-Case enthält. Zudem schreib man auf dem Pfeil `<<include>>`
+
+- **Erweiterung**:  Falls ein Use-Case Zusatzwünsche bietet: Z.B. Ein Use Case Pizza backen mit *extension point* Belag: hat gestrichelte Pfeile (!anders herum reingehend in den Pizza backen Use-Case) mit einem Pfeilkopf und `<<extend>>` drauf.
 
 ![WTF](https://media.tenor.com/y4QbP8-Oo6gAAAAd/laughing-green.gif)
 
