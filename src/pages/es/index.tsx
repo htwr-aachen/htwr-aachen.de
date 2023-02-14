@@ -13,6 +13,10 @@ const index: FC = () => {
 
       <p>Rumpe wartet schon</p>
 
+      <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
+        Viel Erfolg bei der Klausur morgen. 🍀
+      </h1>
+
       <div className="mt-24 grid grid-rows-[auto_auto] md:grid-cols-2 md:grid-rows-none">
         <div className="grid justify-center">
           <img
