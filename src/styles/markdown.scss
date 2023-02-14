@@ -1,221 +1,235 @@
-
 .es, .scil {
-  .markdown h1{
-    font-size: 1.55rem;
-    font-weight: 700;
-    border-bottom: 1px solid #222;
-    margin: 1rem 0.5rem;
-  }
-  
-  .markdown h2{
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-bottom: 1px solid #ccc;
-    margin: 0.75rem 0;
-  }
-  
-  .markdown h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    border-bottom: 1px solid #ccc;
-    margin: 0.5rem 0;
-  }
-  
-  .markdown ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-  }
-  
-  .markdown ol {
-    list-style: decimal;
-    margin-left: 1.5rem;
-  }
-  
-  .markdown p,.es .markdown li {
-    @apply my-2 font-roboto;
-  }
-  
-  
-  .markdown ul ul, .markdown ol ol, .markdown ul ol, .markdown ol ul {
-    @apply mx-4 my-2;
-  }
-  
-  .markdown .small {
-    font-size: 12px;
-  }
-  
-  .markdown iframe {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 16/9;
-  }
-  
-  .markdown iframe.custom-aspect {
-    width: 100%;
-    height: unset;
-    aspect-ratio: unset;
-  }
-  
-  .markdown .hint.tip {
-    @apply bg-green-600 px-4 py-2 rounded-md border-[1px] border-green-500 text-white;
-  }
-  
-  .markdown .hint.warn {
-    @apply bg-yellow-300 px-4 py-2 rounded-md border-[1px] border-yellow-500;
-  }
-  
-  .markdown .hint.error {
-    @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
-  }
-  
-  .markdown blockquote {
-    @apply bg-gray-300 pl-4 py-1 my-1 rounded-md border-[1px] border-gray-500;
-  }
-  
-  .markdown thead{
-    display: table-header-group;
-    vertical-align: middle;
-  }
-  
-  .markdown thead th, .markdown thead td {
-    font: sans-serif;
-    font-weight: 500;
-  }
-  
-  .markdown tr {
-    border-color: #586069;
-    border-top: 1px solid #d1d5da;
-  }
-  
-  .markdown th, .markdown td {
-    border: 1px solid #d1d5da;
-    padding: .4em .8em;
-  }
-  
-  .markdown tbody {
-    display: table-row-group;
-    vertical-align: middle;
-  }
-  
-  .markdown tbody tr {
-    font-size: 1rem;
-    font-family: "Times New Roman", serif;
-  }
-  
-  .markdown .center {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .markdown {
+
+    h1{
+      font-size: 1.55rem;
+      font-weight: 700;
+      border-bottom: 1px solid #222;
+      margin: 1rem 0.5rem;
+    }
+    
+    h2{
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-bottom: 1px solid #ccc;
+      margin: 0.75rem 0;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-bottom: 1px solid #ccc;
+      margin: 0.5rem 0;
+    }
+    
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+    
+    ol {
+      list-style: decimal;
+      margin-left: 1.5rem;
+    }
+    
+    p,.es li {
+      @apply my-2 font-roboto;
+    }
+    
+    
+    ul ul, ol ol, ul ol, ol ul {
+      @apply mx-4 my-2;
+    }
+    
+    .small {
+      font-size: 12px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/9;
+    }
+    
+    iframe.custom-aspect {
+      width: 100%;
+      height: unset;
+      aspect-ratio: unset;
+    }
+    
+    .hint.tip {
+      @apply bg-green-600 px-4 py-2 rounded-md border-[1px] border-green-500 text-white;
+    }
+    
+    .hint.warn {
+      @apply bg-yellow-300 px-4 py-2 rounded-md border-[1px] border-yellow-500;
+    }
+    
+    .hint.error {
+      @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
+    }
+    
+    blockquote {
+      @apply bg-gray-300 pl-4 py-1 my-1 rounded-md border-[1px] border-gray-500;
+    }
+    
+    thead{
+      display: table-header-group;
+      vertical-align: middle;
+    }
+    
+    thead th, thead td {
+      font: sans-serif;
+      font-weight: 500;
+    }
+    
+    tr {
+      border-color: #586069;
+      border-top: 1px solid #d1d5da;
+    }
+    
+    th, td {
+      border: 1px solid #d1d5da;
+      padding: .4em .8em;
+    }
+    
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+    }
+    
+    tbody tr {
+      font-size: 1rem;
+      font-family: "Times New Roman", serif;
+    }
+    
+    .center {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p code {
+      @apply bg-gray-200 px-2 py-1 rounded
+    }
   }
 }
 
 .syscom {
-  .markdown h1{
-    font-size: 1.55rem;
-    font-weight: 700;
-    border-bottom: 1px solid #222;
-    margin: 1.5rem 0.5rem;
-  }
-  
-  .markdown h2{
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .markdown h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .markdown ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-  }
-  
-  .markdown ol {
-    list-style: decimal;
-    margin-left: 1.5rem;
-  }
-  
-  .syscom .markdown p,.syscom .markdown li {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    font-family: "Times New Roman", serif;
-  }
+  .markdown{
+
+    h1{
+      font-size: 1.55rem;
+      font-weight: 700;
+      border-bottom: 1px solid #222;
+      margin: 1.5rem 0.5rem;
+    }
     
-  .markdown ul ul, .markdown ol ol, .markdown ul ol, .markdown ol ul {
-    @apply mx-4 my-2;
-  }
-  
-  .markdown .small {
-    font-size: 12px;
-  }
-  
-  .markdown iframe {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 16/9;
-  }
-  
-  .markdown iframe.custom-aspect {
-    width: 100%;
-    height: unset;
-    aspect-ratio: unset;
-  }
-  
-  .markdown .hint.tip {
-    @apply bg-green-600 px-4 py-2 rounded-md border-[1px] border-green-500 text-white;
-  }
-  
-  .markdown .hint.warn {
-    @apply bg-yellow-300 px-4 py-2 rounded-md border-[1px] border-yellow-500;
-  }
-  
-  .markdown .hint.error {
-    @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
-  }
-  
-  .markdown blockquote {
-    @apply bg-gray-300 pl-4 py-1 my-1 rounded-md border-[1px] border-gray-500;
-  }
-  
-  .markdown thead{
-    display: table-header-group;
-    vertical-align: middle;
-  }
-  
-  .markdown thead th, .markdown thead td {
-    font: sans-serif;
-    font-weight: 500;
-  }
-  
-  .markdown tr {
-    border-color: #586069;
-    border-top: 1px solid #d1d5da;
-  }
-  
-  .markdown th, .markdown td {
-    border: 1px solid #d1d5da;
-    padding: .4em .8em;
-  }
-  
-  .markdown tbody {
-    display: table-row-group;
-    vertical-align: middle;
-  }
-  
-  .markdown tbody tr {
-    font-size: 1rem;
-    font-family: "Times New Roman", serif;
-  }
-  
-  .markdown .center {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    h2{
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+    
+    ol {
+      list-style: decimal;
+      margin-left: 1.5rem;
+    }
+    
+    .syscom p,.syscom li {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      font-family: "Times New Roman", serif;
+    }
+      
+    ul ul, ol ol, ul ol, ol ul {
+      @apply mx-4 my-2;
+    }
+    
+    .small {
+      font-size: 12px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/9;
+    }
+    
+    iframe.custom-aspect {
+      width: 100%;
+      height: unset;
+      aspect-ratio: unset;
+    }
+    
+    .hint.tip {
+      @apply bg-green-600 px-4 py-2 rounded-md border-[1px] border-green-500 text-white;
+    }
+    
+    .hint.warn {
+      @apply bg-yellow-300 px-4 py-2 rounded-md border-[1px] border-yellow-500;
+    }
+    
+    .hint.error {
+      @apply bg-red-600 px-4 py-2 rounded-md border-[1px] border-red-700 text-white;
+    }
+    
+    blockquote {
+      @apply bg-gray-300 pl-4 py-1 my-1 rounded-md border-[1px] border-gray-500;
+    }
+    
+    thead{
+      display: table-header-group;
+      vertical-align: middle;
+    }
+    
+    thead th, thead td {
+      font: sans-serif;
+      font-weight: 500;
+    }
+    
+    tr {
+      border-color: #586069;
+      border-top: 1px solid #d1d5da;
+    }
+    
+    th, td {
+      border: 1px solid #d1d5da;
+      padding: .4em .8em;
+    }
+    
+    tbody {
+      display: table-row-group;
+      vertical-align: middle;
+    }
+    
+    tbody tr {
+      font-size: 1rem;
+      font-family: "Times New Roman", serif;
+    }
+    
+    .center {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p code {
+      @apply bg-[#eee] px-1 py-1
+    }
   }
 }

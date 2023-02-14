@@ -94,6 +94,40 @@ x> Verfickte scheiße lernt endlich *git*, es ist nicht schwer.
 
 Make, Gradle etc. sind Build-Tools. Sie können automatisch die Abhängigkeiten von Projekten herstellen und die Projekte compilen/builden.
 
+### Make
+
+Hier falls es noch hilft eine kleine einführung in Makefiles:
+
+```Makefile
+# | target | dependencies | command |
+prog: data.o main.o # <- Abhängigkeiten
+      cc data.o main.o –o prog # <- Befehl
+main.o: data.h main.h main.c
+        cc –c main.c
+data.o: data.c data.h
+        cc –c data.c
+clean: rm *.o prog
+```
+
+Bevor also prog ausgeführt wird, wird zuerst data.o und main.o ausgeführt usw. mit `make prog` führ man dann einen target aus.
+
+### Maven
+
+Maven konfiguriert man mit xml (`pom.xml`) Dateien, es ist deutlich komplizierter (Es organisiert die Dependencies und es gibt Repositories von Öffentlichen Bibliotheken). Die gekennzeichneten Tags waren:
+- groupID: Eindeutige Identifikation z.B. Java package
+- artifactID: .jar Name
+- version: Version des Projektes
+- properties: Eigenschaften & Versionen des Projektes
+- dependencies: Abhängigkeiten des Projektes (Werden auch mit groupID und artifactID identifiziert)
+
+### Gradle 
+
+Gradle ist nochmal ein Stück komplizierter es funktioniert in zwei Phasen:
+
+- Konfiguration: Hier werden die Abhängigkeiten und Plugins definiert => Abhängigkeitsgraph wird erstellt
+- Ausführung: Hier werden die Tasks vom Abhängigkeitsgraph ausgeführt und compiliert.
+
+?> Wenn hierzu was spezifisches abgefragt wird, beginnt die Revolution.
 
 ## Sonstiges
 

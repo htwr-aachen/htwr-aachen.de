@@ -64,6 +64,7 @@ specifiers:
   mdx-embed: ^1.1.2
   mdx-mermaid: 2.0.0-rc5
   mermaid: ^9.3.0
+  mini-css-extract-plugin: ^2.7.2
   moment: ^2.29.4
   momentjs: ^2.0.0
   next: ^13.1.6
@@ -126,6 +127,7 @@ dependencies:
   mdx-embed: 1.1.2_lmgkogn3tvadsex5bzk63bx5cy
   mdx-mermaid: 2.0.0-rc5_jdtqbcpfdqnql4tjeqcxqivewa
   mermaid: 9.3.0
+  mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   moment: 2.29.4
   momentjs: 2.0.0
   next: 13.1.6_5mhhrw5dq6gnbuirj2awdzvyuu
@@ -3418,6 +3420,18 @@ packages:
       clean-stack: 2.2.0
       indent-string: 4.0.0
 
+  /ajv-formats/2.1.1:
+    resolution:
+      {
+        integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==,
+      }
+    peerDependenciesMeta:
+      ajv:
+        optional: true
+    dependencies:
+      ajv: 8.12.0
+    dev: false
+
   /ajv-keywords/3.5.2_ajv@6.12.6:
     resolution:
       {
@@ -3427,6 +3441,18 @@ packages:
       ajv: ^6.9.1
     dependencies:
       ajv: 6.12.6
+    dev: false
+
+  /ajv-keywords/5.1.0_ajv@8.12.0:
+    resolution:
+      {
+        integrity: sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==,
+      }
+    peerDependencies:
+      ajv: ^8.8.2
+    dependencies:
+      ajv: 8.12.0
+      fast-deep-equal: 3.1.3
     dev: false
 
   /ajv/6.12.6:
@@ -3450,7 +3476,6 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
-    dev: true
 
   /ansi-align/2.0.0:
     resolution:
@@ -10760,7 +10785,6 @@ packages:
       {
         integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==,
       }
-    dev: true
 
   /json-schema/0.4.0:
     resolution:
@@ -12451,6 +12475,19 @@ packages:
       }
     engines: { node: ">=4" }
     dev: true
+
+  /mini-css-extract-plugin/2.7.2_webpack@5.75.0:
+    resolution:
+      {
+        integrity: sha512-EdlUizq13o0Pd+uCp+WO/JpkLvHRVGt97RqfeGhXqAcorYo1ypJSpkV+WDT0vY/kmh/p7wRdJNJtuyK540PXDw==,
+      }
+    engines: { node: ">= 12.13.0" }
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      schema-utils: 4.0.0
+      webpack: 5.75.0
+    dev: false
 
   /minimatch/3.1.2:
     resolution:
@@ -14737,6 +14774,7 @@ packages:
         integrity: sha512-7+UhmYa7wxPh2oMRwA++k8UGVDxh3YdWFB52r9C3tM81T6BU7cuusUSxImz0GEYSOYUKk/YzIhkQ6+vc0gHbxQ==,
       }
     engines: { node: ">=14.1.0" }
+    deprecated: < 19.2.0 is no longer supported
     requiresBuild: true
     dependencies:
       https-proxy-agent: 5.0.1
@@ -15345,7 +15383,6 @@ packages:
         integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: true
 
   /require-main-filename/2.0.0:
     resolution:
@@ -15665,6 +15702,19 @@ packages:
       "@types/json-schema": 7.0.11
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+    dev: false
+
+  /schema-utils/4.0.0:
+    resolution:
+      {
+        integrity: sha512-1edyXKgh6XnJsJSQ8mKWXnN/BVaIbFMLpouRUrXgVq7WYne5kw3MW7UPhO44uRXQSIpTSXoJbmrR2X0w9kUTyg==,
+      }
+    engines: { node: ">= 12.13.0" }
+    dependencies:
+      "@types/json-schema": 7.0.11
+      ajv: 8.12.0
+      ajv-formats: 2.1.1
+      ajv-keywords: 5.1.0_ajv@8.12.0
     dev: false
 
   /section-matter/1.0.0:

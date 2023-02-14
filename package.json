@@ -44,6 +44,7 @@
     "mdx-embed": "^1.1.2",
     "mdx-mermaid": "2.0.0-rc5",
     "mermaid": "^9.3.0",
+    "mini-css-extract-plugin": "^2.7.2",
     "moment": "^2.29.4",
     "momentjs": "^2.0.0",
     "next": "^13.1.6",
