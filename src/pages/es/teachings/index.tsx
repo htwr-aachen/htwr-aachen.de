@@ -2,11 +2,14 @@ import type { GetStaticProps } from "next";
 import { join } from "path";
 import type { FC } from "react";
 
+import { Roomfinder } from "@/components/Roomfinder";
 import { TeachingList } from "@/components/TeachingList";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
 import { Main } from "@/templates/es/Main";
+
+import { SWTRaumconfig } from "..";
 
 export const TeachingsDirectory = join(process.cwd(), "src", "teachings", "es");
 
@@ -38,6 +41,8 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
         Viel Reichtum bei der Klausur morgen. Vergesst den Master nicht sonst
         wird's nichts, aber keine Promotion!🍀
       </h1>
+
+      <Roomfinder config={SWTRaumconfig} />
 
       <h1 className="font-sans text-4xl font-light" id="aufgaben">
         Vorlesungsfolien / Script
