@@ -36,10 +36,6 @@ html, body {
   @apply font-sans;
 }
 
-.katex-html{
-  display: none;
-}
-
 .es .after-icon:after {
   display: inline-block;
   margin-left: .255em;

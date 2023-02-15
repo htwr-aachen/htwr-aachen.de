@@ -20,7 +20,7 @@ export const MaterialienSchnellzugriff: FC = () => {
           Zusammenfassungen
         </Schnellzugrifflink>
         <Schnellzugrifflink href="/scil/studium/aufgaben">
-          Aufgaben (bald)
+          Aufgaben
         </Schnellzugrifflink>
         <Schnellzugrifflink href="/scil/studium/fragen">
           Fragen (bald)
