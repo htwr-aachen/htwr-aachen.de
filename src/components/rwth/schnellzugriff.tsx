@@ -14,7 +14,7 @@ const Schnellzugrifflink: FC<SchnellzugrifflinkProps> = ({
 }) => {
   const parsedLink = (
     <Link
-      className=" block w-full py-2 pl-6 font-normal text-black"
+      className=" block w-full py-2 pl-6 font-normal text-black hover:border-b-0"
       href={href}
     >
       {children}

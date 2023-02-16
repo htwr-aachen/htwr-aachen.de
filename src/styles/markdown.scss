@@ -17,10 +17,7 @@
     }
     
     h3 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      border-bottom: 1px solid #ccc;
-      margin: 0.5rem 0;
+      @apply font-medium border-b-1 border-[#ccc] mt-6 mb-2 text-xl;
     }
     
     ul {

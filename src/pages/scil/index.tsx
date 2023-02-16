@@ -35,7 +35,7 @@ const SCIL: FC = () => {
             Zusammenfassungen
           </Schnellzugrifflink>
           <Schnellzugrifflink href="/scil/studium/aufgaben" sub>
-            Aufgaben (bald)
+            Aufgaben
           </Schnellzugrifflink>
           <Schnellzugrifflink href="/scil/studium/fragen" sub>
             Fragen (bald)

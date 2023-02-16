@@ -55,8 +55,8 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
     >
       <div className="px-3">
         <HeadLine title="Vorlesungsmaterialien" />
-        <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
-          <div>
+        <div className="grid grid-flow-row-dense grid-rows-[auto_auto_auto] lg:grid-cols-[1fr_250px] lg:grid-rows-[auto_auto]">
+          <div className="">
             <h1 className="font-sans text-4xl font-light" id="folien-merge">
               Vorlesungsfolien / Script
             </h1>
@@ -118,56 +118,55 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
               })}
             </ul>
           </div>
+          <div className="my-8 lg:col-span-2">
+            <h1 className="mt-4 mb-2 font-sans text-4xl">
+              Erklärungen in ihrem eigenen Stil
+            </h1>
+
+            <span>
+              Wenn jemand irgendwas falsches entdeckt (kann schon gut sein)
+              meldet euch (oder korrigiert es selber{" "}
+              <a
+                target={"_blank"}
+                href="https://github.com/JohnnyS318/htwr-aachen.de"
+                rel="noreferrer"
+              >
+                hier.
+              </a>
+              ):{" "}
+              <a
+                target={"_blank"}
+                href="mailto:jonas.max.schneider@gmail.com"
+                rel="noreferrer"
+              >
+                jonas.max.schneider@gmail.com
+              </a>{" "}
+              oder Discord:{" "}
+              <a
+                target={"_blank"}
+                href="https://discordapp.com/users/317018058428514314"
+                rel="noreferrer"
+              >
+                Jonsch318#4006
+              </a>
+            </span>
+
+            <p className="my-4">
+              Jetzt wird gebukked.
+              <br />
+              Ich versuche möglichst Tips zu geben, jedoch ist BuK dann doch
+              wohl eher etwas, dass man einfach machen muss. Es werden auch
+              weniger Wissenfragen als bei DatKom und SWT dran kommen.
+            </p>
+
+            <ul className="list-disc px-4 pt-8 lg:pl-8">
+              <TeachingList
+                urlPrefix="/scil/studium/teachings"
+                teachingList={docs}
+              />
+            </ul>
+          </div>
           <MaterialienSchnellzugriff />
-        </div>
-
-        <div>
-          <h1 className="mt-4 mb-2 font-sans text-4xl">
-            Erklärungen in ihrem eigenen Stil
-          </h1>
-
-          <span>
-            Wenn jemand irgendwas falsches entdeckt (kann schon gut sein) meldet
-            euch (oder korrigiert es selber{" "}
-            <a
-              target={"_blank"}
-              href="https://github.com/JohnnyS318/htwr-aachen.de"
-              rel="noreferrer"
-            >
-              hier.
-            </a>
-            ):{" "}
-            <a
-              target={"_blank"}
-              href="mailto:jonas.max.schneider@gmail.com"
-              rel="noreferrer"
-            >
-              jonas.max.schneider@gmail.com
-            </a>{" "}
-            oder Discord:{" "}
-            <a
-              target={"_blank"}
-              href="https://discordapp.com/users/317018058428514314"
-              rel="noreferrer"
-            >
-              Jonsch318#4006
-            </a>
-          </span>
-
-          <p className="my-4">
-            Jetzt wird gebukked.
-            <br />
-            Ich versuche möglichst Tips zu geben, jedoch ist BuK dann doch wohl
-            eher etwas, dass man einfach machen muss. Es werden auch weniger
-            Wissenfragen als bei DatKom und SWT dran kommen.
-          </p>
-
-          <ul className="ml-8 mt-8 list-disc">
-            <TeachingList
-              urlPrefix="/scil/studium/teachings"
-              teachingList={docs}
-            />
-          </ul>
         </div>
       </div>
     </Main>

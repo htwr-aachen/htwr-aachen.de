@@ -2,12 +2,137 @@
 title: Turing-die-Maschine (Turingmaschinen)
 description: Einführung in die Turingmaschine, Beweise kommen später
 author: Jonas Schneider
-order: 1
+order: 2
 tags: [Einführung, Berechenbarkeit, Turingmaschine]
+date: 16/02/2023
 ---
 
 ## Berechenbarkeit
 
-Ja ich mach ja schon hör auf zu stressen, schreib erstmal SWT.
-
 ![Turing in Buff](/teaching-assets/scil/maschine-turing.png)
+
+
+### Turingmaschine
+
+<div className="center">
+  ![Wikipedia](https://upload.wikimedia.org/wikipedia/commons/c/c4/Turingmaschine.svg)
+</div>
+
+Die Turingmaschine, ist das wichtigste Hilfsmittel dieser Vorlesung, sie zu verstehen ist zwar erst die Grundvoraussetzung aber trotzdem.
+
+Eine Turingmaschine ist ein 7-Tupel:
+- *Q*: die endliche Zustandsmenge
+- $\Sigma$: das endliche Eingabealphabet
+- $\Gamma \subset \Sigma$: das endliche Bandalphabet
+- $B \in \Gamma \setminus \Sigma$: das Leerzeichen (Blank)
+- $q_0 \in$ Q: der Startzustand
+- $\overline{q} \in$ Q: der Endzustand
+- $\delta: (Q \setminus \{\overline{q}\}) \times \Gamma \to Q \times \Gamma \times \{R,L,N\}$: die Übergangsrelation
+  
+Man gibt die Übergangsfunktion häufig als Tabelle an mit den Einträgen ($q_0$, B, R) heißt schreibe B aufs Band, gehe nach rechts auf dem Band und geh in Zustand $q_0$. Z.B.:
+
+<div className="center">
+$\delta$ | 0 | 1 | B |
+--- | --- | --- | --- |
+$q_0$ | ($q_0$, B, R) | ($q_1$, B, R) | *reject* |
+$q_1$ | ($q_1$, B, R) | ($q_1$, B, R) | *accept* |
+</div>
+
+Heißt wenn in Zustand $q_0$ eine 0 gelesen wird, bleib in $q_0$, schreibe $B$ aufs Band und gehe nach rechts. 
+
+Wenn in $q_0$ eine 1 gelesen wird, geh in **$q_1$**, schreibe $B$ aufs Band und gehe nach rechts. 
+
+Wenn in $q_0$ eine $B$ gelesen wird, wird die Eingabe verworfen (abgelehnt). 
+
+Wenn in $q_1$ ein $B$ gelesen wird, wird die Eingabe akzeptiert.
+
+$\Longrightarrow$ Die Eingabe wird akzeptiert, wenn die Eingabe eine 1 enthält, sonst wird sie verworfen.
+
+### Ausgaben & Entscheidungen
+
+Eine Turingmaschine stoppt, wenn sie $\overline{q}$ erreicht. 
+
+> Die Ausgabe einer Turingmaschine ist das Wort, was an der Kopfposition **beginnt** bis zum ersten Blank ($B$).
+
+Eine Turingmaschine kann entscheiden, hießt entweder akzeptieren oder verwerfen.
+
+> Eine Turingmaschine akzeptiert, wenn das Ausgabewort mit einer **1** beginnt und verwirft bei allem anderen.
+
+Wir nutzen häufig
+
+- "accept" für ($\overline{q}$, 1, N), also einer 1 am Kopf und somit akzeptierenden Antwort
+- "reject" für ($\overline{q}$, 0, N), also keiner 1 am Kopf und somit verwerfenden Antwort
+
+?> Eine Turingmaschine $M$ entscheidet eine Sprache $L$, wenn **alle** Wörter in $w \in L$ **akzeptiert** und **alle** Wörter, die **nicht** in $w_n \notin L$ sind **verworfen** werden.
+
+### TM-Berechenbarkeit
+
+> Eine Funktion $f: \Sigma^* \to \Sigma^*$ ist **TM-berechenbar**, wenn es eine Turingmaschine $M$ gibt, die für eine Eingabe $x$ den Funktionswert $f(x)$ berechnet.
+
+> Eine Sprache $L \subseteq \Sigma^*$ ist **TM-entscheidbar**, wenn es eine Turingmaschine $M$ gibt, die für für **alle Eingaben terminiert** und die Eingabe $w$ **genau dann akzeptiert, wenn $w \in L$ ist.**
+
+### Was schreib ich wie auf (Konfiguration)
+
+Eine Konfiguration ist ein String $\alpha q \beta$ mit $\alpha, \beta \in \Gamma^*$ und $q \in Q$.
+Das heißt auf dem Band steht (man lässt alle Leerzeichen am Anfang und Ende weg) 
+
+$\dots BBBBB \alpha $ [Kopf mit Zustand q] $ \beta BBBBB \dots$. 
+
+
+> $\alpha' q' \beta'$ ist dann die direkte Nachfolgekonfiguration von $\alpha q \beta$ nach einem Berechnungsschritt. Bezeichnet mit $\alpha q \beta \vdash \alpha' q' \beta'$.
+
+> und $\alpha'' q'' \beta''$ ist die Nachfolgekonfiguration von $\alpha q \beta$ nach einer endlichen Anzahl von Berechnungsschritten. Bezeichnet mit $\alpha q \beta \vdash^* \alpha'' q'' \beta''$. Es gilt $\alpha q \beta \vdash^* \alpha q \beta$.
+
+z.B.: $q_00011 \vdash 0q_0011 \vdash 00q_011 \vdash 001q_11 \vdash 0011q_1B \vdash 001q_21$
+
+### K-Spurige Turingmaschine
+Eine Turingmaschine hat nach unserem Modell normalerweise eine Spur. Man kann sich aber natürlich auch Mehrspurige Turingmaschinen vorstellen. 
+Heißt anstatt nur ein Symbol pro Schritt zu lesen, ließt man ein Vektor von Symbolen. !Immernoch nur ein Kopf!
+
+Mehrspurige Turingmaschinen, sind einfach konvertierbar zu 1-Spurigen Turingmaschinen, da man einfach mehr Bandsymbole nimmt, die alle Möglichkeiten des Vektors repräsentieren.
+
+### Mehrband Turingmaschine
+
+<div className="center">
+![Hail Hydra](https://media.tenor.com/VBp7HvNSo2gAAAAd/lernaean-hydra-dungeons-and-dragons.gif)
+</div>
+
+Der Unterschied zwischen Spur und Band ist der Kopf. Ein Band kann mehrere Spuren haben, heißt *ein* Kopf ließt pro Lesevorgang ein Vektor also mehrere Symbole, kann aber nur auf allen Spuren gleichzeitig sich bewegen.
+
+Ein Band hat mehrere Köpfe, die sich unabhängig voneinander bewegen können. Die Übergangsfunktion sieht dann folgendermaßen aus:
+
+<div className="center">
+  $\delta: (Q \setminus \{\overline{q}\}) \times \Gamma^k \to Q \times \Gamma^k \times \{R,L,N\}^k$
+</div>
+
+> Eine k-Band TM $M$, die mit Rechenzeit $t(n)$ und Platz $s(n)$ auskommt, kann von einer 1-Band TM $M'$ simuliert werden, die mit Rechenzeit $\mathcal{O}(t^2(n))$ und Platz $\mathcal{O}(s(n))$ auskommt.
+
+Die Eingabe eine Mehrbandturingmaschine steht immer auf dem ersten Band.
+
+### Universelle Turingmaschine
+
+Eine universelle Turingmaschine ist eine Turingmaschine, die jede andere Turingmaschine simulieren kann.
+
+!> Wat soll mir das jetzt sagen?
+
+Naja also sagen wir du hast eine Turing Maschine $U$ und da gibst du jetzt als **Eingabe** deinen C-Code von PSPain ein. 
+Das einzige was die Turingmaschine $U$ dann macht ist, dass sie deinen dummen Code ausführt und die Ausgabe ist dann das Ergebnis.
+
+Nun anstatt deinen C-Code als Eingabe zu geben, gibst du eine Turingmaschine $M$ als Eingabe zusammen mit einem Wort $w$, das Ergebnis ist dann wie als hättest du $M$ auf $w$ laufen lassen.
+
+---
+
+!> Aber mein PSP Code ist doch in Text geschrieben und nicht in 7-Tupeln.
+
+Völlig richtig deswegen hat sich Turing oder Gödel oder wer auch immer, sich was ausgedacht **Gödelnummern**, um eine TM $M$ in ein $\{0,1\} Alphabet zu kodieren.
+
+Um eine korrekte Gödelnummer zu erhalten muss sie Präfixfrei sein, damit wir erkennen wann eine Gödelnummer aufhört und und sie eindeutig ist.
+
+Unsere Gödelnummer nach Vorlesung funktioniert so:
+- Sie beginnt immer mit 111 und endet mit 111 und in der Mitte steht niemals 111. (Präfixfrei)
+- Jetzt kodieren wir den Übergang $\delta(q_i, X_j) = (q_k, X_l, D_m)$ mit $0^i10^j10^k10^l10^m$. Heißt wir schreiben so viele 0len wie die Höhe Zahl ($1 \to 0$, $2 \to 00, \dots$) und trennen immer mit 1.
+- Wir schreiben dann die Übergänge von der Übergangstabelle von oben links nach unten rechts auf und trenne die Übergänge mit $11$.
+
+Die Universelle Turingmaschine $U$ muss dann nur noch prüfen, ob die Eingabe eine korrekte Gödelnummer ist und simuliert sie dann auf 3 Bändern. Band zwei ist die Übergangsfunktion und Band 3 für den Zustand.
+
+> Eine Universelle TM kann eine 1-Band-TM in konstantem Zeitverlust simulieren.
