@@ -30,7 +30,7 @@
       margin-left: 1.5rem;
     }
     
-    p,.es li {
+    p, li {
       @apply my-2 font-roboto;
     }
     
@@ -108,7 +108,7 @@
       align-items: center;
     }
 
-    p code {
+    li code, p code {
       @apply bg-gray-200 px-2 py-1 rounded
     }
   }
@@ -225,7 +225,7 @@
       align-items: center;
     }
 
-    p code {
+    li code, p code {
       @apply bg-[#eee] px-1 py-1
     }
   }

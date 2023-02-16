@@ -1,0 +1,58 @@
+---
+title: Karmantor-DeRegistrierungsmaschine (Registermaschinen)
+description: Arbeit
+author: Jonas Schneider
+date: 16/02/2023
+tags: [Berechenbarkeit, Registermaschinen]
+order: 3
+---
+
+## Aufbau
+
+Eine Registermschine ist wie folgt aufgebaut:
+- Ein Programm
+- Ein Befehlszähler, der auf den nächsten Befehl zeigt, der ausgeführt werden soll $b$. Startet bei $1$
+- Ein Akkumulator, der für Berechnungen verwendet wird ($c(0)$)
+- Ein (unbeschränkter) Speicher ($c(1) --- c(n) \in \mathbb{N}$). Der Speicher kann nur beliebig große **natürliche** Zahlen speichern.
+
+> Die Eingabe, wird in den ersten Registern geschrieben.
+
+> Die Ausgabe einer Registermaschine, befindet sich nach Stoppen in dem **ersten** Register ($c(1)$). 
+
+## Befehle
+- `LOAD i`: $c(0) := c(i), \quad b := b + 1;$
+- `INDLOAD i`: $c(0) := c(c(i)), \quad b := b + 1;$
+- `CLOAD i`: $c(0) := i, \quad b := b + 1;$
+- `STORE i`: $c(i) := c(0), \quad b := b + 1;$
+- `INDSTORE i`: $c(c(i)) := c(0), \quad b := b + 1;$
+- `ADD i`: $c(0) := c(0) + c(i), \quad b := b + 1;$
+- `CADD i`: $c(0) := c(0) + i, \quad b := b + 1;$
+- `INDADD i`: $c(0) := c(0) + c(c(i)), \quad b := b + 1;$
+- `SUB i`: $c(0) := max{0, c(0) - c(i)} b := b + 1;$
+- `DIV i`: $c(0) := \begin{cases}
+  \lfloor c(0) / c(i) \rfloor & \text{ ,falls } c(i) \neq 0 \\
+  0 & \text{ ,sonst}
+\end{cases}, \quad b := b + 1;$
+- `GOTO j`: b := j
+- `IF c(0) = x GOTO j`: $b := j$ falls $c(0) = x$, sonst $b := b + 1;$
+- `END`
+
+## Kostenmaß
+
+Die Kosten einer Regsistermaschine, können durch zwei Arten gezählt werden:
+- Uniformes Kostenmaß: Jeder Schritt eine Zeiteinheit.
+- Logarithmisches Kostenmaß (log. Kostenmaß): Jeder Schritt mit einer $n$ großen Zahl, $\log_2(n)$ Zeiteinheiten. Also proportional zu der binären Länge der Zahl. 
+
+## Simulationen
+
+> Eine Registermaschine, die in log. Kostenmaß $t(n)$ beschränkt ist, kann durch eine Turingmaschine in <br/> $\mathcal{O}(q(n+(t(n)))$ simuliert werden, mit einem Polynom $q$. Also polynomiell
+
+> Eine TM $M$ mit $t(n)$ Beschränkung, kann durch eine Registermaschine in $\mathcal{O}(t(n) + n)$  im uniformen und $\mathcal{O}((t(n) + n) \cdot \log(t(n)+n))$ im log. Kostenmaß simuliert werden. Also auch polynomiell
+
+Kurz gesagt: Turing-Maschinen können alles berechnen, was auch eine Registermaschine berechnen kann und umgekehrt. 
+
+## Berechenbarkeit
+
+> **Church-Turing-These**: Die Klassen der TM-berechenbaren Funktionen und TM-entscheidbaren Sprachen stimmen mit den Klassen der “intuitiv berechenbaren” Funktionen bzw. “intuitiv entscheidbaren” Sprachen überein
+
+Also gibt es keine Funktionen, die ihr in `C` berechnen könnt, aber nicht auf einer Turingmaschine.
