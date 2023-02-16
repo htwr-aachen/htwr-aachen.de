@@ -2,7 +2,7 @@
 title: Dein Leben (Problemsammlung)
 description: Alle Probleme, die wir in der Vorlesung und in den Übungen besprochen haben.
 author: Jonas Schneider
-order: 0
+order: 1
 tags: [Probleme, Vorlesung, Übung]
 date: 15/02/2023
 ---
@@ -85,4 +85,79 @@ Ich exkludiere hier die Probleme, wo die Komplemente semi-entscheidbaren Problem
 
 ## Komplexität 
  
-Kommt bald...
+Ich unterteile in: P, NP, NP-Complete. Für EXPTIME und PSPACE haben wir keine Probleme behandelt.  
+> Natürlich unter der Annahme P $\neq$ NP.
+
+### P
+
+- Sortieren | VO
+- Graphzusammenhang | VO
+- Kürzester Weg | VO
+- Minimaler Spannbaum | VO
+- Maximaler Fluss | VO
+- Maximales Matching | VO
+- Lineare Programmierung | VO
+- GGT | VO
+- Primzahltest | VO 
+- 2-COLORABILITY | Tutorium 08
+- 2-SAT | Tutorium 09
+- XOR-SAT | Tutorium 09
+- DNF-SAT | Übung 09
+
+### NP
+
+> Ich nenne hier nicht Entscheidungs vs Optimierungsprobleme doppelt, wenn nicht relevant
+
+Eigentlich ist hier alles NP-complete außer evt. Graphisomorphie (den Rest habem wir halt nicht behandelt), aber durch Satz von Ladner gibt es diesen Bereich unter der Annahme.
+
+- **CLIQUE** | VO
+- Knapsack (KP) | VO
+- **Bin Packing (BPP)** | VO
+- **Traveling Salesperson (TSP)** | VO
+- **SAT** | VO
+- **3-SAT** | VO
+- COLORING | VO
+- SUBSET-SUM | VO
+- PARTITION | VO
+- Hamiltonkreis | VO
+- Directed Hamiltonkreis | VO
+- Graphisomorphie | VO, Übung 07
+- 3-COLORABILITY | Tutorium 08
+- MAXIMUM_SPANNING_TREE | Übung 08
+- COMPOSITE | Übung 08
+- $\{-1, 0, 1\}$-RESTRICTED_INTEGER_PROGRAMMING | Übung 08
+- MATCHING $\{(G, k) \mid k \in \mathbb{N}$, G ist ein Graph und hat ein Matching der Größe k $\}$ | Übung 08
+- NOT-ALL-EQUAL-SAT | Tutorium 09
+- MAKESPAN-SCHEDULING | Tutorium 10
+- INDEPENDENT_SET | Tutorium 10
+- VERTEX_COVER | Tutorium 10
+- QUADRATIC_ASSIGNMENT | Übung 10
+- SET_COVER | Übung 10
+- DOMINATING_SET | Tutorium 11 (Nur NP-schwer bewiesen)
+- GRAPH_HOMOMORPHISM | Tutorium 11 (Nur NP-schwer bewiesen)
+- SET_PACKING | Übung 11
+
+## NP-Complete
+
+- **SAT** | VO
+- 3-SAT | VO
+- COLORING | VO
+- **SUBSET-SUM** | VO
+- PARTITION | VO
+- Bin Packing (BPP) | VO
+- Knapsack (KP) | VO
+- CLIQUE | VO
+- **Hamiltonkreis** | VO
+- Directed Hamiltonkreis | VO
+- **Traveling Salesperson (TSP)** | VO
+- NOT-ALL-EQUAL-SAT | Tutorium 09
+- MAX-3-VORKOMMNISSE-SAT | Übung 09 (Nur NP-schwer bewiesen)
+- $\{-1, 0, 1\}$-RESTRICTED_INTEGER_PROGRAMMING | Übung 09
+- MAKESPAN-SCHEDULING | Tutorium 10
+- INDEPENDENT_SET | Tutorium 10
+- VERTEX_COVER | Tutorium 10
+- QUADRATIC_ASSIGNMENT | Übung 10
+- SET_COVER | Übung 10
+- DOMINATING_SET | Tutorium 11 (Nur NP-schwer bewiesen)
+- GRAPH_HOMOMORPHISM | Tutorium 11 (Nur NP-schwer bewiesen)
+- SET_PACKING | Übung 11

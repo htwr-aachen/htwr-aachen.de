@@ -145,7 +145,7 @@ export async function getAllTeachings(
       });
     }
   }
-  return teachings.sort((a, b) => b.meta.order - a.meta.order);
+  return teachings.sort((a, b) => a.meta.order - b.meta.order);
 }
 
 export async function getTeachingWithOrder(
