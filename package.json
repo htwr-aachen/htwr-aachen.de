@@ -59,6 +59,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-katex": "^3.0.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-youtube": "^10.1.0",
     "rehype-katex": "^6.0.2",
     "rehype-react": "^7.1.2",

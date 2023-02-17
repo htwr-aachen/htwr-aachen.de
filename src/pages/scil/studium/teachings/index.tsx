@@ -3,6 +3,8 @@ import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
+import type { Roomconfig } from "@/components/Roomfinder";
+import { Roomfinder } from "@/components/Roomfinder";
 import { HeadLine } from "@/components/rwth/headline";
 import { TeachingList } from "@/components/TeachingList";
 import { Meta } from "@/layouts/Meta";
@@ -43,6 +45,14 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+export const BUKRaumconfig: Roomconfig[] = [
+  { name: "TEMP 1", minNum: 0 },
+  { name: "TEMP 2", minNum: 421001 },
+  { name: "Audimax AM", minNum: 425001 },
+  { name: "CARL H01", minNum: 434501 },
+  { name: "error", minNum: 1000000 },
+];
+
 const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
   return (
     <Main
@@ -55,6 +65,9 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
     >
       <div className="px-3">
         <HeadLine title="Vorlesungsmaterialien" />
+
+        <Roomfinder config={BUKRaumconfig} />
+
         <div className="grid grid-flow-row-dense grid-rows-[auto_auto_auto] lg:grid-cols-[1fr_250px] lg:grid-rows-[auto_auto]">
           <div className="">
             <h1 className="font-sans text-4xl font-light" id="folien-merge">

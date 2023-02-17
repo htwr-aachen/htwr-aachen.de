@@ -1,6 +1,8 @@
 import Image from "next/image";
 import type { FC } from "react";
 
+import { Gallery, GalleryLabel } from "@/components/rwth/gallery";
+import { HeadLine } from "@/components/rwth/headline";
 import {
   Schnellzugriff,
   Schnellzugrifflink,
@@ -11,9 +13,40 @@ import { Main } from "@/templates/scil/Main";
 const SCIL: FC = () => {
   return (
     <Main meta={<Meta title="SCIL@HTWR"></Meta>}>
-      <h1 className="text-3xl font-bold">Vorbereitung für BUK</h1>
+      <HeadLine>Vorbereitung für BUK</HeadLine>
 
-      <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px]">
+      <Gallery>
+        <div className="relative">
+          <Image
+            src={"/assets/scil/banner.png"}
+            alt="SCIL Banner"
+            className="block h-auto max-h-[500px] w-auto object-contain"
+            width={700}
+            height={500}
+          ></Image>
+          <GalleryLabel headline="Aktuelle Forschung" url="/scil/studium">
+            Jetzt wird gebukked
+          </GalleryLabel>
+        </div>
+        <div className="relative">
+          <Image
+            src={"/assets/scil/martina_grohe.jpg"}
+            alt="Martina Grohe"
+            className="block h-auto max-h-[500px] w-auto object-contain"
+            width={300}
+            height={500}
+          ></Image>
+          <GalleryLabel
+            headline="Ja Martina, i lern doch schon für BUK"
+            url="/scil/studium"
+          >
+            Aber natürlich mit den tollen Hilfen von htwr-aachen.de, was auch
+            sonst.
+          </GalleryLabel>
+        </div>
+      </Gallery>
+
+      <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px] lg:grid-rows-1">
         <div>
           <Image
             src={"/assets/scil/martina_grohe.jpg"}

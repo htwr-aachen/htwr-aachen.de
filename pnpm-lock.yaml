@@ -82,6 +82,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-katex: ^3.0.1
+  react-responsive-carousel: ^3.2.23
   react-youtube: ^10.1.0
   rehype-katex: ^6.0.2
   rehype-react: ^7.1.2
@@ -142,6 +143,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-katex: 3.0.1_sh5qlbywuemxd2y3xkrw2y2kr4
+  react-responsive-carousel: 3.2.23
   react-youtube: 10.1.0_react@18.2.0
   rehype-katex: 6.0.2
   rehype-react: 7.1.2_@types+react@18.0.27
@@ -4587,6 +4589,13 @@ packages:
         integrity: sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==,
       }
     dev: true
+
+  /classnames/2.3.2:
+    resolution:
+      {
+        integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==,
+      }
+    dev: false
 
   /clean-stack/2.2.0:
     resolution:
@@ -14910,6 +14919,16 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
+  /react-easy-swipe/0.0.21:
+    resolution:
+      {
+        integrity: sha512-OeR2jAxdoqUMHIn/nS9fgreI5hSpgGoL5ezdal4+oO7YSSgJR8ga+PkYGJrSrJ9MKlPcQjMQXnketrD7WNmNsg==,
+      }
+    engines: { node: ">= 6" }
+    dependencies:
+      prop-types: 15.8.1
+    dev: false
+
   /react-is/16.13.1:
     resolution:
       {
@@ -14942,6 +14961,17 @@ packages:
       katex: 0.16.4
       prop-types: 15.8.1
       react: 18.2.0
+    dev: false
+
+  /react-responsive-carousel/3.2.23:
+    resolution:
+      {
+        integrity: sha512-pqJLsBaKHWJhw/ItODgbVoziR2z4lpcJg+YwmRlSk4rKH32VE633mAtZZ9kDXjy4wFO+pgUZmDKPsPe1fPmHCg==,
+      }
+    dependencies:
+      classnames: 2.3.2
+      prop-types: 15.8.1
+      react-easy-swipe: 0.0.21
     dev: false
 
   /react-youtube/10.1.0_react@18.2.0:
