@@ -20,8 +20,8 @@ Unterteilt in 4 Kategorien:
 
 Sind nicht viele :D
 - Eingabe TM *M*, Wort *w*. Frage: Schreibt *M* auf der Eingabe w jemals ein Nicht-Blanksymbol auf das Band? | Tutorium 03
-- $L_2 =$ \{ $\langle Mw \rangle \mid M$ bewegt auf der Eingabe $w$ den Kopf nie nach links\} | Übung 03
-- $H_{\le 97} =$ \{ $\langle Mw \rangle \mid M$ hält auf Eingabe $w$ und zwar nach höchsten 97 Schritten\} | Tutorium 04
+- $L_2 =$ \{ $\langle M \rangle w \mid M$ bewegt auf der Eingabe $w$ den Kopf nie nach links\} | Übung 03
+- $H_{\le 97} =$ \{ $\langle M \rangle w \mid M$ hält auf Eingabe $w$ und zwar nach höchsten 97 Schritten\} | Tutorium 04
 - $L_1 =$ \{ $\langle M \rangle \mid M$ hält nicht in weniger als $2^{|\langle M \rangle|}-1$ Schritten auf $\langle M \rangle$\} | Übung 04
 - $H_{42} =$ \{ $\langle M \rangle \mid $ Auf jeder Eingabe hält M nach höchstens 42 Schritten\} | Übung 04
 - PKP über dem unären Alphabet $\{a\}$. | Tutorium 06
@@ -53,7 +53,7 @@ Alle Probleme die Nicht Entscheidbar sind (Sie können ggf. noch semi-entscheidb
 - $L_1 =$ \{ $\langle M \rangle \mid M$ akzeptiert genau 42 Wörter\} | Übung 03
 - Gegeben eine Turingmaschine $M$, ist $L(M)$ nicht leer? | Tutorium 04
 - Gegeben eine Turingmaschine $M$, hält $M$ auf der Eingabe 110? | Übung 04
-- $H_{\ge 97} =$ \{ $\langle Mw \rangle \mid M$ hält auf Eingabe $w$ und zwar nach mehr als 97 Schritten\} | Tutorium 04
+- $H_{\ge 97} =$ \{ $\langle M \rangle w \mid M$ hält auf Eingabe $w$ und zwar nach mehr als 97 Schritten\} | Tutorium 04
 - $L_2 =$ \{ $\langle M \rangle \mid f_M(\langle M \rangle)=1$ \} | Übung 04
 - $L_2 =$ \{ $\langle M \rangle \mid f_M(\langle M' \rangle)=1$ für alle TMen $M'$, die 3 Zustände haben \} | Übung 04
 - PKP über dem binären Alphabet $\{a,b\}$. | Tutorium 06
@@ -80,7 +80,7 @@ Ich exkludiere hier die Probleme, wo die Komplemente semi-entscheidbaren Problem
 - Allgemeine Halteproblem ($H_{all}$) | VO
 - $A_{all} = $ \{ $M$ akzeptiert alle Eingaben\} | Übung 05
 - $L_2 = \{ \langle M \rangle \mid M$ gibt auf jeder Eingabe 1010 aus $\}$ | Tutorium 06
-- $L_1 = \{ \langle Mw \rangle \mid M$ akzeptiert $w$ nicht $\}$ | Übung 06 
+- $L_1 = \{ \langle M \rangle w \mid M$ akzeptiert $w$ nicht $\}$ | Übung 06 
 - $L_2 = \{ \langle M \rangle \mid M$ erreicht auf jeder Eingabe den Zustand $q_7 \}$ | Übung 06 
 
 ## Komplexität 
