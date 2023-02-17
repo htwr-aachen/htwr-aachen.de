@@ -1,0 +1,26 @@
+---
+title: Im E1 ist ein Satz Rice umgefallen (Satz von Rice)
+description: Nach diesem Titel kanns nur noch Bergab, so wie deine Klausurnote.
+author: Jonas Schneider
+date: 17/02/2023
+order: 5
+tags: [Berechenbarkeit, Beweis, Satz von Rice]
+---
+
+## Partielle Funktionen
+
+Zu verstehen was eine partielle Funktion ist, ist der erste wichtige Schritt den Satz von Rice anzuwenden. Also...
+
+> Eine partielle Funktion ist eine Funktion, die von einer Turingmaschine $M$ berechnet wird. ($f_M: \Sigma^* \to \Sigma^*$). Da $M$ nicht immer anhalten muss gilt: <br/>
+> $f_M(x) = \begin{cases} y &\text{, falls M bei Eingabe x mit Ausgabe y anhält} \\ \perp \text{(undefiniert)} &\text{, falls M bei Eingabe x nicht anhält} \end{cases}$
+
+## Satz von Rice
+
+Der dolle Satz von Rice lautet wie folgt (ist wirklich wichtig):
+
+> Sei $\mathcal{R}$ die Menge der berechenbaren partiellen Funktionen und $\mathcal{S}$ eine Teilmenge von $\mathcal{R}$ mit $\emptyset \subsetneq \mathcal{S} \subsetneq \mathcal{R}$. Dann ist die Sprache
+> <br/> $\begin{aligned} L(\mathcal{S}) = \{⟨M⟩ | M \text{ berechnet eine Funktion aus } \mathcal{S}\} \end{aligned}$ <br/> unentscheidbar.
+
+Oke also Aussagen über die Funktion, die eine Turingmaschine berechnet sind immer unentscheidbar.
+
+Die Beweise von Satz von Rice sind eigentlich alle sehr leicht und kurz, aber man muss hier **besonders** Vorsichtig sein, ob ihr den Satz überhaupt anwenden dürft.

@@ -20,6 +20,7 @@ const aufgabenPath = join(
 
 type AufgabenProps = {
   aufgaben: Document[];
+  sonstiges: Document[];
 };
 
 export async function getStaticProps() {
@@ -30,11 +31,16 @@ export async function getStaticProps() {
         "/teaching-assets/scil/aufgaben",
         true
       ),
+      sonstiges: await getAllDocsFromDir(
+        join(process.cwd(), "public", "teaching-assets", "scil", "uebungen"),
+        "/teaching-assets/scil/uebungen",
+        true
+      ),
     },
   };
 }
 
-const Aufgaben: FC<AufgabenProps> = ({ aufgaben }) => {
+const Aufgaben: FC<AufgabenProps> = ({ aufgaben, sonstiges }) => {
   return (
     <Main
       meta={
@@ -47,9 +53,26 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben }) => {
       <div className="px-2">
         <HeadLine>Aufgaben</HeadLine>
         <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
-          <div className="mx-2 lg:m-0">
+          <div className="mx-2 my-4 lg:m-0">
+            <h1 className="my-4 font-sans text-xl font-medium">
+              2022 Aufgaben und Lösungen
+            </h1>
             <ul className="ml-8 mt-8 list-disc">
               {aufgaben.map((aufgabe) => {
+                return (
+                  <li key={aufgabe.name}>
+                    <Link href={aufgabe.url} target={"_blank"}>
+                      {aufgabe.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <h1 className="my-4 font-sans text-xl font-medium">
+              Sonstige Übungen aus früheren Jahren
+            </h1>
+            <ul className="ml-8 mt-8 list-disc">
+              {sonstiges.map((aufgabe) => {
                 return (
                   <li key={aufgabe.name}>
                     <Link href={aufgabe.url} target={"_blank"}>

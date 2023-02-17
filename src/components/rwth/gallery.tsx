@@ -101,7 +101,6 @@ const Gallery: FC<GalleryProps> = ({ children }) => {
       renderArrowNext={GalleryNextArrow}
       infiniteLoop
       className="w-full"
-      dynamicHeight
       showIndicators={false}
       autoPlay
       interval={2500}

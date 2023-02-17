@@ -48,16 +48,16 @@ const SCIL: FC = () => {
 
       <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px] lg:grid-rows-1">
         <div>
+          <h2 className="mb-4 px-4 text-center font-sans text-xl font-bold">
+            POV: Prof. Grohe, Kobbelt und Wehrle während der BuK Klausur...
+          </h2>
           <Image
-            src={"/assets/scil/martina_grohe.jpg"}
-            width={400}
-            height={800}
-            alt="Martina Grohe"
+            src={"/assets/scil/skiing.jpg"}
+            width={600}
+            height={1080}
+            alt="Martina Grohe beim Skifahren"
             className="mx-auto"
           ></Image>
-          <h2 className="text-center font-sans text-xl font-bold">
-            Martina Grohe xd
-          </h2>
         </div>
         <Schnellzugriff title={"Schnellzugriff"}>
           <Schnellzugrifflink href="/scil/studium">Studium</Schnellzugrifflink>
@@ -80,6 +80,18 @@ const SCIL: FC = () => {
             Lehrstuhl
           </Schnellzugrifflink>
         </Schnellzugriff>
+      </div>
+      <div>
+        <h2 className="my-6 px-4 text-center font-sans text-xl font-bold">
+          POV: Prof. Grohe während er die Hälfte des Semesters exmatrikuliert...
+        </h2>
+        <Image
+          src={"/assets/scil/idoubtit.jpeg"}
+          width={600}
+          height={1080}
+          alt="Martina Grohe beim exmatrikulieren"
+          className="mx-auto"
+        ></Image>
       </div>
     </Main>
   );
