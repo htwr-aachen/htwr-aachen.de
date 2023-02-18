@@ -24,3 +24,15 @@ Der dolle Satz von Rice lautet wie folgt (ist wirklich wichtig):
 Oke also Aussagen über die Funktion, die eine Turingmaschine berechnet sind immer unentscheidbar.
 
 Die Beweise von Satz von Rice sind eigentlich alle sehr leicht und kurz, aber man muss hier **besonders** Vorsichtig sein, ob ihr den Satz überhaupt anwenden dürft.
+
+Ihr müsst folgende Schritte beachten:
+
+- Stellt zunächst formal eure Sprache auf (also $L$).
+- Stellt dann eure Funktionsmenge $\mathcal{S}$ auf. (Hier müsst ihr darauf Achten, das es tatsächlich par. Funktion sind)
+  - Eigenschaften von Automaten wie $\{ \langle M \rangle \mid  M \text{ ist TM} \}$ sind keine Funktionen. 
+- Zeigen das $\emptyset \subsetneq \mathcal{S}$ ist.
+- Zeigen  das $\mathcal{S} \subsetneq \mathcal{R}$ ist.
+- Von $L(S) = \{\langle M \rangle \mid M \text{ berechnet eine Funktion aus } \mathcal{S} \} = ... = L$ kommen.
+- Schreiben: Also ist $L$ nach dem Satz von Rice unentscheidbar.
+
+Fertig. Aber wie gesagt aufpassen wie in der Übung, ob es sich wirklich um die Funktion, die die TM berechnet handelt, oder um eine Eigenschaft der TM. 

@@ -1,4 +1,3 @@
-import rehypePrism from "@mapbox/rehype-prism";
 import type { TransformerInfo } from "@remark-embedder/core";
 import remarkEmbedder from "@remark-embedder/core";
 import oembedTransformer from "@remark-embedder/transformer-oembed";
@@ -8,6 +7,7 @@ import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import path, { join } from "path";
 import rehypeKatex from "rehype-katex";
+import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";

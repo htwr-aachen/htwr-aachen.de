@@ -18,7 +18,15 @@ import TeachingsLayout from "@/templates/scil/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
 
-const components = { Spoiler, RumpeQuiz, Mermaid };
+const components = {
+  Spoiler,
+  RumpeQuiz,
+  Mermaid,
+
+  img: (props: any) => {
+    return <img {...props} loading="lazy" className="centerImg" alt="" />;
+  },
+};
 
 type TeachingProps = {
   doc: TeachingType;
