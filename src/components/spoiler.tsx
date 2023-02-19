@@ -14,7 +14,7 @@ const Spoiler: FC<SpoilerProps> = ({ children, blur = 4 }) => {
     <div className="w-full">
       <button
         type="button"
-        className={`spoiler w-full transition-all ${
+        className={`spoiler w-full text-left transition-all ${
           isSpoilerVisible
             ? "cursor-text select-text blur-0"
             : "hover:scale-105"
