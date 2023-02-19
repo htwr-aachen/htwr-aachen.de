@@ -1,0 +1,34 @@
+---
+title: Verifizierung deines Untergangs (NTM und Verifizierer)
+description: Nützliches über Verifizierer und NTMs
+date: 19/02/2023
+order: 9
+tags: [Komplexität, Verifizierer, NTM, NP]
+---
+
+## NTM
+
+Eine NTM ist praktisch eine normale DTM nur anstatt Übergangsfunktion hat sie eine Übergangsrelation:
+
+$\Delta \subseteq ((Q \setminus \{\overline{q}\}) \times \Gamma) \times (Q \times \Gamma \times \{L,R, N\})$
+
+Heißt der im Hintergrund liegende Automat ist bei einer DTM eine DFA und bei einer NTM ein NFA. Heißt es gibt mehrere Möglichkeiten wie der Automat weiter gehen kann.
+
+> Ein Rechenweg ist obviously eine Folge von Konfigurationen des NFA.
+
+> Ein Berechnungsbaum ist ein Baum, der alle möglichen Rechenwege enthält. Wurzel: Start, Knoten: Konfigurationen. mit der maximalen Verzweigung $d = \max \{| \Delta(q,a)| \mid q \in Q \setminus \{\overline{q}\}, a \in \Gamma\}$
+
+?> Ein NTM akzeptiert eine Eingabe, falls mindestens ein Rechenweg akzeptiert.
+
+Die worst case Laufzeit eines NTM ist die Maximum der kürzesten akzeptierenden Rechenwege für alle Eingaben.
+
+Bei einem NP Beweis sagen wir häufig, dass eine NTM eine Lösung rät, indem es halt einfach den besten Rechenweg nimmt.
+
+## Verifizierer
+NTM sind irgendwie blöd mit umzugehen, deswegen ist (finde ich) leichter mit einem Verifizierer zu arbeiten.
+
+$x \in L \iff \exists y \in \{0,1\}^*, |y| \le p(|x|): V$ akzeptiert $y\#x$
+
+> Ein Zertifikat ist ein String $y \in \{0,1\}^*$, der häufig die Lösung eines Problems für eine bestimmte Eingabe $x$ kodiert. Die Länge von $y$ muss ebenfalls polynomiell Beschränkt sein. Bsp: $y = 4$ 
+
+> Ein Polynomialzeitverifizier ist dann Algorithmus, der dann entscheidet ob ein Zertifikat $y$ für eine Eingabe $x$ korrekt ist. Problem $x+x$ $y = 4$ und die Eingabe ist $x = 2$ dann ist $y$ korrekt.
