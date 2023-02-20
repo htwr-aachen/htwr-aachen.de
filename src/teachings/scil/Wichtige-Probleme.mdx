@@ -1,0 +1,81 @@
+---
+title: Wichtige Probleme | Hauptproblem BuK (Wichtige Probleme)
+description: Die wichtigsten Probleme zusammengefasst
+date: 20/02/2023
+order: -1
+tags: [Probleme, SAT, CLIQUE, BPP, KP, TSP, 3-SAT, COLORING, SUBSETSUM, Halteproblem, spezielle Halteproblem, Allgemeine Halteproblem]
+---
+
+## Sorry für die Verspätung musste selber BuK lernen und das macht man am besten wenn man es tatsächlich macht :\(
+
+## Berechenbarkeit
+
+Die müssen drauf sein...
+
+Diagonalsprache $D = \{ \langle M \rangle w \mid M \text{ akzeptiert } \langle M \rangle \text{ nicht} \}$
+
+Halteproblem: $H = \{ \langle M \rangle w \mid M \text{ hält auf } w\}$
+
+spezielle Halteproblem: $H_\epsilon = \{ \langle M \rangle \mid M \text{ hält auf der Eingabe } \epsilon\}$
+
+Allgemeine Halteproblem: $H_{all} = \{ \langle M \rangle w \mid M \text{ hält auf jeder Eingabe}\}$
+
+PKP: Kein Bock das hier nochmal zu erklären guckt es euch bei Reduktionen an.
+
+## NP
+
+Am besten kennt ihr die jetzt schon auswendig... Aber ich muss sie ja auch noch lernen. Ich schreib hier nur die Entscheidungsvariante, die anderen sind zwar auch potenziell wichtig aber halt nicht soooo.
+
+---
+CLIQUE
+> **Eingabe:** Graph $G = (V, E)$, $k \in \{1, ..., |V| \}$
+>
+> **Frage:** enthält $G$ eine $k$-Clique? Heißt jedes Knotenpaar ist mit einer Kante verbunden, heißt alle Knoten sind voll verbunden.
+---
+KNAPSACK (KP)
+> **Eingabe:** $n$ Gegenstände $(I)$ jedes mit Gewicht $w_i \in \underline{W}$ und Wert $v_i$ $(i \in \underline{n})$ und eine maximales Gewicht $W$
+>
+> **Frage:** gegeben $V \in \mathbb{N}$, gibt es eine Teilmenge $I' \subseteq I$ mit $\sum_{i \in I'} w_i \leq W$ und $\sum_{i \in I'} v_i \geq V$?
+---
+BIN PACKING (BPP)
+> **Eingabe:** $n$ Gegenstände $(I)$ jedes mit Gewicht $w_i \in \underline{W}$
+>
+> **Frage:** gegeben $k \in \mathbb{N}$, gibt es eine Funktion $f: \underline{n} \to \underline{k}$ so dass $\forall i \in \underline{k}: \sum_{j \in f^{-1}(i)} w_j \le b$, also passen die Gegenstände in $k$ Behälter.
+
+---
+TSP
+> **Eingabe:** Graph $G=(V,E)$, $c(i,j) \in \mathbb{N}$ für alle $i,j \in \underline{|V|}$ mit $c(i,j) = c(j,i)$
+>
+> **Frage:** gegeben $b \in \mathbb{N}$, gibt es eine Tour mit der Länge höchstens $b$.
+---
+SAT 
+
+> **Eingabe:** Formel $\phi$ in KNF (Konjuktiver Normalform, also $(x_1 \land x_2) \lor (x_3 \land x_4)$)
+>
+> **Frage:** gibt es eine erfüllende Belegung für $\phi$?
+---
+3-SAT
+> **Eingabe:** Formel $\phi$ in KNF, aber mit nur drei Variablen pro und verknüpfun (Konjuktiver Normalform, also $(x_1 \land x_2 \land \overline{x_3}) \lor (x_1 \land x_2 \land x_3)$)
+> 
+> **Frage:** gibt es eine erfüllende Belegung für $\phi$?
+---
+COLORING
+> **Eingabe:** Graph $G=(V,E)$, $k \in \mathbb{|V|}$
+>
+> **Frage:** gibt es eine $k$-Farbierung von $G$? Heißt gibt es ein $c: V \to \underline{k}$ so dass für alle Nachbarn unterschiedliche Farben haben: $\forall e = \{u,v\} \in E: c(u) \neq c(v)$
+---
+SUBSETSUM
+> **Eingabe:** $a_i, ..., a_n \in \mathbb{N}$, $b \in \mathbb{N}$
+>
+> **Frage:** gibt es eine Teilmenge $K \subseteq \underline{n}$ so dass $\sum_{i \in K} a_i = b$?
+---
+HAMILTONKREIS (HC)
+> **Eingabe:** Graph $G=(V,E)$
+>
+> **Frage:** gibt es einen Hamiltonkreis in $G$? Heißt gibt es einen Kreis so dass jeder Knoten genau einmal besucht wird.
+
+DHC ist genau das gleiche nur mit einem gerichteten Graphen.
+
+?> Das auswählen passender Probleme ist eure Sache...  
+
+Viel Glück.
