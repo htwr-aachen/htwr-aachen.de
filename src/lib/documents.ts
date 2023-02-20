@@ -14,8 +14,9 @@ const replacer = (file: string): string => {
   const definition = str.substring(0, 2);
   const rest = str
     .substring(2)
-    .replace("wdh", "Wiederholungsklausur ")
+    .replace("wdh", "Wiederholungsklausur")
     .replace("lsg", "mit Lösung")
+    .replace("pro", "Probe")
     .replaceAll("-", " ");
 
   switch (definition) {

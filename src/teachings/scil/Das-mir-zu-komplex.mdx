@@ -74,3 +74,16 @@ Und die Korrektheit zu zeigen:
 $(G, k) \in CLIQUE \iff \exists D \subseteq V: |D| \ge k: \forall v,w \in D (v \neq w \implies (v,w) \in E) \iff \exists D' \subseteq V: |D'| \le k': \forall v,w \in D (v \neq w \implies (v,w) \notin E') \iff (G', |V|-k) \in VC$ 
 
 </Spoiler>
+
+## Allgemeine Sachen
+
+Immer wenn ihr allgemein Beweisen sollt, dass zum Beispiel $L_1, L_2 \in$ NP unter Schnitt abgeschlossen sind. Nehmt euch immer als allererstes was wir für die Sprachen haben...
+
+<Spoiler>
+  Da $L_1, L_2$ in NP liegen haben wir einen Verifizierer $V_1, V_2$. Nun konstruieren wir einen neue NTM $M$ für $L_1 \cap L_2$. Keinen Verifizierer, da wir sonst nicht die Zertifikate raten können. Aber wir nutzen $V_1, V_2$.
+
+  1. Die NTM rät die beiden Zertifikate $y_1, y_2$
+  2. Dann simuliert V den Verifizierer von $L_1$ mit $y_1\#x$, falls er verwirft, verwerfe falls nicht simuliere $V_2$ mit $y_2\#x$ übernehme das Akzeptansverhalten.
+
+  Fertig, es ist polynomiell, da beide Zertifikate und beide Verifizierer polynomiell sind und die Korrektheit folgt aus den beiden Verifizierer. 
+</Spoiler>
