@@ -17,6 +17,18 @@ const SCIL: FC = () => {
 
       <Gallery>
         <div className="relative">
+          <img
+            src="https://media.tenor.com/gdOx-XoiPtwAAAAd/when-your-bored-of-maths-maths-op.gif"
+            alt="Good Luck"
+            className="block h-auto max-h-[500px] w-auto object-contain"
+            width={700}
+            height={500}
+          />
+          <GalleryLabel headline="Viel Erfolg" url="/scil/studium">
+            Viel Glück euch, Reduziert eure Erwartungen...
+          </GalleryLabel>
+        </div>
+        <div className="relative">
           <Image
             src={"/assets/scil/banner.png"}
             alt="SCIL Banner"
