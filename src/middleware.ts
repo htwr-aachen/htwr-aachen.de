@@ -17,16 +17,9 @@ function pathMatcher(path: string): SubStyling {
 }
 
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith("/_next")) {
-    return NextResponse.next();
-  }
-
-  if (request.nextUrl.pathname.startsWith("/404")) {
-    return NextResponse.next();
-  }
-
   const institute = pathMatcher(request.nextUrl.pathname);
 
+  // cookie stuff
   const req = request.nextUrl.clone();
   if (request.cookies.get("institute")?.value !== "") {
     req.searchParams.set(
@@ -47,5 +40,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|assets).*)"],
+  matcher: ["/((?!api|_next|favicon.ico|assets|404|teaching-assets).*)"],
 };
