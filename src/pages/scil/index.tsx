@@ -7,12 +7,17 @@ import {
   Schnellzugriff,
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
+import { Main } from "@/layouts/client/rwth/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/scil/Main";
 
 const SCIL: FC = () => {
   return (
-    <Main meta={<Meta title="SCIL@HTWR"></Meta>}>
+    <Main
+      meta={<Meta title="SCIL@HTWR"></Meta>}
+      instituteLinks={[{}, { url: "/es", name: "ES/SWT" }]}
+      instituteName="SCIL"
+      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+    >
       <HeadLine>Vorbereitung für BUK</HeadLine>
 
       <Gallery>
