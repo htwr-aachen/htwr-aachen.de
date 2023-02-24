@@ -4,9 +4,10 @@ import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import { Meta } from "@/layouts/Meta";
+import { SCILConfig } from "@/layouts/rwth/instituteConfig";
+import { Main } from "@/layouts/rwth/Main";
 import type { Document } from "@/lib/documents";
 import { getAllDocsFromDir } from "@/lib/documents";
-import { Main } from "@/templates/scil/Main";
 
 import { MaterialienSchnellzugriff } from "../studium";
 
@@ -49,6 +50,10 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben, sonstiges }) => {
           description="Aufgabensammlung falls man schon alle Klausuren durchgemacht hat..."
         ></Meta>
       }
+      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
+      instituteName="SCIL"
+      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+      navbarConfig={SCILConfig}
     >
       <div className="px-2">
         <HeadLine>Aufgaben</HeadLine>

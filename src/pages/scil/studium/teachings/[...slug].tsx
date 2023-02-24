@@ -6,6 +6,8 @@ import type { FC } from "react";
 import RumpeQuiz from "@/components/RumpeQuiz";
 import Spoiler from "@/components/spoiler";
 import { Meta } from "@/layouts/Meta";
+import { SCILConfig } from "@/layouts/rwth/instituteConfig";
+import { Main } from "@/layouts/rwth/Main";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
   getAllTeachings,
@@ -13,7 +15,6 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/templates/scil/Main";
 import TeachingsLayout from "@/templates/scil/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
@@ -45,6 +46,10 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
           description={doc?.meta?.description}
         ></Meta>
       }
+      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
+      instituteName="SCIL"
+      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+      navbarConfig={SCILConfig}
     >
       <TeachingsLayout
         meta={{ slug: doc?.slug, meta: doc?.meta }}

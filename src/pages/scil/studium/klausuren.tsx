@@ -4,8 +4,9 @@ import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import { Meta } from "@/layouts/Meta";
+import { SCILConfig } from "@/layouts/rwth/instituteConfig";
+import { Main } from "@/layouts/rwth/Main";
 import { getAllDocsFromDir } from "@/lib/documents";
-import { Main } from "@/templates/scil/Main";
 
 import { MaterialienSchnellzugriff } from "../studium";
 
@@ -48,6 +49,10 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
           description="Klausurensammlung ist vielleicht bissle copyright technisch schwierig, aber für buk lohnt es sich... naja"
         ></Meta>
       }
+      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
+      instituteName="SCIL"
+      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+      navbarConfig={SCILConfig}
     >
       <div className="px-2">
         <HeadLine title="Klausuren" />

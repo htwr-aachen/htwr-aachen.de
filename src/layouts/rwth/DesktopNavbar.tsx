@@ -1,15 +1,42 @@
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import type { FC, MouseEvent, ReactNode } from "react";
+import type {
+  Dispatch,
+  FC,
+  MouseEvent,
+  ReactNode,
+  SetStateAction,
+} from "react";
+
+import type { NavbarConfig } from "@/models/layout";
+
+import { FakultätsNav } from "./FakultätsNav";
 
 export type NavbarProps = {
   onMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
+  instituteTitle: string;
+  fakultätOpen: boolean;
+  setFakultätOpen: Dispatch<SetStateAction<boolean>>;
+  config: NavbarConfig;
 };
 
-const Navbar: FC<NavbarProps> = ({ children, onMenuClick }) => {
+const DesktopNavbar: FC<NavbarProps> = ({
+  children,
+  onMenuClick,
+  instituteTitle,
+  fakultätOpen,
+  setFakultätOpen,
+  config,
+}) => {
   return (
     <nav className="relative w-full">
+      <AnimatePresence>
+        {fakultätOpen && (
+          <FakultätsNav open={fakultätOpen} setOpen={setFakultätOpen} />
+        )}
+      </AnimatePresence>
       <div
         className="branding hidden border-t-[40px] border-black bg-rwth-branding lg:block"
         role="banner"
@@ -17,21 +44,25 @@ const Navbar: FC<NavbarProps> = ({ children, onMenuClick }) => {
         <div className="mx-auto max-w-[980px]">
           <div className="branding-inner relative ml-5 grid grid-cols-[auto_1fr]">
             <div className="logo">
-              <Link href="/scil">
+              <Link href="/scil" className="hover:border-b-0">
                 <Image
                   className="relative top-[-40px] border-1 border-[#ccc] bg-rwth-bg"
-                  alt="scil logo"
-                  src={"/assets/scil/scil.svg"}
+                  alt={config?.logo?.alt}
+                  src={config?.logo?.logoUrl}
                   width={385}
                   height={110}
                 />
               </Link>
             </div>
-            <h2 className="absolute top-[-40px] left-[400px] flex h-[40px] cursor-pointer items-center justify-center px-4 text-sm text-white hover:bg-[#666]">
+            <button
+              onClick={() => setFakultätOpen((x) => !x)}
+              type="button"
+              className="absolute top-[-40px] left-[400px] flex h-[40px] cursor-pointer items-center justify-center px-4 text-sm text-white hover:bg-[#666]"
+            >
               FAKULTÄTEN UND EINRICHTUNGEN
-            </h2>
+            </button>
             <h2 className="logo-extension pt-3 pl-5 text-lg font-normal">
-              Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)
+              {instituteTitle}
             </h2>
             <div className="absolute top-[-40px] right-0 flex h-[40px] items-center justify-center text-white">
               <input
@@ -51,8 +82,8 @@ const Navbar: FC<NavbarProps> = ({ children, onMenuClick }) => {
       <div className="header grid h-[53px] grid-cols-2 bg-black lg:hidden">
         <div className="grid items-center justify-center justify-self-start">
           <Link
-            href={"/scil"}
-            className="logo grid h-full items-center bg-white px-3"
+            href={config.main.url}
+            className="logo grid h-full items-center bg-white px-3 hover:border-b-0"
           >
             <Image
               src={"/assets/rwth/htwr.png"}
@@ -84,4 +115,4 @@ const Navbar: FC<NavbarProps> = ({ children, onMenuClick }) => {
   );
 };
 
-export { Navbar };
+export { DesktopNavbar };
