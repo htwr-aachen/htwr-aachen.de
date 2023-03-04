@@ -14,7 +14,7 @@ const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
   return (
     <li className="h-full">
       <Link
-        className="flex h-full items-center justify-center px-5 text-black hover:border-b-0 hover:bg-white/75"
+        className="grid h-full items-center justify-center px-5 text-black hover:border-b-0 hover:bg-white/75"
         href={href}
       >
         <div>{children}</div>
@@ -43,57 +43,81 @@ const Index: FC = () => {
           description="HTWR Aachen ist die beste Hilfe für seinen Doppelgänger"
         ></Meta>
       }
-      instituteName="SCIL"
-      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+      instituteName="MAIN"
+      instituteTitle=""
       pad
     >
       <Gallery>
         <div className="relative">
-          <img
-            src="https://media.tenor.com/gdOx-XoiPtwAAAAd/when-your-bored-of-maths-maths-op.gif"
-            alt="Good Luck"
-            className="block h-auto max-h-[500px] w-auto object-contain"
-            width={700}
-            height={500}
-          />
-          <GalleryLabel headline="Viel Erfolg" url="/scil/studium">
-            Viel Glück euch, Reduziert eure Erwartungen...
-          </GalleryLabel>
-        </div>
-        <div className="relative">
           <Image
-            src={"/assets/scil/banner.png"}
+            src={"/assets/rwth/gallery/exzelenz.jpg"}
             alt="SCIL Banner"
-            className="block h-auto max-h-[500px] w-auto object-contain"
+            className="block h-auto max-h-[500px] w-auto object-cover"
             width={700}
             height={500}
           ></Image>
-          <GalleryLabel headline="Aktuelle Forschung" url="/scil/studium">
-            Jetzt wird gebukked
+          <GalleryLabel headline="Exzellenz" url="/scil/studium">
+            Reduziert eure Erwartungen...
           </GalleryLabel>
         </div>
         <div className="relative">
           <Image
-            src={"/assets/scil/martina_grohe.jpg"}
+            src={"/assets/rwth/gallery/informatikzentrum.png"}
             alt="Martina Grohe"
-            className="block h-auto max-h-[500px] w-auto object-contain"
+            className="block h-auto max-h-[500px] w-auto object-cover"
             width={300}
             height={500}
           ></Image>
-          <GalleryLabel
-            headline="Ja Martina, i lern doch schon für BUK"
-            url="/scil/studium"
-          >
-            Aber natürlich mit den tollen Hilfen von htwr-aachen.de, was auch
-            sonst.
+          <GalleryLabel headline="Realität" url="/scil/studium">
+            Jeden Tag leiden mehr und mehr Studenten unter den Höllischen Qualen
+            des Informatikzentrums
+          </GalleryLabel>
+        </div>
+        <div className="relative">
+          <Image
+            src={"/assets/rwth/gallery/karman.jpeg"}
+            alt="SCIL Banner"
+            className="block h-auto max-h-[500px] w-auto object-cover"
+            width={700}
+            height={500}
+          ></Image>
+          <GalleryLabel headline="WARUM?" url="/scil/studium">
+            Warum sieht das Ende so gut aus?
           </GalleryLabel>
         </div>
       </Gallery>
       <div>
         <Persona>
-          <PersonaElement href="/scil">SCIL / BuK</PersonaElement>
-          <PersonaElement href="/es">ES / SWT</PersonaElement>
-          <PersonaElement href="/syscom">SysCom / DatKom</PersonaElement>
+          <PersonaElement href="/scil">
+            <Image
+              className="mx-auto mb-2"
+              src={"/assets/scil/scil_icon.svg"}
+              alt={""}
+              width={32}
+              height={32}
+            ></Image>
+            SCIL / BuK
+          </PersonaElement>
+          <PersonaElement href="/es">
+            <Image
+              className="mx-auto mb-2"
+              src={"/assets/es/es_icon.svg"}
+              alt={""}
+              width={32}
+              height={32}
+            ></Image>
+            ES / SWT
+          </PersonaElement>
+          <PersonaElement href="/syscom">
+            <Image
+              className="mx-auto mb-2"
+              src={"/assets/syscom/syscom_icon.svg"}
+              alt={""}
+              width={32}
+              height={32}
+            ></Image>
+            SysCom / DatKom
+          </PersonaElement>
         </Persona>
       </div>
     </Main>

@@ -23,7 +23,11 @@ const defaultConfig: NavbarConfig = {
     },
   ],
   main: { name: "HTWR", url: "/" },
-  logo: { logoUrl: "/assets/scil/scil.svg", alt: "SCIL Logo" },
+  logo: {
+    logoUrl: "/assets/rwth/htwr_banner.png",
+    alt: "SCIL Logo",
+    href: "/",
+  },
 };
 
 type RWTHProps = {

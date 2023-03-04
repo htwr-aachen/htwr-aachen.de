@@ -28,6 +28,9 @@ export type LinkElement = NavbarLink & {
 type NavbarLogo = {
   logoUrl: string;
   alt: string;
+  href: string;
+  width?: number;
+  height?: number;
 };
 
 export type NavbarConfig = {

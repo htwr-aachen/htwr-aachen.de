@@ -44,20 +44,21 @@ const DesktopNavbar: FC<NavbarProps> = ({
         <div className="mx-auto max-w-[980px]">
           <div className="branding-inner relative ml-5 grid grid-cols-[auto_1fr]">
             <div className="logo">
-              <Link href="/scil" className="hover:border-b-0">
+              <Link href={config?.logo.href} className="hover:border-b-0">
                 <Image
-                  className="relative top-[-40px] border-1 border-[#ccc] bg-rwth-bg"
+                  className="relative top-[-40px] bg-rwth-bg"
                   alt={config?.logo?.alt}
                   src={config?.logo?.logoUrl}
-                  width={385}
-                  height={110}
+                  width={config?.logo.width || 224}
+                  height={config.logo.height || 110}
                 />
               </Link>
             </div>
             <button
               onClick={() => setFakultätOpen((x) => !x)}
               type="button"
-              className="absolute top-[-40px] left-[400px] flex h-[40px] cursor-pointer items-center justify-center px-4 text-sm text-white hover:bg-[#666]"
+              className={`absolute top-[-40px] flex h-[40px] cursor-pointer items-center justify-center px-4 text-sm text-white hover:bg-[#666]`}
+              style={{ left: `${20 + (config?.logo.width || 224)}px` }}
             >
               FAKULTÄTEN UND EINRICHTUNGEN
             </button>

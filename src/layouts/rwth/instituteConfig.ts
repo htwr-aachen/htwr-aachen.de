@@ -56,5 +56,11 @@ export const SCILConfig: NavbarConfig = {
     },
   ],
   main: { name: "SCIL", url: "/scil" },
-  logo: { logoUrl: "/assets/scil/scil.svg", alt: "SCIL Logo" },
+  logo: {
+    logoUrl: "/assets/scil/scil.svg",
+    alt: "SCIL Logo",
+    href: "/scil",
+    width: 387,
+    height: 110,
+  },
 };
