@@ -8,11 +8,18 @@ import {
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/scil/Main";
+import { SCILConfig } from "@/layouts/rwth/instituteConfig";
+import { Main } from "@/layouts/rwth/Main";
 
 const SCIL: FC = () => {
   return (
-    <Main meta={<Meta title="SCIL@HTWR"></Meta>}>
+    <Main
+      meta={<Meta title="SCIL@HTWR"></Meta>}
+      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
+      instituteName="SCIL"
+      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
+      navbarConfig={SCILConfig}
+    >
       <HeadLine>Vorbereitung für BUK</HeadLine>
 
       <Gallery>
