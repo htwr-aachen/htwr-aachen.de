@@ -62,7 +62,6 @@ specifiers:
   katex: ^0.16.4
   lint-staged: ^13.1.2
   mdx-embed: ^1.1.2
-  mdx-mermaid: 2.0.0-rc5
   mini-css-extract-plugin: ^2.7.2
   moment: ^2.29.4
   next: ^13.2.1
@@ -127,7 +126,6 @@ dependencies:
   js-cookie: 3.0.1
   katex: 0.16.4
   mdx-embed: 1.1.2_i6ate376bdxko7atobb3ut6bgq
-  mdx-mermaid: 2.0.0-rc5_pvsdbzyvmgwun2kg7llowndf4u
   mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   moment: 2.29.4
   next: 13.2.1_wiv434v7erz4aedd5whhdwmpv4
@@ -2959,6 +2957,7 @@ packages:
     requiresBuild: true
     dependencies:
       "@types/node": 18.14.1
+    dev: true
     optional: true
 
   /@typescript-eslint/eslint-plugin/5.53.0_ny4s7qc6yg74faf3d6xty2ofzy:
@@ -4202,6 +4201,7 @@ packages:
       {
         integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==,
       }
+    dev: true
 
   /buffer-from/1.1.2:
     resolution:
@@ -5210,18 +5210,6 @@ packages:
       cross-spawn: 7.0.3
     dev: true
 
-  /cross-fetch/3.1.5:
-    resolution:
-      {
-        integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==,
-      }
-    dependencies:
-      node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-    optional: true
-
   /cross-spawn/5.1.0:
     resolution:
       {
@@ -5892,14 +5880,6 @@ packages:
       defined: 1.0.1
       minimist: 1.2.8
     dev: true
-
-  /devtools-protocol/0.0.1045489:
-    resolution:
-      {
-        integrity: sha512-D+PTmWulkuQW4D1NTiCRCFxF7pQPn0hgp4YyX4wAQ6xYXKOadSWPR3ENGDQ47MW/Ewc9v2rpC/UEEGahgBYpSQ==,
-      }
-    dev: false
-    optional: true
 
   /didyoumean/1.2.2:
     resolution:
@@ -7328,6 +7308,7 @@ packages:
       "@types/yauzl": 2.10.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /extract-zip/2.0.1_supports-color@8.1.1:
     resolution:
@@ -7419,6 +7400,7 @@ packages:
       }
     dependencies:
       pend: 1.2.0
+    dev: true
 
   /figures/2.0.0:
     resolution:
@@ -8386,20 +8368,6 @@ packages:
       style-to-object: 0.4.1
       web-namespaces: 2.0.1
     dev: false
-
-  /hast-util-from-html/1.0.1:
-    resolution:
-      {
-        integrity: sha512-ehTy+4Lz1YAVF6enEuL9QFUHqJKRxAc8a7KACyhawY+YqTG5pLkrBHfykXELEy75N601fHDr36HIqCGSNxmgZw==,
-      }
-    requiresBuild: true
-    dependencies:
-      "@types/hast": 2.3.4
-      hast-util-from-parse5: 7.1.2
-      parse5: 7.1.2
-      vfile: 5.3.7
-    dev: false
-    optional: true
 
   /hast-util-from-parse5/7.1.2:
     resolution:
@@ -11471,34 +11439,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /mdx-mermaid/2.0.0-rc5_pvsdbzyvmgwun2kg7llowndf4u:
-    resolution:
-      {
-        integrity: sha512-JfPJ4PTYzwYDInOMj3Zgxj8OUXHza3yNNkJz+M1cEHypyhdMyNUsKaQ/8I1Dulz6QWpAZyzYMZYxjzciGJB0PA==,
-      }
-    peerDependencies:
-      mermaid: ">=8.11.0"
-      react: ^16.8.4 || ^17.0.0 || ^18.0.0
-      unist-util-visit: ^4.1.0
-    dependencies:
-      react: 18.2.0
-      unist-util-visit: 4.1.2
-    optionalDependencies:
-      estree-util-to-js: 1.2.0
-      estree-util-visit: 1.2.1
-      hast-util-from-html: 1.0.1
-      hast-util-to-estree: 2.3.2
-      mdast-util-from-markdown: 1.3.0
-      mdast-util-mdx: 2.0.1
-      micromark-extension-mdxjs: 1.0.0
-      puppeteer: 18.2.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: false
-
   /media-typer/0.3.0:
     resolution:
       {
@@ -12593,22 +12533,6 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /node-fetch/2.6.7:
-    resolution:
-      {
-        integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==,
-      }
-    engines: { node: 4.x || >=6.0.0 }
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-    dependencies:
-      whatwg-url: 5.0.0
-    dev: false
-    optional: true
-
   /node-fetch/2.6.9:
     resolution:
       {
@@ -13521,6 +13445,7 @@ packages:
       {
         integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==,
       }
+    dev: true
 
   /performance-now/2.1.0:
     resolution:
@@ -14209,15 +14134,6 @@ packages:
       }
     dev: true
 
-  /progress/2.0.3:
-    resolution:
-      {
-        integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==,
-      }
-    engines: { node: ">=0.4.0" }
-    dev: false
-    optional: true
-
   /promise-inflight/1.0.1:
     resolution:
       {
@@ -14312,14 +14228,6 @@ packages:
       }
     dev: true
 
-  /proxy-from-env/1.1.0:
-    resolution:
-      {
-        integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==,
-      }
-    dev: false
-    optional: true
-
   /ps-tree/1.2.0:
     resolution:
       {
@@ -14370,52 +14278,6 @@ packages:
     dependencies:
       escape-goat: 2.1.1
     dev: false
-
-  /puppeteer-core/18.2.1:
-    resolution:
-      {
-        integrity: sha512-MRtTAZfQTluz3U2oU/X2VqVWPcR1+94nbA2V6ZrSZRVEwLqZ8eclZ551qGFQD/vD2PYqHJwWOW/fpC721uznVw==,
-      }
-    engines: { node: ">=14.1.0" }
-    dependencies:
-      cross-fetch: 3.1.5
-      debug: 4.3.4
-      devtools-protocol: 0.0.1045489
-      extract-zip: 2.0.1
-      https-proxy-agent: 5.0.1
-      proxy-from-env: 1.1.0
-      rimraf: 3.0.2
-      tar-fs: 2.1.1
-      unbzip2-stream: 1.4.3
-      ws: 8.9.0
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: false
-    optional: true
-
-  /puppeteer/18.2.1:
-    resolution:
-      {
-        integrity: sha512-7+UhmYa7wxPh2oMRwA++k8UGVDxh3YdWFB52r9C3tM81T6BU7cuusUSxImz0GEYSOYUKk/YzIhkQ6+vc0gHbxQ==,
-      }
-    engines: { node: ">=14.1.0" }
-    deprecated: < 19.2.0 is no longer supported
-    requiresBuild: true
-    dependencies:
-      https-proxy-agent: 5.0.1
-      progress: 2.0.3
-      proxy-from-env: 1.1.0
-      puppeteer-core: 18.2.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: false
-    optional: true
 
   /q/1.5.1:
     resolution:
@@ -16784,6 +16646,7 @@ packages:
       {
         integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==,
       }
+    dev: true
 
   /tr46/3.0.0:
     resolution:
@@ -17062,17 +16925,6 @@ packages:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
     dev: true
-
-  /unbzip2-stream/1.4.3:
-    resolution:
-      {
-        integrity: sha512-mlExGW4w71ebDJviH16lQLtZS32VKqsSfk80GCfUlwT/4/hNRFsoscrF/c++9xinkMzECL1uL9DDwXqFWkruPg==,
-      }
-    dependencies:
-      buffer: 5.7.1
-      through: 2.3.8
-    dev: false
-    optional: true
 
   /unified/10.1.2:
     resolution:
@@ -17679,6 +17531,7 @@ packages:
       {
         integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==,
       }
+    dev: true
 
   /webidl-conversions/7.0.0:
     resolution:
@@ -17814,6 +17667,7 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    dev: true
 
   /which-boxed-primitive/1.0.2:
     resolution:
@@ -18036,23 +17890,6 @@ packages:
         optional: true
     dev: true
 
-  /ws/8.9.0:
-    resolution:
-      {
-        integrity: sha512-Ja7nszREasGaYUYCI2k4lCKIRTt+y7XuqVoHR44YpI49TtryyqbqvDMn5eqfW7e6HzTukDRIsXqzVHScqRcafg==,
-      }
-    engines: { node: ">=10.0.0" }
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-    dev: false
-    optional: true
-
   /xdg-basedir/3.0.0:
     resolution:
       {
@@ -18226,6 +18063,7 @@ packages:
     dependencies:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
+    dev: true
 
   /yn/3.1.1:
     resolution:

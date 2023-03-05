@@ -1,4 +1,3 @@
-import { Mermaid } from "mdx-mermaid/lib/Mermaid";
 import type { GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import type { FC } from "react";
@@ -22,7 +21,6 @@ import { TeachingsDirectory } from "./index";
 const components = {
   Spoiler,
   RumpeQuiz,
-  Mermaid,
 
   img: (props: any) => {
     return <img {...props} loading="lazy" className="centerImg" alt="" />;
