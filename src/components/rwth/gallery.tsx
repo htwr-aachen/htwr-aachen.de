@@ -1,9 +1,29 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import type { ImageProps } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC, ReactChild, ReactNode } from "react";
 import { Carousel } from "react-responsive-carousel";
+
+type GalleryImageProps = ImageProps;
+
+const GalleryImage: FC<GalleryImageProps> = (props) => {
+  return (
+    <Image
+      className="absolute inset-[-9999px] m-auto block h-auto w-full object-cover"
+      {...props}
+    ></Image>
+  );
+};
+
+type GalleryItemProps = {
+  children?: ReactNode;
+};
+
+const GalleryItem: FC<GalleryItemProps> = ({ children }) => {
+  return <div className="relative h-[500px] overflow-hidden">{children}</div>;
+};
 
 type GalleryLabelProps = {
   children?: ReactNode;
@@ -102,12 +122,14 @@ const Gallery: FC<GalleryProps> = ({ children }) => {
       infiniteLoop
       className="w-full"
       showIndicators={false}
-      autoPlay
-      interval={2500}
+      // autoPlay
+      // interval={2500}
+      showThumbs={false}
+      dynamicHeight={false}
     >
       {children as ReactChild[]}
     </Carousel>
   );
 };
 
-export { Gallery, GalleryLabel };
+export { Gallery, GalleryImage, GalleryItem, GalleryLabel };

@@ -27,7 +27,6 @@
     "@mdx-js/mdx": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/env": "^13.2.1",
-    "@next/font": "^13.2.1",
     "@next/mdx": "^13.2.1",
     "@remark-embedder/core": "^3.0.1",
     "@remark-embedder/transformer-oembed": "^3.0.0",

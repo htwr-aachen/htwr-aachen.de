@@ -56,7 +56,7 @@ const Sidenav: FC<SidenavProps> = ({
         <div>
           {config.linkElements.map((link) => {
             return (
-              <>
+              <div key={link.name}>
                 <h1 className="bg-[#ececec] p-2 font-bold opacity-75">
                   {link.name}
                 </h1>
@@ -76,7 +76,7 @@ const Sidenav: FC<SidenavProps> = ({
                     );
                   })}
                 </ul>
-              </>
+              </div>
             );
           })}
         </div>

@@ -1,9 +1,9 @@
 import "../styles/global.css";
 import "../styles/markdown.scss";
 
-import { Inter, Roboto } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
+import { Inter, Roboto } from "next/font/google";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

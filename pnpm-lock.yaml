@@ -7,7 +7,6 @@ specifiers:
   "@mdx-js/react": ^2.3.0
   "@next/bundle-analyzer": ^13.2.1
   "@next/env": ^13.2.1
-  "@next/font": ^13.2.1
   "@next/mdx": ^13.2.1
   "@percy/cli": ^1.20.0
   "@percy/cypress": ^3.1.2
@@ -111,7 +110,6 @@ dependencies:
   "@mdx-js/mdx": 2.3.0
   "@mdx-js/react": 2.3.0_react@18.2.0
   "@next/env": 13.2.1
-  "@next/font": 13.2.1
   "@next/mdx": 13.2.1_msthxdjvrhmdkfpqqalumiidgq
   "@remark-embedder/core": 3.0.1
   "@remark-embedder/transformer-oembed": 3.0.0_yhneqbv5zrw6o3zwc7kzmjvkei
@@ -1436,13 +1434,6 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
-
-  /@next/font/13.2.1:
-    resolution:
-      {
-        integrity: sha512-4sergLt7xp9+mZuKME/xM4tLlHGTcmL7naCq0qCTcAlof6NnttshYgiLOdhSiy0NcI+/yM3BjvdEk++O96UzTg==,
-      }
-    dev: false
 
   /@next/mdx/13.2.1_msthxdjvrhmdkfpqqalumiidgq:
     resolution:

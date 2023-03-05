@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 
-import { Gallery, GalleryLabel } from "@/components/rwth/gallery";
+import {
+  Gallery,
+  GalleryImage,
+  GalleryItem,
+  GalleryLabel,
+} from "@/components/rwth/gallery";
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/layouts/rwth/Main";
 
@@ -48,43 +53,40 @@ const Index: FC = () => {
       pad
     >
       <Gallery>
-        <div className="relative">
-          <Image
+        <GalleryItem>
+          <GalleryImage
             src={"/assets/rwth/gallery/exzelenz.jpg"}
             alt="SCIL Banner"
-            className="block h-auto max-h-[500px] w-auto object-cover"
             width={700}
             height={500}
-          ></Image>
-          <GalleryLabel headline="Exzellenz" url="/scil/studium">
+          ></GalleryImage>
+          <GalleryLabel headline="Exzellenzuniversität" url="/scil/studium">
             Reduziert eure Erwartungen...
           </GalleryLabel>
-        </div>
-        <div className="relative">
-          <Image
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src={"/assets/rwth/gallery/informatikzentrum.png"}
-            alt="Martina Grohe"
-            className="block h-auto max-h-[500px] w-auto object-cover"
+            alt="Informationzentrum"
             width={300}
             height={500}
-          ></Image>
+          ></GalleryImage>
           <GalleryLabel headline="Realität" url="/scil/studium">
             Jeden Tag leiden mehr und mehr Studenten unter den Höllischen Qualen
             des Informatikzentrums
           </GalleryLabel>
-        </div>
-        <div className="relative">
-          <Image
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src={"/assets/rwth/gallery/karman.jpeg"}
-            alt="SCIL Banner"
-            className="block h-auto max-h-[500px] w-auto object-cover"
+            alt="Erlösungstor"
             width={700}
             height={500}
-          ></Image>
+          ></GalleryImage>
           <GalleryLabel headline="WARUM?" url="/scil/studium">
             Warum sieht das Ende so gut aus?
           </GalleryLabel>
-        </div>
+        </GalleryItem>
       </Gallery>
       <div>
         <Persona>
