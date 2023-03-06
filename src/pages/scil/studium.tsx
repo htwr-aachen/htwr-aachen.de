@@ -5,8 +5,8 @@ import {
   Schnellzugriff,
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
+import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
 import { Meta } from "@/layouts/Meta";
-import { SCILConfig } from "@/layouts/rwth/instituteConfig";
 import { Main } from "@/layouts/rwth/Main";
 
 export const MaterialienSchnellzugriff: FC = () => {
@@ -37,10 +37,8 @@ const Studium: FC = () => {
       meta={
         <Meta title="SCIL@HTWR - Studium" description="Studium für BUK"></Meta>
       }
-      instituteName="SCIL"
-      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
-      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
-      navbarConfig={SCILConfig}
+      {...SCILConfig}
+      navbarConfig={SCILNavbarConfig}
     >
       <HeadLine title="Studium" />
       <p className="my-4">Jaja hier kommt bald was für BuK.</p>

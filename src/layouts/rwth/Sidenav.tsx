@@ -22,7 +22,7 @@ const Sidenav: FC<SidenavProps> = ({
 }) => {
   const isActive = useIsActive(instituteName);
   return (
-    <div
+    <aside
       className={`fixed bg-white transition-all ${
         menuOpen
           ? "global-nav-panel top-0 right-0 z-30 h-full w-[275px] opacity-100"
@@ -81,7 +81,7 @@ const Sidenav: FC<SidenavProps> = ({
           })}
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 export default Sidenav;

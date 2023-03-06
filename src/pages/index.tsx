@@ -120,6 +120,16 @@ const Index: FC = () => {
             ></Image>
             SysCom / DatKom
           </PersonaElement>
+          <PersonaElement href="/cigol">
+            <Image
+              className="mx-auto mb-2"
+              src={"/assets/cigol/cigol_icon.svg"}
+              alt={""}
+              width={32}
+              height={32}
+            ></Image>
+            CIGOL / MaLo
+          </PersonaElement>
         </Persona>
       </div>
     </Main>

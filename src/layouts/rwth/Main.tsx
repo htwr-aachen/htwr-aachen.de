@@ -32,6 +32,7 @@ const defaultConfig: NavbarConfig = {
 
 type RWTHProps = {
   pad?: boolean;
+  navbarConfig?: NavbarConfig;
 };
 
 type MainProps = LayoutProps & RWTHProps;

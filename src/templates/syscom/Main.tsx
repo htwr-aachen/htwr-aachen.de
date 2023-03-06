@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 
+import InstituteSwitches from "@/components/InstituteSwitches";
+
 import { MenuButton } from "./MenuButton";
 
 type IMainProps = {
@@ -98,16 +100,12 @@ const Main = (props: IMainProps) => {
         </div>
       </div>
       <footer className="lg:py-20">
-        <div className="grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-rows-1 lg:px-4">
-          <div className="bottom-10 my-3 justify-self-center lg:justify-self-end">
-            <Link
-              href="/es"
-              className="pointer-events-auto rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105"
-            >
-              Zur ES/SWT Website &gt;
-            </Link>
-          </div>
-        </div>
+        <InstituteSwitches
+          links={[
+            { name: "CIGOL/MALO", url: "/cigol" },
+            { name: "ES/SWT", url: "/es" },
+          ]}
+        />
         <div className=" z-50 text-center text-sm">
           Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
           <Link href={"/impressum"}>Impressum </Link> &{" "}

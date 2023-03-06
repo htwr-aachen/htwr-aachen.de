@@ -7,8 +7,8 @@ import type { Roomconfig } from "@/components/Roomfinder";
 import { Roomfinder } from "@/components/Roomfinder";
 import { HeadLine } from "@/components/rwth/headline";
 import { TeachingList } from "@/components/TeachingList";
+import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
 import { Meta } from "@/layouts/Meta";
-import { SCILConfig } from "@/layouts/rwth/instituteConfig";
 import { Main } from "@/layouts/rwth/Main";
 import type { Document } from "@/lib/documents";
 import { getAllDocsFromDir } from "@/lib/documents";
@@ -63,10 +63,8 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
           description="Eine schlechte Sammlung von schlechten Zusammenfassungen für BuK"
         ></Meta>
       }
-      instituteLinks={[{ name: "ES/SWT", url: "/es" }]}
-      instituteName="SCIL"
-      instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
-      navbarConfig={SCILConfig}
+      {...SCILConfig}
+      navbarConfig={SCILNavbarConfig}
     >
       <div className="px-3">
         <HeadLine title="Vorlesungsmaterialien" />

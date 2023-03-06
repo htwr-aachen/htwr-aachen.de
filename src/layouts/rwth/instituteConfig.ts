@@ -1,6 +1,6 @@
 import type { NavbarConfig } from "@/models/layout";
 
-export const SCILConfig: NavbarConfig = {
+export const SCILNavbarConfig: NavbarConfig = {
   linkElements: [
     {
       name: "Studium",

@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 
-import { SCILConfig } from "@/layouts/rwth/instituteConfig";
+import { SCILNavbarConfig } from "@/layouts/rwth/instituteConfig";
 import { Main as SCILMain } from "@/layouts/rwth/Main";
 import { SubStyling } from "@/lib/style";
 import { Main as ESMain } from "@/templates/es/Main";
@@ -24,7 +24,7 @@ const CombinedMain: FC<IMainProps> = ({ children, meta, styling }) => {
           meta={meta}
           instituteName="SCIL"
           instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
-          navbarConfig={SCILConfig}
+          navbarConfig={SCILNavbarConfig}
         >
           {children}
         </SCILMain>

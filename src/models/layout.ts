@@ -6,10 +6,9 @@ export type InstituteLink = {
 };
 
 export type LayoutProps = {
-  meta: ReactNode;
-  children: ReactNode;
+  meta?: ReactNode;
+  children?: ReactNode;
   instituteLinks?: InstituteLink[];
-  navbarConfig?: NavbarConfig;
   instituteName: string;
   instituteTitle?: string;
 };

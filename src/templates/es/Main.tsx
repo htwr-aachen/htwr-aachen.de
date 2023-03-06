@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
+import InstituteSwitches from "@/components/InstituteSwitches";
+
 import Navlink from "./Navlink";
 
 type IMainProps = {
@@ -123,24 +125,12 @@ const Main = (props: IMainProps) => {
         {props.children}
       </div>
       <footer className="mt-12 border-t-1 py-12">
-        <div className="pointer-events-none grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
-          <div className="bottom-10 my-3 justify-self-center lg:justify-self-start">
-            <Link
-              href="/syscom"
-              className="pointer-events-auto rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 lg:ml-4"
-            >
-              &lt; Zur SysCom/DatKom Website
-            </Link>
-          </div>
-          <div className="bottom-10 my-3 justify-self-center lg:justify-self-end">
-            <Link
-              href="/scil"
-              className="pointer-events-auto rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105"
-            >
-              Zur SCIL/BuK Website &gt;
-            </Link>
-          </div>
-        </div>
+        <InstituteSwitches
+          links={[
+            { name: "SYSCOM/DATCOM", url: "/syscom" },
+            { name: "SCIL/BUK", url: "/scil" },
+          ]}
+        />
 
         <div className="py-12 text-center">
           <Link href={"/impressum"}>Impressum</Link> &{" "}

@@ -10,10 +10,12 @@ type GalleryImageProps = ImageProps;
 
 const GalleryImage: FC<GalleryImageProps> = (props) => {
   return (
-    <Image
-      className="absolute inset-[-9999px] m-auto block h-auto w-full object-cover"
-      {...props}
-    ></Image>
+    <div className="relative h-full w-auto overflow-hidden">
+      <Image
+        className="absolute left-[50%] top-[50%] block w-auto -translate-x-1/2 -translate-y-1/2 object-fill"
+        {...props}
+      ></Image>
+    </div>
   );
 };
 
@@ -22,7 +24,11 @@ type GalleryItemProps = {
 };
 
 const GalleryItem: FC<GalleryItemProps> = ({ children }) => {
-  return <div className="relative h-[500px] overflow-hidden">{children}</div>;
+  return (
+    <div className="grid h-[500px] grid-rows-[1fr_auto] overflow-hidden">
+      {children}
+    </div>
+  );
 };
 
 type GalleryLabelProps = {
@@ -33,7 +39,7 @@ type GalleryLabelProps = {
 
 const GalleryLabel: FC<GalleryLabelProps> = ({ headline, children, url }) => {
   return (
-    <div className="absolute bottom-0 w-full items-center justify-center lg:grid">
+    <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
       <div className="grid w-full grid-rows-2 bg-rwth-accent px-8 py-6 font-sans text-white lg:mb-6 lg:w-[750px] lg:grid-cols-[auto_1fr] lg:grid-rows-1">
         <h2 className="pr-4 text-3xl font-medium lg:w-[300px]">{headline}</h2>
         <div className="grid">
@@ -122,8 +128,9 @@ const Gallery: FC<GalleryProps> = ({ children }) => {
       infiniteLoop
       className="w-full"
       showIndicators={false}
-      // autoPlay
-      // interval={2500}
+      swipeable={false}
+      autoPlay
+      interval={2500}
       showThumbs={false}
       dynamicHeight={false}
     >

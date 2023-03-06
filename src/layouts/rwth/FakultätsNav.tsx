@@ -125,6 +125,9 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
                 <FakultätsNavLink href="/scil" subElement="BuK">
                   SCIL (Grohe)
                 </FakultätsNavLink>
+                <FakultätsNavLink href="/cigol" subElement="MaLo">
+                  CIGOL (Grädel)
+                </FakultätsNavLink>
               </ul>
               <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pt-6 pb-2">
                 <FakultätsNavHeading>Institut suchen</FakultätsNavHeading>
