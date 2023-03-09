@@ -23,7 +23,6 @@ const index: FC = () => {
 
       <p>Rumpe wartet schon</p>
 
-
       <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
         Das ist mit Abstand die schlechteste Einsicht die ich je gesehen habe.
       </h1>
