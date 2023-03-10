@@ -7,6 +7,7 @@ import Spoiler from "@/components/spoiler";
 import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/layouts/rwth/Main";
+import TeachingsLayout from "@/layouts/rwth/TeachingsLayout";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
   getAllTeachings,
@@ -14,7 +15,6 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import TeachingsLayout from "@/templates/es/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
 
