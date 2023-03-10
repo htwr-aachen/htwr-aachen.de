@@ -107,7 +107,7 @@ const Main = (props: IMainProps) => {
               dropdownNumer={5}
               dropdownCallback={dropdownCallback}
             />
-            <Navlink display={{ name: "Jobs", href: "/es/jobs" }} />
+            <Navlink display={{ name: "Jobs", href: "/jobs" }} />
             <Navlink
               display={{ name: "About us", href: "/es" }}
               links={[
