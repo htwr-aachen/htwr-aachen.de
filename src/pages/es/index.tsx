@@ -23,9 +23,17 @@ const index: FC = () => {
 
       <p>Rumpe wartet schon</p>
 
-      <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
+      <Link
+        href="/es/einsicht"
+        className="my-4 block rounded bg-gray-200 px-3 py-2"
+      >
         Das ist mit Abstand die schlechteste Einsicht die ich je gesehen habe.
-      </h1>
+        <br></br>
+        Für ein Fach, dass sich mit Organisation beschäftigt, ist das eine
+        Frechheit.
+        <br></br>
+        Klickt <b>hier</b> für mehr Infos.
+      </Link>
 
       <Roomfinder config={SWTRaumconfig} />
 
