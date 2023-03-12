@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -25,6 +26,38 @@ const Main = (props: IMainProps) => {
   return (
     <div>
       <div className="mx-auto px-1 text-gray-700 antialiased md:max-w-[910px]">
+        <Head>
+          <link
+            rel="apple-touch-icon"
+            href={`${router.basePath}/assets/syscom/apple-touch-icon.png`}
+            key="apple"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href={`${router.basePath}/assets/syscom/favicon.png`}
+            key="icon32"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href={`${router.basePath}/assets/syscom/favicon-16x16.png`}
+            key="icon16"
+          />
+          <link
+            rel="icon"
+            href={`${router.basePath}/assets/syscom/favicon.ico`}
+            key="favicon"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            href={`${router.basePath}/assets/syscom/favicon.png`}
+            sizes="96x96"
+          ></link>
+        </Head>
         {props.meta}
 
         <div className="md:max-w-{910px}">

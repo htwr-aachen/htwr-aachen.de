@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
 import { AppConfig } from "@/utils/AppConfig";
@@ -11,8 +10,6 @@ type IMetaProps = {
 };
 
 const Meta = (props: IMetaProps) => {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -22,36 +19,6 @@ const Meta = (props: IMetaProps) => {
           content="width=device-width,initial-scale=1"
           key="viewport"
         />
-        <link
-          rel="apple-touch-icon"
-          href={`${router.basePath}/assets/syscom/apple-touch-icon.png`}
-          key="apple"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href={`${router.basePath}/assets/syscom/favicon.png`}
-          key="icon32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href={`${router.basePath}/assets/syscom/favicon-16x16.png`}
-          key="icon16"
-        />
-        <link
-          rel="icon"
-          href={`${router.basePath}/assets/syscom/favicon.ico`}
-          key="favicon"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${router.basePath}/assets/syscom/favicon.png`}
-          sizes="96x96"
-        ></link>
       </Head>
       <NextSeo
         title={props.title}

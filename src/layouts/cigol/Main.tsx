@@ -1,5 +1,7 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
 import type { LayoutProps } from "@/models/layout";
@@ -9,8 +11,47 @@ type CIGOLProps = {};
 export type CIGOLMainProps = LayoutProps & CIGOLProps;
 
 const Main = (props: CIGOLMainProps) => {
+  const router = useRouter();
   return (
     <div className="scil relative font-roboto">
+      <Head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={`${router.basePath}/assets/cigol/favicon/apple-touch-icon.png`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={`${router.basePath}/assets/cigol/favicon/favicon-32x32.png`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={`${router.basePath}/assets/cigol/favicon/favicon-16x16.png`}
+        />
+        <link
+          rel="manifest"
+          href={`${router.basePath}/assets/cigol/favicon/site.webmanifest`}
+        />
+        <link
+          rel="mask-icon"
+          href={`${router.basePath}/assets/cigol/favicon/safari-pinned-tab.svg`}
+          color="#5bbad5"
+        />
+        <link
+          rel="shortcut icon"
+          href={`${router.basePath}/assets/cigol/favicon/favicon.ico`}
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta
+          name="msapplication-config"
+          content={`${router.basePath}/assets/cigol/favicon/browserconfig.xml`}
+        />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
       {props.meta}
       <div>
         <nav

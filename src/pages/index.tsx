@@ -44,8 +44,8 @@ const Index: FC = () => {
     <Main
       meta={
         <Meta
-          title="HTWR Aachhen"
-          description="HTWR Aachen ist die beste Hilfe für seinen Doppelgänger"
+          title="HTWR Aachen - Die beste Hilfe für seinen Doppelgänger"
+          description="HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... "
         ></Meta>
       }
       instituteName="MAIN"

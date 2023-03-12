@@ -11,7 +11,7 @@ type GalleryImageProps = ImageProps;
 const GalleryImage: FC<GalleryImageProps> = (props) => {
   return (
     <div className="relative h-full w-auto overflow-hidden">
-      <Image
+      <Image // eslint-disable-line jsx-a11y/alt-text
         className="absolute left-[50%] top-[50%] block w-auto -translate-x-1/2 -translate-y-1/2 object-fill"
         {...props}
       ></Image>
