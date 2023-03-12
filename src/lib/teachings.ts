@@ -23,6 +23,7 @@ export type Teaching = {
     author?: string;
     description?: string;
     order: number;
+    images: string[];
   };
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
@@ -47,6 +48,7 @@ function metadataFromData(data: { [key: string]: any }): TeachingMeta {
       order: parseInt(data.order, 10) || 9999,
       author: data.author || "",
       description: data.description || "",
+      images: data.images || [],
     },
   };
 }

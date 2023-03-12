@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArticleJsonLd } from "next-seo";
 import type { FC } from "react";
 
 import type { TeachingMeta } from "@/lib/teachings";
@@ -19,6 +20,17 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
 }) => {
   return (
     <article className="markdown line-numbers">
+      <ArticleJsonLd
+        type="Article"
+        url={`https://www.htw-aachen.de/scil/studium/teachings/${meta.slug}`}
+        datePublished={meta.meta.date || ""}
+        authorName={meta.meta.author || ""}
+        publisherName="SCIL@HTW Aachen"
+        publisherLogo="https://www.htw-aachen.de/assets/rwth/htwr.png"
+        title={meta.meta.title || ""}
+        description={meta.meta.description || ""}
+        images={meta.meta.images || []}
+      />
       <div>
         <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1> |{" "}
         <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
