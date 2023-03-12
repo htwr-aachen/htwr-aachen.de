@@ -84,7 +84,7 @@ const Main = (props: MainProps) => {
       </Head>
       {props.meta}
       <div
-        className={`relative w-full transition-all ${
+        className={`relative  min-h-screen w-full transition-all ${
           menuOpen ? "left-[-275px] h-screen overflow-hidden" : "left-0"
         }`}
       >
@@ -95,7 +95,7 @@ const Main = (props: MainProps) => {
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
         />
-        <div className="max-w-[1280px] lg:mx-auto">
+        <div className="max-w-[1280px] lg:mx-auto ">
           <div className="m-0 w-full bg-rwth-bg py-12">
             <div className={`mx-auto w-full ${!props.pad && "max-w-[980px]"}`}>
               {props.children}
