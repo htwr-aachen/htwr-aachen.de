@@ -1,4 +1,39 @@
-import type { NavbarConfig } from "@/models/layout";
+import type { Institute, NavbarConfig } from "@/models/layout";
+
+export const institutes: Institute[] = [
+  {
+    href: "/scil",
+    name: "SCIL",
+    subject: "BUK",
+    professor: "Grohe",
+    fullName: "Theorie und Logik Systeme diskreter",
+    icon: "/assets/scil/scil_icon.svg",
+  },
+  {
+    href: "syscom",
+    name: "SYSCOM",
+    fullName: "Systems Distributed & Communication",
+    professor: "Wehrle",
+    subject: "DATCOM",
+    icon: "/assets/syscom/syscom_icon.svg",
+  },
+  {
+    href: "es",
+    name: "ES",
+    fullName: "Engineering Software",
+    subject: "SWT",
+    professor: "Rumpe",
+    icon: "/assets/es/es_icon.svg",
+  },
+  {
+    href: "cigol",
+    name: "CIGOL",
+    fullName: "Informatische Grundlagen der Mathematik",
+    subject: "MALO",
+    professor: "Grädel",
+    icon: "/assets/cigol/cigol_icon.svg",
+  },
+];
 
 export const SCILNavbarConfig: NavbarConfig = {
   linkElements: [

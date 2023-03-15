@@ -37,3 +37,12 @@ export type NavbarConfig = {
   main: NavbarLink;
   logo: NavbarLogo;
 };
+
+export type Institute = {
+  name: string;
+  subject: string;
+  professor: string;
+  fullName: string;
+  href: string;
+  icon?: string;
+};

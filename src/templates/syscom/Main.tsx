@@ -1,10 +1,15 @@
+import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import router from "next/router";
 import type { ReactNode } from "react";
+import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
+import { Tooltip } from "@/components/tooltip";
+import { useIsActive } from "@/hooks/layout";
+import { FakultätsNav, FakultätsNavMobile } from "@/layouts/rwth/FakultätsNav";
 
 import { MenuButton } from "./MenuButton";
 
@@ -14,17 +19,16 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => {
-  const router = useRouter();
-
-  const isActive = (name: string): boolean => {
-    return (
-      router.pathname.startsWith(`/syscom/${name}`) ||
-      router.pathname.startsWith(`/${name}`)
-    );
-  };
+  const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
+  const isActive = useIsActive("syscom");
 
   return (
     <div>
+      <AnimatePresence>
+        {fakultätsNavOpen && (
+          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
+        )}
+      </AnimatePresence>
       <div className="mx-auto px-1 text-gray-700 antialiased md:max-w-[910px]">
         <Head>
           <link
@@ -59,27 +63,43 @@ const Main = (props: IMainProps) => {
           ></link>
         </Head>
         {props.meta}
-
         <div className="md:max-w-{910px}">
           <div>
             <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
               <div className="self-center justify-self-center">
-                <Image
-                  src={"/assets/syscom/syscom.png"}
-                  width={366}
-                  height={118}
-                  alt="ComSys Logo"
-                  className="w-{366px} h-{118px}"
-                />
+                <button
+                  type="button"
+                  className="m-2 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
+                  onClick={() => {
+                    setFakultätsNavOpen((x) => !x);
+                  }}
+                >
+                  Fakultäten & Institute
+                </button>
+                <Tooltip content="Zurück zur Syscom Hauptseite">
+                  <Link href="/syscom" className="no-b">
+                    <Image
+                      src={"/assets/syscom/syscom.png"}
+                      width={366}
+                      height={118}
+                      alt="ComSys Logo"
+                      className="w-{366px} h-{118px}"
+                    />
+                  </Link>
+                </Tooltip>
               </div>
               <div className="block">
                 <div className="grid justify-end">
-                  <Image
-                    src={"/assets/rwth/htwr.png"}
-                    width={150}
-                    height={41}
-                    alt="RWTH Aachen Logo"
-                  />
+                  <Tooltip content="Zurück zur HTWR Hauptseite">
+                    <Link href={"/"} className="no-b">
+                      <Image
+                        src={"/assets/rwth/htwr.png"}
+                        width={150}
+                        height={41}
+                        alt="RWTH Aachen Logo"
+                      />
+                    </Link>
+                  </Tooltip>
                 </div>
                 <ul className="grid grid-cols-5">
                   <MenuButton
@@ -145,6 +165,14 @@ const Main = (props: IMainProps) => {
           <Link href={"/datenschutz"}>Datenschutz</Link>
         </div>
       </footer>
+      {fakultätsNavOpen && (
+        <div>
+          <FakultätsNavMobile
+            open={fakultätsNavOpen}
+            setOpen={setFakultätsNavOpen}
+          />
+        </div>
+      )}
     </div>
   );
 };

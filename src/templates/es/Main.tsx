@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +6,8 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
+import { Tooltip } from "@/components/tooltip";
+import { FakultätsNav, FakultätsNavMobile } from "@/layouts/rwth/FakultätsNav";
 
 import Navlink from "./Navlink";
 
@@ -15,6 +18,7 @@ type IMainProps = {
 
 const Main = (props: IMainProps) => {
   const [navOpen, setNavOpen] = useState(false);
+  const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
   const dropdownCallback = (dropdownNumer: number) => {
@@ -63,21 +67,39 @@ const Main = (props: IMainProps) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       {props.meta}
+      <AnimatePresence>
+        {fakultätsNavOpen && (
+          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
+        )}
+      </AnimatePresence>
       <nav
         id="navbar"
         className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
       >
-        <div className="ml-8 lg:ml-auto lg:mr-16 lg:justify-self-end">
-          <Link href={"/es"}>
-            <Image
-              src={"/assets/es/es.png"}
-              width={276}
-              height={70}
-              alt="ComSys Logo"
-              className="aspect-auto h-[70px] w-[276]"
-            />
-          </Link>
+        <div className="ml-8 flex flex-wrap items-center justify-center lg:ml-auto lg:mr-16 lg:justify-self-end">
+          <button
+            type="button"
+            className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
+            onClick={() => {
+              setFakultätsNavOpen((x) => !x);
+              setNavOpen(true);
+            }}
+          >
+            Fakultäten & Institute
+          </button>
+          <Tooltip content="Zurück zur ES Hauptseite">
+            <Link href={"/es"}>
+              <Image
+                src={"/assets/es/es.png"}
+                width={276}
+                height={70}
+                alt="ComSys Logo"
+                className="aspect-auto h-[70px] w-[276]"
+              />
+            </Link>
+          </Tooltip>
         </div>
+
         <button
           type="button"
           className="mr-5 lg:hidden"
@@ -107,6 +129,10 @@ const Main = (props: IMainProps) => {
               navOpen ? "flex" : "hidden"
             }`}
           >
+            <FakultätsNavMobile
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
             <Navlink
               display={{ name: "Essays", href: "/es/eassys" }}
               links={[{ name: "Nichts", href: "/es/nichts" }]}

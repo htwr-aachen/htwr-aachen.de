@@ -17,9 +17,9 @@ type PersonaElementProps = {
 };
 const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
   return (
-    <li className="h-full">
+    <li className="h-[115px]">
       <Link
-        className="grid h-full items-center justify-center px-5 text-black hover:border-b-0 hover:bg-white/75"
+        className="grid h-full items-center justify-center px-2 py-5 text-center text-sm text-black hover:border-b-0 hover:bg-white/75 lg:px-5 lg:text-base"
         href={href}
       >
         <div>{children}</div>
@@ -33,7 +33,7 @@ type PersonaProps = {
 };
 const Persona: FC<PersonaProps> = ({ children }) => {
   return (
-    <ul className="flex h-[115px] items-center justify-center bg-rwth-warn">
+    <ul className="flex min-h-[115px] flex-wrap items-center justify-center bg-rwth-warn px-2">
       {children}
     </ul>
   );
@@ -92,7 +92,7 @@ const Index: FC = () => {
         <Persona>
           <PersonaElement href="/scil">
             <Image
-              className="mx-auto mb-2"
+              className="relative mx-auto mb-2 h-[32px] w-[32px]"
               src={"/assets/scil/scil_icon.svg"}
               alt={""}
               width={32}
@@ -102,7 +102,7 @@ const Index: FC = () => {
           </PersonaElement>
           <PersonaElement href="/es">
             <Image
-              className="mx-auto mb-2"
+              className="relative mx-auto mb-2 h-[32px] w-[32px]"
               src={"/assets/es/es_icon.svg"}
               alt={""}
               width={32}
@@ -112,7 +112,7 @@ const Index: FC = () => {
           </PersonaElement>
           <PersonaElement href="/syscom">
             <Image
-              className="mx-auto mb-2"
+              className="relative mx-auto mb-2 h-[32px] w-[32px]"
               src={"/assets/syscom/syscom_icon.svg"}
               alt={""}
               width={32}
@@ -122,7 +122,7 @@ const Index: FC = () => {
           </PersonaElement>
           <PersonaElement href="/cigol">
             <Image
-              className="mx-auto mb-2"
+              className="relative mx-auto mb-2 h-[32px] w-[32px]"
               src={"/assets/cigol/cigol_icon.svg"}
               alt={""}
               width={32}

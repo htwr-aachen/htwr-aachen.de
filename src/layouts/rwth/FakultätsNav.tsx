@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
+import { useMemo } from "react";
+import { Tooltip } from "react-tooltip";
+import { v4 as uuidv4 } from "uuid";
+
+import { useInstituteSearch } from "@/hooks/useInstituteSearch";
+
+import { institutes } from "./instituteConfig";
 
 type FakultätsNavProps = {
   open: boolean;
@@ -11,11 +18,25 @@ type FakultätsNavLinkProps = {
   children: ReactNode;
   href: string;
   subElement?: ReactNode;
+  // autoBorder automatically removes the overlapping border of the middle elements
+  autoBorder?: boolean;
+  tooltipContent?: string;
+  tooltipPlace?: "top" | "bottom" | "left" | "right";
 };
 const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
+  const tooltipId = useMemo(() => {
+    return uuidv4();
+  }, []);
   return (
-    <li className="w-full border-t-1 border-dotted border-white/50 last:border-b-1">
+    <li
+      className={`w-full border-t-1 border-dotted border-white/50 ${
+        props.autoBorder ? "last: border-b-1" : "border-b-1"
+      }`}
+    >
       <Link
+        data-tooltip-id={tooltipId}
+        data-tooltip-content={props.tooltipContent}
+        data-tooltip-place={props.tooltipPlace}
         href={props.href}
         className="m-0 flex w-full px-4 py-2 text-sm font-medium text-white hover:border-b-0 hover:bg-white/10 lg:px-0"
       >
@@ -67,6 +88,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
           </svg>
         </div>
       </Link>
+      <Tooltip id={tooltipId} />
     </li>
   );
 };
@@ -83,6 +105,7 @@ const FakultätsNavHeading: FC<FakultätsNavHeadingProps> = ({ children }) => {
 };
 
 const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
+  const [filteredInstitute, searchInstitutes] = useInstituteSearch(institutes);
   return (
     <motion.div
       key={"FakultätsNav"}
@@ -106,28 +129,37 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
           <div className="border-r-1 border-white/10 pr-4">
             <FakultätsNavHeading>RWTH</FakultätsNavHeading>
             <ul className="m-0 w-full">
-              <FakultätsNavLink href="/">Hauptseite</FakultätsNavLink>
-              <FakultätsNavLink href="/moodle">Intranet</FakultätsNavLink>
+              <FakultätsNavLink
+                href="/"
+                tooltipContent="Zurück zur Hauptseite"
+                tooltipPlace="right"
+              >
+                Hauptseite
+              </FakultätsNavLink>
+              <FakultätsNavLink
+                href="/moodle"
+                tooltipContent="Ins Heim mit dir"
+                tooltipPlace="right"
+              >
+                Intranet
+              </FakultätsNavLink>
             </ul>
           </div>
           <div className="px-4">
             <FakultätsNavHeading>Fakultäten und Institute</FakultätsNavHeading>
-            <div className="grid grid-cols-2 gap-8">
-              <ul className="m-0 w-full">
-                <FakultätsNavLink href="/syscom" subElement="DatKom">
-                  Syscom (Wehrle)
-                </FakultätsNavLink>
-                <FakultätsNavLink href="/es" subElement="SWT">
-                  ES (Rumpe)
-                </FakultätsNavLink>
-              </ul>
-              <ul className="m-0 w-full">
-                <FakultätsNavLink href="/scil" subElement="BuK">
-                  SCIL (Grohe)
-                </FakultätsNavLink>
-                <FakultätsNavLink href="/cigol" subElement="MaLo">
-                  CIGOL (Grädel)
-                </FakultätsNavLink>
+            <div>
+              <ul className="mb-2 grid grid-cols-2 gap-2">
+                {filteredInstitute.map((institute) => {
+                  return (
+                    <FakultätsNavLink
+                      key={institute.name}
+                      href={institute.href}
+                      subElement={institute.subject}
+                      tooltipContent={institute.fullName}
+                      tooltipPlace="bottom"
+                    >{`${institute.name} (${institute.professor})`}</FakultätsNavLink>
+                  );
+                })}
               </ul>
               <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pt-6 pb-2">
                 <FakultätsNavHeading>Institut suchen</FakultätsNavHeading>
@@ -135,6 +167,9 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
                   <input
                     className="rounded bg-white/10 px-2 py-1 text-sm"
                     placeholder="Search"
+                    onInput={(e) => {
+                      searchInstitutes(e.currentTarget.value);
+                    }}
                   ></input>
                 </div>
               </div>
@@ -142,10 +177,19 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
           </div>
           <div className="border-l-1 border-white/10 pl-4">
             <FakultätsNavHeading>Einrichtungen</FakultätsNavHeading>
-
             <ul className="m-0 w-full">
-              <FakultätsNavLink href="/lernräume">Lernräume</FakultätsNavLink>
-              <FakultätsNavLink href="/botmein">
+              <FakultätsNavLink
+                href="/lernräume"
+                tooltipContent="Gibt keine"
+                tooltipPlace="bottom"
+              >
+                Lernräume
+              </FakultätsNavLink>
+              <FakultätsNavLink
+                href="/botmein"
+                tooltipContent="Viel Glück aber will bald eh ein bot machen"
+                tooltipPlace="bottom"
+              >
                 Hochschulsport
               </FakultätsNavLink>
               <FakultätsNavLink href="/getmeoutofhere">
@@ -160,6 +204,7 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
 };
 
 const FakultätsNavMobile: FC<FakultätsNavProps> = ({ open, setOpen }) => {
+  const [filteredInstitute, searchInstitutes] = useInstituteSearch(institutes);
   return (
     <motion.div
       key={"FakultätsNav"}
@@ -181,6 +226,9 @@ const FakultätsNavMobile: FC<FakultätsNavProps> = ({ open, setOpen }) => {
           <input
             className="w-full rounded bg-white/10 px-2 py-1 text-sm"
             placeholder="Search"
+            onInput={(e) => {
+              searchInstitutes(e.currentTarget.value);
+            }}
           ></input>
         </div>
         <div>
@@ -188,17 +236,17 @@ const FakultätsNavMobile: FC<FakultätsNavProps> = ({ open, setOpen }) => {
             <FakultätsNavHeading>Fakultäten und Institute</FakultätsNavHeading>
             <div>
               <ul className="m-0 w-full">
-                <FakultätsNavLink href="/syscom" subElement="DatKom">
-                  Syscom (Wehrle)
-                </FakultätsNavLink>
-                <FakultätsNavLink href="/es" subElement="SWT">
-                  ES (Rumpe)
-                </FakultätsNavLink>
-              </ul>
-              <ul className="m-0 w-full">
-                <FakultätsNavLink href="/scil" subElement="BuK">
-                  SCIL (Grohe)
-                </FakultätsNavLink>
+                {filteredInstitute.map((institute) => {
+                  return (
+                    <FakultätsNavLink
+                      key={institute.name}
+                      href={institute.href}
+                      subElement={institute.subject}
+                      tooltipContent={institute.fullName}
+                      tooltipPlace="left"
+                    >{`${institute.name} (${institute.professor})`}</FakultätsNavLink>
+                  );
+                })}
               </ul>
             </div>
           </div>

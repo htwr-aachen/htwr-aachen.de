@@ -47,6 +47,10 @@ html, body {
   border-left: .3em solid transparent;
 }
 
+a.no-b{
+  border-bottom: 0;
+}
+
 * {
   @apply font-sans;
 }

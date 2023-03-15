@@ -48,7 +48,7 @@ const Sidenav: FC<SidenavProps> = ({
           FAKULTÄTEN UND <br /> EINRICHTUNG
         </button>
         <Link
-          href="/scil"
+          href="/"
           className="block w-full border-t-1 border-dotted bg-rwth-accent px-2 py-3 font-thin text-white hover:border-b-0 hover:border-white"
         >
           Hauptseite der HTWR
