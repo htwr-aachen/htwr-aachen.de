@@ -1,3 +1,5 @@
+"use client";
+
 import "../styles/global.css";
 import "../styles/markdown.scss";
 import "react-tooltip/dist/react-tooltip.css";
