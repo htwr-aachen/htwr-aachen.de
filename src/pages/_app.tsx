@@ -7,6 +7,8 @@ import { Inter, Roboto } from "next/font/google";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+import AppMain from "@/layouts/AppMain";
+
 export { reportWebVitals } from "next-axiom";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -48,7 +50,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <div className={`${siteClass} ${inter.className} ${roboto.className}`}>
         <div className="bg"></div>
-        <Component {...pageProps} />
+        <AppMain>
+          <Component {...pageProps} />
+        </AppMain>
         <Analytics />
       </div>
     </>
