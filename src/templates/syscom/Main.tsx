@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import router from "next/router";
+import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
@@ -23,6 +23,7 @@ type IMainProps = {
 const Main = (props: IMainProps) => {
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
   const isActive = useIsActive("syscom");
+  const router = useRouter();
 
   return (
     <div>
@@ -78,8 +79,8 @@ const Main = (props: IMainProps) => {
                 >
                   Fakultäten & Institute
                 </button>
-                <Tooltip content="Zurück zur Syscom Hauptseite">
-                  <Link href="/syscom" className="no-b">
+                <Link href="/syscom" className="no-b" passHref legacyBehavior>
+                  <Tooltip content="Zurück zur Syscom Hauptseite">
                     <Image
                       src={"/assets/syscom/syscom.png"}
                       width={366}
@@ -87,21 +88,27 @@ const Main = (props: IMainProps) => {
                       alt="ComSys Logo"
                       className="w-{366px} h-{118px}"
                     />
-                  </Link>
-                </Tooltip>
+                  </Tooltip>
+                </Link>
               </div>
               <div className="block">
                 <div className="grid justify-end">
-                  <Tooltip content="Zurück zur HTWR Hauptseite">
-                    <Link href={"/"} className="no-b">
+                  <Link
+                    href={"/"}
+                    className="no-b asd"
+                    passHref
+                    legacyBehavior
+                    title="Zurück zur HTWR Hauptseite"
+                  >
+                    <Tooltip content="Zurück zur HTWR Hauptseite">
                       <Image
                         src={"/assets/rwth/htwr.png"}
                         width={150}
                         height={41}
                         alt="RWTH Aachen Logo"
                       />
-                    </Link>
-                  </Tooltip>
+                    </Tooltip>
+                  </Link>
                 </div>
                 <ul className="grid grid-cols-5">
                   <MenuButton

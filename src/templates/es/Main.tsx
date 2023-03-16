@@ -6,7 +6,6 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import { Tooltip } from "@/components/tooltip";
 import { FakultätsNav, FakultätsNavMobile } from "@/layouts/rwth/FakultätsNav";
 
 import Navlink from "./Navlink";
@@ -87,17 +86,15 @@ const Main = (props: IMainProps) => {
           >
             Fakultäten & Institute
           </button>
-          <Tooltip content="Zurück zur ES Hauptseite">
-            <Link href={"/es"}>
-              <Image
-                src={"/assets/es/es.png"}
-                width={276}
-                height={70}
-                alt="ComSys Logo"
-                className="aspect-auto h-[70px] w-[276]"
-              />
-            </Link>
-          </Tooltip>
+          <Link href={"/es"}>
+            <Image
+              src={"/assets/es/es.png"}
+              width={276}
+              height={70}
+              alt="ComSys Logo"
+              className="aspect-auto h-[70px] w-[276]"
+            />
+          </Link>
         </div>
 
         <button
