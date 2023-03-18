@@ -9,7 +9,6 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import { Tooltip } from "@/components/Tooltip";
 import { useIsActive } from "@/hooks/layout";
 import { FakultätsNav, FakultätsNavMobile } from "@/layouts/rwth/FakultätsNav";
 
@@ -79,16 +78,14 @@ const Main = (props: IMainProps) => {
                 >
                   Fakultäten & Institute
                 </button>
-                <Link href="/syscom" className="no-b" passHref legacyBehavior>
-                  <Tooltip content="Zurück zur Syscom Hauptseite">
-                    <Image
-                      src={"/assets/syscom/syscom.png"}
-                      width={366}
-                      height={118}
-                      alt="ComSys Logo"
-                      className="w-{366px} h-{118px}"
-                    />
-                  </Tooltip>
+                <Link href="/syscom" className="no-b">
+                  <Image
+                    src={"/assets/syscom/syscom.png"}
+                    width={366}
+                    height={118}
+                    alt="ComSys Logo"
+                    className="w-{366px} h-{118px}"
+                  />
                 </Link>
               </div>
               <div className="block">
@@ -96,18 +93,14 @@ const Main = (props: IMainProps) => {
                   <Link
                     href={"/"}
                     className="no-b asd"
-                    passHref
-                    legacyBehavior
                     title="Zurück zur HTWR Hauptseite"
                   >
-                    <Tooltip content="Zurück zur HTWR Hauptseite">
-                      <Image
-                        src={"/assets/rwth/htwr.png"}
-                        width={150}
-                        height={41}
-                        alt="RWTH Aachen Logo"
-                      />
-                    </Tooltip>
+                    <Image
+                      src={"/assets/rwth/htwr.png"}
+                      width={150}
+                      height={41}
+                      alt="RWTH Aachen Logo"
+                    />
                   </Link>
                 </div>
                 <ul className="grid grid-cols-5">

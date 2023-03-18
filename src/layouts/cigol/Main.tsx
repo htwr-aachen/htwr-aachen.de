@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import { Tooltip } from "@/components/Tooltip";
 import type { LayoutProps } from "@/models/layout";
 
 import { FakultätsNav, FakultätsNavMobile } from "../rwth/FakultätsNav";
@@ -105,21 +104,14 @@ const Main = (props: CIGOLMainProps) => {
             >
               Fakultäten & Institute
             </button>
-            <Link
-              href={"/"}
-              passHref
-              legacyBehavior
-              title="Zurück zur HTWR Hauptseite"
-            >
-              <Tooltip content="Zurück zur HTWR Hauptseite">
-                <Image
-                  src="/assets/cigol/logo-htwr.png"
-                  alt="Logo"
-                  width={200}
-                  height={56}
-                  className="mt-4 mr-6 w-[200px] bg-transparent"
-                />
-              </Tooltip>
+            <Link href={"/"} title="Zurück zur HTWR Hauptseite">
+              <Image
+                src="/assets/cigol/logo-htwr.png"
+                alt="Logo"
+                width={200}
+                height={56}
+                className="mt-4 mr-6 w-[200px] bg-transparent"
+              />
             </Link>
           </div>
           <div className="absolute right-6 bottom-[-2px] flex flex-row">
