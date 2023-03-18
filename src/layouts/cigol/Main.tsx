@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import { Tooltip } from "@/components/tooltip";
+import { Tooltip } from "@/components/Tooltip";
 import type { LayoutProps } from "@/models/layout";
 
 import { FakultätsNav, FakultätsNavMobile } from "../rwth/FakultätsNav";

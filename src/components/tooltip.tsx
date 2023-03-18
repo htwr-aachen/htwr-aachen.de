@@ -1,6 +1,5 @@
 import type { HTMLProps, MouseEventHandler, ReactNode } from "react";
 import { forwardRef, useId } from "react";
-import { Tooltip as BackendTooltip } from "react-tooltip";
 
 type TooltipProps = {
   onClick?: MouseEventHandler<HTMLAnchorElement>;
@@ -28,7 +27,6 @@ const Tooltip = forwardRef<HTMLAnchorElement, TooltipProps>(
         >
           {children}
         </a>
-        <BackendTooltip id={id} />
       </>
     );
   }

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 import { useId } from "react";
-import { Tooltip } from "react-tooltip";
 
 import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 
@@ -85,7 +84,6 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
           </svg>
         </div>
       </Link>
-      <Tooltip id={id} />
     </li>
   );
 };

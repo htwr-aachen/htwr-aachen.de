@@ -9,7 +9,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import { Tooltip } from "@/components/tooltip";
+import { Tooltip } from "@/components/Tooltip";
 import { useIsActive } from "@/hooks/layout";
 import { FakultätsNav, FakultätsNavMobile } from "@/layouts/rwth/FakultätsNav";
 
