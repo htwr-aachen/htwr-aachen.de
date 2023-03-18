@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
-import { useMemo } from "react";
+import { useId } from "react";
 import { Tooltip } from "react-tooltip";
-import { v4 as uuidv4 } from "uuid";
 
 import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 
@@ -24,9 +23,7 @@ type FakultätsNavLinkProps = {
   tooltipPlace?: "top" | "bottom" | "left" | "right";
 };
 const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
-  const tooltipId = useMemo(() => {
-    return uuidv4();
-  }, []);
+  const id = useId();
   return (
     <li
       className={`w-full border-t-1 border-dotted border-white/50 ${
@@ -34,7 +31,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
       }`}
     >
       <Link
-        data-tooltip-id={tooltipId}
+        data-tooltip-id={id}
         data-tooltip-content={props.tooltipContent}
         data-tooltip-place={props.tooltipPlace}
         href={props.href}
@@ -88,7 +85,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
           </svg>
         </div>
       </Link>
-      <Tooltip id={tooltipId} />
+      <Tooltip id={id} />
     </li>
   );
 };

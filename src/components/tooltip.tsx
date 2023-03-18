@@ -1,7 +1,6 @@
 import type { HTMLProps, MouseEventHandler, ReactNode } from "react";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useId } from "react";
 import { Tooltip as BackendTooltip } from "react-tooltip";
-import { v4 as uuidv4 } from "uuid";
 
 type TooltipProps = {
   onClick?: MouseEventHandler<HTMLAnchorElement>;
@@ -13,9 +12,7 @@ type TooltipProps = {
 
 const Tooltip = forwardRef<HTMLAnchorElement, TooltipProps>(
   ({ children, content, href, onClick, place, ...rest }, ref) => {
-    const id = useMemo(() => {
-      return uuidv4();
-    }, []);
+    const id = useId();
 
     return (
       <>
