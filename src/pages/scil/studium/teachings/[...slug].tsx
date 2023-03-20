@@ -54,7 +54,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
         {doc === null || doc.content === null || doc.content === undefined ? (
           <div></div>
         ) : (
-          <MDXRemote {...doc?.content} components={components} />
+          <MDXRemote {...doc?.content} components={components} lazy />
         )}
       </TeachingsLayout>
     </Main>

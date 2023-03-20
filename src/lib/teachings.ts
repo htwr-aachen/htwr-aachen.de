@@ -27,7 +27,7 @@ export type Teaching = {
   };
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
-    Record<string, string>
+    Record<string, unknown>
   >;
 };
 
