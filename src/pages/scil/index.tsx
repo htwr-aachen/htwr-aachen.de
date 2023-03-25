@@ -18,7 +18,9 @@ const SCIL: FC = () => {
       meta={<Meta title="SCIL@HTWR"></Meta>}
       navbarConfig={SCILNavbarConfig}
     >
-      <HeadLine>Vorbereitung für BUK</HeadLine>
+      <HeadLine>
+        Viel Glück an die BuK Zweitschreiber. Es wird <b>gottlos</b>
+      </HeadLine>
 
       <Gallery>
         <div className="relative">
