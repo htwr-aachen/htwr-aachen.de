@@ -1,7 +1,9 @@
 name: "Python2Exe"
-on: 
+on:
   push:
-    branches: 
+    tags:
+      - "botmein-*"
+    branches:
       - master
       - bot
 jobs:
@@ -11,8 +13,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
-          architecture: 'x64'
+          python-version: "3.x"
+          architecture: "x64"
       - uses: Nuitka/Nuitka-Action@main
         with:
           nuitka-version: main
