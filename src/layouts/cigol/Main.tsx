@@ -74,19 +74,22 @@ const Main = (props: CIGOLMainProps) => {
 
       <div>
         <nav
-          className="relative grid grid-cols-[auto_1fr_auto] border-b-2 border-[#c1bcb2]  bg-[#f5eedd]"
+          className="relative grid grid-rows-[auto_auto_auto] justify-center gap-2 border-b-2 border-[#c1bcb2] bg-[#f5eedd] py-4 lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1  lg:py-0"
           style={{
             background:
               "inear-gradient(283deg, rgba(245,238,221,1) 0%, rgba(252,249,241,1) 78%, rgba(245,238,221,1) 100%)",
           }}
         >
-          <Link href={"/cigol"} className="hover:border-b-0">
+          <Link
+            href={"/cigol"}
+            className="grid justify-center hover:border-b-0"
+          >
             <Image
               src="/assets/cigol/logo.png"
               alt="Logo"
               width={88}
               height={88}
-              className="my-4 mx-6 rotate-180 mix-blend-multiply"
+              className="rotate-180 mix-blend-multiply lg:my-4 lg:mx-6"
             />
           </Link>
           <div className="grid items-center justify-start">
@@ -114,7 +117,7 @@ const Main = (props: CIGOLMainProps) => {
               />
             </Link>
           </div>
-          <div className="absolute right-6 bottom-[-2px] flex flex-row">
+          <div className="absolute right-6 bottom-[-2px] hidden flex-row lg:flex">
             <button
               type="button"
               className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
@@ -129,8 +132,8 @@ const Main = (props: CIGOLMainProps) => {
             </button>
           </div>
         </nav>
-        <div className="page mt-6 grid grid-cols-[auto_1fr] font-sans">
-          <aside className="mx-6 w-[200px]">
+        <div className="page mt-6 grid grid-rows-[auto_1fr] font-sans lg:grid-cols-[auto_1fr] lg:grid-rows-1">
+          <aside className="mx-6 mb-4 lg:mb-0 lg:w-[200px]">
             <div className="rounded-3xl bg-[#f5eedd]">
               <ul className="py-6 pl-4">
                 <li className="py-1 first:pt-0">
