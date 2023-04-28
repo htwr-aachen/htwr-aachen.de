@@ -43,6 +43,26 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
   );
 };
 
+type SolutionViewProps = {
+  name: string;
+  description?: string;
+  solution: any;
+  children: ReactNode;
+};
+
+const SolutionView: FC<SolutionViewProps> = (props) => {
+  return (
+    <div className="rounded-lg bg-gray-100 px-10 py-8 text-lg">
+      <h3 className="text-2xl font-semibold">Aufgabe {props.name}</h3>
+      <p className="font-serif my-2 px-4">{props.description}</p>
+      <p className="px-4 ">{props.children}</p>
+      <h3 className="mt-8 text-center text-4xl font-medium">
+        Lösung: {props.solution}
+      </h3>
+    </div>
+  );
+};
+
 type NumberInputProps = {
   name: string;
 };
@@ -64,4 +84,4 @@ const NumberInput: FC<NumberInputProps> = ({ name }) => {
   );
 };
 
-export { InputContext, NumberInput, SolutionCalculator };
+export { InputContext, NumberInput, SolutionCalculator, SolutionView };

@@ -23,6 +23,7 @@ specifiers:
   "@types/node": ^18.15.10
   "@types/prismjs": ^1.26.0
   "@types/react": ^18.0.29
+  "@types/react-katex": ^3.0.0
   "@types/remark-hint": ^1.0.1
   "@types/uuid": ^9.0.1
   "@typescript-eslint/eslint-plugin": ^5.56.0
@@ -178,6 +179,7 @@ devDependencies:
   "@types/node": 18.16.2
   "@types/prismjs": 1.26.0
   "@types/react": 18.0.29
+  "@types/react-katex": 3.0.0
   "@types/remark-hint": 1.0.1
   "@types/uuid": 9.0.1
   "@typescript-eslint/eslint-plugin": 5.56.0_iskin7c6dxqunwflhstekcjqmq
@@ -2842,6 +2844,15 @@ packages:
     resolution:
       {
         integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==,
+      }
+    dependencies:
+      "@types/react": 18.0.29
+    dev: true
+
+  /@types/react-katex/3.0.0:
+    resolution:
+      {
+        integrity: sha512-AiHHXh71a2M7Z6z1wj6iA23SkiRF9r0neHUdu8zjU/cT3MyLxDefYHbcceKhV/gjDEZgF3YaiNHyPNtoGUjPvg==,
       }
     dependencies:
       "@types/react": 18.0.29
