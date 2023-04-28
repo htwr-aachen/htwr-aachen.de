@@ -150,21 +150,11 @@ const Index: FC = () => {
 
         <article className="my-20 mx-12">
           <h2 className="my-2 text-center text-3xl font-bold">
-            Gleich Stocha Inspirationen :)
+            Stocha Inspirationen :)
           </h2>
-          <SolutionCalculator
-            name="Muss es nur erstmal selber machen"
-            solutionFunction={({ x, y }) => {
-              return x + y;
-            }}
-          >
-            Muss es nur erstmal selber machen. Das ist ein Test für die Lösung
-            von <NumberInput name="x" /> + <NumberInput name="y" />.
-          </SolutionCalculator>
-
           <SolutionView
             name="Aufgabe 1.1"
-            solution={"Masterstudenten, die nicht Linux nutzen"}
+            solution={"Master, die nicht Linux nutzen"}
           >
             <InlineMath math="B^c \setminus A_2" />
           </SolutionView>
@@ -263,8 +253,9 @@ const Index: FC = () => {
               return (A / (fak(total) / fak(x))).toFixed(2);
             }}
           >
-            Aus <NumberInput name="total" /> Haben wir <NumberInput name="A" />{" "}
-            Ereignisse mit <NumberInput name="x" /> unterschiedliche
+            Vorheriges Ergebnis <NumberInput name="A" />
+            Aus <NumberInput name="total" /> ziehen wir <NumberInput name="x" />{" "}
+            unterschiedliche.
           </SolutionCalculator>
 
           <SolutionCalculator
@@ -284,9 +275,11 @@ const Index: FC = () => {
               return (A / (zahlen + 1) ** x).toFixed(2);
             }}
           >
+            Vorheriges Ergebnis <NumberInput name="A" />
+            <br />
             Von 0,...
-            <NumberInput name="zahlen" /> haben wir <NumberInput name="A" />{" "}
-            Ereignisse indem wir <NumberInput name="x" /> Zahlen ziehen
+            <NumberInput name="zahlen" /> zeihen wir <NumberInput name="x" />{" "}
+            unterschiedliche
           </SolutionCalculator>
 
           <SolutionCalculator
@@ -377,7 +370,7 @@ const Index: FC = () => {
             <NumberInput name="x" />
             <NumberInput name="y" />
             <NumberInput name="z" />
-            <InlineMath>P(A_i \cup B)</InlineMath>
+            <InlineMath>P(A_i \cap B)</InlineMath>
             <NumberInput name="i"></NumberInput>
           </SolutionCalculator>
 

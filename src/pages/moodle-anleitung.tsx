@@ -52,8 +52,8 @@ const MoodleAnleitung: FC = () => {
               height="648"
             ></Image>
             <p className="my-4 text-lg">
-              Misst jetzt hab ich mich verklickt nach 5h warten ist es geladen
-              wo kann ich denn jetzt zurück?
+              Mist jetzt hab ich mich verklickt nach 5h warten ist es geladen wo
+              kann ich denn jetzt zurück?
             </p>
           </div>
           <div>
@@ -66,7 +66,7 @@ const MoodleAnleitung: FC = () => {
             ></Image>
             <p className="my-4 text-lg">
               Ahh warte es ist ja RWTH Moodle ich muss einfach nur den
-              unsichtbaren Button oben rechts drücken ganz simple und intuitiv
+              unsichtbaren Button oben links drücken ganz simple und intuitiv
             </p>
           </div>
         </div>

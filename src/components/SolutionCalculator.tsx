@@ -35,9 +35,7 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
         <h3 className="text-2xl font-semibold">Aufgabe {props.name}</h3>
         <p className="font-serif my-2 px-4">{props.description}</p>
         <p className="px-4 ">{props.children}</p>
-        <h3 className="mt-8 text-center text-4xl font-medium">
-          Lösung: {solution}
-        </h3>
+        <h3 className="mt-8 px-2 text-4xl font-medium">Lösung: {solution}</h3>
       </div>
     </InputContext.Provider>
   );
@@ -56,7 +54,7 @@ const SolutionView: FC<SolutionViewProps> = (props) => {
       <h3 className="text-2xl font-semibold">Aufgabe {props.name}</h3>
       <p className="font-serif my-2 px-4">{props.description}</p>
       <p className="px-4 ">{props.children}</p>
-      <h3 className="mt-8 text-center text-4xl font-medium">
+      <h3 className="mt-8 px-2 text-4xl font-medium">
         Lösung: {props.solution}
       </h3>
     </div>
