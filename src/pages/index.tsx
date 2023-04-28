@@ -288,6 +288,122 @@ const Index: FC = () => {
             <NumberInput name="zahlen" /> haben wir <NumberInput name="A" />{" "}
             Ereignisse indem wir <NumberInput name="x" /> Zahlen ziehen
           </SolutionCalculator>
+
+          <SolutionCalculator
+            name="6.1"
+            solutionFunction={({ x1, x2 }) => {
+              return (1 - x1 / x2).toFixed(2);
+            }}
+          >
+            <InlineMath>
+              P(A) = x1/x2, P(B) = y1/y2, P(A \mid B^c)=z1/z2
+            </InlineMath>
+            <br />
+            <NumberInput name="x1" /> <NumberInput name="x2" />
+            <br />
+            <NumberInput name="y1" /> <NumberInput name="y2" />
+            <br />
+            <NumberInput name="z1" /> <NumberInput name="z2" />
+            <br />
+            Frage was ist <InlineMath>P(A^c)</InlineMath>
+          </SolutionCalculator>
+
+          <SolutionCalculator
+            name="6.2"
+            solutionFunction={({ x1, x2, y1, y2, z1, z2 }) => {
+              return (((z1 / z2) * (1 - y1 / y2)) / (x1 / x2)).toFixed(2);
+            }}
+          >
+            <InlineMath>
+              P(A) = x1/x2, P(B) = y1/y2, P(A \mid B^c)=z1/z2
+            </InlineMath>
+            <br />
+            <NumberInput name="x1" /> <NumberInput name="x2" />
+            <br />
+            <NumberInput name="y1" /> <NumberInput name="y2" />
+            <br />
+            <NumberInput name="z1" /> <NumberInput name="z2" />
+            <br />
+            Frage was ist <InlineMath>P(B^c \mid A)</InlineMath>
+          </SolutionCalculator>
+
+          <SolutionView
+            name="7.1"
+            solution={<InlineMath>P(A \mid B) + P(A^c \mid B) = 1</InlineMath>}
+          >
+            Wenn <InlineMath math="0 < P(A) < 1"></InlineMath>
+          </SolutionView>
+
+          <SolutionView
+            name="7.2"
+            solution={
+              <InlineMath>P(C) = 1 \implies P(A \mid C) = P(A)</InlineMath>
+            }
+          >
+            Wenn <InlineMath math="0 < P(A) < 1"></InlineMath>
+          </SolutionView>
+
+          <SolutionCalculator
+            name="8.1"
+            solutionFunction={({ x, y }) => {
+              let sum = 0;
+              for (let i = 1; i <= y; i++) {
+                sum += i;
+              }
+
+              return x / sum;
+            }}
+          >
+            <InlineMath math="c \cdot \frac{j}{x} für j = 1, ..., y"></InlineMath>
+            <br></br>
+            <NumberInput name="x" />
+            <NumberInput name="y" />
+          </SolutionCalculator>
+
+          <SolutionCalculator
+            name="8.1"
+            solutionFunction={({ x, y, i }) => {
+              return ((1 / x) * (1 / 2 ** (y - i))).toFixed(2);
+            }}
+          >
+            Nun gelte <InlineMath math="P(A_j)=\frac{1}{x}"></InlineMath>
+            <br />
+            <InlineMath math="P(B \mid A_j) = \frac{1}{2^{y-j}}"></InlineMath>{" "}
+            für <InlineMath math="j \le z"></InlineMath> sowie{" "}
+            <InlineMath math="P(B \mid A_j) = 0"></InlineMath> für{" "}
+            <InlineMath math="j > z"></InlineMath>
+            <br />
+            <br />
+            <NumberInput name="x" />
+            <NumberInput name="y" />
+            <NumberInput name="z" />
+            <InlineMath>P(A_i \cup B)</InlineMath>
+            <NumberInput name="i"></NumberInput>
+          </SolutionCalculator>
+
+          <SolutionCalculator
+            name="8.2"
+            solutionFunction={({ x, y, z }) => {
+              let sum = 0;
+              for (let j = 1; j <= z; j++) {
+                sum += (1 / x) * (1 / 2 ** (y - j));
+              }
+              return sum.toFixed(2);
+            }}
+          >
+            Nun gelte <InlineMath math="P(A_j)=\frac{1}{x}"></InlineMath>
+            <br />
+            <InlineMath math="P(B \mid A_j) = \frac{1}{2^{y-j}}"></InlineMath>{" "}
+            für <InlineMath math="j \le z"></InlineMath> sowie{" "}
+            <InlineMath math="P(B \mid A_j) = 0"></InlineMath> für{" "}
+            <InlineMath math="j > z"></InlineMath>
+            <br />
+            <br />
+            <NumberInput name="x" />
+            <NumberInput name="y" />
+            <NumberInput name="z" />
+            <InlineMath>P(B)=</InlineMath>
+          </SolutionCalculator>
         </article>
       </div>
     </Main>
