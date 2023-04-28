@@ -58,5 +58,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }, // Don't run prettier for files listed in .gitignore
   "typescript.tsdk": "node_modules\\.pnpm\\typescript@4.9.5\\node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
