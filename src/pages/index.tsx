@@ -8,6 +8,10 @@ import {
   GalleryItem,
   GalleryLabel,
 } from "@/components/rwth/gallery";
+import {
+  NumberInput,
+  SolutionCalculator,
+} from "@/components/SolutionCalculator";
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/layouts/rwth/Main";
 
@@ -131,6 +135,21 @@ const Index: FC = () => {
             CIGOL / MaLo
           </PersonaElement>
         </Persona>
+
+        <article className="my-20 mx-12">
+          <h2 className="my-2 text-center text-3xl font-bold">
+            Gleich Stocha Inspirationen :)
+          </h2>
+          <SolutionCalculator
+            name="Muss es nur erstmal selber machen"
+            solutionFunction={({ x, y }) => {
+              return x + y;
+            }}
+          >
+            Muss es nur erstmal selber machen. Das ist ein Test für die Lösung
+            von <NumberInput name="x" /> + <NumberInput name="y" />.
+          </SolutionCalculator>
+        </article>
       </div>
     </Main>
   );
