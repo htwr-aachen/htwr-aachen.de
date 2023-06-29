@@ -2,16 +2,18 @@ import type { GetStaticProps } from "next";
 import { join } from "path";
 import type { FC } from "react";
 
-import { Roomfinder } from "@/components/Roomfinder";
 import { TeachingList } from "@/components/TeachingList";
+import { Main } from "@/layouts/cigol/Main";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/templates/es/Main";
 
-import { SWTRaumconfig } from "..";
-
-export const TeachingsDirectory = join(process.cwd(), "src", "teachings", "es");
+export const TeachingsDirectory = join(
+  process.cwd(),
+  "src",
+  "teachings",
+  "cigol"
+);
 
 type TeachingsProps = {
   docs: TeachingMeta[];
@@ -32,37 +34,31 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
     <Main
       meta={
         <Meta
-          title="ES@HTWR-Teachings"
-          description="Eine schlechte Sammlung von schlechten Zusammenfassungen"
+          title="CIGOL@HTWR-Teachings"
+          description="Es ex. eine Sammlung für alle Malo/(Mathematische Logik) Sachen, aber die hier ist es bestimmt nicht"
         ></Meta>
       }
+      instituteName={"cigol"}
     >
-      <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
-        Viel Reichtum bei der Klausur morgen. Vergesst den Master nicht sonst
-        wird's nichts, aber keine Promotion!🍀
-      </h1>
-
-      <Roomfinder config={SWTRaumconfig} />
-
       <h1 className="font-sans text-4xl font-light" id="aufgaben">
         Vorlesungsfolien / Script
       </h1>
 
-      <p className="my-2">
-        Ich finde die Folien von SWT echt unübersichtlich, aber trotzdem hier
-        ist der Folienmerge von SWT SS2022/2023:
-      </p>
-
       <ul className="my-2 ml-8 list-disc">
         <li>
-          <a target={"_blank"} href="/teaching-assets/es/folien-merged.pdf">
-            Folienmerge
+          <a target={"_blank"} href="/teaching-assets/cigol/script_23.pdf">
+            Script 2023
+          </a>
+        </li>
+        <li>
+          <a target={"_blank"} href="/teaching-assets/cigol/script_18.pdf">
+            Script 2018 (ist größtenteils gleich)
           </a>
         </li>
         <li>
           <a
             target={"_blank"}
-            href="https://panikzettel.philworld.de/swt.pdf"
+            href="https://panikzettel.philworld.de/malo.pdf"
             rel="noreferrer"
           >
             Panikzettel
@@ -76,10 +72,28 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
             philworld.de
           </a>{" "}
           nicht die views klauen, aber selbst gehostet gibts{" "}
-          <a target={"_blank"} href="/teaching-assets/es/panikzettel.pdf">
+          <a target={"_blank"} href="/teaching-assets/cigol/panikzettel.pdf">
             hier.
           </a>
           )
+        </li>
+        <li>
+          <a
+            href="https://video.fsmpi.rwth-aachen.de/23ss-malo"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            Video AG 2023 (selbst aufgenommen)
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://video.fsmpi.rwth-aachen.de/17ss-malo"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            Video AG 2017 (selbst aufgenommen)
+          </a>
         </li>
       </ul>
 
@@ -111,19 +125,16 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
           href="https://discordapp.com/users/317018058428514314"
           rel="noreferrer"
         >
-          Jonsch318#4006
+          jonsch318
         </a>
       </span>
 
       <p className="my-4">
-        Wie zur Hölle bekomme ich aus SWT bitte irgendwas "witziges" heraus??
-        <br />
-        Ich probiere hier eher durch alle Diagrammtypen durchzugehen, da dass
-        eigentlich das wichtige ist. Ein paar Wissensfragen sind aber auch dabei
-        (es gibt meistens eine Allgemeinwissen Frage).
+        Malo ist so kindlich einfach, da muss man auch den richtigen Flair für
+        die Titel haben. Ich sammel hier gerne Tips wenn ich die mitbekomme.
       </p>
 
-      <TeachingList urlPrefix="/es/teachings" teachingList={docs} />
+      <TeachingList urlPrefix="/cigol/teachings" teachingList={docs} />
     </Main>
   );
 };

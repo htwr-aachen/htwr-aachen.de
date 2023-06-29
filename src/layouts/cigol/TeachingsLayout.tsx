@@ -11,8 +11,6 @@ type TeachingsLayoutProps = {
     prev: TeachingMeta | null;
     next: TeachingMeta | null;
   };
-  instituteName: string;
-  instituteUrl: string;
 };
 
 const TeachingsLayout: FC<TeachingsLayoutProps> = ({
@@ -24,10 +22,10 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
     <article className="markdown line-numbers">
       <ArticleJsonLd
         type="Article"
-        url={`https://www.htw-aachen.de/scil/studium/teachings/${meta.slug}`}
+        url={`https://www.htw-aachen.de/cigol/teachings/${meta.slug}`}
         datePublished={meta.meta.date || ""}
         authorName={meta.meta.author || ""}
-        publisherName="SCIL@HTW Aachen"
+        publisherName="CIGOL@HTW Aachen"
         publisherLogo="https://www.htw-aachen.de/assets/rwth/htwr.png"
         title={meta.meta.title || ""}
         description={meta.meta.description || ""}
@@ -35,19 +33,19 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
       />
       <div>
         <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1> |{" "}
-        <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
+        <Link href={"/cigol/teachings"}>Back to Overview</Link>
       </div>
 
-      <div className="m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8">
+      <div className="m-4 rounded-lg border-1 border-[#c1bcb2] bg-[#f5eedd] p-4 pb-8 lg:px-8">
         {children}
       </div>
 
       <div>
-        <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
+        <Link href={"/cigol/teachings"}>Back to Overview</Link>
         {context.prev != null ? (
           <>
             | Vorheriges:{" "}
-            <Link href={`/scil/studium/teachings/${context.prev?.slug}`}>
+            <Link href={`/cigol/teachings/${context.prev?.slug}`}>
               {context.prev?.meta.title}
             </Link>{" "}
           </>
@@ -57,7 +55,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
         {context.next != null ? (
           <>
             | Nächstes:{" "}
-            <Link href={`/scil/studium/teachings/${context.next?.slug}`}>
+            <Link href={`/cigol/teachings/${context.next?.slug}`}>
               {context.next?.meta.title}
             </Link>{" "}
           </>

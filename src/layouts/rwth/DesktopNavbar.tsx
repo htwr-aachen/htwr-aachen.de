@@ -62,10 +62,10 @@ const DesktopNavbar: FC<NavbarProps> = ({
             >
               FAKULTÄTEN UND EINRICHTUNGEN
             </button>
-            <h2 className="logo-extension pt-3 pl-5 text-lg font-normal">
+            <h2 className="logo-extension pl-5 pt-3 text-lg font-normal">
               {instituteTitle}
             </h2>
-            <div className="absolute top-[-40px] right-0 flex h-[40px] items-center justify-center text-white">
+            <div className="absolute right-0 top-[-40px] flex h-[40px] items-center justify-center text-white">
               <input
                 type={"search"}
                 className="bg-[#666] pl-2 text-sm"

@@ -20,7 +20,7 @@ const InstituteSwitch: FC<InstituteSwitchProps> = ({ url, name, right }) => {
     >
       <Link
         href={url || "/"}
-        className="pointer-events-auto block rounded-md bg-black py-2 px-3 text-white transition-transform hover:scale-105 hover:border-b-0"
+        className="pointer-events-auto block rounded-md bg-black px-3 py-2 text-white transition-transform hover:scale-105 hover:border-b-0"
       >
         {!right ? "<" : ""} Zur {name} Website {right ? ">" : ""}
       </Link>

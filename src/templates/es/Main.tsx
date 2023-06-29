@@ -183,7 +183,7 @@ const Main = (props: IMainProps) => {
           </ul>
         </div>
       </nav>
-      <div className="container mx-auto max-w-[1000px] py-12 px-8 lg:px-0">
+      <div className="container mx-auto max-w-[1000px] px-8 py-12 lg:px-0">
         {props.children}
       </div>
       <footer className="mt-12 border-t-1 py-12">

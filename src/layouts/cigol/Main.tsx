@@ -89,7 +89,7 @@ const Main = (props: CIGOLMainProps) => {
               alt="Logo"
               width={88}
               height={88}
-              className="rotate-180 mix-blend-multiply lg:my-4 lg:mx-6"
+              className="rotate-180 mix-blend-multiply lg:mx-6 lg:my-4"
             />
           </Link>
           <div className="grid items-center justify-start">
@@ -100,7 +100,7 @@ const Main = (props: CIGOLMainProps) => {
           </div>
           <div className="flex">
             <button
-              className="m-2 my-auto h-min rounded bg-gray-200 py-1 px-2 hover:bg-gray-300"
+              className="m-2 my-auto h-min rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
               onClick={() => {
                 setFakultätsNavOpen((x) => !x);
               }}
@@ -113,11 +113,11 @@ const Main = (props: CIGOLMainProps) => {
                 alt="Logo"
                 width={200}
                 height={56}
-                className="mt-4 mr-6 w-[200px] bg-transparent"
+                className="mr-6 mt-4 w-[200px] bg-transparent"
               />
             </Link>
           </div>
-          <div className="absolute right-6 bottom-[-2px] hidden flex-row lg:flex">
+          <div className="absolute bottom-[-2px] right-6 hidden flex-row lg:flex">
             <button
               type="button"
               className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
@@ -146,7 +146,7 @@ const Main = (props: CIGOLMainProps) => {
                 </li>
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/forschung"}
+                    href={"/cigol/teachings"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
                     Lehre

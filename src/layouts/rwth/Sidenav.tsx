@@ -25,7 +25,7 @@ const Sidenav: FC<SidenavProps> = ({
     <aside
       className={`fixed bg-white transition-all ${
         menuOpen
-          ? "global-nav-panel top-0 right-0 z-30 h-full w-[275px] opacity-100"
+          ? "global-nav-panel right-0 top-0 z-30 h-full w-[275px] opacity-100"
           : "right-[-300px] -z-50 opacity-0"
       }`}
     >

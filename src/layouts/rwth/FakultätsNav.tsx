@@ -93,7 +93,7 @@ type FakultätsNavHeadingProps = {
 };
 const FakultätsNavHeading: FC<FakultätsNavHeadingProps> = ({ children }) => {
   return (
-    <h3 className="grid items-center justify-start bg-white/10 py-2 px-3 text-sm font-bold uppercase lg:bg-transparent lg:px-0 lg:pb-3 lg:text-lg">
+    <h3 className="grid items-center justify-start bg-white/10 px-3 py-2 text-sm font-bold uppercase lg:bg-transparent lg:px-0 lg:pb-3 lg:text-lg">
       {children}
     </h3>
   );
@@ -156,7 +156,7 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
                   );
                 })}
               </ul>
-              <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pt-6 pb-2">
+              <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pb-2 pt-6">
                 <FakultätsNavHeading>Institut suchen</FakultätsNavHeading>
                 <div className="grid items-center justify-center">
                   <input

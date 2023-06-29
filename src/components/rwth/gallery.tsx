@@ -99,7 +99,7 @@ const GalleryNextArrow = (
 ) => {
   if (!hasNext) return <></>;
   return (
-    <div className="absolute top-0 right-0 grid h-full items-center justify-end">
+    <div className="absolute right-0 top-0 grid h-full items-center justify-end">
       <button
         onClick={clickHandler}
         className="relative z-10 bg-black/50 hover:bg-rwth-accent/100"
