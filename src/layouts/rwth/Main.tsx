@@ -99,7 +99,7 @@ const Main = (props: MainProps) => {
           setMenuOpen={setMenuOpen}
         />
         <div className="max-w-[1280px] lg:mx-auto">
-          <SharedPushNotify />
+          {/* <SharedPushNotify /> */}
         </div>
         <div className="max-w-[1280px] lg:mx-auto ">
           <div className="m-0 w-full bg-rwth-bg py-12">
