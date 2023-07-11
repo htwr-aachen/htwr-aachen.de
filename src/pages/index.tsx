@@ -132,6 +132,16 @@ const Index: FC = () => {
             ></Image>
             CIGOL / MaLo
           </PersonaElement>
+          <PersonaElement href="/wsi">
+            <Image
+              className="relative mx-auto mb-2 h-[32px] w-[32px] brightness-0"
+              src={"/assets/wsi/favicon.png"}
+              alt={""}
+              width={32}
+              height={32}
+            ></Image>
+            WSI / Stocha
+          </PersonaElement>
         </Persona>
       </div>
     </Main>

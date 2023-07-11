@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from "react";
 
-import { SCILNavbarConfig } from "@/layouts/rwth/instituteConfig";
-import { Main as SCILMain } from "@/layouts/rwth/Main";
+import { DefaultNavbar, SCILNavbarConfig } from "@/layouts/rwth/instituteConfig";
 import { SubStyling } from "@/lib/style";
 import { Main as ESMain } from "@/templates/es/Main";
 import { Main as SyscomMain } from "@/templates/syscom/Main";
+import { Main as HTWRMain } from "@/layouts/rwth/Main";
 
 type IMainProps = {
   meta: ReactNode;
@@ -14,20 +14,26 @@ type IMainProps = {
 
 const CombinedMain: FC<IMainProps> = ({ children, meta, styling }) => {
   switch (styling) {
+    case SubStyling.None:
+      return (
+        <HTWRMain meta={meta} instituteName="HTWR" instituteTitle="HTWR macht auch mal Fehler" navbarConfig={DefaultNavbar}>
+          {children}
+        </HTWRMain>
+      )
     case SubStyling.ES:
       return <ESMain meta={meta}>{children}</ESMain>;
     case SubStyling.SYSCOM:
       return <SyscomMain meta={meta}>{children}</SyscomMain>;
     case SubStyling.SCIL:
       return (
-        <SCILMain
+        <HTWRMain
           meta={meta}
           instituteName="SCIL"
           instituteTitle="Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)"
           navbarConfig={SCILNavbarConfig}
         >
           {children}
-        </SCILMain>
+        </HTWRMain>
       );
     default:
       return (

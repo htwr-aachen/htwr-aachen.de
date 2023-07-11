@@ -39,7 +39,7 @@ const Studium: FC = () => {
       navbarConfig={WSINavbar}
     >
       <HeadLine title="Studium" />
-      <p className="my-4">Jaja hier kommt bald was für BuK.</p>
+      <p className="my-4">Einführung in die Stochastik ist so ein Fach, dass ist nicht besonders schwer und nicht besonders leicht, deswegen mag man es nicht.</p>
 
       <MaterialienSchnellzugriff />
     </Main>

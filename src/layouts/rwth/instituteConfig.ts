@@ -28,6 +28,22 @@ export const DefaultNavbar: NavbarConfig = {
 
 export const institutes: Institute[] = [
   {
+    href: "/wsi",
+    name: "WSI",
+    subject: "STOCHA",
+    professor: "Steland",
+    fullName: "Institut für Wirtschafts und Statistikmathematik",
+    icon: "/assets/wsi/wsi_icon.svg",
+  },
+  {
+    href: "cigol",
+    name: "CIGOL",
+    fullName: "Informatische Grundlagen der Mathematik",
+    subject: "MALO",
+    professor: "Grädel",
+    icon: "/assets/cigol/cigol_icon.svg",
+  },
+  {
     href: "/scil",
     name: "SCIL",
     subject: "BUK",
@@ -50,14 +66,6 @@ export const institutes: Institute[] = [
     subject: "SWT",
     professor: "Rumpe",
     icon: "/assets/es/es_icon.svg",
-  },
-  {
-    href: "cigol",
-    name: "CIGOL",
-    fullName: "Informatische Grundlagen der Mathematik",
-    subject: "MALO",
-    professor: "Grädel",
-    icon: "/assets/cigol/cigol_icon.svg",
   },
 ];
 
@@ -182,5 +190,11 @@ export const WSINavbar: NavbarConfig = {
     },
   ],
   main: { name: "WSI", url: "/wsi" },
-  logo: DefaultNavbar.logo,
+  logo: {
+    logoUrl: "/assets/wsi/wsi.jpg",
+    alt: "WSI Logo",
+    href: "/wsi",
+    width: 387,
+    height: 110,
+  },
 };

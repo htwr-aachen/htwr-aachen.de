@@ -4,6 +4,7 @@ import { WSIConfig } from "@/layouts/configs";
 import { Meta } from "@/layouts/Meta";
 import { WSINavbar } from "@/layouts/rwth/instituteConfig";
 import { Main } from "@/layouts/rwth/Main";
+import { MaterialienSchnellzugriff } from "./studium";
 
 const WSIIndexPage: FC = () => {
   return (
@@ -16,6 +17,8 @@ const WSIIndexPage: FC = () => {
         Ich bin zu faul um mich von der WSI Webseite zu "inspirieren" somit gibt
         es jetzt das Standard HTWR Layout :)
       </h1>
+
+      <MaterialienSchnellzugriff/>
     </Main>
   );
 };
