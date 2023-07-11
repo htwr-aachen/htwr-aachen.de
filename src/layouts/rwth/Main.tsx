@@ -5,35 +5,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import type { LayoutProps, NavbarConfig } from "../../models/layout";
-import SharedPushNotify from "../SharedPushNotify";
 import Footer from "./Footer";
+import { DefaultNavbar } from "./instituteConfig";
 import Navbar from "./Navbar";
-
-const defaultConfig: NavbarConfig = {
-  linkElements: [
-    {
-      name: "Studium",
-      url: "/studium",
-      path: "/studium",
-    },
-    {
-      name: "Forschung",
-      url: "/forschung",
-      path: "/forschung",
-    },
-    {
-      name: "Wirtschaft",
-      url: "/witschaft",
-      path: "/witschaft",
-    },
-  ],
-  main: { name: "HTWR", url: "/" },
-  logo: {
-    logoUrl: "/assets/rwth/htwr_banner.png",
-    alt: "SCIL Logo",
-    href: "/",
-  },
-};
 
 type RWTHProps = {
   pad?: boolean;
@@ -94,7 +68,7 @@ const Main = (props: MainProps) => {
         <Navbar
           instituteName={props.instituteName || ""}
           instituteTitle={props.instituteTitle || ""}
-          config={props.navbarConfig || defaultConfig}
+          config={props.navbarConfig || DefaultNavbar}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
         />

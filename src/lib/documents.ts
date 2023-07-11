@@ -20,6 +20,9 @@ const replacer = (file: string): string => {
     .replaceAll("-", " ");
 
   switch (definition) {
+    case "VL":
+    case "vl":
+      return `Vorlesung ${rest}`;
     case "ue":
       return `Übung ${rest}`;
     case "gl":

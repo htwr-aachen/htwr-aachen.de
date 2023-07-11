@@ -23,7 +23,7 @@
   },
   "prettier.ignorePath": ".gitignore",
   "cSpell.language": "en,de-DE",
-  "cSpell.enableFiletypes": ["mdx"],
+  "cSpell.enableFiletypes": ["!typescriptreact", "mdx"],
   "cSpell.words": [
     "Adaptee",
     "Approximationsalgorithmus",

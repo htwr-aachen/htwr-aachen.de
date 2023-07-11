@@ -50,6 +50,8 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
       <TeachingsLayout
         meta={{ slug: doc?.slug, meta: doc?.meta }}
         context={context}
+        instituteName="SCIL"
+        instituteUrl="https://htwr-aachen.de/scil"
       >
         {doc === null || doc.content === null || doc.content === undefined ? (
           <div></div>

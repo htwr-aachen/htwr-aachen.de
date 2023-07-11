@@ -1,3 +1,5 @@
+import type { LayoutProps } from "@/models/layout";
+
 import type { CIGOLMainProps } from "./cigol/Main";
 import { SCILNavbarConfig } from "./rwth/instituteConfig";
 
@@ -15,6 +17,15 @@ export const SCILConfig: CIGOLMainProps = {
   ],
   instituteTitle:
     "Lehrstuhl für 7 Informatik (Theorie und Logik Systeme diskreter)",
+};
+
+export const WSIConfig: LayoutProps = {
+  instituteName: "WSI",
+  instituteLinks: [
+    { name: "CIGOL/MALO", url: "/cigol" },
+    { name: "DBIS", url: "/dbis" },
+  ],
+  instituteTitle: "Institut für Wirtschaft und Statistische-Mathematik",
 };
 
 export { SCILNavbarConfig };

@@ -1,5 +1,31 @@
 import type { Institute, NavbarConfig } from "@/models/layout";
 
+export const DefaultNavbar: NavbarConfig = {
+  linkElements: [
+    {
+      name: "Studium",
+      url: "/studium",
+      path: "/studium",
+    },
+    {
+      name: "Forschung",
+      url: "/forschung",
+      path: "/forschung",
+    },
+    {
+      name: "Wirtschaft",
+      url: "/witschaft",
+      path: "/witschaft",
+    },
+  ],
+  main: { name: "HTWR", url: "/" },
+  logo: {
+    logoUrl: "/assets/rwth/htwr_banner.png",
+    alt: "SCIL Logo",
+    href: "/",
+  },
+};
+
 export const institutes: Institute[] = [
   {
     href: "/scil",
@@ -98,4 +124,63 @@ export const SCILNavbarConfig: NavbarConfig = {
     width: 387,
     height: 110,
   },
+};
+
+export const WSINavbar: NavbarConfig = {
+  linkElements: [
+    {
+      name: "Studium",
+      url: "/wsi/studium",
+      path: "/studium",
+      links: [
+        {
+          name: "Klausuren",
+          url: "/wsi/studium/klausuren",
+          path: "studium/klausuren",
+        },
+        {
+          name: "Aufgaben",
+          url: "/wsi/studium/aufgaben",
+          path: "studium/aufgaben",
+        },
+        {
+          name: "Zusammenfassungen",
+          url: "/wsi/studium/teachings",
+          path: "studium/teachings",
+        },
+      ],
+    },
+    {
+      name: "Forschung",
+      url: "/wsi/forschung",
+      path: "/forschung",
+      links: [
+        {
+          name: "All**Gemein**es",
+          url: "/wsi/forschung/allgemeines",
+          path: "forschung/allgemeines",
+        },
+        {
+          name: "Publikationen",
+          url: "/wsi/forschung/publikationen",
+          path: "forschung/publikationen",
+        },
+      ],
+    },
+    {
+      name: "Der Lehrstuhl Gang",
+      url: "/wsi/lehrstuhl",
+      path: "/lehrstuhl",
+      links: [
+        {
+          name: "AllGemein",
+          url: "/wsi/lehrstuhl/allgemein",
+          path: "lehrstuhl/allgemein",
+        },
+        { name: "Kontakt", url: "/contact", path: "" },
+      ],
+    },
+  ],
+  main: { name: "WSI", url: "/wsi" },
+  logo: DefaultNavbar.logo,
 };

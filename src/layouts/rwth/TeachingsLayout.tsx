@@ -38,7 +38,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
         <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
       </div>
 
-      <div className="m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8">
+      <div className="wrapper m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8 ">
         {children}
       </div>
 
