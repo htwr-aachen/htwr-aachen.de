@@ -17,7 +17,7 @@ const FourOhFour: FC = () => {
           Keine Sorge ich seh das du hier warst. Ich füg die bestimmt bald hinzu
         </span>
         <p>
-          <Link href={"/es/"}>Aber nun zurück!</Link>
+          <Link href={"/"}>Aber nun zurück!</Link>
         </p>
       </div>
     </Main>

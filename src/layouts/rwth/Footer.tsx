@@ -13,6 +13,10 @@ const Footer: FC<FooterProps> = ({ instituteLinks }) => {
     <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
       <InstituteSwitches links={instituteLinks} />
       <div className="py-12 text-center">
+        <Link href={"/updates"} className="text-white">
+          Updates
+        </Link>
+        {" & "}
         <Link href={"/impressum"} className="text-white">
           Impressum
         </Link>{" "}

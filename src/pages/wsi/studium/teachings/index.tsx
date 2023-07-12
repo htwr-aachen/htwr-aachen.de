@@ -13,15 +13,11 @@ import type { Document } from "@/lib/documents";
 import { getAllDocsFromDir } from "@/lib/documents";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
+import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 import { MaterialienSchnellzugriff } from "../../studium";
 
-export const TeachingsDirectory = join(
-  process.cwd(),
-  "src",
-  "teachings",
-  "wsi"
-);
+export const TeachingsDirectory = join(DefaultTeachingDir, "wsi");
 
 type TeachingsProps = {
   docs: TeachingMeta[];

@@ -1,6 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { withAxiom } = require("next-axiom");
 
+const rehypePrism = import("rehype-prism-plus");
+const rehypeKatex = import("rehype-katex");
+const remarkGfm = import("remark-gfm");
+const remarkHint = import("remark-hint");
+const remarkMath = import("remark-math");
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -8,8 +14,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: ["remark-math"],
-    rehypePlugins: ["rehype-katex", "@mapbox/rehype-prism"],
+    remarkPlugins: [remarkMath, remarkGfm, remarkHint],
+    rehypePlugins: [rehypeKatex, rehypePrism],
   },
 });
 
@@ -19,6 +25,7 @@ module.exports = withAxiom(
       eslint: {
         dirs: ["."],
       },
+      pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
       poweredByHeader: false,
       trailingSlash: true,
       basePath: "",

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import type { LayoutProps, NavbarConfig } from "../../models/layout";
+import SharedPushNotify from "../SharedPushNotify";
 import Footer from "./Footer";
 import { DefaultNavbar } from "./instituteConfig";
 import Navbar from "./Navbar";
@@ -73,7 +74,7 @@ const Main = (props: MainProps) => {
           setMenuOpen={setMenuOpen}
         />
         <div className="max-w-[1280px] lg:mx-auto">
-          {/* <SharedPushNotify /> */}
+          <SharedPushNotify />
         </div>
         <div className="max-w-[1280px] lg:mx-auto ">
           <div className="m-0 w-full bg-rwth-bg py-12">

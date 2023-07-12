@@ -8,10 +8,11 @@ import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
 import { Main } from "@/templates/es/Main";
+import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 import { SWTRaumconfig } from "..";
 
-export const TeachingsDirectory = join(process.cwd(), "src", "teachings", "es");
+export const TeachingsDirectory = join(DefaultTeachingDir, "es");
 
 type TeachingsProps = {
   docs: TeachingMeta[];

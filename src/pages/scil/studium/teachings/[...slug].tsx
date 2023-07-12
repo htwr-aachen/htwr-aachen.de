@@ -76,6 +76,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const doc = await getTeachingBySlug(TeachingsDirectory, slug);
 
+  if (!doc)
+    return {
+      props: {
+        doc: null,
+        context: {
+          prev: null,
+          next: null,
+        },
+      },
+      notFound: true,
+    };
+
   const prev = await getTeachingWithLowerOrder(
     TeachingsDirectory,
     doc.meta.order

@@ -4,24 +4,24 @@ export const DefaultNavbar: NavbarConfig = {
   linkElements: [
     {
       name: "Studium",
-      url: "/studium",
-      path: "/studium",
+      url: "/",
+      path: "/",
     },
     {
       name: "Forschung",
-      url: "/forschung",
-      path: "/forschung",
+      url: "/",
+      path: "/",
     },
     {
       name: "Wirtschaft",
-      url: "/witschaft",
-      path: "/witschaft",
+      url: "/",
+      path: "/",
     },
   ],
   main: { name: "HTWR", url: "/" },
   logo: {
     logoUrl: "/assets/rwth/htwr_banner.png",
-    alt: "SCIL Logo",
+    alt: "HTWR Logo",
     href: "/",
   },
 };

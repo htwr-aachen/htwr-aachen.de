@@ -7,13 +7,9 @@ import { Main } from "@/layouts/cigol/Main";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
+import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
-export const TeachingsDirectory = join(
-  process.cwd(),
-  "src",
-  "teachings",
-  "cigol"
-);
+export const TeachingsDirectory = join(DefaultTeachingDir, "cigol");
 
 type TeachingsProps = {
   docs: TeachingMeta[];

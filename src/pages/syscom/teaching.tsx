@@ -7,6 +7,7 @@ import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
 import { Main } from "@/templates/syscom/Main";
+import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 type Document = {
   name: string;
@@ -28,12 +29,7 @@ const aufgabenPath = join(
   "aufgaben"
 );
 
-export const TeachingsDirectory = join(
-  process.cwd(),
-  "src",
-  "teachings",
-  "syscom"
-);
+export const TeachingsDirectory = join(DefaultTeachingDir, "syscom");
 
 export async function getStaticProps() {
   let err = false;

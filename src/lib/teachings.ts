@@ -67,44 +67,48 @@ function handleHTML(html: string, info: TransformerInfo) {
 export async function getTeachingBySlug(
   dir: string,
   slug: string[]
-): Promise<Teaching> {
-  const realSlug = slug.join(path.sep).replace(/\.mdx\/$/, "");
-  const fullPath = join(dir, `${realSlug}.mdx`);
-  const { data, content } = read(fullPath);
+): Promise<Teaching | null> {
+  try {
+    const realSlug = slug.join(path.sep).replace(/\.mdx\/$/, "");
+    const fullPath = join(dir, `${realSlug}.mdx`);
+    const { data, content } = read(fullPath);
 
-  const source = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [
-        remarkMath,
-        remarkGfm,
-        remarkHint,
-        [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
-      ],
-      rehypePlugins: [
-        rehypeKatex,
-        [rehypePrism, { plugins: ["line-numbers"] }],
-      ],
-      format: "mdx",
-    },
-  });
+    const source = await serialize(content, {
+      mdxOptions: {
+        remarkPlugins: [
+          remarkMath,
+          remarkGfm,
+          remarkHint,
+          [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
+        ],
+        rehypePlugins: [
+          rehypeKatex,
+          [rehypePrism, { plugins: ["line-numbers"] }],
+        ],
+        format: "mdx",
+      },
+    });
 
-  const { meta } = metadataFromData(data);
-  if (slug.length > 1) {
-    const subpath = slug
-      .slice(0, slug.length - 1)
-      .join("/")
-      .replace(/\.mdx\/$/, "");
-    meta.fullTitle = `${subpath}/${meta.title}`;
-  } else {
-    meta.fullTitle = meta.title;
+    const { meta } = metadataFromData(data);
+    if (slug.length > 1) {
+      const subpath = slug
+        .slice(0, slug.length - 1)
+        .join("/")
+        .replace(/\.mdx\/$/, "");
+      meta.fullTitle = `${subpath}/${meta.title}`;
+    } else {
+      meta.fullTitle = meta.title;
+    }
+
+    return {
+      url: `/teachings/${realSlug}`,
+      slug: realSlug,
+      meta,
+      content: source,
+    };
+  } catch (e) {
+    return null;
   }
-
-  return {
-    url: `/teachings/${realSlug}`,
-    slug: realSlug,
-    meta,
-    content: source,
-  };
 }
 
 export async function getAllTeachings(
@@ -115,39 +119,42 @@ export async function getAllTeachings(
   // feels little hacky, but it works
 
   ogDir = ogDir || dir;
+  try {
+    const files = await readdir(dir);
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
 
-  const files = await readdir(dir);
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
+      if (!file) continue;
 
-    if (!file) continue;
+      const filepath = path.join(dir, file);
+      const fileStat = await stat(filepath);
 
-    const filepath = path.join(dir, file);
-    const fileStat = await stat(filepath);
-
-    if (fileStat.isDirectory()) {
-      teachings = await getAllTeachings(filepath, teachings, ogDir);
-    } else {
-      const { data } = read(join(dir, file));
-      const { meta } = metadataFromData(data);
-
-      const subpath = dir.substring(ogDir.length + 1).replace("\\", "/");
-      if (subpath !== "") {
-        meta.fullTitle = `${subpath}/${meta.title}`;
+      if (fileStat.isDirectory()) {
+        teachings = await getAllTeachings(filepath, teachings, ogDir);
       } else {
-        meta.fullTitle = meta.title;
-      }
+        const { data } = read(join(dir, file));
+        const { meta } = metadataFromData(data);
 
-      teachings.push({
-        slug: `${filepath
-          .substring(ogDir.length + 1)
-          .replace("\\", "/")
-          .replace(/\.mdx$/, "")}`,
-        meta,
-      });
+        const subpath = dir.substring(ogDir.length + 1).replace("\\", "/");
+        if (subpath !== "") {
+          meta.fullTitle = `${subpath}/${meta.title}`;
+        } else {
+          meta.fullTitle = meta.title;
+        }
+
+        teachings.push({
+          slug: `${filepath
+            .substring(ogDir.length + 1)
+            .replace("\\", "/")
+            .replace(/\.mdx$/, "")}`,
+          meta,
+        });
+      }
     }
+    return teachings.sort((a, b) => a.meta.order - b.meta.order);
+  } catch (e) {
+    return [];
   }
-  return teachings.sort((a, b) => a.meta.order - b.meta.order);
 }
 
 export async function getTeachingWithOrder(
