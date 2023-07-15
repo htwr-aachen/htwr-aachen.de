@@ -1,61 +1,34 @@
 import { readdir } from "fs/promises";
 import Link from "next/link";
-import { join } from "path";
+
 import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/templates/es/Main";
+import { getProtectedDownloads } from "@/lib/documents";
 
-const klausurPath = join(
-  process.cwd(),
-  "public",
-  "teaching-assets",
-  "es",
-  "klausuren"
-);
-
-type Document = {
-  name: string;
-  url: string;
-  year: number;
-};
 
 type KlausurenProps = {
-  klausuren: Document[];
+  klausuren: string[];
 };
 
 export async function getStaticProps() {
-  let err = false;
-  let klausuren: Document[] = [];
   try {
-    const klausurFiles = await readdir(klausurPath);
-    klausuren = klausurFiles.map((file) => {
-      const name = file
-        .replace(".pdf", "")
-        .replaceAll("ss", "Sommersemester")
-        .replaceAll("ws", "Wintersemester")
-        .replaceAll("wdh", "Wiederholungsklausur")
-        .replaceAll("lsg", "mit-Lösungen");
-      return {
-        name,
-        url: `/teaching-assets/es/klausuren/${file}`,
-        year: parseInt(file.substring(2, 4), 10),
-      };
-    });
-  } catch (error) {
-    err = true;
+    const klausuren = await getProtectedDownloads("swt");
+    return {
+      props: {
+        klausuren: klausuren,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {
+        klausuren: [],
+      },
+      notFound: true,
+    }
   }
-
-  klausuren.sort((a, b) => {
-    return a.year > b.year ? -1 : 1;
-  });
-
-  return {
-    props: {
-      klausuren,
-    },
-    notFound: err,
-  };
+  
 }
 
 const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
@@ -86,10 +59,16 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
       <ul className="ml-8 mt-8 list-disc">
         {klausuren.map((klausur) => {
           return (
-            <li key={klausur.name}>
-              <Link href={klausur.url} target={"_blank"}>
-                {klausur.name}
-              </Link>
+            <li key={klausur}>
+              <Link
+                      href={{
+                        pathname: "/proc-download",
+                        query: { file: klausur },
+                      }}
+                      target="_blank"
+                    >
+                      {klausur}
+                    </Link>
             </li>
           );
         })}

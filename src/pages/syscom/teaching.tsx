@@ -8,19 +8,14 @@ import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
 import { Main } from "@/templates/syscom/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
+import { get } from "http";
+import { getProtectedDownloads } from "@/lib/documents";
 
 type Document = {
   name: string;
   url: string;
 };
 
-const klausurPath = join(
-  process.cwd(),
-  "public",
-  "teaching-assets",
-  "syscom",
-  "klausuren"
-);
 const aufgabenPath = join(
   process.cwd(),
   "public",
@@ -33,23 +28,7 @@ export const TeachingsDirectory = join(DefaultTeachingDir, "syscom");
 
 export async function getStaticProps() {
   let err = false;
-  let klausuren: Document[] = [];
-  try {
-    const klausurFiles = await readdir(klausurPath, {});
-    klausuren = klausurFiles.map((file) => {
-      return {
-        name: file
-          .replace(".pdf", "")
-          .replaceAll("ss", "Sommersemester")
-          .replaceAll("ws", "Wintersemester")
-          .replaceAll("wdh", "Wiederholungsklausur")
-          .replaceAll("lsg", "mit-Lösungen"),
-        url: `/teaching-assets/syscom/klausuren/${file}`,
-      };
-    });
-  } catch (error) {
-    err = true;
-  }
+  const klausuren = getProtectedDownloads("datcom");
 
   let aufgaben: Document[] = [];
   try {
@@ -67,9 +46,9 @@ export async function getStaticProps() {
   const docs = await getAllTeachings(TeachingsDirectory);
   return {
     props: {
-      docs,
-      klausuren,
-      aufgaben,
+      docs: docs,
+      klausuren: await klausuren,
+      aufgaben: aufgaben,
     },
     notFound: err,
   };
@@ -77,7 +56,7 @@ export async function getStaticProps() {
 
 type TeachingProps = {
   docs: TeachingMeta[];
-  klausuren: Document[];
+  klausuren: string[];
   aufgaben: Document[];
 };
 
@@ -139,10 +118,16 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
       <ul className="ml-8 list-disc">
         {klausuren.map((klausur) => {
           return (
-            <li key={klausur.name}>
-              <Link href={klausur.url} target={"_blank"}>
-                {klausur.name}
-              </Link>
+            <li key={klausur}>
+              <Link
+                      href={{
+                        pathname: "/proc-download",
+                        query: { file: klausur },
+                      }}
+                      target="_blank"
+                    >
+                      {klausur}
+                    </Link>
             </li>
           );
         })}
@@ -161,24 +146,6 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
           );
         })}
       </ul>
-
-      <h2 id="klausuren">
-        So jetzt gibts noch Klausuren zum Download (alle die ich gefunden habe)
-        schickt <Link href={"/syscom/contact"}>mir</Link> gerne mehr.
-      </h2>
-      <ul className="ml-8 list-disc">
-        {klausuren.map((klausur) => {
-          return (
-            <li key={klausur.name}>
-              <Link href={klausur.url} target={"_blank"}>
-                {klausur.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-
-      <h2 id="aufgaben">Und weil es möglich ist auch alle Aufgabenblätter</h2>
 
       <ul className="ml-8 list-disc">
         {aufgaben.map((aufgabe) => {

@@ -29,23 +29,29 @@ const ProctedDownloadPage: FC = () => {
       const res = await fetch(
         `${API_URL}/download/klausuren?${params.toString()}`,
         {
-          method: "POST",
+          method: "GET",
           redirect: "follow",
         }
       );
+
+      if (res.ok) {
+        setError("");
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        window.location.assign(url);
+        return;
+      }
       switch (res.status) {
         case 401:
           setError("Leider war das Password falsch :[");
-          break;
-        case 200:
-          setError("Ok es kann losgehen");
           break;
         default:
           setError("Es ist irgendwas falsch gelaufen :(");
           break;
       }
+
     } catch (e) {
-      setError("Error while downloading file");
+      setError("Es ist irgendwas falsch gelaufen :(");
     }
   };
 
@@ -67,7 +73,7 @@ const ProctedDownloadPage: FC = () => {
   return (
     <Main instituteName="" navbarConfig={DefaultNavbar}>
       <div className="">
-        <HeadLine>Are you a student?</HeadLine>
+        <HeadLine>Captcha: Bist Du Ein Student?</HeadLine>
         <div className="flex flex-col items-center">
           {stage === 0 && (
             <div className="my-24 flex items-center justify-center">
@@ -83,7 +89,7 @@ const ProctedDownloadPage: FC = () => {
                 htmlFor="captcha"
                 className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                Yes
+                Ja
               </label>
             </div>
           )}
@@ -107,8 +113,13 @@ const ProctedDownloadPage: FC = () => {
                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Password"
                 required
-                onChange={(i) => {
-                  setPassword(i.target.value);
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    onClick();
+                  }
+                }}
+                onChange={(e) => {
+                  setPassword(e.target.value);
                 }}
               />
             </div>
