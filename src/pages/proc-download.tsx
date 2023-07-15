@@ -111,13 +111,13 @@ const ProctedDownloadPage: FC = () => {
                 htmlFor="password"
                 className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
               >
-                First name
+                Passwort
               </label>
               <input
                 type="password"
                 id="password"
                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Password"
+                placeholder="1 in Giesl's lieblings Programmiersprache"
                 required
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
