@@ -1,9 +1,31 @@
 import { readdir } from "fs/promises";
 
+import { API_URL } from "@/utils/TeachingConfig";
+
 export type Document = {
   name: string;
   url: string;
   year: number;
+};
+
+export const getProtectedDownloads = async (
+  subject: string
+): Promise<string[]> => {
+  try {
+    const res = await fetch(`${API_URL}/info/klausuren?subject=${subject}`, {
+      method: "GET",
+      redirect: "follow",
+    });
+
+    if (res.status !== 200) {
+      return [];
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (e) {
+    return [];
+  }
 };
 
 const replacer = (file: string): string => {

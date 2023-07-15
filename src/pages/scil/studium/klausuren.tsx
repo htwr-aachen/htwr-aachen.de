@@ -1,41 +1,22 @@
 import Link from "next/link";
-import { join } from "path";
 import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/layouts/rwth/Main";
-import { getAllDocsFromDir } from "@/lib/documents";
+import { getProtectedDownloads } from "@/lib/documents";
 
 import { MaterialienSchnellzugriff } from "../studium";
 
-const klausurPath = join(
-  process.cwd(),
-  "public",
-  "teaching-assets",
-  "scil",
-  "klausuren"
-);
-
-type Document = {
-  name: string;
-  url: string;
-  year: number;
-};
-
 type KlausurenProps = {
-  klausuren: Document[];
+  klausuren: string[];
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      klausuren: await getAllDocsFromDir(
-        klausurPath,
-        "/teaching-assets/scil/klausuren",
-        true
-      ),
+      klausuren: await getProtectedDownloads("buk"),
     },
   };
 }
@@ -66,9 +47,15 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
             <ul className="ml-8 mt-8 list-disc">
               {klausuren.map((klausur) => {
                 return (
-                  <li key={klausur.name}>
-                    <Link href={klausur.url} target={"_blank"}>
-                      {klausur.name}
+                  <li key={klausur}>
+                    <Link
+                      href={{
+                        pathname: "/proc-download",
+                        query: { file: klausur },
+                      }}
+                      target="_blank"
+                    >
+                      {klausur}
                     </Link>
                   </li>
                 );
