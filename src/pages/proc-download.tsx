@@ -49,7 +49,6 @@ const ProctedDownloadPage: FC = () => {
           setError("Es ist irgendwas falsch gelaufen :(");
           break;
       }
-
     } catch (e) {
       setError("Es ist irgendwas falsch gelaufen :(");
     }

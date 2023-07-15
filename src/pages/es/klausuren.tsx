@@ -1,12 +1,9 @@
-import { readdir } from "fs/promises";
 import Link from "next/link";
-
 import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
 import { getProtectedDownloads } from "@/lib/documents";
-
+import { Main } from "@/templates/es/Main";
 
 type KlausurenProps = {
   klausuren: string[];
@@ -17,7 +14,7 @@ export async function getStaticProps() {
     const klausuren = await getProtectedDownloads("swt");
     return {
       props: {
-        klausuren: klausuren,
+        klausuren,
       },
     };
   } catch (e) {
@@ -26,9 +23,8 @@ export async function getStaticProps() {
         klausuren: [],
       },
       notFound: true,
-    }
+    };
   }
-  
 }
 
 const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
@@ -61,14 +57,14 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
           return (
             <li key={klausur}>
               <Link
-                      href={{
-                        pathname: "/proc-download",
-                        query: { file: klausur },
-                      }}
-                      target="_blank"
-                    >
-                      {klausur}
-                    </Link>
+                href={{
+                  pathname: "/proc-download",
+                  query: { file: klausur },
+                }}
+                target="_blank"
+              >
+                {klausur}
+              </Link>
             </li>
           );
         })}

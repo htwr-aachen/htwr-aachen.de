@@ -4,12 +4,11 @@ import { join } from "path";
 import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
+import { getProtectedDownloads } from "@/lib/documents";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
 import { Main } from "@/templates/syscom/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
-import { get } from "http";
-import { getProtectedDownloads } from "@/lib/documents";
 
 type Document = {
   name: string;
@@ -46,9 +45,9 @@ export async function getStaticProps() {
   const docs = await getAllTeachings(TeachingsDirectory);
   return {
     props: {
-      docs: docs,
+      docs,
       klausuren: await klausuren,
-      aufgaben: aufgaben,
+      aufgaben,
     },
     notFound: err,
   };
@@ -120,14 +119,14 @@ const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
           return (
             <li key={klausur}>
               <Link
-                      href={{
-                        pathname: "/proc-download",
-                        query: { file: klausur },
-                      }}
-                      target="_blank"
-                    >
-                      {klausur}
-                    </Link>
+                href={{
+                  pathname: "/proc-download",
+                  query: { file: klausur },
+                }}
+                target="_blank"
+              >
+                {klausur}
+              </Link>
             </li>
           );
         })}
