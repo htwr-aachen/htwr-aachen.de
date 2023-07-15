@@ -36,9 +36,16 @@ const ProctedDownloadPage: FC = () => {
 
       if (res.ok) {
         setError("");
+        // download file but keep the name
         const blob = await res.blob();
         const url = window.URL.createObjectURL(blob);
-        window.location.assign(url);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = router.query.file as string;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
         return;
       }
       switch (res.status) {
