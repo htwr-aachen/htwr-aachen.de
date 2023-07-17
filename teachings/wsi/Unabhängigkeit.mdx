@@ -1,0 +1,52 @@
+---
+title: "Unabhängigkeit und Bedingte Wahrscheinlichkeit"
+description: Vierfeldertafeln sind premium
+author: Jonas Schneider
+date: 17/07/2023
+order: 2
+tags: [Unabhängigkeit, Bedingte Wahrscheinlichkeit, Vierfeldertafel, Satz von Bayes, Satz der totalen Wahrscheinlichkeit]
+---
+
+## (Un)Abhängigkeit
+
+Wahrscheinlichkeiten können von anderen Ereignissen abhängen. Diese **bedingten** Wahrscheinlichkeiten. Ganz simples Argument: Wie Wahrscheinlich ist es, dass mein PC zufällig abstürzt? gefühlt 50-50. Aber wie Wahrscheinlich ist es das er abstürzt wenn ich in vorher ausgemacht habe? 
+
+<Spoiler>
+> 0
+</Spoiler>
+
+Allerdings gibt es auch unabhängige Zufallswerte: Wie wahrscheinlich ist es das mein PC abstürzt, ich aber vorher eine 6 gewürfelt habe?
+
+<Spoiler>
+> Immernoch 50-50 sowie ich ihn kenne. Installiert openSuse tumbleweed ist toll vertraut mir :|.
+</Spoiler>
+
+
+Der wichtigste Test zu sehen ob zwei Wahrscheinlichkeiten voneinander unabhängig sind:
+
+$P(A \cap B) = P(A)P(B)$
+
+
+Wenn das nicht gleich ist, dann sind die zwei Zufallsvariablen abhängig.
+Dann kann die Bedingte Wahrscheinlichkeit Folgens ausgerechnet werden:
+
+$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$
+
+Hiermit lassen sich dann so schöne Vierfeldertafeln aufstellen:
+
+|                | $A$  | $\overline{A}$ | Gesamt |   |
+|----------------|------|----------------|--------|---|
+| $B$            | 0.3  | 0.5            | 0.8    |   |
+| $\overline{B}$ | 0.15 | 0.05           | 0.2    |   |
+| Gesamt         | 0.45 | 0.55           | 1      |   |
+
+## totale Wahrscheinlichkeit und Satz von Bayes
+
+Satz der totalen Wahr.keit.:
+
+$P(B) = P(B \mid A_1)P(A_1) + ... + P(B \mid A_k)P(A_k)$
+
+Satz von Bayes:
+
+$P(A_i \mid B) = \frac{P(B \mid A_i)P(A_i)}{P(B)}$ 
+

@@ -1,0 +1,48 @@
+---
+title: "Zufallsverteilungen"
+description: Hier brauche ich noch eine Beschreibung
+author: Jonas Schneider
+date: 17/07/2023
+order: 3
+tags: [Zufallsverteilungen, Diskret, Stetig, Erwartungswert, Verteilungsfunktion, Dichte]
+---
+
+## Aufteilungen
+
+Wichtigster unterschied zwischen mehreren Verteilung ist, ob sie diskret oder stetig sind. Dies gilt genauso für die darunterliegende Zufallsvariable
+
+Eine Zufallsvariable heißt diskret, wenn $X = \{X(w) \mid w \in \Omega\}$ abzählbar ist. Zudem gilt natürlich wenn $\Omega$ diskret ist, sind alle ZV. das auch.
+
+stetig ist dann natürlich so was wie $X \subseteq \mathbb{R}$ 
+
+## Erwartung gleich 0
+
+Der Erwartungswert ist der durchschnittlich zu erwartende Wert einer ZV.
+
+### Diskrete ZV
+
+$E(X) = \int_{-\infty}{\infty} x p_X(x) dx$
+
+Wobei $p_X$ die **Zähldichte** von X. Also $p_X(x) = P(X = x)$. Beispiel:
+Bei Würfel 6 gewinnst du 1€ sonst verlierst du.
+Dann ist die Zähldichte:
+
+$p_X(x) = \begin{cases} \frac{5}{6}, & x = 0 \\ \frac{1}{6}, & x = 1 \\ 0, & sonst \end{cases}$
+
+### Stetige ZV
+
+$E(X) = \int_{-\infty}^{\infty} xf_X(x)dx$,
+
+wobei $f_X(x)$ die Dichtefunktion von $X$ ist.
+Für sie gilt:
+$P_X((a,b]) = P(a < X \le b) = \int_a^b f(x)dx$. Zudem $f(x) \ge 0, x \in \mathbb{R}$ und $\int_{-\infty}^{\infty} f(x) dx = 1$
+
+Notation $X \sim f_x$ hat Dichte 
+
+## Verteilung
+
+Das Problem: Stocha ist sehr unübersichtlich. Schon allein bei der Bezeichnung der ganzen Verteilungen die jetzt gleich runtergeratert werden, gibt es unterschiedliche Benennungen. Ich werde es hier einheitlich halten.
+
+Verteilungsfunktionen werden mit $F_X(x)$ geschrieben für sie gilt:
+$F_X(x) = \int_{-\infty}{x} f_X(t) dt, x \in \mathbb{R}$
+

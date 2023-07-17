@@ -13,12 +13,14 @@ type TeachingsLayoutProps = {
   };
   instituteName: string;
   instituteUrl: string;
+  overviewUrl: string;
 };
 
 const TeachingsLayout: FC<TeachingsLayoutProps> = ({
   children,
   meta,
   context,
+  overviewUrl = ""
 }) => {
   return (
     <article className="markdown line-numbers">
@@ -35,7 +37,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
       />
       <div>
         <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1> |{" "}
-        <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
+        <Link href={overviewUrl}>Back to Overview</Link>
       </div>
 
       <div className="wrapper m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8 ">
@@ -43,11 +45,11 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
       </div>
 
       <div>
-        <Link href={"/scil/studium/teachings"}>Back to Overview</Link>
+        <Link href={overviewUrl}>Back to Overview</Link>
         {context.prev != null ? (
           <>
             | Vorheriges:{" "}
-            <Link href={`/scil/studium/teachings/${context.prev?.slug}`}>
+            <Link href={`${overviewUrl}/${context.prev?.slug}`}>
               {context.prev?.meta.title}
             </Link>{" "}
           </>
@@ -57,7 +59,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
         {context.next != null ? (
           <>
             | Nächstes:{" "}
-            <Link href={`/scil/studium/teachings/${context.next?.slug}`}>
+            <Link href={`${overviewUrl}/${context.next?.slug}`}>
               {context.next?.meta.title}
             </Link>{" "}
           </>

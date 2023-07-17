@@ -1,0 +1,73 @@
+---
+title: "Im Anfang schuf Gott Himmel und Erde"
+description: Gar Kein Bock
+author: Jonas Schneider
+date: 17/07/2023
+order: 1
+tags: [Ereignisse, Grundbegriffe, Wahrscheinlichkeit, Zufallsvariablen, Urnen]
+---
+
+# Noten Würfeln nach Aachener Art
+
+## Grundbegriffe
+
+> Stocha ist gar nicht so kompliziert sie haben nur dumme Begriffe.
+
+Annahme: Grundlagen der Mengenlehre und Kenntnisse in Analysis (Integrale, Folgen und Reihen) 
+
+Die Absoluten Grundbegriffe sind folgende:
+
+- **Ergebnisraum** $\Omega$ ist die Menge aller möglichen Ergebnisse
+  Bsp.: Ein 6-seitigen Würfel hat den Ergebnisraum $\Omega = \{1,2,3,4,5,6\}$. Bzw. bei Mehrstufigen Experimenten z.B. mehrmaliger Würfelwurf, wird das ganze als Tupel dargestellt. $\Omega = \{ (1,1),..., (6,6)\}$
+- **Ereignis** $A$ ist eine Teilmenge des Ergebnisraums $A \subseteq \Omega$
+  Bsp.: Die Menge der geraden Zahlen ist ein Ereignis $A = \{2,4,6\}$
+- **Wahrscheinlichkeit** $P(A)$ ist die Wahrscheinlichkeit, dass das Ereignis $A$ eintritt
+  Bsp.: Die Wahrscheinlichkeit, dass eine gerade Zahl gewürfelt wird ist $P(A) = \frac{1}{2}$
+
+Weitere Grundbegriffe die immer wieder vorkommen:
+- **Gegenereignis** $\overline{A}$ ist das Ereignis, dass $A$ nicht eintritt
+  Bsp.: Die Wahrscheinlichkeit, dass eine ungerade Zahl gewürfelt wird ist $P(\overline{A}) = \frac{1}{2}$
+- **Erwartungswert** $E$ ist der Durchschnitt aller möglichen Ergebnisse
+  Bsp.: Der Erwartungswert eines 6-seitigen Würfels ist $E = \frac{1+2+3+4+5+6}{6} = 3.5$. Das ist die Durchschnittliche Augenzahl die man erhält.
+- **Varianz** $V$ ist ein Maß für die Streuung der Ergebnisse
+  Bsp.: Die Varianz eines 6-seitigen Würfels ist $V = E((X - E(X))^2) = \frac{1}{6} \cdot (1-3.5)^2 + \frac{1}{6} \cdot (2-3.5)^2 + \frac{1}{6} \cdot (3-3.5)^2 + \frac{1}{6} \cdot (4-3.5)^2 + \frac{1}{6} \cdot (5-3.5)^2 + \frac{1}{6} \cdot (6-3.5)^2 = 2.9166666666666665$
+
+- **Standardabweichung** $\sigma$ ist einfach nur $\sqrt{V}$
+- **Kovarianz** $Cov$ ist ein Maß für die Abhängigkeit zweier Zufallsvariablen
+- **Verteilung** $F_X$ ist eine Funktion, die an jeder Stelle $x$ die Wahrscheinlichkeit $P(X \leq x)$ angibt
+- **Dichte** $P[a,b] := \int_a^b f(x) dx$ ist die Wahrscheinlichkeit, dass eine Zufallsvariable $X$ einen Wert zwischen $a$ und $b$ annimmt. $f_X(x) = F_X'(x)$
+- **Unabhängigkeit** $X$ und $Y$ sind unabhängig, wenn $P(X \leq x, Y \leq y) = P(X \leq x) \cdot P(Y \leq y)$
+
+## Problemthema Zufallsvariablen
+In praktisch allen Bereichen begegnen uns bald _Zufallsvariablen_. Hier stellt sich häufig die Frage...
+
+Was ist das?
+
+Zufallsvariablen oder Zufallsgrößen sind Werte die vom Zufall abhängen.
+Also zum Beispiel Würfelzahl, Nummer der defekten PSP Boards oder ähnliches.
+
+Formal wird jedem Ergebnis eine Zufallsgröße zugeordnet. Also $\Omega \to \mathbb{R}$. Zufallsvariablen werden häufig als $X$ notiert. 
+
+Es ist also wichtig zu wissen, dass die Zufallsvar. kein Wert beschreibt oder so. Wir sagen immer nur: Was ist die Wahrscheinlichkeit, dass $X < 300$ also das weniger als $300$ PSP Boards kaputt sind. Wir wissen natürlich alle $P(X < 300) = 0$, denn nicht der Code ist falsch sondern die Boards!
+
+## Im Anfang schuf Gott Himmel und Erde
+
+Wenn du einen $6$-seitigen Würfel mit gleicher Wahrscheinlichkeiten hast ist die Wahrscheinlichkeit für eine Zahl $P(X = 6) = \frac{1}{6}$ trivialer Weise. Genauer $P(A) = \frac{|A|}{|\Omega|}$ bei diskreter Gleichverteilung bzw. **Laplace-Raum**.
+
+Für alle Wahrscheinlichkeitsräume gibt es folgende Gleichheiten. Sei $A$ ein Ereignis.
+  - $P(\overline{A}) = 1 - P(A)$  
+  - $A \subset B: P(B \setminus A) = P(B) - P(A)$
+  - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+  - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+  - $P(A \cup B) = P(A) + P(B)$ auch für mehrere Ereignisse
+
+
+## Weitere Basics Urnen
+Ja Urnen sind nervig. 
+
+Es gibt sehr viele Versionen, die sich wie folgt Unterscheiden:
+- Anzahl Kugeln (farbig, Gleichfarbig)
+- Mit / Ohne Zurücklegen
+- Mit / Ohne Reihenfolge
+
+

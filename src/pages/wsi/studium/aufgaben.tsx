@@ -59,7 +59,7 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben, sonstiges }) => {
         <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
           <div className="mx-2 my-4 lg:m-0">
             <h1 className="my-4 font-sans text-xl font-medium">
-              2022 Aufgaben und Lösungen
+              Tutoriumsaufgaben und Lösungen
             </h1>
             <ul className="ml-8 mt-8 list-disc">
               {aufgaben.map((aufgabe) => {
@@ -73,7 +73,7 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben, sonstiges }) => {
               })}
             </ul>
             <h1 className="my-4 font-sans text-xl font-medium">
-              Sonstige Übungen aus früheren Jahren
+              Globs und Übungen aus früheren Jahren
             </h1>
             <ul className="ml-8 mt-8 list-disc">
               {sonstiges.map((aufgabe) => {

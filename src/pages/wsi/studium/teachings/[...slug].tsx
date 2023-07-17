@@ -52,6 +52,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
         context={context}
         instituteName="WSI"
         instituteUrl="/wsi"
+        overviewUrl="/wsi/studium/teachings"
       >
         {doc === null || doc.content === null || doc.content === undefined ? (
           <div></div>

@@ -29,12 +29,9 @@ export const getProtectedDownloads = async (
 };
 
 const replacer = (file: string): string => {
-  const strList = file.split(".");
-  strList.pop();
-  const str = strList.join(".");
 
-  const definition = str.substring(0, 2);
-  const rest = str
+  const definition = file.substring(0, 2);
+  const rest = file
     .substring(2)
     .replace("wdh", "Wiederholungsklausur")
     .replace("lsg", "mit Lösung")
@@ -54,24 +51,25 @@ const replacer = (file: string): string => {
     case "ws":
       return `Wintersemester ${rest}`;
     default:
-      return str;
+      return file;
   }
 };
 
 export async function getAllDocsFromDir(
   dir: string,
   urlPrefix: string,
-  sortByKlausurFormat: boolean
+  sortByKlausurFormat: boolean,
+  replaceWords = true
 ): Promise<Document[]> {
   try {
     let docs: Document[] = [];
-    const files = await readdir(dir);
+    const files = await readdir(dir, {withFileTypes: true});
     docs = files.map((file) => {
-      const name = replacer(file);
+      const name = replaceWords ? replacer(file.name) : file.name;
       return {
         name,
-        url: `${urlPrefix}/${file}`,
-        year: parseInt(file.substring(2, 4), 10) || -1,
+        url: `${urlPrefix}/${file.name}`,
+        year: parseInt(file.name.substring(2, 4), 10) || -1,
       };
     });
 

@@ -52,6 +52,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
         context={context}
         instituteName="SCIL"
         instituteUrl="https://htwr-aachen.de/scil"
+        overviewUrl="/scil/studium/teachings"
       >
         {doc === null || doc.content === null || doc.content === undefined ? (
           <div></div>
