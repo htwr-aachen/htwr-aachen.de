@@ -113,7 +113,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                   href="https://discordapp.com/users/271657367676911623"
                   rel="noreferrer"
                 >
-                  rainerzufall
+                  reinerzufall
                 </a>
                 ) und Adrian (
                 <a
