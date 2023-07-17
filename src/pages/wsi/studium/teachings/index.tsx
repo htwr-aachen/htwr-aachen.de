@@ -106,6 +106,39 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                 </a>
                 )
               </li>
+              <li>
+                Top zusammenfassung von Tore (
+                <a
+                  target={"_blank"}
+                  href="https://discordapp.com/users/271657367676911623"
+                  rel="noreferrer"
+                >
+                  rainerzufall
+                </a>
+                ) und Adrian (
+                <a
+                  target={"_blank"}
+                  href="https://discordapp.com/users/480284798028611584"
+                  rel="noreferrer"
+                >
+                  gobidev
+                </a>
+                ): <br />
+                <a
+                  href="/teaching-assets/wsi/zusammenfassung.pdf"
+                  target="_blank"
+                >
+                  pdf
+                </a>{" "}
+                oder{" "}
+                <a
+                  href="https://typst.app/project/rhyJGOcf8LVWkwKc0fo84Q"
+                  target="_blank"
+                >
+                  typst
+                </a>{" "}
+                link
+              </li>
             </ul>
 
             <h2 className="font-sans text-4xl font-light" id="folien">

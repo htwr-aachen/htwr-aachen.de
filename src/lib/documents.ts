@@ -29,7 +29,6 @@ export const getProtectedDownloads = async (
 };
 
 const replacer = (file: string): string => {
-
   const definition = file.substring(0, 2);
   const rest = file
     .substring(2)
@@ -63,7 +62,7 @@ export async function getAllDocsFromDir(
 ): Promise<Document[]> {
   try {
     let docs: Document[] = [];
-    const files = await readdir(dir, {withFileTypes: true});
+    const files = await readdir(dir, { withFileTypes: true });
     docs = files.map((file) => {
       const name = replaceWords ? replacer(file.name) : file.name;
       return {

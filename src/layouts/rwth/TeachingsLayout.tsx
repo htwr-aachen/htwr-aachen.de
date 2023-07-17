@@ -20,7 +20,7 @@ const TeachingsLayout: FC<TeachingsLayoutProps> = ({
   children,
   meta,
   context,
-  overviewUrl = ""
+  overviewUrl = "",
 }) => {
   return (
     <article className="markdown line-numbers">
