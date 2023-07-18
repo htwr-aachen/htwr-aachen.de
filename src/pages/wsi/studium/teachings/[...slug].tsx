@@ -40,7 +40,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
     <Main
       meta={
         <Meta
-          title={`SCIL@HTWR-${doc?.meta?.title}`}
+          title={`WSI@HTWR-${doc?.meta?.title}`}
           description={doc?.meta?.description}
         ></Meta>
       }

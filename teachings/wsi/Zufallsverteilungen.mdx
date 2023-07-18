@@ -19,6 +19,15 @@ stetig ist dann natürlich so was wie $X \subseteq \mathbb{R}$
 
 Der Erwartungswert ist der durchschnittlich zu erwartende Wert einer ZV.
 
+Es gibt folgende Rechenregeln:
+
+ - $E(X + Y) = E(X) + E(Y)$
+ - $E(aX +b) = aE(X) + b$
+ - $E(|X+Y|) \le E(|X|) + E(|Y|)$
+
+ - und wenn X, Y stoch. unabhängig sind:
+    $E(f(X) \cdot g(Y)) = E(f(X)) \cdot E(g(Y))$
+
 ### Diskrete ZV
 
 $E(X) = \int_{-\infty}{\infty} x p_X(x) dx$
@@ -39,10 +48,107 @@ $P_X((a,b]) = P(a < X \le b) = \int_a^b f(x)dx$. Zudem $f(x) \ge 0, x \in \mathb
 
 Notation $X \sim f_x$ hat Dichte 
 
-## Verteilung
+
+### Varianz
+  Die Varianz berechnet sich durch $\sigma_X^2 = Var(X) = E((X - E(X))^2)
+  Das wichtigste sit der **Verschiebungssatz**:
+
+  $Var(X) = E(X^2) - (E(X))^2
+
+  Weitere Rechenregeln:
+
+  - Var(aX) = a^2Var(X)
+  - E(X) = 0 \implies Var(X) = E(X^2)
+  - X,Y stoch. unabhängig $\implies Var(X + Y) = Var(X) + Var(Y)
+
+## Dichtetransformationssatz
+Sei $f_X(x)$ eine Dichtefunktion für $X=(a,b), a < b$ und sei $g(x) = y$ eine stetig differenzierbare Funktion mit Umkehrfunktion $g^{-1}(y) = x$.
+
+Dann ist die Dichte $f_Y(y) = f_X(g^{-1}(y)) \cdot |g'(g^{-1}(y))|$.
+
+Ist vermutlich nicht das wichtigste aber trotzdem ganz nett.
+
+## Verteilungen
 
 Das Problem: Stocha ist sehr unübersichtlich. Schon allein bei der Bezeichnung der ganzen Verteilungen die jetzt gleich runtergeratert werden, gibt es unterschiedliche Benennungen. Ich werde es hier einheitlich halten.
+Ihr müsst diese ganzen Sachen überhaupt nicht auswendig könne. Ihr müsst nur wissen, dass sie existieren.
 
 Verteilungsfunktionen werden mit $F_X(x)$ geschrieben für sie gilt:
 $F_X(x) = \int_{-\infty}{x} f_X(t) dt, x \in \mathbb{R}$
+
+Somit gilt: $P(X \le x) = F_X(x)$ und $P(a < X \le b) = F_X(b) - F_X(a)$
+
+Eine Verteilungsfunktion muss monoton wachsend und rechtssteig sein. Zudem gilt:
+
+$\lim_{x \to -\infty} F_X(x) = 0$ und $\lim_{x \to \infty} F_X(x) = 1$ 
+
+### Diskrete Verteilungen
+
+- **Binomial Verteilung**:
+  $X \sim Bin(n,p)$ heißt Binomialverteilt es kommt natürlich vom Binomialkoeffizienten. <br/>
+  $P(X = k) = p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}$ mit Parameter $n \in \mathbb{N}$ und $p \in [0,1]$
+  
+  Erwartungswert: $E(X) = np$ <br/>
+  Varianz: $Var(X) = np(1-p)$ <br/>
+
+- **Bernoulli Verteilung**:
+  $X \sim Ber(p)$ ist eine spezielle Binomialverteilung mit $n = 1$ <br/>
+
+  Erwartungswert: $E(X) = p$ <br/>
+  Varianz: $Var(X) = p(1-p)$ <br/>
+
+- **Poisson Verteilung**:
+  $X \sim Pois(\lambda)$ <br/>
+  $P(X = k) = p_X(k) = \frac{\lambda^k}{k!} e^{-\lambda}$ mit Parameter $\lambda > 0$ <br/>
+
+  Erwartungswert: $E(X) = \lambda$ <br/>
+  Varianz: $Var(X) = \lambda$ <br/>
+  Rechenregel: $X \sim Pois(\lambda_1), Y \sim Pois(\lambda_2) unabhängig \implies X + Y \sim Pois(\lambda_1 + \lambda_2)$
+
+- **Geometrische Verteilung**: Siehe Formelsammlung
+- **Hypergeometrische Verteilung**: Siehe Formelsammlung
+- **Negative Binomialverteilung**: Siehe Formelsammlung
+
+
+### Stetige Verteilungen
+- **Gleichverteilung**
+  $X \sim U(a,b)$ <br/>
+  $f_X(x) = \begin{cases} \frac{1}{b-a}, & a < x < b \\ 0, & sonst \end{cases}$
+
+  Erwartungswert: $E(X) = \frac{a+b}{2}$ <br/>
+  Varianz: $Var(X) = \frac{(b-a)^2}{12}$ <br/>
+  Verteilungsfunktion: $F_X(x) = \begin{cases} 0, & x < a \\ \frac{x-a}{b-a}, & a \le x \le b \\ 1, & x > b \end{cases}$
+
+- **Exponentialverteilung**
+  $X \sim Exp(\lambda)$ <br/>
+  $f_X(x) = \lambda e^{-\lambda x}$ mit Parameter $\lambda > 0$ <br/>
+
+  Erwartungswert: $E(X) = \frac{1}{\lambda}$ <br/>
+  Varianz: $Var(X) = \frac{1}{\lambda^2}$ <br/>
+  Verteilungsfunktion: $F_X(x) = \begin{cases} 1 - e^{-\lambda x}, & x \ge 0 \\ 0, & sonst \end{cases}$
+
+- **Normalverteilung**
+  $X \sim N(\mu, \sigma^2)$ <br/>
+  $f_X(x) = \varphi_{(\mu, \sigma^2)} \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ mit Parameter $\mu \in \mathbb{R}, \sigma^2 > 0$ <br/>
+
+  Erwartungswert: $E(X) = \mu$ <br/>
+  Varianz: $Var(X) = \sigma^2$ <br/>
+  Verteilungsfunktion: $F_X(x) = \Phi_{(\mu, \sigma^2)}(x) = \int_{\infty}^x \varphi_{(\mu, \sigma^2)(t) dt}$ <br/>
+
+  Wichtiges zu beachten: <br/>
+    
+    - Bei der Normalverteilung ließt man meistens Werte von einer Tabelle ab. Da ihr sicher nicht diese Formel mit dem Ubuntu Taschenrechner ausrechnen wollt.
+    - Wie das genau geht kommt unten. 
+    - Die **Standardnormalverteilung** hat die Parameter $\mu = 0, \sigma^2 = 1$ und wird mit $\Phi$ und $\varphi$ bezeichnet.
+  
+  Rechenregeln: 
+  
+    - Ist $X \sim N(\mu, \sigma^2)$, dann ist $X^* = \frac{X-\mu}{\sigma} \sim N(0,1)$. **Sehr wichtig**
+    - Somit gilt $\Phi_{(\mu, \sigma^2)}(x) = \Phi(\frac{x-\mu}{\sigma})$ und $\varphi_{(\mu, \sigma^2)}(x) = \frac{1}{\sigma}\varphi(\frac{x-\mu}{\sigma})$
+    - Sind $X \sim N(\mu_1, \sigma_1^2)$ und $Y \sim N(\mu_2, \sigma_2^2)$ unabhängig, dann ist $aX+bY \sim N(a\mu_1 + b\mu_2, a^2\sigma_1^2 + b^2\sigma_2^2)$
+    - Sind $X_1, ..., X_n$ unabhängig und $X_i \sim N(\mu_i, \sigma_i^2)$, dann ist $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ und $\overline{X}^* = \sqrt{n} \frac{\overline{X} - \mu}{\sigma} \sim N(0,1)$
+
+- **Betaverteilung**: Siehe Formelsammlung
+- **Gammaverteilung**: Siehe Formelsammlung
+
 
