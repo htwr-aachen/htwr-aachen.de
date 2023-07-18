@@ -11,7 +11,7 @@ const WSIIndexPage: FC = () => {
   return (
     <Main
       {...WSIConfig}
-      meta={<Meta title="WSI"></Meta>}
+      meta={<Meta title="WSI - Stocha"></Meta>}
       navbarConfig={WSINavbar}
     >
       <h1 className="text-2xl">

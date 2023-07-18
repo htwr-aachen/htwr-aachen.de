@@ -1,0 +1,41 @@
+---
+title: Inferenzstatistik
+description: KP
+author: Jonas Schneider
+date: 18/07/2023
+order: 7
+tags: []
+---
+
+## Wasdas
+
+Nehme an wir hätten eine Umfrage gemacht: 50 Leute wurden gefragt, ob sie _AFI_ mögen. 45 Davon sagen ja sehr. 5 sagen nein. 
+Jetzt müssen wir diese Umfrage bewerten. Wie gut ist die Stichprobe, wie kann ich nachweisen, dass der Anteil der Leute, die _AFI_ mögen, wirklich so hoch ist?
+
+<Spoiler>
+kannst du nicht.
+</Spoiler>
+
+Die Vorlesung gibt 3. gute Schritte:
+1. Finde ein geeignetes Verteilungsmodell: $Bin(n,p), n = 50$
+2. Finde die optimalen Parameter: $p$.
+3. Wie kann ich die Hypothese testen, und ist $p > 0.5$ nachweisbar?
+
+
+### Grundbegriffe
+  $X = \{X(w) | w \in \Omega\} \subset \mathbb{R}^n ist der Stichprobenraum
+  $x = (x_1, ..., x_n) \in X$ ist eine Stichprobe
+
+  $X$ ist eine Zufallsvariable, $x$ ist eine Realisierung der Zufallsvariable $X$.
+  $\mathcal{P}$ heißt Verteilungsmodell auf $\mathbb{R}^n$ genauer heißt es parametrisches Verteilungsmodell, falls $\mathcal{P} = \{ \mathcal{P}_\vartheta | \vartheta \in \Theta\}$ wobei $\Theta$ eine Menge von Parametervektoren für die Verteilungen sind.
+
+  Falls es nicht endlichdimensional parametrisiert werden kann heißt es nichtparametrisches Verteilungsmodell.
+
+
+### Statistik
+  Dummer Name:
+
+  Eine Statistik ist eine messbare Abbildung $T: \mathbb{R}^n \rightarrow \mathbb{R}^d$, wobei oft $d = 1$
+  Wenn T in den Parameterraum $\Theta$ abbildet, heißt sie Schätzer.
+
+  
