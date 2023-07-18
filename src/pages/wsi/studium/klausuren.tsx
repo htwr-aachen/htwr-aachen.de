@@ -19,7 +19,6 @@ export async function getStaticProps() {
     props: {
       klausuren: await getProtectedDownloads("stocha"),
     },
-    revalidate: 60,
   };
 }
 
