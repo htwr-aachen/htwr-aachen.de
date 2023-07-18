@@ -1,0 +1,85 @@
+---
+title: Vectoorrrrr (Zufallsvektoren)
+description: Ohh-yeahhhh
+author: Jonas Schneider
+date: 18/07/2023
+order: 4
+tags: [Zufallsvektoren, Erwartungsvektoren, Bedingte Dichte, Kovarianz, Tschebyschow-Ungleichung]
+---
+
+# Zufallsvektoren
+![ohh-yeahh](https://media.tenor.com/T71Q19nAn9MAAAAC/oh-yeah-vector.gif)
+
+Es wird noch viel besser.
+
+Im Grunde sind Zufallsvektoren einfach nur mehrdimensionale Zufallsvariablen. Also
+
+$X: \Omega \to \mathbb{R}^n, \quad w \mapsto X(w) = (X_1(w), ..., X_n(w))$
+
+Ich schreibe hier jetzt $X$ für einen Vektor. Auch hierfür gibt es natürlich Verteilungen, Erwartungswerte etc.
+
+**Verteilung**: $P_X(A) = P(X \in A)$. Wenn $X \in \mathbb{R}^n$ dann ist die Verteilungsfunktion so: $F(x_1, ..., x_n) = P(X_1 \le x_1, ..., X_N \le x_n)$
+Die Eigenschaften der Verteilungsfunktion sind gleich zu den eindimensionalen nur halt eben für Vektoren.
+
+- **Produktverteilung**: $X_i \sim F_i(x)
+  $F(x_1, ..., x_n) = F_1(x_1) \cdot ... \cdot F_n(x_n)$
+  Hier sind alle $X_1, ..., X_n$ stoch. unabhängig.
+
+## Diskrete Zufallsvektoren
+
+  Auch hier gibt es wieder eine Zähldichte/Wahrscheinlichkeitsfunktion: $p_X: \mathbb{R}^n \to [0,1], p_X(x) = P(X = x)$
+
+
+  **Produktzähldichte**: Sind $p_1(x), ..., p_n(x)$ Zähldichten dann ist: $p(x_1, ..., x_n) = p(x_1) \cdot ... \cdot p(x_n)$
+
+## Stetige Zufallsvektoren
+
+  Die werden sehr schnell sehr doof, da sie nach eine Funktion $f_X(x_1, ..., x_n)$ verteilt sind also:
+  $P(X \in (a,b])= P(a_1 < X_1 \le b_1, ..., a_n < X_n \le b_n) = \int_{a_n}^{b_n}...\int_{a_1}^{b_1} f_X(x_1, ..., x_n)dx_1 ... dx_n$
+
+  Die dichte ist analog wie vorher definiert.
+
+## Bedingte Verteilungen / Dichten
+  
+  Leider können auch in einem Zufallsvektor Zufallsvariablen untereinander abhängig sein.
+  Wir gehen hier von zwei Vektor aus also $(X,Y)$. Dann ist die **bedingte Zähldichte** definiert als:
+
+  $p_{X \mid Y}(x \mid y) = P(X =x \mid Y = y) = \begin{cases} \frac{p(x,y)}{p_Y(y)} & y \in \{ y_1, y_2, ...\} \\ p_X(x) & y \notin \{y_1, ...\} \end{cases}$
+
+  für stetige ZV. ist es analog definiert nur mit f(x) als Dichtefunktion statt der Zähldichte:
+
+  $f_{X \mid Y}(x \mid y) = \begin{cases} \frac{f(x,y)}{f_Y(y)} & f_Y(y) > 0 \\ f_X(x) & f_Y(y) = 0 \end{cases}$
+
+  Aber was heißt das jetzt? Das ist die Zähldichte/Dichtefunktion von X wenn y gegeben ist.
+  Wieder als Beispiel: Mein PC stürzt (ganz hypothetisch) immer Montags zwischen 10:00 und 18:00 ab. Aber wenn ich im Urlaub bin und er ausgeschaltet ist, ändert das natürlich die Dichtefunktion bedeutend.
+
+  Als Notation wird $X | Y = y \sim f_{X|Y}(x|y)$ bzw. $X|Y = y \sim p_{X|Y}(x|y)$ verwendet
+
+
+  Als **Test** ob stoch. unabhängig gibt:
+    $p_{X|Y}(x|y) = p_X(x) und p_{Y|X}(y|x) = p_Y(y)$ für alle x und y ebenso für stetige.
+
+  Aber leichter ist das _Produktkriterium_:
+    $F_{X,Y}(x,y) = F_X(x) \cdot F_Y(y)$ für alle x,y 
+
+### Bedingter Erwartungswerte
+
+  $E(X|Y = y)= \sum_{x \in X} x p_{X|Y}(x|y)$ bzw. $E(X|Y = y)= \int x f_{X|Y}(x|y)dx$
+
+
+## Kovarianzmatrizen
+  Statt einen einzelnen Varianzwert bildet man aus $Var(X) = (Cov(X_i, X_j))_{i,j}$ eine ($n \times n$)-Kovarianzmatrix :(
+
+## mehrdimensionale Verteilungen
+
+
+- Multivariate Normalverteilung $X \sim N_n(\mu, I)$ <br/>
+  $\varphi(x_1, ..., x_n) = (\frac{1}{\sqrt{2 \pi}})^n e^{-\frac{1}{2}\sum_{i=1}^{n}x_i^2}$
+
+  n-dimensional standardnormalverteilt heißt $X \sim N_n(0, I)$. Dann gilt auch:
+
+  $Y = X + \mu \sim N_n(\mu, I)
+
+  Es gibt zwar noch Multivariate Normalverteilung ohne standard aber die will niemand hoffe ich.
+
+
