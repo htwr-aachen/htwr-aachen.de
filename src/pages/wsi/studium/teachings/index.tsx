@@ -190,6 +190,10 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                 Jonsch318#4006
               </a>
             </span>
+            
+            <span>
+              Es kommt hier noch ein bisschen was aber das dauert, also immer mal wieder vorbeischauen
+            </span>
 
             <ul className="list-disc px-4 pt-8 lg:pl-8">
               <TeachingList

@@ -36,7 +36,7 @@ export async function getStaticProps() {
       sonstiges: await getAllDocsFromDir(
         join(process.cwd(), "public", "teaching-assets", "wsi", "uebungen"),
         "/teaching-assets/wsi/uebungen",
-        true
+        true, false
       ),
     },
   };
