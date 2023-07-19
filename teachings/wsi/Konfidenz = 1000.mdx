@@ -1,0 +1,67 @@
+---
+title: Konfidenz = 1000 (Konfidenzintervalle)
+description: T-Pose
+author: Jonas Schneider
+date: 19/07/2023
+order: 9
+tags: [T-Verteilung, Chi-Quadrat-Verteilung, F-Verteilung, Konfidenzintervalle]
+---
+
+Hier wirds komisch. Die Anwendungen habe ich selber noch nicht gemacht. Weiterhin geht es um Schätzungen und Eingrenzungen von Parameter für Verteilungen.
+
+## T-Verteilung (relevant)
+![T-Pose](https://media.tenor.com/WLioHwNPMTYAAAAd/t-pose-t-pose-meme.gif)
+
+**T-Verteilung** ist das hier: $T = \sqrt(n) \frac{\overline{X} - \mu}{S}$, 
+
+wobei $\overline{X} = \frac{1}{n} \sum_{i = 1}^n X_i$ 
+
+und $S^2 = \frac{1}{n-1} \sum_{i = 1}^n (X_i - \overline{X})^2$.
+
+## $\chi^2$-Verteilung (relevant)
+
+Sei $X_1, \dots, X_n$ i.i.d. $X_i \sim \mathcal{N}(0, 1)$, dann ist
+
+$Q = \sum_{i = 1}^n X_i^2$. Dann ist $E(Q) = k$ und $Var(Q) = 2k$.
+
+Gilt mit $c > 0$: $\frac{T}{c} \sim \chi^2(k)$ oder $T \sim c \cdot \chi^2(k)$, dann ist heißt $T$ gestreckte $\chi^2$-verteilt.
+
+## F-Verteilung (Eher nicht relevant)
+Sei $Q_1 \sim \chi^2(n_1)$ und $Q_2 \sim \chi^2(n_2)$, dann ist
+
+$F = \frac{Q_1 / n_1}{Q_2 / n_2} \sim F(n_1, n_2)$.
+$E(F) = \frac{n_2}{n_2 - 2}$ und $Var(F) = \frac{2n_2^2(n_1 + n_2 - 2)}{n_1(n_2 - 2)^2(n_2 - 4)}$.
+
+## Konfidenzintervalle (mittelmäßig relevant)
+
+Ein Konfidenzintervall grenzt einen Parameter statistisch ein. Das Konfidenzniveau gibt an wie sicher man sich seien kann, dass der wahre Parameter innerhalb des Konfidenzintervalls liegt.
+
+Also $[L,U] mit L = L(X_1, ..., X_n), U = U(X_1, ...., X_n)$ ist ein Konfidenzintervall zum Konfidenzniveau $1-\alpha$, wenn für alle $\vartheta \in \Theta$ gilt $P([L,U] \ni \vartheta) \ge 1 - \alpha$.
+
+### Für $\mu$
+
+Zweiseitiges Konfidenzintervall, $\sigma$ ist unbekannt:
+
+$[L,U] = [\overline{X} - t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}, \overline{X} + t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}]$
+
+Hierbei sind die $X$ verteilt auf $X_1, ..., X_n \sim N(\mu, \sigma^2)$. und $\overline{X}, S$ wie oben definiert.
+
+Somit erhält man:
+
+$\overline{X} - t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}} \le \mu \le \overline{X} + t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}$ mit Wahrscheinlichkeit $1 - \alpha$.
+
+
+Verbesserungen:
+  - Ersetzte $S$ durch $\sigma$ falls bekannt
+  - Ersetzte $t(n-1)_{1- \alpha / 2}$ durch $z_{1- \alpha / 2} = \Phi^{-1}(1- \alpha / 2)$ falls $n$ groß genug ist
+
+### Für $\sigma^2$
+
+
+Ausganglage: Wir haben einen Schätzer $\^{\sigma}^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})^2$ für $\sigma^2$.
+
+$[L,U] = [\frac{n-1}{\chi^2(n-1)_{1- \alpha / 2} \^{\sigma}^2}, \frac{n-1}{\chi^2(n-1)_{\alpha / 2} \^{\sigma}^2}]$
+
+### Für $p$
+
+$[L,U] = [\^{p} - z_{1- \alpha / 2} \sqrt(\frac{\^{p}(1- \^{p})}{n}), \^{p} + z_{1- \alpha / 2} \sqrt(\frac{\^{p}(1- \^{p})}{n})]$

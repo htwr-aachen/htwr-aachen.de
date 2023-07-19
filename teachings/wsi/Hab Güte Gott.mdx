@@ -1,0 +1,42 @@
+---
+title: Hab Güte Gott (Gütekriterien)
+description: Gott ist das langweilig
+author: Jonas Schneider
+date: 19/07/2023
+order: 8
+tags: [Gütekriterien, Bias, Erwartungstreue]
+---
+
+Ich hasse alles hieran
+
+Recap: Ein Schätzer, Zwei Schätzer:
+- $x = (x_1, ..., x_n) \mapsto \^{\vartheta}_n(x)$ ordnet jeder Stichprobe aus dem Stichprobenraum $X$ einen Schätzwert zu.
+- $X = (X_1, ..., X_n) \mapsto \^{\vartheta}_n(X)$ ordnet jedem Zufallsvektor eine Zufallsgröße (einen Parameter für die Zufallsverteilung) zu.
+
+Keep in Mind: $\vartheta$ sind die Parameter der Wahrscheinlichkeitsverteilung. Also z.B. $p$ bei der Binomialverteilung.
+
+$E_{\vartheta}(\^{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswert mit dem Parameter $\vartheta$ da er natürlich davon abhängig ist. 
+
+## Gütekriterien
+
+  **Erwartungstreue** ist eine Eigenschaft eines Schätzers $\^{\vartheta}'$, die besagt, dass der Erwartungswert des Schätzers gleich dem wahren Wert des Parameters ist.
+  $E(\^{\vartheta}') = \vartheta$
+
+  Der **Bias** ist die Abweichung des Erwartungswertes des Schätzers vom wahren Wert des Parameters.
+  $Bias(\^{\vartheta}') = E(\^{\vartheta}') - \vartheta$
+
+  **Konsistenz** fragt ob bei größeren Stichproben, der Schätzer näher an den wahren Wert des Parameters kommt (stoch. Konvergenz). Also: $\delta > 0$
+  
+  $P(|\^{\vartheta}' - \vartheta| > \delta) \rightarrow 0$ für $n \rightarrow \infty$
+
+  Es gibt auch **starke** und **schwache** Konsistenz.
+
+  **Effizienz** ist die Varianz des Schätzers. Je kleiner die Varianz, desto effizienter ist der Schätzer. Ein Schätzer ist **effizient** wenn er effizienter als alle anderen ist.
+
+  **MSE (Mean Sqaured Error)**: $MSE(\^{\vartheta}'; \vartheta) = E_{\vartheta}((\^{\vartheta}' - \vartheta)^2) = Var_\vartheta(\^{\vartheta}_n') + [Bias(\^{\vartheta}_n'; \vartheta)]$
+
+  **Effizienz** geht auch über den MSE. Ein Schätzer ist **effizient** wenn er einen kleineren MSE als alle anderen hat.
+
+  
+  !TODO: Beispiel
+
