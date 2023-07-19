@@ -107,7 +107,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                 )
               </li>
               <li>
-                Top zusammenfassung von Tore (
+                <b>Top Nachschlagwerk</b> von Tore (
                 <a
                   target={"_blank"}
                   href="https://discordapp.com/users/271657367676911623"
@@ -163,7 +163,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
               Erklärungen in ihrem eigenen Stil
             </h1>
 
-            <span>
+            <p>
               Wenn jemand irgendwas falsches entdeckt (kann schon gut sein)
               meldet euch (oder korrigiert es selber{" "}
               <a
@@ -187,14 +187,15 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                 href="https://discordapp.com/users/317018058428514314"
                 rel="noreferrer"
               >
-                Jonsch318#4006
+                Jonsch318
               </a>
-            </span>
+            </p>
+            <br />
 
-            <span>
+            <p>
               Es kommt hier noch ein bisschen was aber das dauert, also immer
               mal wieder vorbeischauen
-            </span>
+            </p>
 
             <ul className="list-disc px-4 pt-8 lg:pl-8">
               <TeachingList
