@@ -1,5 +1,5 @@
 ---
-title: Flugzeug stürzt nur mit 90% Wahrscheinlichkeit nicht ab (Hypothesen)
+title: Flugzeug stürzt nur mit 90% Wahrscheinlichkeit nicht ab (Hypothesentests)
 description: 
 author: Jonas Schneider
 date: 19/07/2023
@@ -8,3 +8,100 @@ tags: []
 ---
 
 ## Statistische Test
+
+Seien $f_0, f_1$ zwei mögliche Verteilungen für die Daten $X$. Das ist das Testproblem, ob $X \sim f_0$ oder $X \sim f_1$.
+
+Es wird die **Nullhypothese** $H_0: f = f_0$ gegen die **Alternativhypothese** $H_1: f = f_1$ getestet.
+
+Ein Test ist dann eine Entscheidungsregel, die basiert auf der gegebenen Statistik $T(X_1, ..., X_n)$ (Statistik war einfach nur eine Funktion von den Daten)
+die entweder $H_0$ oder $H_1$ akzeptiert.
+
+### Fehlertypen
+
+Es gibt nun folgende Fehlertypen:
+
+|       | $H_0$ richtig     | $H_1$ richtig     |
+|-------|-------------------|-------------------|
+| $H_0$ | Korrekt           | **Fehler 2. Art** |
+| $H_1$ | **Fehler 1. Art** | Korrekt           |
+
+### Signifikanzniveau & Schärfe
+
+Das **Signifikanzniveau** $\alpha$ ist die Wahrscheinlichkeit für einen Fehler 1. Art, also $P_{H_0}("H_1") \le a$.
+
+Die **Schärfe** $ 1 - \beta$ ist die **Gegenwahrscheinlichkeit** für einen Fehler 2. Art, also $P_{H_1}("H_0") \le \beta$.  
+
+|       | $H_0$ richtig     | $H_1$ richtig     |
+|-------|-------------------|-------------------|
+| $H_0$ | Korrekt: $1-\alpha$           | **Fehler 2. Art**: $\beta$ |
+| $H_1$ | **Fehler 1. Art**: $\alpha$ | Korrekt: $1-\beta$ (Schärfe) |
+
+## Hypothesen
+
+Da man meistens nicht nur zwei Verteilungen gegenüberstellen möchte, sondern einhalten von Grenzwerten, gibt es folgende Hypothesen:
+
+- $H_0: \mu \le \mu_0$ gegen $H_1: \mu > \mu_0$ (rechtsseitiger Test)
+- $H_0: \mu \ge \mu_0$ gegen $H_1: \mu < \mu_0$ (linksseitiger Test)
+- $H_0: \mu = \mu_0$ gegen $H_1: \mu \ne \mu_0$ (zweiseitiger Test)
+
+### t-Test
+
+Gegeben sei eine Stichprobe $X_1, ..., X_n$ mit $X_i \sim N(\mu, \sigma^2)$ mit unbekannter Varianz $\sigma^2$.
+Ersetzte nun $\sigma^2$ durch die Stichprobenvarianz $S^2$ und definiere die Teststatistik $T = \sqrt{n}\frac{\overline{X} - \mu_0}{S}$ somit $T \sim t_{n-1}$.
+
+Tests:
+
+- verwerfe $H_0: \mu \le \mu_0$ gegen $H_1: \mu > \mu_0$ wenn: $T > t(n-1)_{1-\alpha}$
+- verwerfe $H_0: \mu \ge \mu_0$ gegen $H_1: \mu < \mu_0$ wenn: $T < -t(n-1)_{1-\alpha} = t(n-1)_\alpha$
+- verwerfe $H_0: \mu = \mu_0$ gegen $H_1: \mu \ne \mu_0$ wenn: $|T| > t(n-1)_{1-\frac{\alpha}{2}}$
+
+Beispiel aus der Vorlesung:
+> Die Schätzung der mittleren Ozonkonzentration während der
+  Sommermonate ergaben für eine Großstadt anhand von n = 26 Messungen
+  den Mittelwert $\overline{x}_n$ = 244 und die Stichproben-Standardabweichung s = 5.1
+  (jeweils in µg/m3 ).
+  Der im Ozongesetz von 1995 festgelegte verbindliche Alarmwert beträgt
+  240 µg/m3 . Kann das gemessene Ergebnis als signifikante Überschreitung
+  des Warnwerts gewertet werden zum Signifikanzniveau $\alpha$ = 0.01?
+
+<Spoiler>
+
+  Teststatistik: $t = T_{obs} = \sqrt{26}\frac{244-240}{5.1} = 3.999$
+  Die Statistik ist $t(n-1 = 25)-verteilt Da $t > t(25)_{0.99} = 2.485$ ist, wird die Nullhypothese verworfen und $H_1$ angenommen.
+  
+  Antwort: Durch einen Signifikanztest (1-Stichproben t-Test) konnte mit einem Signifikanzniveau von 1% nachgewiesen werden, dass der Alarmwert $240$ überschritten wurde.
+</Spoiler>
+
+### $p$-Wert
+Guckt sich an wie wahrscheinlich es ist, dass bei einer Wiederholung ein Wert entsteht, der noch mehr gegen $H_0$ spricht als $t_{obs}$
+
+## Gütefunktionen & 2-Stichproben-Tests
+Kein Bock darauf. Vielleicht später
+
+## Binomial-Test
+$X_1, ..., X_n \sim F$
+F besitzt eindeutigen Median $m$ und $F(m) = 0.5$.
+
+- $H_0: m \ge m_0$ gegen $H_1: m < m_0$ (linksseitiger Test)
+- $H_0: m \le m_0$ gegen $H_1: m > m_0$ (rechtsseitiger Test)
+
+Dies lässt sich zurückführen auf den Binomial-Test:
+
+$Y \sim Bin(n,p) \quad p = P(Y_1 > m_0)$
+
+Bzw. 
+- $H_0: p = p_0$ gegen $H_1: p \ne p_0$
+- $H_0: p \le p_0$ gegen $H_1: p > p_0$
+
+Teststatistik: $T = \frac{Y - np_0}{\sqrt{np_0(1-p_0)}} \sim N(0,1)$
+
+- Lehne $H_0: p \le p_0$ ab, falls $T > z_{1-\alpha}$
+- Lehne $H_0: p \ge p_0$ ab wenn $T < z_\alpha$
+- Lehne $H_0: p = p_0$ ab wenn $|T| > z_{1-\frac{\alpha}{2}}$
+
+Hierbei ist $z_{1-\alpha}$ das $(1-\alpha)$-Quantil der Standardnormalverteilung.
+
+## Regression und Lineare Regression
+
+Überspringt es.
+
