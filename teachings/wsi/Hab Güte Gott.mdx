@@ -15,7 +15,7 @@ Recap: Ein Schätzer, Zwei Schätzer:
 
 Keep in Mind: $\vartheta$ sind die Parameter der Wahrscheinlichkeitsverteilung. Also z.B. $p$ bei der Binomialverteilung.
 
-$E_{\vartheta}(\^{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswert mit dem Parameter $\vartheta$ da er natürlich davon abhängig ist. 
+$E_{\vartheta}(\^{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswert mit dem Parameter $\vartheta$, da er natürlich davon abhängig ist. 
 
 ## Gütekriterien
 
@@ -25,17 +25,17 @@ $E_{\vartheta}(\^{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswer
   Der **Bias** ist die Abweichung des Erwartungswertes des Schätzers vom wahren Wert des Parameters.
   $Bias(\^{\vartheta}') = E(\^{\vartheta}') - \vartheta$
 
-  **Konsistenz** fragt ob bei größeren Stichproben, der Schätzer näher an den wahren Wert des Parameters kommt (stoch. Konvergenz). Also: $\delta > 0$
+  **Konsistenz** fragt, ob bei größeren Stichproben der Schätzer näher an den wahren Wert des Parameters kommt (stoch. Konvergenz). Also: $\delta > 0$
   
   $P(|\^{\vartheta}' - \vartheta| > \delta) \rightarrow 0$ für $n \rightarrow \infty$
 
   Es gibt auch **starke** und **schwache** Konsistenz.
 
-  **Effizienz** ist die Varianz des Schätzers. Je kleiner die Varianz, desto effizienter ist der Schätzer. Ein Schätzer ist **effizient** wenn er effizienter als alle anderen ist.
+  **Effizienz** ist die Varianz des Schätzers. Je kleiner die Varianz, desto effizienter ist der Schätzer. Ein Schätzer ist **effizient**, wenn er effizienter als alle anderen ist.
 
   **MSE (Mean Sqaured Error)**: $MSE(\^{\vartheta}'; \vartheta) = E_{\vartheta}((\^{\vartheta}' - \vartheta)^2) = Var_\vartheta(\^{\vartheta}_n') + [Bias(\^{\vartheta}_n'; \vartheta)]$
 
-  **Effizienz** geht auch über den MSE. Ein Schätzer ist **effizient** wenn er einen kleineren MSE als alle anderen hat.
+  **Effizienz** geht auch über den MSE. Ein Schätzer ist **effizient**, wenn er einen kleineren MSE als alle anderen hat.
 
   
   !TODO: Beispiel

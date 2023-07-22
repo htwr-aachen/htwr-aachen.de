@@ -38,7 +38,7 @@ Die **Schärfe** $ 1 - \beta$ ist die **Gegenwahrscheinlichkeit** für einen Feh
 
 ## Hypothesen
 
-Da man meistens nicht nur zwei Verteilungen gegenüberstellen möchte, sondern einhalten von Grenzwerten, gibt es folgende Hypothesen:
+Da man meistens nicht nur zwei Verteilungen gegenüberstellen möchte, sondern Einhalten von Grenzwerten testen möchte, gibt es folgende Hypothesen:
 
 - $H_0: \mu \le \mu_0$ gegen $H_1: \mu > \mu_0$ (rechtsseitiger Test)
 - $H_0: \mu \ge \mu_0$ gegen $H_1: \mu < \mu_0$ (linksseitiger Test)
@@ -57,23 +57,23 @@ Tests:
 
 Beispiel aus der Vorlesung:
 > Die Schätzung der mittleren Ozonkonzentration während der
-  Sommermonate ergaben für eine Großstadt anhand von n = 26 Messungen
-  den Mittelwert $\overline{x}_n$ = 244 und die Stichproben-Standardabweichung s = 5.1
-  (jeweils in µg/m3 ).
+  Sommermonate ergaben für eine Großstadt anhand von $n = 26$ Messungen
+  den Mittelwert $\overline{x}_n$ = 244 und die Stichproben-Standardabweichung $s = 5.1$
+  (jeweils in $\frac{\mu g}{m^3}$ ).
   Der im Ozongesetz von 1995 festgelegte verbindliche Alarmwert beträgt
-  240 µg/m3 . Kann das gemessene Ergebnis als signifikante Überschreitung
-  des Warnwerts gewertet werden zum Signifikanzniveau $\alpha$ = 0.01?
+  $240 \frac{\mu g}{m^3}$ . Kann das gemessene Ergebnis als signifikante Überschreitung
+  des Warnwerts gewertet werden zum Signifikanzniveau $\alpha = 0.01$?
 
 <Spoiler>
 
   Teststatistik: $t = T_{obs} = \sqrt{26}\frac{244-240}{5.1} = 3.999$
-  Die Statistik ist $t(n-1 = 25)-verteilt Da $t > t(25)_{0.99} = 2.485$ ist, wird die Nullhypothese verworfen und $H_1$ angenommen.
+  Die Statistik ist $t(n-1 = 25)$-verteilt. Da $t > t(25)_{0.99} = 2.485$ ist, wird die Nullhypothese verworfen und $H_1$ angenommen.
   
   Antwort: Durch einen Signifikanztest (1-Stichproben t-Test) konnte mit einem Signifikanzniveau von 1% nachgewiesen werden, dass der Alarmwert $240$ überschritten wurde.
 </Spoiler>
 
 ### $p$-Wert
-Guckt sich an wie wahrscheinlich es ist, dass bei einer Wiederholung ein Wert entsteht, der noch mehr gegen $H_0$ spricht als $t_{obs}$
+Guckt sich an, wie wahrscheinlich es ist, dass bei einer Wiederholung ein Wert entsteht, der noch mehr gegen $H_0$ spricht als $t_{obs}$
 
 ## Gütefunktionen & 2-Stichproben-Tests
 Kein Bock darauf. Vielleicht später

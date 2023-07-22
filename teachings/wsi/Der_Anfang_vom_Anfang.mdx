@@ -44,16 +44,16 @@ In praktisch allen Bereichen begegnen uns bald _Zufallsvariablen_. Hier stellt s
 
 Was ist das?
 
-Zufallsvariablen oder Zufallsgrößen sind Werte die vom Zufall abhängen.
+Zufallsvariablen oder Zufallsgrößen sind Werte, die vom Zufall abhängen.
 Also zum Beispiel Würfelzahl, Nummer der defekten PSP Boards oder ähnliches.
 
 Formal wird jedem Ergebnis eine Zufallsgröße zugeordnet. Also $\Omega \to \mathbb{R}$. Zufallsvariablen werden häufig als $X$ notiert. 
 
-Es ist also wichtig zu wissen, dass die Zufallsvar. kein Wert beschreibt oder so. Wir sagen immer nur: Was ist die Wahrscheinlichkeit, dass $X < 300$ also das weniger als $300$ PSP Boards kaputt sind. Wir wissen natürlich alle $P(X < 300) = 0$, denn nicht der Code ist falsch sondern die Boards!
+Es ist also wichtig zu wissen, dass die Zufallsvariablen keinen Wert beschreiben oder so. Wir sagen immer nur: Was ist die Wahrscheinlichkeit, dass $X < 300$, also das weniger als $300$ PSP Boards kaputt sind. Wir wissen natürlich alle $P(X < 300) = 0$, denn nicht der Code ist falsch sondern die Boards!
 
 ## Im Anfang schuf Gott Himmel und Erde
 
-Wenn du einen $6$-seitigen Würfel mit gleicher Wahrscheinlichkeiten hast ist die Wahrscheinlichkeit für eine Zahl $P(X = 6) = \frac{1}{6}$ trivialer Weise. Genauer $P(A) = \frac{|A|}{|\Omega|}$ bei diskreter Gleichverteilung bzw. **Laplace-Raum**.
+Wenn du einen $6$-seitigen Würfel mit gleicher Wahrscheinlichkeiten hast, ist die Wahrscheinlichkeit für eine Zahl $P(X = 6) = \frac{1}{6}$ trivialerweise. Genauer $P(A) = \frac{|A|}{|\Omega|}$ bei diskreter Gleichverteilung bzw. **Laplace-Raum**.
 
 Für alle Wahrscheinlichkeitsräume gibt es folgende Gleichheiten. Sei $A$ ein Ereignis.
   - $P(\overline{A}) = 1 - P(A)$  
@@ -73,7 +73,7 @@ Es gibt sehr viele Versionen, die sich wie folgt Unterscheiden:
 
 |                  | Mit Zurücklegen                                                                                                     | Ohne Zurücklegen                                                                                                                                |
 |------------------|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mit Reihenfolge  | $\Omega = \{(w_1, ..., w_n) \mid w_i \in A\} \\ \lvert \Omega \rvert = N^n$                                                  | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, \\ w_i \neq w_j \quad \mathrm{ für } \quad  i \neq j \}  \\ \lvert \Omega \rvert = \frac{N!}{(N-n)!} = N \cdot (N-1) \cdot N(N-n+1) $ |
+| Mit Reihenfolge  | $\Omega = \{(w_1, ..., w_n) \mid w_i \in A\} \\ \lvert \Omega \rvert = N^n$                                                  | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, \\ w_i \neq w_j \quad \mathrm{ für } \quad  i \neq j \}  \\ \lvert \Omega \rvert = \frac{N!}{(N-n)!} = N \cdot (N-1) \cdot N(N-n+1)$ |
 | Ohne Reihenfolge | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, i=1,...,n, w_1 \le ... \le w_n \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$ | $\Omega =  \{ {w_1, ..., w_n} \mid w_i \in \{1, ..., n\}, \\ w_i \neq w_j \quad \mathrm{für} \quad i \neq j \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$                       |
 
 
