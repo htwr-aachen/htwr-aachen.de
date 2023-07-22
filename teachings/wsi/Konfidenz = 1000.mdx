@@ -24,7 +24,7 @@ Sei $X_1, \dots, X_n$ i.i.d. $X_i \sim \mathcal{N}(0, 1)$, dann ist
 
 $Q = \sum_{i = 1}^n X_i^2$. Dann ist $E(Q) = k$ und $Var(Q) = 2k$.
 
-Gilt mit $c > 0$: $\frac{T}{c} \sim \chi^2(k)$ oder $T \sim c \cdot \chi^2(k)$, dann ist heißt $T$ gestreckte $\chi^2$-verteilt.
+Gilt mit $c > 0$: $\frac{T}{c} \sim \chi^2(k)$ oder $T \sim c \cdot \chi^2(k)$, dann ist heißt $T$ gestreckt $\chi^2$-verteilt.
 
 ## F-Verteilung (Eher nicht relevant)
 Sei $Q_1 \sim \chi^2(n_1)$ und $Q_2 \sim \chi^2(n_2)$, dann ist
@@ -34,9 +34,9 @@ $E(F) = \frac{n_2}{n_2 - 2}$ und $Var(F) = \frac{2n_2^2(n_1 + n_2 - 2)}{n_1(n_2 
 
 ## Konfidenzintervalle (mittelmäßig relevant)
 
-Ein Konfidenzintervall grenzt einen Parameter statistisch ein. Das Konfidenzniveau gibt an wie sicher man sich seien kann, dass der wahre Parameter innerhalb des Konfidenzintervalls liegt.
+Ein Konfidenzintervall grenzt einen Parameter statistisch ein. Das Konfidenzniveau gibt an, wie sicher man sich sein kann, dass der wahre Parameter innerhalb des Konfidenzintervalls liegt.
 
-Also $[L,U] mit L = L(X_1, ..., X_n), U = U(X_1, ...., X_n)$ ist ein Konfidenzintervall zum Konfidenzniveau $1-\alpha$, wenn für alle $\vartheta \in \Theta$ gilt $P([L,U] \ni \vartheta) \ge 1 - \alpha$.
+Also $[L,U]$ mit $L = L(X_1, ..., X_n), U = U(X_1, ...., X_n)$ ist ein Konfidenzintervall zum Konfidenzniveau $1-\alpha$, wenn für alle $\vartheta \in \Theta$ gilt $P([L,U] \ni \vartheta) \ge 1 - \alpha$.
 
 ### Für $\mu$
 
@@ -44,7 +44,7 @@ Zweiseitiges Konfidenzintervall, $\sigma$ ist unbekannt:
 
 $[L,U] = [\overline{X} - t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}, \overline{X} + t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}]$
 
-Hierbei sind die $X$ verteilt auf $X_1, ..., X_n \sim N(\mu, \sigma^2)$. und $\overline{X}, S$ wie oben definiert.
+Hierbei sind die $X$ verteilt auf $X_1, ..., X_n \sim N(\mu, \sigma^2)$ und $\overline{X}, S$ wie oben definiert.
 
 Somit erhält man:
 
