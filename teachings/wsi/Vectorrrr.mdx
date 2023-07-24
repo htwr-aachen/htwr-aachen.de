@@ -2,7 +2,7 @@
 title: Vectoorrrrr (Zufallsvektoren)
 description: Ohh-yeahhhh
 author: Jonas Schneider
-date: 18/07/2023
+date: 24/07/2023
 order: 4
 tags: [Zufallsvektoren, Erwartungsvektoren, Bedingte Dichte, Kovarianz]
 ---
@@ -69,6 +69,21 @@ Die Eigenschaften der Verteilungsfunktion sind gleich zu den eindimensionalen nu
 
 ## Kovarianzmatrizen
   Statt einen einzelnen Varianzwert bildet man aus $Var(X) = (Cov(X_i, X_j))_{i,j}$ eine ($n \times n$)-Kovarianzmatrix :(
+
+
+## Randdichte
+
+**Randdichte** sind tatsächlich auch wichtig. Bsp. Man hat die Funktion $f_{XY} = \begin{cases} 4y^2(2-x-y) & x,y \in (0,1) \\ 0 & sonst \end{cases}$ 
+
+Dann ist die Randdichte von $X$:
+$f_X(x) = \int_{-\infty}^{\infty} f_{XY}(x,y)dy$
+
+und von $Y$:
+$f_Y(y) = \int_{-\infty}^{\infty} f_{XY}(x,y)dx$
+
+Somit kann dann auch der Erwartungswert von $E(Y) = \int_{-\infty}^{\infty} y f_Y(y)dy$ berechnet werden.
+
+Bei diskreten Zufallsvektoren ist das analog nur statt Integral wird einfach summiert :)
 
 ## mehrdimensionale Verteilungen
 
