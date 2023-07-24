@@ -2,9 +2,9 @@
 title: Flugzeug stürzt nur mit 90% Wahrscheinlichkeit nicht ab (Hypothesentests)
 description: 
 author: Jonas Schneider
-date: 19/07/2023
+date: 24/07/2023
 order: 10
-tags: []
+tags: [Tests, Signifikanz, Hypothesen, Statistik, Lineare Regression]
 ---
 
 ## Statistische Test
@@ -103,5 +103,20 @@ Hierbei ist $z_{1-\alpha}$ das $(1-\alpha)$-Quantil der Standardnormalverteilung
 
 ## Regression und Lineare Regression
 
-Überspringt es.
+Was ist das?
 
+![Lineare-Regression](https://media.tenor.com/20n67BNCG9wAAAAd/linear-regression.gif)
+
+$\uparrow$ Das erster sinnvolle Bild auf [tenor.com](tenor.com).
+
+Also es geht um eine Menge von Werten z.B. produzierte Bauteile die von einer anderen Sachen abhängen. Soweit so einfach.
+In unserem Beispiel braucht Helmut, durchschnittlich über eine eine Woche, 55 Minuten um ein Laufrohr eines Kampfpanzers Leopard 2A8 zu produzieren.
+
+Nun sollen wir eine Gerade $\hat{f}(t) = \hat{a} + \hat{b}t$ finden, die in Abhängigkeit von der benötigten Zeit $t$ die Anzahl produzierter Laufrohre $f(t)$ schätzt.
+
+Wie findet man nun $\hat{a}$ und $\hat{b}$?: Das gängigste ist die **Methode der kleinsten Quadrate**.
+
+$Q(a,b) = \sum_{i=1}^n (y_i - (a + bt_i))^2$ soll minimal werden.
+
+Das heißt $\hat{b} = \frac{s_{xy}}{s_x^2}$ und $\hat{a} = \overline{y} - \hat{b}\overline{x}$
+Hier ist $s_{xy}, s_{y}$ natürlich die Stichproben-Varianz
