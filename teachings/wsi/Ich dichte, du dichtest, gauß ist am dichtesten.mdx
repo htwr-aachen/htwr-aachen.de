@@ -2,7 +2,7 @@
 title: Ich dichte, du dichtest, Gauß ist am Dichtesten (Zufallsverteilung/dichten)
 description: Haha Stocha macht Spaß und ist überhaupt nicht unnötig aufgeblasen mit x dummen Begriffen haha
 author: Jonas Schneider
-date: 18/07/2023
+date: 25/07/2023
 order: 3
 tags: [Zufallsverteilungen, Diskret, Stetig, Erwartungswert, Verteilungsfunktion, Dichte]
 ---
@@ -62,11 +62,15 @@ Notation $X \sim f_x$ hat Dichte
   - $X,Y$ stoch. unabhängig $\implies Var(X + Y) = Var(X) + Var(Y)$
 
 ## Dichtetransformationssatz
-Sei $f_X(x)$ eine Dichtefunktion für $X=(a,b), a < b$ und sei $g(x) = y$ eine stetig differenzierbare Funktion mit Umkehrfunktion $g^{-1}(y) = x$.
+Sei $f_X(x)$ eine Dichtefunktion für $X=(a,b), a < b$ und sei $g(x) = y$ eine stetig differenzierbare Funktion **mit Umkehrfunktion** $g^{-1}(y) = x$.
 
-Dann ist die Dichte $f_Y(y) = f_X(g^{-1}(y)) \cdot |g'(g^{-1}(y))|$.
+Dann ist die Dichte $f_Y(y) = f_X(g^{-1}(y)) \cdot |g^{-1'}(x)|$ (die Ableitung der Umkej).
 
-Ist vermutlich nicht das wichtigste aber trotzdem ganz nett.
+Schritt für schritt also prüfen:
+
+- Prüfen ob $g(x)$ stetig differenzierbar ist. Meistens einfach: einfach sagen ja polynom ist stetig diff`bar, $ln, e, \sin, \cos$ sowieso.
+- Prüfen ob $g(x)$ eine Umkehrfunktion hat. Also prüfen ob $g(x)$ bijektiv ist. Einfacher: surjektiv und injektiv seperat checken.
+- **Dichtetransformationssatz** anwenden.
 
 ## Verteilungen
 
@@ -78,9 +82,14 @@ $F_X(x) = \int_{-\infty}^{x} f_X(t) dt, x \in \mathbb{R}$
 
 Somit gilt: $P(X \le x) = F_X(x)$ und $P(a < X \le b) = F_X(b) - F_X(a)$
 
-Eine Verteilungsfunktion muss monoton wachsend und rechtssteig sein. Zudem gilt:
+Eine **Verteilungsfunktion** muss monoton wachsend und rechtssteig sein. Zudem gilt:
 
-$\lim_{x \to -\infty} F_X(x) = 0$ und $\lim_{x \to \infty} F_X(x) = 1$ 
+$\lim_{x \to -\infty} F_X(x) = 0$ und $\lim_{x \to \infty} F_X(x) = 1$
+
+
+Die **Quantilfunktion** $F_X^{-1}(p)$ ist die "praktisch" die Umkehrfunktion von $F_X(x)$. Genauer definiert ist sie:
+
+$F^{-1}= \{w \in \mathbb{R} \mid F(w) \ge p\}$
 
 ### Diskrete Verteilungen
 
