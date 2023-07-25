@@ -4,7 +4,15 @@ description: Haha Stocha macht Spaß und ist überhaupt nicht unnötig aufgeblas
 author: Jonas Schneider
 date: 25/07/2023
 order: 3
-tags: [Zufallsverteilungen, Diskret, Stetig, Erwartungswert, Verteilungsfunktion, Dichte]
+tags:
+  [
+    Zufallsverteilungen,
+    Diskret,
+    Stetig,
+    Erwartungswert,
+    Verteilungsfunktion,
+    Dichte,
+  ]
 ---
 
 ## Aufteilungen
@@ -21,12 +29,12 @@ Der Erwartungswert ist der durchschnittlich zu erwartende Wert einer ZV.
 
 Es gibt folgende Rechenregeln:
 
- - $E(X + Y) = E(X) + E(Y)$
- - $E(aX +b) = aE(X) + b$
- - $E(|X+Y|) \le E(|X|) + E(|Y|)$
+- $E(X + Y) = E(X) + E(Y)$
+- $E(aX +b) = aE(X) + b$
+- $E(|X+Y|) \le E(|X|) + E(|Y|)$
 
- - und wenn X, Y stoch. unabhängig sind:
-    $E(f(X) \cdot g(Y)) = E(f(X)) \cdot E(g(Y))$
+- und wenn X, Y stoch. unabhängig sind:
+  $E(f(X) \cdot g(Y)) = E(f(X)) \cdot E(g(Y))$
 
 ### Diskrete ZV
 
@@ -46,22 +54,23 @@ wobei $f_X(x)$ die Dichtefunktion von $X$ ist.
 Für sie gilt:
 $P_X((a,b]) = P(a < X \le b) = \int_a^b f(x)dx$. Zudem $f(x) \ge 0, x \in \mathbb{R}$ und $\int_{-\infty}^{\infty} f(x) dx = 1$
 
-Notation $X \sim f_x$ hat Dichte 
-
+Notation $X \sim f_x$ hat Dichte
 
 ### Varianz
-  Die Varianz berechnet sich durch $\sigma_X^2 = Var(X) = E((X - E(X))^2)$
-  Das wichtigste sit der **Verschiebungssatz**:
 
-  $Var(X) = E(X^2) - (E(X))^2$
+Die Varianz berechnet sich durch $\sigma_X^2 = Var(X) = E((X - E(X))^2)$
+Das wichtigste sit der **Verschiebungssatz**:
 
-  Weitere Rechenregeln:
+$Var(X) = E(X^2) - (E(X))^2$
 
-  - $Var(aX) = a^2Var(X)$
-  - $E(X) = 0 \implies Var(X) = E(X^2)$
-  - $X,Y$ stoch. unabhängig $\implies Var(X + Y) = Var(X) + Var(Y)$
+Weitere Rechenregeln:
+
+- $Var(aX) = a^2Var(X)$
+- $E(X) = 0 \implies Var(X) = E(X^2)$
+- $X,Y$ stoch. unabhängig $\implies Var(X + Y) = Var(X) + Var(Y)$
 
 ## Dichtetransformationssatz
+
 Sei $f_X(x)$ eine Dichtefunktion für $X=(a,b), a < b$ und sei $g(x) = y$ eine stetig differenzierbare Funktion **mit Umkehrfunktion** $g^{-1}(y) = x$.
 
 Dann ist die Dichte $f_Y(y) = f_X(g^{-1}(y)) \cdot |g^{-1'}(x)|$ (die Ableitung der Umkej).
@@ -86,7 +95,6 @@ Eine **Verteilungsfunktion** muss monoton wachsend und rechtssteig sein. Zudem g
 
 $\lim_{x \to -\infty} F_X(x) = 0$ und $\lim_{x \to \infty} F_X(x) = 1$
 
-
 Die **Quantilfunktion** $F_X^{-1}(p)$ ist die "praktisch" die Umkehrfunktion von $F_X(x)$. Genauer definiert ist sie:
 
 $F^{-1}= \{w \in \mathbb{R} \mid F(w) \ge p\}$
@@ -96,7 +104,7 @@ $F^{-1}= \{w \in \mathbb{R} \mid F(w) \ge p\}$
 - **Binomial Verteilung**:
   $X \sim Bin(n,p)$ heißt Binomialverteilt, es kommt natürlich vom Binomialkoeffizienten. <br/>
   $P(X = k) = p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}$ mit Parameter $n \in \mathbb{N}$ und $p \in [0,1]$
-  
+
   Erwartungswert: $E(X) = np$ <br/>
   Varianz: $Var(X) = np(1-p)$ <br/>
 
@@ -118,8 +126,8 @@ $F^{-1}= \{w \in \mathbb{R} \mid F(w) \ge p\}$
 - **Hypergeometrische Verteilung**: Siehe Formelsammlung
 - **Negative Binomialverteilung**: Siehe Formelsammlung
 
-
 ### Stetige Verteilungen
+
 - **Gleichverteilung**
   $X \sim U(a,b)$ <br/>
   $f_X(x) = \begin{cases} \frac{1}{b-a}, & a < x < b \\ 0, & \text{sonst} \end{cases}$
@@ -145,19 +153,17 @@ $F^{-1}= \{w \in \mathbb{R} \mid F(w) \ge p\}$
   Verteilungsfunktion: $F_X(x) = \Phi_{(\mu, \sigma^2)}(x) = \int_{\infty}^x \varphi_{(\mu, \sigma^2)}(t) dt$ <br/>
 
   Wichtiges zu beachten: <br/>
-    
-    - Bei der Normalverteilung liest man meistens Werte von einer Tabelle ab. Da ihr sicher nicht diese Formel mit dem Ubuntu Taschenrechner ausrechnen wollt.
-    - Wie das genau geht kommt unten. 
-    - Die **Standardnormalverteilung** hat die Parameter $\mu = 0, \sigma^2 = 1$ und wird mit $\Phi$ und $\varphi$ bezeichnet.
-  
-  Rechenregeln: 
-  
-    - Ist $X \sim N(\mu, \sigma^2)$, dann ist $X^* = \frac{X-\mu}{\sigma} \sim N(0,1)$. **Sehr wichtig**
-    - Somit gilt $\Phi_{(\mu, \sigma^2)}(x) = \Phi(\frac{x-\mu}{\sigma})$ und $\varphi_{(\mu, \sigma^2)}(x) = \frac{1}{\sigma}\varphi(\frac{x-\mu}{\sigma})$
-    - Sind $X \sim N(\mu_1, \sigma_1^2)$ und $Y \sim N(\mu_2, \sigma_2^2)$ unabhängig, dann ist $aX+bY \sim N(a\mu_1 + b\mu_2, a^2\sigma_1^2 + b^2\sigma_2^2)$
-    - Sind $X_1, ..., X_n$ unabhängig und $X_i \sim N(\mu_i, \sigma_i^2)$, dann ist $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ und $\overline{X}^* = \sqrt{n} \frac{\overline{X} - \mu}{\sigma} \sim N(0,1)$
+
+  - Bei der Normalverteilung liest man meistens Werte von einer Tabelle ab. Da ihr sicher nicht diese Formel mit dem Ubuntu Taschenrechner ausrechnen wollt.
+  - Wie das genau geht kommt unten.
+  - Die **Standardnormalverteilung** hat die Parameter $\mu = 0, \sigma^2 = 1$ und wird mit $\Phi$ und $\varphi$ bezeichnet.
+
+  Rechenregeln:
+
+  - Ist $X \sim N(\mu, \sigma^2)$, dann ist $X^* = \frac{X-\mu}{\sigma} \sim N(0,1)$. **Sehr wichtig**
+  - Somit gilt $\Phi_{(\mu, \sigma^2)}(x) = \Phi(\frac{x-\mu}{\sigma})$ und $\varphi_{(\mu, \sigma^2)}(x) = \frac{1}{\sigma}\varphi(\frac{x-\mu}{\sigma})$
+  - Sind $X \sim N(\mu_1, \sigma_1^2)$ und $Y \sim N(\mu_2, \sigma_2^2)$ unabhängig, dann ist $aX+bY \sim N(a\mu_1 + b\mu_2, a^2\sigma_1^2 + b^2\sigma_2^2)$
+  - Sind $X_1, ..., X_n$ unabhängig und $X_i \sim N(\mu_i, \sigma_i^2)$, dann ist $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ und $\overline{X}^* = \sqrt{n} \frac{\overline{X} - \mu}{\sigma} \sim N(0,1)$
 
 - **Betaverteilung**: Siehe Formelsammlung
 - **Gammaverteilung**: Siehe Formelsammlung
-
-

@@ -12,21 +12,25 @@ tags: [Berechenbarkeit, WHILE, LOOP, Ackermannfunktion]
 WHILE ist das einfachere von beiden...
 
 Die Programmiersprache WHILE ist sehr simple, sie besteht aus:
+
 - Variablen: $x_0, \dots, x_n$
 - Konstanten: $-1, 0, 1$
 - Symbolen: $;, :=, +, \neq$
 - Schlüsselwörtern: $WHILE, DO, END$
 
 Die Syntax ist wie folgt definiert:
+
 - $x_i := x_j + 1$ ist eine Zuweisung
 - Sind $P_1$ und $P_2$ Programme, so ist $P_1; P_2$ ein Programm, das zuerst $P_1$ und dann $P_2$ ausführt
 - Ist $P$ ein Programm, so ist WHILE $x_i \neq 0$ DO $P$ END ein Programm, das $P$ solange ausführt, bis $x_i = 0$ ist
 
-Weitere Semantik: 
+Weitere Semantik:
+
 - Die Eingabe ist in den Variablen $x_0, \dots, x_n$ gespeichert. Der `default Wert = 0`
 - Die Ausgabe ist in den Variablen $x_0, \dots, x_n$ gespeichert
 
 Guckt hier später vorbei ich liste dann die Programme auf die wir schon hatten (ich muss dringend lernen uff):
+
 - ***
 
 > WHILE ist Turingmächtig
@@ -36,17 +40,20 @@ Guckt hier später vorbei ich liste dann die Programme auf die wir schon hatten 
 LOOP ist das erste Berechnungsmodell, das nicht Turingmächtig ist, dafür garantiert es uns aber, dass eine Programm **immer** anhält.
 
 Die Programmiersprache LOOP ist sehr ähnlich zu WHILE und besteht aus:
+
 - Variablen: $x_0, \dots, x_n$
 - Konstanten: $-1, 0, 1$
 - Symbolen: $;, :=, +, \neq$
 - Schlüsselwörtern: $LOOP, DO, END$
 
 Die Syntax ist wie folgt definiert:
+
 - $x_i := x_j + 1$ ist eine Zuweisung
 - Sind $P_1$ und $P_2$ Programme, so ist $P_1; P_2$ ein Programm, das zuerst $P_1$ und dann $P_2$ ausführt
 - Ist $P$ ein Programm, so ist LOOP $x_i$ DO $P$ END ein Programm, das $P$ $x_i$ mal ausführt. **WICHTIG: $x_i$ darf nicht in $P$ vorkommen!**
 
-Weitere Semantik: 
+Weitere Semantik:
+
 - Die Eingabe ist in den Variablen $x_0, \dots, x_n$ gespeichert. Der `default Wert = 0`
 - Die Ausgabe ist in den Variablen $x_0, \dots, x_n$ gespeichert
 
@@ -61,7 +68,9 @@ Die Ackermannfunktion ist definiert als $A: \mathbb{N} \to \mathbb{N}$:
 - $A(m+1, n+1) = A(m, A(m+1, n))$ für $m, n \ge 0$
 
 ---
+
 Monotonie Eigenschaften der Ackermannfunktion sind:
+
 - Strickte Monotonie in der zweiten Komponente: $A(m, n+1) > A(m,n)$ für alle $m, n \in \mathbb{N}$
 - Diagonale Monotonie: $A(m+1, n) \ge A(m, n+1)$ für alle $m, n \in \mathbb{N}$
 

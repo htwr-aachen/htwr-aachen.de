@@ -10,8 +10,9 @@ date: 16/02/2023
 ## Berechenbarkeit
 
 Unterteilt in 4 Kategorien:
+
 - entscheidbar
-- unentscheidbar 
+- unentscheidbar
   > (Simplifizierung, da man nachgucken möchte ob ein Problem unentscheidbar ist !Heißt aber vllt. semi-entscheidbar!)
 - semi-entscheidbar
 - Nicht semi-entscheidbar
@@ -19,7 +20,8 @@ Unterteilt in 4 Kategorien:
 ### Entscheidbar
 
 Sind nicht viele :D
-- Eingabe TM *M*, Wort *w*. Frage: Schreibt *M* auf der Eingabe w jemals ein Nicht-Blanksymbol auf das Band? | Tutorium 03
+
+- Eingabe TM _M_, Wort _w_. Frage: Schreibt _M_ auf der Eingabe w jemals ein Nicht-Blanksymbol auf das Band? | Tutorium 03
 - $L_2 =$ \{ $\langle M \rangle w \mid M$ bewegt auf der Eingabe $w$ den Kopf nie nach links\} | Übung 03
 - $H_{\le 97} =$ \{ $\langle M \rangle w \mid M$ hält auf Eingabe $w$ und zwar nach höchsten 97 Schritten\} | Tutorium 04
 - $L_1 =$ \{ $\langle M \rangle \mid M$ hält nicht in weniger als $2^{|\langle M \rangle|}-1$ Schritten auf $\langle M \rangle$\} | Übung 04
@@ -28,8 +30,8 @@ Sind nicht viele :D
 - PKP $((\mathbb{N}, +, 0))$ | Übung 06
 - PKP $((S_n, \circ, id))$ | Übung 06
 
-
 ### Nicht Entscheidbar
+
 Alle Probleme die Nicht Entscheidbar sind (Sie können ggf. noch semi-entscheidbar sein wenn sie unten aufgelistet sind):
 
 ?> Ich nenne hier keine Komplemente, da wie ihr bestimmt wisst, die Komplemente von unentscheidbaren Problemen auch unentscheidbar sind.
@@ -37,7 +39,7 @@ Alle Probleme die Nicht Entscheidbar sind (Sie können ggf. noch semi-entscheidb
 - Diagonalsprache (Mithilfe des Diagonalargument) | VO
 - **Halteproblem** (H) | VO
 - **spezielle Halteproblem** ($H_\epsilon$) | VO
-- $L_{17} = $ \{ $\langle M \rangle \mid$ *M* berechnet bei Eingabe der Zahl 17 die Zahl 42} | VO
+- $L_{17} = $ \{ $\langle M \rangle \mid$ _M_ berechnet bei Eingabe der Zahl 17 die Zahl 42} | VO
 - **Allgemeine Halteproblem** | VO
 - Hilberts 10. Problem ($N = $ \{ $p \mid p$ ist ein Polynom mit einer ganzzahligen Nullstelle \}) | VO
 - Das Problem, ob ein ganzzahliges Polynom eine ganzzahlige Nullstelle hat, ist unentscheidbar. | VO
@@ -59,12 +61,13 @@ Alle Probleme die Nicht Entscheidbar sind (Sie können ggf. noch semi-entscheidb
 - $L_1 = \{ \langle M \rangle \mid M$ erreicht auf der Eingabe $w$ nie den Zustand $q_2$ $\}$ | Übung 06
 
 ### Semi-entscheidbar
-Alle semi-entscheidbaren Probleme (Eigentlich sind *fast* alle unentscheidbaren Probleme semi-entscheidbar !Außer allgemeine Halteproblem und $A_{all}$!):
+
+Alle semi-entscheidbaren Probleme (Eigentlich sind _fast_ alle unentscheidbaren Probleme semi-entscheidbar !Außer allgemeine Halteproblem und $A_{all}$!):
 
 - Halteproblem | VO
 - Spezielle Halteproblem | VO
-- $\overline{Diagonalsprache}$ | VO 
-- $L_{17} = $ \{ $\langle M \rangle \mid$ *M* berechnet bei Eingabe der Zahl 17 die Zahl 42} | VO
+- $\overline{Diagonalsprache}$ | VO
+- $L_{17} = $ \{ $\langle M \rangle \mid$ _M_ berechnet bei Eingabe der Zahl 17 die Zahl 42} | VO
 - Hilberts 10. Problem ($N = $ \{ $p \mid p$ ist ein Polynom mit einer ganzzahligen Nullstelle \}) | VO
 - $Dioph(M)$ | VO
 - $ExpDioph(M)$ | VO
@@ -72,18 +75,20 @@ Alle semi-entscheidbaren Probleme (Eigentlich sind *fast* alle unentscheidbaren 
 - MPKP (Modifizierte Postsche Korrespondenzproblem) | VO
 
 ### Nicht semi-entscheidbar
+
 Ich exkludiere hier die Probleme, wo die Komplemente semi-entscheidbaren Probleme sind. (ist ja lame sonst)
 
 - Allgemeine Halteproblem ($H_{all}$) | VO
 - $A_{all} = $ \{ $M$ akzeptiert alle Eingaben\} | Übung 05
 - $L_2 = \{ \langle M \rangle \mid M$ gibt auf jeder Eingabe 1010 aus $\}$ | Tutorium 06
-- $L_1 = \{ \langle M \rangle w \mid M$ akzeptiert $w$ nicht $\}$ | Übung 06 
-- $L_2 = \{ \langle M \rangle \mid M$ erreicht auf jeder Eingabe den Zustand $q_7 \}$ | Übung 06 
+- $L_1 = \{ \langle M \rangle w \mid M$ akzeptiert $w$ nicht $\}$ | Übung 06
+- $L_2 = \{ \langle M \rangle \mid M$ erreicht auf jeder Eingabe den Zustand $q_7 \}$ | Übung 06
 - $L_1 = \{ \langle M \rangle \mid M$ erreicht auf der Eingabe $w$ nie den Zustand $q_2$ $\}$ | Tutorium 06
 
-## Komplexität 
- 
-Ich unterteile in: P, NP, NP-Complete. Für EXPTIME und PSPACE haben wir keine Probleme behandelt.  
+## Komplexität
+
+Ich unterteile in: P, NP, NP-Complete. Für EXPTIME und PSPACE haben wir keine Probleme behandelt.
+
 > Natürlich unter der Annahme P $\neq$ NP.
 
 ### P
@@ -96,7 +101,7 @@ Ich unterteile in: P, NP, NP-Complete. Für EXPTIME und PSPACE haben wir keine P
 - Maximales Matching | VO
 - Lineare Programmierung | VO
 - GGT | VO
-- Primzahltest | VO 
+- Primzahltest | VO
 - 2-COLORABILITY | Tutorium 08
 - 2-SAT | Tutorium 09
 - XOR-SAT | Tutorium 09

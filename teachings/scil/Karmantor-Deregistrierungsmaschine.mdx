@@ -10,6 +10,7 @@ order: 3
 ## Aufbau
 
 Eine Registermschine ist wie folgt aufgebaut:
+
 - Ein Programm
 - Ein Befehlszähler, der auf den nächsten Befehl zeigt, der ausgeführt werden soll $b$. Startet bei $1$
 - Ein Akkumulator, der für Berechnungen verwendet wird ($c(0)$)
@@ -17,9 +18,10 @@ Eine Registermschine ist wie folgt aufgebaut:
 
 > Die Eingabe, wird in den ersten Registern geschrieben.
 
-> Die Ausgabe einer Registermaschine, befindet sich nach Stoppen in dem **ersten** Register ($c(1)$). 
+> Die Ausgabe einer Registermaschine, befindet sich nach Stoppen in dem **ersten** Register ($c(1)$).
 
 ## Befehle
+
 - `LOAD i`: $c(0) := c(i), \quad b := b + 1;$
 - `INDLOAD i`: $c(0) := c(c(i)), \quad b := b + 1;$
 - `CLOAD i`: $c(0) := i, \quad b := b + 1;$
@@ -40,16 +42,17 @@ Eine Registermschine ist wie folgt aufgebaut:
 ## Kostenmaß
 
 Die Kosten einer Regsistermaschine, können durch zwei Arten gezählt werden:
+
 - Uniformes Kostenmaß: Jeder Schritt eine Zeiteinheit.
-- Logarithmisches Kostenmaß (log. Kostenmaß): Jeder Schritt mit einer $n$ großen Zahl, $\log_2(n)$ Zeiteinheiten. Also proportional zu der binären Länge der Zahl. 
+- Logarithmisches Kostenmaß (log. Kostenmaß): Jeder Schritt mit einer $n$ großen Zahl, $\log_2(n)$ Zeiteinheiten. Also proportional zu der binären Länge der Zahl.
 
 ## Simulationen
 
 > Eine Registermaschine, die in log. Kostenmaß $t(n)$ beschränkt ist, kann durch eine Turingmaschine in <br/> $\mathcal{O}(q(n+(t(n)))$ simuliert werden, mit einem Polynom $q$. Also polynomiell
 
-> Eine TM $M$ mit $t(n)$ Beschränkung, kann durch eine Registermaschine in $\mathcal{O}(t(n) + n)$  im uniformen und $\mathcal{O}((t(n) + n) \cdot \log(t(n)+n))$ im log. Kostenmaß simuliert werden. Also auch polynomiell
+> Eine TM $M$ mit $t(n)$ Beschränkung, kann durch eine Registermaschine in $\mathcal{O}(t(n) + n)$ im uniformen und $\mathcal{O}((t(n) + n) \cdot \log(t(n)+n))$ im log. Kostenmaß simuliert werden. Also auch polynomiell
 
-Kurz gesagt: Turing-Maschinen können alles berechnen, was auch eine Registermaschine berechnen kann und umgekehrt. 
+Kurz gesagt: Turing-Maschinen können alles berechnen, was auch eine Registermaschine berechnen kann und umgekehrt.
 
 ## Berechenbarkeit
 

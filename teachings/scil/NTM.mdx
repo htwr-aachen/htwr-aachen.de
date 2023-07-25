@@ -25,10 +25,11 @@ Die worst case Laufzeit eines NTM ist die Maximum der kürzesten akzeptierenden 
 Bei einem NP Beweis sagen wir häufig, dass eine NTM eine Lösung rät, indem es halt einfach den besten Rechenweg nimmt.
 
 ## Verifizierer
+
 NTM sind irgendwie blöd mit umzugehen, deswegen ist (finde ich) leichter mit einem Verifizierer zu arbeiten.
 
 $x \in L \iff \exists y \in \{0,1\}^*, |y| \le p(|x|): V$ akzeptiert $y\#x$
 
-> Ein Zertifikat ist ein String $y \in \{0,1\}^*$, der häufig die Lösung eines Problems für eine bestimmte Eingabe $x$ kodiert. Die Länge von $y$ muss ebenfalls polynomiell Beschränkt sein. Bsp: $y = 4$ 
+> Ein Zertifikat ist ein String $y \in \{0,1\}^*$, der häufig die Lösung eines Problems für eine bestimmte Eingabe $x$ kodiert. Die Länge von $y$ muss ebenfalls polynomiell Beschränkt sein. Bsp: $y = 4$
 
 > Ein Polynomialzeitverifizier ist dann Algorithmus, der dann entscheidet ob ein Zertifikat $y$ für eine Eingabe $x$ korrekt ist. Problem $x+x$ $y = 4$ und die Eingabe ist $x = 2$ dann ist $y$ korrekt.

@@ -4,22 +4,43 @@ description: Ein Überblick über die wichtigsten Entwurfsmuster
 author: Jonas Schneider
 date: 09/02/2023
 order: 4
-tags: [Entwurfsmuster, Adapter, Composite, Decorator, Factory, Observer, Singleton, CommandProcessor, Tips]
+tags:
+  [
+    Entwurfsmuster,
+    Adapter,
+    Composite,
+    Decorator,
+    Factory,
+    Observer,
+    Singleton,
+    CommandProcessor,
+    Tips,
+  ]
 ---
 
 ## Einordnung
 
 Also Entwurfsmuster, sind tatsächlich manchmal praktisch und helfen z.B. Sachen zu benenn oder guten Programmcode zu schreiben.
-Es gibt 1001 Muster, aber hier sind die, die wir in SWT hatten. Sie verwenden alle Vererbung in irgendeiner Form. 
+Es gibt 1001 Muster, aber hier sind die, die wir in SWT hatten. Sie verwenden alle Vererbung in irgendeiner Form.
 Ja ich weiß alle sehen irgendwie gleich aus und machen ähnliches. Alle versuchen "Separation of concerns" zu erreichen.
 
-Ein Aufgabenkomplex muss 
+Ein Aufgabenkomplex muss
 
-<span className="text-2xl font-sans font-semibold">Programmieren ohne Entwurfsmuster:</span>
-<img src="https://media.tenor.com/GOyBTNdQb4AAAAAd/scaler-create-impact.gif" className="w-full h-full"/>
+<span className="text-2xl font-sans font-semibold">
+  Programmieren ohne Entwurfsmuster:
+</span>
+<img
+  src="https://media.tenor.com/GOyBTNdQb4AAAAAd/scaler-create-impact.gif"
+  className="w-full h-full"
+/>
 
-<span className="text-2xl font-sans font-semibold">Programmieren mit Entwurfsmuster:</span>
-<img src="https://media.tenor.com/wHs3JITWApsAAAAM/galaxy-brain-meme.gif" className="w-full h-full"/>
+<span className="text-2xl font-sans font-semibold">
+  Programmieren mit Entwurfsmuster:
+</span>
+<img
+  src="https://media.tenor.com/wHs3JITWApsAAAAM/galaxy-brain-meme.gif"
+  className="w-full h-full"
+/>
 
 Hier eine Liste:
 
@@ -35,87 +56,86 @@ Ich werde hier ein bissle genauer als den üblichen Bullshit erklären, da ihr s
 
 ## Adapter (ist praktisch)
 
-<div className="center">
-![Adapter](/teaching-assets/es/adapter-muster.png)
-</div>
+<div className="center">![Adapter](/teaching-assets/es/adapter-muster.png)</div>
 
 Der Adapter, verwendet eine Schnittstelle von dem Adaptee auf, und verändert diese gegebenenfalls. Somit wrappt der Adapter ein Adaptee (deswegen auch sehr sehr häufig Wrapper). Beispiel:
+
 - Adaptee: rechnet $x+y$
 - Adapter: rechnet $x+y+1$
 
 Es wird aber auch dafür genutzt, um eine Schnittstelle zu verändern. Z.B. Adaptee braucht int's. Adapter nimmt Strings.
 
 Den Adapter gibt es in 2 Formen:
-- Objektadapter: *Target* ist ein Interface oder Abstrakt und *Adaptee* ist ein Objekt im *Adapter*
-- Klassenadapter: *Target* ist eine Interface und *Adaptee* ist eine Klasse, von der *Adapter* erbt
 
-## Composite (verwendet man häufig ohne drüber nachzudenken ) 
+- Objektadapter: _Target_ ist ein Interface oder Abstrakt und _Adaptee_ ist ein Objekt im _Adapter_
+- Klassenadapter: _Target_ ist eine Interface und _Adaptee_ ist eine Klasse, von der _Adapter_ erbt
+
+## Composite (verwendet man häufig ohne drüber nachzudenken )
 
 <div className="center">
-![Composite](/teaching-assets/es/composite-muster.png)
+  ![Composite](/teaching-assets/es/composite-muster.png)
 </div>
 
 Composites werden verwendet, um eine Hierarchie darzustellen. Man versteckt den unterschied, zwischen einzelnen (Leafs) und zusammengesetzten Objekten.
 
 Bespiele sind:
-- UI Bibliotheken: Buttons, Textfelder sind *Components*, *GridLayout* (ein Behälter) ist aber auch ein *Component*, der andere *Components* enthält. (Ja genau genommen, tuen das Buttons auch egal...) 
+
+- UI Bibliotheken: Buttons, Textfelder sind _Components_, _GridLayout_ (ein Behälter) ist aber auch ein _Component_, der andere _Components_ enthält. (Ja genau genommen, tuen das Buttons auch egal...)
 
 ## Factory (wird in vielen Frameworks verwendet)
 
-<div className="center">
-![Factory](/teaching-assets/es/factory-muster.png)
-</div>
+<div className="center">![Factory](/teaching-assets/es/factory-muster.png)</div>
 
-Eine Factory erstellt eine Instanz von einem Objekt, aber anders als bei einem Konstruktor, können hier unterschiedlich Typen erstellt werden. 
+Eine Factory erstellt eine Instanz von einem Objekt, aber anders als bei einem Konstruktor, können hier unterschiedlich Typen erstellt werden.
 
 Beispiel:
+
 - SQLClientFactory in .NET Core (C#): So kann ein SQLClient erstellt werden, ohne zu wissen, welchem Typ von client man jetzt bekommt, da zwischen PostgreSQL und MYSQL doch schon Unterschiede gibt.
 
 ## Decorator (joa)
 
 <div className="center">
-![Decorator](/teaching-assets/es/decorator-muster.png)
+  ![Decorator](/teaching-assets/es/decorator-muster.png)
 </div>
 
-Der Decorator ist ein Wrapper, der ein Objekt umschließt und es verändert. 
-Er ist ähnlich wie der Adapter, aber der Adapter verändert die Schnittstelle, während der Decorator das Objekt verändert (Der Decorator erbt von der Abstrakten Klasse ruft dann aber sein *base* auf)
-
+Der Decorator ist ein Wrapper, der ein Objekt umschließt und es verändert.
+Er ist ähnlich wie der Adapter, aber der Adapter verändert die Schnittstelle, während der Decorator das Objekt verändert (Der Decorator erbt von der Abstrakten Klasse ruft dann aber sein _base_ auf)
 
 ## Pause
 
 <RumpeQuiz />
 
-## Singleton 
+## Singleton
 
 Ein Singleton ist eine Klasse, die nur einmal instanziiert werden (für die die nicht wissen was das ist: Es gibt es nur **einmal** als Objekt).
 
 Wie wird das gemacht bsp. Java:
+
 <div className="line-numbers">
 ```Java
 public class MySingleton {
   protected static MySingleton instance;
 
-  protected MySingleton() { }
+protected MySingleton() { }
 
-  private static MySingleton getInstance() {
-    if (instance == null) {
-      instance = new MySingleton();
-    }
-    return instance;
-  }
-
-  public static void someMethod() {
-    getInstance()._someMethod();
-  }
-
-  protected void _someMethod() { 
-  /* Do something */ 
-  }
+private static MySingleton getInstance() {
+if (instance == null) {
+instance = new MySingleton();
 }
+return instance;
+}
+
+public static void someMethod() {
+getInstance().\_someMethod();
+}
+
+protected void \_someMethod() {/* Do something */}
+}
+
 ```
 </div>
 
-Durch das statische Objekt instance, wird sichergestellt, 
+Durch das statische Objekt instance, wird sichergestellt,
 dass es nur einmal instanziiert wird. Falls es beim abrufen mit *getInstance()* noch nicht instanziiert wurde, wird es instanziiert.
 
 ## Observer (braucht man überall unter anderem bei UI Kram)
@@ -127,21 +147,21 @@ dass es nur einmal instanziiert wird. Falls es beim abrufen mit *getInstance()* 
 Ein *Observer* ist ein Objekt, dass sich bei jeder Änderung eines anderen Objekts (*Observable*) benachrichtigen lässt.
 
 Beispiel:
-- Daten liegen in irgendeiner Klasse, die ständig aktualisiert werden und die UI soll sich bei jeder Änderung aktualisieren. 
+- Daten liegen in irgendeiner Klasse, die ständig aktualisiert werden und die UI soll sich bei jeder Änderung aktualisieren.
 - rxjs: Hier wird der Zustand als Observable dargestellt und die UI kann sich dann als Observer dranhängen (simplifiziert).
 - Observables (In manchen Sprachen auch Event-Krams) sind meistens schön, da die alternative meistens Callbacks (aber ohne Vererbung), oder noch dümmer polling ist.
 
 ## CommandProcessor
 
 <div className="center">
-  ![CommandProcessor](/teaching-assets/es/command-processor-muster.png)  
+  ![CommandProcessor](/teaching-assets/es/command-processor-muster.png)
 </div>
 
 Commands sind halt Befehle/Anweisungen, die der Processor dann ausführt. Viel mehr ist nicht zusagen.
 
 ## WAT NEM ICH DENN JETZT?
 
-Es kann schon sein, dass du während der Klausur und im späterem Reichsein, gefragt wirst, wie du das Problem löst. 
+Es kann schon sein, dass du während der Klausur und im späterem Reichsein, gefragt wirst, wie du das Problem löst.
 
 Hier ein paar Tipps:
 - Wenn du irgendwo drauf wartest, oder benachrichtigst werden sollst $\Rightarrow$ Observer
@@ -149,6 +169,7 @@ Hier ein paar Tipps:
 - Wenn du eine Schnittstelle hast, aber die nicht ganz das machst, was du willst $\Rightarrow$ Decorator
 - Wenn du irgendeine Hierarchie hast $\Rightarrow$ Composite
 - Wenn du irgendeine Instanz haben willst, die nur einmal existiert $\Rightarrow$ Singleton (Aller meistens Manager Klassen oder Datenbanken, etc)
-- Wenn du unterschiedliche Typen von Objekten erstellen willst $\Rightarrow$ Factory 
+- Wenn du unterschiedliche Typen von Objekten erstellen willst $\Rightarrow$ Factory
 
 Insgesamt ist es häufig nicht ganz eindeutig welches jetzt das schlauste ist (sie sind ja auch kombinierbar), aber manches klappt halt besser als andere.
+```

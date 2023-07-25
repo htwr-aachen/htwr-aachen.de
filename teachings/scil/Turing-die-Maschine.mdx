@@ -11,7 +11,6 @@ date: 20/02/2023
 
 ![Turing in Buff](/teaching-assets/scil/maschine-turing.png)
 
-
 ### Turingmaschine
 
 <div className="center">
@@ -21,28 +20,27 @@ date: 20/02/2023
 Die Turingmaschine, ist das wichtigste Hilfsmittel dieser Vorlesung, sie zu verstehen ist zwar erst die Grundvoraussetzung aber trotzdem.
 
 Eine Turingmaschine ist ein 7-Tupel:
-- *Q*: die endliche Zustandsmenge
+
+- _Q_: die endliche Zustandsmenge
 - $\Sigma$: das endliche Eingabealphabet
 - $\Gamma \subset \Sigma$: das endliche Bandalphabet
 - $B \in \Gamma \setminus \Sigma$: das Leerzeichen (Blank)
 - $q_0 \in$ Q: der Startzustand
 - $\overline{q} \in$ Q: der Endzustand
 - $\delta: (Q \setminus \{\overline{q}\}) \times \Gamma \to Q \times \Gamma \times \{R,L,N\}$: die Übergangsrelation
-  
+
 Man gibt die Übergangsfunktion häufig als Tabelle an mit den Einträgen ($q_0$, B, R) heißt schreibe B aufs Band, gehe nach rechts auf dem Band und geh in Zustand $q_0$. Z.B.:
 
 <div className="center">
-$\delta$ | 0 | 1 | B |
---- | --- | --- | --- |
-$q_0$ | ($q_0$, B, R) | ($q_1$, B, R) | *reject* |
-$q_1$ | ($q_1$, B, R) | ($q_1$, B, R) | *accept* |
+  $\delta$ | 0 | 1 | B | --- | --- | --- | --- | $q_0$ | ($q_0$, B, R) | ($q_1$,
+  B, R) | *reject* | $q_1$ | ($q_1$, B, R) | ($q_1$, B, R) | *accept* |
 </div>
 
-Heißt wenn in Zustand $q_0$ eine 0 gelesen wird, bleib in $q_0$, schreibe $B$ aufs Band und gehe nach rechts. 
+Heißt wenn in Zustand $q_0$ eine 0 gelesen wird, bleib in $q_0$, schreibe $B$ aufs Band und gehe nach rechts.
 
-Wenn in $q_0$ eine 1 gelesen wird, geh in **$q_1$**, schreibe $B$ aufs Band und gehe nach rechts. 
+Wenn in $q_0$ eine 1 gelesen wird, geh in **$q_1$**, schreibe $B$ aufs Band und gehe nach rechts.
 
-Wenn in $q_0$ eine $B$ gelesen wird, wird die Eingabe verworfen (abgelehnt). 
+Wenn in $q_0$ eine $B$ gelesen wird, wird die Eingabe verworfen (abgelehnt).
 
 Wenn in $q_1$ ein $B$ gelesen wird, wird die Eingabe akzeptiert.
 
@@ -50,7 +48,7 @@ $\Longrightarrow$ Die Eingabe wird akzeptiert, wenn die Eingabe eine 1 enthält,
 
 ### Ausgaben & Entscheidungen
 
-Eine Turingmaschine stoppt, wenn sie $\overline{q}$ erreicht. 
+Eine Turingmaschine stoppt, wenn sie $\overline{q}$ erreicht.
 
 > Die Ausgabe einer Turingmaschine ist das Wort, was an der Kopfposition **beginnt** bis zum ersten Blank ($B$).
 
@@ -74,10 +72,9 @@ Wir nutzen häufig
 ### Was schreib ich wie auf (Konfiguration)
 
 Eine Konfiguration ist ein String $\alpha q \beta$ mit $\alpha, \beta \in \Gamma^*$ und $q \in Q$.
-Das heißt auf dem Band steht (man lässt alle Leerzeichen am Anfang und Ende weg) 
+Das heißt auf dem Band steht (man lässt alle Leerzeichen am Anfang und Ende weg)
 
-$\dots BBBBB \alpha $ [Kopf mit Zustand q] $ \beta BBBBB \dots$. 
-
+$\dots BBBBB \alpha $ [Kopf mit Zustand q] $ \beta BBBBB \dots$.
 
 > $\alpha' q' \beta'$ ist dann die direkte Nachfolgekonfiguration von $\alpha q \beta$ nach einem Berechnungsschritt. Bezeichnet mit $\alpha q \beta \vdash \alpha' q' \beta'$.
 
@@ -86,7 +83,8 @@ $\dots BBBBB \alpha $ [Kopf mit Zustand q] $ \beta BBBBB \dots$.
 z.B.: $q_00011 \vdash 0q_0011 \vdash 00q_011 \vdash 001q_11 \vdash 0011q_1B \vdash 001q_21$
 
 ### K-Spurige Turingmaschine
-Eine Turingmaschine hat nach unserem Modell normalerweise eine Spur. Man kann sich aber natürlich auch Mehrspurige Turingmaschinen vorstellen. 
+
+Eine Turingmaschine hat nach unserem Modell normalerweise eine Spur. Man kann sich aber natürlich auch Mehrspurige Turingmaschinen vorstellen.
 Heißt anstatt nur ein Symbol pro Schritt zu lesen, ließt man ein Vektor von Symbolen. !Immernoch nur ein Kopf!
 
 Mehrspurige Turingmaschinen, sind einfach konvertierbar zu 1-Spurigen Turingmaschinen, da man einfach mehr Bandsymbole nimmt, die alle Möglichkeiten des Vektors repräsentieren.
@@ -94,10 +92,11 @@ Mehrspurige Turingmaschinen, sind einfach konvertierbar zu 1-Spurigen Turingmasc
 ### Mehrband Turingmaschine
 
 <div className="center">
-![Hail Hydra](https://media.tenor.com/VBp7HvNSo2gAAAAd/lernaean-hydra-dungeons-and-dragons.gif)
+  ![Hail
+  Hydra](https://media.tenor.com/VBp7HvNSo2gAAAAd/lernaean-hydra-dungeons-and-dragons.gif)
 </div>
 
-Der Unterschied zwischen Spur und Band ist der Kopf. Ein Band kann mehrere Spuren haben, heißt *ein* Kopf ließt pro Lesevorgang ein Vektor also mehrere Symbole, kann aber nur auf allen Spuren gleichzeitig sich bewegen.
+Der Unterschied zwischen Spur und Band ist der Kopf. Ein Band kann mehrere Spuren haben, heißt _ein_ Kopf ließt pro Lesevorgang ein Vektor also mehrere Symbole, kann aber nur auf allen Spuren gleichzeitig sich bewegen.
 
 Ein Band hat mehrere Köpfe, die sich unabhängig voneinander bewegen können. Die Übergangsfunktion sieht dann folgendermaßen aus:
 
@@ -115,7 +114,7 @@ Eine universelle Turingmaschine ist eine Turingmaschine, die jede andere Turingm
 
 !> Wat soll mir das jetzt sagen?
 
-Naja also sagen wir du hast eine Turing Maschine $U$ und da gibst du jetzt als **Eingabe** deinen C-Code von PSPain ein. 
+Naja also sagen wir du hast eine Turing Maschine $U$ und da gibst du jetzt als **Eingabe** deinen C-Code von PSPain ein.
 Das einzige was die Turingmaschine $U$ dann macht ist, dass sie deinen dummen Code ausführt und die Ausgabe ist dann das Ergebnis.
 
 Nun anstatt deinen C-Code als Eingabe zu geben, gibst du eine Turingmaschine $M$ als Eingabe zusammen mit einem Wort $w$, das Ergebnis ist dann wie als hättest du $M$ auf $w$ laufen lassen.
@@ -129,6 +128,7 @@ Völlig richtig deswegen hat sich Turing oder Gödel oder wer auch immer, sich w
 Um eine korrekte Gödelnummer zu erhalten muss sie Präfixfrei sein, damit wir erkennen wann eine Gödelnummer aufhört und und sie eindeutig ist.
 
 Unsere Gödelnummer nach Vorlesung funktioniert so:
+
 - Sie beginnt immer mit 111 und endet mit 111 und in der Mitte steht niemals 111. (Präfixfrei)
 - Jetzt kodieren wir den Übergang $\delta(q_i, X_j) = (q_k, X_l, D_m)$ mit $0^i10^j10^k10^l10^m$. Heißt wir schreiben so viele 0len wie die Höhe Zahl ($1 \to 0$, $2 \to 00, \dots$) und trennen immer mit 1.
 - Wir schreiben dann die Übergänge von der Übergangstabelle von oben links nach unten rechts auf und trenne die Übergänge mit $11$.
@@ -137,13 +137,13 @@ Die Universelle Turingmaschine $U$ muss dann nur noch prüfen, ob die Eingabe ei
 
 > Eine Universelle TM kann eine 1-Band-TM in konstantem Zeitverlust simulieren.
 
-> $\langle M \rangle$ ist die Gödelnummer von $M$.   
+> $\langle M \rangle$ ist die Gödelnummer von $M$.
 
 ## Analyse
 
 Falls ihr **informell** beschreiben sollt, was eine Turingamschine macht, ist das meistens eher eine Text Beschreibung.
 
-Falls ihr aber nur beschreiben oder **formel** beschreiben sollt, was eine Turingmaschine macht, dann ist das meist das Angeben einer Funktion wie 
+Falls ihr aber nur beschreiben oder **formel** beschreiben sollt, was eine Turingmaschine macht, dann ist das meist das Angeben einer Funktion wie
 
 $f(x) := \begin{cases} 1 & \text{wenn $x$ in mit 1 anfängt} \\ 0 & \text{sonst} \end{cases}$
 

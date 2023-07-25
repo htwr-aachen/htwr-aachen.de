@@ -5,7 +5,7 @@ author: Jonas Schneider
 order: 6
 ---
 
-# Ne quatsch 
+# Ne quatsch
 
 Willkommen im Neuland
 
@@ -22,7 +22,6 @@ Also nun dröseln wir zunächst mal IPv4 auf.
 
 ## IPv4
 
-
 Also gehen wir mal den Header durch
 
 - Version [4 Bit]: Entweder 4 oder 6.
@@ -36,11 +35,12 @@ Also gehen wir mal den Header durch
 - Identification [16 Bit]: Identifiziert das Paket, wenn es fragmentiert wird (in mehrere Pakete aufgeteilt).
 
 - Flags [3 Bit]:
+
   - Bit 0 (Reserved): Muss 0 sein
   - Bit 1 (Don't Fragment): Wenn 1, darf das Paket nicht fragmentiert werden
   - Bit 2 (More Fragments): Wenn 1, gibt es noch weitere Fragmente. Wichtig für die Rekonstruktion.
 
-- Fragment Offset [13 Bit]: Offset des Fragments. 
+- Fragment Offset [13 Bit]: Offset des Fragments.
 
 - Time to Live (TTL) [8 Bit]: Wie lange das Paket noch lebt. Wenn 0, wird es verworfen. Wird in Schritten (hops) gezählt nicht in Zeit oder so :|
 
@@ -48,7 +48,7 @@ Also gehen wir mal den Header durch
 
 - Header Checksum [16 Bit]: Prüft ob der Header korrekt ist. unnötig wird auch nichtmehr überprüft, wegen Stressig und so.
 
-- Source Address [32 Bit]: Quelladresse 
+- Source Address [32 Bit]: Quelladresse
 
 - Destination Address [32 Bit]: Zieladresse
 
@@ -62,9 +62,9 @@ Also gehen wir mal den Header durch
 
 Ein Paket (1) mit 1976 Bytes wird aufgeteilt in 2 Pakete mit 1480 (2), 496 (3) Bytes. die Total Length von (1) ist 1996, ID = 42. MF-Flag = 0. Offset = 0.
 
-So nun hat Paket 2 das MF-Flag = 1 und Offset = 0 aber auch die ID=42 und eine Total Length von 1500. 
+So nun hat Paket 2 das MF-Flag = 1 und Offset = 0 aber auch die ID=42 und eine Total Length von 1500.
 
-Paket 3 hat das MF-Flag = 0 und Offset = 185 (*8 = 1480 implizit) und auch die ID=42 und eine TotalLength von 516.
+Paket 3 hat das MF-Flag = 0 und Offset = 185 (\*8 = 1480 implizit) und auch die ID=42 und eine TotalLength von 516.
 
 Ein Router der 2 erhält merkt das noch was fehlt, durch das MF-Flag und merkt sich die id. Wenn er dann 3 erhält, merkt er das es das letzte Paket ist und rekonstruiert das Paket 1 dank des Offsets.
 
@@ -76,7 +76,7 @@ Das objektiv bessere Protokoll. Es hat mehr Adressen, ist besser, schneller, st�
 
 - Traffic Class [8 Bit]: Priorität, etc. (mittelmäßig unnötig... Ja DSCP gibt es aber naja) und hier ist noch bissle was wegen Congestion Notification drin.
 
-- Flow Label [20 Bit]: Pakete die den gleichen Flow Label haben, werden gleich behandelt. 
+- Flow Label [20 Bit]: Pakete die den gleichen Flow Label haben, werden gleich behandelt.
 
 - Payload Length [16 Bit]: Länge des Pakets ohne Header, da der eine feste Größe hat, finaly.
 
@@ -90,19 +90,21 @@ Das objektiv bessere Protokoll. Es hat mehr Adressen, ist besser, schneller, st�
 
 ## ARP
 
-Also IP-Adressen sind eigentlich nur virtuell ausgedachte Adressen. 
+Also IP-Adressen sind eigentlich nur virtuell ausgedachte Adressen.
 Die echte Adresse ist die MAC-Adresse. Jeder PC-hört nur ab ob seine MAC-Adresse im Ethernet Paket drin ist. Also muss man IP-Adressen auflösen zu MAC-Adressen. Das macht ARP.
 
 Erstmal wir das Paket soweit mit IP-geroutet bis es nichtmehr geht.
 
-Dann überprüft ARP als erstes einen Cache, ob an schon die MAC-Adresse kennt, falls nicht Broadcastet ARP eine Frage 
+Dann überprüft ARP als erstes einen Cache, ob an schon die MAC-Adresse kennt, falls nicht Broadcastet ARP eine Frage
+
 > Heee ich brauch die MAC-Adresse von IP-xxx.xxx.xxx.xxx
 
-Die Antwort kommt dann entweder von nem anderen Router oder vom Gerät selber. 
+Die Antwort kommt dann entweder von nem anderen Router oder vom Gerät selber.
 
 Nun hat man die MAC-Adresse
 
 ## Hacks
+
 IPv4 war nicht auf die immense Menge von 8k Katzenvideos vorbereitet, deswegen wurde bis zur IPv6 eingesetzt wird umwege gesucht, um ein Hauptproblem zu umgehen:
 **Adressknapheit**
 
@@ -120,11 +122,12 @@ Eine Subnetzmaske ist eine 32-Bit Zahl, die eine Adresse in einen Host-Teil und 
 //TODO genaue Aufteilung
 
 ### NAT
-Network Adress Translation ist ein Verfahren, um praktisch nur eine global Adresse für ein gesamtes lokales Netzwerk zu verwenden. Dafür gibt es einen NAT-Router, 
+
+Network Adress Translation ist ein Verfahren, um praktisch nur eine global Adresse für ein gesamtes lokales Netzwerk zu verwenden. Dafür gibt es einen NAT-Router,
 der sich mit einer Abbbildungstabelle speichert welche IP-Adresse mit welchem Port kommuniziert. Ein Beispiel einer solchen Tabelle:
 
 | Protocol | lokaler Socket    | globaler Socket     | Ziel Socket    |
-|----------| ----------------- | ------------------- | -------------- |
+| -------- | ----------------- | ------------------- | -------------- |
 | TCP      | 192.168.0.4:53211 | 137.226.12.32:53211 | 134.130.5.1:80 |
 | TCP      | 192.168.0.5:45201 | 137.226.12.32:45201 | 134.130.5.1:80 |
 
@@ -134,12 +137,12 @@ Das wars auch schon. So muss die Telekom für deine scheiß Studenten"wohnung" n
 
 ### DHCP
 
-DHCP sorgt dafür, dass dich dein PC nicht immer wenn du in einem neuen Netzwerk bist, nach der IP-Adresse fragen muss die er haben soll. 
+DHCP sorgt dafür, dass dich dein PC nicht immer wenn du in einem neuen Netzwerk bist, nach der IP-Adresse fragen muss die er haben soll.
 Der DHCP-Server (meist auch der Router) verteilt die IP-Adressen.
 
-> DHCP-Request als Broadcast: Hey ich brauch ne IP-Adresse meine MAC ist xx:xx:xx:xx:xx:xx 
+> DHCP-Request als Broadcast: Hey ich brauch ne IP-Adresse meine MAC ist xx:xx:xx:xx:xx:xx
 
-> DHCP-Response an das Gerät: Wer 
+> DHCP-Response an das Gerät: Wer
 
 > DHCP-Request als Broadcast: Ich bin das Gerät mit der MAC xx:xx:xx:xx:xx:xx
 
@@ -159,15 +162,15 @@ Auch hier gibt es wieder verschiedene Ansätze aber für effizienz Messungen mü
 Eine ist die Hop-Count, aber auch Sachen wie Verzögerung und Netzdurchsatz sind wichtig.
 
 - Das einfachste zuerst: **Static Routing**
-Es gibt eine Routing-Tabelle jeder Zielknoten hat eine Zeile. In dieser Zeile gibt es mehrere Wahlen mit einer relativen Gewichtung der Wahl. Dann wähle zufällig mit den Gewichtungswahrscheinlichkeiten.
+  Es gibt eine Routing-Tabelle jeder Zielknoten hat eine Zeile. In dieser Zeile gibt es mehrere Wahlen mit einer relativen Gewichtung der Wahl. Dann wähle zufällig mit den Gewichtungswahrscheinlichkeiten.
 
 - **Backward Learning**
-Jeder Router trift seine eigene Entscheidung isoliert. Es funktioniert also ähnlich zu einem Switch. Routing während des lernens ungünstig und Ausfälle sind nicht bedacht und werden nicht weitergemeldet.
+  Jeder Router trift seine eigene Entscheidung isoliert. Es funktioniert also ähnlich zu einem Switch. Routing während des lernens ungünstig und Ausfälle sind nicht bedacht und werden nicht weitergemeldet.
 
 - **Distance Vector**
 
-Jeder Router sendet seine Abstandswerte an alle (lokal) anderen Router. 
-Die anderen Router fügen die Routing-Tabelle des anderen hinzu und wählen die beste Route. 
+Jeder Router sendet seine Abstandswerte an alle (lokal) anderen Router.
+Die anderen Router fügen die Routing-Tabelle des anderen hinzu und wählen die beste Route.
 
 Das Vector kommt von der Notation dahinter, in der Routing Tabelle stehen (Ziel, Next Hop, Kosten), eine Übertragung der Abstände wird als Vector bezeichnet ((A,4), (B,2), (C,0), (D,3), ...).
 
@@ -194,38 +197,26 @@ Uff das war anstrengend aber fürs üben sind Aufgaben wichtig:
 
 x> Du bekommst ein Netzwerk mit Subnetzen und Routern. Du musst die IP-Adressen und die Routing-Tabelle ausrechnen.
 
-<Spoiler>
-Keine Lust darauf guckt euch die Klausur vom 8.7.2015 A5 an.  
-</Spoiler>
+<Spoiler>Keine Lust darauf guckt euch die Klausur vom 8.7.2015 A5 an.</Spoiler>
 
 x> Du bekommst eine Network-Adresse wie 137.222.25.0/22 und musst sie in 6 Subnetze aufteilen. mit Subnetz 1 und 2 doppelt so groß wie die anderen
 
 <Spoiler>
-137.222.25.0/24
-137.222.26.0/24
-137.222.26.0/25
-137.222.27.128/25
-137.222.28.0/25
-137.222.28.128/25
+  137.222.25.0/24 137.222.26.0/24 137.222.26.0/25 137.222.27.128/25
+  137.222.28.0/25 137.222.28.128/25
 </Spoiler>
 
 x> Erkläre die Unterschiede zwischen IPv4 und IPv6
 
-<Spoiler>
-Ganz ehrlich sieh oben nach.
-</Spoiler>
+<Spoiler>Ganz ehrlich sieh oben nach.</Spoiler>
 
 x> Erkläre was das Problem bei Distance Vector Routing ist
 
-<Spoiler>
-Bouncing Effect und Count-To-Infinity. Details $\uparrow$
-</Spoiler>
+<Spoiler>Bouncing Effect und Count-To-Infinity. Details $\uparrow$</Spoiler>
 
 x> Führe mit einer gegebenen Tabelle Dijkstra aus
 
-<Spoiler>
-Muss man halt üben xd
-</Spoiler>
+<Spoiler>Muss man halt üben xd</Spoiler>
 
 x> Aufgabe 7.3 a) Kosten für i) Untersee kabel benachteiligen, ii) Hohe Kapazität bevorzugen iii) load balancen ![A7.3](/teaching-assets/syscom/A7.3.png)
 
@@ -233,10 +224,10 @@ x> Aufgabe 7.3 a) Kosten für i) Untersee kabel benachteiligen, ii) Hohe Kapazit
   i)
   Ist einfach. Es werden immer die niedrigsten Kosten bevorzugt, also wählt man die Untersee als die mit den höchsten Kosten. beispielsweise
 
-  ii)
-  Eigentlich analog. Man setzt die Kosten von den die man haben möchte runter und die anderen hoch. 
+ii)
+Eigentlich analog. Man setzt die Kosten von den die man haben möchte runter und die anderen hoch.
 
-  iii)
-  Wenn keines von beiden bevorzugt werden sollen müssen die Kosten gleich sein, also $LAX-SFO-JFK-LHR-AMS-FRA = LAX-MIA-LHR-AMS-FRA$.
+iii)
+Wenn keines von beiden bevorzugt werden sollen müssen die Kosten gleich sein, also $LAX-SFO-JFK-LHR-AMS-FRA = LAX-MIA-LHR-AMS-FRA$.
 
 </Spoiler>

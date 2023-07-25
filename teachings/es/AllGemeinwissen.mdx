@@ -4,10 +4,22 @@ order: 8
 description: random Sachen die vermutlich ganz hilfreich für die Klausur sind
 author: Jonas Schneider
 date: 13/02/2023
-tags: [Hinweise, Kopplung, Kohäsion, Prototyping, DevOps, Security, Architekturmuster, Code-Generierung, Monti*, Versionsverwaltung]
+tags:
+  [
+    Hinweise,
+    Kopplung,
+    Kohäsion,
+    Prototyping,
+    DevOps,
+    Security,
+    Architekturmuster,
+    Code-Generierung,
+    Monti*,
+    Versionsverwaltung,
+  ]
 ---
 
-Hier ein paar Sachen, für die ich keine eigene Seite aufmachen will. 
+Hier ein paar Sachen, für die ich keine eigene Seite aufmachen will.
 
 Warum ist SWT eigentlich so random und unstrukturiert. Wofür war dieser kleine Exkurs in UI Design eigentlich?? Wieso gab es den?
 
@@ -18,7 +30,7 @@ oder der Ausflug zu den Programmierparadigmen wie Objektorientierung, warum das 
 Hier etwas das ich frech kopiere.
 
 -Der Diagrammtyp oben rechts im Kasten ist notwendig und wird möglicherweise Gnadenpunkte bringen. Ein fehlen gibt Punktabzug.
--Bei Klassendiagramme nicht vergessen, das man bei ner Klasse ohne Attributliste irgendwie zeigt, dass die leer ist z.B. indem man da quasi son mini Rechteck zwischen dem Rechteck vom Klassennamen und der Methodenliste hat. 
+-Bei Klassendiagramme nicht vergessen, das man bei ner Klasse ohne Attributliste irgendwie zeigt, dass die leer ist z.B. indem man da quasi son mini Rechteck zwischen dem Rechteck vom Klassennamen und der Methodenliste hat.
 -Bei Objektdiagrammen und auch im Sequenzdiagramm müssen die Namen unterstrichen sein, also Objektidentifikator:Klassenname_des_Objekts
 -Beim Sequenzdiagramm sollte, falls ein Objekt returned wird der Objektidentifikator auf dem return-Pfeil sein.
 -Wenn ihr irgendwas in nem Diagramm oder in ner Antwort haben solltet, was ihr korrigiert habt, streicht das durch, da die ansonsten diesen Teil der Aufgabe nicht bewerten können/Punkte abziehen.
@@ -31,6 +43,7 @@ Hier etwas das ich frech kopiere.
 -Allgemein kann alles drankommen 🤷 .
 
 ## Kopplung und Kohäsion
+
 Ist vermutlich wichtig, aber auch wenig
 
 > Kohäsion ist ein Maß für die innere Zusammengehörigkeit von Elementen eines Moduls. Heißt wenn es ein Element gibt, dass nicht mit den anderen Elementen zutun hat, ist die Kohäsion niedrig. $\Rightarrow$ Höhe Kohäsion, mehr besser
@@ -47,8 +60,8 @@ Prototyping ist eigentlich das was ich hier gerade betreibe, eine Vorversion von
 
 ## DevOps
 
-Ganz spannendes Thema... halt wirklich. 
-Wenn man schon so *agile* in der Entwicklung ist, ists ja blöd, wenn ich dann auf das Operations Team warten muss, bis die mal wieder meine Software updaten.
+Ganz spannendes Thema... halt wirklich.
+Wenn man schon so _agile_ in der Entwicklung ist, ists ja blöd, wenn ich dann auf das Operations Team warten muss, bis die mal wieder meine Software updaten.
 
 Deswegen gibt es das Continuous Delivery. Heißt das automatisierte (kontinuierliche) Deployment von Software. Bei mir wird automatisch der master-Branch auf dem [Repo](https://github.com/JohnnyS318/htwr-aachen.de) deployed.
 
@@ -56,20 +69,22 @@ Continuous Integration heißt das automatische zusammenführen der Komponenten h
 
 ## Security
 
-Naja parsed nicht Sprachen aller Art (csv, java, etc...) mit Regex und vorallem nicht mit String concatenation. 
+Naja parsed nicht Sprachen aller Art (csv, java, etc...) mit Regex und vorallem nicht mit String concatenation.
 
 XSS: Cross site scripting: Eine anderer Benutzer oder Seite kann Code auf deiner Seite ausführen.
 SQL Injection: Ein anderer Benutzer oder Seite kann beliebige SQL-Statements auf deiner Datenbank ausführen.
 
 ## Architekturmuster
+
 Könnte auch ein eigenes Doc sein, hatte aber keine Lust:
+
 - MVC: Model View Controller: Trennung von Daten, Darstellung und Logik
 - Layered: Trennung in verschiedene Schichten (z.B. Datenbank, Business, UI)
 - Pipes: Daten fließen durch Pipes durch. (z.B. unix-pipes)
 - Blackboard: Daten werden an einem Punkt (Blackboard) gesammelt, worauf mehrere Komponenten zugreifen. (z.B. AST in Compilern)
 - Proxy: Zwischenstück zwischen zwei Komponenten. (z.B. Proxy-Server)
 
-## Code-Generierung & Digialisierung mit Monti*
+## Code-Generierung & Digialisierung mit Monti\*
 
 > DSL (domain-specific language => DSL??) ist eine Sprache, die für eine bestimmte Domäne (z.B. Umgebung) entwickelt wurde (z.B. mit Monticore definitert).
 
@@ -84,11 +99,11 @@ Es ermöglicht das gut zusammenarbeiten an einem Projekt.
 Es gibt ein externen Speicherort (Remote) an dem ein Projekt (Repository) gespeichert wird. Beim `git clone` wird das Repository lokal kopiert.
 Es gibt verschieden Versionen von Dateien (Branches), die über den `git checkout` gewechselt werden können und über merge/pull-requests zusammengeführt werden.
 
-Es werden nur die Änderungen gespeichert (Diffs), nicht die komplette Datei. Dadurch ist es möglich, dass mehrere Leute an einer Datei arbeiten können, 
-die Änderungen werden über `git commit -m "Beschreibung"` lokal gespeichert und können über `git push` auf den Remote gespeichert werden. 
+Es werden nur die Änderungen gespeichert (Diffs), nicht die komplette Datei. Dadurch ist es möglich, dass mehrere Leute an einer Datei arbeiten können,
+die Änderungen werden über `git commit -m "Beschreibung"` lokal gespeichert und können über `git push` auf den Remote gespeichert werden.
 Sie können dann durch `git pull` oder `git fetch` zusammengeführt bzw. nur geladen werden.
 
-x> Verfickte scheiße lernt endlich *git*, es ist nicht schwer.
+x> Verfickte scheiße lernt endlich _git_, es ist nicht schwer.
 
 ## Automatisierungen
 
@@ -114,13 +129,14 @@ Bevor also prog ausgeführt wird, wird zuerst data.o und main.o ausgeführt usw.
 ### Maven
 
 Maven konfiguriert man mit xml (`pom.xml`) Dateien, es ist deutlich komplizierter (Es organisiert die Dependencies und es gibt Repositories von Öffentlichen Bibliotheken). Die gekennzeichneten Tags waren:
+
 - groupID: Eindeutige Identifikation z.B. Java package
 - artifactID: .jar Name
 - version: Version des Projektes
 - properties: Eigenschaften & Versionen des Projektes
 - dependencies: Abhängigkeiten des Projektes (Werden auch mit groupID und artifactID identifiziert)
 
-### Gradle 
+### Gradle
 
 Gradle ist nochmal ein Stück komplizierter es funktioniert in zwei Phasen:
 
@@ -131,7 +147,7 @@ Gradle ist nochmal ein Stück komplizierter es funktioniert in zwei Phasen:
 
 ## Sonstiges
 
-Ja in den Folien ist noch viel mehr [über Produktlinien] (vor allem unnötiger Müll) aber 
+Ja in den Folien ist noch viel mehr [über Produktlinien] (vor allem unnötiger Müll) aber
 
 ?> Ich hoffe nicht viel anderes kommt dran, sonst wird das hier noch länger, zudem bedeutet jede Sekunde das hier zu schreiben heißt -1IQ.
 

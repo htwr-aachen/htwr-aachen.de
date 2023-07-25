@@ -29,12 +29,12 @@
 .tutorial {
   @apply relative;
 
-  h1{
+  h1 {
     @apply text-4xl font-bold text-center font-sans;
   }
 
-  h3{
-    @apply text-xl font-medium border-b-1 border-black my-3
+  h3 {
+    @apply text-xl font-medium border-b-1 border-black my-3;
   }
 
   ul {
@@ -48,8 +48,8 @@
 
 .automatic {
   @apply relative;
-  
-  h1{
+
+  h1 {
     @apply text-4xl font-bold text-center font-sans;
   }
 }

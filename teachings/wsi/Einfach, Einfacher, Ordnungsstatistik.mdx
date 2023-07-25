@@ -4,7 +4,7 @@ description: box plots
 author: Jonas Schneider
 date: 18/07/2023
 order: 6
-tags: [Median, Klassifikation, Ordnungsstatistik] 
+tags: [Median, Klassifikation, Ordnungsstatistik]
 ---
 
 ## Klassifikation
@@ -12,16 +12,18 @@ tags: [Median, Klassifikation, Ordnungsstatistik]
 Anstatt stochastischen Konvergenzen wollen wir uns lieber mit den wirklich schweren Themen befassen. Klassifikation von Daten / Merkmalen.
 
 Wir teilen sie einmal auf in:
-  - Diskret
-  - Stetig
+
+- Diskret
+- Stetig
 
 und in:
-  - **Nominal**: Das Merkmal z.B. Farbe, kann nicht geordnet werden, es kann nur unterschieden werden. 
-  - **Ordinal**: Das Merkmal z.B. Schulnoten kann verglichen werden, es kann also eine Ordnung hergestellt werden.
-  - **Metrisch**
-    - **Kardinal**: Das Merkmal ist vielfaches einer Grundeinheit. z.B. Fußballfelder bei Galileo (nicht immer aber anschaulich)
-    - **Intervall**: Nullpunkt willkürlich, z.B. Temperatur
-    - **Ratio**: Nullpunkt festgelegt, z.B. Länge, Kelvin
+
+- **Nominal**: Das Merkmal z.B. Farbe, kann nicht geordnet werden, es kann nur unterschieden werden.
+- **Ordinal**: Das Merkmal z.B. Schulnoten kann verglichen werden, es kann also eine Ordnung hergestellt werden.
+- **Metrisch**
+  - **Kardinal**: Das Merkmal ist vielfaches einer Grundeinheit. z.B. Fußballfelder bei Galileo (nicht immer aber anschaulich)
+  - **Intervall**: Nullpunkt willkürlich, z.B. Temperatur
+  - **Ratio**: Nullpunkt festgelegt, z.B. Länge, Kelvin
 
 # Statistik
 
@@ -32,9 +34,10 @@ Wir kriegen Werte $x_1, ..., x_n$ gegeben...
 Eine Ordnungsstatistik sind $x_{(1)}, ..., x_{(n)}$ Werte, die nach Größe sortiert wurden. Z.B. $x_1 = 2, x_2 = 1, x_3 = 3$. Hierzu ist die Ordnungsstatistik:
 $x_{(1)} = x_2 = 1, x_{(2)} = x_1 = 2, x_{(3)} = x_3 =  3$.
 
-So können wir den Median einfach bestimmen: 
-  - n ungerade: $x_{(\frac{n+1}{2})}$
-  - n gerade: $[x_{\frac{n}{2}}, x_{\frac{n}{2} + 1}]$ (bei metrisch skalierten Daten einfach die Mitte nehmen)
+So können wir den Median einfach bestimmen:
+
+- n ungerade: $x_{(\frac{n+1}{2})}$
+- n gerade: $[x_{\frac{n}{2}}, x_{\frac{n}{2} + 1}]$ (bei metrisch skalierten Daten einfach die Mitte nehmen)
 
 ## Histogramm und Gruppen
 
@@ -50,19 +53,19 @@ Wir können auch hier eine **Häufigkeitsdichte** oder Dichteschätzer Funktion 
 
 $\hat{f}(x) = \begin{cases} 0 & x < 1 \\ \frac{\frac{5}{8}}{0.3} & x \in [1.0, 1.3] \\ \frac{\frac{2}{8}}{0.3} & x \in (1.3, 1.7] \\ \frac{\frac{1}{8}}{0.3} & x \in (1.7, 2.0] \\ 0 & x > 2.0  \end{cases}$
 
-> Der Erwartungswert ist dann ja einfach Mittelwert und Varianz kann mit Verschiebungssatz leichter sein. 
+> Der Erwartungswert ist dann ja einfach Mittelwert und Varianz kann mit Verschiebungssatz leichter sein.
 
 ## Quantile
 
 Das $p$-Quantil ist der Wert $x_p$ mit $P(X \leq x_p) = p$.
-  - $np$ ganzzahlig: Jede Zahl aus $[x_{(np)}, x_{(np+1)}]$
-  - sonst: $\~{x}_p = x_{\lfloor np \rfloor +1}$
+
+- $np$ ganzzahlig: Jede Zahl aus $[x_{(np)}, x_{(np+1)}]$
+- sonst: $\~{x}_p = x_{\lfloor np \rfloor +1}$
 
 **Qua _r_ tile** sind die Quantile:
 $Q_1 = \~{x}_{0,25}, Q_2 = \~{x}_{0,5}, Q_3 = \~{x}_{0,75}$
 
 ## Boxplot
 
-  Aus Mittelwert / Erwartungswert, Median, Quartile, $x_{max}$, $x_{min}$ macht man dann Grafik:
-  ![Boxplot](/teaching-assets/wsi/boxplot.png)
-
+Aus Mittelwert / Erwartungswert, Median, Quartile, $x_{max}$, $x_{min}$ macht man dann Grafik:
+![Boxplot](/teaching-assets/wsi/boxplot.png)

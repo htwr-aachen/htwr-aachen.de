@@ -4,7 +4,15 @@ description: Gar Kein Bock
 author: Jonas Schneider
 date: 20/07/2023
 order: 1
-tags: [Ereignisse, Grundbegriffe, Wahrscheinlichkeit, Zufallsvariablen, Urnen, Sigma-Algebra]
+tags:
+  [
+    Ereignisse,
+    Grundbegriffe,
+    Wahrscheinlichkeit,
+    Zufallsvariablen,
+    Urnen,
+    Sigma-Algebra,
+  ]
 ---
 
 # Noten Würfeln nach Aachener Art
@@ -13,7 +21,7 @@ tags: [Ereignisse, Grundbegriffe, Wahrscheinlichkeit, Zufallsvariablen, Urnen, S
 
 > Stocha ist gar nicht so kompliziert sie haben nur dumme Begriffe.
 
-Annahme: Grundlagen der Mengenlehre und Kenntnisse in Analysis (Integrale, Folgen und Reihen) 
+Annahme: Grundlagen der Mengenlehre und Kenntnisse in Analysis (Integrale, Folgen und Reihen)
 
 Die Absoluten Grundbegriffe sind folgende:
 
@@ -25,6 +33,7 @@ Die Absoluten Grundbegriffe sind folgende:
   Bsp.: Die Wahrscheinlichkeit, dass eine gerade Zahl gewürfelt wird ist $P(A) = \frac{1}{2}$
 
 Weitere Grundbegriffe die immer wieder vorkommen:
+
 - **Gegenereignis** $\overline{A}$ ist das Ereignis, dass $A$ nicht eintritt
   Bsp.: Die Wahrscheinlichkeit, dass eine ungerade Zahl gewürfelt wird ist $P(\overline{A}) = \frac{1}{2}$
 - **Erwartungswert** $E$ ist der Durchschnitt aller möglichen Ergebnisse
@@ -40,6 +49,7 @@ Weitere Grundbegriffe die immer wieder vorkommen:
 - **Wahrscheinlichkeitsmaß** $P$ ist eine Funktion, die jedem Ereignis $A$ eine Wahrscheinlichkeit $P(A)$ zuordnet. $P: \mathcal{A} \to [0,1]$. Die Kriterien sind: $0 \le P(A) \le 1 \forall A \in \Omega$, $P(\Omega)= 1$ und wenn $A_1, ..., A_n$ disjunkt gilt. $P(\bigcup_{i \in \underline{n}} A_i) = \sum_{i=1}^n P(A_i)$
 
 ## Problemthema Zufallsvariablen
+
 In praktisch allen Bereichen begegnen uns bald _Zufallsvariablen_. Hier stellt sich häufig die Frage...
 
 Was ist das?
@@ -47,7 +57,7 @@ Was ist das?
 Zufallsvariablen oder Zufallsgrößen sind Werte, die vom Zufall abhängen.
 Also zum Beispiel Würfelzahl, Nummer der defekten PSP Boards oder ähnliches.
 
-Formal wird jedem Ergebnis eine Zufallsgröße zugeordnet. Also $\Omega \to \mathbb{R}$. Zufallsvariablen werden häufig als $X$ notiert. 
+Formal wird jedem Ergebnis eine Zufallsgröße zugeordnet. Also $\Omega \to \mathbb{R}$. Zufallsvariablen werden häufig als $X$ notiert.
 
 Es ist also wichtig zu wissen, dass die Zufallsvariablen keinen Wert beschreiben oder so. Wir sagen immer nur: Was ist die Wahrscheinlichkeit, dass $X < 300$, also das weniger als $300$ PSP Boards kaputt sind. Wir wissen natürlich alle $P(X < 300) = 0$, denn nicht der Code ist falsch sondern die Boards!
 
@@ -56,30 +66,32 @@ Es ist also wichtig zu wissen, dass die Zufallsvariablen keinen Wert beschreiben
 Wenn du einen $6$-seitigen Würfel mit gleicher Wahrscheinlichkeiten hast, ist die Wahrscheinlichkeit für eine Zahl $P(X = 6) = \frac{1}{6}$ trivialerweise. Genauer $P(A) = \frac{|A|}{|\Omega|}$ bei diskreter Gleichverteilung bzw. **Laplace-Raum**.
 
 Für alle Wahrscheinlichkeitsräume gibt es folgende Gleichheiten. Sei $A$ ein Ereignis.
-  - $P(\overline{A}) = 1 - P(A)$  
-  - $A \subset B: P(B \setminus A) = P(B) - P(A)$
-  - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
-  - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
-  - $P(A \cup B) = P(A) + P(B)$ auch für mehrere Ereignisse
 
+- $P(\overline{A}) = 1 - P(A)$
+- $A \subset B: P(B \setminus A) = P(B) - P(A)$
+- $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+- $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+- $P(A \cup B) = P(A) + P(B)$ auch für mehrere Ereignisse
 
 ## Weitere Basics Urnen
-Ja Urnen sind nervig. 
+
+Ja Urnen sind nervig.
 
 Es gibt sehr viele Versionen, die sich wie folgt Unterscheiden:
+
 - Anzahl Kugeln (farbig, Gleichfarbig)
 - Mit / Ohne Zurücklegen
 - Mit / Ohne Reihenfolge
 
-|                  | Mit Zurücklegen                                                                                                     | Ohne Zurücklegen                                                                                                                                |
-|------------------|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+|                  | Mit Zurücklegen                                                                                                              | Ohne Zurücklegen                                                                                                                                                                   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Mit Reihenfolge  | $\Omega = \{(w_1, ..., w_n) \mid w_i \in A\} \\ \lvert \Omega \rvert = N^n$                                                  | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, \\ w_i \neq w_j \quad \mathrm{ für } \quad  i \neq j \}  \\ \lvert \Omega \rvert = \frac{N!}{(N-n)!} = N \cdot (N-1) \cdot N(N-n+1)$ |
-| Ohne Reihenfolge | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, i=1,...,n, w_1 \le ... \le w_n \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$ | $\Omega =  \{ {w_1, ..., w_n} \mid w_i \in \{1, ..., n\}, \\ w_i \neq w_j \quad \mathrm{für} \quad i \neq j \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$                       |
-
+| Ohne Reihenfolge | $\Omega =  \{ (w_1, ..., w_n) \mid w_i \in A, i=1,...,n, w_1 \le ... \le w_n \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$ | $\Omega =  \{ {w_1, ..., w_n} \mid w_i \in \{1, ..., n\}, \\ w_i \neq w_j \quad \mathrm{für} \quad i \neq j \}  \\ \lvert \Omega \rvert = \binom{N+n-1}{n}$                        |
 
 ## $\sigma$-Algebra
+
 Eine $\sigma$-Algebra ist eine Menge von Ereignissen, die folgende Eigenschaften erfüllt:
+
 - $\Omega \in \mathcal{A}$
 - $A \in \mathcal{A} \implies \overline{A} \in \mathcal{A}$ (Abgeschlossen unter Komplementbildung)
 - $A_1, ..., A_n \in A \implies \bigcup_{i=1}^n A_i \in A$. (Abgeschlossen unter Vereinigung)
-

@@ -10,35 +10,35 @@ tags: [Gütekriterien, Bias, Erwartungstreue]
 Ich hasse alles hieran
 
 Recap: Ein Schätzer, Zwei Schätzer:
+
 - $x = (x_1, ..., x_n) \mapsto \hat{\vartheta}_n(x)$ ordnet jeder Stichprobe aus dem Stichprobenraum $X$ einen Schätzwert zu.
 - $X = (X_1, ..., X_n) \mapsto \hat{\vartheta}_n(X)$ ordnet jedem Zufallsvektor eine Zufallsgröße (einen Parameter für die Zufallsverteilung) zu.
 
 Keep in Mind: $\vartheta$ sind die Parameter der Wahrscheinlichkeitsverteilung. Also z.B. $p$ bei der Binomialverteilung.
 
-$E_{\vartheta}(\hat{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswert mit dem Parameter $\vartheta$, da er natürlich davon abhängig ist. 
+$E_{\vartheta}(\hat{\vartheta}_n(X)) = \vartheta$ heißt einfach nur Erwartungswert mit dem Parameter $\vartheta$, da er natürlich davon abhängig ist.
 
 ## Gütekriterien
 
-  **Erwartungstreue** ist eine Eigenschaft eines Schätzers $\hat{\vartheta}'$, die besagt, dass der Erwartungswert des Schätzers gleich dem wahren Wert des Parameters ist.
-  $E(\hat{\vartheta}') = \vartheta$
+**Erwartungstreue** ist eine Eigenschaft eines Schätzers $\hat{\vartheta}'$, die besagt, dass der Erwartungswert des Schätzers gleich dem wahren Wert des Parameters ist.
+$E(\hat{\vartheta}') = \vartheta$
 
-  Der **Bias** ist die Abweichung des Erwartungswertes des Schätzers vom wahren Wert des Parameters.
-  $Bias(\hat{\vartheta}') = E(\hat{\vartheta}') - \vartheta$
+Der **Bias** ist die Abweichung des Erwartungswertes des Schätzers vom wahren Wert des Parameters.
+$Bias(\hat{\vartheta}') = E(\hat{\vartheta}') - \vartheta$
 
-  **Konsistenz** fragt, ob bei größeren Stichproben der Schätzer näher an den wahren Wert des Parameters kommt (stoch. Konvergenz). Also: $\delta > 0$
-  
-  $P(|\hat{\vartheta}' - \vartheta| > \delta) \rightarrow 0$ für $n \rightarrow \infty$
+**Konsistenz** fragt, ob bei größeren Stichproben der Schätzer näher an den wahren Wert des Parameters kommt (stoch. Konvergenz). Also: $\delta > 0$
 
-  Es gibt auch **starke** und **schwache** Konsistenz.
+$P(|\hat{\vartheta}' - \vartheta| > \delta) \rightarrow 0$ für $n \rightarrow \infty$
 
-  **Effizienz** ist die Varianz des Schätzers. Je kleiner die Varianz, desto effizienter ist der Schätzer. Ein Schätzer ist **effizient**, wenn er effizienter als alle anderen ist.
+Es gibt auch **starke** und **schwache** Konsistenz.
 
-  **MSE (Mean Sqaured Error)**: $MSE(\hat{\vartheta}'; \vartheta) = E_{\vartheta}((\hat{\vartheta}' - \vartheta)^2) = Var_\vartheta(\hat{\vartheta}_n') + [Bias(\hat{\vartheta}_n'; \vartheta)]$
+**Effizienz** ist die Varianz des Schätzers. Je kleiner die Varianz, desto effizienter ist der Schätzer. Ein Schätzer ist **effizient**, wenn er effizienter als alle anderen ist.
 
-  **Effizienz** geht auch über den MSE. Ein Schätzer ist **effizient**, wenn er einen kleineren MSE als alle anderen hat.
+**MSE (Mean Sqaured Error)**: $MSE(\hat{\vartheta}'; \vartheta) = E_{\vartheta}((\hat{\vartheta}' - \vartheta)^2) = Var_\vartheta(\hat{\vartheta}_n') + [Bias(\hat{\vartheta}_n'; \vartheta)]$
 
-  
-  Beispiel: Siehe Tutorium 9 Aufgabe 36 & 37.
+**Effizienz** geht auch über den MSE. Ein Schätzer ist **effizient**, wenn er einen kleineren MSE als alle anderen hat.
 
-  Hauptproblem: Verwirrung. Einfach normal rechnen so wie immer. Erst Erwartungswert. $E_{\vartheta}(\hat{\vartheta}_n(X))$ also Formel nehmen dann Erwartungswert reinziehen (siehe lsg A37) und dann weiterrechnen. Wenn am ende wieder $\vartheta$ rauskommt, dann ist der Schätzer erwartungstreu. 
-  Varianz läuft analog. Dann nur noch Bias und dann hat man den MSE bereits. :)
+Beispiel: Siehe Tutorium 9 Aufgabe 36 & 37.
+
+Hauptproblem: Verwirrung. Einfach normal rechnen so wie immer. Erst Erwartungswert. $E_{\vartheta}(\hat{\vartheta}_n(X))$ also Formel nehmen dann Erwartungswert reinziehen (siehe lsg A37) und dann weiterrechnen. Wenn am ende wieder $\vartheta$ rauskommt, dann ist der Schätzer erwartungstreu.
+Varianz läuft analog. Dann nur noch Bias und dann hat man den MSE bereits. :)

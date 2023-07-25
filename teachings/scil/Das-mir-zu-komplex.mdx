@@ -10,9 +10,10 @@ tags: [Komplexität, Beweise, P, NP]
 # Komplexitätsbeweise
 
 ## P
+
 Hier ist vermutlich einfach das beste eine DTM mit einem Algorithmus anzugeben, der die Lösung findet.
 
-## NP 
+## NP
 
 Hier muss man einen Verifizierer bauen, das ist tatsächlich häufig einfach ein paar Punkte abzuholen:
 
@@ -32,12 +33,14 @@ Für unser Zertifikat raten wir die Knotenmenge $D$ einfach (können wir machen 
 Dann sagen wir noch das das Zertifikat offensichtlich Polynomiell ist !Nicht vergessen, falls ihr es nicht argumentieren könnt schreib einfach offensichtlich!.
 
 Was muss unser Verifizierer nun machen bei der Eingabe $y\#x$?:
+
 1. Er überprüft die Syntax.
 2. Er überprüft die Syntax vom Zertifikat
 3. Er überprüft ob $|D| \le k$.
 4. Er überprüft ob für jede Kante $(u, v) \in E$ mindestens einer der Endpunkte in $D$ liegt, also $u \in D \land v \in D$.
 
 Die Laufzeit des Verifizierers hierbei ist:
+
 1. linear
 2. linear
 3. konstant
@@ -65,13 +68,13 @@ Nun nehmen wir unsere Funktion $f$, $f((G,k))= (G', k')$ mit $G'=(V, ((V \times 
 
 Was passiert hier?... Wir nehmen uns den Graphen $G$ und bauen uns daraus einen neuen Graphen mit den Gleichen Knoten, der alle Kanten invertiert heißt überall wo vorher eine Kante war ist jetzt keine und überall wo keine war ist jetzt eine.
 
-Warum hilft uns dass?... Remember wir müssen unsere korrekte CLIQUE Instanz auf eine korrekte VERTEX COVER Instanz schicken... Wir finden auf unserem neuen Graphen jetzt eine VERTEX Cover, also ein Knotenmenge, wo alle Kanten mindestens ein Ende mit einem Knoten aus $D$ verbunden ist, weil 
+Warum hilft uns dass?... Remember wir müssen unsere korrekte CLIQUE Instanz auf eine korrekte VERTEX COVER Instanz schicken... Wir finden auf unserem neuen Graphen jetzt eine VERTEX Cover, also ein Knotenmenge, wo alle Kanten mindestens ein Ende mit einem Knoten aus $D$ verbunden ist, weil
 
 Auch hier ist wieder wichtig zu sagen, dass das offensichtlich polynomiell ist.
 
 Und die Korrektheit zu zeigen:
 
-$(G, k) \in CLIQUE \iff \exists D \subseteq V: |D| \ge k: \forall v,w \in D (v \neq w \implies (v,w) \in E) \iff \exists D' \subseteq V: |D'| \le k': \forall v,w \in D (v \neq w \implies (v,w) \notin E') \iff (G', |V|-k) \in VC$ 
+$(G, k) \in CLIQUE \iff \exists D \subseteq V: |D| \ge k: \forall v,w \in D (v \neq w \implies (v,w) \in E) \iff \exists D' \subseteq V: |D'| \le k': \forall v,w \in D (v \neq w \implies (v,w) \notin E') \iff (G', |V|-k) \in VC$
 
 </Spoiler>
 
@@ -82,8 +85,9 @@ Immer wenn ihr allgemein Beweisen sollt, dass zum Beispiel $L_1, L_2 \in$ NP unt
 <Spoiler>
   Da $L_1, L_2$ in NP liegen haben wir einen Verifizierer $V_1, V_2$. Nun konstruieren wir einen neue NTM $M$ für $L_1 \cap L_2$. Keinen Verifizierer, da wir sonst nicht die Zertifikate raten können. Aber wir nutzen $V_1, V_2$.
 
-  1. Die NTM rät die beiden Zertifikate $y_1, y_2$
-  2. Dann simuliert V den Verifizierer von $L_1$ mit $y_1\#x$, falls er verwirft, verwerfe falls nicht simuliere $V_2$ mit $y_2\#x$ übernehme das Akzeptansverhalten.
+1. Die NTM rät die beiden Zertifikate $y_1, y_2$
+2. Dann simuliert V den Verifizierer von $L_1$ mit $y_1\#x$, falls er verwirft, verwerfe falls nicht simuliere $V_2$ mit $y_2\#x$ übernehme das Akzeptansverhalten.
 
-  Fertig, es ist polynomiell, da beide Zertifikate und beide Verifizierer polynomiell sind und die Korrektheit folgt aus den beiden Verifizierer. 
+Fertig, es ist polynomiell, da beide Zertifikate und beide Verifizierer polynomiell sind und die Korrektheit folgt aus den beiden Verifizierer.
+
 </Spoiler>

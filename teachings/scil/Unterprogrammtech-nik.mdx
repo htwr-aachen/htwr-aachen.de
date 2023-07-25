@@ -7,16 +7,17 @@ tags: [Berechenbarkeit, Unterprogrammtechnik, Berechenbarkeitsbeweise]
 order: 4
 ---
 
-## Berechenbarkeit & Diagonalsprache 
+## Berechenbarkeit & Diagonalsprache
+
 Der Grundstein unserer Beweiskette ist die Diagonalsprache. Sie zu verstehen hilft vielleicht und ich kann mir schon vorstellen, dass sie abgefragt werden kann.
 
 $D = \{w \in {0,1}^* \mid w = w_i \text{ und } M_i \text{ akzeptiert w nicht } \} = \{ \langle M \rangle \mid M \text{ akzeptiert } \langle M \rangle \text{ nicht } \}$
 
-Heißt eine TM M ist genau dann in $D$, wenn sie $\langle M \rangle$ (also ihre eigene Gödelnummer) nicht akzeptiert. 
+Heißt eine TM M ist genau dann in $D$, wenn sie $\langle M \rangle$ (also ihre eigene Gödelnummer) nicht akzeptiert.
 
 !> Warum ergibt dass dann ein Paradox?
 
-Wiederspruchsbeweis, nehme an D ist entscheidbar. 
+Wiederspruchsbeweis, nehme an D ist entscheidbar.
 
 Also gibt es eine TM M, die D entscheidet, heißt sie akzeptiert alles in D und verwirft alles $\notin D$. Nehmen wir nun $\langle M \rangle$ als Eingabe so gibt es zwei Möglichkeiten:
 
@@ -27,7 +28,8 @@ Also gibt es eine TM M, die D entscheidet, heißt sie akzeptiert alles in D und 
 Somit kann $D$ nicht entscheidbar sein.
 
 <div className="center">
-  ![Diagonal und So](https://media.tenor.com/irYef4MZuYEAAAAC/matematica-rio-dicas-todo-dia.gif)
+  ![Diagonal und
+  So](https://media.tenor.com/irYef4MZuYEAAAAC/matematica-rio-dicas-todo-dia.gif)
 </div>
 
 > Das Komplement von unentscheidbaren Problemen, ist selber unentscheidbar. Beispiel $\overline{D}$.
@@ -38,7 +40,7 @@ Somit kann $D$ nicht entscheidbar sein.
 
 Mit der Unterprogrammtechnik lässt sich außerhalb vom Satz von Rice zeigen, dass eine Sprache unentscheidbar ist. Wie funktioniert es genau hier für das Beispiel des Halteproblems $H$:
 
-Wir nehmen an das es eine TM $M_H$ gibt, die $H$ entscheidet. 
+Wir nehmen an das es eine TM $M_H$ gibt, die $H$ entscheidet.
 
 Jetzt haben wir eine TM die was unmögliches kann, also müssen wir jetzt diese Funktion nutzen um zu zeigen, dass diese Funktion wieder ein anderes Problem (von dem wir schon die Unentscheidbarkeit wissen) lösen kann **!ohne weitere Annahmen!**.
 
@@ -49,9 +51,9 @@ Unsere TM $M_{\overline{D}}$ funktioniert folgendermaßen:
 1. Teste ob die Eingabe $w$ eine Gödelnummer ist, wenn nicht, verwerfe, falls ja sei nun $M_w$ die TM mit $w = \langle M_w \rangle$.
 
 2. Starte $M_H$ mit der Eingabe $ww$, also teste ob $M_w$ auf der Eingabe seiner eigenen Gödelnummer $w$ hält, oder nicht.
-    
-    -> Falls $M_H$ akzeptiert, heißt $M_w$ hält, simuliere mittels Universelle Turingmaschine $M_w$ auf der Eingabe $w$. Wir wissen dies hält an, also können wir es simulieren.
-    -> Falls $M_H$ verwirft, verwerfe selber. 
+
+   -> Falls $M_H$ akzeptiert, heißt $M_w$ hält, simuliere mittels Universelle Turingmaschine $M_w$ auf der Eingabe $w$. Wir wissen dies hält an, also können wir es simulieren.
+   -> Falls $M_H$ verwirft, verwerfe selber.
 
 ![Halteproblemdiagramm](/teaching-assets/scil/Berechenbarkeit/Halteproblem-Beweis.png)
 
@@ -63,6 +65,5 @@ Falls $w \notin \overline{D}$ ist, dann akzeptiert $M_w$ $w$ nicht, heißt es h�
 
 Wir können gleich nochmal ein anderes Problem per Unterprogrammtechnik beweisen, aber hier erstmal ein paar Tipps und Warnungen:
 
-- Meistens muss man das Format einer Eingabe prüfen, es dann die Eingabe ggf. verändern (mit einer berechenbaren Funktion) und dann das Ergebnis in unsere Angenommene Eingabe pumpen. 
+- Meistens muss man das Format einer Eingabe prüfen, es dann die Eingabe ggf. verändern (mit einer berechenbaren Funktion) und dann das Ergebnis in unsere Angenommene Eingabe pumpen.
 - Mehr Tips muss ich mir noch überlegen :D
-

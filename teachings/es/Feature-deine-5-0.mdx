@@ -4,7 +4,8 @@ description: Feature-Diagramme für Anforderungsanalyse
 order: 7
 author: Jonas Schneider
 date: 13/02/2023
-tags: [Feature-Diagramme, Feature-Diagramm-Erweiterungen, Semantische-Differenz, FD]
+tags:
+  [Feature-Diagramme, Feature-Diagramm-Erweiterungen, Semantische-Differenz, FD]
 ---
 
 x> Der Diagrammtyp ist FD
@@ -13,14 +14,16 @@ x> Der Diagrammtyp ist FD
 
 ![Feature-Diagramm](/teaching-assets/es/feature-diagramm.svg)
 
-Feature Diagramme, zeigen die möglichen Zusammensetzung von einem Produkt. 
+Feature Diagramme, zeigen die möglichen Zusammensetzung von einem Produkt.
 Ein Auto muss folgende Features enthalten:
+
 - Tacho
 - Motor
 - Blinker
 - $\vdots$
 
 Aber es kann zudem noch optional enthalten, (die sich teilweise gegenseitig ausschließen oder nicht):
+
 - Navi
 - Klimaanlage
 - Lachgaseinspritzung
@@ -35,13 +38,14 @@ OKE Doch nicht
 ## Erweiterungen
 
 Es gibt noch Erweiterung zu den dummen Dingern.
-- *excludes*, *requires*: Das was es sagt. Allerdings ist wichtig zu wissen, dass die in der Klausur auch ungültige Konfiguration machen können z.B. wenn es ein OR mit A und B gibt, aber A B ausschließt und B A requires.   
+
+- _excludes_, _requires_: Das was es sagt. Allerdings ist wichtig zu wissen, dass die in der Klausur auch ungültige Konfiguration machen können z.B. wenn es ein OR mit A und B gibt, aber A B ausschließt und B A requires.
 - Directed Acyclic Graph: Radio und Nav können zu einer Radio Navi-Kombi zusammengefasst werden.
- 
+
 ## Semantische Differenz
 
 Sei $a$ und $b$ zwei Feature-Diagramme.
 
 Die Semantische Differenz ist nun die Anzahl der **gültigen** Konfigurationen von $a$, die aber **keine** **gültigen** Konfigurationen von $b$ sind.
 
-Ein Feature-Diagramm heißt eine *Verfeinerung* von $b$, wenn die Semantische Differenz von $a$ zu $b$ $\emptyset$ ist. (Nicht verstanden?: Es heißt Verfeinerung, da alle Konfiguration von $b$ auch in $a$ sind. Andersherum natürlich nicht unbedingt.)
+Ein Feature-Diagramm heißt eine _Verfeinerung_ von $b$, wenn die Semantische Differenz von $a$ zu $b$ $\emptyset$ ist. (Nicht verstanden?: Es heißt Verfeinerung, da alle Konfiguration von $b$ auch in $a$ sind. Andersherum natürlich nicht unbedingt.)

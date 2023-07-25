@@ -4,43 +4,48 @@ description: KP
 author: Jonas Schneider
 date: 24/07/2023
 order: 5
-tags: [Gesetz der Großen Zahlen, Tschebyschow-Ungleichung, Konvergenz, Hauptsatz der Statistik]
+tags:
+  [
+    Gesetz der Großen Zahlen,
+    Tschebyschow-Ungleichung,
+    Konvergenz,
+    Hauptsatz der Statistik,
+  ]
 ---
 
-Gute Nachricht: Ich denke viel komplizierter wird es nicht mehr. Freut euch auf Boxplots. 
+Gute Nachricht: Ich denke viel komplizierter wird es nicht mehr. Freut euch auf Boxplots.
 Schlechte Nachricht: Irgendwas aus diesem Kapitel wird dran kommen. Vermutlich aber nur eine Abschätzung mit der Tschebyschow-Ungleichung.
 
 ## Gesetz der großen Zahlen
 
-  Hier gibt es endlich mal eine zentrale Frage:
-  
-  Wir nehmen uns eine Folge von Zufallsvariablen $(X_n)_{n\in \mathbb{N}}$, die unabhängig identitsch verteilt (i.i.d.) sind mit $\mu = E(X_1)$ und $\sigma^2=Var(X_1)$
+Hier gibt es endlich mal eine zentrale Frage:
 
-  Wir suchen nun also mal wieder Grenzwerte und Konvergenzen :).
-  Die Frage ist nun, wie sich das arithmetische Mittel $\overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$ im Gegensatz zu $\mu$ verhält.
+Wir nehmen uns eine Folge von Zufallsvariablen $(X_n)_{n\in \mathbb{N}}$, die unabhängig identitsch verteilt (i.i.d.) sind mit $\mu = E(X_1)$ und $\sigma^2=Var(X_1)$
 
-  - **Tschebyschow-Ungleichung**: Es gilt für alle $\varepsilon > 0$:
-    $P(|\overline{X}_n - \mu | \geq \varepsilon) \leq \frac{\sigma^2}{n \varepsilon^2}$
+Wir suchen nun also mal wieder Grenzwerte und Konvergenzen :).
+Die Frage ist nun, wie sich das arithmetische Mittel $\overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$ im Gegensatz zu $\mu$ verhält.
 
-  - **Schwaches Gesetz der Großen Zahlen**: Das Arithmetische Mittel $\frac{1}{n} \sum_{i=1}^n X_i$ konvergiert gegen den Erwartungswert $\mu$.
+- **Tschebyschow-Ungleichung**: Es gilt für alle $\varepsilon > 0$:
+  $P(|\overline{X}_n - \mu | \geq \varepsilon) \leq \frac{\sigma^2}{n \varepsilon^2}$
 
-  - **Formale stoch. Konvergenz**
-    die Folge konvergiert $X_n \overset{P}{\to} X, n \to \infty$ gegen $X$, falls für alle $\varepsilon > 0$ gilt: $P(|X_n - X| > \varepsilon), n \to \infty$.
-    Also wörtlich gesprochen: Wenn die Wahrscheinlichkeit zwischen dem unterschied von $X_n$ und dem Grenzwert $X$ beliebig klein wird, dann konvergiert die Folge gegen $X$.
+- **Schwaches Gesetz der Großen Zahlen**: Das Arithmetische Mittel $\frac{1}{n} \sum_{i=1}^n X_i$ konvergiert gegen den Erwartungswert $\mu$.
 
-    Rechenregeln (sehr ähnlich wie in AFI):
+- **Formale stoch. Konvergenz**
+  die Folge konvergiert $X_n \overset{P}{\to} X, n \to \infty$ gegen $X$, falls für alle $\varepsilon > 0$ gilt: $P(|X_n - X| > \varepsilon), n \to \infty$.
+  Also wörtlich gesprochen: Wenn die Wahrscheinlichkeit zwischen dem unterschied von $X_n$ und dem Grenzwert $X$ beliebig klein wird, dann konvergiert die Folge gegen $X$.
 
-      - $X_n \overset{P}{\to} a, n \to \infty$, $Y_n \overset{P}{\to} b, n \to \infty$, dann: $\lambda X_n \pm \psi Y_n \overset{P}{\to} \lambda a \pm \psi b$ für $\lambda, \psi \in \mathbb{R}$ und $X_n \cdot Y_n \overset{P}{\to} a \cdot b$
-      - $X_n \overset{P}{\to} a, n \to \infty$ und $g: \mathbb{R} \to \mathbb{R}$ stetig, dann: $g(X_n) \overset{P}{\to} g(a), n \to \infty$
-  
-    Die Unterscheidet sich von der Konvergenz aus AFI, da wir hier über Wahrscheinlichkeiten reden. Am Ende  ist die Wahrscheinlichkeit, dass sie konvergieren $1$. 
+  Rechenregeln (sehr ähnlich wie in AFI):
 
-  - **Starkes Gesetz der Großen Zahlen**: Das Arithmetische Mittel $\frac{1}{n} \sum_{i=1}^n X_i$ konvergiert gegen den Erwartungswert $\mu$ mit Wahrscheinlichkeit $1$.
+  - $X_n \overset{P}{\to} a, n \to \infty$, $Y_n \overset{P}{\to} b, n \to \infty$, dann: $\lambda X_n \pm \psi Y_n \overset{P}{\to} \lambda a \pm \psi b$ für $\lambda, \psi \in \mathbb{R}$ und $X_n \cdot Y_n \overset{P}{\to} a \cdot b$
+  - $X_n \overset{P}{\to} a, n \to \infty$ und $g: \mathbb{R} \to \mathbb{R}$ stetig, dann: $g(X_n) \overset{P}{\to} g(a), n \to \infty$
 
-  - **Hauptsatz der Statistik**: Sei die Folge nach der Verteilungsfunktion $F$ verteilt. Dann gilt:
-    $P(\lim_{n \to \infty} \max_{x \in \mathbb{R}} |F_n(x) - F(x)| = 0) = 1$. Wobei $F_n$ die empirische Verteilungsfunktion ist. Also einfach das arithmetische Mittel. 
+  Die Unterscheidet sich von der Konvergenz aus AFI, da wir hier über Wahrscheinlichkeiten reden. Am Ende ist die Wahrscheinlichkeit, dass sie konvergieren $1$.
 
-  - **Zentraler Grenzwertsatz**: 
-      Dann Konvergiert $\overline{X_n}$ zu einer Normalverteilung:
-      $P(\sqrt{n} \frac{\overline{X}_n - \mu}{\sigma} \le x) \to \Phi(x)$ für $n \to \infty$
+- **Starkes Gesetz der Großen Zahlen**: Das Arithmetische Mittel $\frac{1}{n} \sum_{i=1}^n X_i$ konvergiert gegen den Erwartungswert $\mu$ mit Wahrscheinlichkeit $1$.
 
+- **Hauptsatz der Statistik**: Sei die Folge nach der Verteilungsfunktion $F$ verteilt. Dann gilt:
+  $P(\lim_{n \to \infty} \max_{x \in \mathbb{R}} |F_n(x) - F(x)| = 0) = 1$. Wobei $F_n$ die empirische Verteilungsfunktion ist. Also einfach das arithmetische Mittel.
+
+- **Zentraler Grenzwertsatz**:
+  Dann Konvergiert $\overline{X_n}$ zu einer Normalverteilung:
+  $P(\sqrt{n} \frac{\overline{X}_n - \mu}{\sigma} \le x) \to \Phi(x)$ für $n \to \infty$

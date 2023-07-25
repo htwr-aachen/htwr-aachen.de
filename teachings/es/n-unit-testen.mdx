@@ -9,18 +9,18 @@ tags: [Unit-Testing, Kontrollflussgraphen]
 
 ## Codequalität - was das
 
-Einheilteiche Programmierung erleichtert das lesen, und da du bei PSP 500x länger den Soft-Reset Bug gesucht hast, als das eigentliche Schreiben, ist es deswegen auch praktisch. 
+Einheilteiche Programmierung erleichtert das lesen, und da du bei PSP 500x länger den Soft-Reset Bug gesucht hast, als das eigentliche Schreiben, ist es deswegen auch praktisch.
 Außerdem ermöglicht es die Zusammenarbeit, aber das ist egal jeder programmiert lieber alleine.
 
 Unter Codequalität fällt auch die Formatierung (wie viele Leerzeichen, Tabs, etc.), Benennungen und die Dokumentation (Docstring, etc.), Fehlerbehandlung...
 
-Manches lässt sich gut automatisch prüfen und vereinheitlichen (heißt *linting*)
+Manches lässt sich gut automatisch prüfen und vereinheitlichen (heißt _linting_)
 
 Es ist tendenziell schlauer Code anderer als Paket/Bibliothek/Framework wiederzuverwenden, als ihn selbst zu schreiben. Natürlich muss man auch hier aufpassen das man keine scheiße einbindet.
 
 ## Test Driven Development
 
-Wir werden gleich sehen was und wie unit-tests sind. In kurz: sie testen eine unteilbare *unit* (z.B. eine Methode).
+Wir werden gleich sehen was und wie unit-tests sind. In kurz: sie testen eine unteilbare _unit_ (z.B. eine Methode).
 Test Driven Development heißt dann:
 
 > Zuerst Test schreiben, dann eigentliche unit schreiben, bis der Test grün ist, dann optimieren und wieder neue Tests schrieben, die anderes abdecken. Wiederholen
@@ -31,22 +31,25 @@ Ist natürlich praktisch für die Coverage:
 
 # Tests
 
-Okay also was für Tests gibt es? 
+Okay also was für Tests gibt es?
+
 - Anforderungsanalyse: Falls der Kunde zustimmt gilt der Test als bestanden (Akzeptanztests)
 - System-Architektur: Systemtest testet das Gesamtsystem auf unerfüllte Funktionalität oder Fehler.
 - Entwurf: Integrationstests testen die Zusammenarbeit der einzelnen Komponenten.
 - Software-Architektur: Unit-Tests testen einzelne Komponenten auf Funktionalität und Fehlerfreiheit.
 
-Das Zeil von verschieden Testfällen ist die Äquivalenzklassen der Ausgaben abzudecken und auf Spezifikation zu testen 
+Das Zeil von verschieden Testfällen ist die Äquivalenzklassen der Ausgaben abzudecken und auf Spezifikation zu testen
 (Äquivalenzklassen heißt hier: 2+1 ist das gleiche wie 3+1 aber 0-1 ist irgendwie anders). Hier muss man also die Edge-Cases der Software entdecken und testen
 
 Es gibt zwei Arten von Tests:
+
 - Blackbox: Testet das Verhalten des Systems auf die Spezifikation, aber nicht die Implementierung
 - Whitebox: Testet die Implementierung des Systems
 
 Bei Whitebox Tests, kann man sich den Kontrollfluss einer Methode richten um die Testfälle zu finden.
 
 ## Unit Tests
+
 Sind mit Abstand die wichtigsten Tests. Sie testen einzelne Komponenten auf Funktionalität und Fehlerfreiheit.
 
 Eine Bibliothek die hier für Java relevant ist ist: **JUnit**. Beispieltest:
@@ -101,10 +104,11 @@ Der Kontrollflussgraph sieht dann so aus:
 ## Überdeckungstests
 
 Es gibt drei verschiedene Arten von Überdeckungstests, die man dann aus einem solchen Kontrollflussgraphen ziehen kann:
+
 - Anweisungsüberdeckungstest: Jede Anweisung wird mindestens einmal ausgeführt
 - Zweigüberdeckungstest: Jeder Zweig wird mindestens einmal ausgeführt
 - Pfadüberdeckungstest: Start bei Startknoten und Ende bei Endknoten. Dazwischen immer zum nächst höheren Knoten (Bei Schleifen, natürlich nicht immer möglich).
-  - **Bounded-interior test**: Alle Schleifen nur n-mal durchlaufen (z.b. einmal) 
+  - **Bounded-interior test**: Alle Schleifen nur n-mal durchlaufen (z.b. einmal)
 
 Wenn man jetzt beispielweise gefragt werden würde
 
@@ -117,16 +121,15 @@ Würde das vielleicht so lauten:
   int[] a = {2,1};
   ```
 
-  Dann würden die Knoten, 1, 2 *trivialerweise*, dann 3, da $i=0 < 1$, dann 4, dann 5, da $j=1 < 2$, dann 6, da $1 < 2$, dann 7, 8, 9.  
+Dann würden die Knoten, 1, 2 _trivialerweise_, dann 3, da $i=0 < 1$, dann 4, dann 5, da $j=1 < 2$, dann 6, da $1 < 2$, dann 7, 8, 9.
+
 </Spoiler>
 
 x> Geben sie nun einen Pfadüberdeckungstest an, oder erläutern sie warum es keinen geben kann.
 
 <Spoiler>
-  Einen Pfadüberdeckungstest ist, wegen der doppelten Schleife nicht praktikable bzw. unmöglich, da sei eine Unendliche Pfad-Menge haben. 
-  Mit jedoch dem Bounded-Iterior Pfadtest mit einmaligem Durchlaufen ist ebenfalls das Eingabearray
-  ```java
-  int[] a = {2,1}; 
-  ```
-  ein minimales.
+  Einen Pfadüberdeckungstest ist, wegen der doppelten Schleife nicht praktikable
+  bzw. unmöglich, da sei eine Unendliche Pfad-Menge haben. Mit jedoch dem
+  Bounded-Iterior Pfadtest mit einmaligem Durchlaufen ist ebenfalls das
+  Eingabearray ```java int[] a = {(2, 1)}; ``` ein minimales.
 </Spoiler>

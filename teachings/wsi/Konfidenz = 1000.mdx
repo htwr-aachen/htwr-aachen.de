@@ -10,11 +10,12 @@ tags: [T-Verteilung, Chi-Quadrat-Verteilung, F-Verteilung, Konfidenzintervalle]
 Hier wirds komisch. Die Anwendungen habe ich selber noch nicht gemacht. Weiterhin geht es um Schätzungen und Eingrenzungen von Parameter für Verteilungen.
 
 ## T-Verteilung (relevant)
+
 ![T-Pose](https://media.tenor.com/WLioHwNPMTYAAAAd/t-pose-t-pose-meme.gif)
 
-**T-Verteilung** ist das hier: $T = \sqrt(n) \frac{\overline{X} - \mu}{S}$, 
+**T-Verteilung** ist das hier: $T = \sqrt(n) \frac{\overline{X} - \mu}{S}$,
 
-wobei $\overline{X} = \frac{1}{n} \sum_{i = 1}^n X_i$ 
+wobei $\overline{X} = \frac{1}{n} \sum_{i = 1}^n X_i$
 
 und $S^2 = \frac{1}{n-1} \sum_{i = 1}^n (X_i - \overline{X})^2$.
 
@@ -27,6 +28,7 @@ $Q = \sum_{i = 1}^n X_i^2$. Dann ist $E(Q) = k$ und $Var(Q) = 2k$.
 Gilt mit $c > 0$: $\frac{T}{c} \sim \chi^2(k)$ oder $T \sim c \cdot \chi^2(k)$, dann ist heißt $T$ gestreckt $\chi^2$-verteilt.
 
 ## F-Verteilung (Eher nicht relevant)
+
 Sei $Q_1 \sim \chi^2(n_1)$ und $Q_2 \sim \chi^2(n_2)$, dann ist
 
 $F = \frac{Q_1 / n_1}{Q_2 / n_2} \sim F(n_1, n_2)$.
@@ -50,13 +52,12 @@ Somit erhält man:
 
 $\overline{X} - t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}} \le \mu \le \overline{X} + t(n-1)_{1- \alpha / 2} \frac{S}{\sqrt{n}}$ mit Wahrscheinlichkeit $1 - \alpha$.
 
-
 Verbesserungen:
-  - Ersetzte $S$ durch $\sigma$ falls bekannt
-  - Ersetzte $t(n-1)_{1- \alpha / 2}$ durch $z_{1- \alpha / 2} = \Phi^{-1}(1- \alpha / 2)$ falls $n$ groß genug ist
+
+- Ersetzte $S$ durch $\sigma$ falls bekannt
+- Ersetzte $t(n-1)_{1- \alpha / 2}$ durch $z_{1- \alpha / 2} = \Phi^{-1}(1- \alpha / 2)$ falls $n$ groß genug ist
 
 ### Für $\sigma^2$
-
 
 Ausganglage: Wir haben einen Schätzer $\hat{\sigma}^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X})^2$ für $\sigma^2$.
 

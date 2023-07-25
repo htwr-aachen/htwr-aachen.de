@@ -8,11 +8,12 @@ tags: [Komplexität, P, NP, EXPTIME, PSPACE]
 ---
 
 ## Komplexitätstheorie
+
 In der Berechenbarkeit, wird über die Existenz von Algorithmen, gesprochen. Hier interessiert uns auch die Geschwindigkeit, dieser.
 
 > Die worst case Laufzeit $t_A(n) n \in \mathbb{N}$, eines Algorithmus A ist die von der logarithmischen Laufzeit eines RAM.
 
-> Polynomialzeitalgorithmen, sind Algorithm, wo $\exists \alpha \in \mathbb{N}: t_A(n) = O(n^\alpha)$	gilt. Sie heißen polynomiell beschränkt.
+> Polynomialzeitalgorithmen, sind Algorithm, wo $\exists \alpha \in \mathbb{N}: t_A(n) = O(n^\alpha)$ gilt. Sie heißen polynomiell beschränkt.
 
 ## P
 
@@ -20,7 +21,7 @@ Die Klasse $P$ sind Probleme, für die es einen Polynomialzeitalgorithmus gibt. 
 
 ## NP (Nichtdeterministische Polynomiell)
 
-Die Klasse NP sind Probleme, die man in Polynomialzeit prüfen kann. Das heißt, angenommen man hat SAT also so disjuktive Variablenketten, man kann leicht Überprüfen ob eine Belegung stimmt, indem sie einfach einsetzt und rechnet. 
+Die Klasse NP sind Probleme, die man in Polynomialzeit prüfen kann. Das heißt, angenommen man hat SAT also so disjuktive Variablenketten, man kann leicht Überprüfen ob eine Belegung stimmt, indem sie einfach einsetzt und rechnet.
 Aber eine Belegung finden ist deutlich schwieriger.
 
 Beweisbar mit Hilfe einer NTM oder (finde ich leicht) einem Verifizierer.
@@ -30,10 +31,13 @@ Beweisbar mit Hilfe einer NTM oder (finde ich leicht) einem Verifizierer.
 Wir haben bereits über die Reduktion gelernt. Falls alle Probleme aus NP sich reduzieren lassen auf ein Problem, dann ist dieses Problem NP-schwer. (bzw. schwerer wenn es nicht in NP ist)
 
 Für ein Problem $L$ gilt:
+
 - für alle $L' \in NP$: $L' \le_p L$.
 
 ### NP-vollständig
+
 Hier gilt für ein Problem $L$:
+
 - $L$ ist in NP
 - $L$ ist NP-schwer
 
@@ -44,10 +48,10 @@ Hier gilt für ein Problem $L$:
 EXPTIME ist die Klasse der Probleme, die $2^q(n)$ für ein Polynom $q$ lösbar sind.
 
 ## PSPACE
+
 Das Band einer TM ist polynomiell beschränkt.
 
 > Satz von Savitch: Es ist egal ob die TM eine DTM oder NTM ist.
-
 
 ## Hierarchien
 

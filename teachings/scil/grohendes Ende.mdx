@@ -11,7 +11,7 @@ order: 20
 
 !> Sollte nicht vorkommen, aber es war halt Teil der Vorlesung
 
-> Eine Menge heißt abzählbar, wenn es eine surjektive Abbildung $\varphi: \mathbb{N} \rightarrow M$ gibt. 
+> Eine Menge heißt abzählbar, wenn es eine surjektive Abbildung $\varphi: \mathbb{N} \rightarrow M$ gibt.
 
 Das ist Äquivalent zu der Aussage, dass es eine injektive Abbildung $\varphi: M \rightarrow \mathbb{N}$ gibt.Man muss halt alle Elemente der Menge $M$ auf eine bestimmt Zahl mappen können.
 
@@ -28,21 +28,23 @@ Somit sind Entscheidungsvarianten inherent leichter. Es kann aber sein, dass die
 Hierfür nutzt man häufig Binärsuche, wenn möglich, da dann nicht alle Elemente durchsucht werden müssen und sich die Schnelligkeit, mit der Länge der Eingaben auscancelt.
 
 Meistens lässt sich hier so vorgehen Angenommen die Entscheidungsvariante des Problems würde sich in P lösen mit Algo $A$:
-1. Finde einen Algorithmus (evt. Binärsuche), der den Zielwert optimiert... also im Beispiel oben das $k$. Aber warum ist man dann noch nicht fertig?
-    Wenn du ein Maximalgewicht oder so hast, dann kannst du einfach Binärsuche über die Möglichengewichte Suchen.
-2. Finde einen Algorithmus, der die Zulässige Lösung aus dem optimalen Zielwert herausfindet.
-    Das läuft meistens so ab: Finde den optimalen Zielwert mit Algo 1. Loope dann durch die Eingaben von z.B. alles bis nichts durch $i$ und schaue mit $A$, ob es noch stimmt mit $A(i,k)$ falls ja dann ist $i$ in der Lösung nicht drinnen.
 
+1. Finde einen Algorithmus (evt. Binärsuche), der den Zielwert optimiert... also im Beispiel oben das $k$. Aber warum ist man dann noch nicht fertig?
+   Wenn du ein Maximalgewicht oder so hast, dann kannst du einfach Binärsuche über die Möglichengewichte Suchen.
+2. Finde einen Algorithmus, der die Zulässige Lösung aus dem optimalen Zielwert herausfindet.
+   Das läuft meistens so ab: Finde den optimalen Zielwert mit Algo 1. Loope dann durch die Eingaben von z.B. alles bis nichts durch $i$ und schaue mit $A$, ob es noch stimmt mit $A(i,k)$ falls ja dann ist $i$ in der Lösung nicht drinnen.
 
 ## Approximationsalgorithmen
 
-Für manche Probleme gibt es mehr oder weniger gute Approximationsalgorithmen. Diese berechnet eine Lösung, die nicht optimal ist, aber trotzdem gut ist. 
+Für manche Probleme gibt es mehr oder weniger gute Approximationsalgorithmen. Diese berechnet eine Lösung, die nicht optimal ist, aber trotzdem gut ist.
+
 - Für Minimierungsprobleme gibt es einen $\alpha$-Approximationsalgorithmus $\alpha > 1$, der die Qualität der Lösung angibt, heißt die Lösung für eine Instanz $I$ ist höchstens $\alpha \cdot opt(I)$.
 - Für Maximierungsprobleme gibt es einen $\alpha$-Approximationsalgorithmus $\alpha < 1$, der die Qualität der Lösung angibt, heißt die Lösung für eine Instanz $I$ ist höchstens $\alpha \cdot opt(I)$.
 
 ![BPP Approximation](https://media.tenor.com/B7vjeE58ps4AAAAM/packing-my-bags.gif)
 
 Hier noch ein paar Facts:
+
 - Für BPP gibt es einen 2-Approximationsalgorithmus und die untere Schranke ist $\alpha < \frac{3}{2}$, besser kann es nicht werden ohne das man P = NP beweist.
 - TSP kann man nicht Approximieren
 - Approximationsschemata sind Vorlagen für Approximationsalgorithmen, damit man einen beliebig guten Algorithmus für ein Problem findet.

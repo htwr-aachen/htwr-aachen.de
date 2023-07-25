@@ -5,52 +5,79 @@
   order: 3
   author: Jonas Schneider
 ---
+
 ## Verbindungstypen
 
-Zunächst mal sind die Verbindungstypen wichtig. 
+Zunächst mal sind die Verbindungstypen wichtig.
 Es gitb:
-- Bus 
-<iframe src="https://giphy.com/embed/NktFjqntkZQbe" width="100%" height="269" frameBorder="0" className="giphy-embed custom-aspect" allowFullScreen></iframe>
+
+- Bus
+
+  <iframe
+    src="https://giphy.com/embed/NktFjqntkZQbe"
+    width="100%"
+    height="269"
+    frameBorder="0"
+    className="giphy-embed custom-aspect"
+    allowFullScreen
+  ></iframe>
 
 - Ring
 - LANs/MANs, Ethernet (Sachen verbunden mit switches und so)
 - Cluster (vollvermaschung, alles mit allem verbunden)
 - WANs (Internet, alles mit allem verbunden (aber nicht direkt))
 
-
 ## Switches and Hubs
+
 Hubs empfangen und verstärken das Signal und senden an **alle** Geräte weiter. Nur eine Station kann gleichzeitig senden.
 
-Switches empfangen und verstärken das Signal und senden an **die richtige** Station weiter. Mehrere Stationen können gleichzeitig senden. 
+Switches empfangen und verstärken das Signal und senden an **die richtige** Station weiter. Mehrere Stationen können gleichzeitig senden.
 Es lernt die Adressen der Stationen und Puffert für jeden Port (Somit trennt es die Domänen und verhindert Kollisionen)
 
 ## Polling
+
 Alle nachfolgenden Protokolle und Methoden sind dafür da um Kollisionen auf dem Medium (z.B. dem Kabel) zu verhindern.
 
 Polling entscheidet ein zentraler Verwalter wer senden darf. Bei Bloothooth ist das z.B. der Master, er gibt jedem Gerät ein Zeitslot. USB verwendet auch Polling
 
 ## Token Ring
-Stationen sind Punkt-zu-Punkt im Ring verbunden. Es gibt einen Token, wenn eine Station senden will, muss sie den Token haben. 
+
+Stationen sind Punkt-zu-Punkt im Ring verbunden. Es gibt einen Token, wenn eine Station senden will, muss sie den Token haben.
 Wenn sie den Token hat, darf sie senden. Wenn sie fertig ist, gibt sie den Token weiter. Wenn der Token wieder bei ihr ankommt, darf sie wieder senden.
 
-Nachrichten werden von allen im Ring empfangen und **immer** weitergeleitet [na gut bis auf dem Sender]. Wenn man der Empfänger ist muss man die empfangenden Nachrichten einfach kopieren und fertig 
+Nachrichten werden von allen im Ring empfangen und **immer** weitergeleitet [na gut bis auf dem Sender]. Wenn man der Empfänger ist muss man die empfangenden Nachrichten einfach kopieren und fertig
 
-<iframe src="https://giphy.com/embed/YcFOfbeTcHtVS" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+<iframe
+  src="https://giphy.com/embed/YcFOfbeTcHtVS"
+  width="480"
+  height="270"
+  frameBorder="0"
+  className="giphy-embed"
+  allowFullScreen
+></iframe>
 
-### Zeitverhalten 
-
+### Zeitverhalten
 
 ## ALOHA
 
 Jeder sendet wann er will. Empfänger schickt Bestätigung, bei korrekten Daten. Es gibt also viele Kollisionen, die behoben werden müssen.
 
 Deswegen liegt hier die analytische Effizienz bei 18%.
-<iframe src="https://giphy.com/embed/LZQsVAzgB6sE0" width="480" height="320" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+
+<iframe
+  src="https://giphy.com/embed/LZQsVAzgB6sE0"
+  width="480"
+  height="320"
+  frameBorder="0"
+  className="giphy-embed"
+  allowFullScreen
+></iframe>
 
 ## CSMA/CD
-Weil ALOHA so scheiße ist, wurde CSMA/CD (Carrier Sense Multiple Access mit Collision Detection) entwickelt. 
+
+Weil ALOHA so scheiße ist, wurde CSMA/CD (Carrier Sense Multiple Access mit Collision Detection) entwickelt.
 Hier wird vor dem Senden geprüft, ob die Leitung überhaupt frei ist.
-Dann hört man sich während des Sendens selber zu und prüft ob es Überlagerungen (Spannungsspitzen wenn 5V + 5V zusammentreffen) gibt. 
+Dann hört man sich während des Sendens selber zu und prüft ob es Überlagerungen (Spannungsspitzen wenn 5V + 5V zusammentreffen) gibt.
 Falls ja sendet man das Jamming signal, somit wissen alle das es zu einer Überlagerungen kam.
 
 Ethernet benutzt CSMA/CD
@@ -58,15 +85,21 @@ Ethernet benutzt CSMA/CD
 ## Aufgaben
 
 ### CSMA/CD
+
 x> CSMA/CD ist vermutlich das wichtigste. Hierbei kommt eigentlich immer die Frage ob es trotz CSMA/CD immernoch zu Kollisionen kommen kann.
 
 <Spoiler>
-  Ja, da wenn ich sende und die Leitung ist lang, braucht es länger bis das Signal bei dir ankommt. Somit hörst du in der Zwischenzeit (noch) nichts auf der Leitung und
-  sendest dann auch. Zum Glück höre ich und oder (du) die Überlagerung wegen dem CD nicht wahr?  Naja nicht ganz, 
-  wenn ich nur kurz sende höre ich es nicht, da ich mir nur während des Sendens zuhöre. Ich muss also mindestens doppelte Leitungszeit senden, damit ich die Überlagerung höre. (Falls die Kollision fast bei dir ist)
+  Ja, da wenn ich sende und die Leitung ist lang, braucht es länger bis das
+  Signal bei dir ankommt. Somit hörst du in der Zwischenzeit (noch) nichts auf
+  der Leitung und sendest dann auch. Zum Glück höre ich und oder (du) die
+  Überlagerung wegen dem CD nicht wahr? Naja nicht ganz, wenn ich nur kurz sende
+  höre ich es nicht, da ich mir nur während des Sendens zuhöre. Ich muss also
+  mindestens doppelte Leitungszeit senden, damit ich die Überlagerung höre.
+  (Falls die Kollision fast bei dir ist)
 </Spoiler>
 
 x> Gegeben sei ein Netzwerk mit CSMA/CD und einem Bus mit $50m$ Länge. Die Ausbreitungsgeschwindigkeit des Signals beträgt $2 \cdot 10^8m/s$. Dei Datenrate beträgt $1 GBit/s$.
+
 - Wie lange ist die maximale Zeit bis eine Kollision vom Sender erkannt wird.
 - Welche minimale Rahmenlänge ist im LAN erforderlich
 - Nun wird ein Switch hinzugefügt ändert dies was?
@@ -79,4 +112,5 @@ Die minimale Rahmenlänge ist somit nur die Datenrate mal die maximale Kollision
 $r_{max} = 1 GBit/s \cdot 5 \cdot 10^{-7}s = 10^9 Bit/s 5 \cdot 10^{-7}s = 500 Bit$
 
 Ein Switch ändert alles, da ein Switch pro Port cached. Es können also keine Kollisionen mehr stattfinden, da der Switch koordiniert. Es können also beliebige Rahmen gesendet werden
+
 </Spoiler>

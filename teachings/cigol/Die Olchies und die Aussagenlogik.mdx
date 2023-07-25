@@ -6,21 +6,25 @@ author: Jonas Schneider
 date: 29/06/2023
 tags: [Einführung, Logik, Aussagenlogik]
 ---
+
 # Es fängt so easy an und am Ende kommen Herbrand-Strukturen 😭
 
 ## Terminologie
+
 Zwei Dinge sind wichtig:
 
-| Wort | Bedeutung |
-|--------|-----|
-| Syntax | Formale Regeln für die Ausdrücke (Formeln). Es geht hier nicht um Inhalt oder Interpretationen. Bei uns Zeichenketten. |
-| Semantik | Wenn man die Formel Interpretiert ergibt sich daraus eine Semantik. Hier kommt also das was man eigentlich Ausdrücken möchte ins Spiel. |
-| Tautologie (Allgemeingültig) | Eine Formel die immer wahr ist. |
+| Wort                         | Bedeutung                                                                                                                               |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Syntax                       | Formale Regeln für die Ausdrücke (Formeln). Es geht hier nicht um Inhalt oder Interpretationen. Bei uns Zeichenketten.                  |
+| Semantik                     | Wenn man die Formel Interpretiert ergibt sich daraus eine Semantik. Hier kommt also das was man eigentlich Ausdrücken möchte ins Spiel. |
+| Tautologie (Allgemeingültig) | Eine Formel die immer wahr ist.                                                                                                         |
 
 ## Syntax der Aussagenlogik
+
 Noch sehr simple kennen alle.
 
 Grundlegende Symbole sind:
+
 - $\neg$ (Negation)
 - $\land$ (Und, Konjunktion) 2-Stellig
 - $\lor$ (Oder, Disjunktion) 2-Stellig
@@ -33,8 +37,8 @@ Nun kann man die eigentlich beliebig zusammen Würfeln. Bei den 2-Stelligen Junk
 ## Semantik der Aussagenlogik
 
 Das wichtigste in Malo sind vermutlich die Interpretationen meist mit $\mathfrak{I}$.
-Sie ist in der Aussagenlogik eine simple Funktion. Sie ordnet jeder Variable einen Wahrheitswert zu. 
+Sie ist in der Aussagenlogik eine simple Funktion. Sie ordnet jeder Variable einen Wahrheitswert zu.
 Also $\mathfrak{I}: \text{Var} \to \{0,1\}$.
 
 > Bsp. $\varphi = \lnot x_1 \lor x_2$.\
-  Sei $\mathfrak{I}$ Interpretation. $\mathfrak{I}(x_1) = 1$ und $\mathfrak{I}(x_2) = 1$.\
+>  Sei $\mathfrak{I}$ Interpretation. $\mathfrak{I}(x_1) = 1$ und $\mathfrak{I}(x_2) = 1$.\

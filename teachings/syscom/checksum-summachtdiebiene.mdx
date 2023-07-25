@@ -5,18 +5,21 @@ author: Jonas Schneider
 date: 01/02/2023
 order: 5
 ---
-## Checksums 
+
+## Checksums
+
 Aalso eine Checksum (auf Deutsch: Prüfsumme), ist ein Bit/eine Bitfolge, die man aus den gesendeten Daten berechnet.
 Der Sender berechnet also diese Summe, und hängt sie an die Daten dran (oder wo auch immer die im Protokoll jetzt gerade sein sollte).
 Wenn die Daten nun beim Empfänger ankommen, berechnet der Empfänger wieder diese Summe, und vergleicht sie mit dem, was der Sender berechnet hat.
 Wenn die Summe nicht die gleiche ist, ist offensichtlich was schiefgelaufen, denn aus den gleichen Daten sollte eigentlich die gleiche Summe rauskommen (hab ich in AfI gelernt, glaube ich).
-Dann ist also ein Bitfehler/Übertragungsfehler aufgetreten. 
+Dann ist also ein Bitfehler/Übertragungsfehler aufgetreten.
 
 Es gibt unterschiedliche Arten von Checksums, die alle ihre Vor- und Nachteile haben
 
 Fangen wir also mal einfach an:
 
 ## **Parität**
+
 Bei der Berechnung von Parität kann man ganz viele Bit zu einer Prüfsumme von einem einzigen Bit zusammenrechnen.
 Im Grunde zählt man nur die Anzahl an Einsen (Für die Profis: XOR).
 Es gibt zwei Arten, das Bit zu berechnen:
@@ -31,7 +34,7 @@ Es gibt zwei Arten, das Bit zu berechnen:
 
 So, jetzt haben wir die Basis.
 
-Nun kann man diese Paritätsbits von unterschiedlichen Bits berechnen. 
+Nun kann man diese Paritätsbits von unterschiedlichen Bits berechnen.
 Von welchen Bits genau wir die Parität berechnen, hängt davon ab, welche Art Parität wir nehmen.
 
 - Längs- oder Blockparität:
@@ -49,6 +52,7 @@ Von welchen Bits genau wir die Parität berechnen, hängt davon ab, welche Art P
 Soo jetzt wird es etwas anspruchsvoller
 
 ## **Hammingcode**
+
 Haben die meisten wahrscheinlich schon in DS gehört, aber versprochen, hier wird es nicht gaaanz so kompliziert
 
 Ein Hammingcode ist einfach eine Sammlung an (Code-)Wörtern. Wörter in diesem Fall sind Bitfolgen, die aus 0en und 1en bestehen.
@@ -75,7 +79,7 @@ War jetzt ein langer Satz, dafür hier ein Beispiel:
 
 1 2 3 4 5 6 7 8 9 (Stelle)
 
-_ _ 1 _ 0 1 1 _ 0 (Bits)
+\_ _ 1 _ 0 1 1 \_ 0 (Bits)
 
 Berechnen wir nun die Parität von Stelle 1:
 
@@ -84,9 +88,9 @@ Die Parität von 1010 ist, wie wir gelernt haben, 0. Also kommt an Stelle 1 eine
 
 1 2 3 4 5 6 7 8 9 (Stelle)
 
-**0** _ 1 _ 0 1 1 _ 0 (Bits)
+**0** _ 1 _ 0 1 1 \_ 0 (Bits)
 
-Nun machen wir dasselbe mit der Stelle 2. Die betroffenen Stellen sind 3 (2+1), 6 (4+2) und 7 (4+2+1). 
+Nun machen wir dasselbe mit der Stelle 2. Die betroffenen Stellen sind 3 (2+1), 6 (4+2) und 7 (4+2+1).
 Also Parität berechnen aus 111, was 1 ist. Also kommt an Stelle 2 eine 1.
 
 1 2 3 4 5 6 7 8 9 (Stelle)
@@ -107,7 +111,7 @@ Auf zu dem Thema, wo man rechnen muss :o
 
 ## **CRC (Cyclic Redundancy Check)**
 
-Hier geht es ganz viel um Polynomdivision. 
+Hier geht es ganz viel um Polynomdivision.
 
 Am Anfang einigen sich Sender und Empfänger auf ein Prüfpolynom in $$F_2$$ (also wo 1+1 = 0 und nur 0 und 1 vorkommen)
 
@@ -124,8 +128,8 @@ Der Empfänger teilt dann die Bitfolge wieder durch das Generatorpolynom. Wenn d
 ## Forward Error Correction
 
 Forward Error Correction sendet einfach so viele Daten mit, sodass man dann mit Bitweisem xor (oder) die Daten wiederherstellen kann.
-Hierfür sendet man 4 Pakete und kann dann einen davon wieder-hersetllen bei fehlern (Reihenfolge wegen XOR egal). 
+Hierfür sendet man 4 Pakete und kann dann einen davon wieder-hersetllen bei fehlern (Reihenfolge wegen XOR egal).
 
-## Aufgaben 
+## Aufgaben
 
 Für eine Beispielrechnung schaut ins Moodle :), oder fügt selber welche hier hinzu

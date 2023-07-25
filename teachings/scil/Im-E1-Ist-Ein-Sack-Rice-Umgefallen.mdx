@@ -11,14 +11,14 @@ tags: [Berechenbarkeit, Beweis, Satz von Rice]
 
 Zu verstehen was eine partielle Funktion ist, ist der erste wichtige Schritt den Satz von Rice anzuwenden. Also...
 
-> Eine partielle Funktion ist eine Funktion, die von einer Turingmaschine $M$ berechnet wird. ($f_M: \Sigma^* \to \Sigma^*$). Da $M$ nicht immer anhalten muss gilt: <br/>
-> $f_M(x) = \begin{cases} y &\text{, falls M bei Eingabe x mit Ausgabe y anhält} \\ \perp \text{(undefiniert)} &\text{, falls M bei Eingabe x nicht anhält} \end{cases}$
+> Eine partielle Funktion ist eine Funktion, die von einer Turingmaschine $M$ berechnet wird. ($f_M: \Sigma^* \to \Sigma^*$). Da $M$ nicht immer anhalten muss gilt: <br/> > $f_M(x) = \begin{cases} y &\text{, falls M bei Eingabe x mit Ausgabe y anhält} \\ \perp \text{(undefiniert)} &\text{, falls M bei Eingabe x nicht anhält} \end{cases}$
 
 ## Satz von Rice
 
 Der dolle Satz von Rice lautet wie folgt (ist wirklich wichtig):
 
 > Sei $\mathcal{R}$ die Menge der berechenbaren partiellen Funktionen und $\mathcal{S}$ eine Teilmenge von $\mathcal{R}$ mit $\emptyset \subsetneq \mathcal{S} \subsetneq \mathcal{R}$. Dann ist die Sprache
+>
 > <br/> $\begin{aligned} L(\mathcal{S}) = \{⟨M⟩ | M \text{ berechnet eine Funktion aus } \mathcal{S}\} \end{aligned}$ <br/> unentscheidbar.
 
 Oke also Aussagen über die Funktion, die eine Turingmaschine berechnet sind immer unentscheidbar.
@@ -29,10 +29,10 @@ Ihr müsst folgende Schritte beachten:
 
 - Stellt zunächst formal eure Sprache auf (also $L$).
 - Stellt dann eure Funktionsmenge $\mathcal{S}$ auf. (Hier müsst ihr darauf Achten, das es tatsächlich par. Funktion sind)
-  - Eigenschaften von Automaten wie $\{ \langle M \rangle \mid  M \text{ ist TM} \}$ sind keine Funktionen. 
+  - Eigenschaften von Automaten wie $\{ \langle M \rangle \mid  M \text{ ist TM} \}$ sind keine Funktionen.
 - Zeigen das $\emptyset \subsetneq \mathcal{S}$ ist.
-- Zeigen  das $\mathcal{S} \subsetneq \mathcal{R}$ ist.
+- Zeigen das $\mathcal{S} \subsetneq \mathcal{R}$ ist.
 - Von $L(S) = \{\langle M \rangle \mid M \text{ berechnet eine Funktion aus } \mathcal{S} \} = ... = L$ kommen.
 - Schreiben: Also ist $L$ nach dem Satz von Rice unentscheidbar.
 
-Fertig. Aber wie gesagt aufpassen wie in der Übung, ob es sich wirklich um die Funktion, die die TM berechnet handelt, oder um eine Eigenschaft der TM. 
+Fertig. Aber wie gesagt aufpassen wie in der Übung, ob es sich wirklich um die Funktion, die die TM berechnet handelt, oder um eine Eigenschaft der TM.
