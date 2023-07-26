@@ -67,6 +67,9 @@ dependencies:
   moment:
     specifier: ^2.29.4
     version: 2.29.4
+  natsort:
+    specifier: ^2.0.3
+    version: 2.0.3
   next:
     specifier: ^13.4.12
     version: 13.4.12(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)(sass@1.64.1)
@@ -12235,6 +12238,13 @@ packages:
     resolution:
       {
         integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==,
+      }
+    dev: false
+
+  /natsort@2.0.3:
+    resolution:
+      {
+        integrity: sha512-fuzhAiXcdNAIg2f5kqFOAABvX+uDoJvZs6DvCgioPf7FRAMHsw6G4kH7GFjSZ31yNFkNJuuOIilE8jl0JkavVQ==,
       }
     dev: false
 

@@ -44,6 +44,7 @@
     "mdx-embed": "^1.1.2",
     "mini-css-extract-plugin": "^2.7.6",
     "moment": "^2.29.4",
+    "natsort": "^2.0.3",
     "next": "^13.4.12",
     "next-axiom": "^0.16.0",
     "next-mdx-remote": "^4.4.1",

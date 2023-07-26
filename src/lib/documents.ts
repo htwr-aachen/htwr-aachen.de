@@ -1,4 +1,5 @@
 import { readdir } from "fs/promises";
+import natsort from "natsort";
 
 import { API_URL } from "@/utils/TeachingConfig";
 
@@ -35,7 +36,8 @@ const replacer = (file: string): string => {
     .replace("wdh", "Wiederholungsklausur")
     .replace("lsg", "mit Lösung")
     .replace("pro", "Probe")
-    .replaceAll("-", " ");
+    .replaceAll("-", " ")
+    .replaceAll("_", " ");
 
   switch (definition) {
     case "VL":
@@ -72,15 +74,8 @@ export async function getAllDocsFromDir(
       };
     });
 
-    if (sortByKlausurFormat) {
-      docs.sort((a, b) => {
-        return a.year > b.year ? -1 : 1;
-      });
-    } else {
-      docs.sort((a, b) => {
-        return a.name > b.name ? 1 : -1;
-      });
-    }
+    const sorter = natsort({ insensitive: true });
+    docs.sort((a, b) => sorter(a.name, b.name));
 
     return docs;
   } catch (err) {

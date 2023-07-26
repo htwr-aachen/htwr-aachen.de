@@ -31,7 +31,8 @@ export async function getStaticProps() {
       aufgaben: await getAllDocsFromDir(
         aufgabenPath,
         "/teaching-assets/wsi/aufgaben",
-        true
+        true,
+        false
       ),
       sonstiges: await getAllDocsFromDir(
         join(process.cwd(), "public", "teaching-assets", "wsi", "uebungen"),
