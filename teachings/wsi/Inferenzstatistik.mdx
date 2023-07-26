@@ -48,7 +48,7 @@ Es gilt: $E(\~{F}_n(x)) = P(X_i \le x) = F(x), Var(\~{F}_n(x)) = \frac{F(x)(1-F(
 Ist ein Schätzprinzip und sagt, dass die beste Schätzung diejenige ist, die die beobachteten Daten am wahrscheinlichsten macht.
 Hierfür gibt es mehrere Funktionen und vorallem **ein Schema**:
 
-**Likelihood-Fkt**: $L(\vartheta \mid x) = p_\vartheta (x)$
+**Likelihood-Fkt**: $L(\vartheta \mid x) = p_\vartheta (x)$ bzw. $L(\vartheta \mid x) = f_\vartheta (x)$
 **Log-Likelihood-Fkt**: $l(\vartheta \mid x) = \log(L(\vartheta \mid x))$
 **Max-Likelihood-Fkt**: $p_{\hat{\vartheta}}(x) \ge p_\vartheta(x) \forall \vartheta \in \Theta$
 
@@ -61,3 +61,14 @@ Bei Stichproben gilt: $L(\vartheta \mid x_1, ..., x_n) = \prod_{i=1}^n L(\varthe
 3. Kritische Punkte berechnen: $l'(\vartheta) = 0$, also Kandidaten für Extrema
 4. Zeigen, dass eins lokales Maximum ist, also $l''(\vartheta) < 0$.
 5. Zeigen das es ein globales Maximum ist. 
+
+Detaillierter:
+1. Wie immer beschreibt $\vartheta$ die Parameter einer Verteilung in A37 der glob zum Beispiel das $\alpha$ der Pareto Verteilung.
+   Bei einer diskreten Stichprobe ist der $L(p_\vartheta(x)$ natürlich die Zähldichte von $x$ (wie man bestimmt schon immer erkannt hat. Gibt ja so wenige $p$).
+   Analog ist $L(\vartheta \mid x) = f_\vartheta (x)$ bei stetigen Stichproben die Dichtefunktion von $x$.
+
+    Der Unterschied zwischen Likelihood und Dichtefunktion ist nur der Parameter. Bei der Dichtefunktion ist er als Parameter gegeben, bei der Likelihood-Fkt ist er die Variable, die wir verändern/optimieren wollen.
+    Bei Max-Likelihood suchen wir also bei einer gegeben Verteilung die Parameter der Verteilung, die die Daten die wir gesehen haben am wahrscheinlichsten machen.
+
+2. Log-Likelihood-Fkt einfach nur $l(\vartheta) = \log(L(\vartheta \mid x_1, ..., x_n))$ anwenden und vereinfachen.
+3. Alles andere Kurvendiskussion.
