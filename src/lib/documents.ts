@@ -59,7 +59,6 @@ const replacer = (file: string): string => {
 export async function getAllDocsFromDir(
   dir: string,
   urlPrefix: string,
-  sortByKlausurFormat: boolean,
   replaceWords = true
 ): Promise<Document[]> {
   try {

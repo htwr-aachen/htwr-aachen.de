@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const folien = getAllDocsFromDir(
     join(process.cwd(), "public", "teaching-assets", "wsi", "folien"),
     "/teaching-assets/wsi/folien",
-    false
+    true
   );
 
   const docs = getAllTeachings(TeachingsDirectory);
