@@ -2,7 +2,7 @@
 title: Inferenzstatistik
 description: KP
 author: Jonas Schneider
-date: 19/07/2023
+date: 26/07/2023
 order: 7
 tags: [Inferenzstatistik, Statistik, Likelihood]
 ---
@@ -46,4 +46,18 @@ Es gilt: $E(\~{F}_n(x)) = P(X_i \le x) = F(x), Var(\~{F}_n(x)) = \frac{F(x)(1-F(
 ### Likelihood-Prinzip und Funktionen
 
 Ist ein Schätzprinzip und sagt, dass die beste Schätzung diejenige ist, die die beobachteten Daten am wahrscheinlichsten macht.
-Hierfür gibt es mehrere Funktionen und Dichten, aber ich würde das weglassen
+Hierfür gibt es mehrere Funktionen und vorallem **ein Schema**:
+
+**Likelihood-Fkt**: $L(\vartheta \mid x) = p_\vartheta (x)$
+**Log-Likelihood-Fkt**: $l(\vartheta \mid x) = \log(L(\vartheta \mid x))$
+**Max-Likelihood-Fkt**: $p_{\hat{\vartheta}}(x) \ge p_\vartheta(x) \forall \vartheta \in \Theta$
+
+Bei Stichproben gilt: $L(\vartheta \mid x_1, ..., x_n) = \prod_{i=1}^n L(\vartheta \mid x_i)$
+
+## Maximum Likelihood Schätzer Schema
+
+1. Likelihood-Funktion aufstellen $L(\vartheta \mid X_1, ..., X_n)$ bei gegebenen Daten (genannt Realisationen) $x_1, ..., x_n$
+2. Log-Likelihood-Fkt aufstellen $l(\vartheta) = \log(L(\vartheta \mid x_1, ..., x_n))$
+3. Kritische Punkte berechnen: $l'(\vartheta) = 0$, also Kandidaten für Extrema
+4. Zeigen, dass eins lokales Maximum ist, also $l''(\vartheta) < 0$.
+5. Zeigen das es ein globales Maximum ist. 
