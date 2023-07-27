@@ -3,6 +3,8 @@ import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
+import type { Roomconfig } from "@/components/Roomfinder";
+import { Roomfinder } from "@/components/Roomfinder";
 import { HeadLine } from "@/components/rwth/headline";
 import { TeachingList } from "@/components/TeachingList";
 import { WSIConfig } from "@/layouts/configs";
@@ -41,6 +43,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+const WSIRoomConfig: Roomconfig[] = [
+  { minNum: 303417, name: "RWTH ZuseLab C1/C2 (2315|107)" },
+  { minNum: 422287, name: "RWTH ZuseLab C3 (2315|211)" },
+  { minNum: 433913, name: "Couven-Halle (1072|001)" },
+  { minNum: 434419, name: "Sparkassenforum (1040|U234)" },
+];
+
 const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
   return (
     <Main
@@ -55,6 +64,10 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
     >
       <div className="px-3">
         <HeadLine title="Vorlesungsmaterialien" />
+
+        <div>
+          <Roomfinder config={WSIRoomConfig} text="STOCHA 1. Termin " />
+        </div>
 
         <div className="grid grid-flow-row-dense grid-rows-[auto_auto_auto] lg:grid-cols-[1fr_250px] lg:grid-rows-[auto_auto]">
           <div className="">
@@ -205,6 +218,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
             </ul>
           </div>
           <MaterialienSchnellzugriff />
+          di
         </div>
       </div>
     </Main>
