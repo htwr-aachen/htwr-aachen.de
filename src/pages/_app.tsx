@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import AppMain from "@/layouts/AppMain";
+import { PushNotifyProvider } from "@/layouts/SharedPushNotify";
 
 export { reportWebVitals } from "next-axiom";
 
@@ -52,9 +53,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <div className={`${siteClass} ${inter.className} ${roboto.className}`}>
         <div className="bg"></div>
-        <AppMain>
-          <Component {...pageProps} />
-        </AppMain>
+        <PushNotifyProvider>
+          <AppMain>
+            <Component {...pageProps} />
+          </AppMain>
+        </PushNotifyProvider>
         <Analytics />
       </div>
     </>

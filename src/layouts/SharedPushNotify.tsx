@@ -1,11 +1,30 @@
+"use client";
+
 import Link from "next/link";
-import { useState } from "react";
+import type { ReactNode } from "react";
+import { createContext, useContext, useState } from "react";
+
+const PushNotifyContext = createContext({
+  show: true,
+  setShow: (_: boolean) => {},
+});
+
+export const PushNotifyProvider = ({ children }: { children: ReactNode }) => {
+  const [show, setShow] = useState(true);
+  return (
+    <PushNotifyContext.Provider value={{ show, setShow }}>
+      {children}
+    </PushNotifyContext.Provider>
+  );
+};
 
 const SharedPushNotify = () => {
-  const [show, setShow] = useState(true);
+  const { show, setShow } = useContext(PushNotifyContext);
+
   if (!show) {
     return null;
   }
+
   return (
     <div className="relative flex h-12 items-center justify-center bg-rwth-warn">
       <p className="text-lg font-medium">
