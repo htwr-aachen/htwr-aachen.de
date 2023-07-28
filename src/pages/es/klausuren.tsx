@@ -3,7 +3,7 @@ import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
 import { getProtectedDownloads } from "@/lib/documents";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 
 type KlausurenProps = {
   klausuren: string[];

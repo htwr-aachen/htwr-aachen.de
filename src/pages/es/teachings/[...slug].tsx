@@ -12,8 +12,8 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/templates/es/Main";
-import TeachingsLayout from "@/templates/es/TeachingsLayout";
+import { Main } from "@/layouts/es/Main";
+import TeachingsLayout from "@/layouts/es/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
 

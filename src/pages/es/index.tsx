@@ -4,7 +4,7 @@ import type { FC } from "react";
 import type { Roomconfig } from "@/components/Roomfinder";
 import { Roomfinder } from "@/components/Roomfinder";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 
 export const SWTRaumconfig: Roomconfig[] = [
   { name: "CARL H01", minNum: 0 },

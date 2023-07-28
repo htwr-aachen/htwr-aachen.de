@@ -190,7 +190,7 @@ const Main = (props: CIGOLMainProps) => {
           <div className="content bg-transparent">{props.children}</div>
         </div>
       </div>
-      <InstituteSwitches links={props.instituteLinks || []} />
+      <InstituteSwitches institute={props.institute} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 
 const NichtsPage: FC = () => {
   return (

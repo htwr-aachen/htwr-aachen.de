@@ -7,7 +7,7 @@ import { TeachingList } from "@/components/TeachingList";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 import { SWTRaumconfig } from "..";

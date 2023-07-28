@@ -7,7 +7,7 @@ import { useState } from "react";
 import type { LayoutProps, NavbarConfig } from "../../models/layout";
 import SharedPushNotify from "../SharedPushNotify";
 import Footer from "./Footer";
-import { DefaultNavbar } from "./instituteConfig";
+import { DefaultNavbar, institutes } from "./instituteConfig";
 import Navbar from "./Navbar";
 
 type RWTHProps = {
@@ -83,7 +83,7 @@ const Main = (props: MainProps) => {
             </div>
           </div>
         </div>
-        <Footer instituteLinks={props.instituteLinks || []} />
+        <Footer instituteLinks={props.instituteLinks || []} institute={props.institute} />
       </div>
     </div>
   );

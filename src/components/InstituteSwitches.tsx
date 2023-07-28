@@ -1,13 +1,20 @@
 import Link from "next/link";
-import type { FC } from "react";
+import { useMemo, type FC } from "react";
 
-import type { InstituteLink } from "@/models/layout";
+import { getInstituteConfig, getPrevInstitute } from "@/lib/institutes";
+import { Institutes } from "@/models/institutes";
 
 type InstituteSwitchesProps = {
-  links: InstituteLink[];
+  institute: Institutes;
+  links?: {
+    name: string;
+    url: string;
+  }[];
 };
 
-type InstituteSwitchProps = InstituteLink & {
+type InstituteSwitchProps = {
+  name: string;
+  url: string;
   right?: boolean;
 };
 
@@ -30,16 +37,36 @@ const InstituteSwitch: FC<InstituteSwitchProps> = ({ url, name, right }) => {
 
 export { InstituteSwitch };
 
-const InstituteSwitches: FC<InstituteSwitchesProps> = ({ links }) => {
+const InstituteSwitches: FC<InstituteSwitchesProps> = ({ links, institute }) => {
+
+  const processedLinks = useMemo(() => {
+    if(links) {
+      return links
+    }
+
+    if (!institute || institute >= Institutes.__LENGTH) {
+      institute = Institutes.HTWR
+    }
+
+    const next = getPrevInstitute(institute);
+    const prev = getPrevInstitute(next);
+    links = [
+      { name: getInstituteConfig(prev).name, url: getInstituteConfig(prev).href },
+      { name: getInstituteConfig(next).name, url: getInstituteConfig(next).href },
+    ]
+
+    return links
+  }, [institute, links])
+
   return (
     <div className="pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
-      {links && links[0] && links[0].url ? (
-        <InstituteSwitch {...links[0]} right={false} />
+      {processedLinks && processedLinks[0] && processedLinks[0].url ? (
+        <InstituteSwitch {...processedLinks[0]} right={false} />
       ) : (
         <></>
       )}
-      {links && links[1] && links[1].url ? (
-        <InstituteSwitch {...links[1]} right={true} />
+      {processedLinks && processedLinks[1] && processedLinks[1].url ? (
+        <InstituteSwitch {...processedLinks[1]} right={true} />
       ) : (
         <></>
       )}

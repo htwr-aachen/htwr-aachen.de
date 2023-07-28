@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 
 const Einsicht: FC = () => {
   return (

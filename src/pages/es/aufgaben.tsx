@@ -4,7 +4,7 @@ import type { FC } from "react";
 
 import { Meta } from "@/layouts/Meta";
 import { getAllDocsFromDir } from "@/lib/documents";
-import { Main } from "@/templates/es/Main";
+import { Main } from "@/layouts/es/Main";
 
 const aufgabenPath = join(
   process.cwd(),
