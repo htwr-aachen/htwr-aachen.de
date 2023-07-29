@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
+import { Main } from "@/layouts/syscom/Main";
 
 const Index = () => {
   return (

@@ -1,5 +1,5 @@
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
+import { Main } from "@/layouts/syscom/Main";
 
 const Team = () => {
   return (

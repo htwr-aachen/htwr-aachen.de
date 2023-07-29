@@ -7,7 +7,7 @@ import { Meta } from "@/layouts/Meta";
 import { getProtectedDownloads } from "@/lib/documents";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/templates/syscom/Main";
+import { Main } from "@/layouts/syscom/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 type Document = {

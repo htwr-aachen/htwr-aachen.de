@@ -12,8 +12,8 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/templates/syscom/Main";
-import TeachingsLayout from "@/templates/syscom/TeachingsLayout";
+import { Main } from "@/layouts/syscom/Main";
+import TeachingsLayout from "@/layouts/syscom/TeachingsLayout";
 
 import { TeachingsDirectory } from "../teaching";
 

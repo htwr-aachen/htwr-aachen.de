@@ -1,20 +1,26 @@
+"use client"
 import Link from "next/link";
 import { FakultätsNavMobile } from "../rwth/FakultätsNav";
 import Navlink from "./Navlink";
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 
 type ESNavbarProps = {
   fakultätsNavOpen: boolean;
-  navOpen: boolean;
   setFakultätsNavOpen: Dispatch<SetStateAction<boolean>>;
-  setNavOpen: Dispatch<SetStateAction<boolean>>;
-  dropdownActive: number;
-  dropdownCallback: (dropdownNumer: number) => void;
 }
 
 export default function ESNavbar(props: ESNavbarProps) {
+
+  const [navOpen, setNavOpen] = useState(false);
+  const [dropdownActive, setDropdownActive] = useState(-1);
+
+  const dropdownCallback = (dropdownNumer: number) => {
+    if (dropdownActive === dropdownNumer) setDropdownActive(-1);
+    else setDropdownActive(dropdownNumer);
+  };
+
   return (<nav
     id="navbar"
     className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
@@ -25,7 +31,7 @@ export default function ESNavbar(props: ESNavbarProps) {
         className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
         onClick={() => {
           props.setFakultätsNavOpen((x) => !x);
-          props.setNavOpen(true);
+          setNavOpen(true);
         }}
       >
         Fakultäten & Institute
@@ -45,10 +51,10 @@ export default function ESNavbar(props: ESNavbarProps) {
       type="button"
       className="mr-5 lg:hidden"
       onClick={() => {
-        props.setNavOpen((x) => !x);
+        setNavOpen((x) => !x);
       }}
     >
-      {!props.navOpen ? (
+      {!navOpen ? (
         <Image
           src={"/assets/menu.svg"}
           height={32}
@@ -67,7 +73,7 @@ export default function ESNavbar(props: ESNavbarProps) {
     <div className="col-span-2 mr-2 flex justify-center justify-self-end lg:col-span-1 lg:mr-auto lg:block lg:justify-start">
       <ul
         className={`flex-col lg:flex lg:flex-row ${
-          props.navOpen ? "flex" : "hidden"
+          navOpen ? "flex" : "hidden"
         }`}
       >
         <FakultätsNavMobile
@@ -77,23 +83,23 @@ export default function ESNavbar(props: ESNavbarProps) {
         <Navlink
           display={{ name: "Essays", href: "/es/eassys" }}
           links={[{ name: "Nichts", href: "/es/nichts" }]}
-          isDroped={props.dropdownActive === 1}
+          isDroped={dropdownActive === 1}
           dropdownNumer={1}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
         <Navlink
           display={{ name: "Research", href: "/es" }}
           links={[{ name: "Nichts", href: "/es/nichts" }]}
-          isDroped={props.dropdownActive === 2}
+          isDroped={dropdownActive === 2}
           dropdownNumer={2}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
         <Navlink
           display={{ name: "Publications", href: "/es" }}
           links={[{ name: "Nichts", href: "/es/nichts" }]}
-          isDroped={props.dropdownActive === 3}
+          isDroped={dropdownActive === 3}
           dropdownNumer={3}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
         <Navlink
           display={{ name: "Teaching", href: "/es" }}
@@ -102,16 +108,16 @@ export default function ESNavbar(props: ESNavbarProps) {
             { name: "Aufgaben", href: "/es/aufgaben" },
             { name: "Teachings", href: "/es/teachings" },
           ]}
-          isDroped={props.dropdownActive === 4}
+          isDroped={dropdownActive === 4}
           dropdownNumer={4}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
         <Navlink
           display={{ name: "Projects", href: "/es" }}
           links={[{ name: "Nichts", href: "/es/nichts" }]}
-          isDroped={props.dropdownActive === 5}
+          isDroped={dropdownActive === 5}
           dropdownNumer={5}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
         <Navlink display={{ name: "Jobs", href: "/jobs" }} />
         <Navlink
@@ -120,9 +126,9 @@ export default function ESNavbar(props: ESNavbarProps) {
             { name: "About us", href: "/about" },
             { name: "Contact", href: "/contact" },
           ]}
-          isDroped={props.dropdownActive === 6}
+          isDroped={dropdownActive === 6}
           dropdownNumer={6}
-          dropdownCallback={props.dropdownCallback}
+          dropdownCallback={dropdownCallback}
         />
       </ul>
     </div>

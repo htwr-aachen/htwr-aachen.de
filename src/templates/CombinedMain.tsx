@@ -7,7 +7,7 @@ import {
 import { Main as HTWRMain } from "@/layouts/rwth/Main";
 import { SubStyling } from "@/lib/style";
 import { Main as ESMain } from "@/layouts/es/Main";
-import { Main as SyscomMain } from "@/templates/syscom/Main";
+import { Main as SyscomMain } from "@/layouts/syscom/Main";
 
 type IMainProps = {
   meta: ReactNode;
