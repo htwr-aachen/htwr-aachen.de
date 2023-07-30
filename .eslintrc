@@ -34,6 +34,7 @@
         "project": "./tsconfig.json"
       },
       "rules": {
+        "no-underscore-dangle": "off",
         "no-plusplus": "off", // Allow using ++ and --
         "no-continue": "off", // Allow using continue
         "no-param-reassign": "off", // Allow mutating function parameters

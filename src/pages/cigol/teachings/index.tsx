@@ -3,7 +3,7 @@ import { join } from "path";
 import type { FC } from "react";
 
 import { TeachingList } from "@/components/TeachingList";
-import { Main } from "@/layouts/cigol/Main";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
@@ -28,13 +28,13 @@ export const getStaticProps: GetStaticProps = async () => {
 const Teachings: FC<TeachingsProps> = ({ docs }) => {
   return (
     <Main
+      institute="cigol"
       meta={
         <Meta
           title="CIGOL@HTWR-Teachings"
           description="Es ex. eine Sammlung für alle Malo/(Mathematische Logik) Sachen, aber die hier ist es bestimmt nicht"
         ></Meta>
       }
-      instituteName={"cigol"}
     >
       <h1 className="font-sans text-4xl font-light" id="aufgaben">
         Vorlesungsfolien / Script

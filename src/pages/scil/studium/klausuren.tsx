@@ -2,9 +2,8 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 import { getProtectedDownloads } from "@/lib/documents";
 
 import { MaterialienSchnellzugriff } from "../studium";
@@ -24,14 +23,13 @@ export async function getStaticProps() {
 const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
   return (
     <Main
+      institute="scil"
       meta={
         <Meta
           title="SCIL@HTWR-Klausuren"
           description="Klausurensammlung ist vielleicht bissle copyright technisch schwierig, aber für buk lohnt es sich... naja"
         ></Meta>
       }
-      {...SCILConfig}
-      navbarConfig={SCILNavbarConfig}
     >
       <div className="px-2">
         <HeadLine title="Klausuren" />

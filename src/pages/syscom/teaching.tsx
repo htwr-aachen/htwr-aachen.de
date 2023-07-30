@@ -3,11 +3,11 @@ import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import { getProtectedDownloads } from "@/lib/documents";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/layouts/syscom/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 type Document = {
@@ -62,6 +62,7 @@ type TeachingProps = {
 const Teaching: FC<TeachingProps> = ({ docs, klausuren, aufgaben }) => {
   return (
     <Main
+      institute="syscom"
       meta={
         <Meta
           title="SysCom Teachings"

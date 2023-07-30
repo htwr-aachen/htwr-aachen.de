@@ -1,4 +1,4 @@
-import { Institute } from "@/models/institutes";
+import type { Institute } from "@/models/institutes";
 
 export const InstituteConfig: Institute[] = [
   {
@@ -14,61 +14,61 @@ export const InstituteConfig: Institute[] = [
   {
     name: "SYSCOM",
     href: "/syscom",
-    icon: "/assets/rwth/syscom_icon.svg",
-    banner: "/assets/rwth/syscom_banner.png",
+    icon: "/assets/syscom/syscom_icon.svg",
+    banner: "/assets/syscom/syscom_banner.png",
     description: "Communication & Distributed Systems",
     fullName: "Communication & Distributed Systems",
     professor: "Wehrle",
-    subject: "DATCOM"
+    subject: "DATCOM",
   },
   {
     name: "ES",
     href: "/es",
-    icon: "es_icon.svg",
-    banner: "es.png",
+    icon: "/assets/es/es_icon.svg",
+    banner: "/assets/es/es.png",
     description: "Embedded Software",
     fullName: "Embedded Software",
     professor: "Rumpe",
-    subject: "SWT"
+    subject: "SWT",
   },
   {
     name: "SCIL",
     href: "/scil",
-    icon: "scil_icon.svg",
-    banner: "scil.svg",
+    icon: "/assets/scil/scil_icon.svg",
+    banner: "/assets/scil/scil.svg",
     description: "Theorie und Logik Systeme diskreter",
     fullName: "Theorie und Logik Systeme diskreter",
     professor: "Grohe",
-    subject: "BUK"
+    subject: "BUK",
   },
   {
     name: "WSI",
     href: "/wsi",
-    icon: "favicon.png",
-    banner: "wsi.png",
+    icon: "/assets/wsi/favicon.png",
+    banner: "/assets/wsi/wsi.png",
     description: "Wirtschafts-Statistik und mathematik",
     fullName: "Wirtschafts-Statistik und mathematik",
     professor: "Steland",
-    subject: "STOCHA"
+    subject: "STOCHA",
   },
   {
     name: "ISBD",
     href: "/isbd",
-    icon: "isbd_icon.svg",
-    banner: "isbd.png",
+    icon: "/assets/isbd/isbd_logo.png",
+    banner: "/assets/isbd/isbd.png",
     description: "Information und Datenbankensysteme",
     fullName: "Information und Datenbankensysteme",
     professor: "Decker",
-    subject: "DBIS"
+    subject: "DBIS",
   },
   {
     name: "CIGOL",
     href: "/cigol",
-    icon: "cigol_icon.svg",
-    banner: "logo.svg",
+    icon: "/assets/cigol/cigol_icon.svg",
+    banner: "/assets/cigol/logo.svg",
     description: "Informationsche Grundlagen der Mathematik",
     fullName: "Informationsche Grundlagen der Mathematik",
     professor: "Grädel",
-    subject: "MALO"
-  }
-]
+    subject: "MALO",
+  },
+];

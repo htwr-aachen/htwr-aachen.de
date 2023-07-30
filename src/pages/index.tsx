@@ -10,8 +10,9 @@ import {
   GalleryItem,
   GalleryLabel,
 } from "@/components/rwth/gallery";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
+import { getRealInstitutes } from "@/lib/institutes";
 
 type PersonaElementProps = {
   children: ReactNode;
@@ -50,8 +51,7 @@ const Index: FC = () => {
           description="HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... "
         ></Meta>
       }
-      instituteName="MAIN"
-      instituteTitle=""
+      institute="htwr"
       pad
     >
       <Gallery>
@@ -92,56 +92,20 @@ const Index: FC = () => {
       </Gallery>
       <div>
         <Persona>
-          <PersonaElement href="/scil">
-            <Image
-              className="relative mx-auto mb-2 h-[32px] w-[32px]"
-              src={"/assets/scil/scil_icon.svg"}
-              alt={""}
-              width={32}
-              height={32}
-            ></Image>
-            SCIL / BuK
-          </PersonaElement>
-          <PersonaElement href="/es">
-            <Image
-              className="relative mx-auto mb-2 h-[32px] w-[32px]"
-              src={"/assets/es/es_icon.svg"}
-              alt={""}
-              width={32}
-              height={32}
-            ></Image>
-            ES / SWT
-          </PersonaElement>
-          <PersonaElement href="/syscom">
-            <Image
-              className="relative mx-auto mb-2 h-[32px] w-[32px]"
-              src={"/assets/syscom/syscom_icon.svg"}
-              alt={""}
-              width={32}
-              height={32}
-            ></Image>
-            SysCom / DatKom
-          </PersonaElement>
-          <PersonaElement href="/cigol">
-            <Image
-              className="relative mx-auto mb-2 h-[32px] w-[32px]"
-              src={"/assets/cigol/cigol_icon.svg"}
-              alt={""}
-              width={32}
-              height={32}
-            ></Image>
-            CIGOL / MaLo
-          </PersonaElement>
-          <PersonaElement href="/wsi">
-            <Image
-              className="relative mx-auto mb-2 h-[32px] w-[32px] brightness-0"
-              src={"/assets/wsi/favicon.png"}
-              alt={""}
-              width={32}
-              height={32}
-            ></Image>
-            WSI / Stocha
-          </PersonaElement>
+          {getRealInstitutes().map((institute) => {
+            return (
+              <PersonaElement href={institute.href} key={institute.name}>
+                <Image
+                  className="relative mx-auto mb-2 h-[32px] w-[32px] brightness-0"
+                  src={institute.icon || "/assets/scil/scil_icon.svg"}
+                  alt={institute.fullName}
+                  width={32}
+                  height={32}
+                />
+                {institute.name} / {institute.subject}
+              </PersonaElement>
+            );
+          })}
         </Persona>
       </div>
     </Main>

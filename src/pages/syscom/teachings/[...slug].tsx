@@ -4,7 +4,9 @@ import type { FC } from "react";
 
 import ISOOSI from "@/components/isoosi";
 import Spoiler from "@/components/spoiler";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
+import TeachingsLayout from "@/layouts/syscom/TeachingsLayout";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
   getAllTeachings,
@@ -12,8 +14,6 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/layouts/syscom/Main";
-import TeachingsLayout from "@/layouts/syscom/TeachingsLayout";
 
 import { TeachingsDirectory } from "../teaching";
 
@@ -31,6 +31,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
   return (
     <Main
       meta={<Meta title={doc.meta.title} description={doc.meta.description} />}
+      institute="syscom"
     >
       <TeachingsLayout
         meta={{ slug: doc.slug, meta: doc.meta }}

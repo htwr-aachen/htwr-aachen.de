@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import { MenuButton } from "./MenuButton";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
+
 import { useIsActive } from "@/hooks/layout";
+
+import { MenuButton } from "./MenuButton";
 
 type SYSCOMNavbarProps = {
   setFakultätsNavOpen: Dispatch<SetStateAction<boolean>>;
@@ -12,7 +14,7 @@ type SYSCOMNavbarProps = {
 export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
   const router = useRouter();
   const isActive = useIsActive("syscom");
-  
+
   return (
     <div>
       <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] mt-3 h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">

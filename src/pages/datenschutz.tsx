@@ -1,26 +1,12 @@
-import type { GetServerSideProps } from "next";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { SubStyling } from "@/lib/style";
-import CombinedMain from "@/templates/CombinedMain";
 
-type DatenschutzProps = {
-  styling: SubStyling;
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return {
-    props: {
-      styling: (query.institute as SubStyling) || SubStyling.None,
-    },
-  };
-};
-
-const Datenschutz: FC<DatenschutzProps> = ({ styling }) => {
+const Datenschutz: FC = () => {
   return (
-    <CombinedMain
-      styling={styling}
+    <Main
+      institute="htwr"
       meta={
         <Meta
           title="Wehe einer schickt mir nen Brief - Datenschutz"
@@ -416,7 +402,7 @@ const Datenschutz: FC<DatenschutzProps> = ({ styling }) => {
           mitgelesen werden.
         </p>
       </div>
-    </CombinedMain>
+    </Main>
   );
 };
 

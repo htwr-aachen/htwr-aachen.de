@@ -4,8 +4,8 @@ import type { FC } from "react";
 
 import RumpeQuiz from "@/components/RumpeQuiz";
 import Spoiler from "@/components/spoiler";
-import { Main } from "@/layouts/cigol/Main";
 import TeachingsLayout from "@/layouts/cigol/TeachingsLayout";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
@@ -30,13 +30,13 @@ type TeachingProps = {
 const Teaching: FC<TeachingProps> = ({ doc, context }) => {
   return (
     <Main
+      institute="cigol"
       meta={
         <Meta
           title={`CIGOL@HTWR-${doc?.meta?.title}`}
           description={doc?.meta?.description}
         ></Meta>
       }
-      instituteName={"cigol"}
     >
       <TeachingsLayout
         meta={{ slug: doc?.slug, meta: doc?.meta }}

@@ -4,6 +4,8 @@ import type { FC } from "react";
 
 import RumpeQuiz from "@/components/RumpeQuiz";
 import Spoiler from "@/components/spoiler";
+import TeachingsLayout from "@/layouts/es/TeachingsLayout";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
@@ -12,8 +14,6 @@ import {
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
 } from "@/lib/teachings";
-import { Main } from "@/layouts/es/Main";
-import TeachingsLayout from "@/layouts/es/TeachingsLayout";
 
 import { TeachingsDirectory } from "./index";
 
@@ -36,6 +36,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
           description={doc?.meta?.description}
         ></Meta>
       }
+      institute="es"
     >
       <TeachingsLayout
         meta={{ slug: doc?.slug, meta: doc?.meta }}

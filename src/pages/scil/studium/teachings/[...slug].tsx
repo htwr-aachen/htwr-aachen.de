@@ -4,9 +4,8 @@ import type { FC } from "react";
 
 import RumpeQuiz from "@/components/RumpeQuiz";
 import Spoiler from "@/components/spoiler";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 import TeachingsLayout from "@/layouts/rwth/TeachingsLayout";
 import type { Teaching as TeachingType } from "@/lib/teachings";
 import {
@@ -44,8 +43,7 @@ const Teaching: FC<TeachingProps> = ({ doc, context }) => {
           description={doc?.meta?.description}
         ></Meta>
       }
-      {...SCILConfig}
-      navbarConfig={SCILNavbarConfig}
+      institute="scil"
     >
       <TeachingsLayout
         meta={{ slug: doc?.slug, meta: doc?.meta }}

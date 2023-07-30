@@ -6,11 +6,19 @@ export enum Institutes {
   WSI,
   ISBD,
   CIGOL,
-  __LENGTH
+  __LENGTH,
 }
 
+export type StringInstitutes =
+  | "htwr"
+  | "syscom"
+  | "es"
+  | "scil"
+  | "wsi"
+  | "isbd"
+  | "cigol";
 
-export const InstitutesMap =  {
+export const InstitutesMap = {
   HTWR: 0,
   SYSCOM: 1,
   ES: 2,
@@ -18,7 +26,7 @@ export const InstitutesMap =  {
   WSI: 4,
   ISBD: 5,
   CIGOL: 6,
-}
+};
 export const INSTITUTES_LENGTH = Object.keys(InstitutesMap).length;
 
 export type Institute = {
@@ -31,4 +39,3 @@ export type Institute = {
   banner?: string;
   description?: string;
 };
-

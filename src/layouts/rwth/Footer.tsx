@@ -2,15 +2,13 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
-import type { InstituteLink } from "@/models/layout";
-import { Institutes } from "@/utils/InstituteConfig";
+import type { Institutes } from "@/models/institutes";
 
 type FooterProps = {
-  instituteLinks: InstituteLink[];
   institute: Institutes;
 };
 
-const Footer: FC<FooterProps> = ({ instituteLinks, institute }) => {
+const Footer: FC<FooterProps> = ({ institute }) => {
   return (
     <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
       <InstituteSwitches institute={institute} />

@@ -1,7 +1,11 @@
 import Link from "next/link";
-import { useMemo, type FC } from "react";
+import { type FC, useMemo } from "react";
 
-import { getInstituteConfig, getPrevInstitute } from "@/lib/institutes";
+import {
+  getInstituteConfig,
+  getNextInstitute,
+  getPrevInstitute,
+} from "@/lib/institutes";
 import { Institutes } from "@/models/institutes";
 
 type InstituteSwitchesProps = {
@@ -37,38 +41,46 @@ const InstituteSwitch: FC<InstituteSwitchProps> = ({ url, name, right }) => {
 
 export { InstituteSwitch };
 
-const InstituteSwitches: FC<InstituteSwitchesProps> = ({ links, institute }) => {
-
+const InstituteSwitches: FC<InstituteSwitchesProps> = ({
+  links,
+  institute,
+}) => {
   const processedLinks = useMemo(() => {
-    if(links) {
-      return links
+    if (links) {
+      return links;
     }
 
     if (!institute || institute >= Institutes.__LENGTH) {
-      institute = Institutes.HTWR
+      institute = Institutes.HTWR;
     }
 
-    const next = getPrevInstitute(institute);
-    const prev = getPrevInstitute(next);
-    links = [
-      { name: getInstituteConfig(prev).name, url: getInstituteConfig(prev).href },
-      { name: getInstituteConfig(next).name, url: getInstituteConfig(next).href },
-    ]
+    if (institute === Institutes.HTWR) {
+      return [];
+    }
 
-    return links
-  }, [institute, links])
+    const prev = getPrevInstitute(institute);
+    const next = getNextInstitute(institute);
+    links = [
+      {
+        name: getInstituteConfig(prev).name,
+        url: getInstituteConfig(prev).href,
+      },
+      {
+        name: getInstituteConfig(next).name,
+        url: getInstituteConfig(next).href,
+      },
+    ];
+
+    return links;
+  }, [institute, links]);
 
   return (
     <div className="pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
-      {processedLinks && processedLinks[0] && processedLinks[0].url ? (
+      {processedLinks && processedLinks[0] && processedLinks[0].url && (
         <InstituteSwitch {...processedLinks[0]} right={false} />
-      ) : (
-        <></>
       )}
-      {processedLinks && processedLinks[1] && processedLinks[1].url ? (
+      {processedLinks && processedLinks[1] && processedLinks[1].url && (
         <InstituteSwitch {...processedLinks[1]} right={true} />
-      ) : (
-        <></>
       )}
     </div>
   );

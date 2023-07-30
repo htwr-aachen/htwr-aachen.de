@@ -7,9 +7,8 @@ import type { Roomconfig } from "@/components/Roomfinder";
 import { Roomfinder } from "@/components/Roomfinder";
 import { HeadLine } from "@/components/rwth/headline";
 import { TeachingList } from "@/components/TeachingList";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 import type { Document } from "@/lib/documents";
 import { getAllDocsFromDir } from "@/lib/documents";
 import type { TeachingMeta } from "@/lib/teachings";
@@ -59,8 +58,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
           description="Eine schlechte Sammlung von schlechten Zusammenfassungen für BuK"
         ></Meta>
       }
-      {...SCILConfig}
-      navbarConfig={SCILNavbarConfig}
+      institute="scil"
     >
       <div className="px-3">
         <HeadLine title="Vorlesungsmaterialien" />

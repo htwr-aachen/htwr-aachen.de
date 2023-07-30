@@ -3,8 +3,8 @@ import type { FC } from "react";
 
 import type { Roomconfig } from "@/components/Roomfinder";
 import { Roomfinder } from "@/components/Roomfinder";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/es/Main";
 
 export const SWTRaumconfig: Roomconfig[] = [
   { name: "CARL H01", minNum: 0 },
@@ -18,6 +18,7 @@ const index: FC = () => {
   return (
     <Main
       meta={<Meta title="ES@HTWR" description="Engineering Software"></Meta>}
+      institute="es"
     >
       <h1 className="text-5xl font-light">Chair of Engineering Software</h1>
 

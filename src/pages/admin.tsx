@@ -1,25 +1,11 @@
-import type { GetServerSideProps } from "next";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { SubStyling } from "@/lib/style";
-import Main from "@/templates/CombinedMain";
 
-type AdminProps = {
-  styling: SubStyling;
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return {
-    props: {
-      styling: (query.institute as SubStyling) || SubStyling.None,
-    },
-  };
-};
-
-const Admin: FC<AdminProps> = ({ styling }) => {
+const Admin: FC = () => {
   return (
-    <Main styling={styling} meta={<Meta title="404 Dirk sucht weiter"></Meta>}>
+    <Main institute="htwr" meta={<Meta title="404 Dirk sucht weiter"></Meta>}>
       <div>
         <h1 className="text-[5rem] font-semibold">WAS SUCHST DU HIER???</h1>
 

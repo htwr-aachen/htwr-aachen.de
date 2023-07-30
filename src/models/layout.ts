@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { Institutes } from "./institutes";
+
+import type { Institutes } from "./institutes";
 
 export type InstituteLink = {
   name?: string;
@@ -36,4 +37,3 @@ export type NavbarConfig = {
   main: NavbarLink;
   logo: NavbarLogo;
 };
-

@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
+import { useInstituteConfig } from "@/hooks/useInstituteConfig";
 import type { LayoutProps } from "@/models/layout";
 
 import { FakultätsNav, FakultätsNavMobile } from "../rwth/FakultätsNav";
@@ -17,6 +18,7 @@ type CIGOLProps = {};
 export type CIGOLMainProps = LayoutProps & CIGOLProps;
 
 const Main = (props: CIGOLMainProps) => {
+  const config = useInstituteConfig(props.institute);
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
   const router = useRouter();
   return (
@@ -94,7 +96,7 @@ const Main = (props: CIGOLMainProps) => {
           </Link>
           <div className="grid items-center justify-start">
             <span className="font-sans text-xl font-bold">
-              {props.instituteTitle} <br />
+              {config.name} <br />
               MALO wird Spaß.
             </span>
           </div>

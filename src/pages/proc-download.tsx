@@ -3,8 +3,7 @@ import type { FC } from "react";
 import { useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import { DefaultNavbar } from "@/layouts/rwth/instituteConfig";
-import { Main } from "@/layouts/rwth/Main";
+import Main from "@/layouts/Main";
 import { API_URL } from "@/utils/TeachingConfig";
 
 const PASSWORD_HELP =
@@ -77,7 +76,7 @@ const ProctedDownloadPage: FC = () => {
   };
 
   return (
-    <Main instituteName="" navbarConfig={DefaultNavbar}>
+    <Main institute="htwr">
       <div className="">
         <HeadLine>Captcha: Bist Du Ein Student?</HeadLine>
         <div className="flex flex-col items-center">

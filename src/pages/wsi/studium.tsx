@@ -5,10 +5,8 @@ import {
   Schnellzugriff,
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
-import { WSIConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { WSINavbar } from "@/layouts/rwth/instituteConfig";
-import { Main } from "@/layouts/rwth/Main";
 
 export const MaterialienSchnellzugriff: FC = () => {
   return (
@@ -35,8 +33,7 @@ const Studium: FC = () => {
       meta={
         <Meta title="WSI@HTWR - Studium" description="Diskret oder?"></Meta>
       }
-      {...WSIConfig}
-      navbarConfig={WSINavbar}
+      institute="wsi"
     >
       <HeadLine title="Studium" />
       <p className="my-4">

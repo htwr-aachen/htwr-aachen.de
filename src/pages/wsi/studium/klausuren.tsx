@@ -2,10 +2,8 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import { WSIConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { WSINavbar } from "@/layouts/rwth/instituteConfig";
-import { Main } from "@/layouts/rwth/Main";
 import { getProtectedDownloads } from "@/lib/documents";
 
 import { MaterialienSchnellzugriff } from "../studium";
@@ -31,8 +29,7 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
           description="Da Klausuren immer problematisch zu verteilen sind werde ich da 100% sichere Captchas einbauen."
         ></Meta>
       }
-      {...WSIConfig}
-      navbarConfig={WSINavbar}
+      institute="wsi"
     >
       <div className="px-2">
         <HeadLine title="Klausuren" />

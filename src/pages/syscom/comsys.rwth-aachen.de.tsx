@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/syscom/Main";
 
 const Index = () => {
   return (
@@ -12,6 +12,7 @@ const Index = () => {
           description="Für alle die nichts besseres zu tun haben als Datcom zu lernen"
         />
       }
+      institute="syscom"
     >
       <h1 className="font-sans text-3xl font-bold"> Was suchst du hier? </h1>
       <Link href={"/syscom/"}>Geh zurück zur den Lösungen</Link>

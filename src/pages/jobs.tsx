@@ -1,12 +1,11 @@
 import { HeadLine } from "@/components/rwth/headline";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 
 const Jobs = () => {
   return (
     <Main
-      instituteName=""
-      instituteTitle=""
+      institute="htwr"
       meta={<Meta title="Jobs @ HTWR" description="Jobs hier bei HTWR"></Meta>}
     >
       <HeadLine>Es gibt viel zu erledigen</HeadLine>
