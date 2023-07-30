@@ -1,0 +1,71 @@
+---
+title: "SWT 2.0"
+description: Nicht schooon wieder....
+author: Jonas Schneider
+date: 30/07/2023
+order: 1
+tags:
+  [
+    UML,
+    Entity-Relationship-Model,
+    Datenbankentwurf
+  ]
+---
+
+So ne scheiße
+
+# Datenbankentwurf
+Jaja ist wichtig Datenschema zu planen etc. Man kennt den Quatsch
+- Korrektheit
+- Vollständigkeit
+- Minimalität
+- Lesbarkeit
+- Anpassbarkeit
+- Normalisierung 
+
+So Stichwörter abgehakt. Was nun? 
+
+## Entity-Relationship-Model (ER-Diagramme)
+- Entität Typen: Objekte, die gespeichert werden: z.B. Studenten
+- Attribut Typen: Attribute, die zu den Objekten gehören: z.B. Mat.Nr., Lebenswille
+- Beziehungen: Beziehungen zwischen den Objekten: z.B. Hat Student A Freunde?
+
+
+### Entity
+**Entities** müssen "existieren" und unterscheidbar sein von anderen Entities.
+Ein **Entity-Typ** ist dann eine Menge von Entities, mit den gleichen Attributen. Ein **Entity-Set** ist praktisch das gleiche wie Entity-Typen aber zur Laufzeit.
+ 
+**Entity-Typen werden durch Rechtecke dargestellt.**
+
+### Attribute
+Ja ist selbst erklärend. Attribute haben einen Namen (und einen Wertebereich).
+Zudem gibt es noch **Schlüsselattribute**. Die sind zusammen ein eindeutiger Identifikator für ein Entity (z.B. Mat.Nr).
+
+**Attribute werden durch Ovale dargestellt. Kein Wertebereich bei ER-Diagramme. Schlüsselattribute werden unterstrichen**
+
+Ein Attribut kann wieder aus mehreren **Teilattributen** bestehen (z.B. Adresse => Straße, Hausnummer, PLZ, Ort). Die werden auch als Attribute dargestellt, aber dann mit einem Strich mit dem Oberattribut verbunden.
+
+Ein Attribut kann auch ein Array sein. Dann wird es einfach doppelt umrandet. 
+
+### Beziehungen
+
+Beziehungen zwischen Entities werden durch **Raute** dargestellt. Die Raute hat einen Namen.
+Zusätzlich gibt es noch pro Entity-Typ eine **Kardinalität**. Die gibt an, wie viele Entities mit einem anderen Entity verbunden sein können.
+- 1:1
+- 1:n
+- n:m
+
+sind die häufigsten. Auch Beziehungen können ein Attribut haben. Die sind dann einfach mit der Raute verbunden.
+
+### General/Spezialisierung
+
+Auch "Vererbung" können mit einem **Dreieck** dargestellt werden.
+
+Das ist dann eine "is-A" Beziehung. Ein "Student" ist ein "Mensch". Ein "Mensch" ist aber nicht unbedingt ein "Student". Aber ein "Professor" ist auch gerade so noch ein "Mensch" 
+
+- Total (t neben dem Dreieck): Jedes Entity des Ober-Typs muss auch ein Entity des Unter-Typs sein
+- Partiell (p neben dem Dreieck): Es gibt Entities des Ober-Typs, die nicht auch ein Entity des Unter-Typs sind
+
+Die können wiederum:
+- Disjunkt: Ein Entity kann nur zu einem Unter-Typ gehören
+- Nicht Disjunkt: Ein Entity kann zu mehreren Unter-Typen gehören

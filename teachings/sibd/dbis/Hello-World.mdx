@@ -1,0 +1,36 @@
+---
+title: "Hello-World"
+description: Puhh was leichtes vor MALO
+author: Jonas Schneider
+date: 30/07/2023
+order: 1
+tags:
+  [
+    Grundbegriffe,
+    Unterscheidungen
+  ]
+---
+
+> DBIS ist ein Fach von Standardaufgaben ähnlich wie BUS. Ich würde mich nicht zu sehr mit auswendig lernen beschäftigen.
+
+# Grundbegriffe
+
+- Eine Datenbank (**DB**): ist der Teil der Daten speichert inklusive der Datenstruktur(Schema). 
+- Das Datenbankmanagementsystem (**DBMS**): ist das Programm, das die Datenbank verwaltet. Hiermit kommuniziert ihr also.
+ 
+  Somit ergibt sich:
+  - Eine **Logische Unabhängigkeit** zu Anwendungsprogrammen, also Anwendungen haben keine Einfluss über die logische Aufteilung der Daten (Die Datenbank fügt Indexe hinzu für effiziente Abfragen)
+  - Eine **Physische Unabhängigkeit** zu Anwendungsprogrammen, also Anwendungen haben keine Einfluss über die physische Aufteilung der Daten (Die Datenbank benutzt im Hintergrund eine effiziente Indexstruktur)
+
+- Datenschema: Sowas wie eine Klasse in Java, beschreibt also die Struktur der Daten.
+- Relationale Datenbank: Datenbanken die auf dem relationalen Modell basieren. (SQL)
+
+    Heißt: Tabelle mit Spalten als Attribute(Name, Alter etc.) und Zeilen als tatsächliche Daten.
+- Objektorientierte Datenbank: Datenbanken die auf dem objektorientierten Modell basieren. 
+- No-SQL Datenbanken: Datenbanken die nicht auf dem relationalen Modell basieren. 
+
+## Unterscheidungen
+ Neben den oben genannten Unterscheidungen gibt es noch weitere Unterscheidungen, die aber nicht so wichtig sind:
+- **Strukturierte Datenbanken**: Starre Modelle (SQL)
+- **Semi-strukturierte Datenbanken**: Flexible Modelle (XML)
+- **Unstrukturierte Datenbanken**: Keine Modelle (Blobs, NOSQL, Text, Bilder, Videos)

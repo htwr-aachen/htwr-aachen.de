@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://htwr-aachen.de/</loc><lastmod>2023-07-30T21:59:38.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/admin/</loc><lastmod>2023-07-30T21:59:38.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/botmein/</loc><lastmod>2023-07-30T21:59:38.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/cigol/</loc><lastmod>2023-07-30T21:59:38.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/cigol/teachings/</loc><lastmod>2023-07-30T21:59:38.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/contact/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/datenschutz/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/aufgaben/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/einsicht/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/klausuren/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/nichts/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/impressum/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/isbd/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/isbd/studium/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/isbd/studium/aufgaben/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/isbd/studium/klausuren/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/isbd/studium/teachings/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/jobs/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/proc-download/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/aufgaben/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/klausuren/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/comsys.rwth-aachen.de/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/contact/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/research/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teaching/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/team/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/updates/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/aufgaben/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/klausuren/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/Ethernet/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/machester-werwillnachmanchaster/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/halt-haltmaldeinefressebitte/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/checksum-summachtdiebiene/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/Vermittlung-vermittlungdeiner5.0/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/tcpain/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/httpech-für-dich/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/syscom/teachings/iso-osi-uwu/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/cigol/teachings/Die Olchies und die Aussagenlogik/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/scrumpe/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/use-case-kopfschuss/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/KlassendiaGramm/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/DNA-Sequenzierung/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/Entwurfsmuss-nicht-sein/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/Zustand des Verzweifelns/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/n-unit-testen/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/Feature-deine-5-0/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/AllGemeinwissen/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/es/teachings/Klausur-19-20-Probeklausur/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Wichtige-Probleme/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Dein-Leben-Problemsammlung/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Turing-die-Maschine/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Karmantor-Deregistrierungsmaschine/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Unterprogrammtech-nik/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Im-E1-Ist-Ein-Sack-Rice-Umgefallen/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Reduktion-deiner-Note/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/While-true/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Komplexität-von-BuK/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/NTM/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/Das-mir-zu-komplex/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/scil/studium/teachings/grohendes Ende/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Der_Anfang_vom_Anfang/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Unabhängigkeit/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Ich dichte, du dichtest, gauß ist am dichtesten/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Vectorrrr/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Konvergenz/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Einfach, Einfacher, Ordnungsstatistik/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Inferenzstatistik/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Hab Güte Gott/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Konfidenz = 1000/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Testtheorie/</loc><lastmod>2023-07-30T21:59:38.570Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/</loc><lastmod>2023-07-30T22:18:04.171Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/admin/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/botmein/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/cigol/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/cigol/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/contact/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/datenschutz/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/aufgaben/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/einsicht/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/klausuren/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/nichts/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/impressum/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/jobs/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/proc-download/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/aufgaben/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/klausuren/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/aufgaben/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/klausuren/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/comsys.rwth-aachen.de/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/contact/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/research/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teaching/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/team/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/updates/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/aufgaben/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/klausuren/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/scrumpe/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/use-case-kopfschuss/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/KlassendiaGramm/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/DNA-Sequenzierung/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/Entwurfsmuss-nicht-sein/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/Zustand des Verzweifelns/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/n-unit-testen/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/Feature-deine-5-0/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/AllGemeinwissen/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/es/teachings/Klausur-19-20-Probeklausur/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/Ethernet/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/machester-werwillnachmanchaster/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/halt-haltmaldeinefressebitte/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/checksum-summachtdiebiene/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/Vermittlung-vermittlungdeiner5.0/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/tcpain/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/httpech-für-dich/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/syscom/teachings/iso-osi-uwu/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Der_Anfang_vom_Anfang/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Unabhängigkeit/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Ich dichte, du dichtest, gauß ist am dichtesten/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Vectorrrr/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Konvergenz/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Einfach, Einfacher, Ordnungsstatistik/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Inferenzstatistik/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Hab Güte Gott/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Konfidenz = 1000/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/wsi/studium/teachings/Testtheorie/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/cigol/teachings/Die Olchies und die Aussagenlogik/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Wichtige-Probleme/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Dein-Leben-Problemsammlung/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Turing-die-Maschine/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Karmantor-Deregistrierungsmaschine/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Unterprogrammtech-nik/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Im-E1-Ist-Ein-Sack-Rice-Umgefallen/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Reduktion-deiner-Note/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/While-true/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Komplexität-von-BuK/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/NTM/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/Das-mir-zu-komplex/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/scil/studium/teachings/grohendes Ende/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/teachings/Hello-World/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://htwr-aachen.de/sibd/studium/teachings/SWT2-0/</loc><lastmod>2023-07-30T22:18:04.172Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

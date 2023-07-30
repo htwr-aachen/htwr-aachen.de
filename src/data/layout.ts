@@ -157,66 +157,66 @@ export const WSINavbar: NavbarConfig = {
   },
 };
 
-export const ISBDNavbar: NavbarConfig = {
+export const SIBDNavbar: NavbarConfig = {
   linkElements: [
     {
       name: "Studium",
-      url: "/isbd/studium",
+      url: "/sibd/studium",
       path: "/studium",
       links: [
         {
           name: "Klausuren",
-          url: "/isbd/studium/klausuren",
+          url: "/sibd/studium/klausuren",
           path: "studium/klausuren",
         },
         {
           name: "Aufgaben",
-          url: "/isbd/studium/aufgaben",
+          url: "/sibd/studium/aufgaben",
           path: "studium/aufgaben",
         },
         {
           name: "Zusammenfassungen",
-          url: "/isbd/studium/teachings",
+          url: "/sibd/studium/teachings",
           path: "studium/teachings",
         },
       ],
     },
     {
       name: "Forschung",
-      url: "/isbd/forschung",
+      url: "/sibd/forschung",
       path: "/forschung",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/isbd/forschung/allgemeines",
+          url: "/sibd/forschung/allgemeines",
           path: "forschung/allgemeines",
         },
         {
           name: "Publikationen",
-          url: "/isbd/forschung/publikationen",
+          url: "/sibd/forschung/publikationen",
           path: "forschung/publikationen",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/isbd/lehrstuhl",
+      url: "/sibd/lehrstuhl",
       path: "/lehrstuhl",
       links: [
         {
           name: "AllGemein",
-          url: "/isbd/lehrstuhl/allgemein",
+          url: "/sibd/lehrstuhl/allgemein",
           path: "lehrstuhl/allgemein",
         },
         { name: "Kontakt", url: "/contact", path: "" },
       ],
     },
   ],
-  main: { name: "ISBD", url: "/isbd" },
+  main: { name: "SIBD", url: "/sibd" },
   logo: {
-    logoUrl: "/assets/isbd/isbd.png",
-    alt: "ISBD Logo",
-    href: "/isbd",
+    logoUrl: "/assets/sibd/sibd.png",
+    alt: "SIBD Logo",
+    href: "/sibd",
     width: 387,
     height: 110,
   },
@@ -228,8 +228,8 @@ export function getNavbarConfig(institute: Institutes): NavbarConfig {
       return SCILNavbarConfig;
     case Institutes.WSI:
       return WSINavbar;
-    case Institutes.ISBD:
-      return ISBDNavbar;
+    case Institutes.SIBD:
+      return SIBDNavbar;
     default:
       return DefaultNavbar;
   }
