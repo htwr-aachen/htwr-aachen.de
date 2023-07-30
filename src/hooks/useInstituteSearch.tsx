@@ -1,7 +1,9 @@
 import { useCallback, useState } from "react";
 
-import { institutes } from "@/layouts/rwth/instituteConfig";
-import type { Institute } from "@/models/layout";
+import { getRealInstitutes } from "@/lib/institutes";
+import type { Institute } from "@/models/institutes";
+
+const institutes = getRealInstitutes();
 
 export function useInstituteSearch(
   initial?: Institute[]

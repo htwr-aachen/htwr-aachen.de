@@ -1,8 +1,11 @@
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
 
 const About = () => (
-  <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+  <Main
+    meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}
+    institute="syscom"
+  >
     <p>Diese Webseite wurde von Jonas Schneider erstellt.</p>
     <p>
       Kontakt:{" "}

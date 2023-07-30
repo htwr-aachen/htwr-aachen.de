@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import { getProtectedDownloads } from "@/lib/documents";
-import { Main } from "@/templates/es/Main";
 
 type KlausurenProps = {
   klausuren: string[];
@@ -36,6 +36,7 @@ const Klausuren: FC<KlausurenProps> = ({ klausuren }) => {
           description="Klausurensammlung ist vielleicht bissle copyright technisch schwierig... naja"
         ></Meta>
       }
+      institute="es"
     >
       <h1 className="font-roboto text-4xl font-light" id="klausuren">
         Klausuren

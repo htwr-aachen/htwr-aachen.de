@@ -2,9 +2,9 @@ import Link from "next/link";
 import { join } from "path";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import { getAllDocsFromDir } from "@/lib/documents";
-import { Main } from "@/templates/es/Main";
 
 const aufgabenPath = join(
   process.cwd(),
@@ -45,6 +45,7 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben }) => {
           description="Aufgabensammlung plus unsere (schlechten) Lösungen"
         ></Meta>
       }
+      institute="es"
     >
       <h1 className="font-roboto text-4xl font-light" id="aufgaben">
         Aufgaben + Eigenlösungen

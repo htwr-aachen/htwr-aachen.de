@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import type { Institutes } from "./institutes";
+
 export type InstituteLink = {
   name?: string;
   url?: string;
@@ -8,9 +10,7 @@ export type InstituteLink = {
 export type LayoutProps = {
   meta?: ReactNode;
   children?: ReactNode;
-  instituteLinks?: InstituteLink[];
-  instituteName: string;
-  instituteTitle?: string;
+  institute: Institutes;
 };
 
 export type NavbarLink = {
@@ -36,13 +36,4 @@ export type NavbarConfig = {
   linkElements: LinkElement[];
   main: NavbarLink;
   logo: NavbarLogo;
-};
-
-export type Institute = {
-  name: string;
-  subject: string;
-  professor: string;
-  fullName: string;
-  href: string;
-  icon?: string;
 };

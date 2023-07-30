@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
 
 const Index = () => {
   return (
@@ -13,6 +13,7 @@ const Index = () => {
           description="Für alle die nichts besseres zu tun haben als DatKom zu lernen"
         />
       }
+      institute="syscom"
     >
       <h3>
         Für DatKom lernt es sich bestimmt besser nach dem ihr das{" "}

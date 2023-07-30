@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
 
 const NichtsPage: FC = () => {
   return (
@@ -10,6 +10,7 @@ const NichtsPage: FC = () => {
       meta={
         <Meta title="Nichts @ ES/HTWR" description="wirklich nichts"></Meta>
       }
+      institute="es"
     >
       <HeadLine>Also wirklich nichts</HeadLine>
     </Main>

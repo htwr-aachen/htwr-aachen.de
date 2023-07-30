@@ -4,8 +4,8 @@ import type { FC } from "react";
 import { useEffect, useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 
 import styles from "./botmein.module.scss";
 
@@ -175,7 +175,7 @@ const BotMeInPage: FC = () => {
   };
 
   return (
-    <Main instituteName="" meta={<Meta title="BotMeIn @ HTWR"></Meta>}>
+    <Main institute="htwr" meta={<Meta title="BotMeIn @ HTWR"></Meta>}>
       <HeadLine>
         BotMeIn{" "}
         <span className="text-center text-2xl">

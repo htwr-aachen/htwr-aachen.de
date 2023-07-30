@@ -5,9 +5,8 @@ import {
   Schnellzugriff,
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 
 export const MaterialienSchnellzugriff: FC = () => {
   return (
@@ -37,8 +36,7 @@ const Studium: FC = () => {
       meta={
         <Meta title="SCIL@HTWR - Studium" description="Studium für BUK"></Meta>
       }
-      {...SCILConfig}
-      navbarConfig={SCILNavbarConfig}
+      institute="scil"
     >
       <HeadLine title="Studium" />
       <p className="my-4">Jaja hier kommt bald was für BuK.</p>

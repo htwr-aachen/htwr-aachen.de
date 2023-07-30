@@ -3,9 +3,8 @@ import { join } from "path";
 import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 import type { Document } from "@/lib/documents";
 import { getAllDocsFromDir } from "@/lib/documents";
 
@@ -50,8 +49,7 @@ const Aufgaben: FC<AufgabenProps> = ({ aufgaben, sonstiges }) => {
           description="Aufgabensammlung falls man schon alle Klausuren durchgemacht hat..."
         ></Meta>
       }
-      {...SCILConfig}
-      navbarConfig={SCILNavbarConfig}
+      institute="scil"
     >
       <div className="px-2">
         <HeadLine>Aufgaben</HeadLine>

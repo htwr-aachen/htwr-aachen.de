@@ -4,10 +4,10 @@ import type { FC } from "react";
 
 import { Roomfinder } from "@/components/Roomfinder";
 import { TeachingList } from "@/components/TeachingList";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
 import type { TeachingMeta } from "@/lib/teachings";
 import { getAllTeachings } from "@/lib/teachings";
-import { Main } from "@/templates/es/Main";
 import { DefaultTeachingDir } from "@/utils/TeachingConfig";
 
 import { SWTRaumconfig } from "..";
@@ -37,6 +37,7 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
           description="Eine schlechte Sammlung von schlechten Zusammenfassungen"
         ></Meta>
       }
+      institute="es"
     >
       <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
         Viel Reichtum bei der Klausur morgen. Vergesst den Master nicht sonst

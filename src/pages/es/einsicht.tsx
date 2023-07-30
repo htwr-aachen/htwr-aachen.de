@@ -1,12 +1,13 @@
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/es/Main";
 
 const Einsicht: FC = () => {
   return (
     <Main
       meta={<Meta title="ES@HTWR" description="Engineering Software"></Meta>}
+      institute="es"
     >
       <h1 className="text-5xl font-light">Softwaretechnik Einsicht</h1>
 

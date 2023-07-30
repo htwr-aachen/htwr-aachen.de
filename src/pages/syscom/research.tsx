@@ -1,5 +1,5 @@
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/templates/syscom/Main";
 
 const Research = () => {
   return (
@@ -7,6 +7,7 @@ const Research = () => {
       meta={
         <Meta title="SysCom Research" description="SysCom Research blablabla" />
       }
+      institute="syscom"
     >
       <h1>Leer :/</h1>
       <iframe

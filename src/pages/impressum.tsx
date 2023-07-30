@@ -1,27 +1,13 @@
-import type { GetServerSideProps } from "next";
 import Link from "next/link";
 import type { FC } from "react";
 
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { SubStyling } from "@/lib/style";
-import CombinedMain from "@/templates/CombinedMain";
 
-type ImpressumProps = {
-  styling: SubStyling;
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  return {
-    props: {
-      styling: (query.institute as SubStyling) || SubStyling.None,
-    },
-  };
-};
-
-const Impressum: FC<ImpressumProps> = ({ styling }) => {
+const Impressum: FC = () => {
   return (
-    <CombinedMain
-      styling={styling}
+    <Main
+      institute="htwr"
       meta={
         <Meta
           title="Wehe einer schickt mir nen Brief - Impressum"
@@ -71,7 +57,7 @@ const Impressum: FC<ImpressumProps> = ({ styling }) => {
           alt="Carsten Stahl"
         />
       </p>
-    </CombinedMain>
+    </Main>
   );
 };
 

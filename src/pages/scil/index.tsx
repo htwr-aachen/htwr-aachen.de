@@ -7,17 +7,12 @@ import {
   Schnellzugriff,
   Schnellzugrifflink,
 } from "@/components/rwth/schnellzugriff";
-import { SCILConfig, SCILNavbarConfig } from "@/layouts/configs";
+import Main from "@/layouts/Main";
 import { Meta } from "@/layouts/Meta";
-import { Main } from "@/layouts/rwth/Main";
 
 const SCIL: FC = () => {
   return (
-    <Main
-      {...SCILConfig}
-      meta={<Meta title="SCIL@HTWR"></Meta>}
-      navbarConfig={SCILNavbarConfig}
-    >
+    <Main meta={<Meta title="SCIL@HTWR"></Meta>} institute="scil">
       <HeadLine>
         Viel Glück an die BuK Zweitschreiber. Es wird <b>gottlos</b>
       </HeadLine>
