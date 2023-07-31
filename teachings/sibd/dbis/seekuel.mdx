@@ -1,0 +1,228 @@
+---
+title: Seekuell
+description: SQL und Anfragen
+author: Jonas Schneider
+date: 31/07/2023
+order: 4
+tags:
+  [
+    SQL,
+    Anfragenoptimierung
+  ]
+---
+
+## SQL
+
+Ich werde das hier eher ausführlich machen. SQL sollte man eh können/lernen also...
+
+Typen:
+- NUMBER
+- DECIMAL(p,s)
+- **INTEGER**
+- SMALLINT
+. **FLOAT**
+- REAL
+- DOUBLE PRECISION
+- CHAR(n)
+- **VARCHAR(n)**
+- **DATE**
+- **BOOLEAN**
+- CURRENCY
+
+### Data Definition
+
+Bevor wir eine SQL Datenbank nutzen können müssen wir erstmals Schemas erstellen
+
+```sql
+CREATE TABLE table_name (
+  attr_name_1 datatype constraint1,
+  attr_name_2 datatype constraint2,
+  attr_name_3 datatype ...,
+   ....
+);
+```
+
+constraint können folgende sein: `NOT NULL`, `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, ...
+
+```sql
+CREATE TABLE Student
+(
+  MatrNr INTEGER PRIMARY KEY,
+  Name VARCHAR(255) NOT NULL,
+  Semester INTEGER NOT NULL,
+)
+
+CREATE TABLE HÖRT (
+  MatrNr INTEGER FOREIGN KEY REFERENCES Student(MatrNr),
+  VorlNr INTEGER FOREIGN KEY REFERENCES Vorlesung(VorlNr),
+)
+```
+
+Änderungen von Relationen:
+
+```sql
+ALTER TABLE Student ADD COLUMN Geburtsdatum DATE;
+ALTER TABLE Student DROP COLUMN Geburtsdatum;
+ALTER TABLE Student ALTER COLUMN Name VARCHAR(255) NOT NULL;
+ALTER TABLE Student ADD CONSTRAINT PK_Student PRIMARY KEY (MatrNr);
+ALTER TABLE Student DROP CONSTRAINT PK_Student;
+```
+
+Löschen einer Relation:
+
+```sql
+DROP TABLE Student;
+```
+
+Sichten sind virtuelle Relationen, die aus anderen Relationen berechnet werden.
+
+```sql
+CREATE VIEW Erstis AS
+SELECT *
+FROM Student
+WHERE Semester = 1;
+```
+
+**INDEX** sind Hilfsstrukturen, die die Suche nach bestimmten Attributen beschleunigen.
+
+```sql
+CREATE INDEX Name_Index ON Student (Name);
+CREATE UNIQUE INDEX Name_Index ON Student (Name);
+```
+
+## Data Manipulation (Das was man eigentlich braucht :-)
+
+**Einfügen** von Tupeln:
+
+```sql
+INSERT INTO Student VALUES (12345, 'Müller', 1); //nur wenn alle Attribute angegeben werden
+INSERT INTO Student (MatrNr, Name, Semester) VALUES (12345, 'Müller', 1); // explizit (vielleicht besser für die Vorlesung)
+```
+
+**Ändern** von Tupeln:
+
+```sql
+UPDATE Student SET Semester = 2 WHERE MatrNr = 12345;
+```
+
+**Löschen** von Tupeln:
+
+```sql
+DELETE FROM Student WHERE MatrNr = 12345;
+```
+
+### Data Query (Das was man eigentlich braucht :-)
+
+Alles beginnt immer mit einem $SELECT$
+
+```sql
+SELECT * FROM table
+```
+
+bedeutet gib mir alle Attribute von allen Zeilen der Tabelle $table$.
+
+```sql
+SELECT Name, Semester FROM Student
+```
+
+gibt alle (name, semester) paare aus der Tabelle
+
+```sql
+SELECT MatrNr as Matrikelnummer, Name, Semester FROM Student
+```
+gibt alle (MatrNr, Name, Semester) paare aus der Tabelle, wobei die MatrNr als Matrikelnummer ausgegeben wird.
+
+```sql
+SELECT DISTINCT Semester FROM Student
+```
+
+### WHERE
+Kann volgende Sachen enthalten:
+- Vergleichsoperator
+- `BETWEEN` (z.B. `Semester BETWEEN 1 AND 3`)
+- `LIKE` (z.B. `Name LIKE 'A%'`)
+- `IS NULL`
+- `AND`, `OR`, `NOT`
+- Arithmetische Ausdrücke (z.B. Semester + 1 = 2)
+- Mengenoperatoren: `IN`, `NOT IN`, `< ANY`, EXISTS (z.B. Semester IN (1,2,3))
+
+
+| Operation               | Relationale Algebra  | SQL-Abfrage                                  |
+|-------------------------|----------------------|----------------------------------------------|
+| Vereinigung             | $$R \cup T$$                | `SELECT * FROM R UNION SELECT * FROM T`      |
+| Differenz               | $$R - T$$                | `SELECT * FROM R EXCEPT SELECT * FROM T`     |
+| Kreuzprodukt            | $$R \times T$$                | `SELECT * FROM R CROSS JOIN T`               |
+| Selektion               | $$\sigma_{B=b}(R)$$           | `SELECT * FROM R WHERE B = 'b'`              |
+| Projektion              | $$\phi_{A,C}(R)$$           | `SELECT DISTINCT A, C FROM R`               |
+| Umbenennung (Relation)  | $$\rho_V(R)$$               | `SELECT V.A FROM R AS V`                     |
+| Umbenennung (Attribut)  |$$ \rho_{K\leftarrow C}(R)$$           | `SELECT A, B, C AS K, D FROM R`              |
+| Projektion (ohne Duplikate)| $$\pi_{A,C}(R)$$           | `SELECT A, C FROM R`                         |
+ |Natürlicher Verbund (Natural Join)       | $$R \bowtie U$$                | `SELECT * FROM R NATURAL JOIN U`             |
+| Theta-Join                | $$R \bowtie_{B \theta F} S$$          | `SELECT * FROM R, S WHERE B` $\theta$ `F`             |
+| Theta-Join                | $$R \bowtie_{B \theta F} S$$          | `SELECT * FROM R JOIN S ON B` $\theta$ `F`         | 
+
+Man kann auch Unterabfragen machen:
+
+```sql
+SELECT * FROM Student WHERE Semester = (SELECT Semester FROM Student WHERE Name = 'Müller');
+```
+
+Also gibt mir alle Leute die im gleichen Semester sind wie Müller.
+
+### Agregationen
+
+- `COUNT(*)` gibt die Anzahl der Tupel zurück
+- `SUM(A)` gibt die Summe der Werte in A zurück
+- `AVG(A)` gibt den Durchschnitt der Werte in A zurück
+- `MIN(A)` gibt den kleinsten Wert in A zurück
+- `MAX(A)` gibt den größten Wert in A zurück
+
+- `GROUP BY` gruppiert die Tupel nach einem oder mehreren Attributen
+```sql
+SELECT Semester, COUNT(*) FROM Student GROUP BY Semester;
+```
+
+- `HAVING` filtert die Gruppen
+```sql
+SELECT Semester, COUNT(*) FROM Student GROUP BY Semester HAVING COUNT(*) > 2;
+```
+
+- `ORDER BY` sortiert die Tupel mit aufsteigendem (`ASC`) oder absteigendem (`DESC`) Wert
+```sql
+SELECT Semester, COUNT(*) FROM Student GROUP BY Semester ORDER BY Semester ASC;
+```
+
+- `LIMIT` beschränkt die Anzahl der ausgegebenen Tupel
+- `OFFSET` gibt an, wo die Ausgabe beginnen soll
+
+
+### Nichtmehr so viel (Transaktionen)
+- `BEGIN TRANSACTION` beginnt eine Transaktion
+- `COMMIT` beendet eine Transaktion
+- `ROLLBACK` macht die Änderungen einer Transaktion rückgängig
+- `SAVEPOINT` speichert den aktuellen Zustand der Datenbank
+
+  ```sql
+  BEGIN TRANSACTION;
+  INSERT INTO Student VALUES (12345, 'Müller', 1);
+  SAVEPOINT A;
+  INSERT INTO Student VALUES (12346, 'Schmidt', 2);
+  ROLLBACK TO A;
+  COMMIT;
+  ```
+
+  nur Müller wird eingefügt
+
+### Letztes (Data Control)
+
+- `GRANT` gibt Rechte an einen Benutzer
+- `REVOKE` nimmt Rechte von einem Benutzer weg
+
+  ```sql
+  GRANT SELECT ON Student TO 'user';
+  REVOKE SELECT ON Student FROM 'user';
+  ```
+
+  user sind hierbei Nutzer der Datenbank heißt in den meisten Fällen Programme. Aber auch admin etc.
+
+  > Die DCL geht über die Vorlesung hinaus.
