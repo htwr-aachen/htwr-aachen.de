@@ -88,3 +88,34 @@ Generalisierungen 4 Möglichkeiten:
 - **Schwache Entities** werden als Relation mit Schlüssel aus dem Schlüssel der starken Entity und dem schwachen Attribut gespeichert.
 - **n-stellige Beziehungen** werden als Relation mit Schlüssel aus den Schlüsseln der Entities und den Attributen gespeichert.
 
+## Relationale Algebra
+ 
+Hiermit macht man Operationen auf Relationen. Bissle wie SQL nur in "mathematisch".
+
+Operationen:
+- **Vereinigung**: $r \cup s = \{t \in r \lor t \in s\}$
+- **Differenz**: $r - s = \{t \in r \land t \notin s\}$
+- **Kreuzprodukt**: $r \times s = \{t_1 \cup t_2 | t_1 \in r \land t_2 \in s\}$
+- **Selektion**: $\sigma_{\phi}(r) = \{t \in r | \phi(t) = true\}$ wobei $\phi$ eine Formel ist die auf die Attribute von $r$ definiert ist.
+- **Projektion**: $\pi_{A_1, ..., A_n}(r) = \{t[A_1, ..., A_n] | t \in r\}$ wobei $A_1, ..., A_n$ Attribute von $r$ sind. Also Auswahl von Spalten aus einer Relation wie vorher.
+- **Umbenennung**: $\rho_S(R)$ oder $\rho_{A \to B}(R)$ Also Umbenennung einer Relation oder eines Attributs.
+- **Durchschnitt**: $r \cap s = r - (r - s)$
+- **Natural Join**: $R \bowtie S$ Selektierung aus dem Kreuzprodukt von $R$ und $S$ mit der Bedingung, dass die Attribute die gleichen Werte haben.
+- **Theta Join**: $R \bowtie_{\phi} S$ Selektierung aus dem Kreuzprodukt von $R$ und $S$ mit der Bedingung, dass die Formel $\phi$ gilt.
+- **Outer Join**: Hier bleiben nicht nur die Tupel die gleiche Werte haben übrig. Bei left / right bleiben alle der linken / rechten Relation übrig. Bei full bleiben alle übrig. 
+
+## Kalkül
+
+Aus der Algebra baut man dann logischer weise ein Kalkül nach MALO Style auf.
+ 
+Hierbei sind die Atome:
+- $t \in R$
+- $t.A \theta s.B$ wobei $\theta$ ein Vergleichsoperator ist. 
+- $t.A \theta c$ wobei $c$ ein Konstante ist.
+Verknüpfungen:
+- $\land, \lor, \lnot, \exists, \forall, \to, \leftrightarrow$
+
+> Ja ist glaube ich nicht so spannend
+
+Vielleicht guck ich mirs später nochmal an
+
