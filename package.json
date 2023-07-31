@@ -42,6 +42,8 @@
     "js-cookie": "^3.0.5",
     "katex": "^0.16.8",
     "mdx-embed": "^1.1.2",
+    "mdx-mermaid": "^2.0.0",
+    "mermaid": "^10.3.0",
     "mini-css-extract-plugin": "^2.7.6",
     "moment": "^2.29.4",
     "natsort": "^2.0.3",

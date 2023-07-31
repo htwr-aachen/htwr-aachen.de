@@ -149,7 +149,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
 
             <ul className="list-disc px-4 pt-8 lg:pl-8">
               <TeachingList
-                urlPrefix="/wsi/studium/teachings"
+                urlPrefix="/sibd/studium/teachings"
                 teachingList={docs}
               />
             </ul>

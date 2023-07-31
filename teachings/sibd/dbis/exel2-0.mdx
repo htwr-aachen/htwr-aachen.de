@@ -1,0 +1,90 @@
+---
+title: Excel 2.0
+description: Relationale Datenmodelle
+author: Jonas Schneider
+date: 31/07/2023
+order: 3
+tags:
+  [
+    Tabellen,
+    Relationale Modell,
+    Algebra,
+    Kalkül
+  ]
+---
+
+## Begriffe
+
+- **Domäne** $D$: Wertebereich einer Spalte z.B. INTEGER.
+- **Relation**: ist einfach dann gegeben $D_1, ..., D_k: r \subseteq D_1 \times ... \times D_k$: Also eine Tabelle wow.
+- **Tupel**: Eine Zeile der Tabelle, bzw. ein Element der Relation
+- **geordnetes Relationenschema**: Hierbei haben die Zeilen eine feste Ordnung 
+
+## Relationen
+
+Beispiel ist folgende Tabelle:
+
+| Name    | Einwohnen |   Land |
+|---------|:---------:|-------:|
+| München | 1.472.000 | Bayern |
+| Bremen  |  569.352  | Bremen |
+| Aachen  |  245.885  |    NRW |
+
+Als geordnetes Schema wäre das:
+- Schema: Städte(Name, Einwohner, Land)
+- dom(Name) = STRING, dom(Einwohner) = INTEGER, dom(Land) = STRING 
+- **Ausprägung** ${(Muenchen, 1.472.000, Bayern), (Bremen, 569.352, Bremen), (Aachen, 245.885, NRW)}$
+- $t_1$(Name) = München. $t_2$(Einwohner) = 569.352
+
+## Schlüsselattribute
+
+Definition **Schlüsselkandidat**:
+ - **Eindeutigkeit**: In keinen zwei Tupeln gleichen sich alle Schlüsselattribute
+ - **Minimalität**: Du kannst nicht eins wegnehmen und es ist immer noch ein Schlüsselattribut. (Keine echte Teilmenge erfüllt Eindeutigkeit)
+
+Formell:
+- $R$ Relation, $S \subseteq R. t[S]$ ist eine Projektion(Einschränkung) vom Tupel auf die Attribute $S$.
+  - $t_1, t_2 \in r: t_1 \neq t_2 \implies t_1[S] \neq t_2[S]$
+  - Für alle Attributmengen $T$ die Eindeutigkeit erfüllen gilt: $T \subseteq S \implies T = S$
+
+## Relationale Modell
+
+Alle Entities und Beziehungen werden als Relationen dargestellt.
+
+- **Intra**relationale Abhängigkeit: Aussagen über die Konsistenz einer Relation. Z.B.Schlüssel einer Relation
+  - Wird durch $\sigma$ ausgedrückt. $\sigma: Rel(X) \to \{true, false\}$. Wobei $X$ eine Menge von Attributen, $Rel(X)$ die Menge aller Relationen über $X$ und $Tup(X)$ wäre das gleiche nur mit Tupeln
+  - Man erweitert also das Relationenschema: $R'' = (R', \Sigma_X)$ wobei $\Sigma_X$ die Menge der Intra-Relationen-Abhängigkeiten ist und $R'$ ein geordnetes Relationenschema.
+- **Inter**relationale Abhängigkeit:  Aussagen über die Konsistenz einer Datenbank. Also zum Beispiel Fremdschlüssel müssen existieren.
+  - $Dat(R)$ ist die Menge aller Datenbanken über $R$. Eine **Datenbank** ist eine Menge von Relationen
+  - Eine Interrelationale Abhängigkeit wird durch $\sigma: Dat(R) \to \{true, false\}$ spezifiziert.
+  - Z.B: $\sigma_{R_i[V] \cap R_j[W] = \emptyset}$ __true__ wenn die Bedingung stimmt, sonst __false__
+
+Somit ist ein Datenbankschema: $D= (R, \Sigma_R)$
+Eine Datenbank ist konsistent/gültig wenn alle Intra- und Interrelationalen Abhängigkeiten erfüllt sind.
+
+### Fremdschlüssel
+Man nutzt um Beziehung zu anderen Entitäten herzustellen deren Schlüssel. Das heißt dann **Fremdschlüssel**.
+Also $\sigma_{R_1[F] \subseteq R_2[K]} \in \Sigma_R$ wobei $F$ die Fremdschlüsselattribute und $K$ die Schlüsselattribute sind.
+
+## Von ER-Diagrammen zu Relationen
+
+- **Entity**: Relation
+- **Attribut**: Attribut der Relation
+- **Mehrwertiges Attribut**: Neue Relation mit zusammengesetzten Schlüssel aus dem Schlüssel der Entity und dem Attribut
+
+Ein Student wäre dann Student(<ins>MatrNr</ins>, Name, Semester)
+
+- **n-m-Beziehung**: Relation mit Schlüssel aus den Schlüsseln der Entities. Z.B. Hört(<ins>MatrNr</ins>, <ins>VorlesungsNr</ins>) Dabei gibt es natürlich interrelationale Abhängigkeiten.
+- **1-n-Beziehung**: Die Beziehung wird als Attribut der n-Entität gespeichert: z.B. Vorlesung(Nummer, Titel, SWS, <ins>Prof</ins>)
+- **1-1-Beziehung**: Die Beziehung wird als Attribut einer der beiden Entitäten gespeichert
+- **Rekursive Beziehung**: Laufen halt rekursiv...
+
+Generalisierungen 4 Möglichkeiten:
+- **partiell**: Tabelle für jeden Entity-Typ
+- **total**: Tabelle für alle Sub-Entities
+- **disjunkt**: eine Tabelle für alle Attribute enthält und ein Typ-Attribut
+- **überlappend**: eine Tabelle für alle Attribute enthält und ein boolsches Attribut für jeden Typ
+
+- **Schwache Entities** werden als Relation mit Schlüssel aus dem Schlüssel der starken Entity und dem schwachen Attribut gespeichert.
+- **n-stellige Beziehungen** werden als Relation mit Schlüssel aus den Schlüsseln der Entities und den Attributen gespeichert.
+

@@ -11,6 +11,7 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
+import mdxMermaid from "mdx-mermaid";
 
 export type Teaching = {
   slug: string;
@@ -79,6 +80,7 @@ export async function getTeachingBySlug(
           remarkMath,
           remarkGfm,
           remarkHint,
+          [mdxMermaid, {output: "svg"}],
           [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
         ],
         rehypePlugins: [
