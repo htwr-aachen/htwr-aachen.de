@@ -3,6 +3,7 @@ import remarkEmbedder from "@remark-embedder/core";
 import oembedTransformer from "@remark-embedder/transformer-oembed";
 import { readdir, stat } from "fs/promises";
 import { read } from "gray-matter";
+import mdxMermaid from "mdx-mermaid";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import path, { join } from "path";
@@ -11,7 +12,6 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
-import mdxMermaid from "mdx-mermaid";
 
 export type Teaching = {
   slug: string;
@@ -80,7 +80,7 @@ export async function getTeachingBySlug(
           remarkMath,
           remarkGfm,
           remarkHint,
-          [mdxMermaid, {output: "svg"}],
+          [mdxMermaid, { output: "svg" }],
           [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
         ],
         rehypePlugins: [
