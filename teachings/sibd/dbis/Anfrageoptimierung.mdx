@@ -1,0 +1,73 @@
+---
+title: Umgehen von Moodle
+description: SQL und Anfragen
+author: Jonas Schneider
+date: 31/07/2023
+order: 5
+tags:
+  [
+    Anfragenoptimierung
+  ]
+---
+
+## Anfragebearbeitung
+
+Könnte hilfreich sein um ein Moodle Desaster zu vermeiden.
+
+Eine Anfrage wird wie folgt bearbeitet:
+
+```mermaid
+flowchart TD
+    A[Scanner / Parser] --> B[Anfrageoptimierung]
+    B[Anfragenoptimierung] --> C[Anfrageausführung]
+```
+
+Dabei gibt es 3 Arten von Optimierungen:
+
+- Regelbasierte Optimierung
+  - Führe Selektionen so früh wie möglich aus (vor Joins)
+  - Elimination von leeren Teilbäumen und gemeinsame Teilbäume erkennen
+  - Regeln:
+    1. Selektionen können aufgebrochen werden $\sigma_{A \land B}(R) = \sigma_{A}(\sigma_{B}(R))$
+    2. Selektionen sind kommutativ
+    3. Geschachtelte Projektionen können entfernt werden wenn $X \subseteq Y$ gilt $pi_{X}(\pi_{Y}(R)) = \pi_{X}(R)$
+    4. Selektionen können mit Projektionen vertauscht werden $\sigma_{A}(pi_{X}(R)) = pi_{X}(\sigma_{A}(R))$
+    5. Kreuzprodukte und Joins sind kommutativ
+    6. Selektionen und Join können vertauscht werden, falls die Selektion nur auf einem der beiden Join-Argumente operiert
+    7. Vereinigungen und Schnitte sind kommutativ
+    8. Join, Vereinigung und Schnitt sind assoziativ
+    9. Selektion kann mit Vereinigung und Schnitt vertauscht werden
+    10. Projektion kann **nur mit Vereinigung** vertauscht werden
+    11. Selektion und Kreuzprodukt können zu einem Join zusammengefasst werden, wenns passt 
+    12-15. Irrelevanter Kram / Selbstverständlich
+- Kostenbasierte Optimierung
+  - Reihenfolge von Selektionen und Projektionen sind regelbasiert
+  - Reihenfolge von Joins und Kreuzprodukten sind kostenbasiert
+  - Schätzung von Zwischenergebnisgrößen (Selektivität heißt die Anzahl der Tupel die bei Auswertung eine Rolle spielen werden relativ zur Gesamtzahl)
+  - Selektion mit Bedingung $B$: $sel_B = \frac{\sigma_B(R)}{|R|}$
+  - Join von $R,S$: $sel_{RS} = \frac{R \bowtie S}{|R| \cdot |S|}$
+  - Schätzung:
+    1. Parametrische Verteilung
+    2. Histogramme
+    3. Stichproben
+- => Algorithmus
+  1. Zerlege Selektionen
+  2. Verschiebe Selektionen so weit wie möglich nach unten
+  3. Vermeide Kreuzprodukte
+  4. Kombiniere Selektionen und Kreuzprodukte zu Joins
+  5. Verschiebe und teile Projektionen um nur benötigte Attribute zu erhalten
+  6. Identifiziere Teilbäume die ausgewertet werden können
+- Physische Optimierung
+  - Optimierung von Speicherhierarchien (Ausnutzen von Caches und RAM)
+  - Join Algorithmen
+    - Nested Loops: Bildung von Kartesischem Produkt und anschließende Selektion. Performance: **scheiße**
+    - Nested-Loop-Join: Bildung von Kartesischem Produkt und anschließende Selektion, aber nur für einen Speicherblock der SSD danach nächster. Performance: **immernoch scheiße**
+    - Sort-Merge: (Sortiere beide Relationen nach Join-Attribut) und führe dann einen Merge-Join aus. Performance: bei keinen Duplikaten **gut**, bei vielen **scheiße**
+    - Hash-Join: Statt sequenzieller Suche wird hash-suche verwendet. Performance: **gut**
+
+Weitere Optimierungen:
+- Indexstrukturen
+  - Daten sind nach Schlüssel sortiert
+  - Sekundäre Indizes sind weitere Indizes über andere Attribute.
+  - => B-Bäume google it wenn ihrs vergessen habt
+- Sekundäre Indizes sind listen, die auf die Speicheradressen der Tupel verweisen (bzw. auf den Schlüssel). Optimierungen unter anderem R-Bäume
