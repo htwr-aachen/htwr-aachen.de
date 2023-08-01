@@ -1,0 +1,62 @@
+---
+title: BUS2.0
+description: DBIS ist einfach ein tolles Fach
+author: Jonas Schneider
+date: 1/08/2023
+order: 7
+tags:
+  [
+    Transaktionen,
+    Synchronisation,
+    Fehlertoleranz,
+    Datensicherheit
+  ]
+---
+
+Diese Übung war mit Abstand die verwirrendste und widersprüchlichste Übung die ich je gesehen habe
+
+# Transaktion
+Eine Transaktion ist ein Folge von Operation.
+
+Das ACID Prinzip komm hier häufig auf:
+- Atomicity: Entweder alle Operationen werden ausgeführt oder keine
+- Consistency: Die Datenbank ist vor und nach der Transaktion in einem konsistenten Zustand
+- Isolation: Innerhalb einer Transaktion nimmt ein Benutzer keine Änderungen durch andere wahr
+- Durability: Nach dem Commit sind die Änderungen dauerhaft
+
+## Transaktionsverwaltung
+- Begin transaction (BOT)
+- Commit
+- Rollback / Abort
+
+Die beiden weiteren Operationen sind logischer weise:
+- read(X)
+- write(X)
+
+Probleme wie bei Bus:
+- Lost Update
+- Dirty Read
+- Phantom
+
+Trotzdem wollen wir nicht seriell arbeiten. Also Scheduling mit Read / Write Locks
+
+## Scheduling
+Ein **Schedule** ist eine Permutation von Operationen, wobei die Reihenfolge der Operationen innerhalb einer Transaktion erhalten bleibt.
+Ein Schedule ist **serialisierbar**, wenn er äquivalent zu einem seriellen Schedule ist.
+
+Alles weitere über Striktheit und so muss gerade nicht sein.
+
+## Protokolle
+- Sperrende Scheduler: Locking
+- Nicht Sperrende Scheduler: Transaktionen werden ggf. zurückgesetzt
+
+### Locking
+- rl(x) = read lock | ru(x) = read unlock
+- wl(x) = write lock | wu(x) = write unlock
+
+- Nur gleichzeitiges Lesen ist erlaubt, alle anderen müssen warten bis lock aufgehoben.
+
+Protokolle:
+- 2PL: Nach der ersten ru/wu Aktion folgt keine weitere lock Aktion: Heißt es wird gesperrt wenn nötig und so lange gehalten wir nötig.
+- C2PL: Alle Locks werden direkt am Anfang gesetzt und erst wieder aufgehoben wenn letzte w/r Aktion des Objektes durchgeführt wurde.
+- S2PL: Wei 2PL,nur alle Sperren werden erst am Ende aufgehoben.
