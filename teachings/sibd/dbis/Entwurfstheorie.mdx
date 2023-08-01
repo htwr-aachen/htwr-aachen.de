@@ -1,0 +1,74 @@
+---
+title: Entwurfstheorie
+description: Feintuning von Datenbank entwürfen
+author: Jonas Schneider
+date: 1/08/2023
+order: 6
+tags:
+  [
+    Abhängigkeiten,
+    Armstrong Kalkül,
+    Normalformen
+  ]
+---
+
+# Entwurfstheorie
+
+## Abhängigkeiten
+Sei $X$ die Attributenmenge einer Relation $R$. Eine Abhängigkeit ist eine relation $\alpha \to \beta, \alpha, \beta \subseteq X$. Also $\beta$ ist funktional abhängig von $\alpha$.
+also gdw. $r.a = t.a \implies r.b = t.b$ für alle $r,t \in R$.
+
+Hier kommt dann die Notation auf 
+- $\{ A,B \} \to \{ C \}$ bzw. $A,B \to C$
+
+Hiermit können wir nun Schlüssel gut definieren:
+
+- Eindeutigkeit
+$\alpha \subseteq X$ heißt Superschlüssel, falls $\alpha \to X$ gilt.
+
+- Minimalität
+$\beta \subseteq X$ heißt voll funktional abhängig von $\alpha$ falls:
+  - $\alpha \to \beta$ gilt
+  - $\alpha - {A} \nrightarrow \beta$ für alle $A \in \alpha$ also $\alpha$ ist minimal.
+
+Ein Schlüsselkandidat ist dann $\alpha \subseteq X$ mit $X$ voll funktional abhängig von $\alpha$.
+Und der Primärschlüssel ist dann ein Schlüsselkandidat, der minimal ist.
+
+## Armstrong-Kalkül
+
+Bestimmung funktionaler Abhängigkeiten:
+Seien $\alpha, \beta, \gamma \subseteq X$.
+- Reflexivität: $\beta \subseteq \alpha \implies \alpha \to \beta$
+- Verstärkung: $\alpha \to \beta \implies \alpha \cup \gamma \to \beta \cup \gamma$
+- Transitivität: $\alpha \to \beta, \beta \to \gamma \implies \alpha \to \gamma$
+
+Eine Abhängigkeit ist ableitbar, falls es eine Folge gibt von Abhängigkeiten, die mit den obigen Regeln hergeleitet werden kann.
+$F \vdash f$
+
+Erweiteruingen:
+- Vereinigung: $\alpha \to \beta, \alpha \to \gamma \implies \alpha \to \beta \gamma$
+- Dekomposition: $\alpha \to \beta \gamma \implies \alpha \to \beta, \alpha \to \gamma$
+- Pseudotransitivität: $\alpha \to \beta, \gamma \beta \to \delta \implies \alpha \gamma \to \delta$
+
+
+Hieraus bildet man dann die **Attributhülle**.
+
+Beispiel: $F=\{ A \to C, B \to A, AB \to C \}$
+- AttrHülle(F, \{B\})
+
+Anfang: $\{B\}$
+Erster Durchlauf: $A \to C \implies \{B\}$ | $B \to A \implies \{B,A\}$ | $AB \to C \implies \{B,A,C\}$
+Zweiter Durchlauf: Keine Änderung
+
+Die Kanonische Überdeckung hat die gleiche Menge von Ableitungen. Also beim Beispiel $\{A \to C, B \to A\}$
+
+## Normalformen
+- Erste Normalform: Alle Attribute haben atomare Werte (String, Integer, etc.)
+- Zweite Normalform: Alle Attribute sind voll funktional abhängig vom Primärschlüssel
+- Dritte Normalform: Für alle Nichtschlüsselattribute und jede Abhängigkeit $\alpha \to B$ muss $\alpha$ Superschlüssel sein (also nicht minimal)
+- Boyce-Codd Normalform: Für alle Abhängigkeiten $\alpha \to \beta$ muss $\alpha$ Superschlüssel sein (also nicht minimal)
+
+## Algorithmen
+//TODO: Algorithmen
+
+
