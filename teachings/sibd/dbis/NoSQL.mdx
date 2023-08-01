@@ -1,0 +1,74 @@
+---
+title: Moderne
+description: Woow Mongo 
+author: Jonas Schneider
+date: 1/08/2023
+order: 8
+tags:
+  [
+    XML,
+    Graphdatenbanken
+  ]
+---
+
+## Skalierung
+- Vertikale Skalierung bedeuted, dass jeder Knoten mehr Leistung hat (Mehr RAM, )
+![buy ram](https://media.tenor.com/YcFi_XrKoJcAAAAC/digibyte-dgb.gif)
+- Horizontale Skalierung bedeuted, dass mehr Knoten hinzugefügt werden
+  - Verteilte Tabellen auf mehreren Knoten
+  - Synchronisations und Konsistenzprobleme => Overhead
+  - Sharding: Daten werden auf mehrere Knoten verteilt und können so parallel abgefragt werden
+  - Replikation: Daten werden auf mehrere Knoten verteilt und können so parallel abgefragt werden
+    - 2PC: 2 Phase Commit => 1. Phase Prepare | 2. Phase Commit mit ACK's mal wieder :)
+  - CAP: Consistency | Availability | Partition Tolerance => Nur 2 von 3. gehen
+  - Daher BASE: Basically Available | Soft State (kann also temporär inkonsistent sein)| Eventual Consistency als ACID Ersatz  
+
+## NoSQL
+- Dokumentendatenbanken
+- Key-Value Datenbanken
+- Graphdatenbanken
+- Spaltenorientierte Datenbanken
+
+## Dokumentendatenbanken
+- Dokumente sind JSON / XML / PDF / ...
+- Dokumente sind indexiert
+- Bsp: MongoDB (Nutzt BSON: Binary Json)
+
+## Key-Value Datenbanken
+- Key-Value Paare
+- Bsp: Redis (Wird oft als Cache verwendet und ist größtenteils in Memory)
+
+## Graphdatenbanken
+- Knoten sind Entities
+- Kanten sind Relationen/Beziehungen
+- Bsp: Neo4J
+
+## SPARQL: SPARQL Protocol and RDF Query Language
+Sparql Anfragen haben Bausteine:
+- Definition der Namespaces:
+- Anfrage: `SELECT`, `ASK`, `CONSTRUCT`, `DESCRIBE`
+- `WHERE` Klausel: Selektion durch ein Graph-Muster
+- Modifikatoren
+
+Bsp:
+
+```Sparql
+# prefix declarations
+PREFIX ex: <http://example.com/resources/>
+....
+# query type# projection # dataset definition
+SELECT ?friend ?friendname
+WHERE {
+jwebsp: John foaf:knows ?friend .
+?friend foaf:name ?friendname .
+}
+# query modifiers
+ORDER BY ?y
+```
+
+- SELECT: Ergebnis in Tabelle
+- ASK: Ergebnis ist Wahrheitswert
+- CONSTRUCT: Ergebnis ist Erzeugung einer Ressource
+- DESCRIBE: Ergebnis ist Beschreibung einer Ressource
+
+//TODO: Muss es erstmal selber anwenden um es zu verstehen
