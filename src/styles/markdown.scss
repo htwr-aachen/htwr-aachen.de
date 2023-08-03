@@ -164,7 +164,11 @@
 
     li code,
     p code {
-      @apply px-2 py-1 rounded;
+      @apply px-2 py-1 rounded bg-rwth-accent/10;
+    }
+
+    svg {
+      @apply ml-auto mr-auto py-2;
     }
 
     .centerImg {

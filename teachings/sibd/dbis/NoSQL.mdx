@@ -1,5 +1,5 @@
 ---
-title: Moderne
+title: SPARQL ✨
 description: Woow Mongo 
 author: Jonas Schneider
 date: 1/08/2023
@@ -43,32 +43,80 @@ tags:
 - Kanten sind Relationen/Beziehungen
 - Bsp: Neo4J
 
-## SPARQL: SPARQL Protocol and RDF Query Language
-Sparql Anfragen haben Bausteine:
-- Definition der Namespaces:
-- Anfrage: `SELECT`, `ASK`, `CONSTRUCT`, `DESCRIBE`
-- `WHERE` Klausel: Selektion durch ein Graph-Muster
-- Modifikatoren
 
-Bsp:
+## RDF
 
-```Sparql
-# prefix declarations
-PREFIX ex: <http://example.com/resources/>
-....
-# query type# projection # dataset definition
-SELECT ?friend ?friendname
-WHERE {
-jwebsp: John foaf:knows ?friend .
-?friend foaf:name ?friendname .
-}
-# query modifiers
-ORDER BY ?y
+- Resourcen im Tripel Format: Subjekt-Prädikat-Objekt. "Aachen ist eine Stadt"
+
+```mermaid
+graph LR
+  A(Ressource ) -- Eigenschaft --> B(Wert)
 ```
 
-- SELECT: Ergebnis in Tabelle
-- ASK: Ergebnis ist Wahrheitswert
-- CONSTRUCT: Ergebnis ist Erzeugung einer Ressource
-- DESCRIBE: Ergebnis ist Beschreibung einer Ressource
+- Ressourcen sind: URI, Blank Nodes (URI: Uniform Resource Identifier bsp: `urn:example:animal:ferret:nose`)
+- Eigenschaften sind: URI die eine Eigenschaft beschreibt
+- Werte sind: URI, Blank Nodes, Literale (Strings interpretiert mit Datentyp `"123"^^http//www.w3.org/2001/XMLSchema#int`)
 
-//TODO: Muss es erstmal selber anwenden um es zu verstehen
+
+```mermaid
+graph LR
+  HansMueller(Bsp:HansMueller) -- Bsp:hatAdresse --> EmptyNode( )
+  EmptyNode -- Bsp:hatStrasse --> Strasse("Bsp:Strasse")
+  EmptyNode -- Bsp:hatPLZ --> PLZ("Bsp:PLZ")
+  EmptyNode -- Bsp:hatOrt --> Ort("Bsp:Ort")
+```
+
+## SPARQL ✨
+
+> "SPARQL steht für "SPARQL Protocol and RDF Query Language"" - DBIS Folien
+
+![Rekursion](https://media.tenor.com/fRjZqbFCKTkAAAAM/pizza-inception.gif)
+
+Ein Abfrage besteht aus folgendem:
+
+- Namespaces (Prefixe)
+  - `@prefix ex: <http://example.com/resources/>`
+- Abfrage Typ
+  - `SELECT`, `ASK`, `CONSTRUCT`, `DESCRIBE`
+  - `SELECT ?x | * FROM ...`: FROM ist optional da es nur die durchsuchten Graphen angibt(sonst default Graph)
+  - `ASK`: Ergebnis ist Wahrheitswert
+  - `CONSTRUCT`: Ergebnis ist Erzeugung einer Ressource
+  - `DESCRIBE`: Ergebnis ist Beschreibung einer Ressource
+
+- Abfrage Muster
+  - `WHERE { ?x ex:hasName "Söder" }`
+- Modifikatoren
+  - `ORDER BY ?x`
+
+Somit ergibt sich eine Abfrage wie folgt:
+
+```sparql
+  @prefix ex: <http://example.com/resources/>
+  @prefix foaf: <http://xmlns.com/foaf/0.1/>
+  @prefix tblw3ccard: <http://www.w3.org/People/Berners-Lee/card#>
+  @prefix wbsp: <http://mywebspace.com/profiles/john/>
+
+  SELECT ?friend ?friendname
+  WHERE {
+    wbsp:John foaf:knows ?friend .
+    ?friend foaf:firstname ?friendname .
+  }
+```
+
+Weiteres:
+  - Modifikatoren
+    - `ORDER BY ASC/DESC ?x`
+    - `LIMIT n | OFFSET n`: Limitiert die Anzahl der Ergebnisse oder gibt die ersten n Ergebnisse nicht zurück
+  - Vergleichungen von urls
+    - `== | != ` Großschreibungen relevant
+  - Filter
+    - `! | && | ||` Logisch... halt wirklich
+    - `+ | - | * | /`
+    - `= | != | < | > | ...`
+    - `isURI() | isBlank() | isLiteral() | str() | lang() | datatype() | regex() | contains()`
+  - `OPTIONAL`: `{GraphMuster1} OPTIONAL {Optionale Sache}` ähnlich wie left join 
+  - `UNION`: Selbst erklärend
+  - `SELECT DISTINCT`: Auch selbst erklärend
+  
+
+Der Rest ist unnütz (denke ich)
