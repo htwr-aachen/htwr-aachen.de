@@ -19,6 +19,7 @@ Diese Übung war mit Abstand die verwirrendste und widersprüchlichste Übung di
 Eine Transaktion ist ein Folge von Operation.
 
 Das ACID Prinzip komm hier häufig auf:
+
 - Atomicity: Entweder alle Operationen werden ausgeführt oder keine
 - Consistency: Die Datenbank ist vor und nach der Transaktion in einem konsistenten Zustand
 - Isolation: Innerhalb einer Transaktion nimmt ein Benutzer keine Änderungen durch andere wahr
@@ -35,7 +36,13 @@ Die beiden weiteren Operationen sind logischer weise:
 
 Probleme wie bei Bus:
 - Lost Update
+  - Änderungen von einer Transaktion werden von einer anderen Überschrieben
+    Beispiel: `r_1(x) r_2(x) w_2(x) c_2 w_1(x) c_2`
 - Dirty Read
+  - Daten die von einer noch nicht abgeschlossenen Transaktion verändert wurden sind `Dirty Data`
+    Es könnte z.B. passieren, dass Prozess 1 seine Transaktionen abbricht, aber Prozess 2 auf den Daten rechnet.
+    
+    Beispiel: `r_1(x) w_1(x) r_2(x) a_1 w_2(x)`
 - Phantom
 
 Trotzdem wollen wir nicht seriell arbeiten. Also Scheduling mit Read / Write Locks
@@ -45,7 +52,7 @@ Ein **Schedule** ist eine Permutation von Operationen, wobei die Reihenfolge der
 Ein Schedule ist **serialisierbar**, wenn er äquivalent zu einem seriellen Schedule ist.
 
 Alles weitere über Striktheit und so muss gerade nicht sein.
-
+:
 ## Protokolle
 - Sperrende Scheduler: Locking
 - Nicht Sperrende Scheduler: Transaktionen werden ggf. zurückgesetzt
@@ -59,4 +66,25 @@ Alles weitere über Striktheit und so muss gerade nicht sein.
 Protokolle:
 - 2PL: Nach der ersten ru/wu Aktion folgt keine weitere lock Aktion: Heißt es wird gesperrt wenn nötig und so lange gehalten wir nötig.
 - C2PL: Alle Locks werden direkt am Anfang gesetzt und erst wieder aufgehoben wenn letzte w/r Aktion des Objektes durchgeführt wurde.
-- S2PL: Wei 2PL,nur alle Sperren werden erst am Ende aufgehoben.
+- S2PL: Weil 2PL,nur alle Sperren werden erst am Ende aufgehoben.
+
+### Liest-von Notation
+
+Sei $s$ ein Schedule
+
+Nun gilt: $t_1$ **liest** $x$ von $t_2$ wenn:
+1. $t_1$ liest $x$ nachdem $t_2$ $x$ geschrieben hat
+2. $t_2$ ist bis zum lesen noch nicht abgebrochen
+3. $t_2$ schreibt als letztes auf $x$. (Oder ein anderer bricht vor dem read ab)
+
+### Rücksetzbarkeit
+
+Es gibt mehrere Klassen von Recoverbiilty:
+
+- `RC`: die Klasse aller Rücksetztbaren Schedules. Also genau dann wenn $t_i$ liest von $t_j$ in $s$ und $c_i \in s \implies c_j$ vor $c_i$ 
+- `ACA`: vermeidung kaskadierender Aborts. $t_i$ liest von $x$ von $t_j$ in $s \implies c_j$ vor $r_i(x)$
+        Eine Transaktion darf nur Werte von bereits erfolgreich abgeschlossenen Transaktionen lesen. 
+- `ST`: die Klasse aller Strikten Scheduler. $W_j(x) < p_i(x), i \neq j \implies a_j < p_i(x) \lor c_j < p_i(x)$. 
+        Sprachlich das Objekt darf erst geschrieben/gelesen werden wenn der letzte Schreiber commit/aborted hat.  
+
+$RC \subset ACA \subset ST$
