@@ -37,7 +37,7 @@ Die beiden weiteren Operationen sind logischer weise:
 Probleme wie bei Bus:
 - Lost Update
   - Änderungen von einer Transaktion werden von einer anderen Überschrieben
-    Beispiel: `r_1(x) r_2(x) w_2(x) c_2 w_1(x) c_2`
+    Beispiel: `r_1(x) r_2(x) w_2(x) c_2 w_1(x) c_1`
 - Dirty Read
   - Daten die von einer noch nicht abgeschlossenen Transaktion verändert wurden sind `Dirty Data`
     Es könnte z.B. passieren, dass Prozess 1 seine Transaktionen abbricht, aber Prozess 2 auf den Daten rechnet.
@@ -64,9 +64,9 @@ Alles weitere über Striktheit und so muss gerade nicht sein.
 - Nur gleichzeitiges Lesen ist erlaubt, alle anderen müssen warten bis lock aufgehoben.
 
 Protokolle:
-- 2PL: Nach der ersten ru/wu Aktion folgt keine weitere lock Aktion: Heißt es wird gesperrt wenn nötig und so lange gehalten wir nötig.
+- 2PL: Nach der ersten ru/wu Aktion folgt keine weitere lock Aktion: Heißt es wird gesperrt wenn nötig und so lange gehalten wie nötig.
 - C2PL: Alle Locks werden direkt am Anfang gesetzt und erst wieder aufgehoben wenn letzte w/r Aktion des Objektes durchgeführt wurde.
-- S2PL: Weil 2PL,nur alle Sperren werden erst am Ende aufgehoben.
+- S2PL: Wie 2PL,nur alle Sperren werden erst am Ende aufgehoben.
 
 ### Liest-von Notation
 
