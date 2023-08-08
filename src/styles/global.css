@@ -55,5 +55,5 @@ a.no-b {
 }
 
 * {
-  @apply font-sans;
+  fontFamily: "var(--font-inter)", "var(--font-robot)", sans-serif;
 }

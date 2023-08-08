@@ -10,6 +10,13 @@ export default function SchedulerPage() {
   const [error, setError] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!scheduler || scheduler.length < 1) {
+      setError("Musst schon einen Scheduler eingeben");
+      return;
+    }
+
     fetch("https://api.htwr-aachen.de/dbis-scheduling", {
       body: JSON.stringify({
         content: scheduler,
@@ -18,18 +25,18 @@ export default function SchedulerPage() {
         "Content-Type": "application/json",
       },
       method: "POST",
+      mode: "cors",
     })
       .then((res) => {
         return res.text();
       })
       .then((res) => {
         setResult(res);
+        setError("");
       })
       .catch((_err) => {
         setError("Etwas ist falsch gelaufen :(. Musste wohl selber machen");
       });
-
-    e.preventDefault();
   };
 
   return (
@@ -80,7 +87,7 @@ export default function SchedulerPage() {
         {result && (
           <>
             <h2 className="mt-8 text-2xl underline">Lösung:</h2>
-            <p className="mt-8 rounded bg-rwth-accent px-4 py-3 text-white">
+            <p className="mt-8 whitespace-pre-wrap rounded bg-rwth-accent px-4 py-3 font-mono text-white">
               {result}
             </p>
           </>
