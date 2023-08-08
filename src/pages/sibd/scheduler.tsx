@@ -19,7 +19,7 @@ export default function SchedulerPage() {
 
     fetch("https://api.htwr-aachen.de/dbis-scheduling", {
       body: JSON.stringify({
-        content: scheduler,
+        content: scheduler.trim(),
       }),
       headers: {
         "Content-Type": "application/json",
@@ -64,14 +64,15 @@ export default function SchedulerPage() {
         <p>
           Mal angenommen man hätte rein zufällig so eine Aufgabe: s =
           w2(x)r1(z)w3(y)w2(y)r2(z)c2r3(y)r1(x)r3(z)r3(x)w1(x)c1c3 und man
-          müsste angeben ob der Scheduler RC,ACA, ST ist? Dann wäre die Lösung
+          müsste angeben ob der Scheduler RC,ACA, ST ist? Dann wäre die Lösung:
+          (Aufpassen Leerzeichen sind wichtig)
         </p>
         <form className="mt-10 flex w-full" onSubmit={handleSubmit}>
           <input
             name="scheduler"
             type="text"
             className="w-full rounded bg-gray-300 p-2 text-black placeholder:text-black/50"
-            placeholder="w2(x)r1(z)w3(y)w2(y)r2(z)c2r3(y)r1(x)r3(z)r3(x)w1(x)c1c3"
+            placeholder="w2(x) r1(z) w3(y) w2(y) r2(z) c2 r3(y) r1(x) r3(z) r3(x) w1(x) c1 c3"
             onChange={(e) => {
               setScheduler(e.target.value || "");
             }}
