@@ -140,7 +140,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/teaching-assets/sibd/dbis/gremlin.pfd"}>
+                  <Link href={"/teaching-assets/sibd/dbis/gremlin.pdf"}>
                     Gremlin Folien
                   </Link>
                 </li>
