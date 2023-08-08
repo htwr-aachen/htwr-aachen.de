@@ -13,6 +13,7 @@ export default function SchedulerPage() {
     e.preventDefault();
 
     if (!scheduler || scheduler.length < 1) {
+      setResult("");
       setError("Musst schon einen Scheduler eingeben");
       return;
     }
@@ -35,6 +36,7 @@ export default function SchedulerPage() {
         setError("");
       })
       .catch((_err) => {
+        setResult("");
         setError("Etwas ist falsch gelaufen :(. Musste wohl selber machen");
       });
   };
