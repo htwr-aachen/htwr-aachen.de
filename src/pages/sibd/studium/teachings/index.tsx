@@ -113,7 +113,36 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
               })}
             </ul>
           </div>
+
           <div className="my-8 lg:col-span-2">
+            <div className="mb-4">
+              <h1 className="mb-2 mt-4 font-sans text-4xl">
+                Hilfreiche Sachen für die Klausur
+              </h1>
+
+              <ul className="my-4 ml-8 list-disc">
+                <li>
+                  <a href="https://chat.openai.com/" target="_blank">
+                    https://chat.openai.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://normalizer.db.in.tum.de/index.py"
+                    target="_blank"
+                  >
+                    https://normalizer.db.in.tum.de/index.py
+                  </a>
+                </li>
+                <li>
+                  <Link target="_blank" href="/sibd/scheduler">
+                    Automatischer Scheduler Recovery
+                  </Link>
+                </li>
+                <li>Gremlin Notizen</li>
+              </ul>
+            </div>
+
             <h1 className="mb-2 mt-4 font-sans text-4xl">
               Erklärungen in ihrem eigenen Stil
             </h1>
