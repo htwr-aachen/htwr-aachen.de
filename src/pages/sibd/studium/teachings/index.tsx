@@ -139,7 +139,7 @@ const Teachings: FC<TeachingsProps> = ({ docs, folien }) => {
                     Automatischer Scheduler Recovery
                   </Link>
                 </li>
-                <li>Gremlin Notizen</li>
+                <li><Link href={"/teaching-assets/sibd/dbis/gremlin.pfd"}>Gremlin Folien</Link></li>
               </ul>
             </div>
 
