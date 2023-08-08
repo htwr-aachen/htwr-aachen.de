@@ -29,6 +29,10 @@ export default function SchedulerPage() {
       mode: "cors",
     })
       .then((res) => {
+        if (res.status !== 200)
+          throw new Error("Du musst was falsches eingegeben haben", {
+            cause: "Du",
+          });
         return res.text();
       })
       .then((res) => {
@@ -37,7 +41,9 @@ export default function SchedulerPage() {
       })
       .catch((_err) => {
         setResult("");
-        setError("Etwas ist falsch gelaufen :(. Musste wohl selber machen");
+        setError(
+          "Etwas ist falsch gelaufen / Du hast was falsch gemacht :(. Musste wohl selber machen"
+        );
       });
   };
 
@@ -67,7 +73,6 @@ export default function SchedulerPage() {
           Mal angenommen man hätte rein zufällig so eine Aufgabe: s =
           w2(x)r1(z)w3(y)w2(y)r2(z)c2r3(y)r1(x)r3(z)r3(x)w1(x)c1c3 und man
           müsste angeben ob der Scheduler RC,ACA, ST ist? Dann wäre die Lösung:
-          (Aufpassen Leerzeichen sind wichtig)
         </p>
         <form className="mt-10 flex w-full" onSubmit={handleSubmit}>
           <input

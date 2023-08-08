@@ -22,6 +22,9 @@ export const MaterialienSchnellzugriff: FC = () => {
         <Schnellzugrifflink href="/sibd/studium/aufgaben">
           Aufgaben
         </Schnellzugrifflink>
+        <Schnellzugrifflink href="/sibd/scheduler">
+          Scheduler Recovery Solver
+        </Schnellzugrifflink>
       </Schnellzugriff>
     </div>
   );
