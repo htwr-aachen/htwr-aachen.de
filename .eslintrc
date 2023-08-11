@@ -6,6 +6,19 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "import/order": [
+      1,
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }
+    ],
     "prettier/prettier": [
       "error",
       {

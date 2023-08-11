@@ -88,7 +88,7 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
             target={"_blank"}
             rel="noreferrer"
           >
-            Video AG 2017 (selbst aufgenommen)
+            Video AG 2017
           </a>
         </li>
       </ul>
