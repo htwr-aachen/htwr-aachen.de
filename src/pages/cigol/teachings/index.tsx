@@ -42,12 +42,12 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
 
       <ul className="my-2 ml-8 list-disc">
         <li>
-          <a target={"_blank"} href="/teaching-assets/cigol/script_23.pdf">
+          <a target={"_blank"} href="/teaching-assets/cigol/malo/script_23.pdf">
             Script 2023
           </a>
         </li>
         <li>
-          <a target={"_blank"} href="/teaching-assets/cigol/script_18.pdf">
+          <a target={"_blank"} href="/teaching-assets/cigol/malo/script_18.pdf">
             Script 2018 (ist größtenteils gleich)
           </a>
         </li>
@@ -68,7 +68,10 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
             philworld.de
           </a>{" "}
           nicht die views klauen, aber selbst gehostet gibts{" "}
-          <a target={"_blank"} href="/teaching-assets/cigol/panikzettel.pdf">
+          <a
+            target={"_blank"}
+            href="/teaching-assets/cigol/malo/panikzettel.pdf"
+          >
             hier.
           </a>
           )

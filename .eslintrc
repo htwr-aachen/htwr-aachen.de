@@ -10,11 +10,9 @@
       1,
       {
         "groups": [
-          "builtin",
-          "external",
+          ["external", "builtin"],
           "internal",
-          "parent",
-          "sibling",
+          ["sibling", "parent"],
           "index"
         ]
       }
