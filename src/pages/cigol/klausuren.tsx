@@ -12,7 +12,7 @@ type KlausurenProps = {
 export async function getStaticProps() {
   return {
     props: {
-      klausuren: await getProtectedDownloads("dbis"),
+      klausuren: await getProtectedDownloads("malo"),
     },
   };
 }
