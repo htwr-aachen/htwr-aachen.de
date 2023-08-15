@@ -9,4 +9,98 @@ tags: [Einführung Prädikatenlogik, Syntax, Semantik, Universen]
 
 ## Einführung in die Prädikatenlogik
 
-less goo weiter gehts in der Reise um die Mathematische Logik:
+less goo weiter gehts in der Reise in die Mathematische Logik
+
+### Strukturen
+
+Jetzt wirds deutlich komplizierter als Boolsche Algebra. Wir wollen jetzt über
+"beliebige" Strukturen sprechen nichtmehr über 0 und 1 damit Unbekannte nicht
+weiter mit "Ach du bist Informatiker dann red ich mal mit dir 01001000 01100001 
+01101100 01110100 00100000 01100100 01100101 01101001 01101110 00100000 
+01001101 01100001 01110101 01101100 00100000 01001101 01100001 01001100 
+01101111"
+
+Hierfür brauchen wir ein **Universum**: das besagt welche elemente uns zur 
+Verfügung stehen. Z.B. $\mathbb{N}$ also irgendeine Menge von Sachen sie darf
+nicht leer sein.
+
+Und dann gibt es noch Eine Menge von Relationen und Funktionen.
+Erstmal Syntaktisch. Relationen und Funktionen sind Symbole, die ein bestimmte
+Menge von Eingaben erwarten (Stelligkeit)
+
+Aus diesen Symbolen und deren Stelligkeiten bauen wir uns die Signatur $\tau$ (es geht hier nur um die Smybole
+nicht um was es tatsächlich bedeutet).
+
+Eine $\tau$-Struktur $\mathfrak(A)$ (ein Fraktur A: Handschriftlich schreibt
+man es meist anders) ist dann das Universum, und eine Interpretation der 
+Symbole aus der Signatur. Wir sagen nun also ok das zeichen "+" heißt in dieser
+Struktur mit Universum $\mathbb{N}$ das normale addieren. 
+
+Hierfür schreiben wir für die **Interpretation** (also die wirklche 
+Funktion/Relation $f^{\mathfrak{A}}$) für das Funktionssymbol $f$.
+
+**Substrukturen** sind relativ simple definiert: Nimm Teilmenge des Universum und 
+Nimm nur die Relationen/Funktionen die innerhalb dieser Teilmenge operieren.
+(Falls die Ergebnisse von den Funktionen wieder in der Teilmenge liegen so 
+ist die Struktur abgeschlossen). Erweiterungen sind das Gegenteil von Substrukturen
+
+Bei **Reduktionen** lassen wir einfach manche Funktionen/Relationen weg.
+Ein $(\mathbb{R}, +, 0)$ ist das $\{+, 0\}$-Redukt von $(\mathbb{R}, +, \cdot,
+ 0, 1)$. **Expansion** ist das Gegenteil.
+
+## Syntax
+
+Wir haben in **jeder** Struktur folgendes Grundalphabet:
+
+- VAR: Eine Menge von Variablen
+- Gleichheitszeichen $=$ ist immer dabei
+- Aussagenlogische Junktoren $\lnot, \lor, \land, \to$
+- Existensquantor $\exists$, Allquantor $\forall$
+- Klammern
+- den Relationen und Funktionssymbolen in der Signatur.
+
+
+Daraus kann man sich dann schön was zusammenbauen. Z.B. $\phi = \forall v_1 
+\exists v_2 (v_1 < v_3 \land \lnot(v_2 = v_3))
+
+Hierbei sind die Variablen $v_1, v_2$ an einen Quantor **gebunden** und 
+$v_3$ ist frei: Hießt würde man $\Phi$ aufrufen wollen, müsste man ein $v_3$ 
+übergeben.
+
+Es werden keine Klammern bei Funktionen gemacht, $f$ einstellig, $g$ zweistellig
+und $c$ 0-stellig (konstante):
+
+$x, c, fx, gxx, gfxc, ggccfx$ letzteres wäre $g(g(c,c), f(x))$
+
+### Semantik
+
+Ist eigentlich echt nicht kompliziert. Die Sachen machen halt das was sie immer
+schon gemacht haben. 
+
+**Folgerungen**: Fast gleich zu der Folgerungsbeziehung in der AL.
+Nur $\Phi_{Gruppe} \models \phi$ heißt also $\phi$ gilt in jeder Gruppe, aber
+$\phi$ kann freie Variablen haben, also gilt $\phi$ in jeder Gruppe mit jeder
+Möglichen Belegung der freien Variablen von $\phi$.
+
+Hier muss aber nochmal erklärt werden was nun ein Model ist:
+
+Ein Modell von $\phi$ wäre ist eine Struktur mit der gleichen Signatur von $\phi$ 
+und eine Belegung möglicher freier Variablen $\beta: X \to A$. Das ist dann eine 
+Interpretation $\mathfrak{I}=(\mathfrak{A}, \beta)$. Somit ist
+ $[\phi]^\mathfrak{I} \in \{0,1\}$ entweder falsch oder wahr.
+
+## Normalformen
+Auch hier gibt es mal wieder praktische Normalformen. 
+
+- Negationsnormalform: Kein $\to$ und Negationen kommen nur bei atomaren Formeln
+(also nur bei z.B. $x\neqy$, $\lnot Rxy$, $\lnot fxy$)
+  - Hierfür gilt: $\lnot \forall x \phi = \exists x \lnot \phi$ und andersherum
+- Termreduzierte Normalform: Nur noch atomare Formeln($Rx, fx=y, x=y$)
+- Pränex-Normalform PNF: Die Quantoren ganz am Anfang:
+  - Hierfür gilt: $\exists x(\phi \or \psi) \equiv \exists x \phi \lor \exists \psi$
+  - Und: $\forall x(\phi \land \psi) \equiv \forall x \phi \land \forall x \psi$
+  - Und: $\exists x \exists y \phi \equiv \exists y \exists x \phi$ genauso für 
+    $\forall$. 
+  - Und falls $x \notin \psi$: $\psi \land \exists x \phi \equiv 
+    \exists x (\psi \land \phi)$ genauso für $\lor$ und für $\forall$
+  - Das heißt wir müssen manchmal gebundene Variablen umbennen um in die PNF zu kommen
