@@ -7,6 +7,8 @@ date: 15/08/2023
 tags: [Einführung Prädikatenlogik, Syntax, Semantik, Universen]
 ---
 
+!> Ich benutze $\phi$ statt $\varphi$ wegen schreibarbeit.
+
 ## Einführung in die Prädikatenlogik
 
 less goo weiter gehts in der Reise in die Mathematische Logik
@@ -92,11 +94,11 @@ Interpretation $\mathfrak{I}=(\mathfrak{A}, \beta)$. Somit ist
 ## Normalformen
 Auch hier gibt es mal wieder praktische Normalformen. 
 
-- Negationsnormalform: Kein $\to$ und Negationen kommen nur bei atomaren Formeln
+- **Negationsnormalform**: Kein $\to$ und Negationen kommen nur bei atomaren Formeln
 (also nur bei z.B. $x\neqy$, $\lnot Rxy$, $\lnot fxy$)
   - Hierfür gilt: $\lnot \forall x \phi = \exists x \lnot \phi$ und andersherum
-- Termreduzierte Normalform: Nur noch atomare Formeln($Rx, fx=y, x=y$)
-- Pränex-Normalform PNF: Die Quantoren ganz am Anfang:
+- **Termreduzierte Normalform**: Nur noch atomare Formeln($Rx, fx=y, x=y$)
+- **Pränex-Normalform** PNF: Die Quantoren ganz am Anfang:
   - Hierfür gilt: $\exists x(\phi \or \psi) \equiv \exists x \phi \lor \exists \psi$
   - Und: $\forall x(\phi \land \psi) \equiv \forall x \phi \land \forall x \psi$
   - Und: $\exists x \exists y \phi \equiv \exists y \exists x \phi$ genauso für 
@@ -104,3 +106,8 @@ Auch hier gibt es mal wieder praktische Normalformen.
   - Und falls $x \notin \psi$: $\psi \land \exists x \phi \equiv 
     \exists x (\psi \land \phi)$ genauso für $\lor$ und für $\forall$
   - Das heißt wir müssen manchmal gebundene Variablen umbennen um in die PNF zu kommen
+- **Skolem Normalform** (ist nur **erfüllbarkeits-äquivlanent** heißt, das Modell 
+ist vermutlich nicht das gleiche aber $\phi'$ ist genau dann erfüllbar wenn $\phi$ das ist)
+  - Für jeden Satz $\psi \in FO(\sigma)$ gibt es ein Satz
+  $\phi \in FO(\tau \subseteq \sigma)$ mit der Form: $\forall y_1 ... \forall y_n \phi'$, $\phi'$ Quantorenfrei
+
