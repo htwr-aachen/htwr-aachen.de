@@ -3,7 +3,7 @@ title: Das Magische Baumhaus geht auf die nächste Stufe (Einführung Prädikate
 order: 4
 description: Das Magische Baumhaus hat genug von der Aussagenlogik und braucht eine neue Herausforderung first order Logic...
 author: Jonas Schneider
-date: 15/08/2023
+date: 16/08/2023
 tags: [Einführung Prädikatenlogik, Syntax, Semantik, Universen]
 ---
 
@@ -112,3 +112,7 @@ ist vermutlich nicht das gleiche aber $\phi'$ ist genau dann erfüllbar wenn $\p
   - Für jeden Satz $\psi \in FO(\sigma)$ gibt es ein Satz
   $\phi \in FO(\tau \subseteq \sigma)$ mit der Form: $\forall y_1 ... \forall y_n \phi'$, $\phi'$ Quantorenfrei
 
+
+## Quantorenrang
+$qr(\psi)$ bezeichnet den **Quantorenrang** (wird später gebraucht). Zähl einfach die maximale verschachtelung Tiefe von Quantoren.
+Z.B. $\psi = \exists x (x = y) \lor \exists z (x = z) \quad qr(\psi) = 2$. Simpel 
