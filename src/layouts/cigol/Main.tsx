@@ -97,7 +97,7 @@ const Main = (props: CIGOLMainProps) => {
           <div className="grid items-center justify-start">
             <span className="font-sans text-xl font-bold">
               {config.name} <br />
-              MALO wird Spaß.
+              MALO ist Spaß.
             </span>
           </div>
           <div className="flex">
