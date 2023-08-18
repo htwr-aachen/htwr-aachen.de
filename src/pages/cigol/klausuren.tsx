@@ -9,7 +9,7 @@ type KlausurenProps = {
   klausuren: string[];
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {
       klausuren: await getProtectedDownloads("malo"),
