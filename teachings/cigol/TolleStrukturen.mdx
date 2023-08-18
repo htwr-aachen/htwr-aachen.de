@@ -28,7 +28,7 @@ Die Schlussregeln sind:
 
 Eine Satz $\psi$ ist **ableitbar** aus einem Axiomssystem $\Phi$ ($\Phi \vdash \psi$), wenn eine endliche Teilmenge $\Gamma \subseteq \Phi$ existiert mit $\Gamma \implies \psi$
 
-Eine Sequenz $\Gamma \implies \Delta$ ist ableitbar, wenn es eine ableitbare Sequenz gibt mit $\Gamma, \Gamma' \implise \Delta$ mit $\Gamma' \subseteq \Delta$
+Eine Sequenz $\Gamma \implies \Delta$ ist ableitbar, wenn es eine ableitbare Sequenz gibt mit $\Gamma, \Gamma' \implies \Delta$ mit $\Gamma' \subseteq \Delta$
 
 Eine Satzmenge $\Phi$ wo jeder Satz aus der Signatur ableitbar ist, heißt **inkonsistent**.
 
@@ -38,7 +38,7 @@ Jetzt wirds blöde: Vollständigkeitssatz
 > $\Phi$ ist genau dann konsistent, wenn $\Phi$ erfüllbar ist.
 ## Kanonische Modelle und Herbrand 
 
-Herbrand-Strukturen sind bissle irritierend. Sie besitzten genau die Elementer der Terme der Signatur. Vergesst also die Bedeutung hinter den Zeichen. 
+Herbrand-Strukturen sind bissle irritierend. Sie besitzten genau die Elemente der Terme der Signatur. Vergesst also die Bedeutung hinter den Zeichen. 
 
 Genauer: Eine Herbrand-Struktur zu der Signatur $\tau$ (die min. ein Konstantensymbol erhält) ist eine $\tau$-Struktur $\mathfrak{H}$
 Was ist im Universum drin: Alle Symbole (Grundterme) also für $\tau = \{+, 1\}$ z.B. $\{1, +\}$
@@ -74,14 +74,14 @@ Was ist das jetzt schon wieder:
 
 Wir haben jetzt alle Kongruenzklassen. Nun bündeln wir die Sachen zu einer **Faktorstruktur** $\mathfrak{A} / \sim$ zusammen
 
-Also das Universum ist nun $\{[a] \mid a \in A\}
+Also das Universum ist nun $\{[a] \mid a \in A\}$
 
 Und wir definieren $f^{\mathfrak{A} / \sim}([a_1], ..., [a_n]) = [f^\mathfrak{A}(a_1, ..., a_n)]$
 Genauso die Relation: $([a_1], ..., [a_n]) \in R^{\mathfrak{A} / \sim}$ gdw. ${(a_1, ..., a_n) \in R^\mathfrak{A}}$
 
 ## Wir möchten jetzt Konzepte kombinieren
 
-Wir haben Apple (Herbrand-Strukturen) und Pen(Faktorstrukturen) und möchten jetzt ApplePen machen.
+Wir haben Apple (Herbrand-Strukturen) und Pen (Faktorstrukturen) und möchten jetzt ApplePen machen.
 
 Wir müssen aber trotzdem noch Sachen zu $\Sigma$ hinzufügen damit das Problem der Gleichheiten sich durch die Faktorstrukturen löst.
 
@@ -91,7 +91,7 @@ Hierfür
 > 1. $\Sigma$ entählt $t=t$ <br/>
 > 2. Wenn $t=t'$ und $\psi(t) \in \Sigma$ dann auch $\psi(t') \in Sigma$
 
-Wenn also jetzt $\Sigma$ (sonst erweitern wir $\Sigma$ halt) unter Substitution abgeschlossen ist, bilden wir eine Kongruenzrelation für die Herbrand-Struktur $\mathfrak{H}(\Sigma) bilden: Für bel. $t, t'$ Grundterme setzten wir:
+Wenn also jetzt $\Sigma$ (sonst erweitern wir $\Sigma$ halt) unter Substitution abgeschlossen ist, bilden wir eine Kongruenzrelation für die Herbrand-Struktur $\mathfrak{H}(\Sigma)$ bilden: Für bel. $t, t'$ Grundterme setzten wir:
 
 $t \sim t'$ gdw. $t=t' \in \Sigma$
 
