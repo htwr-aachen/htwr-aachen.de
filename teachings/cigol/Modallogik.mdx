@@ -18,48 +18,48 @@ flowchart LR
 
 Definition:
 - Alle aussagenlogischen Formeln mit Aussagenvars. $P_i$ sind in ML.
-- Wenn $\phi, \psi \in ML$ dann auch $\lnot \psi, (\phi \lor \psi), ...$
-- Wenn $\phi \in ML$ und $a \in A$ (das heißt die $a$ ist in den Aktionen wie im Diagramm), dann gehört auch $\langle a \rangle \phi, [a]\phi$ zu ML.
-- Falls nur eine Aktion vorhanden ist $|A| = 1$ dann wird auch $\diamond \phi$ (möglicherweise $\phi$) und $\square \phi$ (notwendigerweise $\phi$)
+- Wenn $\varphi, \psi \in ML$ dann auch $\lnot \psi, (\varphi \lor \psi), ...$
+- Wenn $\varphi \in ML$ und $a \in A$ (das heißt die $a$ ist in den Aktionen wie im Diagramm), dann gehört auch $\langle a \rangle \varphi, [a]\varphi$ zu ML.
+- Falls nur eine Aktion vorhanden ist $|A| = 1$ dann wird auch $\diamond \varphi$ (möglicherweise $\varphi$) und $\square \varphi$ (notwendigerweise $\varphi$)
 
 Die Struktur der Modallogik ist die Kripkestruktur mit Aktionen $A$. $K = (V, (E_a)_{a \in A}, (P_i)_{i \in I})$. Die Knoten sind natürlich das Universum.
 
-Die Modellbeziehung: $K,v \models \phi$ (d.h. $\phi$ gilt im Zustand $v$ von $K$).
+Die Modellbeziehung: $K,v \models \varphi$ (d.h. $\varphi$ gilt im Zustand $v$ von $K$).
 
 $\exists$ ist verglichbar mit dem $\diamond$ und analog $\square$.
 
-Es ist leicht einzusehen, dass für jede Formel $\phi \in ML$ ein Formel $\phi*(x) in FO^2$ gibt. Hierbei ist $FO^2$ alle FO-Formeln mit nur zwei Variablen x,y
+Es ist leicht einzusehen, dass für jede Formel $\varphi \in ML$ ein Formel $\varphi*(x) \in FO^2$ gibt. Hierbei ist $FO^2$ alle FO-Formeln mit nur zwei Variablen $x,y$.
 
 ## Bisimulation
 
-Das wichtigste beid er Modallogik ist die Bisimulation. Hier werden wie bei EF-Spielen die Ununterscheidbarkeit von zwei Kripkestruktur nachgewiesen.
+Das wichtigste bei der Modallogik ist die Bisimulation. Hier werden wie bei EF-Spielen die Ununterscheidbarkeit von zwei Kripkestruktur nachgewiesen.
 
-Eine Bisimulation zwischen $K, K'$ ist eine Relation $Z \subseteq V \times V'$,so dass für alle $(v,v') \in Z$ gilt:
+Eine Bisimulation zwischen $K, K'$ ist eine Relation $Z \subseteq V \times V'$, sodass für alle $(v,v') \in Z$ gilt:
 
 - $v \in P_i$ gdw. $v' \in P'_i$ für alle $i \in I$
 - **Hin**: Für alle $a \in A, w \in V$ mit $v \overset{a}{\to}w$ existiert ein $w' \in V'$ mit $v' \overset{a}{\to}w'$ und es ist $(w,w') \in Z$
 - **Her**: Genau anderherum für alle $a \in A, w' \in V'$ ...
 
-Zwei Strukturen sind bisimilar $K,u \sim K', u' wenn es eine Bisimulation gibt.
+Zwei Strukturen sind bisimilar $K,u \sim K', u'$ wenn es eine Bisimulation gibt.
 
 Das **Bisimulationsspiel** geht dann wie folgt:
 
-Start bei den Knoten (u,u') bzw. den Gegebenenstartknoten
+Start bei den Knoten $(u,u')$ bzw. den Gegebenenstartknoten
 
 Eigentlich genau wie bei den EF-Spielen, nur das man nur anhand den Vorgegeben Transitionen arbeiten kann und keinen Knoten zweimal besuchen kann.
 Falls man nichtmehr weiter ziehen kann ists für dich vorbei.
 
-Es geht dann wieder um Gewinnstrategien. Spiele II gewinnt das Bisimulationsspiel von u,u' wenn es eine Bisimulation von u,u' gibt.
+Es geht dann wieder um Gewinnstrategien. Spiele II gewinnt das Bisimulationsspiel von $u,u'$ wenn es eine Bisimulation von $u,u'$ gibt.
 
 Genau das gleiche gilt für das n-Züge-Bisimulationsspiel ($K, v \sim_n K', v'$)
 
 Die Modaltiefe ist das gleiche wie der Quantorenrang $qr$.
 
-elementare äquivalenz und m-äquivalenz ist gleich wie bei Prädikatenlogik. Notiert: $K,v \equiv_{ML} K',v'$ und $K,v \equiv_{ML}^n K',v'$
+Elementare Äquivalenz und m-Äquivalenz ist gleich wie bei Prädikatenlogik. Notiert: $K,v \equiv_{ML} K',v'$ und $K,v \equiv_{ML}^n K',v'$
 
 Sind $K,K'$ endlich verzweigte (d.h. alle Zustände haben nur endlich viele Nachfolger) Transitionssysteme, dann gilt $K,v \sim K', v'$ genau wenn $K,v \equiv_{ML} K',v'$ gilt.
 
-Erfüllbar $\phi \in ML$ haben immer ein Baummodell, also ein Modell welches ein Baum ist.
+Erfüllbar $\varphi \in ML$ haben immer ein Baummodell, also ein Modell welches ein Baum ist.
 
 ## Temporale Logiken
 

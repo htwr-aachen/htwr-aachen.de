@@ -9,11 +9,11 @@ tags: [Ehrenfeucht-Fraïssé-Spiele]
 
 Isomorphismen kennen wir ja bereits. **lokale** Isomorphismus ist einfach ein nur ein Teilbereich beider Strukturen. Genauer
 
-$p: dom(p) \to B$ wobei $dom(p) \subseteq A$, so dass für alle Relationen gilt: $(a_1, ..., a_n) \in R^\mathfrak{A}$ gdw. $(pa_1, ..., pa_n) \in R^\mathfrak{B}$
+$p: \text{dom}(p) \to B$ wobei $\text{dom}(p) \subseteq A$, so dass für alle Relationen gilt: $(a_1, ..., a_n) \in R^\mathfrak{A}$ gdw. $(pa_1, ..., pa_n) \in R^\mathfrak{B}$
 
-Die Menge der Lokalen Isomorphismen ist $Loc(\mathfrak{A}, \mathfrak{B})$
+Die Menge der Lokalen Isomorphismen ist $\text{Loc}(\mathfrak{A}, \mathfrak{B})$
 
-Ein $G_m(\mathfrak{A}, \mathfrak{B})$ heißt dann EF(Ehrenfeucht-etc.)-Spiel.
+Ein $G_m(\mathfrak{A}, \mathfrak{B})$ heißt dann EF (Ehrenfeucht-etc.)-Spiel.
 
 Das Spielfeld besteht nun aus **zwei** Strukturen. Es gibt die Spieler: 
 
@@ -23,7 +23,7 @@ Das Spielfeld besteht nun aus **zwei** Strukturen. Es gibt die Spieler:
 Und das geht so:
 
 - Herausforderer sucht sich aus **einem** der beiden Strukturen ein Element aus $a_i \in A$ oder $b_i \in B$. Die Duplikatorin antwortet mit einem
-  Element aus der **anderen** Struktur. Eine G_m Partie geht $m$ Züge. Die Duplikatorin hat die Partie gewonnen, wenn $\{(a_1, b_1), ..., (a_m, b_m)\}$
+  Element aus der **anderen** Struktur. Eine $G_m$ Partie geht $m$ Züge. Die Duplikatorin hat die Partie gewonnen, wenn $\{(a_1, b_1), ..., (a_m, b_m)\}$
    ein lokaler Isomorphismus ist. Sonst verliert sie halt.
 
 - Eine Gewinnstrategie ist aus jeder erreichbaren Position mögliche Züge zu haben, sodass er/sie gewinnnt.
@@ -33,7 +33,7 @@ Zudem gibt es das $G(\mathfrak{A}, \mathfrak{B})$ das zugegeben schwerer für di
 $m \in \mathbb{N}$ gibt, wo er $G_m(\mathfrak{A}, \mathfrak{B})$ gewinnt. Also in jeder Partie darf der Herausforderer zunächst die Zugzahl bestimmen
  und dann wird das $G_m$ gespielt.
 
-> Nun der Satoz von Ehrenfeucht-Fraïssé besagt nun: <br/>
+> Nun der Satz von Ehrenfeucht-Fraïssé besagt nun: <br/>
 > 1. $\mathfrak{A} \equiv \mathfrak{B}$ gdw. Die Duplikatorin gewinnt das $G(\mathfrak{A}, \mathfrak{B})$ <br/>
 > 2. $\mathfrak{A} \equiv_m \mathfrak{B}$ gdw. Die Duplikatorin gewinnt $G_m(\mathfrak{A}, \mathfrak{B})$
 
