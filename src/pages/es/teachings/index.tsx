@@ -94,7 +94,7 @@ const Teachings: FC<TeachingsProps> = ({ docs }) => {
         euch (oder korrigiert es selber{" "}
         <a
           target={"_blank"}
-          href="https://github.com/JohnnyS318/htwr-aachen.de"
+          href="https://github.com/jonsch318/htwr-aachen.de"
           rel="noreferrer"
         >
           hier.

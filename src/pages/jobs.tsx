@@ -14,10 +14,10 @@ const Jobs = () => {
         möchtest, mach einfach ein branch bzw. Fork von
         <a
           target={"_blank"}
-          href="https://github.com/JohnnyS318/htwr-aachen.de"
+          href="https://github.com/jonsch318/htwr-aachen.de"
         >
           {" "}
-          github.com/JohnnyS318/htwr-aachen.de
+          github.com/jonsch318/htwr-aachen.de
         </a>{" "}
         und dann ein merge request.
       </p>

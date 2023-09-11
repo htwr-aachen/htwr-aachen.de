@@ -49,7 +49,7 @@ const TutorialPage: FC<PageProps> = (props) => {
         <ul>
           <li>
             Bester Weg{" "}
-            <a href="https://github.com/JohnnyS318/htwr-aachen.de/tree/bot/projects/botmein">
+            <a href="https://github.com/jonsch318/htwr-aachen.de/tree/bot/projects/botmein">
               repo.
             </a>{" "}
             (Momentan noch unter bot branch)
