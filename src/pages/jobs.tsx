@@ -12,10 +12,7 @@ const Jobs = () => {
       <p>
         Falls du eine gute Idee hast, oder etwas korrigieren oder hinzufügen
         möchtest, mach einfach ein branch bzw. Fork von
-        <a
-          target={"_blank"}
-          href="https://github.com/jonsch318/htwr-aachen.de"
-        >
+        <a target={"_blank"} href="https://github.com/jonsch318/htwr-aachen.de">
           {" "}
           github.com/jonsch318/htwr-aachen.de
         </a>{" "}
