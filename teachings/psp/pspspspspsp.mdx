@@ -51,3 +51,40 @@ res = ~res; // res ist jetzt 0b01100110
 | negation | `~`      | `res = ~a;`     | Jede $1$ wird $0$ und jede $0$ wird $1$             |
 
 ## lesen?
+Zum lesen muss man nicht nur das `DDR` auf $0$ setzen, sondern auch einen sogenannten Pullup-Widerstand.
+Warum das so ist, steht in der Präsentation zu Versuch $0$ (Sonst fragt gerne die PSP-Hiwis).
+Setzen kann man das über das entsprechende `PORT` Register in dem man die entsprechenden Bits setzt.
+Wenn das alles getan ist, kann man über das entsprechende `PIN` Register den Wert einlesen.
+**Achtung**: buttons beispielsweise, sind active-low, also $1$ wenn sie nicht gedrückt sind und $0$ wenn sie gedrückt sind.
+### Beispiel buttons
+```C
+// Zwei buttons sind an PORT-A angeschlossen, einer an Pin-0 und einer an Pin-4
+// Die Methode soll in den ersten zwei bits den Status der buttons wiedergeben,
+// wobei 1 pressed und 0 not-pressed darstellt
+// Die implementation ist nur ein Beispiel und lässt sich stark verkleinern bzw. vereinfachen
+uint8_t buttons_get(void)
+{
+  // Zuerst müssen DDR und PORT initialisiert werden.
+  // Das sollte man besser nur einmal,
+  // in einer button_init Methode oder so machen,
+  // aber für unser Beispiel geht das auch so
+  DDRA  &= 0b11110110; // Setze bits in DDR auf 0
+  PORTA |= 0b00001001; // Setze pull-up widerstände
+  uint8_t first_button  = (PINA>>2) & 0b00000010; // Speichere den Status des ersten button in first_button
+  uint8_t second_button = PINA & 0b00000001; // Speichere den anderen button
+  return (first_button | second_button) ^ 0b00000011; // kombiniere beide Werte und flippe die wichtigen bits
+}
+```
+
+## Schreiben
+Beim schreiben ist eigentlich nur das DDR wichtig, da man sonst nichts weiteres einstellen muss.
+```C
+// Als beispiel schreibt diese Methode einfach nur die
+// ersten 4 bits vom übergebenen Wert auf Port-C
+void write_port_c(uint8_t val)
+{
+  // Die initialisierung sollte auch in diesem Fall nur einmal gemacht werden
+  DDRC |= 0b00001111; // setze die unteren 4 bits auf 1 (also Ausgang)
+  PORTC = (PORTC & 0b11110000) | (val & 0b00001111); // schreibe die unteren 4 bits ohne die oberen zu ändern
+}
+```
