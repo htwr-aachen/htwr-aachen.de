@@ -1,3 +1,5 @@
+"use client";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import type { ImageProps } from "next/image";

@@ -1,20 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { FC } from "react";
 
 import Main from "@/layouts/Main";
-import { Meta } from "@/layouts/Meta";
+
+export const metadata: Metadata = {
+  title: "Wehe einer schickt mir nen Brief - Impressum",
+  description: "Nichts zu sehen hier ist nur rechtlich notwendig",
+};
 
 const Impressum: FC = () => {
   return (
-    <Main
-      institute="htwr"
-      meta={
-        <Meta
-          title="Wehe einer schickt mir nen Brief - Impressum"
-          description="Nichts zu sehen hier ist nur rechtlich notwendig"
-        ></Meta>
-      }
-    >
+    <Main institute="htwr">
       <div>
         <h1 className="font-sans text-3xl font-bold">Impressum</h1>
 

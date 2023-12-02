@@ -1,8 +1,6 @@
-import "katex/dist/katex.min.css";
-
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
 
 import {
   Gallery,
@@ -10,50 +8,19 @@ import {
   GalleryItem,
   GalleryLabel,
 } from "@/components/rwth/gallery";
+import { Persona, PersonaElement } from "@/components/rwth/persona";
 import Main from "@/layouts/Main";
-import { Meta } from "@/layouts/Meta";
 import { getRealInstitutes } from "@/lib/institutes";
 
-type PersonaElementProps = {
-  children: ReactNode;
-  href: string;
-};
-const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
-  return (
-    <li className="h-[115px]">
-      <Link
-        className="grid h-full items-center justify-center px-2 py-5 text-center text-sm text-black hover:border-b-0 hover:bg-white/75 lg:px-5 lg:text-base"
-        href={href}
-      >
-        <div>{children}</div>
-      </Link>
-    </li>
-  );
-};
-
-type PersonaProps = {
-  children: ReactNode;
-};
-const Persona: FC<PersonaProps> = ({ children }) => {
-  return (
-    <ul className="flex min-h-[115px] flex-wrap items-center justify-center bg-rwth-warn px-2">
-      {children}
-    </ul>
-  );
+export const metadata: Metadata = {
+  title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
+  description:
+    "HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... ",
 };
 
 const Index: FC = () => {
   return (
-    <Main
-      meta={
-        <Meta
-          title="HTWR Aachen - Die beste Hilfe für seinen Doppelgänger"
-          description="HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... "
-        ></Meta>
-      }
-      institute="htwr"
-      pad
-    >
+    <Main institute="htwr" pad>
       <Gallery>
         <GalleryItem>
           <GalleryImage

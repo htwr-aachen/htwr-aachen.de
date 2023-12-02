@@ -1,12 +1,16 @@
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export const useIsActive = (instituteName: string = "") => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (path: string = "/") => {
-    if (instituteName === "") {
-      return router.pathname.startsWith(`/${path}`);
+    if (pathname == null) {
+      return instituteName === "";
     }
-    return router.pathname.startsWith(`/${instituteName}/${path}`);
+
+    if (instituteName === "") {
+      return pathname.startsWith(`/${path}`);
+    }
+    return pathname.startsWith(`/${instituteName}/${path}`);
   };
 };

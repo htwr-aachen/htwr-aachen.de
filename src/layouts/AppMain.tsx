@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 import type { FC, ReactNode } from "react";
 
 import CommentSection from "@/components/CommentSection";
@@ -8,12 +10,12 @@ type AppMainProps = {
 };
 
 const AppMain: FC<AppMainProps> = ({ children }) => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <>
       <div>{children}</div>
-      <CommentSection key={router.pathname} />
+      <CommentSection key={pathname} />
     </>
   );
 };

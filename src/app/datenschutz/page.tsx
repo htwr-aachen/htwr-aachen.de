@@ -1,19 +1,16 @@
+import type { Metadata } from "next";
 import type { FC } from "react";
 
 import Main from "@/layouts/Main";
-import { Meta } from "@/layouts/Meta";
+
+export const metadata: Metadata = {
+  title: "Wehe einer schickt mir nen Brief - Datenschutz",
+  description: "Nichts zu sehen hier ist nur rechtlich notwendig",
+};
 
 const Datenschutz: FC = () => {
   return (
-    <Main
-      institute="htwr"
-      meta={
-        <Meta
-          title="Wehe einer schickt mir nen Brief - Datenschutz"
-          description="Nichts zu sehen hier ist nur rechtlich notwendig"
-        ></Meta>
-      }
-    >
+    <Main institute="htwr">
       <div>
         <h1 className="my-4 font-sans text-3xl font-bold">
           Datenschutz&shy;erkl&auml;rung
