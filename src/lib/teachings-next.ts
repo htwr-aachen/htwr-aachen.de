@@ -14,6 +14,7 @@ import remarkMath from "remark-math";
 
 import type { StringInstitutes } from "@/models/institutes";
 import { API_URL, ReinvalidateTeachings } from "@/utils/TeachingConfig";
+import { getInstituteConfigByName } from "./institutes";
 
 export type Teaching = {
   slug: string;
@@ -31,6 +32,12 @@ export type Teaching = {
   content: string;
 };
 
+export type TeachingView = {
+  teching: Promise<Teaching>;
+  prev: Promise<TeachingMeta || null>;
+  next: Promise<TeachingMeta || null>;
+}
+
 export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
 export function handleHTML(html: string, info: TransformerInfo) {
@@ -44,8 +51,7 @@ export function handleHTML(html: string, info: TransformerInfo) {
   return html;
 }
 
-export const mdxOptions: SerializeOptions = {
-  mdxOptions: {
+export const mdxOptions: SerializeOptions = { mdxOptions: {
     remarkPlugins: [
       remarkMath,
       remarkGfm,
@@ -73,7 +79,7 @@ function parseMetadata(data: { [key: string]: any }): TeachingMeta {
   };
 }
 
-export async function getTeachings(institutes: StringInstitutes) {
+export async function getTeachings(institutes: StringInstitutes): TeachingMeta[]> {
   const res = await fetch(`${API_URL}/api/teachings?subject=${institutes}`, {
     next: {
       revalidate: ReinvalidateTeachings,
@@ -88,6 +94,25 @@ export async function getTeachings(institutes: StringInstitutes) {
   }
 
   return res.json();
+}
+
+export async function getTeaching(institute: StringInstitutes, slug: string[]): TeachingView {
+  const subjectDir = getInstituteConfigByName(institute).teachingDir;
+  const doc = getTeachingBySlug(subjectDir, slug);
+  return {
+    teching: doc,
+    prev: getTeachingAfter(institute, doc, -1),
+    next: getTeachingAfter(institute, doc, 1)
+  }
+}
+export async function getTeachingAfter(institute: StringInstitutes, docPromise: Promise<Teaching>, dir: -1|1){
+  docPromise.then((doc)=> {
+    const allTeachings = await getAllTeachings(institute)
+    if(dir < 0){
+      return allTeachings.filter(t => t.meta.order < doc.meta.order).at(0) || null
+    } 
+    return allTeachings.filter(t => t.meta.order > doc.meta.order).at(0) || null
+  })
 }
 
 export async function getTeachingBySlug(

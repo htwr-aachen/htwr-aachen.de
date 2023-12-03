@@ -1,5 +1,5 @@
 import { InstituteConfig } from "@/data/institutes";
-import type { Institute } from "@/models/institutes";
+import type { Institute, StringInstitutes } from "@/models/institutes";
 import { Institutes, INSTITUTES_LENGTH } from "@/models/institutes";
 
 export const getInstituteByName = (name: string): Institutes => {
@@ -30,6 +30,11 @@ export function getInstituteConfig(institute: Institutes): Institute {
     return InstituteConfig[Institutes.HTWR];
   }
   return config;
+}
+
+export function getInstituteConfigByName(name: StringInstitutes): Institute {
+  const inst = getInstituteByName(name);
+  return getInstituteConfig(inst);
 }
 
 export function getRealInstitutes(): Institute[] {

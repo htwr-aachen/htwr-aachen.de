@@ -13,17 +13,9 @@ import {
   mdxOptions,
 } from "@/lib/teachings-next";
 import { API_URL, DefaultTeachingDir } from "@/utils/TeachingConfig";
+import View, { DefaultComponents } from "@/components/teachings/View";
 
 const TeachingDir = join(DefaultTeachingDir, "cesti");
-
-const components = {
-  Spoiler,
-  RumpeQuiz,
-
-  img: (props: any) => {
-    return <img {...props} loading="lazy" className="centerImg" alt="" />;
-  },
-};
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const doc = await getTeachingBySlug(TeachingDir, params.slug);
@@ -47,15 +39,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           next,
         }}
       >
-        {doc === null || doc.content === null || doc.content === undefined ? (
-          <div></div>
-        ) : (
-          <MDXRemote
-            source={doc.content}
-            components={components}
-            options={mdxOptions}
-          ></MDXRemote>
-        )}
+        <View institute="cesti" slug={params.slug} />
       </TeachingsLayout>
     </Main>
   );
