@@ -84,7 +84,7 @@ uint8_t buttons_get(void)
   // aber für unser Beispiel geht das auch so
   DDRA  &= 0b11110110; // Setze bits in DDR auf 0
   PORTA |= 0b00001001; // Setze pull-up widerstände
-  uint8_t first_button  = (PINA>>2) & 0b00000010; // Speichere den Status des ersten button in first_button
+  uint8_t first_button  = (PINA >> 2) & 0b00000010; // Speichere den Status des ersten button in first_button
   uint8_t second_button = PINA & 0b00000001; // Speichere den anderen button
   return (first_button | second_button) ^ 0b00000011; // kombiniere beide Werte und flippe die wichtigen bits
 }
