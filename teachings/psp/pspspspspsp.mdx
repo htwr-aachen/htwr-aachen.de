@@ -9,6 +9,7 @@ tags: [PSP, Versuch 0, ATmega 644]
 
 # Allgemein
 Der ATmega 644 (das ist der große Chip in der Mitte vom Board), kann über seine Ports verschiedene Sachen ansteuern.
+An welchen Ports die Geräte genau angeschlossen sind, kann der Tabelle ganz unten in den Versuchsdokumenten entnommen werden, jedoch sind das die häufigsten Anschlüsse.
 1. Das LC~~D~~-Display: Häufig an PORTA oder PORTB
 2. Die Taster (Buttons): Eigentlich immer an PORTC (PINC7, PINC6, PINC1, PINC0)
 3. Die LEDs: Wenn genutzt, dann meistens an PORTD
@@ -42,13 +43,26 @@ res ^= 0b01010101; // res ist jetzt 0b10011001
 // In C macht das der "~" Operator
 res = ~res; // res ist jetzt 0b01100110
 ```
+Neben diesen Operationen gibt es auch noch die bitweisen shifts.
+```C
+uint8_t res = 0b00000001;
+// Schifte res um 3 nach links
+res = res << 3; // res ist jetzt 0b00001000
+
+res = 0b00110011;
+// shifte res um 2 nach rechts
+res = res >> 2; // res ist jetzt 0b00001100
+```
+Bei den shifts ist zu beachten, dass alle bits, welche aus der Zahl "rausfallen", verschwinden.
 ## Bitweise Operationen: Zusammenfassung
-| Name     | Operator | Anwendung       | Ergebnis                                            |
-|----------|----------|-----------------|-----------------------------------------------------|
-| und      | `&`      | `res = a & b;`  | Wenn beide bits $1$ sind: $1$, sonst $0$            |
-| oder     | `\|`     | `res = a \| b;` | Wenn **mindestens** ein bit $1$ ist: $1$, sonst $0$ |
-| xor      | `^`      | `res = a ^ b;`  | Wenn **nur** ein bit $1$ ist, $1$: sonst $0$        |
-| negation | `~`      | `res = ~a;`     | Jede $1$ wird $0$ und jede $0$ wird $1$             |
+| Name         | Operator |    Anwendung    | Ergebnis                                               |
+|:-------------|:--------:|:---------------:|:-------------------------------------------------------|
+| und          |   `&`    | `res = a & b;`  | Wenn beide bits $1$ sind: $1$, sonst $0$               |
+| oder         |   `\|`   | `res = a \| b;` | Wenn **mindestens** ein bit $1$ ist: $1$, sonst $0$    |
+| xor          |   `^`    | `res = a ^ b;`  | Wenn **nur** ein bit $1$ ist, $1$: sonst $0$           |
+| negation     |   `~`    |   `res = ~a;`   | Jede $1$ wird $0$ und jede $0$ wird $1$                |
+| shift links  |   `<<`   | `res = a << b;` | Verschiebe jedes Bit in `a` um `b` stellen nach links  |
+| shift rechts |   `>>`   | `res = a >> b;` | Verschiebe jedes Bit in `a` um `b` stellen nach rechts |
 
 ## lesen?
 Zum lesen muss man nicht nur das `DDR` auf $0$ setzen, sondern auch einen sogenannten Pullup-Widerstand.
