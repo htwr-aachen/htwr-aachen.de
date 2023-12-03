@@ -71,4 +71,14 @@ export const InstituteConfig: Institute[] = [
     professor: "Grädel",
     subject: "MALO",
   },
+  {
+    name: "CESTI",
+    href: "/cesti",
+    icon: "/assets/cesti/logo.png",
+    banner: "/assets/cesti/logo.svg",
+    description: "Lehr- und Forschungsgebiet Informatik Sicherheit-IT",
+    fullName: "Security IT",
+    professor: "Meyer",
+    subject: "IT-SEC",
+  },
 ];

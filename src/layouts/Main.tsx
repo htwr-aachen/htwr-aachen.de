@@ -11,7 +11,7 @@ import { Institutes } from "@/models/institutes";
 
 type MainProps = {
   institute: StringInstitutes;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   meta?: React.ReactNode;
   pad?: boolean;
 };

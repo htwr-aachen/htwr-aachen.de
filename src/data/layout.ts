@@ -222,6 +222,49 @@ export const SIBDNavbar: NavbarConfig = {
   },
 };
 
+export const CESTINavbar: NavbarConfig = {
+  logo: {
+    logoUrl: "/assets/cesti/banner.svg",
+    alt: "CESTI Logo",
+    href: "/cesti",
+    width: 380,
+    height: 110,
+  },
+  main: {
+    name: "CESTI",
+    url: "/cesti",
+  },
+  linkElements: [
+    {
+      name: "Studium",
+      url: "/cesti/studium",
+      path: "/studium",
+      links: [
+        {
+          name: "Zusammenfassungen",
+          url: "/cesti/studium/teachings",
+        },
+        {
+          name: "Resourcen",
+          url: "/cesti/studium/resources",
+        },
+        {
+          name: "Klausuren",
+          url: "/cesti/studium/klausuren",
+        },
+      ],
+    },
+    {
+      name: "Forschung",
+      url: "/cesti/studium",
+    },
+    {
+      name: "Das Lehr- und Forschungsgebiet",
+      url: "/cesti/studium",
+    },
+  ],
+};
+
 export function getNavbarConfig(institute: Institutes): NavbarConfig {
   switch (institute) {
     case Institutes.SCIL:
@@ -230,6 +273,8 @@ export function getNavbarConfig(institute: Institutes): NavbarConfig {
       return WSINavbar;
     case Institutes.SIBD:
       return SIBDNavbar;
+    case Institutes.CESTI:
+      return CESTINavbar;
     default:
       return DefaultNavbar;
   }

@@ -4,14 +4,16 @@ import oembedTransformer from "@remark-embedder/transformer-oembed";
 import { readdir, stat } from "fs/promises";
 import { read } from "gray-matter";
 import mdxMermaid from "mdx-mermaid";
-import type { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
+import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import path, { join } from "path";
 import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
+
+import type { StringInstitutes } from "@/models/institutes";
+import { API_URL, ReinvalidateTeachings } from "@/utils/TeachingConfig";
 
 export type Teaching = {
   slug: string;
@@ -26,20 +28,37 @@ export type Teaching = {
     order: number;
     images: string[];
   };
-  content: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, unknown>
-  >;
-};
-
-export type TeachingConfiguration = {
-  mainSlug?: string;
-  includeSubdirs?: boolean;
+  content: string;
 };
 
 export type TeachingMeta = Pick<Teaching, "slug" | "meta">;
 
-function metadataFromData(data: { [key: string]: any }): TeachingMeta {
+export function handleHTML(html: string, info: TransformerInfo) {
+  const { url, transformer } = info;
+  if (
+    transformer.name === "@remark-embedder/transformer-oembed" ||
+    url.includes("youtube.com")
+  ) {
+    return `<div className="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
+  }
+  return html;
+}
+
+export const mdxOptions: SerializeOptions = {
+  mdxOptions: {
+    remarkPlugins: [
+      remarkMath,
+      remarkGfm,
+      remarkHint,
+      [mdxMermaid, { output: "svg" }],
+      [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
+    ],
+    rehypePlugins: [rehypeKatex, [rehypePrism, { plugins: ["line-numbers"] }]],
+    format: "mdx",
+  },
+};
+
+function parseMetadata(data: { [key: string]: any }): TeachingMeta {
   return {
     slug: "",
     meta: {
@@ -54,16 +73,23 @@ function metadataFromData(data: { [key: string]: any }): TeachingMeta {
   };
 }
 
-function handleHTML(html: string, info: TransformerInfo) {
-  const { url, transformer } = info;
-  if (
-    transformer.name === "@remark-embedder/transformer-oembed" ||
-    url.includes("youtube.com")
-  ) {
-    return `<div className="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
+export async function getTeachings(institutes: StringInstitutes) {
+  const res = await fetch(`${API_URL}/api/teachings?subject=${institutes}`, {
+    next: {
+      revalidate: ReinvalidateTeachings,
+    },
+  });
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch teachings");
   }
-  return html;
+
+  return res.json();
 }
+
 export async function getTeachingBySlug(
   dir: string,
   slug: string[]
@@ -73,24 +99,7 @@ export async function getTeachingBySlug(
     const fullPath = join(dir, `${realSlug}.mdx`);
     const { data, content } = read(fullPath);
 
-    const source = await serialize(content, {
-      mdxOptions: {
-        remarkPlugins: [
-          remarkMath,
-          remarkGfm,
-          remarkHint,
-          [mdxMermaid, { output: "svg" }],
-          [remarkEmbedder, { transformers: [oembedTransformer], handleHTML }],
-        ],
-        rehypePlugins: [
-          rehypeKatex,
-          [rehypePrism, { plugins: ["line-numbers"] }],
-        ],
-        format: "mdx",
-      },
-    });
-
-    const { meta } = metadataFromData(data);
+    const { meta } = parseMetadata(data);
     if (slug.length > 1) {
       const subpath = slug
         .slice(0, slug.length - 1)
@@ -105,7 +114,7 @@ export async function getTeachingBySlug(
       url: `/teachings/${realSlug}`,
       slug: realSlug,
       meta,
-      content: source,
+      content,
     };
   } catch (e) {
     return null;
@@ -134,7 +143,7 @@ export async function getAllTeachings(
         teachings = await getAllTeachings(filepath, teachings, ogDir);
       } else {
         const { data } = read(join(dir, file));
-        const { meta } = metadataFromData(data);
+        const { meta } = parseMetadata(data);
 
         const subpath = dir.substring(ogDir.length + 1).replace("\\", "/");
         if (subpath !== "") {
