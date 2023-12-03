@@ -8,18 +8,31 @@ tags: [PSP, ATmega 644]
 ---
 
 # Allgemeine Probleme
-## Endlose Probleme (Hängt in Schleife)
+- Pointer Arithmetik kann komplexer sein, als man denkt:
+  - `((*uint32_t)ptr) + i == ptr + (i * sizeof(uint32_t))`
+  - Nur weil anstelle von `arr[12]`, `12[arr]` auch valider Code ist, heißt es nicht, dass es gut ist!
+- Wenn der JTAG Probleme macht, sollte man folgende Schritte Versuchen (Nach jedem Schritt testen ob es wieder geht)
+  1. JTAG Kabel kurz ab- und wieder dranmachen ($10s$)
+  2. Schritt 1 + Strom trennen ($10s$)
+  3. Schritt 2 + Programm neustarten
+  4. Bei Hiwis melden
+
+# Endlose Probleme (Hängt in Schleife)
 - Ist die Endbedingung ein Wert, den die Iterationsvariable nicht annhemen kann?
-  - `for(uint8_t i = 0; i < 300; i++);`: $i\in\N\vert0\leq i\leq 255$
-  - `for(uint8_t i = 300; i >= 0; i--);`: $i\in\N\vert0\leq i\leq 255$
+  - `for(uint8_t i = 0; i < 300; i++);`: i kann nie größer oder gleich 300 sein
+  - `for(uint8_t i = 300; i >= 0; i--);`: i kann nie kleiner als 0 sein
 - Wird Terminierung implementiert?
   - Werden alle Critical sections verlassen?
   - Wird der Prozess im scheduler wieder auf ready gesetzt?
 
-## "`System error: soft reset`"
+# "`System error: soft reset`"
 - Wird unabsichtlich in den Registerbereich geschrieben?
   - schreiben in Adressen unter `0x100`
 - Wird der Stackpointer falsch gesetzt?
 - Wird der Stack falsch initialisiert?
 - Wenn Terminierung implementiert:
   - Ist `os_dispatcher` auf dem Stack oder wird immer noch das Programm selbst auf den Stack getan?
+
+# Versuch 2
+- Komisches Verhalten von Testtasks (Flackern, komische zeichen, delay geht nicht)
+  - Die Scheduler-ISR hat eine lokale variable, die vor dem ändern des Stack pointers den Prozessstack überschreibt (*selten*)
