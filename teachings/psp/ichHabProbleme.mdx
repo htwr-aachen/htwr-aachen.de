@@ -1,0 +1,25 @@
+---
+title: Warum will der Code nicht 😞
+description: Häufige Probleme
+author: Nils Eisenach
+date: 03/12/2023
+order: 1
+tags: [PSP, ATmega 644]
+---
+
+# Allgemeine Probleme
+## Endlose Probleme (Hängt in Schleife)
+- Ist die Endbedingung ein Wert, den die Iterationsvariable nicht annhemen kann?
+  - `for(uint8_t i = 0; i < 300; i++);`: $i\in\N\vert0\leq i\leq 255$
+  - `for(uint8_t i = 300; i >= 0; i--);`: $i\in\N\vert0\leq i\leq 255$
+- Wird Terminierung implementiert?
+  - Werden alle Critical sections verlassen?
+  - Wird der Prozess im scheduler wieder auf ready gesetzt?
+
+## "`System error: soft reset`"
+- Wird unabsichtlich in den Registerbereich geschrieben?
+  - schreiben in Adressen unter `0x100`
+- Wird der Stackpointer falsch gesetzt?
+- Wird der Stack falsch initialisiert?
+- Wenn Terminierung implementiert:
+  - Ist `os_dispatcher` auf dem Stack oder wird immer noch das Programm selbst auf den Stack getan?
