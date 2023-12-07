@@ -1,19 +1,15 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { join } from "path";
 
-import RumpeQuiz from "@/components/RumpeQuiz";
-import Spoiler from "@/components/spoiler";
+import View from "@/components/teachings/View";
 import Main from "@/layouts/Main";
 import TeachingsLayout from "@/layouts/rwth/TeachingsLayout";
 import {
-  type TeachingMeta,
   getTeachingBySlug,
   getTeachingWithHigherOrder,
   getTeachingWithLowerOrder,
-  mdxOptions,
+  type TeachingMeta,
 } from "@/lib/teachings-next";
 import { API_URL, DefaultTeachingDir } from "@/utils/TeachingConfig";
-import View, { DefaultComponents } from "@/components/teachings/View";
 
 const TeachingDir = join(DefaultTeachingDir, "cesti");
 
