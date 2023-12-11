@@ -54,12 +54,11 @@ async function getNamings(): Promise<Naming> {
 }
 
 export async function GET() {
-  return new Response(JSON.stringify([]));
-  /* try {
+  try {
     const namings = await getNamings();
     const files = await readFiles(namings);
     return new Response(JSON.stringify(files), { status: 200 });
   } catch (err) {
     return new Response(JSON.stringify([]), { status: 500 });
-  } */
+  }
 }
