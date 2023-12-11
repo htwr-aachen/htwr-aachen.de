@@ -106,9 +106,9 @@ export default function ESNavbar(props: ESNavbarProps) {
           <Navlink
             display={{ name: "Teaching", href: "/es" }}
             links={[
-              { name: "Klausuren", href: "/es/klausuren" },
-              { name: "Aufgaben", href: "/es/aufgaben" },
-              { name: "Teachings", href: "/es/teachings" },
+              { name: "Klausuren", href: "/es/studium/klausuren" },
+              { name: "Aufgaben", href: "/es/studium/aufgaben" },
+              { name: "Teachings", href: "/es/studium/teachings" },
             ]}
             isDroped={dropdownActive === 4}
             dropdownNumer={4}

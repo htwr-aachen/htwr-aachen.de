@@ -7,7 +7,7 @@ import { Inter, Roboto } from "next/font/google";
 import type { FC } from "react";
 
 import AppMain from "@/layouts/AppMain";
-import { AppConfig } from "@/utils/AppConfig";
+import { AppConfig, BaseURL } from "@/utils/AppConfig";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -33,6 +33,13 @@ export const metadata: Metadata = {
   description: "The better rwth website",
   authors: [{ name: "Jonas Schneider", url: "jonsch.eu" }],
   creator: "HTWR Team",
+  twitter: {
+    site: "@htwr-aachen",
+    creator: "@jonsch318",
+    description: "RWTH? => HTWR!",
+    title: AppConfig.title,
+  },
+  metadataBase: new URL(BaseURL),
 };
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {

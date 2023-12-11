@@ -41,5 +41,4 @@ export type Institute = {
   icon?: string;
   banner?: string;
   description?: string;
-  teachingDir: string;
 };

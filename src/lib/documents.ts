@@ -1,6 +1,7 @@
 import { readdir } from "fs/promises";
 import natsort from "natsort";
 
+import type { SubjectNames } from "@/data/subjects";
 import { API_URL } from "@/utils/TeachingConfig";
 
 export type Document = {
@@ -10,12 +11,15 @@ export type Document = {
 };
 
 export const getProtectedDownloads = async (
-  subject: string
+  subject: SubjectNames
 ): Promise<string[]> => {
   try {
     const res = await fetch(`${API_URL}/info/klausuren?subject=${subject}`, {
       method: "GET",
       redirect: "follow",
+      next: {
+        revalidate: 15000,
+      },
     });
 
     if (res.status !== 200) {

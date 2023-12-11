@@ -57,7 +57,7 @@ export async function GET() {
   try {
     const namings = await getNamings();
     const files = await readFiles(namings);
-    return Response.json(files);
+    return new Response(JSON.stringify(files), { status: 200 });
   } catch (err) {
     return new Response(JSON.stringify([]), { status: 500 });
   }

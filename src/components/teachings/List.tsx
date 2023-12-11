@@ -1,26 +1,27 @@
 import Link from "next/link";
-import type { FC } from "react";
 
-import type { TeachingMeta } from "@/lib/teachings";
+import { type SubjectNames } from "@/data/subjects";
+import { getTeachingsMetadata } from "@/lib/teaching";
+import urlJoin from "@/lib/url";
 
 import { TeachingsListDate } from "./Date";
 
-type TeachingListProps = {
-  // without trailing slash
-  urlPrefix: string;
-  teachingList: TeachingMeta[];
-};
+interface TeachingListProps {
+  subject: SubjectNames;
+}
 
-export const TeachingList: FC<TeachingListProps> = (props) => {
+export default async function TeachingList(props: TeachingListProps) {
+  const teachings = await getTeachingsMetadata(props.subject);
   return (
     <ul className="mt-8">
-      {props.teachingList.map((teaching) => {
+      {teachings.map((teaching) => {
+        const slug = urlJoin(...teaching.slug);
         return (
-          <li key={teaching.slug} className="my-2 grid lg:grid-cols-[auto_1fr]">
+          <li key={slug} className="my-2 grid lg:grid-cols-[auto_1fr]">
             <div className="grid items-center">
               <Link
                 className="grid items-center justify-center rounded bg-[#eee] px-2 py-1 font-roboto hover:border-b-0 hover:bg-[#ddd]"
-                href={`${props.urlPrefix.trimEnd()}/${teaching.slug}`}
+                href={teaching.url}
               >
                 {teaching.meta.title}
               </Link>
@@ -44,4 +45,4 @@ export const TeachingList: FC<TeachingListProps> = (props) => {
       })}
     </ul>
   );
-};
+}

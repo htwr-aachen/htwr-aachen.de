@@ -1,9 +1,9 @@
-import Main from "@/layouts/Main";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  description: "The chair for security or it but not both",
+};
 
 export default function Page() {
-  return (
-    <Main institute="cesti">
-      <p>Hello</p>
-    </Main>
-  );
+  return <p>Hello</p>;
 }

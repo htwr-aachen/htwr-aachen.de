@@ -31,7 +31,6 @@ export function Main(props: SYSCOMSProps) {
 
           <div className="content mt-6 rounded-2xl border-4 border-blue-500 bg-white p-6 text-xl">
             {props.children}
-            ES
           </div>
         </div>
       </div>

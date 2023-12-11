@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import type { Dispatch, SetStateAction } from "react";
 
 import { useIsActive } from "@/hooks/layout";
@@ -12,7 +12,7 @@ type SYSCOMNavbarProps = {
 };
 
 export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
-  const router = useRouter();
+  const pathname = usePathname();
   const isActive = useIsActive("syscom");
 
   return (
@@ -60,7 +60,7 @@ export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
               alt="Home Icon"
               href="/syscom"
               name="HOME"
-              isActive={router.pathname === "/syscom"}
+              isActive={pathname === "/syscom"}
             />
             <MenuButton
               src="/assets/syscom/team.png"
@@ -74,7 +74,7 @@ export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
               src="/assets/syscom/teaching.png"
               src_hover="/assets/syscom/teaching_hover.png"
               alt="Teaching Icon"
-              href="/syscom/teaching"
+              href="/syscom/studium/teachings"
               name="TEACHING"
               isActive={isActive("teaching")}
             />
