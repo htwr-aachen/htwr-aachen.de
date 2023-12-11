@@ -31,7 +31,7 @@ module.exports = {
           branding: "#f7f7f7",
           accent: "#00549F",
           warn: "#ffef58",
-          warn2: "#ffffd9",
+          warn2: "#ffffa7",
           bg: "#fff",
         },
         gray: {

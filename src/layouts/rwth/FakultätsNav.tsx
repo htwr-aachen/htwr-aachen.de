@@ -198,6 +198,13 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
               >
                 Intranet
               </FakultätsNavLink>
+              <FakultätsNavLink
+                href="/panikzettel"
+                tooltipContent="Panik? Wer nicht"
+                tooltipPlace="right"
+              >
+                Panikzettel (neu)
+              </FakultätsNavLink>
             </ul>
           </div>
           <div className="px-4">

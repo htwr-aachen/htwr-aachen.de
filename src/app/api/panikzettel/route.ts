@@ -2,13 +2,18 @@ import { Storage } from "@google-cloud/storage";
 
 const filterList = ["metadata.json", "meta.pdf", "naming.json"];
 
+type PanikzettelMetadata = {
+  name: string;
+  semester?: number;
+  type: "pf" | "wpf" | "af" | "none";
+};
+
 interface Naming {
-  [Key: string]: string;
+  [Key: string]: PanikzettelMetadata;
 }
 
-type Panikzettel = {
+export type Panikzettel = PanikzettelMetadata & {
   id: string;
-  name: string;
   url: string;
 };
 
@@ -27,14 +32,21 @@ async function readFiles(naming: Naming): Promise<Panikzettel[]> {
       return x.isPublic().then((z) => z[0]);
     })
     .map((x) => {
-      let { name } = x;
       if (x.name in naming) {
-        name = naming[x.name];
+        const { name, semester, type } = naming[x.name];
+        return {
+          id: x.name,
+          name,
+          url: x.publicUrl(),
+          semester,
+          type,
+        };
       }
       return {
         id: x.name,
-        name,
+        name: x.name,
         url: x.publicUrl(),
+        type: "none",
       };
     });
 }
@@ -42,7 +54,7 @@ async function readFiles(naming: Naming): Promise<Panikzettel[]> {
 async function getNamings(): Promise<Naming> {
   const res = await fetch(process.env.GCS_BUCKET_METADATA_FILE_URL || "", {
     next: {
-      revalidate: 10000,
+      revalidate: 100,
     },
   });
 

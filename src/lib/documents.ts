@@ -18,7 +18,7 @@ export const getProtectedDownloads = async (
       method: "GET",
       redirect: "follow",
       next: {
-        revalidate: 15000,
+        revalidate: 3600,
       },
     });
 
