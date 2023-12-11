@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import type { FC, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -44,7 +44,7 @@ const Navlink: FC<NavlinkProps> = ({
   dropdownNumer,
   dropdownCallback,
 }) => {
-  const router = useRouter();
+  const pathname = usePathname();
   const ref = useRef<HTMLButtonElement>(null);
 
   const [isDropdown, setIsDropdown] = useState(false);
@@ -62,10 +62,10 @@ const Navlink: FC<NavlinkProps> = ({
       setIsDropdown(links.length > 0);
 
       if (links.length === 0) {
-        setIsActive(router.pathname.startsWith(display.href));
+        setIsActive(pathname?.startsWith(display.href) || false);
       }
     }
-  }, [links, router.pathname]);
+  }, [links, pathname]);
 
   useEffect(() => {
     setDropdownActive(isDroped);

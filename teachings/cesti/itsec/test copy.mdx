@@ -1,0 +1,106 @@
+---
+title: Die Olchies und die Aussagenlogik
+order: 2
+description: In dieser Folge finden die Olchies auf ihrer Schrotthalde eine sehr alte Form der Logik. Sie ist schwach und nicht allzu kompliziert aber sie reicht aus, um die Olchies zu verwirren.
+author: Jonas Schneider
+date: 14/08/2023
+tags: [Einführung, Logik, Aussagenlogik, Funktionale Vollständigkeit, Horn Formeln]
+---
+
+# Es fängt so easy an und am Ende kommen Herbrand-Strukturen 😭
+
+## Terminologie
+
+![Krass](https://media1.tenor.com/m/AsirRiMCOc4AAAAC/laugh-laughing.gif)
+
+Zwei Dinge sind wichtig:
+
+| Wort                         | Bedeutung                                                                                                                               |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Syntax                       | Formale Regeln für die Ausdrücke (Formeln). Es geht hier nicht um Inhalt oder Interpretationen. Bei uns Zeichenketten.                  |
+| Semantik                     | Wenn man die Formel Interpretiert ergibt sich daraus eine Semantik. Hier kommt also das was man eigentlich Ausdrücken möchte ins Spiel. |
+| Tautologie (Allgemeingültig) | Eine Formel die immer wahr ist.                                                                                                         |
+| Literal                      | Eine Variable oder eine Negation einer Variable.                                                                                        |
+
+## Syntax der Aussagenlogik
+
+Noch sehr simple kennen alle.
+
+Grundlegende Symbole sind:
+
+- $\neg$ (Negation)
+- $\land$ (Und, Konjunktion) 2-Stellig
+- $\lor$ (Oder, Disjunktion) 2-Stellig
+- $\to$ (Implikation) 2-Stellig
+- $0$ (Falsch, Falsum)
+- $1$ (Wahr, Verum)
+
+Nun kann man die eigentlich beliebig zusammen Würfeln. Bei den 2-Stelligen Junktoren klammern und dann wars das auch schon für die Syntax.
+
+## Semantik der Aussagenlogik
+
+Das wichtigste in Malo sind vermutlich die Interpretationen meist mit $\mathfrak{I}$.
+Sie ist in der Aussagenlogik eine simple Funktion. Sie ordnet jeder Variable einen Wahrheitswert zu.
+Also $\mathfrak{I}: \text{Var} \to \{0,1\}$.
+
+> Bsp. $\varphi = \lnot x_1 \lor x_2$.\
+>  Sei $\mathfrak{I}$ Interpretation. $\mathfrak{I}(x_1) = 1$ und $\mathfrak{I}(x_2) = 1$.
+
+Nun nehmen wir die Interpretation und wenden sie auf die Formel an.
+
+> $\mathfrak{I}(\varphi) = [\![ \varphi ]\!]^\mathfrak{I} = \max ((1-1), 1) = 1$
+
+x> Ich werde von nun an die $[\![ \varphi ]\!]^\mathfrak{I} = [ \varphi]^\mathfrak{I}$ schreiben, sofern das nicht verwirrend ist mit normalen eckigen Klammern.
+
+> Logische äquivalenz: $\varphi \equiv \psi$ gdw. $[\varphi]^\mathfrak{I} = [\psi]^\mathfrak{I}$
+
+So jetzt ein paar Sachen abklappern:
+
+- Elimination von Doppelten Negationen: $\lnot \lnot \varphi = \varphi$
+- De Morgansche'sche Gesetze
+- Distributivgesetz
+- Kontraposition
+- Absorption
+- Idempotenz von $\lor$ und $\land$
+- Kommutativität
+- Assoziativität
+
+**Trivial**
+
+**Boolesche Funktionen**: Logisch $f: \{0,1\}^n \to \{0,1\}$. $B^n$ ist die Menge aller Booleschen Funktionen mit $n$ Variablen.
+$|B^n| = 2^{2^n}$. Es ist relativ einfach zu sehen, dass jede Boolesche Funktion durch eine Formel darstellbar ist und umgekehrt.
+
+
+**Normalformen**: Hier noch einfach
+- KNF: Konjunktive Normalform $\bigwedge_{i=1}^n \bigvee_{j=1}^{m_i} l_{ij}$ wobei $l_{ij}$ Literal ist.
+- DNF: Disjunktive Normalform $\bigvee_{i=1}^n \bigwedge_{j=1}^{m_i} l_{ij}$ wobei $l_{ij}$ Literal ist.
+
+Genauso hatten wir **Funktional Vollständige Mengen** bereits genug.
+
+Eine Menge $\Omega \subseteq B$ von Booleschen Funktionen ist funktional vollständig, wenn jede Boolesche Funktion durch $\Omega$ darstellbar ist.
+Macht es einfach so wie immer.
+
+
+## Horn Formeln
+
+Eine Horn Formel ist eine Formel in KNF, die in jeder Disjunktion nur aus **höchstens** einem positiven Literal besteht. 
+Geschrieben werden sie entweder in KNF oder in Implikationen(schöner) schreiben, da:
+
+- $\lnot X_1 \lor \lnot X_2 \lor X_3 \equiv X_1 \land X_2 \implies X_3$
+- $\lnot X_1 \lor \lnot X_2 \lor \lnot X_3 \equiv X_1 \land X_2 \land X_3 \implies 0$
+
+Eine Hornformel kann mit dem **Markierungsalgorithmus** in polynomieller Zeit auf Erfüllbarkeit getestet werden.
+
+Gegeben Formel: $\varphi = (X \land Y \implies Z) ∧ (X \implies Z) ∧ (1 \implies X) ∧ (Y \implies 0)$
+
+1. Wir markieren $X$, da $1 \implies X$. Also $M=\{X\}$.
+
+2. Durch $X \implies Z$ wird $Z$ markiert. $M=\{X,Z\}$.
+
+3. Kann nichts mehr markiert werden. Also ist die Formel erfüllbar. Wenn es noch eine Formel z.B. $Z \implies 0$ gäbe, wäre die Formel nicht erfüllbar.
+
+4. $M$ gibt an welche Variablen wahr seien müssen. Der Rest ist falsch. Somit ist ein Modell fertig
+
+> Der Markierungsalgorithmus findet **immer das kleinste Modell**. Das ist wichtig, wenn man die Äquivalenz zu einer Horn Formel testen soll. 
+
+## TODO: Aufgaben

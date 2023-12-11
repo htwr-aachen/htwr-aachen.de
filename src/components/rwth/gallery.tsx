@@ -1,3 +1,5 @@
+"use client";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import type { ImageProps } from "next/image";
@@ -130,7 +132,7 @@ const Gallery: FC<GalleryProps> = ({ children }) => {
       showIndicators={false}
       swipeable={false}
       autoPlay
-      interval={2500}
+      interval={5000}
       showThumbs={false}
       dynamicHeight={false}
     >
