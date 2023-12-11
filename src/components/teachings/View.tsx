@@ -5,6 +5,7 @@ import type { SubjectNames } from "@/data/subjects";
 import { mdxOptions } from "@/lib/markdown";
 import { getTeaching } from "@/lib/teaching";
 
+import ISOOSI from "../isoosi";
 import RumpeQuiz from "../RumpeQuiz";
 import { HeadLine } from "../rwth/headline";
 import Spoiler from "../spoiler";
@@ -12,6 +13,7 @@ import TeachingLayout from "./Layout";
 
 export const DefaultComponents = {
   Spoiler,
+  ISOOSI,
   RumpeQuiz,
 
   img: (props: any) => {

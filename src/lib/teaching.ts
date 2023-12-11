@@ -148,15 +148,12 @@ export const getTeaching = cache(
       throw UnknownSubjectError;
     }
 
-    slug = slug.map((x) => decodeURI(x));
+    const decodedSlug = slug.map((x) => decodeURIComponent(x));
 
-    const { prev, next } = await getTeachingPrevNext(slug, subject);
+    const { prev, next } = await getTeachingPrevNext(decodedSlug, subject);
 
-    const stripedSlugName = path.parse(slug.pop() || "").name;
-    const fp = join(
-      subjectConfig.teachingDir,
-      `${path.join(...slug, stripedSlugName)}.mdx`
-    );
+    const stripedSlug = decodedSlug.join(path.sep).replace(/\.mdx\/$/, "");
+    const fp = join(subjectConfig.teachingDir, `${stripedSlug}.mdx`);
     const matter = read(fp);
     const frontMatter = parseFrontmatter(
       matter,

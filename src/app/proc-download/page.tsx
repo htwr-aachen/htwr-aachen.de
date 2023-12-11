@@ -14,7 +14,7 @@ const PASSWORD_HELP =
 const ProctedDownloadPage: FC = () => {
   const isBrowser = typeof window !== "undefined";
 
-  const query = useSearchParams().get("file");
+  const query = useSearchParams()?.get("file") || "";
   const [stage, setStage] = useState<number>(0);
   const [isCaptchaChecked, setIsCaptchaChecked] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");

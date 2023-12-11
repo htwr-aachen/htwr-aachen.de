@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { HeadLine } from "@/components/rwth/headline";
-import Main from "@/layouts/Main";
-import { Meta } from "@/layouts/Meta";
 import { getProtectedDownloads } from "@/lib/documents";
 
 import { SIBDSchnellzugriff } from "../../schnellzugriff";
@@ -17,15 +15,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const klausuren = await getProtectedDownloads("dbis");
   return (
-    <Main
-      meta={
-        <Meta
-          title="SIBD@HTWR-Klausuren"
-          description="Da Klausuren immer problematisch zu verteilen sind werde ich da 100% sichere Captchas einbauen."
-        ></Meta>
-      }
-      institute="sibd"
-    >
+    <div>
       <div className="px-2">
         <HeadLine title="Klausuren" />
         <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
@@ -60,6 +50,6 @@ export default async function Page() {
           </div>
         </div>
       </div>
-    </Main>
+    </div>
   );
 }

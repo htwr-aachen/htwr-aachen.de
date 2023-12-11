@@ -158,7 +158,7 @@ const IntroPage: FC<PageProps> = (props) => {
 
 const BotMeInPage: FC = () => {
   const router = useRouter();
-  const query = useSearchParams().get("page");
+  const query = useSearchParams()?.get("page") || "";
   const [page, setPage] = useState<string>("");
 
   useEffect(() => {
