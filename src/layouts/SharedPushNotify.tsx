@@ -13,13 +13,12 @@ export const PushNotifyName = "PushNotify";
 
 export const PushNotifyProvider = ({ children }: { children: ReactNode }) => {
   const [show, setShow] = useState(() => {
-    if (!window) return true;
+    if (typeof window === "undefined") return true;
     const str = window.localStorage.getItem(PushNotifyName);
     if (str == null) {
       return true;
     }
     const data = JSON.parse(str);
-    console.log(data);
     if (
       (new Date().getTime() - new Date(data.time).getTime()) / 1000 >
       604800
