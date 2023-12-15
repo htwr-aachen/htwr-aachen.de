@@ -13,7 +13,7 @@ type FooterProps = {
 };
 
 const Footer: FC<FooterProps> = ({ institute }) => {
-  const { _, setShow } = useContext(PushNotifyContext);
+  const { setShow } = useContext(PushNotifyContext);
   return (
     <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
       <InstituteSwitches institute={institute} />
