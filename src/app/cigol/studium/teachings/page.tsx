@@ -43,10 +43,7 @@ export default function TeachingsPage() {
             philworld.de
           </a>{" "}
           nicht die views klauen, aber selbst gehostet gibts{" "}
-          <a
-            target={"_blank"}
-            href="/teaching-assets/cigol/malo/panikzettel.pdf"
-          >
+          <a target={"_blank"} href="/panikzettel">
             hier.
           </a>
           )

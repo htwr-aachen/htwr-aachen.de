@@ -60,10 +60,7 @@ export default async function Page() {
                   philworld.de
                 </a>{" "}
                 nicht die views klauen, aber selbst gehostet gibts{" "}
-                <a
-                  target={"_blank"}
-                  href="/teaching-assets/scil/panikzettel.pdf"
-                >
+                <a target={"_blank"} href="/panikzettel">
                   hier.
                 </a>
                 )

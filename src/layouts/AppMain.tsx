@@ -5,6 +5,8 @@ import type { FC, ReactNode } from "react";
 
 import CommentSection from "@/components/CommentSection";
 
+import { PushNotifyProvider } from "./SharedPushNotify";
+
 type AppMainProps = {
   children: ReactNode;
 };
@@ -14,7 +16,9 @@ const AppMain: FC<AppMainProps> = ({ children }) => {
 
   return (
     <>
-      <div>{children}</div>
+      <PushNotifyProvider>
+        <div>{children}</div>
+      </PushNotifyProvider>
       <CommentSection key={pathname} />
     </>
   );
