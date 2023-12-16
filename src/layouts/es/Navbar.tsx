@@ -104,7 +104,7 @@ export default function ESNavbar(props: ESNavbarProps) {
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "Teaching", href: "/es" }}
+            display={{ name: "⚠Teaching", href: "/es" }}
             links={[
               { name: "Klausuren", href: "/es/studium/klausuren" },
               { name: "Aufgaben", href: "/es/studium/aufgaben" },
@@ -125,7 +125,7 @@ export default function ESNavbar(props: ESNavbarProps) {
           <Navlink
             display={{ name: "About us", href: "/es" }}
             links={[
-              { name: "About us", href: "/about" },
+              { name: "About us", href: "/contact" },
               { name: "Contact", href: "/contact" },
             ]}
             isDroped={dropdownActive === 6}

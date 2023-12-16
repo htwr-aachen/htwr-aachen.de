@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Klausuren",
   description:
     "Klausurensammlung ist vielleicht bissle copyright technisch schwierig, aber für buk lohnt es sich... naja",
+  alternates: {
+    canonical: "/scil/studium/klausuren",
+  },
 };
 
 export default async function Page() {
@@ -33,7 +36,7 @@ export default async function Page() {
                   <li key={klausur}>
                     <Link
                       href={{
-                        pathname: "/proc-download",
+                        pathname: "/protected-download",
                         query: { file: klausur },
                       }}
                       target="_blank"

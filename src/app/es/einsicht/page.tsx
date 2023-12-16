@@ -5,12 +5,15 @@ export const metadata: Metadata = {
   title: "Einsicht",
   description:
     "doofe einsicht aber die Pizza und Herr der Ringe waren gut (insider)",
+  alternates: {
+    canonical: "/es/einsicht",
+  },
 };
 
 const Einsicht: FC = () => {
   return (
     <div>
-      <h1 className="text-5xl font-light">Softwaretechnik Einsicht</h1>
+      <h1 className="text-5xl font-light">Softwaretechnik Einsicht SS2023</h1>
 
       <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
         Das ist mit Abstand die schlechteste Einsicht die ich je gesehen habe.

@@ -9,6 +9,9 @@ import { MaterialienSchnellzugriff } from "../../Schnellzugriff";
 export const metadata: Metadata = {
   title: "Klausuren",
   description: "Klausurensammlung für Stocha",
+  alternates: {
+    canonical: "/wsi/studium/klausuren",
+  },
 };
 
 export default async function KlausurenPage() {
@@ -33,7 +36,7 @@ export default async function KlausurenPage() {
                 <li key={klausur}>
                   <Link
                     href={{
-                      pathname: "/proc-download",
+                      pathname: "/protected-download",
                       query: { file: klausur },
                     }}
                     target="_blank"

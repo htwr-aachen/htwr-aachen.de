@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Aufgaben",
   description:
     "Aufgabensammlung falls man schon alle Klausuren durchgemacht hat...",
+  alternates: {
+    canonical: "/scil/studium/aufgaben",
+  },
 };
 
 export default async function Page() {

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Klausuren",
   description:
     "Da Klausuren immer problematisch zu verteilen sind werde ich da 100% sichere Captchas einbauen.",
+  alternates: {
+    canonical: "/sibd/studium/klausuren",
+  },
 };
 
 export default async function Page() {
@@ -33,7 +36,7 @@ export default async function Page() {
                   <li key={klausur}>
                     <Link
                       href={{
-                        pathname: "/proc-download",
+                        pathname: "/protected-download",
                         query: { file: klausur },
                       }}
                       target="_blank"

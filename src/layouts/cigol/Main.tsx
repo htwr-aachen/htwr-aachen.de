@@ -132,7 +132,7 @@ const Main = (props: CIGOLMainProps) => {
               <ul className="py-6 pl-4">
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/forschung"}
+                    href={"/nichts"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
                     Forschung
@@ -140,31 +140,31 @@ const Main = (props: CIGOLMainProps) => {
                 </li>
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/teachings"}
+                    href={"/cigol/studium/teachings"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
-                    Lehre
+                    ⚠Lehre
                   </Link>
                 </li>
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/forschung"}
+                    href={"/cigol/studium/klausuren"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
-                    Mitarbeiter
+                    ⚠Klausuren
                   </Link>
                 </li>
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/forschung"}
+                    href={"/cigol/studium/aufgaben"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
-                    Publikationen
+                    ⚠Aufgaben
                   </Link>
                 </li>
                 <li className="py-1 first:pt-0">
                   <Link
-                    href={"/cigol/forschung"}
+                    href={"/nichts"}
                     className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
                   >
                     Bücher

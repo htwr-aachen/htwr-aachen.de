@@ -30,7 +30,7 @@ export const DefaultNavbar: NavbarConfig = {
 export const SCILNavbarConfig: NavbarConfig = {
   linkElements: [
     {
-      name: "Studium",
+      name: "⚠Studium",
       url: "/scil/studium",
       path: "/studium",
       links: [
@@ -53,30 +53,30 @@ export const SCILNavbarConfig: NavbarConfig = {
     },
     {
       name: "Forschung",
-      url: "/scil/forschung",
-      path: "/forschung",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/scil/forschung/allgemeines",
-          path: "forschung/allgemeines",
+          url: "/nichts",
+          path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/scil/forschung/publikationen",
-          path: "forschung/publikationen",
+          url: "/nichts",
+          path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/scil/lehrstuhl",
-      path: "/lehrstuhl",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/scil/lehrstuhl/allgemein",
-          path: "lehrstuhl/allgemein",
+          url: "/nichts",
+          path: "/nichts",
         },
         { name: "Kontakt", url: "/contact", path: "" },
       ],
@@ -118,30 +118,30 @@ export const WSINavbar: NavbarConfig = {
     },
     {
       name: "Forschung",
-      url: "/wsi/forschung",
-      path: "/forschung",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/wsi/forschung/allgemeines",
-          path: "forschung/allgemeines",
+          url: "/nichts",
+          path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/wsi/forschung/publikationen",
-          path: "forschung/publikationen",
+          url: "/nichts",
+          path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/wsi/lehrstuhl",
-      path: "/lehrstuhl",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/wsi/lehrstuhl/allgemein",
-          path: "lehrstuhl/allgemein",
+          url: "/nichts",
+          path: "/nichts",
         },
         { name: "Kontakt", url: "/contact", path: "" },
       ],
@@ -183,30 +183,30 @@ export const SIBDNavbar: NavbarConfig = {
     },
     {
       name: "Forschung",
-      url: "/sibd/forschung",
-      path: "/forschung",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/sibd/forschung/allgemeines",
-          path: "forschung/allgemeines",
+          url: "/nichts",
+          path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/sibd/forschung/publikationen",
-          path: "forschung/publikationen",
+          url: "/nichts",
+          path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/sibd/lehrstuhl",
-      path: "/lehrstuhl",
+      url: "/nichts",
+      path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/sibd/lehrstuhl/allgemein",
-          path: "lehrstuhl/allgemein",
+          url: "/nichts",
+          path: "/nichts",
         },
         { name: "Kontakt", url: "/contact", path: "" },
       ],
@@ -260,7 +260,7 @@ export const CESTINavbar: NavbarConfig = {
     },
     {
       name: "Das Lehr- und Forschungsgebiet",
-      url: "/cesti/studium",
+      url: "/nichts",
     },
   ],
 };

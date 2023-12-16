@@ -4,6 +4,9 @@ import { MaterialienSchnellzugriff } from "./Schnellzugriff";
 
 export const metadata: Metadata = {
   description: "Stocha content",
+  alternates: {
+    canonical: "/wsi",
+  },
 };
 
 export default function IndexPage() {

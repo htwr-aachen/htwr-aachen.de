@@ -5,6 +5,9 @@ import TeachingList from "@/components/teachings/List";
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
   description: "Eine gute Sammlung von schlechten Zusammenfassungen",
+  alternates: {
+    canonical: "/es/studium/teachings",
+  },
 };
 
 export default function Page() {

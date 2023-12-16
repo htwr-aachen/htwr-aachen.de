@@ -5,6 +5,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Syscom - Das besser ComSys",
   description: "Für alle die nichts besseres zu tun haben als DatKom zu lernen",
+  alternates: {
+    canonical: "/syscom",
+  },
 };
 
 export default function Page() {

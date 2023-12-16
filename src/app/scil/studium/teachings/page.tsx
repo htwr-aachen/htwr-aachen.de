@@ -11,6 +11,9 @@ import { SCILSchnellzugriff } from "../../schnellzugriff";
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
   description: "Eine gute Sammlung von schlechten Zusammenfassungen für BuK",
+  alternates: {
+    canonical: "/scil/studium/teachings",
+  },
 };
 
 export default async function Page() {

@@ -7,6 +7,9 @@ import { SCILSchnellzugriff } from "../schnellzugriff";
 export const metadata: Metadata = {
   title: "Studium",
   description: "Studium für BuK und anderes",
+  alternates: {
+    canonical: "/scil/studium",
+  },
 };
 
 export default function Page() {

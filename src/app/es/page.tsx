@@ -8,6 +8,9 @@ import { SWTRaumconfig } from "./rooms";
 
 export const metadata: Metadata = {
   description: "Engineering Software Studenten",
+  alternates: {
+    canonical: "/es",
+  },
 };
 
 const index: FC = () => {

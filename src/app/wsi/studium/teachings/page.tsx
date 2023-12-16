@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { join } from "path";
 
@@ -18,6 +19,14 @@ async function getData() {
     folien: await folien,
   };
 }
+
+export const metadata: Metadata = {
+  title: "Teachings",
+  description: "90% wahrscheinlich das ihr hier Fehler findet...",
+  alternates: {
+    canonical: "/wsi/studium/teachings",
+  },
+};
 
 export default async function TeachingsPage() {
   const { folien } = await getData();

@@ -7,6 +7,9 @@ import { MALOPT1_ROOMCONFIG } from "./rooms";
 
 export const metadata: Metadata = {
   description: "Informatische Grundlagen der Mathematik",
+  alternates: {
+    canonical: "/cigol",
+  },
 };
 
 export default function CIGOLPage() {
@@ -18,7 +21,9 @@ export default function CIGOLPage() {
 
       <ul className="mx-10 my-4 list-disc text-xl [&>li]:py-1">
         <li>
-          <Link href={"/cigol/teachings"}>Zusammenfassungen wie immer</Link>
+          <Link href={"/cigol/studium/teachings"}>
+            Zusammenfassungen wie immer
+          </Link>
         </li>
         <li>
           <Link href={"/cigol/aufgaben"}>Aufgaben wie immer</Link>

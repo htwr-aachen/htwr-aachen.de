@@ -16,6 +16,9 @@ const aufgabenPath = join(
 export const metadata: Metadata = {
   title: "Alles rund um datkom",
   description: "Gern geschehen",
+  alternates: {
+    canonical: "/syscom/studium/teachings",
+  },
 };
 
 export default async function Page() {
@@ -69,7 +72,7 @@ export default async function Page() {
             <li key={klausur}>
               <Link
                 href={{
-                  pathname: "/proc-download",
+                  pathname: "/protected-download",
                   query: { file: klausur },
                 }}
                 target="_blank"

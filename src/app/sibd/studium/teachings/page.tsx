@@ -11,6 +11,9 @@ import { SIBDSchnellzugriff } from "../../schnellzugriff";
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
   description: "Schlechter als das Abgabesystem kanns nicht werden...",
+  alternates: {
+    canonical: "/sibd/studium/teachings",
+  },
 };
 
 export default async function Page() {

@@ -19,6 +19,9 @@ const aufgabenPath = join(
 export const metadata: Metadata = {
   title: "Aufgaben",
   description: "DBIS Aufgaben machen Spaß haha",
+  alternates: {
+    canonical: "/sibd/studium/aufgaben",
+  },
 };
 
 export default async function Page() {

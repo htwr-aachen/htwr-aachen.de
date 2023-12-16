@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Zusammenfassungen",
   description:
     "Es ex. eine Sammlung für alle Malo/(Mathematische Logik) Sachen, aber die hier ist es bestimmt nicht",
+  alternates: {
+    canonical: "/cigol/studium/teachings",
+  },
 };
 
 export default function TeachingsPage() {

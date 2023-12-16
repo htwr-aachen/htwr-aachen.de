@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
   description:
     "HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... ",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 const Index: FC = () => {

@@ -54,5 +54,8 @@ export async function generateMetadata({
         url: image.src,
       })),
     },
+    alternates: {
+      canonical: url,
+    },
   };
 }

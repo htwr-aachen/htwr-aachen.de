@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     description: "RWTH? => HTWR!",
     title: AppConfig.title,
   },
+  alternates: {
+    canonical: "/",
+  },
   metadataBase: new URL(BaseURL),
 };
 

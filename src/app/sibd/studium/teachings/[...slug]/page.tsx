@@ -27,7 +27,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta } = await getTeaching(params.slug, subject);
+  const { meta, url } = await getTeaching(params.slug, subject);
 
   const authors = Array.isArray(meta.author) ? meta.author : [meta.author];
   const images = Array.isArray(meta.images) ? meta.images : [meta.images];
@@ -43,5 +43,8 @@ export async function generateMetadata({
       card: "summary",
     },
     authors: authors.map((x) => ({ name: x })),
+    alternates: {
+      canonical: url,
+    },
   };
 }

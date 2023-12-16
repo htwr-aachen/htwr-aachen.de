@@ -7,6 +7,9 @@ import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 export const metadata: Metadata = {
   title: "Studium",
   description: "Diskret oder?",
+  alternates: {
+    canonical: "/wsi/studium",
+  },
 };
 
 export default function StudiumPage() {

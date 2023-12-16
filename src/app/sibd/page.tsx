@@ -6,6 +6,9 @@ import { SIBDSchnellzugriff } from "./schnellzugriff";
 
 export const metadata: Metadata = {
   description: "DBIS ist toll. Habt angst vor dem Fach",
+  alternates: {
+    canonical: "/sibd",
+  },
 };
 
 export default function sibdPage() {

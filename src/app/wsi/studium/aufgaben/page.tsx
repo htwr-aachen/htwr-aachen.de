@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { join } from "path";
 
@@ -13,6 +14,14 @@ const aufgabenPath = join(
   "wsi",
   "aufgaben"
 );
+
+export const metadata: Metadata = {
+  title: "Aufgaben",
+  description: "och nööö",
+  alternates: {
+    canonical: "/wsi/studium/aufgaben",
+  },
+};
 
 export default async function AufgabenPage() {
   const aufgaben = await getAllDocsFromDir(

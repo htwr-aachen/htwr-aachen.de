@@ -15,6 +15,9 @@ const aufgabenPath = join(
 export const metadata: Metadata = {
   title: "Aufgaben",
   description: "Aufgabensammlung plus unsere (schlechten) Lösungen",
+  alternates: {
+    canonical: "/es/studium/aufgaben",
+  },
 };
 
 export default async function Page() {

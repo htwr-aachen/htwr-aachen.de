@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import type { FC } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
+import Main from "@/layouts/Main";
+
+import { BackButton } from "./back";
 
 export const metadata: Metadata = {
   title: "Nichts",
   description: "wirklich nichts (SEO bedingt)",
   alternates: {
-    canonical: "/es/nichts",
+    canonical: "/nichts",
   },
 };
 
-const NichtsPage: FC = () => {
+export default function Page() {
   return (
-    <div>
-      <HeadLine>Also wirklich nichts</HeadLine>
-    </div>
+    <Main institute="htwr">
+      <HeadLine>SEO Placeholder.</HeadLine>
+      <BackButton />
+    </Main>
   );
-};
-
-export default NichtsPage;
+}

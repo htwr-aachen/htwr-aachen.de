@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import type { FC } from "react";
 
@@ -5,6 +6,13 @@ import { Gallery, GalleryLabel } from "@/components/rwth/gallery";
 import { HeadLine } from "@/components/rwth/headline";
 
 import { SCILSchnellzugriff } from "./schnellzugriff";
+
+export const metadata: Metadata = {
+  description: "Jetzt wird gebuked",
+  alternates: {
+    canonical: "/scil",
+  },
+};
 
 const SCIL: FC = () => {
   return (
