@@ -17,11 +17,14 @@ export const metadata: Metadata = {
 };
 
 async function getData(): Promise<Panikzettel[]> {
-  const res = await fetch(urlJoin(BaseURL, "/api/panikzettel"), {
-    next: {
-      revalidate: 3600,
-    },
-  });
+  const res = await fetch(
+    urlJoin(BaseURL, "/api/panikzettel?excludeMetadata=true"),
+    {
+      next: {
+        revalidate: 3600,
+      },
+    }
+  );
   if (!res.ok) {
     return [];
   }
@@ -126,6 +129,13 @@ export default async function Page() {
             panikzettel={panikzettel.filter((x) => x.type === "af")}
           />
         </div>
+      </div>
+      <hr className="black my-4 border-2" />
+      <div>
+        <h2 className="mb-4 text-2xl">Sonstiges</h2>
+        <Panikzettellist
+          panikzettel={panikzettel.filter((x) => x.type === "none")}
+        />
       </div>
     </div>
   );

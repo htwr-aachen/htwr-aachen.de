@@ -95,7 +95,7 @@ export const SCILNavbarConfig: NavbarConfig = {
 export const WSINavbar: NavbarConfig = {
   linkElements: [
     {
-      name: "Studium",
+      name: "⚠Studium",
       url: "/wsi/studium",
       path: "/studium",
       links: [
@@ -160,7 +160,7 @@ export const WSINavbar: NavbarConfig = {
 export const SIBDNavbar: NavbarConfig = {
   linkElements: [
     {
-      name: "Studium",
+      name: "⚠Studium",
       url: "/sibd/studium",
       path: "/studium",
       links: [
@@ -236,7 +236,7 @@ export const CESTINavbar: NavbarConfig = {
   },
   linkElements: [
     {
-      name: "Studium",
+      name: "⚠Studium",
       url: "/cesti/studium",
       path: "/studium",
       links: [

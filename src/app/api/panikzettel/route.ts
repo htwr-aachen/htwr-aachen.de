@@ -1,6 +1,5 @@
 import { Storage } from "@google-cloud/storage";
-
-const filterList = ["metadata.json", "meta.pdf", "naming.json"];
+import type { NextRequest } from "next/server";
 
 type PanikzettelMetadata = {
   name: string;
@@ -8,7 +7,7 @@ type PanikzettelMetadata = {
   type: "pf" | "wpf" | "af" | "none";
 };
 
-interface Naming {
+interface PanikzettelMetadataMap {
   [Key: string]: PanikzettelMetadata;
 }
 
@@ -23,11 +22,14 @@ const storage = new Storage({
 });
 
 // The helper function to read the file from GCP
-async function readFiles(naming: Naming): Promise<Panikzettel[]> {
+async function readFiles(
+  naming: PanikzettelMetadataMap,
+  excludeFiles: string[]
+): Promise<Panikzettel[]> {
   const bucketName = process.env.GCS_BUCKET || "";
   const [files] = await storage.bucket(bucketName).getFiles();
   return files
-    .filter((x) => !filterList.includes(x.name))
+    .filter((x) => !excludeFiles.includes(x.name))
     .filter((x) => {
       return x.isPublic().then((z) => z[0]);
     })
@@ -51,24 +53,28 @@ async function readFiles(naming: Naming): Promise<Panikzettel[]> {
     });
 }
 
-async function getNamings(): Promise<Naming> {
-  const res = await fetch(process.env.GCS_BUCKET_METADATA_FILE_URL || "", {
-    next: {
-      revalidate: 100,
-    },
-  });
+async function downloadMetadata(): Promise<PanikzettelMetadataMap> {
+  const bucketName = process.env.GCS_BUCKET || "";
+  const download = await storage
+    .bucket(bucketName)
+    .file("metadata.json")
+    .download();
 
-  if (!res.ok) {
-    return {};
-  }
+  if (!download) return {};
 
-  return res.json();
+  return JSON.parse(download[0].toString("utf8"));
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const excludeMetadata =
+    req.nextUrl.searchParams.get("excludeMetadata") === "true";
+
   try {
-    const namings = await getNamings();
-    const files = await readFiles(namings);
+    const namings = await downloadMetadata();
+    const files = await readFiles(
+      namings,
+      excludeMetadata ? ["metadata.json"] : []
+    );
     return new Response(JSON.stringify(files), { status: 200 });
   } catch (err) {
     return new Response(JSON.stringify([]), { status: 500 });
