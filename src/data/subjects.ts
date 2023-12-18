@@ -12,7 +12,8 @@ export type SubjectNames =
   | "datkom"
   | "stocha"
   | "malo"
-  | "itsec";
+  | "itsec"
+  | "psp";
 
 export const subjects: {
   [name: string]: Subject;
@@ -72,5 +73,13 @@ export const subjects: {
     fullName: "IT-Security",
     teachingDir: join(DefaultTeachingDir, "cesti", "itsec"),
     teachingURL: urlJoin(BaseURL, "/cesti/studium/teachings"),
+  },
+  psp: {
+    institute: "deddebme",
+    name: "psp",
+    displayName: "PSP",
+    fullName: "Praktikum Systemprogrammierung",
+    teachingDir: join(DefaultTeachingDir, "deddebme", "psp"),
+    teachingURL: urlJoin(BaseURL, "/deddebme/lehre/teachings"),
   },
 };
