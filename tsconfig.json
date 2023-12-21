@@ -47,6 +47,7 @@
     "**/*.ts",
     "**/*.tsx",
     "./jest.setup.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/lib/markdown.ts"
   ]
 }

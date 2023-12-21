@@ -2,7 +2,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Suspense } from "react";
 
 import type { SubjectNames } from "@/data/subjects";
-import { mdxOptions } from "@/lib/markdown";
+import { mdxOptions } from "@/lib/markdown.js";
 import { getTeaching } from "@/lib/teaching";
 
 import ISOOSI from "../isoosi";

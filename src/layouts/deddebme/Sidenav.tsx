@@ -41,7 +41,7 @@ type DeddebmeSidenavProps = {
 
 export function DeddebmeSidenav(props: DeddebmeSidenavProps) {
   return (
-    <div className="mr-5 flex w-52 flex-col text-sm">
+    <div className="mx-5 my-10 flex flex-col text-sm md:my-0 md:ml-0 md:w-52">
       <ul className="w-full">
         {props.config.linkElements.map((link) => (
           <li key={link.path} className="w-full">

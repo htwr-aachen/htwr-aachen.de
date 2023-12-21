@@ -18,12 +18,12 @@ export default function DeddebmeLayout(props: DeddebmeLayoutProps) {
     getInstituteByName(props.institute || "deddebme")
   );
   return (
-    <div className="mx-auto max-w-6xl">
+    <div className="">
       <DeddebmeNavbar config={navbarConfig} />
-      <div className="grid grid-cols-[auto_1fr]">
+      <div className="mx-auto grid max-w-6xl antialiased md:grid-cols-[auto_1fr]">
         <DeddebmeSidenav config={navbarConfig} />
 
-        <div>{props.children}</div>
+        <div className="px-5 ">{props.children}</div>
       </div>
     </div>
   );

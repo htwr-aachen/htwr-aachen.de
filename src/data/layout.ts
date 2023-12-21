@@ -267,11 +267,11 @@ export const CESTINavbar: NavbarConfig = {
 
 export const DEDDEBMENavbar: NavbarConfig = {
   logo: {
-    logoUrl: "/assets/cesti/banner.svg",
+    logoUrl: "/assets/deddebme/banner.svg",
     alt: "deddebme Logo",
     href: "/deddebme",
-    width: 380,
-    height: 110,
+    width: 170,
+    height: 58,
   },
   main: {
     name: "DEDDEBME",
