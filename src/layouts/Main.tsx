@@ -9,6 +9,8 @@ import { getInstituteByName } from "@/lib/institutes";
 import type { StringInstitutes } from "@/models/institutes";
 import { Institutes } from "@/models/institutes";
 
+import DeddebmeLayout from "./deddebme/Main";
+
 type MainProps = {
   institute: StringInstitutes;
   children?: React.ReactNode;
@@ -40,7 +42,8 @@ export default function Main(props: MainProps) {
           {props.children}
         </CIGOLMain>
       );
-
+    case Institutes.DEDDEBME:
+      return <DeddebmeLayout>{props.children}</DeddebmeLayout>;
     default:
       return (
         <HTWRMain

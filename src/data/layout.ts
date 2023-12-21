@@ -265,6 +265,62 @@ export const CESTINavbar: NavbarConfig = {
   ],
 };
 
+export const DEDDEBMENavbar: NavbarConfig = {
+  logo: {
+    logoUrl: "/assets/deddebme/banner.svg",
+    alt: "deddebme Logo",
+    href: "/deddebme",
+    width: 170,
+    height: 58,
+  },
+  main: {
+    name: "DEDDEBME",
+    url: "/deddebme",
+  },
+  linkElements: [
+    {
+      name: "⚠Lehre",
+      url: "/deddebme/lehre",
+      path: "/lehre",
+      links: [
+        {
+          name: "Zusammenfassungen",
+          url: "/deddebme/lehre/teachings",
+        },
+        {
+          name: "Resourcen",
+          url: "/deddebme/lehre/resources",
+        },
+      ],
+    },
+    {
+      name: "⚠Forschung",
+      url: "/deddebme/lehre",
+    },
+    {
+      name: "Tools",
+      url: "/nichts",
+    },
+    {
+      name: "Lehrstuhl",
+      url: "/nichts",
+      links: [
+        {
+          name: "Kontakt",
+          url: "/contact",
+        },
+        {
+          name: "Impressum",
+          url: "/impressum",
+        },
+        {
+          name: "Datenschutz",
+          url: "/datenschutz",
+        },
+      ],
+    },
+  ],
+};
 export function getNavbarConfig(institute: Institutes): NavbarConfig {
   switch (institute) {
     case Institutes.SCIL:
@@ -275,6 +331,8 @@ export function getNavbarConfig(institute: Institutes): NavbarConfig {
       return SIBDNavbar;
     case Institutes.CESTI:
       return CESTINavbar;
+    case Institutes.DEDDEBME:
+      return DEDDEBMENavbar;
     default:
       return DefaultNavbar;
   }

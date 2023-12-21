@@ -81,4 +81,14 @@ export const InstituteConfig: Institute[] = [
     professor: "Meyer",
     subject: "IT-SEC",
   },
+  {
+    name: "DEDDEBME",
+    href: "/deddebme",
+    icon: "/assets/cesti/logo.png",
+    banner: "/assets/cesti/logo.svg",
+    description: "Spaß",
+    fullName: "Software Embedded",
+    professor: "Kowalewski",
+    subject: "PSP",
+  },
 ];
