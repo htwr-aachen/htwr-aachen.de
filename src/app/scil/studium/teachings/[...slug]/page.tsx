@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import RossmanithQuiz from "@/components/teachings/Quizes/Rossmanith";
 import TeachingView from "@/components/teachings/View";
 import type { SubjectNames } from "@/data/subjects";
 import { getTeaching, getTeachingsMetadata } from "@/lib/teaching";
@@ -9,7 +10,11 @@ const subject: SubjectNames = "buk";
 export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div>
-      <TeachingView subject={subject} slug={params.slug}></TeachingView>
+      <TeachingView
+        subject={subject}
+        slug={params.slug}
+        components={[RossmanithQuiz]}
+      ></TeachingView>
     </div>
   );
 }

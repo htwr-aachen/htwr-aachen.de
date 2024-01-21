@@ -10,11 +10,13 @@ import RumpeQuiz from "../RumpeQuiz";
 import { HeadLine } from "../rwth/headline";
 import Spoiler from "../spoiler";
 import TeachingLayout from "./Layout";
+import RossmanithQuiz from "./Quizes/Rossmanith";
 
 export const DefaultComponents = {
   Spoiler,
   ISOOSI,
   RumpeQuiz,
+  RossmanithQuiz,
 
   img: (props: any) => {
     return (
