@@ -82,7 +82,7 @@ export const ProtectedDownloadFlow: FC = () => {
           <input
             id="captcha"
             type="checkbox"
-            className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-rwth-accent checked:bg-blue-600 checked:ring-rwth-accent focus:ring-rwth-branding"
+            className="size-4 rounded border-gray-300 bg-gray-100 text-rwth-accent checked:bg-blue-600 checked:ring-rwth-accent focus:ring-rwth-branding"
             onChange={(i) => {
               setIsCaptchaChecked(i.target.checked);
             }}

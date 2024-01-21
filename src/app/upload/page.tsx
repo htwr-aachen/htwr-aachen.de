@@ -38,7 +38,7 @@ export default function UploadPage() {
           >
             <div className="flex flex-col items-center justify-center pb-6 pt-5">
               <svg
-                className="mb-4 h-8 w-8 text-black/50"
+                className="mb-4 size-8 text-black/50"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

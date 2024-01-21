@@ -30,7 +30,7 @@ const Navbar: FC<NavbarProps> = ({
       <button
         className={
           menuOpen
-            ? "absolute z-50 h-full w-full bg-black opacity-20 transition-opacity"
+            ? "absolute z-50 size-full bg-black opacity-20 transition-opacity"
             : "hidden"
         }
         type="button"

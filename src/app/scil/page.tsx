@@ -26,7 +26,7 @@ const SCIL: FC = () => {
           <img
             src="https://media.tenor.com/gdOx-XoiPtwAAAAd/when-your-bored-of-maths-maths-op.gif"
             alt="Good Luck"
-            className="block h-auto max-h-[500px] w-auto object-contain"
+            className="block size-auto max-h-[500px] object-contain"
             width={700}
             height={500}
           />
@@ -38,7 +38,7 @@ const SCIL: FC = () => {
           <Image
             src={"/assets/scil/banner.png"}
             alt="SCIL Banner"
-            className="block h-auto max-h-[500px] w-auto object-contain"
+            className="block size-auto max-h-[500px] object-contain"
             width={700}
             height={500}
           ></Image>
@@ -50,7 +50,7 @@ const SCIL: FC = () => {
           <Image
             src={"/assets/scil/martina_grohe.jpg"}
             alt="Martina Grohe"
-            className="block h-auto max-h-[500px] w-auto object-contain"
+            className="block size-auto max-h-[500px] object-contain"
             width={300}
             height={500}
           ></Image>

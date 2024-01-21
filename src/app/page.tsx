@@ -66,7 +66,7 @@ const Index: FC = () => {
             return (
               <PersonaElement href={institute.href} key={institute.name}>
                 <Image
-                  className="relative mx-auto mb-2 h-[32px] w-[32px] brightness-0"
+                  className="relative mx-auto mb-2 size-[32px] brightness-0"
                   src={institute.icon || "/assets/scil/scil_icon.svg"}
                   alt={institute.fullName}
                   width={32}

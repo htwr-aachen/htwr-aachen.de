@@ -86,7 +86,7 @@ const GalleryPrevArrow = (
             alt="Arrow Next"
             width={50}
             height={50}
-            className="h-[45px] w-[45] lg:h-[75px] lg:w-[75px]"
+            className="h-[45px] w-[45] lg:size-[75px]"
           />
         </div>
       </button>
@@ -114,7 +114,7 @@ const GalleryNextArrow = (
             alt="Arrow Next"
             width={50}
             height={50}
-            className="h-[45px] w-[45] lg:h-[75px] lg:w-[75px]"
+            className="h-[45px] w-[45] lg:size-[75px]"
           />
         </div>
       </button>
