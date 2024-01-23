@@ -5,15 +5,25 @@ type ScheduleItem = {
   resource: string | null;
 };
 
+export function findTransactionOperationIndex(
+  schedule: ScheduleItem[],
+  transaction: number,
+  operation: Operation
+): number {
+  return schedule.findIndex(
+    (op) => op.transaction === transaction && op.operation === operation
+  );
+}
+
 export function parseSchedule(schedule: string): ScheduleItem[] {
   const pattern = /([rwca])(\d)(?:\((\w)\))? ?/g;
-  let parsedSchedule: ScheduleItem[] = [];
+  const parsedSchedule: ScheduleItem[] = [];
   let match: RegExpExecArray | null;
 
   while ((match = pattern.exec(schedule)) !== null) {
     parsedSchedule.push({
       operation: match[1] as Operation,
-      transaction: parseInt(match[2]),
+      transaction: parseInt(match[2], 10),
       resource: match[3] || null,
     });
   }
@@ -32,9 +42,9 @@ function accessToString(
 }
 
 export function visualizeSchedule(parsedSchedule: ScheduleItem[]): string {
-  let transactions = new Set(parsedSchedule.map((op) => op.transaction));
-  let maxTransaction = Math.max(...Array.from(transactions));
-  let table: string[][] = [];
+  const transactions = new Set(parsedSchedule.map((op) => op.transaction));
+  const maxTransaction = Math.max(...Array.from(transactions));
+  const table: string[][] = [];
 
   // Initialize the table with empty strings
   for (let i = 0; i < parsedSchedule.length; i++) {
@@ -59,21 +69,18 @@ export function visualizeSchedule(parsedSchedule: ScheduleItem[]): string {
 
   // Create the table string
   let tableString = "";
-  const separator = "+---------".repeat(maxTransaction) + "+\n";
+  const separator = `${"+---------".repeat(maxTransaction)}+\n`;
 
   // Add header
   tableString += separator;
-  tableString +=
-    "|" +
-    Array.from(transactions)
-      .map((t) => `    ${t}    `)
-      .join("|") +
-    "|\n";
+  tableString += `|${Array.from(transactions)
+    .map((t) => `    ${t}    `)
+    .join("|")}|\n`;
   tableString += separator.replace(/-/g, "=");
 
   // Add rows
   table.forEach((row) => {
-    tableString += "|" + row.map((cell) => cell.padEnd(9)).join("|") + "|\n";
+    tableString += `|${row.map((cell) => cell.padEnd(9)).join("|")}|\n`;
     tableString += separator;
   });
 
@@ -83,9 +90,9 @@ export function visualizeSchedule(parsedSchedule: ScheduleItem[]): string {
 export function rcAcaStCheck(
   parsedSchedule: ScheduleItem[]
 ): [boolean, boolean, boolean] {
-  let isRc = true,
-    isAca = true,
-    isSt = true;
+  let isRc = true;
+  let isAca = true;
+  let isSt = true;
 
   for (let i = 0; i < parsedSchedule.length; i++) {
     const { operation, transaction, resource } = parsedSchedule[i];
@@ -128,16 +135,6 @@ export function rcAcaStCheck(
   }
 
   return [isRc, isAca, isSt];
-}
-
-export function findTransactionOperationIndex(
-  schedule: ScheduleItem[],
-  transaction: number,
-  operation: Operation
-): number {
-  return schedule.findIndex(
-    (op) => op.transaction === transaction && op.operation === operation
-  );
 }
 
 export function conf(parsedSchedule: ScheduleItem[]): Set<string> {

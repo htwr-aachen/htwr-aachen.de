@@ -45,6 +45,9 @@
         "project": "./tsconfig.json"
       },
       "rules": {
+        "no-cond-assign": "off",
+        "no-nested-ternary": "off",
+        "no-multi-assign": "off",
         "no-use-before-define": "off",
         "no-underscore-dangle": "off",
         "no-plusplus": "off", // Allow using ++ and --

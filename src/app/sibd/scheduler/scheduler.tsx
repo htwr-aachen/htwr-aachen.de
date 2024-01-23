@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
+
 import { parseSchedule, rcAcaStCheck, visualizeSchedule } from "./scheduling";
 
 export default function SchedulerPage() {
@@ -29,8 +30,7 @@ export default function SchedulerPage() {
       res += `isRc: ${isRc} | isAca: ${isAca} | isSt: ${isSt}`;
       setResult(res);
       setError("");
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
       setError("du musst was falsches eingegeben haben :/");
       setResult("");
     }
