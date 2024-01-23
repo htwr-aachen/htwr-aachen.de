@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
+import { parseSchedule, rcAcaStCheck, visualizeSchedule } from "./scheduling";
 
 export default function SchedulerPage() {
   const [result, setResult] = useState<string>("");
@@ -18,33 +19,21 @@ export default function SchedulerPage() {
       return;
     }
 
-    fetch("https://api.htwr-aachen.de/dbis-scheduling", {
-      body: JSON.stringify({
-        content: scheduler.trim(),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      mode: "cors",
-    })
-      .then((res) => {
-        if (res.status !== 200)
-          throw new Error("Du musst was falsches eingegeben haben", {
-            cause: "Du",
-          });
-        return res.text();
-      })
-      .then((res) => {
-        setResult(res);
-        setError("");
-      })
-      .catch((_err) => {
-        setResult("");
-        setError(
-          "Etwas ist falsch gelaufen / Du hast was falsch gemacht :(. Musste wohl selber machen"
-        );
-      });
+    try {
+      const parsedScheduling = parseSchedule(scheduler.trim());
+      let res = visualizeSchedule(parsedScheduling);
+      res += "\n";
+
+      const [isRc, isAca, isSt] = rcAcaStCheck(parsedScheduling);
+
+      res += `isRc: ${isRc} | isAca: ${isAca} | isSt: ${isSt}`;
+      setResult(res);
+      setError("");
+    } catch (e) {
+      console.log(e);
+      setError("du musst was falsches eingegeben haben :/");
+      setResult("");
+    }
   };
 
   return (
