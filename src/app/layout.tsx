@@ -30,6 +30,35 @@ export const metadata: Metadata = {
     template: "%s - HTWR",
     default: AppConfig.title,
   },
+  icons: [
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/apple-touch-icon.png?v=2",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon-32x32.png?v=2",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      url: "/favicon-16x16.png?v=2",
+    },
+    {
+      rel: "mask-icon",
+      url: "/safari-pinned-tab.svg?v=2",
+      color: "#5bbad5",
+    },
+    {
+      rel: "shortcut icon",
+      url: "/favicon.ico?v=2",
+    },
+  ],
+  manifest: "/site.webmanifest?v=2",
   description: "The better rwth website",
   authors: [{ name: "Jonas Schneider", url: "jonsch.eu" }],
   creator: "HTWR Team",
@@ -38,6 +67,10 @@ export const metadata: Metadata = {
     creator: "@jonsch318",
     description: "RWTH? => HTWR!",
     title: AppConfig.title,
+  },
+  applicationName: "htwr-aachen.de",
+  appleWebApp: {
+    title: "HTWR-Aachen",
   },
   alternates: {
     canonical: "/",
