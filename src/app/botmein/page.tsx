@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import Prism from "prismjs";
 import type { FC } from "react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import Main from "@/layouts/Main";
@@ -156,7 +156,7 @@ const IntroPage: FC<PageProps> = (props) => {
   );
 };
 
-const BotMeInPage: FC = () => {
+function BotMeInPageRouter() {
   const router = useRouter();
   const query = useSearchParams()?.get("page") || "";
   const [page, setPage] = useState<string>("");
@@ -193,6 +193,22 @@ const BotMeInPage: FC = () => {
       )}
     </Main>
   );
-};
+}
 
-export default BotMeInPage;
+export default function BotMeInPage() {
+  return (
+    <Main institute="htwr" meta={<Meta title="BotMeIn @ HTWR"></Meta>}>
+      <HeadLine>
+        BotMeIn{" "}
+        <span className="text-center text-2xl">
+          Der HSZ Bot, auf den alle Informatiker gewartet haben
+        </span>
+      </HeadLine>
+      <Suspense
+        fallback={<span className="text-center text-2xl">Loading...</span>}
+      >
+        <BotMeInPageRouter></BotMeInPageRouter>
+      </Suspense>
+    </Main>
+  );
+}

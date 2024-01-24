@@ -8,7 +8,7 @@ const storage = new Storage({
   credentials: JSON.parse(process.env.GCS_SERVICE_KEY || ""),
 });
 
-export async function getFileURL(slug: string): Promise<string | null> {
+async function getFileURL(slug: string): Promise<string | null> {
   const bucketName = process.env.GCS_BUCKET || "";
   const file = storage.bucket(bucketName).file(slug);
   if (!file.isPublic()) {

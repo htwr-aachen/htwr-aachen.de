@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import Main from "@/layouts/Main";
@@ -20,7 +21,9 @@ export default function Page() {
     <Main institute="htwr">
       <div className="">
         <HeadLine>Captcha: Bist Du Ein Student?</HeadLine>
-        <ProtectedDownloadFlow />
+        <Suspense fallback={<span>Loading...</span>}>
+          <ProtectedDownloadFlow />
+        </Suspense>
       </div>
     </Main>
   );
