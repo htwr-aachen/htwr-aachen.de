@@ -13,7 +13,8 @@ export type SubjectNames =
   | "stocha"
   | "malo"
   | "itsec"
-  | "psp";
+  | "psp"
+  | "male";
 
 export const subjects: {
   [name: string]: Subject;
@@ -81,5 +82,13 @@ export const subjects: {
     fullName: "Praktikum Systemprogrammierung",
     teachingDir: join(DefaultTeachingDir, "deddebme", "psp"),
     teachingURL: urlJoin(BaseURL, "/deddebme/lehre/teachings"),
+  },
+  male: {
+    institute: "male",
+    name: "male",
+    displayName: "MaLe",
+    fullName: "Elements of Machine Learning and Data Science",
+    teachingDir: join(DefaultTeachingDir, "male", "male"),
+    teachingURL: urlJoin(BaseURL, "/male/teachings"),
   },
 };

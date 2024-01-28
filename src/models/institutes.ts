@@ -8,6 +8,7 @@ export enum Institutes {
   CIGOL,
   CESTI,
   DEDDEBME,
+  MALE,
   __LENGTH,
 }
 
@@ -20,7 +21,8 @@ export type StringInstitutes =
   | "sibd"
   | "cigol"
   | "cesti"
-  | "deddebme";
+  | "deddebme"
+  | "male";
 
 export const InstitutesMap = {
   HTWR: 0,
@@ -32,6 +34,7 @@ export const InstitutesMap = {
   CIGOL: 6,
   CESTI: 7,
   DEDDEBME: 8,
+  MALE: 9,
 };
 export const INSTITUTES_LENGTH = Object.keys(InstitutesMap).length;
 

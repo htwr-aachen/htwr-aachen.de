@@ -84,11 +84,22 @@ export const InstituteConfig: Institute[] = [
   {
     name: "DEDDEBME",
     href: "/deddebme",
-    icon: "/assets/cesti/logo.png",
-    banner: "/assets/cesti/logo.svg",
+    icon: "/assets/deddebme/logo-black.png",
+    banner: "/assets/deddebme/banner.svg",
     description: "Spaß",
     fullName: "Software Embedded",
     professor: "Kowalewski",
     subject: "PSP",
+  },
+  {
+    name: "MALE",
+    href: "/male",
+    icon: "/assets/male/logo.png",
+    banner: "/assets/rwth/htwr.png",
+    description: "Male?🤷",
+    fullName: "Elements of Machine Learning and Data Science",
+    professor:
+      "Leibe, Hoos, Prof. Dr. Ir. Willibrordus Martinus Pancratius „Wil“ van der Aalst",
+    subject: "MaLe",
   },
 ];

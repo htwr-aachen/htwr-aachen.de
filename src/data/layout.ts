@@ -321,6 +321,26 @@ export const DEDDEBMENavbar: NavbarConfig = {
     },
   ],
 };
+
+export const MaLeNavbar: NavbarConfig = {
+  linkElements: [
+    {
+      name: "⚠Zusammenfassungen (vielleicht)",
+      url: "/nichts",
+    },
+    {
+      name: "Material",
+      url: "/male/material",
+      path: "/male/material",
+    },
+  ],
+  main: { name: "MaLe", url: "/male" },
+  logo: {
+    logoUrl: "/assets/rwth/htwr_banner.png",
+    alt: "HTWR Logo",
+    href: "/male",
+  },
+};
 export function getNavbarConfig(institute: Institutes): NavbarConfig {
   switch (institute) {
     case Institutes.SCIL:
@@ -333,6 +353,8 @@ export function getNavbarConfig(institute: Institutes): NavbarConfig {
       return CESTINavbar;
     case Institutes.DEDDEBME:
       return DEDDEBMENavbar;
+    case Institutes.MALE:
+      return MaLeNavbar;
     default:
       return DefaultNavbar;
   }
