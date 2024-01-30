@@ -110,7 +110,7 @@ export default async function Page() {
         <a href="https://git.rwth-aachen.de/jonas.max.schneider/panikzettel">
           geforkede Version
         </a>
-        , da die alte verlassen ist. Sie ist gerade noch im Aufbau und wird noch
+        , da Alte verlassen ist. Sie ist gerade noch im Aufbau und wird noch
         schöner.
       </p>
       <Pflichfächer panikzettel={panikzettel.filter((x) => x.type === "pf")} />
