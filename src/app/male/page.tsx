@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 
+import {
+  Gallery,
+  GalleryImage,
+  GalleryItem,
+  GalleryLabel,
+} from "@/components/rwth/gallery";
+
 import { MaterialienSchnellzugriff } from "./Schnellzugriff";
 
 export const metadata: Metadata = {
@@ -12,11 +19,19 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <div>
-      <h1 className="mb-8 text-2xl">
-        Mit einer Vorlesung von drei Lehrstühlen macht man es mir durchaus
-        schwerer ein Clone zu machen : &#060;. Naja deswegen hier erstmal ein
-        Generisches Template.
-      </h1>
+      <Gallery>
+        <GalleryItem>
+          <GalleryImage
+            src={"/assets/male/closed-frequent-itemsets.png"}
+            alt="closed frequent itemsets are closed and frequent"
+            width={700}
+            height={200}
+          ></GalleryImage>
+          <GalleryLabel headline="Danke Wil" url="/male">
+            Tja
+          </GalleryLabel>
+        </GalleryItem>
+      </Gallery>
 
       <p className="mb-8 text-lg">
         Das jetzt doof mit dem neuen Fach. Viel anbieten kann ich hier auch

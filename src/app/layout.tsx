@@ -2,10 +2,10 @@ import "@/styles/global.css";
 import "@/styles/markdown.scss";
 
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import type { FC } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import AppMain from "@/layouts/AppMain";
 import { AppConfig, BaseURL } from "@/utils/AppConfig";
