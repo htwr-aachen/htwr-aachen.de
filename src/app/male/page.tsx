@@ -31,6 +31,18 @@ export default function IndexPage() {
             Tja
           </GalleryLabel>
         </GalleryItem>
+
+        <GalleryItem>
+          <GalleryImage
+            src={"/assets/male/comes.jpg"}
+            alt="comes at work with bike?"
+            width={700}
+            height={400}
+          ></GalleryImage>
+          <GalleryLabel headline="Folienschätze..." url="/male">
+            Anstößig
+          </GalleryLabel>
+        </GalleryItem>
       </Gallery>
 
       <p className="mb-8 text-lg">
