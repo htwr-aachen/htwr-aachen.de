@@ -8,6 +8,7 @@ import {
 } from "@/components/rwth/gallery";
 
 import { MaterialienSchnellzugriff } from "./Schnellzugriff";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   description: "MALE content",
@@ -53,6 +54,8 @@ export default function IndexPage() {
         Falls wer also Lust auf Zusammenfassung schreiben hat. Einfach einen
         Fork machen und unter /teachings/male/[name] Markdown schreiben :)
       </p>
+
+      <Link href="/panikzettel">Panikzettel</Link>
 
       <MaterialienSchnellzugriff />
     </div>

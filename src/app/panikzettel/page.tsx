@@ -21,7 +21,7 @@ async function getData(): Promise<Panikzettel[]> {
     urlJoin(BaseURL, "/api/panikzettel?excludeMetadata=true"),
     {
       next: {
-        revalidate: 3600,
+        revalidate: 60 * 5,
       },
     }
   );
