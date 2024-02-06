@@ -15,7 +15,7 @@ async function getData() {
   );
   const aufgaben = getAllDocsFromDir(
     join(process.cwd(), "public", "teaching-assets", "male", "aufgaben"),
-    "/teaching-assets/male/folien",
+    "/teaching-assets/male/aufgaben",
     false
   );
 
