@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import {
   Gallery,
@@ -8,7 +9,6 @@ import {
 } from "@/components/rwth/gallery";
 
 import { MaterialienSchnellzugriff } from "./Schnellzugriff";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   description: "MALE content",

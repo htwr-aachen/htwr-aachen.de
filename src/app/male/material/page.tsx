@@ -13,9 +13,15 @@ async function getData() {
     "/teaching-assets/male/folien",
     false
   );
+  const aufgaben = getAllDocsFromDir(
+    join(process.cwd(), "public", "teaching-assets", "male", "aufgaben"),
+    "/teaching-assets/male/folien",
+    false
+  );
 
   return {
     folien: await folien,
+    aufgaben: await aufgaben,
   };
 }
 
@@ -29,7 +35,7 @@ export const metadata: Metadata = {
 };
 
 export default async function TeachingsPage() {
-  const { folien } = await getData();
+  const { folien, aufgaben } = await getData();
 
   return (
     <div className="px-3">
@@ -63,9 +69,24 @@ export default async function TeachingsPage() {
             Alle Folien
           </h2>
 
-          <p className="my-2"></p>
           <ul className="my-2 ml-8 list-disc">
             {folien.map((doc) => {
+              return (
+                <li key={doc.name}>
+                  <Link href={doc.url} target={"_blank"}>
+                    {doc.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <h2 className="font-sans text-4xl font-light" id="folien">
+            Aufgaben
+          </h2>
+
+          <ul className="my-2 ml-8 list-disc">
+            {aufgaben.map((doc) => {
               return (
                 <li key={doc.name}>
                   <Link href={doc.url} target={"_blank"}>
