@@ -35,5 +35,14 @@ export default withAxiom(
     // So, the source code is "basePath-ready".
     // You can remove `basePath` if you don't need it.
     reactStrictMode: true,
+    async rewrites() {
+      return [
+        {
+          // I want to have the htwr-aachen.de/panikzettel/{subject} route visible and we proxy the request to the api server
+          source: "/panikzettel/:path",
+          destination: "http://localhost:8080/panikzettel/:path",
+        },
+      ];
+    },
   })
 );

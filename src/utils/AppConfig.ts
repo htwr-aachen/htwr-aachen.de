@@ -1,5 +1,5 @@
 export const AppConfig = {
-  site_name: "htwr-aachen.de",
+  site_name: "htwr-aach8080e",
   title: "HTWR AACHEN UNIVERSITY",
   description: "A TRUE EXZELENCE UNIVERSITY",
   locale: "de",
@@ -13,4 +13,4 @@ export const BaseURL =
 export const APIURL =
   process.env.NODE_ENV === "production"
     ? "https://api.htwr-aachen.de"
-    : "http://localhost:3000";
+    : "http://localhost:8080";
