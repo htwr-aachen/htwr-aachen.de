@@ -2,7 +2,7 @@ import { readdir } from "fs/promises";
 import natsort from "natsort";
 
 import type { SubjectNames } from "@/data/subjects";
-import { API_URL } from "@/utils/TeachingConfig";
+import { APIURL } from "@/utils/AppConfig";
 
 export type Document = {
   name: string;
@@ -10,11 +10,16 @@ export type Document = {
   year: number;
 };
 
-export const getProtectedDownloads = async (
-  subject: SubjectNames
-): Promise<string[]> => {
+export type Exam = {
+  name: string;
+  subject: string;
+  filename: string;
+  created: string;
+};
+
+export async function getExamMeta(subject: SubjectNames): Promise<Exam[]> {
   try {
-    const res = await fetch(`${API_URL}/info/klausuren?subject=${subject}`, {
+    const res = await fetch(`${APIURL}/exams?subject=${subject}`, {
       method: "GET",
       redirect: "follow",
       next: {
@@ -31,6 +36,13 @@ export const getProtectedDownloads = async (
   } catch (e) {
     return [];
   }
+}
+
+export const getProtectedDownloads = async (
+  subject: SubjectNames
+): Promise<string[]> => {
+  const exams = await getExamMeta(subject);
+  return exams.map((e) => e.filename);
 };
 
 const replacer = (file: string): string => {
