@@ -5,6 +5,8 @@ import { HeadLine } from "@/components/rwth/headline";
 import TeachingList from "@/components/teachings/List";
 import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 
+import { MaterialienSchnellzugriff } from "../Schnellzugriff";
+
 export const metadata: Metadata = {
   title: "Keine Ahnung",
   description: "Kreativ sein ist schon anstregend",
