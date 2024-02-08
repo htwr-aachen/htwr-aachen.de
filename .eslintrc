@@ -45,7 +45,7 @@
         "project": "./tsconfig.json"
       },
       "rules": {
-        "no-unused-vars": "warn",
+        "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
         "no-cond-assign": "off",
         "no-nested-ternary": "off",
         "no-multi-assign": "off",

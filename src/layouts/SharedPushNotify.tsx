@@ -6,7 +6,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 export const PushNotifyContext = createContext({
   show: true,
-  setShow: () => {},
+  setShow: (_: boolean) => {},
 });
 
 export const PushNotifyName = "PushNotify";
