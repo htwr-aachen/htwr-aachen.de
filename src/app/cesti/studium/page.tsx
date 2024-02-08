@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { HeadLine } from "@/components/rwth/headline";
 import TeachingList from "@/components/teachings/List";
-import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 
 import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 
