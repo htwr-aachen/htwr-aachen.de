@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { HeadLine } from "@/components/rwth/headline";
 import TeachingList from "@/components/teachings/List";
+import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 
 export const metadata: Metadata = {
   title: "Keine Ahnung",
@@ -15,6 +17,7 @@ export default async function Page() {
   return (
     <div>
       <HeadLine>Studium</HeadLine>
+      <MaterialienSchnellzugriff />
       <TeachingList subject="itsec" />
     </div>
   );
