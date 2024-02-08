@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const PushNotifyContext = createContext({
   show: true,
@@ -12,11 +12,17 @@ export const PushNotifyContext = createContext({
 export const PushNotifyName = "PushNotify";
 
 export const PushNotifyProvider = ({ children }: { children: ReactNode }) => {
-  const [show, setShow] = useState(() => {
-    if (typeof window === "undefined") return true;
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      setShow(false);
+      return;
+    }
     const str = window.localStorage.getItem(PushNotifyName);
-    if (str == null) {
-      return true;
+    if (str === null) {
+      setShow(true);
+      return;
     }
     const data = JSON.parse(str);
     if (
@@ -25,8 +31,8 @@ export const PushNotifyProvider = ({ children }: { children: ReactNode }) => {
     ) {
       window.localStorage.removeItem(PushNotifyName);
     }
-    return false;
-  });
+    setShow(false);
+  }, []);
 
   const update = (state: boolean, save = true) => {
     setShow(state);
