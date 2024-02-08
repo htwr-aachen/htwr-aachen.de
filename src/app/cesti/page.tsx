@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { HeadLine } from "@/components/rwth/headline";
+
 import { MaterialienSchnellzugriff } from "./Schnellzugriff";
 
 export const metadata: Metadata = {
