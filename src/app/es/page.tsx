@@ -32,7 +32,7 @@ const index: FC = () => {
         Klickt <b>hier</b> für mehr Infos.
       </Link>
 
-      <Roomfinder config={SWTRaumconfig} />
+      <Roomfinder config={SWTRaumconfig} semester="WS23/24" />
 
       <div className="mt-24 grid grid-rows-[auto_auto] md:grid-cols-2 md:grid-rows-none">
         <div className="grid justify-center">
@@ -50,9 +50,9 @@ const index: FC = () => {
         <div className="mt-5 grid items-start justify-center md:mt-0 md:items-center">
           <p className="h-min text-center align-middle">
             "Habe ich euch eigentlich schonmal von{" "}
-            <Link href="/es/klausuren">Klausuren</Link>,{" "}
-            <Link href={"/es/teachings"}>dummen Zusammenfassungen</Link> und{" "}
-            <Link href="/es/aufgaben">Aufgaben</Link> erzählt..."
+            <Link href="/es/studium/klausuren">Klausuren</Link>,{" "}
+            <Link href={"/es/studium/teachings"}>dummen Zusammenfassungen</Link>{" "}
+            und <Link href="/es/studium/aufgaben">Aufgaben</Link> erzählt..."
           </p>
         </div>
       </div>

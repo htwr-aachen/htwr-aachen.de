@@ -10,12 +10,14 @@ export type Roomconfig = {
 
 type RoomfinderProps = {
   config: Roomconfig[];
+  semester?: string;
   text?: string;
 };
 
 const Roomfinder: FC<RoomfinderProps> = ({
   config,
   text = "Patentierter Raumfinder",
+  semester,
 }) => {
   const [error, setError] = useState<string>("");
   const [room, setRoom] = useState<string>("");
@@ -52,7 +54,9 @@ const Roomfinder: FC<RoomfinderProps> = ({
 
   return (
     <div className="my-4 rounded bg-gray-200 px-3 py-2">
-      <h3 className="py-2 text-lg ">{text}</h3>
+      <h3 className="py-2 text-lg ">
+        {text} {semester ? `Semester: ${semester}` : ""}
+      </h3>
       <input
         className="w-full rounded px-2 py-1"
         type={"number"}
