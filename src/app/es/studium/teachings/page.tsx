@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div>
-      <h1 className="my-4 rounded bg-gray-200 px-3 py-2">
-        Viel Reichtum bei der Klausur morgen. Vergesst den Master nicht sonst
-        wird's nichts, aber keine Promotion!🍀
-      </h1>
+      {/* <h1 className="my-4 rounded bg-gray-200 px-3 py-2"> */}
+      {/*   Viel Reichtum bei der Klausur morgen. Vergesst den Master nicht sonst */}
+      {/*   wird's nichts, aber keine Promotion!🍀 */}
+      {/* </h1> */}
 
       <h1 className="font-sans text-4xl font-light" id="aufgaben">
         Vorlesungsfolien / Script

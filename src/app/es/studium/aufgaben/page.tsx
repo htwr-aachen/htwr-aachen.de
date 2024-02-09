@@ -64,8 +64,8 @@ export default async function Page() {
       </ul>
 
       <span className="mt-5 block">
-        Klausuren gibts <Link href={"/es/klausuren"}>hier</Link> und
-        Zusammenfassungen <Link href={"/es/teachings"}>hier.</Link>
+        Klausuren gibts <Link href={"/es/studium/klausuren"}>hier</Link> und
+        Zusammenfassungen <Link href={"/es/studium/teachings"}>hier.</Link>
       </span>
     </div>
   );

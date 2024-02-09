@@ -50,8 +50,8 @@ export default async function Page() {
       </ul>
 
       <span className="mt-5 block">
-        Aufgaben gibts <Link href={"/es/aufgaben"}>hier</Link> und
-        Zusammenfassungen <Link href={"/es/teachings"}>hier.</Link>
+        Aufgaben gibts <Link href={"/es/studium/aufgaben"}>hier</Link> und
+        Zusammenfassungen <Link href={"/es/studium/teachings"}>hier.</Link>
       </span>
     </div>
   );
