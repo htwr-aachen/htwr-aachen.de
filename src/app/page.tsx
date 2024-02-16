@@ -27,6 +27,21 @@ const Index: FC = () => {
       <Gallery>
         <GalleryItem>
           <GalleryImage
+            src={"/assets/rwth/gallery/star.png"}
+            alt="GitHub Stars 👉️👈️?"
+            width={600}
+            height={400}
+          ></GalleryImage>
+          <GalleryLabel
+            headline="GitHub Stars 👉️👈️?"
+            externalUrl="https://github.com/jonsch318/htwr-aachen.de"
+            externalUrlText="GitHub Link"
+          >
+            Ziel 100 Sterne.
+          </GalleryLabel>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src={"/assets/rwth/gallery/exzelenz.jpg"}
             alt="SCIL Banner"
             width={700}

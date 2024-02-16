@@ -37,9 +37,17 @@ type GalleryLabelProps = {
   children?: ReactNode;
   headline?: string;
   url?: string;
+  externalUrl?: string;
+  externalUrlText?: string;
 };
 
-const GalleryLabel: FC<GalleryLabelProps> = ({ headline, children, url }) => {
+const GalleryLabel: FC<GalleryLabelProps> = ({
+  headline,
+  children,
+  url,
+  externalUrl,
+  externalUrlText,
+}) => {
   return (
     <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
       <div className="grid w-full grid-rows-2 bg-rwth-accent px-8 py-6 font-sans text-white lg:mb-6 lg:w-[750px] lg:grid-cols-[auto_1fr] lg:grid-rows-1">
@@ -53,6 +61,16 @@ const GalleryLabel: FC<GalleryLabelProps> = ({ headline, children, url }) => {
             >
               Mehr <span className="ml-4">&gt;</span>
             </Link>
+          ) : (
+            <></>
+          )}
+          {externalUrl ? (
+            <a
+              href={externalUrl}
+              className="mt-2 justify-self-end rounded bg-black px-3 py-1 text-white hover:border-b-0 hover:bg-white hover:text-black lg:justify-self-start"
+            >
+              {externalUrlText}
+            </a>
           ) : (
             <></>
           )}
