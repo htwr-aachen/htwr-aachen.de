@@ -51,6 +51,19 @@ const Zitate: Zitat[] = [
     text: "Eine Funktion ist eine Funktion.",
     isTrue: true,
   },
+  {
+    text: "Das war das allererste, was sie uns in Analysis erstmal beigebracht haben. Dass wir dumm sind und, ähhh, und dass man uns erstmal brechen muss, und neu aufbauen. Mit lauter solchen bösartigen logischen Spielen, ja.",
+    isTrue: true,
+  },
+  {
+    text: "Wenn man jetzt irgendwie radikal wäre, könnte man sonne neue Religion Satologie oder sowas gründen.",
+    isTrue: true,
+  },
+  {
+    text: "SAT ist irgendwie die Krönung der Schöpfung, und wir bauen gute Sat-solver, die ehren und beten wir an, okay?",
+    isTrue: true,
+  },
+  
 ];
 
 export default function RossmanithQuiz() {
