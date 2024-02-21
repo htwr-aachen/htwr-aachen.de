@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default async function Teachings() {
   return (
     <div>
-      <HeadLine>Zusammenfasungen</HeadLine>
+      <HeadLine>Zusammenfassungen</HeadLine>
       <div className="grid grid-flow-row-dense grid-rows-[auto_auto_auto] lg:grid-cols-[1fr_250px] lg:grid-rows-[auto_auto]">
         <TeachingList subject="itsec" />
         <MaterialienSchnellzugriff />
