@@ -9,12 +9,12 @@ export const DefaultNavbar: NavbarConfig = {
       path: "/",
     },
     {
-      name: "Forschung",
-      url: "/",
-      path: "/",
+      name: "Panikzettel",
+      url: "/panikzettel",
+      path: "/panikzettel",
     },
     {
-      name: "Wirtschaft",
+      name: "Mithelfen",
       url: "/",
       path: "/",
     },
