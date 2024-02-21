@@ -63,7 +63,6 @@ const Zitate: Zitat[] = [
     text: "SAT ist irgendwie die Krönung der Schöpfung, und wir bauen gute Sat-solver, die ehren und beten wir an, okay?",
     isTrue: true,
   },
-  
 ];
 
 export default function RossmanithQuiz() {
