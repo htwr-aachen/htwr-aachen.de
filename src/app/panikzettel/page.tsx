@@ -113,6 +113,14 @@ export default async function Page() {
         , da Alte verlassen ist. Sie ist gerade noch im Aufbau und wird noch
         schöner.
       </p>
+
+      <p className="my-4 rounded bg-rwth-warn px-6 py-4">
+        Bei Beschwerden, Feedback oder sonstigem bitte an{" "}
+        <a href="mailto:panikzettel@htwr-aachen.de">
+          panikzettel@htwr-aachen.de
+        </a>
+      </p>
+
       <Pflichfächer panikzettel={panikzettel.filter((x) => x.type === "pf")} />
 
       <hr className="black my-4 border-2" />

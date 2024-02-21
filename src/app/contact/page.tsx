@@ -14,10 +14,7 @@ const Contact: FC = () => {
     <Main institute="htwr">
       <h1 className="font-roboto text-3xl">Kontakt</h1>
       <p>
-        Email:{" "}
-        <a href="jonas.max.schneider@gmail.com">
-          jonas.max.schneider@gmail.com
-        </a>{" "}
+        Email: <a href="contact@htwr-aachen.de">contact@htwr-aachen.de</a>{" "}
         <br></br>
         Discord:{" "}
         <a

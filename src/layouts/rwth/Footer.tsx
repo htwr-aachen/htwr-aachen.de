@@ -39,6 +39,14 @@ const Footer: FC<FooterProps> = ({ institute }) => {
           Datenschutz
         </Link>{" "}
         & Bitte alles mit Humor nehmen.
+        <br />
+        Gebt gerne Feedback:{" "}
+        <a
+          className="text-white underline"
+          href="mailto:feedback@htwr-aachen.de"
+        >
+          feedback@htwr-aachen.de
+        </a>
       </div>
     </footer>
   );
