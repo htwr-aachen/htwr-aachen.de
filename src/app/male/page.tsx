@@ -46,6 +46,10 @@ export default function IndexPage() {
         </GalleryItem>
       </Gallery>
 
+      <h1>
+        MaLe ausgesprochen <i>ˈmalə</i> (Also wie Malle)
+      </h1>
+
       <p className="mb-8 text-lg">
         Das jetzt doof mit dem neuen Fach. Viel anbieten kann ich hier auch
         nicht. Ich weiß auch gar nicht ob ich eine Zusammenfassung schreibe, da
