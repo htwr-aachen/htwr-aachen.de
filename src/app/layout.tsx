@@ -97,6 +97,12 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
           crossOrigin="anonymous"
         />
+
+        <script
+          defer
+          data-domain="plausible.htwr-aachen.de"
+          src="https://plausible.htwr-aachen.de/js/script.js"
+        ></script>
       </head>
       <body>
         <SpeedInsights></SpeedInsights>
