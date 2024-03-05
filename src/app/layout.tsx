@@ -100,7 +100,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
 
         <script
           defer
-          data-domain="plausible.htwr-aachen.de"
+          data-domain="htwr-aachen.de"
           src="https://plausible.htwr-aachen.de/js/script.js"
         ></script>
       </head>
