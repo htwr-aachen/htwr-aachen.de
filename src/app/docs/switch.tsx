@@ -23,6 +23,9 @@ export function SwitchBlock(props: { link: string; children: ReactNode }) {
 export function Switch() {
   return (
     <div className="mx-4 my-3 grid grid-cols-3 gap-4">
+      <SwitchBlock link="/docs/guides/protokollant">
+        Klausur Protokollieren
+      </SwitchBlock>
       <SwitchBlock link="/docs/guides/rechtschreibpolizei">
         Nur Fehler beheben
       </SwitchBlock>
