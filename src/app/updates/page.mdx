@@ -1,5 +1,6 @@
 import Main from "@/layouts/Main";
 import { HeadLine } from "@/components/rwth/headline";
+import SharedCounter from "@/components/SharedCounter"
 
 export const metadata = {
   title: "Neuigkeiten von HTWR",
@@ -12,20 +13,74 @@ export const metadata = {
 
 <div className="markdown">
 
-## Das sieht gar nicht gut aus (Panikzettel)
+    # HTWR goes (semi) legal
+    
+    Mir ist bewusst, HTWR ist so eine Grauzone (sehr grau :/) mit Folien, (keine Klausuren natürlich 🫣) und anderem
+    was schwierig ist zu veröffentlichen. Was wir/(ich mach die Webseite immernoch größtenteils Alleine :/) in Zukunft machen ist unten Beschrieben.
 
-Da wir ja zwei neue Pflichtmodule dieses Semester haben, wollte ich einfach mal neue Panikzettel für die schreiben. 
-Das hilft zwar uns noch nicht so, aber vielleicht die nach uns.
+    ## **Das sollte nicht so sein**
 
-Das Problem ist nur... der Herr Philipp Schröder ist vermutlich nichtmehr an der RWTH und hat deswegen auch keinen Zugriff mehr aufs [gitlab](https://git.rwth-aachen.de/philipp.schroer/panikzettel).
-Auf meine E-Mail hat er auch nicht geantwortet (es gibt auch 5 offene merge requests seit 2 Jahren).
+    > Ich finde es einfach unfair Altklausuren als Lehrstuhl nicht zu veröffentlich, auch wenn hilft für Aufgaben Wiederholungen. Warum?:
+     
+    Es ist so das Altklausuren (selbst mit Gedächtnissprotokollen) eine erhebliche Hilfe und schlichtweg die beste Klausurvorbereitung ist **Punkt**.
+    Ich glaube den Fakt zweifelt niemand an.
 
-Deswegen habe ich kurzerhand das Projekt [geforked](https://git.rwth-aachen.de/jonas.max.schneider/panikzettel) und es mit ci/cd in htwr eingebunden.
+    Auch das immer Altklausuren gesammelt und verteilt werden lässt sich nicht ganz verhindern.
+    Studierenden in Gruppen mit vielen Kontakten z.B. in frühere Semester haben einfach schlicht einen Vorteil.
 
-- [https://htwr-aachen.de/panikzettel](https://htwr-aachen.de/panikzettel)
-- bzw. bald auch [panikzettel.htwr-aachen.de](https://panikzettel.htwr-aachen.de)
+    > PS. Das war auch schon in der Schule so. Ich würde gerne mal Wissen wie viel besser Leute mit älteren Brüdern und Schwerstern bei dem gleichen Lehrer oder Lehrerinn im Durchschnitt sind.
+    
+    ## Warum so wenige Klausuren?
 
-Alle, die die Panikzettel gut finden, können helfen. Es ist wie immer jeder Pull Request willkommen, jedoch ist bei den Panikzettel die Qualität natürlich anders / wichtiger.
+    Warum so wenige Klausuren von den Lehrstühlen veröffentlicht werden:
+      1. Natürlich sind Klausuren viel Arbeit und Aufgaben zu wiederholen, direkt oder in abgewandelter Form ist dann natürlich simpler.
+          
+        !> Sollen wir uns Aufgaben ausdenken oder wie?
+    
+      2. Lernt den Inhalt nicht die Übung.
+        ![Ja aber Nein](https://media.tenor.com/CnV-C65z7iMAAAAi/theoretically-no.gif)
 
+          Das Problem an dem Argument:
+          
+          _Learning by Doing_. 
+
+          Außerdem in der Klausur wird ja auch nicht das Wissen an sich abgefragt, sondern in einer bestimmten Form (anhand der Übungen, Schemaaufgaben, etc.).
+          Es ergibt also schon Sinn diese zu Lernen um eine gute Klausur zu schreiben.
+          
+          Niemand kann sich 1850 Seiten MaLe Folien auswendig und kann danach den InductiveMiner perfekt anwenden.
+          Hierfür braucht es Übung. 
+          
+    ## Fachschaft!
+    
+    Grundsätzlich sollte sich die Fachschaft drum kümmern ein faireren Umgang mit Altklausuren zu ermöglichen.
+    Sie können keinen Lehrstuhl zwingen, aber wenigstens als Represent der Studierendenschaft (auch der weniger Vernetzten)
+    die Lehrstühle nerven.
+
+    ## Was machen wir jetzt
+
+    Ich habe keine Lust mehr im Impressum einer hmm _kritischen_ Webseite zu stehen. Ich möchte Legal, oder zumindest Argumentierbar legal werden.
+
+    > Noch habe ich keine Unterlassungserklärung bekommen, aber das soll so bleiben. Ich habe gerade nur den Vorteil nicht kommerziell zu arbeiten.
+    > Ich habe deswegen bereits die Klausurserver momentan abgeschaltet
+
+    Ich werde ein HTWR-Gedächtnissprotokolltemplate (`typst`, `latex`, `docx`, `odt`) erstellen. Das sollte gut genug aussehen, aber die genauen Formate der Klausuren sind ja eh egal.
+
+    Dann wird systematisch jede Klausur / ob schlechtes Gedächtnissprotokoll oder echte Altklausur in dieses Format übertragen und *variert*.
+    Wir werden nicht grob abkopieren, aber die Zahlen sollen weiterhin stimmen.
+
+    Das ist mehr Aufwand. Ich werde hierfür bald ein Tool schreiben (bzw. eine Seite auf htwr) um dies Vereinfacht zu machen.
+
+    ## Es wäre sogar möglich die einzelne Aufgaben zu trennen und somit 
+
+    ## BITTE HELFT Mir
+    Ihr könnt mich einfach auf [mitmachen@htwr-aachen.de](mailto:mitmachen@htwr-aachen.de)
+    schreiben ich sage, dann was und wie ihr mithelfen könnt.
+
+    Bald kommt das Template und einfach loslegen eine Klausur / oder neue Klausuren zu protokollieren.
+
+    ## Apropro 
+    Gleichzeitig zu diesem Blog, werde ich die erste so richtige Dokumentation von HTWR hochladen.
+
+    <SharedCounter name="counter-blog-upvote"/>
 </div>
 </Main>

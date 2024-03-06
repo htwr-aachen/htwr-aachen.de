@@ -15,8 +15,8 @@ export const DefaultNavbar: NavbarConfig = {
     },
     {
       name: "Mithelfen",
-      url: "/",
-      path: "/",
+      url: "/docs",
+      path: "/docs",
     },
   ],
   main: { name: "HTWR", url: "/" },
