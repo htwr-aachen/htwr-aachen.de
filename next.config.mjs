@@ -23,6 +23,7 @@ const withMDX = createMDX({
 
 export default withAxiom(
   withMDX({
+    output: "standalone",
     eslint: {
       dirs: ["."],
     },
