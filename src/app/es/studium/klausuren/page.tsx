@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ExamNotice } from "@/components/scrap/ExamNotice";
 import { getProtectedDownloads } from "@/lib/documents";
 
 export const metadata: Metadata = {
@@ -19,12 +20,7 @@ export default async function Page() {
       <h1 className="font-roboto text-4xl font-light" id="klausuren">
         Klausuren
       </h1>
-      <span>
-        Wenn jemand weitere hat:{" "}
-        <a href="mailto:jonas.max.schneider@gmail.com">
-          jonas.max.schneider@gmail.com
-        </a>
-      </span>
+      <ExamNotice></ExamNotice>
 
       <p className="my-4">
         Es gibt ein Master-Fach Model Based <b>Software Engineering</b>, also

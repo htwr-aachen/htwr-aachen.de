@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { FC } from "react";
 
-import { Roomfinder } from "@/components/Roomfinder";
-
-import { SWTRaumconfig } from "./rooms";
-
 export const metadata: Metadata = {
   description: "Engineering Software Studenten",
   alternates: {
@@ -19,20 +15,6 @@ const index: FC = () => {
       <h1 className="text-5xl font-light">Chair of Engineering Software</h1>
 
       <p>Rumpe wartet schon</p>
-
-      <Link
-        href="/es/einsicht"
-        className="my-4 block rounded bg-gray-200 px-3 py-2"
-      >
-        Das ist mit Abstand die schlechteste Einsicht die ich je gesehen habe.
-        <br></br>
-        Für ein Fach, dass sich mit Organisation beschäftigt, ist das eine
-        Frechheit.
-        <br></br>
-        Klickt <b>hier</b> für mehr Infos.
-      </Link>
-
-      <Roomfinder config={SWTRaumconfig} semester="WS23/24" />
 
       <div className="mt-24 grid grid-rows-[auto_auto] md:grid-cols-2 md:grid-rows-none">
         <div className="grid justify-center">

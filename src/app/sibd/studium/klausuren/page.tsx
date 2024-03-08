@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { HeadLine } from "@/components/rwth/headline";
+import { ExamNotice } from "@/components/scrap/ExamNotice";
 import { getProtectedDownloads } from "@/lib/documents";
 
 import { SIBDSchnellzugriff } from "../../schnellzugriff";
@@ -23,12 +24,7 @@ export default async function Page() {
         <HeadLine title="Klausuren" />
         <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
           <div className="mx-2 lg:m-0">
-            <span>
-              Hat wer Klausuren für DBIS?. Wenn ja:{" "}
-              <a href="mailto:jonas.max.schneider@gmail.com">
-                jonas.max.schneider@gmail.com
-              </a>
-            </span>
+            <ExamNotice></ExamNotice>
 
             <ul className="ml-8 mt-8 list-disc">
               {klausuren.map((klausur) => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { join } from "path";
 
+import { ExamNotice } from "@/components/scrap/ExamNotice";
 import TeachingList from "@/components/teachings/List";
 import { getAllDocsFromDir, getProtectedDownloads } from "@/lib/documents";
 
@@ -62,10 +63,7 @@ export default async function Page() {
 
       <TeachingList subject="datkom" />
 
-      <h2 id="klausuren">
-        So jetzt gibts noch Klausuren zum Download (alle die ich gefunden habe)
-        schickt <Link href={"/syscom/contact"}>mir</Link> gerne mehr.
-      </h2>
+      <ExamNotice></ExamNotice>
       <ul className="ml-8 list-disc">
         {klausuren.map((klausur) => {
           return (

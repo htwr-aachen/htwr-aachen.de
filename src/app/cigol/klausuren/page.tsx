@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ExamNotice } from "@/components/scrap/ExamNotice";
 import { getProtectedDownloads } from "@/lib/documents";
 
 export const metadata: Metadata = {
@@ -22,13 +23,7 @@ export default async function Page() {
 
         <div className="grid grid-rows-2 lg:grid-cols-[1fr_250px] lg:grid-rows-1">
           <div className="mx-2 lg:m-0">
-            <span>
-              Hat wer Klausuren für MALO? Wenn ja:{" "}
-              <Link href={"/upload"}>Upload Seite</Link>
-            </span>
-            <h2 className="my-2 font-sans text-2xl font-bold">
-              jaja ich sammle noch
-            </h2>
+            <ExamNotice></ExamNotice>
             <ul className="ml-8 mt-8 list-disc">
               {klausuren.map((klausur) => {
                 return (
