@@ -22,5 +22,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: htwr-aachen/htwr-aachen.de:latest
+          tags: johnnys318/htwr-aachen:latest
           file: "docker/production/Dockerfile"
