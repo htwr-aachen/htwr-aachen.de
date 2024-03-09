@@ -4,9 +4,8 @@ import type { ReactNode } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import urlJoin from "@/lib/url";
-import { BaseURL } from "@/utils/AppConfig";
-
-import type { Panikzettel } from "../api/panikzettel/route";
+import type { Panikzettel } from "@/models/panikzettel";
+import { APIURL, BaseURL } from "@/utils/AppConfig";
 
 export const metadata: Metadata = {
   title: "Panikzettel",
@@ -17,14 +16,11 @@ export const metadata: Metadata = {
 };
 
 async function getData(): Promise<Panikzettel[]> {
-  const res = await fetch(
-    urlJoin(BaseURL, "/api/panikzettel?excludeMetadata=true"),
-    {
-      next: {
-        revalidate: 60 * 5,
-      },
-    }
-  );
+  const res = await fetch(urlJoin(APIURL, "/panikzettel"), {
+    next: {
+      revalidate: 60 * 5,
+    },
+  });
   if (!res.ok) {
     return [];
   }
@@ -47,8 +43,8 @@ function Panikzettellist(props: {
       <span>{props.children}</span>
       <ul className="mt-2 list-disc md:ml-10">
         {props.panikzettel.map((p) => (
-          <li key={p.id}>
-            <a href={p.url}>{p.name}</a>
+          <li key={p.filename}>
+            <a href={`${BaseURL}/panikzettel/${p.filename}`}>{p.name}</a>
           </li>
         ))}
       </ul>
