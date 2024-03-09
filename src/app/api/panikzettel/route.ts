@@ -71,12 +71,15 @@ export async function GET(req: NextRequest) {
 
   try {
     const namings = await downloadMetadata();
+    if (!namings) {
+      return new Response(JSON.stringify([]), { status: 200 });
+    }
     const files = await readFiles(
       namings,
       excludeMetadata ? ["metadata.json"] : []
     );
     return new Response(JSON.stringify(files), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify([]), { status: 500 });
+    return new Response(JSON.stringify([]), { status: 200 });
   }
 }
