@@ -18,7 +18,7 @@ export type Panikzettel = PanikzettelMetadata & {
 
 const storage = new Storage({
   projectId: process.env.GCS_PROJECT_ID,
-  credentials: JSON.parse(process.env.GCS_SERVICE_KEY || ""),
+  credentials: JSON.parse(process.env.GCS_SERVICE_KEY || "{}"),
 });
 
 // The helper function to read the file from GCP
@@ -66,13 +66,16 @@ async function downloadMetadata(): Promise<PanikzettelMetadataMap> {
 }
 
 export async function GET(req: NextRequest) {
+  if (!process.env.GCS_SERVICE_KEY) {
+    return new Response("[]", { status: 200 });
+  }
   const excludeMetadata =
     req.nextUrl.searchParams.get("excludeMetadata") === "true";
 
   try {
     const namings = await downloadMetadata();
     if (!namings) {
-      return new Response(JSON.stringify([]), { status: 200 });
+      return new Response("[]", { status: 200 });
     }
     const files = await readFiles(
       namings,
@@ -80,6 +83,6 @@ export async function GET(req: NextRequest) {
     );
     return new Response(JSON.stringify(files), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify([]), { status: 200 });
+    return new Response("[]", { status: 200 });
   }
 }

@@ -28,7 +28,11 @@ async function getData(): Promise<Panikzettel[]> {
   if (!res.ok) {
     return [];
   }
-  return res.json();
+  try {
+    return await res.json();
+  } catch (_err) {
+    return [];
+  }
 }
 
 function Panikzettellist(props: {
