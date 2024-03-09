@@ -1,5 +1,5 @@
 export const AppConfig = {
-  site_name: "htwr-aach8080e",
+  site_name: "htwr-aachen",
   title: "HTWR AACHEN UNIVERSITY",
   description: "A TRUE EXZELENCE UNIVERSITY",
   locale: "de",

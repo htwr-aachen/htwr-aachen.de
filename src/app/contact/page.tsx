@@ -25,9 +25,7 @@ const Contact: FC = () => {
         </li>
         <li>
           Email:{" "}
-          <a href="jonas.max.schneider@gmail.com">
-            jonas.max.schneider@gmail.com
-          </a>
+          <a href="mailto:contact@htwr-aachen.de">contact@htwr-aachen.de</a>
         </li>
         <li>
           Discord:{" "}

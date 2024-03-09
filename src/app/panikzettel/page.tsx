@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 import urlJoin from "@/lib/url";
-import { APIURL, BaseURL } from "@/utils/AppConfig";
 import type { Panikzettel } from "@/models/panikzettel";
+import { APIURL, BaseURL } from "@/utils/AppConfig";
 
 export const metadata: Metadata = {
   title: "Panikzettel",
