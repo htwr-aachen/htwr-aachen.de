@@ -1,8 +1,6 @@
 import "@/styles/global.css";
 import "@/styles/markdown.scss";
 
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import type { FC } from "react";
@@ -105,11 +103,9 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
         ></script>
       </head>
       <body>
-        <SpeedInsights></SpeedInsights>
         <div className={`${inter.className} ${roboto.className}`}>
           <div className="bg"></div>
           <AppMain>{children}</AppMain>
-          <Analytics />
         </div>
       </body>
     </html>
