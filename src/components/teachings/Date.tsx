@@ -1,6 +1,6 @@
 "use client";
 
-import moment from "moment";
+import { differenceInDays } from "date-fns";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 
@@ -15,10 +15,9 @@ export const TeachingsListDate: FC<TeachingsListDateProps> = ({ date }) => {
 
   useEffect(() => {
     if (date === "") return;
-    const dateParsed = moment(date, "DD/MM/YYYY");
-    const now = moment();
-    const diff = now.diff(dateParsed, "days");
-
+    const dateParsed = new Date(date);
+    const now = new Date();
+    const diff = differenceInDays(now, dateParsed);
     // calculate opacity from difference of days
     setOpacity(opacityValues[diff] || 0.3);
   }, [date]);
