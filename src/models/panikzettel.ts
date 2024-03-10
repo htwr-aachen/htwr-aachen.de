@@ -3,5 +3,5 @@ export type Panikzettel = {
   type: string;
   filename: string;
   url: string;
-  semester: number;
+  semester?: number;
 };
