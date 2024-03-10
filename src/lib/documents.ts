@@ -4,6 +4,8 @@ import natsort from "natsort";
 import type { SubjectNames } from "@/data/subjects";
 import { APIURL } from "@/utils/AppConfig";
 
+import urlJoin from "./url";
+
 export type Document = {
   name: string;
   url: string;
@@ -19,11 +21,11 @@ export type Exam = {
 
 export async function getExamMeta(subject: SubjectNames): Promise<Exam[]> {
   try {
-    const res = await fetch(`${APIURL}/exams?subject=${subject}`, {
+    const res = await fetch(urlJoin(APIURL, `/exams?subject=${subject}`), {
       method: "GET",
       redirect: "follow",
       next: {
-        revalidate: 3600,
+        revalidate: 3600, // 1h
       },
     });
 
@@ -34,6 +36,7 @@ export async function getExamMeta(subject: SubjectNames): Promise<Exam[]> {
     const data = await res.json();
     return data;
   } catch (e) {
+    console.log("error: ", e);
     return [];
   }
 }
@@ -41,8 +44,12 @@ export async function getExamMeta(subject: SubjectNames): Promise<Exam[]> {
 export const getProtectedDownloads = async (
   subject: SubjectNames
 ): Promise<string[]> => {
-  const exams = await getExamMeta(subject);
-  return exams.map((e) => e.filename);
+  try {
+    const exams = await getExamMeta(subject);
+    return exams.map((e) => e.filename);
+  } catch (_err) {
+    return [];
+  }
 };
 
 const replacer = (file: string): string => {

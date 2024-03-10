@@ -1,11 +1,11 @@
 import createMDX from "@next/mdx";
-import { withAxiom } from "next-axiom";
 import mdxMermaid from "mdx-mermaid";
 import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -21,7 +21,11 @@ const withMDX = createMDX({
   },
 });
 
-export default withAxiom(
+const configuredBundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default configuredBundleAnalyzer(
   withMDX({
     output: "standalone",
     eslint: {

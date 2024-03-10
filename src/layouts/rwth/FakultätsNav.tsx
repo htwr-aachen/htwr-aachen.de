@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 import { useId } from "react";
@@ -162,7 +162,7 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
     getRealInstitutes().reverse()
   );
   return (
-    <motion.div
+    <m.div
       key={"FakultätsNav"}
       animate={{ height: "auto" }}
       initial={{ height: "0px" }}
@@ -261,7 +261,7 @@ const FakultätsNav: FC<FakultätsNavProps> = ({ setOpen }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -270,7 +270,7 @@ const FakultätsNavMobile: FC<FakultätsNavProps> = ({ open, setOpen }) => {
     getRealInstitutes()
   );
   return (
-    <motion.div
+    <m.div
       key={"FakultätsNav"}
       className={`fixed top-0 h-full w-[275px] bg-rwth-accent text-white transition-all lg:hidden ${
         open ? "right-0 z-50" : "right-[-300px] -z-50 opacity-0"
@@ -328,7 +328,7 @@ const FakultätsNavMobile: FC<FakultätsNavProps> = ({ open, setOpen }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

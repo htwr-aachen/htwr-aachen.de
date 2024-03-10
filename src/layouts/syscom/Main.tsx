@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,11 +18,16 @@ export function Main(props: SYSCOMSProps) {
 
   return (
     <div>
-      <AnimatePresence>
-        {fakultätsNavOpen && (
-          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
-        )}
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          {fakultätsNavOpen && (
+            <FakultätsNav
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
+          )}
+        </AnimatePresence>
+      </LazyMotion>
       <div className="mx-auto px-1 text-gray-700 antialiased md:max-w-[910px]">
         <SYSCOMHead />
         {props.meta}

@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import type {
@@ -32,11 +32,13 @@ const DesktopNavbar: FC<NavbarProps> = ({
 }) => {
   return (
     <nav className="relative w-full">
-      <AnimatePresence>
-        {fakultätOpen && (
-          <FakultätsNav open={fakultätOpen} setOpen={setFakultätOpen} />
-        )}
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          {fakultätOpen && (
+            <FakultätsNav open={fakultätOpen} setOpen={setFakultätOpen} />
+          )}
+        </AnimatePresence>
+      </LazyMotion>
       <div
         className="branding hidden border-t-[40px] border-black bg-rwth-branding lg:block"
         role="banner"

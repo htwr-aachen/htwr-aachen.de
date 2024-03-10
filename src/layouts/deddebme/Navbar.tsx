@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -17,11 +17,16 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
   return (
     <div>
-      <AnimatePresence>
-        {fakultätsNavOpen && (
-          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
-        )}
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          {fakultätsNavOpen && (
+            <FakultätsNav
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
+          )}
+        </AnimatePresence>
+      </LazyMotion>
       {fakultätsNavOpen && (
         <div>
           <FakultätsNavMobile

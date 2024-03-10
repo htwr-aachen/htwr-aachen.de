@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,11 +20,16 @@ export function Main(props: ESLayoutProps) {
     <div className="es font-roboto">
       <Meta />
       {props.meta}
-      <AnimatePresence>
-        {fakultätsNavOpen && (
-          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
-        )}
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          {fakultätsNavOpen && (
+            <FakultätsNav
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
+          )}
+        </AnimatePresence>
+      </LazyMotion>
 
       <ESNavbar
         fakultätsNavOpen={fakultätsNavOpen}

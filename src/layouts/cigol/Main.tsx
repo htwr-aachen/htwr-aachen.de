@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,18 +54,22 @@ const Main = (props: CIGOLMainProps) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       {props.meta}
-      <AnimatePresence>
-        {fakultätsNavOpen && (
-          <FakultätsNav open={fakultätsNavOpen} setOpen={setFakultätsNavOpen} />
-        )}
-        {fakultätsNavOpen && (
-          <FakultätsNavMobile
-            open={fakultätsNavOpen}
-            setOpen={setFakultätsNavOpen}
-          />
-        )}
-      </AnimatePresence>
-
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          {fakultätsNavOpen && (
+            <FakultätsNav
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
+          )}
+          {fakultätsNavOpen && (
+            <FakultätsNavMobile
+              open={fakultätsNavOpen}
+              setOpen={setFakultätsNavOpen}
+            />
+          )}
+        </AnimatePresence>
+      </LazyMotion>
       <div>
         <nav
           className="relative grid grid-rows-[auto_auto_auto] justify-center gap-2 border-b-2 border-[#c1bcb2] bg-[#f5eedd] py-4 lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1  lg:py-0"
