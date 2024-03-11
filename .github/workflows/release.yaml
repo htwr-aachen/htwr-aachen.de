@@ -57,10 +57,9 @@ jobs:
         with:
           images: johnnys318/htwr-aachen
           tags: |
-            type=schedule
             type=ref,event=branch
             type=ref,event=pr
-            type=ref,event=push
+            type=ref,event=tag
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
