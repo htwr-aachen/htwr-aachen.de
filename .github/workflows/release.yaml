@@ -17,11 +17,11 @@ jobs:
         with:
           sparse-checkout: CHANGELOG.md
           fetch-depth: 0
-      - name: Git Cliff CHANGELOG generation
-        uses: orhun/git-cliff-action@v3
-        with:
-          config: cliff.toml
-          args: -o CHANGELOG.md
+      # - name: Git Cliff CHANGELOG generation
+      #   uses: orhun/git-cliff-action@v3
+      #   with:
+      #     config: cliff.toml
+      #     args: -o CHANGELOG.md
       - name: Git Cliff generation
         uses: orhun/git-cliff-action@v3
         id: git-cliff
@@ -37,14 +37,14 @@ jobs:
           body: ${{ steps.git-cliff.outputs.content }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          set +e
-          git add CHANGELOG.md
-          git commit -m "Update changelog"
-          git push
+      # - name: Commit
+      #   run: |
+      #     git config user.name 'github-actions[bot]'
+      #     git config user.email 'github-actions[bot]@users.noreply.github.com'
+      #     set +e
+      #     git add CHANGELOG.md
+      #     git commit -m "Update changelog"
+      #     git push
   build-push:
     needs: changelog
     runs-on: ubuntu-latest
