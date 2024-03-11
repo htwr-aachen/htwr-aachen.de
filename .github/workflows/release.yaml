@@ -13,9 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
+          sparse-checkout: CHANGELOG.md
           fetch-depth: 0
+      - name: Git Cliff CHANGELOG generation
+        uses: orhun/git-cliff-action@v3
+        with:
+          config: cliff.toml
+          args: -o CHANGELOG.md
       - name: Git Cliff generation
         uses: orhun/git-cliff-action@v3
         id: git-cliff
@@ -38,8 +44,7 @@ jobs:
           set +e
           git add CHANGELOG.md
           git commit -m "Update changelog"
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master
-
+          git push
   build-push:
     needs: changelog
     runs-on: ubuntu-latest
