@@ -29,13 +29,12 @@ jobs:
           args: -vv --latest --strip header
         env:
           OUTPUT: CHANGELOG.md
-      - name: Upload release changes
-        uses: svenstaro/upload-release-action@v2
+      - name: Uploade release changes
+        uses: softprops/action-gh-release@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          body: ${{ steps.git-cliff.outputs.content}}
-
+          body: ${{ steps.git-cliff.outputs.content }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit
         run: |
           git config user.name 'github-actions[bot]'
