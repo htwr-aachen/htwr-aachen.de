@@ -17,7 +17,7 @@ const AppMain: FC<AppMainProps> = ({ children }) => {
   return (
     <>
       <PushNotifyProvider>
-        <div>{children}</div>
+        <main>{children}</main>
       </PushNotifyProvider>
       <CommentSection key={pathname} />
     </>
