@@ -14,7 +14,7 @@ const CommentSection: FC = () => {
 
     scriptElement.setAttribute("issue-term", "pathname");
     scriptElement.setAttribute("label", "comment");
-    scriptElement.setAttribute("repo", "jonsch318/htwr-aachen.de");
+    scriptElement.setAttribute("repo", "htwr-aachen/htwr-aachen.de");
     scriptElement.setAttribute("theme", "github-light");
 
     ref.current?.appendChild(scriptElement);
