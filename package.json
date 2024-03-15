@@ -42,6 +42,7 @@
     "inquirer": "^9.2.15",
     "js-cookie": "^3.0.5",
     "katex": "^0.16.9",
+    "lucide-react": "^0.358.0",
     "mdx-embed": "^1.1.2",
     "mdx-mermaid": "^2.0.0",
     "mermaid": "^10.9.0",
