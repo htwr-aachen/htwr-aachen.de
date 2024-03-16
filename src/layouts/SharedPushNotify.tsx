@@ -66,13 +66,13 @@ const SharedPushNotify = () => {
   return (
     <div className="flex h-24 flex-col items-center justify-center bg-rwth-warn lg:h-12 lg:flex-row xl:relative">
       <p className="text-lg font-medium">
-        <Link href="/updates">Was ist denn mit den Panikzetteln los?</Link>
+        <Link href="/updates">Wo Klausuren?</Link>
       </p>
       <button
         className="min-h-10 bg-white/40 px-4 py-2 hover:bg-white/60 lg:h-[80%] xl:absolute xl:right-10"
         onClick={() => setShow(false)}
       >
-        Mag ich nicht. Mach mich weg! (Bis in einer Woche :\)
+        Nerv nicht
       </button>
     </div>
   );
