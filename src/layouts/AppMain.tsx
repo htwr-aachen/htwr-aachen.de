@@ -1,9 +1,6 @@
-"use client";
+// "use client";
 
-import { usePathname } from "next/navigation";
 import type { FC, ReactNode } from "react";
-
-import CommentSection from "@/components/CommentSection";
 
 import { PushNotifyProvider } from "./SharedPushNotify";
 
@@ -12,14 +9,14 @@ type AppMainProps = {
 };
 
 const AppMain: FC<AppMainProps> = ({ children }) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   return (
     <>
       <PushNotifyProvider>
         <main>{children}</main>
       </PushNotifyProvider>
-      <CommentSection key={pathname} />
+      {/* <CommentSection key={pathname} /> */}
     </>
   );
 };
