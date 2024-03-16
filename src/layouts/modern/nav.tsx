@@ -1,6 +1,8 @@
 // HTWR-Modern layout navbar.
 // This will be used when displaying content that is not directly related to RWTH or its chairs/institues (docs, blog,...)
 
+import Image from "next/image";
+
 export type NavLink = {
   // the link content
   content: string;
@@ -11,4 +13,15 @@ export type NavLink = {
   prefix?: string;
 };
 
-export function Nav() {}
+export function Nav() {
+  return (
+    <nav className="grid-cols-[1fr_auto] mx-16 p-6">
+      <Image
+        src={"/assets/rwth/banner.svg"}
+        alt="HTWR Logo"
+        height={50}
+        width={200}
+      ></Image>
+    </nav>
+  );
+}
