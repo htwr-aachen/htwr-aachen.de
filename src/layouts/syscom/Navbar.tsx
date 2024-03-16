@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Dispatch, SetStateAction } from "react";
 
-import { useIsActive } from "@/hooks/layout";
+import { useInstituteActive } from "@/hooks/layout";
 
 import { MenuButton } from "./MenuButton";
 
@@ -13,7 +13,7 @@ type SYSCOMNavbarProps = {
 
 export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
   const pathname = usePathname();
-  const isActive = useIsActive("syscom");
+  const isActive = useInstituteActive("syscom");
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Dispatch, FC, SetStateAction } from "react";
 
-import { useIsActive } from "@/hooks/layout";
+import { useInstituteActive } from "@/hooks/layout";
 import type { NavbarConfig } from "@/models/layout";
 
 import { SidenavButton } from "./SidenavButton";
@@ -20,7 +20,7 @@ const Sidenav: FC<SidenavProps> = ({
   setOpen,
   config,
 }) => {
-  const isActive = useIsActive(instituteName);
+  const isActive = useInstituteActive(instituteName);
   return (
     <aside
       className={`fixed bg-white transition-all ${

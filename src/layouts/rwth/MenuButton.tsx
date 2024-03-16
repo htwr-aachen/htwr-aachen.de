@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { FC, ReactNode } from "react";
 
-import { useIsActive } from "@/hooks/layout";
+import { useInstituteActive } from "@/hooks/layout";
 
 export type MenuButtonProps = {
   href: string;
@@ -16,7 +16,7 @@ const MenuButton: FC<MenuButtonProps> = ({
   path,
   instituteName = "",
 }) => {
-  const isActive = useIsActive(instituteName);
+  const isActive = useInstituteActive(instituteName);
 
   return (
     <li>
