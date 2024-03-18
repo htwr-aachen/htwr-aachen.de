@@ -20,7 +20,7 @@ export default async function TeachingList(props: TeachingListProps) {
           <li key={slug} className="my-2 grid lg:grid-cols-[auto_1fr]">
             <div className="grid items-center">
               <Link
-                className="grid items-center justify-center rounded bg-[#eee] px-2 py-1 font-roboto hover:border-b-0 hover:bg-[#ddd]"
+                className="grid items-center justify-center rounded bg-[#eee] px-2 py-1 hover:border-b-0 hover:bg-[#ddd]"
                 href={teaching.url}
               >
                 {teaching.meta.title}

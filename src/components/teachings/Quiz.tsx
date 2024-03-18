@@ -79,7 +79,7 @@ const ZitateQuiz: FC<ZitateQuizProps> = ({ profName, zitatList, zitat }) => {
           </div>
         ) : (
           <>
-            <span className="block text-center font-roboto text-lg">
+            <span className="block text-center text-lg">
               {internalZitat?.isTrue === resolved
                 ? "Gut erkannt"
                 : "Leider falsch"}

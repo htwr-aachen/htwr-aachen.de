@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const Contact: FC = () => {
   return (
     <Main institute="htwr">
-      <h1 className="font-roboto text-3xl">Kontakt</h1>
+      <h1 className="text-3xl">Kontakt</h1>
       <ul className="ml-6 list-disc">
         <li>
           GPG Key Fingerprint:{" "}
@@ -39,7 +39,7 @@ const Contact: FC = () => {
         </li>
       </ul>
 
-      <h2 className="font-roboto text-2xl">Impressum</h2>
+      <h2 className="text-2xl">Impressum</h2>
       <Link href="/impressum" className="ml-6">
         hier.
       </Link>

@@ -1,4 +1,29 @@
 .markdown {
+  // TYPOGRAPHY stuff
+  h1 {
+    @apply text-4xl scroll-m-20 font-semibold tracking-tight lg:text-5xl;
+  }
+
+  h2 {
+    @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-medium tracking-tight transition-colors first:mt-0;
+  }
+
+  h3 {
+    @apply mt-8 scroll-m-20 text-2xl font-medium tracking-tight;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+
+  ol {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+
   pre {
     overflow-x: auto;
   }
@@ -45,49 +70,6 @@
     margin-left: -8px;
     color: rgb(156, 163, 175); /* Line number color */
     content: attr(line);
-  }
-  h1 {
-    font-size: 1.55rem;
-    font-weight: 700;
-    border-bottom: 1px solid #222;
-    margin: 1rem 0.5rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-bottom: 1px solid #ccc;
-    margin: 0.75rem 0;
-  }
-
-  h3 {
-    @apply font-medium border-b-1 border-[#ccc] mt-6 mb-2 text-xl;
-  }
-
-  ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-  }
-
-  ol {
-    list-style: decimal;
-    margin-left: 1.5rem;
-  }
-
-  p,
-  li {
-    @apply my-2 font-roboto;
-  }
-
-  ul ul,
-  ol ol,
-  ul ol,
-  ol ul {
-    @apply mx-4 my-2;
-  }
-
-  .small {
-    font-size: 12px;
   }
 
   iframe {

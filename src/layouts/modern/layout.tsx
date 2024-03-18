@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
-import { Nav } from "./nav";
+import type { ReactNode } from "react";
+
+import { Nav } from "./nav/nav";
 
 export default function Modern(props: {
   children: ReactNode;
@@ -7,8 +8,8 @@ export default function Modern(props: {
   prefix: string;
 }) {
   return (
-    <div>
-      <Nav></Nav>
+    <div className="bg-neutral-900">
+      <Nav name={props.name} prefix={props.prefix}></Nav>
       {props.children}
     </div>
   );

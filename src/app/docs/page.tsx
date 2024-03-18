@@ -1,7 +1,17 @@
+import { CircleAlert } from "lucide-react";
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 export default function Page() {
   return (
-    <div className="grid grid-rows-2 justify-center items-center">
-      <h1 className="text-xl">Loading...</h1>
+    <div className="grid grid-rows-2 items-center justify-center">
+      <Alert variant="destructive">
+        <CircleAlert className="size-4" />
+        <AlertTitle>WIP</AlertTitle>
+        <AlertDescription>
+          Ich baue gerade ein theme für neue nicht kopierte RWTH layouts.
+        </AlertDescription>
+      </Alert>
       <img
         alt="still waiting"
         src={

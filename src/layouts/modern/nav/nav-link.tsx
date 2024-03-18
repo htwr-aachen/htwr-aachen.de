@@ -1,6 +1,5 @@
 "use client";
 
-import { useIsActive } from "@/hooks/path";
 import Link from "next/link";
 
 export type NavLinkProps = {
@@ -14,7 +13,7 @@ export type NavLinkProps = {
 };
 
 export function NavLink(props: NavLinkProps) {
-  const isActive = useIsActive(props.prefix);
+  // const isActive = useIsActive(props.prefix);
   return (
     <Link href={props.href} className="">
       {props.content}

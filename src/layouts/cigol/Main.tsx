@@ -20,7 +20,7 @@ const Main = (props: CIGOLMainProps) => {
   const config = useInstituteConfig(props.institute);
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
   return (
-    <div className="scil relative font-roboto">
+    <div className="scil relative">
       <Head>
         <link
           rel="apple-touch-icon"

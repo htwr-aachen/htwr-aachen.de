@@ -1,16 +1,23 @@
 import "@/styles/global.css";
-import "@/styles/markdown.scss";
+import "@/styles/simple.scss";
 
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Hanken_Grotesk, Inter, Roboto } from "next/font/google";
 import type { FC } from "react";
 
 import AppMain from "@/layouts/AppMain";
+import { cn } from "@/lib/utils";
 import { AppConfig, BaseURL } from "@/utils/AppConfig";
 
 type RootLayoutProps = {
   children: React.ReactNode;
 };
+
+// main typeface
+const hkGrotesk = Hanken_Grotesk({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-hk-grotesk",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -102,11 +109,13 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           src="https://plausible.htwr-aachen.de/js/script.js"
         ></script>
       </head>
-      <body>
-        <div className={`${inter.className} ${roboto.className}`}>
-          <div className="bg"></div>
-          <AppMain>{children}</AppMain>
-        </div>
+      <body
+        className={cn(
+          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${hkGrotesk.variable}`
+        )}
+      >
+        <div className="bg"></div>
+        <AppMain>{children}</AppMain>
       </body>
     </html>
   );

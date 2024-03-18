@@ -17,7 +17,7 @@ export default async function Page() {
   const klausuren = await getProtectedDownloads("swt");
   return (
     <div>
-      <h1 className="font-roboto text-4xl font-light" id="klausuren">
+      <h1 className="text-4xl font-light" id="klausuren">
         Klausuren
       </h1>
       <ExamNotice></ExamNotice>

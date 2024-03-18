@@ -29,7 +29,7 @@ export default async function Page() {
 
   return (
     <div>
-      <h1 className="font-roboto text-4xl font-light" id="aufgaben">
+      <h1 className="text-4xl font-light" id="aufgaben">
         Aufgaben + Eigenlösungen
       </h1>
       <span>

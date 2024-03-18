@@ -17,7 +17,7 @@ export function Main(props: ESLayoutProps) {
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
 
   return (
-    <div className="es font-roboto">
+    <div className="es">
       <Meta />
       {props.meta}
       <LazyMotion features={domAnimation}>

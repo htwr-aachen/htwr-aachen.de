@@ -1,5 +1,6 @@
-import Modern from "@/layouts/modern/layout";
 import "../../styles/simple.scss";
+
+import Modern from "@/layouts/modern/layout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
