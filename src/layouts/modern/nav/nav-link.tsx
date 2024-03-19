@@ -1,6 +1,9 @@
 "use client";
 
+import { NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import React from "react";
 
 export type NavLinkProps = {
   // the link content

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { Nav } from "./nav/nav";
+import { Nav } from "./nav/header";
 
 export default function Modern(props: {
   children: ReactNode;
@@ -9,7 +9,7 @@ export default function Modern(props: {
 }) {
   return (
     <div className="bg-neutral-900">
-      <Nav name={props.name} prefix={props.prefix}></Nav>
+      <Nav name={props.name} prefix={props.prefix} />
       {props.children}
     </div>
   );

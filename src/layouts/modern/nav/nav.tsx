@@ -1,41 +1,56 @@
-// HTWR-Modern layout navbar.
-// This will be used when displaying content that is not directly related to RWTH or its chairs/institues (docs, blog,...)
+"use client";
 
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 import Link from "next/link";
-
 import HTWRLogo from "./logo";
 
-export function Nav(props: { name: string; prefix: string }) {
+export default function NavMenu() {
   return (
-    <nav className="bg-bg-200 text-bg-900 grid-cols-[1fr_auto] px-16 py-6">
-      {/* <Image */}
-      {/*   src={"/assets/rwth/banner.svg"} */}
-      {/*   alt="HTWR Logo" */}
-      {/*   height={50} */}
-      {/*   width={200} */}
-      {/* ></Image> */}
-      <div className="flex flex-row items-center text-neutral-100">
-        <Link href="/">
-          <HTWRLogo height={30}></HTWRLogo>
-        </Link>
-        <svg
-          className="ml-2 mr-1 text-neutral-100"
-          stroke="currentColor"
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          viewBox="0 0 25 50"
-          height={35}
-        >
-          <path d="M0 50L18 0" />
-        </svg>
-        <Link href={props.prefix}>
-          <span className="inline-block bg-gradient-to-r from-neutral-100 to-neutral-400 bg-clip-text text-2xl font-light text-transparent hover:to-neutral-50">
-            {props.name}
-          </span>
-        </Link>
-      </div>
-
-      <div className="flex flex-row items-center text-neutral-100"></div>
-    </nav>
+    <NavigationMenu color="neutral-200" className="mr-16">
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Dokumentation</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/"
+                  >
+                    <HTWRLogo height={20} />
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      shadcn/ui
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Beautifully designed components built with Radix UI and
+                      Tailwind CSS.
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <Link href="/docs" title="Introduction">
+                Re-usable components built using Radix UI and Tailwind CSS.
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Zurück zu HTWR
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }
