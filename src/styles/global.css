@@ -79,4 +79,7 @@
   a {
     @apply text-rwth-accent hover:underline underline-offset-4;
   }
+  a.no-b {
+    @apply hover:no-underline;
+  }
 }

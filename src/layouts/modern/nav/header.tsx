@@ -8,7 +8,7 @@ import NavMenu from "./nav";
 
 export function Nav(props: { name: string; prefix: string }) {
   return (
-    <header className="bg-bg-200 text-bg-900 grid-cols-[1fr_auto] grid px-16 py-6">
+    <header className="bg-bg-200 text-bg-900 grid grid-cols-[1fr_auto] px-16 py-6">
       <div className="flex flex-row items-center text-neutral-100">
         <Link href="/">
           <HTWRLogo height={30}></HTWRLogo>
@@ -23,7 +23,7 @@ export function Nav(props: { name: string; prefix: string }) {
         >
           <path d="M0 50L18 0" />
         </svg>
-        <Link href={"/" + props.prefix}>
+        <Link href={`/${props.prefix}`}>
           <span className="inline-block bg-gradient-to-r from-neutral-100 to-neutral-400 bg-clip-text text-2xl font-light text-transparent hover:to-neutral-50">
             {props.name}
           </span>
