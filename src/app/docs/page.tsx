@@ -12,6 +12,7 @@ export default function Page() {
           Ich baue gerade ein theme für neue nicht kopierte RWTH layouts.
         </AlertDescription>
       </Alert>
+      <span className="my-96"></span>
       <img
         alt="still waiting"
         src={

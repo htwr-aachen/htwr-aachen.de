@@ -95,7 +95,7 @@ function Pflichfächer(props: { panikzettel: Panikzettel[] }) {
 export default async function Page() {
   const panikzettel = await getData();
   return (
-    <div className="mx-6">
+    <div className="mx-6 bg-white text-black">
       <HeadLine>Panikzettel</HeadLine>
       <Link
         className="absolute right-5 top-5 rounded bg-rwth-warn px-6 py-3 transition-colors hover:bg-rwth-warn2"

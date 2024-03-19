@@ -1,16 +1,20 @@
 import type { ReactNode } from "react";
 
-import { Nav } from "./nav/header";
+import { Header } from "./nav/header";
+import { useTheme } from "next-themes";
 
-export default function Modern(props: {
+const Modern = (props: {
   children: ReactNode;
   name: string;
   prefix: string;
-}) {
+  nav: ReactNode;
+}) => {
   return (
-    <div className="bg-neutral-900">
-      <Nav name={props.name} prefix={props.prefix} />
+    <div className="bg-background min-h-screen">
+      <Header name={props.name} prefix={props.prefix} nav={props.nav} />
       {props.children}
     </div>
   );
-}
+};
+
+export default Modern;

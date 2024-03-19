@@ -17,7 +17,7 @@ export function Main(props: ESLayoutProps) {
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
 
   return (
-    <div className="es">
+    <div className="es bg-white text-black">
       <Meta />
       {props.meta}
       <LazyMotion features={domAnimation}>

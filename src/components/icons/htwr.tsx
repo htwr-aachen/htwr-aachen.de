@@ -1,5 +1,5 @@
-export default function HTWRLogo({
-  height = 50,
+export default function HTWRIcon({
+  height,
   width,
 }: {
   height?: number;

@@ -42,7 +42,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
           </span>
           <button
             type="button"
-            className="mx-auto mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
+            className="mx-auto mr-3 rounded bg-accent  px-2 py-1 hover:bg-accent/75"
             onClick={() => {
               setFakultätsNavOpen((x) => !x);
             }}

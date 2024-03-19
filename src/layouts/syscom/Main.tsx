@@ -17,7 +17,7 @@ export function Main(props: SYSCOMSProps) {
   const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
 
   return (
-    <div>
+    <div className="text-black bg-white">
       <LazyMotion features={domAnimation}>
         <AnimatePresence>
           {fakultätsNavOpen && (

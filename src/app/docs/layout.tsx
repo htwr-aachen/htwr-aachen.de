@@ -1,11 +1,14 @@
 import "../../styles/simple.scss";
 
 import Modern from "@/layouts/modern/layout";
+import { DocsNav } from "./nav";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Modern name="docs" prefix="docs">
+    <Modern nav={DocsNav} name="docs" prefix="docs">
       {children}
     </Modern>
   );
-}
+};
+
+export default Layout;

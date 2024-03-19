@@ -23,7 +23,7 @@ const Main = (props: MainProps) => {
   const config = useInstituteConfig(props.institute);
 
   return (
-    <div className="scil relative bg-[#e5e5e5]">
+    <div className="scil text-black relative bg-[#e5e5e5]">
       <HTWRHead />
       {props.meta}
       <div

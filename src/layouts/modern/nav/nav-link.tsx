@@ -1,3 +1,5 @@
+"use client";
+
 import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
 import Link from "next/link";
 import React from "react";

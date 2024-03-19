@@ -8,6 +8,7 @@ import type { FC } from "react";
 import AppMain from "@/layouts/AppMain";
 import { cn } from "@/lib/utils";
 import { AppConfig, BaseURL } from "@/utils/AppConfig";
+import { ThemeProvider } from "@/components/theme-provider";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -86,7 +87,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang={AppConfig.locale}>
+    <html className="light" lang={AppConfig.locale}>
       <head>
         <link
           rel="stylesheet"
@@ -114,8 +115,16 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${hkGrotesk.variable}`
         )}
       >
-        <div className="bg"></div>
-        <AppMain>{children}</AppMain>
+        <AppMain>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </AppMain>
       </body>
     </html>
   );

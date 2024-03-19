@@ -32,7 +32,7 @@ export default async function TeachingList(props: TeachingListProps) {
                 {teaching.meta.tags?.map((tag) => {
                   return (
                     <li key={tag}>
-                      <span className="mr-1 whitespace-nowrap rounded-md bg-[#eee] px-1 py-[2px] text-sm opacity-50">
+                      <span className="mr-1 whitespace-nowrap rounded-md bg-secondary text-secondary-foreground px-1 py-[2px] text-sm opacity-50">
                         {tag}
                       </span>
                     </li>

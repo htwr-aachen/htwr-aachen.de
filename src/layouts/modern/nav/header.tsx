@@ -3,18 +3,23 @@
 
 import Link from "next/link";
 
-import HTWRLogo from "./logo";
+import HTWRIcon from "@/components/icons/htwr";
+import { ReactNode } from "react";
 import NavMenu from "./nav";
 
-export function Nav(props: { name: string; prefix: string }) {
+export function Header(props: {
+  nav: ReactNode;
+  name: string;
+  prefix: string;
+}) {
   return (
-    <header className="bg-bg-200 text-bg-900 grid grid-cols-[1fr_auto] px-16 py-6">
+    <header className="bg-background text-foreground grid grid-cols-[1fr_auto] px-16 py-6">
       <div className="flex flex-row items-center text-neutral-100">
         <Link href="/">
-          <HTWRLogo height={30}></HTWRLogo>
+          <HTWRIcon height={30}></HTWRIcon>
         </Link>
         <svg
-          className="ml-2 mr-1 text-neutral-100"
+          className="ml-2 mr-1 text-foreground"
           stroke="currentColor"
           strokeWidth={1.5}
           strokeLinecap="round"
@@ -24,13 +29,12 @@ export function Nav(props: { name: string; prefix: string }) {
           <path d="M0 50L18 0" />
         </svg>
         <Link href={`/${props.prefix}`}>
-          <span className="inline-block bg-gradient-to-r from-neutral-100 to-neutral-400 bg-clip-text text-2xl font-light text-transparent hover:to-neutral-50">
+          <span className="inline-block bg-gradient-to-r from-foreground to-secondary-foreground/70 bg-clip-text text-2xl font-light text-transparent hover:to-secondary-foreground/85">
             {props.name}
           </span>
         </Link>
       </div>
-
-      <NavMenu></NavMenu>
+      <NavMenu nav={props.nav} />
     </header>
   );
 }

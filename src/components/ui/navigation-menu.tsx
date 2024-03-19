@@ -63,7 +63,7 @@ const navigationMenuTriggerStyle = cva(
 );
 
 const invertedNavigationMenuTriggerStyle = cva(
-  "data-[active]:bg-accent/7 data-[state=open]:bg-accent/7 group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-accent-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent/10 hover:text-background focus:bg-accent/10 focus:text-background focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+  "data-[active]:bg-accent-foreground/85 data-[state=open]:bg-accent-foreground/85 group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-accent-foreground px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-foreground/75 hover:text-accent focus:bg-accent-foreground/75 focus:text-accent focus:outline-none disabled:pointer-events-none disabled:opacity-50"
 );
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
