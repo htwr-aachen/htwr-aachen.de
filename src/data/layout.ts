@@ -4,9 +4,9 @@ import type { NavbarConfig } from "@/models/layout";
 export const DefaultNavbar: NavbarConfig = {
   linkElements: [
     {
-      name: "Panikzettel",
-      url: "/panikzettel",
-      path: "/panikzettel",
+      name: "Blog",
+      url: "/blog",
+      path: "/blog",
     },
     {
       name: "Panikzettel",
