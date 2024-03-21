@@ -5,6 +5,7 @@ import { useId } from "react";
 
 import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 import { getRealInstitutes } from "@/lib/institutes";
+import { InternalLink } from "@/components/rwth/icons";
 
 type FakultätsNavProps = {
   open: boolean;
@@ -50,7 +51,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
             <circle cx="25" cy="25" r="25" className="fill-white" />
             <g
               transform="matrix(1,0,0,1,0.205391,-7.10543e-15)"
-              className="fill-rwth-accent"
+              className="fill-transparent"
             >
               <g transform="matrix(0.648283,0.648283,-1.01556,1.01556,11.4889,-15.3974)">
                 <rect x="22.721" y="7.831" width="27.279" height="4.557" />
@@ -93,6 +94,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
           href={props.href}
           className="m-0 flex w-full px-4 py-2 text-sm font-medium text-white hover:border-b-0 hover:bg-white/10 lg:px-0"
         >
+          <InternalLink className="text-white mr-2 mt-1 hidden h-[13px] w-auto lg:block"></InternalLink>
           <svg
             width="100%"
             height="100%"
@@ -106,7 +108,7 @@ const FakultätsNavLink: FC<FakultätsNavLinkProps> = (props) => {
             <circle cx="25" cy="25" r="25" className="fill-white" />
             <g
               transform="matrix(1,0,0,1,0.205391,-7.10543e-15)"
-              className="fill-rwth-accent"
+              className="fill-transparent"
             >
               <g transform="matrix(0.648283,0.648283,-1.01556,1.01556,11.4889,-15.3974)">
                 <rect x="22.721" y="7.831" width="27.279" height="4.557" />
