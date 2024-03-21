@@ -10,14 +10,14 @@ function SidenavLink(
   const link =
     props.level <= 1 ? (
       <a
-        href={props.url}
+        href={props.href}
         className="no-b block w-full border-l-4 border-rwth-warn bg-rwth-accent/95 px-3 py-1 text-white"
         {...props}
       >
         {props.name}
       </a>
     ) : (
-      <a href={props.url} {...props}>
+      <a href={props.href} {...props}>
         {props.name}
       </a>
     );

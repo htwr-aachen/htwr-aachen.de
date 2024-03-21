@@ -16,7 +16,7 @@ export type LayoutProps = {
 export type NavbarLink = {
   name: string;
   children?: ReactNode;
-  url: string;
+  href: string;
   path?: string;
 };
 

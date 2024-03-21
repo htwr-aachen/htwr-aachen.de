@@ -23,11 +23,10 @@ const Sidenav: FC<SidenavProps> = ({
   const isActive = useInstituteActive(instituteName);
   return (
     <aside
-      className={`fixed bg-white transition-all ${
-        menuOpen
+      className={`fixed bg-white transition-all ${menuOpen
           ? "global-nav-panel right-0 top-0 z-30 h-full w-[275px] opacity-100"
           : "right-[-300px] -z-50 opacity-0"
-      }`}
+        }`}
     >
       <div className="global-nav-panel-inner w-full">
         <div className="w-full p-2">
@@ -61,15 +60,15 @@ const Sidenav: FC<SidenavProps> = ({
                   {link.name}
                 </h1>
                 <ul>
-                  <SidenavButton href={link.url} isActive={isActive(link.path)}>
+                  <SidenavButton href={link.href} isActive={isActive(link.path)}>
                     {link.name}
                   </SidenavButton>
                   {link?.links?.map((subLink) => {
                     return (
                       <SidenavButton
-                        href={subLink.url}
+                        href={subLink.href}
                         isActive={isActive(subLink.path)}
-                        key={subLink.url}
+                        key={subLink.href}
                       >
                         {subLink.name}
                       </SidenavButton>

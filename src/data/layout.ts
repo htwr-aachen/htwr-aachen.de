@@ -5,21 +5,21 @@ export const DefaultNavbar: NavbarConfig = {
   linkElements: [
     {
       name: "Blog",
-      url: "/blog",
+      href: "/blog",
       path: "/blog",
     },
     {
       name: "Panikzettel",
-      url: "/panikzettel",
+      href: "/panikzettel",
       path: "/panikzettel",
     },
     {
       name: "Mithelfen",
-      url: "/docs",
+      href: "/docs",
       path: "/docs",
     },
   ],
-  main: { name: "HTWR", url: "/" },
+  main: { name: "HTWR", href: "/" },
   logo: {
     logoUrl: "/assets/rwth/htwr_banner.png",
     alt: "HTWR Logo",
@@ -31,58 +31,58 @@ export const SCILNavbarConfig: NavbarConfig = {
   linkElements: [
     {
       name: "⚠Studium",
-      url: "/scil/studium",
+      href: "/scil/studium",
       path: "/studium",
       links: [
         {
           name: "Klausuren",
-          url: "/scil/studium/klausuren",
+          href: "/scil/studium/klausuren",
           path: "studium/klausuren",
         },
         {
           name: "Aufgaben",
-          url: "/scil/studium/aufgaben",
+          href: "/scil/studium/aufgaben",
           path: "studium/aufgaben",
         },
         {
           name: "Zusammenfassungen",
-          url: "/scil/studium/teachings",
+          href: "/scil/studium/teachings",
           path: "studium/teachings",
         },
       ],
     },
     {
       name: "Forschung",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
-        { name: "Kontakt", url: "/contact", path: "" },
+        { name: "Kontakt", href: "/contact", path: "" },
       ],
     },
   ],
-  main: { name: "SCIL", url: "/scil" },
+  main: { name: "SCIL", href: "/scil" },
   logo: {
     logoUrl: "/assets/scil/scil.svg",
     alt: "SCIL Logo",
@@ -96,58 +96,58 @@ export const WSINavbar: NavbarConfig = {
   linkElements: [
     {
       name: "⚠Studium",
-      url: "/wsi/studium",
+      href: "/wsi/studium",
       path: "/studium",
       links: [
         {
           name: "Klausuren",
-          url: "/wsi/studium/klausuren",
+          href: "/wsi/studium/klausuren",
           path: "studium/klausuren",
         },
         {
           name: "Aufgaben",
-          url: "/wsi/studium/aufgaben",
+          href: "/wsi/studium/aufgaben",
           path: "studium/aufgaben",
         },
         {
           name: "Zusammenfassungen",
-          url: "/wsi/studium/teachings",
+          href: "/wsi/studium/teachings",
           path: "studium/teachings",
         },
       ],
     },
     {
       name: "Forschung",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
-        { name: "Kontakt", url: "/contact", path: "" },
+        { name: "Kontakt", href: "/contact", path: "" },
       ],
     },
   ],
-  main: { name: "WSI", url: "/wsi" },
+  main: { name: "WSI", href: "/wsi" },
   logo: {
     logoUrl: "/assets/wsi/wsi.jpg",
     alt: "WSI Logo",
@@ -161,58 +161,58 @@ export const SIBDNavbar: NavbarConfig = {
   linkElements: [
     {
       name: "⚠Studium",
-      url: "/sibd/studium",
+      href: "/sibd/studium",
       path: "/studium",
       links: [
         {
           name: "Klausuren",
-          url: "/sibd/studium/klausuren",
+          href: "/sibd/studium/klausuren",
           path: "studium/klausuren",
         },
         {
           name: "Aufgaben",
-          url: "/sibd/studium/aufgaben",
+          href: "/sibd/studium/aufgaben",
           path: "studium/aufgaben",
         },
         {
           name: "Zusammenfassungen",
-          url: "/sibd/studium/teachings",
+          href: "/sibd/studium/teachings",
           path: "studium/teachings",
         },
       ],
     },
     {
       name: "Forschung",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
         {
           name: "Publikationen",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      url: "/nichts",
+      href: "/nichts",
       path: "/nichts",
       links: [
         {
           name: "AllGemein",
-          url: "/nichts",
+          href: "/nichts",
           path: "/nichts",
         },
-        { name: "Kontakt", url: "/contact", path: "" },
+        { name: "Kontakt", href: "/contact", path: "" },
       ],
     },
   ],
-  main: { name: "SIBD", url: "/sibd" },
+  main: { name: "SIBD", href: "/sibd" },
   logo: {
     logoUrl: "/assets/sibd/sibd.png",
     alt: "SIBD Logo",
@@ -232,35 +232,35 @@ export const CESTINavbar: NavbarConfig = {
   },
   main: {
     name: "CESTI",
-    url: "/cesti",
+    href: "/cesti",
   },
   linkElements: [
     {
       name: "⚠Studium",
-      url: "/cesti/studium",
+      href: "/cesti/studium",
       path: "/studium",
       links: [
         {
           name: "Zusammenfassungen",
-          url: "/cesti/studium/teachings",
+          href: "/cesti/studium/teachings",
         },
         {
           name: "Resourcen",
-          url: "/cesti/studium/resources",
+          href: "/cesti/studium/resources",
         },
         {
           name: "Klausuren",
-          url: "/cesti/studium/klausuren",
+          href: "/cesti/studium/klausuren",
         },
       ],
     },
     {
       name: "Forschung",
-      url: "/cesti/studium",
+      href: "/cesti/studium",
     },
     {
       name: "Das Lehr- und Forschungsgebiet",
-      url: "/nichts",
+      href: "/nichts",
     },
   ],
 };
@@ -275,47 +275,47 @@ export const DEDDEBMENavbar: NavbarConfig = {
   },
   main: {
     name: "DEDDEBME",
-    url: "/deddebme",
+    href: "/deddebme",
   },
   linkElements: [
     {
       name: "⚠Lehre",
-      url: "/deddebme/lehre",
+      href: "/deddebme/lehre",
       path: "/lehre",
       links: [
         {
           name: "Zusammenfassungen",
-          url: "/deddebme/lehre/teachings",
+          href: "/deddebme/lehre/teachings",
         },
         {
           name: "Resourcen",
-          url: "/deddebme/lehre/resources",
+          href: "/deddebme/lehre/resources",
         },
       ],
     },
     {
       name: "⚠Forschung",
-      url: "/deddebme/lehre",
+      href: "/deddebme/lehre",
     },
     {
       name: "Tools",
-      url: "/nichts",
+      href: "/nichts",
     },
     {
       name: "Lehrstuhl",
-      url: "/nichts",
+      href: "/nichts",
       links: [
         {
           name: "Kontakt",
-          url: "/contact",
+          href: "/contact",
         },
         {
           name: "Impressum",
-          url: "/impressum",
+          href: "/impressum",
         },
         {
           name: "Datenschutz",
-          url: "/datenschutz",
+          href: "/datenschutz",
         },
       ],
     },
@@ -326,15 +326,15 @@ export const MaLeNavbar: NavbarConfig = {
   linkElements: [
     {
       name: "⚠Zusammenfassungen (vielleicht)",
-      url: "/nichts",
+      href: "/nichts",
     },
     {
       name: "Material",
-      url: "/male/material",
+      href: "/male/material",
       path: "/male/material",
     },
   ],
-  main: { name: "MaLe", url: "/male" },
+  main: { name: "MaLe", href: "/male" },
   logo: {
     logoUrl: "/assets/rwth/htwr_banner.png",
     alt: "HTWR Logo",

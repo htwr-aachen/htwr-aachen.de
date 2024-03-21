@@ -11,7 +11,7 @@ import type {
 
 import type { NavbarConfig } from "@/models/layout";
 
-import { FakultätsNav } from "./FakultätsNav";
+import { FacultiesDesktopNav } from "../faculties-nav/desktop";
 
 export type NavbarProps = {
   onMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void;
@@ -34,9 +34,7 @@ const DesktopNavbar: FC<NavbarProps> = ({
     <nav className="relative w-full">
       <LazyMotion features={domAnimation}>
         <AnimatePresence>
-          {fakultätOpen && (
-            <FakultätsNav open={fakultätOpen} setOpen={setFakultätOpen} />
-          )}
+          {fakultätOpen && <FacultiesDesktopNav></FacultiesDesktopNav>}
         </AnimatePresence>
       </LazyMotion>
       <div
@@ -85,7 +83,7 @@ const DesktopNavbar: FC<NavbarProps> = ({
       <div className="header grid h-[53px] grid-cols-2 bg-black lg:hidden">
         <div className="grid items-center justify-center justify-self-start">
           <Link
-            href={config.main.url}
+            href={config.main.href}
             className="logo grid h-full items-center bg-white px-3 hover:border-b-0"
           >
             <Image

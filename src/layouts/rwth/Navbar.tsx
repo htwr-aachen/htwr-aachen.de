@@ -53,8 +53,8 @@ const Navbar: FC<NavbarProps> = ({
           {config.linkElements.map((linkElement) => {
             return (
               <MenuButton
-                href={linkElement.url}
-                path={linkElement.path || linkElement.url}
+                href={linkElement.href}
+                path={linkElement.path || linkElement.href}
                 instituteName={instituteName}
                 key={linkElement.name}
               >
