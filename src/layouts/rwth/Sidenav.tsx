@@ -1,25 +1,24 @@
 import Link from "next/link";
-import type { Dispatch, FC, SetStateAction } from "react";
+import { useContext, type Dispatch, type FC, type SetStateAction } from "react";
 
 import { useInstituteActive } from "@/hooks/layout";
 import type { NavbarConfig } from "@/models/layout";
 
 import { SidenavButton } from "./SidenavButton";
+import { FacultiesNavContext } from "../faculties-nav/nav";
 
 type SidenavProps = {
   menuOpen: boolean;
   instituteName: string;
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
   config: NavbarConfig;
 };
 
 const Sidenav: FC<SidenavProps> = ({
   menuOpen,
   instituteName,
-  setOpen,
   config,
 }) => {
+  const [_open, setOpen] = useContext(FacultiesNavContext)
   const isActive = useInstituteActive(instituteName);
   return (
     <aside

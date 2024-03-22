@@ -5,10 +5,15 @@ import { getRealInstitutes } from "@/lib/institutes";
 import { cn } from "@/lib/utils";
 
 import { FacultiesNavHeading } from "./heading";
-import type { FacultiesNavProps } from "./nav";
+import { FacultiesNavContext, type FacultiesNavProps } from "./nav";
 import { FacultiesNavLink } from "./nav-link";
+import { useContext } from "react";
+import FacultiesBreadcrumb from "./breadcrumb";
 
-export function FacultiesMobileNav({ open, setOpen }: FacultiesNavProps) {
+export function FacultiesMobileNav(props: FacultiesNavProps) {
+
+  const [open, setOpen] = useContext(FacultiesNavContext)
+
   const [filteredInstitute, searchInstitutes] = useInstituteSearch(
     getRealInstitutes()
   );
@@ -28,7 +33,7 @@ export function FacultiesMobileNav({ open, setOpen }: FacultiesNavProps) {
           >
             Zurück
           </button>
-          <span>Sie sind hier:</span>
+          <FacultiesBreadcrumb/>
         </div>
         <div className="px-3 py-2">
           <input

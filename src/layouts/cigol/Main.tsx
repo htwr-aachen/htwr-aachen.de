@@ -4,13 +4,15 @@ import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
 import { useInstituteConfig } from "@/hooks/useInstituteConfig";
 import type { LayoutProps } from "@/models/layout";
 
 import { FakultätsNav, FakultätsNavMobile } from "../rwth/FakultätsNav";
+import { FacultiesNavContext } from "../faculties-nav/nav";
+import CigolSideNav from "./sidenav";
 
 type CIGOLProps = {};
 
@@ -18,9 +20,9 @@ export type CIGOLMainProps = LayoutProps & CIGOLProps;
 
 const Main = (props: CIGOLMainProps) => {
   const config = useInstituteConfig(props.institute);
-  const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
+  const [open, setOpen] = useContext(FacultiesNavContext)
   return (
-    <div className="scil relative">
+    <div className="scil relative bg-white text-black min-h-screen">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -54,22 +56,6 @@ const Main = (props: CIGOLMainProps) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       {props.meta}
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-          {fakultätsNavOpen && (
-            <FakultätsNav
-              open={fakultätsNavOpen}
-              setOpen={setFakultätsNavOpen}
-            />
-          )}
-          {fakultätsNavOpen && (
-            <FakultätsNavMobile
-              open={fakultätsNavOpen}
-              setOpen={setFakultätsNavOpen}
-            />
-          )}
-        </AnimatePresence>
-      </LazyMotion>
       <div>
         <nav
           className="relative grid grid-rows-[auto_auto_auto] justify-center gap-2 border-b-2 border-[#c1bcb2] bg-[#f5eedd] py-4 lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1  lg:py-0"
@@ -100,7 +86,7 @@ const Main = (props: CIGOLMainProps) => {
             <button
               className="m-2 my-auto h-min rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
               onClick={() => {
-                setFakultätsNavOpen((x) => !x);
+                setOpen((x) => !x);
               }}
             >
               Fakultäten & Institute
@@ -131,60 +117,7 @@ const Main = (props: CIGOLMainProps) => {
           </div>
         </nav>
         <div className="page mt-6 grid grid-rows-[auto_1fr] font-sans lg:grid-cols-[auto_1fr] lg:grid-rows-1">
-          <aside className="mx-6 mb-4 lg:mb-0 lg:w-[200px]">
-            <div className="rounded-3xl bg-[#f5eedd]">
-              <ul className="py-6 pl-4">
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/nichts"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    Forschung
-                  </Link>
-                </li>
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/cigol/studium/teachings"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    ⚠Lehre
-                  </Link>
-                </li>
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/cigol/studium/klausuren"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    ⚠Klausuren
-                  </Link>
-                </li>
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/cigol/studium/aufgaben"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    ⚠Aufgaben
-                  </Link>
-                </li>
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/nichts"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    Bücher
-                  </Link>
-                </li>
-                <li className="py-1 first:pt-0">
-                  <Link
-                    href={"/contact"}
-                    className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
-                  >
-                    Kontakt
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </aside>
+            <CigolSideNav></CigolSideNav>
           <div className="content bg-transparent">{props.children}</div>
         </div>
       </div>

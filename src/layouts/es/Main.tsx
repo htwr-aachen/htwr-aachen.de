@@ -14,26 +14,12 @@ import ESNavbar from "./Navbar";
 type ESLayoutProps = LayoutProps;
 
 export function Main(props: ESLayoutProps) {
-  const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
-
   return (
     <div className="es bg-white text-black">
       <Meta />
       {props.meta}
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-          {fakultätsNavOpen && (
-            <FakultätsNav
-              open={fakultätsNavOpen}
-              setOpen={setFakultätsNavOpen}
-            />
-          )}
-        </AnimatePresence>
-      </LazyMotion>
 
       <ESNavbar
-        fakultätsNavOpen={fakultätsNavOpen}
-        setFakultätsNavOpen={setFakultätsNavOpen}
       />
 
       <div className="container mx-auto max-w-[1000px] px-8 py-12 lg:px-0">

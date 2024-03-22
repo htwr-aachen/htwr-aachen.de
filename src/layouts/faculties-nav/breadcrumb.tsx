@@ -2,5 +2,5 @@
 // this is low Priority
 
 export default function FacultiesBreadcrumb() {
-  return <span className="hidden">Sie sind hier:</span>;
+  return <span className="invisible">Sie sind hier:</span>;
 }

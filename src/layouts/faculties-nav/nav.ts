@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import { createContext } from "react";
 
 // The faculties navbars are split into two different high level files because they arent so similar
@@ -10,8 +10,8 @@ import { createContext } from "react";
 export type FacultiesNavProps = {};
 
 export const FacultiesNavContext = createContext<
-  [boolean, (val: boolean) => void]
->([false, (_val) => {}]);
+  [boolean, Dispatch<SetStateAction<boolean>>]
+>([false, (_val) => _val]);
 
 /**
  * A type for declaring a valid nav link for the faculties navigation

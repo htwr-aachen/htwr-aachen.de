@@ -1,40 +1,22 @@
 "use client";
 
-import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 import type { NavbarConfig } from "@/models/layout";
 
-import { FakultätsNav, FakultätsNavMobile } from "../rwth/FakultätsNav";
+import { FacultiesNavContext } from "../faculties-nav/nav";
+import { useContext } from "react";
 
 type DeddebmeNavbarProps = {
   config: NavbarConfig;
 };
 
 export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
-  const [fakultätsNavOpen, setFakultätsNavOpen] = useState(false);
+  const  [_open, setOpen] = useContext(FacultiesNavContext)
+
   return (
     <div>
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-          {fakultätsNavOpen && (
-            <FakultätsNav
-              open={fakultätsNavOpen}
-              setOpen={setFakultätsNavOpen}
-            />
-          )}
-        </AnimatePresence>
-      </LazyMotion>
-      {fakultätsNavOpen && (
-        <div>
-          <FakultätsNavMobile
-            open={fakultätsNavOpen}
-            setOpen={setFakultätsNavOpen}
-          />
-        </div>
-      )}
       <nav className="mx-auto my-4 grid max-w-6xl grid-cols-2 items-center justify-items-center">
         <div className="text-center">
           <span className="text-rwth-accen mr-4 content-center text-center font-semibold">
@@ -44,7 +26,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
             type="button"
             className="mx-auto mr-3 rounded bg-accent  px-2 py-1 hover:bg-accent/75"
             onClick={() => {
-              setFakultätsNavOpen((x) => !x);
+              setOpen((x) => !x);
             }}
           >
             Fakultäten & Institute

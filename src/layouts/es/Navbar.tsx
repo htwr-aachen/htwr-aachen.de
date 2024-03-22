@@ -3,14 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Dispatch, SetStateAction } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { FakultätsNavMobile } from "../rwth/FakultätsNav";
 import Navlink from "./Navlink";
+import { FacultiesNavContext } from "../faculties-nav/nav";
 
 type ESNavbarProps = {
-  fakultätsNavOpen: boolean;
-  setFakultätsNavOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function ESNavbar(props: ESNavbarProps) {
@@ -21,6 +20,8 @@ export default function ESNavbar(props: ESNavbarProps) {
     if (dropdownActive === dropdownNumer) setDropdownActive(-1);
     else setDropdownActive(dropdownNumer);
   };
+  
+  const [_facultiesNavOpen, setFacultiesNavOpen] = useContext(FacultiesNavContext)
 
   return (
     <nav
@@ -32,8 +33,7 @@ export default function ESNavbar(props: ESNavbarProps) {
           type="button"
           className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
           onClick={() => {
-            props.setFakultätsNavOpen((x) => !x);
-            setNavOpen(true);
+            setFacultiesNavOpen((x) => !x);
           }}
         >
           Fakultäten & Institute
@@ -78,10 +78,6 @@ export default function ESNavbar(props: ESNavbarProps) {
             navOpen ? "flex" : "hidden"
           }`}
         >
-          <FakultätsNavMobile
-            open={props.fakultätsNavOpen}
-            setOpen={props.setFakultätsNavOpen}
-          />
           <Navlink
             display={{ name: "Essays", href: "/es/eassys" }}
             links={[{ name: "Nichts", href: "/es/nichts" }]}

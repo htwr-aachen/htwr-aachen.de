@@ -11,6 +11,7 @@ import {
   FacultiesNavContext,
 } from "./nav";
 import { FacultiesNavLink } from "./nav-link";
+import FacultiesBreadcrumb from "./breadcrumb";
 
 export function FacultiesDesktopNav(_props: FacultiesNavProps) {
   const [_open, setOpen] = useContext(FacultiesNavContext);
@@ -29,11 +30,11 @@ export function FacultiesDesktopNav(_props: FacultiesNavProps) {
       className={`relative hidden overflow-hidden bg-rwth-accent px-32 text-white lg:block`}
     >
       <div className="relative hidden grid-rows-[auto_1fr] lg:grid">
-        <div className="border-b-4 border-white/10 py-6">
-          <span>Sie sind hier:</span>
+        <div className="border-b-4 border-white/10 py-6 grid grid-cols-[1fr_auto]">
+          <FacultiesBreadcrumb/>
           <button
             onClick={() => setOpen(false)}
-            className="absolute right-0 rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100"
+            className="right-0 rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100"
           >
             Schliessen
           </button>

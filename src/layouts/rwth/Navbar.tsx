@@ -1,12 +1,12 @@
 import type { FC } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import type { NavbarConfig } from "@/models/layout";
 
 import { DesktopNavbar } from "./DesktopNavbar";
-import { FakultätsNavMobile } from "./FakultätsNav";
 import MenuButton from "./MenuButton";
 import Sidenav from "./Sidenav";
+import { FacultiesNavContext } from "../faculties-nav/nav";
 
 type NavbarProps = {
   instituteName: string;
@@ -23,8 +23,7 @@ const Navbar: FC<NavbarProps> = ({
   config,
   instituteTitle,
 }) => {
-  const [fakultätOpen, setFakultätOpen] = useState(false);
-
+  const [open, setOpen] = useContext(FacultiesNavContext)
   return (
     <>
       <button
@@ -36,7 +35,7 @@ const Navbar: FC<NavbarProps> = ({
         type="button"
         title="Schließen"
         onClick={() => {
-          if (fakultätOpen) setFakultätOpen(false);
+          if (open) setOpen(false);
           setMenuOpen(false);
         }}
       ></button>
@@ -46,8 +45,6 @@ const Navbar: FC<NavbarProps> = ({
             setMenuOpen(true);
           }}
           instituteTitle={instituteTitle}
-          fakultätOpen={fakultätOpen}
-          setFakultätOpen={setFakultätOpen}
           config={config}
         >
           {config.linkElements.map((linkElement) => {
@@ -69,11 +66,8 @@ const Navbar: FC<NavbarProps> = ({
       <Sidenav
         instituteName={instituteName}
         menuOpen={menuOpen}
-        open={fakultätOpen}
-        setOpen={setFakultätOpen}
         config={config}
       />
-      <FakultätsNavMobile open={fakultätOpen} setOpen={setFakultätOpen} />
     </>
   );
 };

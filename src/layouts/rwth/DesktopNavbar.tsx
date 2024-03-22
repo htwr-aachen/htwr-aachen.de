@@ -1,21 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import type {
-  Dispatch,
-  FC,
-  MouseEvent,
-  ReactNode,
-  SetStateAction,
+import {
+  type FC,
+  type MouseEvent,
+  type ReactNode,
+  useContext,
 } from "react";
 
 import type { NavbarConfig } from "@/models/layout";
+
+import { FacultiesNavContext } from "../faculties-nav/nav";
 
 export type NavbarProps = {
   onMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
   instituteTitle: string;
-  fakultätOpen: boolean;
-  setFakultätOpen: Dispatch<SetStateAction<boolean>>;
   config: NavbarConfig;
 };
 
@@ -23,9 +22,10 @@ const DesktopNavbar: FC<NavbarProps> = ({
   children,
   onMenuClick,
   instituteTitle,
-  setFakultätOpen,
   config,
 }) => {
+  const [_open, setOpen] = useContext(FacultiesNavContext);
+
   return (
     <nav className="relative w-full">
       <div
@@ -46,7 +46,9 @@ const DesktopNavbar: FC<NavbarProps> = ({
               </Link>
             </div>
             <button
-              onClick={() => setFakultätOpen((x) => !x)}
+              onClick={() => {
+                setOpen((x) => !x);
+              }}
               type="button"
               className={`absolute top-[-40px] flex h-[40px] cursor-pointer items-center justify-center px-4 text-sm text-white hover:bg-[#666]`}
               style={{ left: `${20 + (config?.logo.width || 224)}px` }}
