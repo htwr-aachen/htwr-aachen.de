@@ -48,5 +48,5 @@ export const viewport: Viewport = {
 };
 
 export default function CIGOLLayout({ children }: { children: ReactNode }) {
-  return <Main institute="cigol">{children}</Main>;
+  return <Main institute="CIGOL">{children}</Main>;
 }

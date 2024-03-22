@@ -1,4 +1,3 @@
-import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import type {
@@ -10,8 +9,6 @@ import type {
 } from "react";
 
 import type { NavbarConfig } from "@/models/layout";
-
-import { FacultiesDesktopNav } from "../faculties-nav/desktop";
 
 export type NavbarProps = {
   onMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void;
@@ -26,17 +23,11 @@ const DesktopNavbar: FC<NavbarProps> = ({
   children,
   onMenuClick,
   instituteTitle,
-  fakultätOpen,
   setFakultätOpen,
   config,
 }) => {
   return (
     <nav className="relative w-full">
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-          {fakultätOpen && <FacultiesDesktopNav></FacultiesDesktopNav>}
-        </AnimatePresence>
-      </LazyMotion>
       <div
         className="branding hidden border-t-[40px] border-black bg-rwth-branding lg:block"
         role="banner"

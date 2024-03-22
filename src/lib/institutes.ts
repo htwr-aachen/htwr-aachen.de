@@ -1,42 +1,30 @@
 import { InstituteConfig } from "@/data/institutes";
-import type { Institute, StringInstitutes } from "@/models/institutes";
-import { Institutes, INSTITUTES_LENGTH } from "@/models/institutes";
-
-export const getInstituteByName = (name: string): Institutes => {
-  const institute = InstituteConfig.find(
-    (inst) => inst.name === name.toUpperCase()
-  );
-  if (!institute) {
-    return Institutes.HTWR;
-  }
-  return InstituteConfig.indexOf(institute);
-};
+import type { Institute, Institutes } from "@/models/institutes";
+import { INSTITUTES_LENGTH, INSTITUTES_MAP } from "@/models/institutes";
 
 export function getNextInstitute(current: Institutes): Institutes {
-  const next = (current + 1) % INSTITUTES_LENGTH;
-  if (next === Institutes.HTWR) return next + 1;
-  return next;
+  let next = (INSTITUTES_MAP[current] + 1) % INSTITUTES_LENGTH;
+  if (next === INSTITUTES_MAP.HTWR) next++;
+  return Object.keys(INSTITUTES_MAP)[next] as Institutes;
 }
 
 export function getPrevInstitute(current: Institutes): Institutes {
-  const prev = (current - 1 + INSTITUTES_LENGTH) % INSTITUTES_LENGTH;
-  if (prev === Institutes.HTWR) return prev + 1;
-  return prev;
+  let prev =
+    (INSTITUTES_MAP[current] - 1 + INSTITUTES_LENGTH) % INSTITUTES_LENGTH;
+  if (prev === INSTITUTES_MAP.HTWR) prev++;
+  return Object.keys(INSTITUTES_MAP)[prev] as Institutes;
 }
 
 export function getInstituteConfig(institute: Institutes): Institute {
-  const config = InstituteConfig[institute];
+  const config = InstituteConfig.find((x) => x.name === institute);
   if (!config) {
-    return InstituteConfig[Institutes.HTWR];
+    return (
+      InstituteConfig.find((x) => x.name === "HTWR") ||
+      InstituteConfig[INSTITUTES_MAP.HTWR]
+    );
   }
   return config;
 }
-
-export function getInstituteConfigByName(name: StringInstitutes): Institute {
-  const inst = getInstituteByName(name);
-  return getInstituteConfig(inst);
-}
-
 export function getRealInstitutes(): Institute[] {
   return InstituteConfig.slice(1);
 }

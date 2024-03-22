@@ -2,6 +2,7 @@
 
 import type { FC, ReactNode } from "react";
 
+import FacultiesNav from "./faculties-nav";
 import { PushNotifyProvider } from "./SharedPushNotify";
 
 type AppMainProps = {
@@ -14,7 +15,9 @@ const AppMain: FC<AppMainProps> = ({ children }) => {
   return (
     <>
       <PushNotifyProvider>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <FacultiesNav>{children}</FacultiesNav>
+        </main>
       </PushNotifyProvider>
       {/* <CommentSection key={pathname} /> */}
     </>

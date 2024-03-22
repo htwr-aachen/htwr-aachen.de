@@ -45,5 +45,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="deddebme">{props.children}</Main>;
+  return <Main institute="DEDDEBME">{props.children}</Main>;
 }

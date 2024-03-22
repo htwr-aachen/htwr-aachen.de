@@ -1,56 +1,48 @@
-import { useMemo } from "react";
-
 import { getNavbarConfig } from "@/data/layout";
 import { Main as CIGOLMain } from "@/layouts/cigol/Main";
 import { Main as ESMain } from "@/layouts/es/Main";
 import { Main as HTWRMain } from "@/layouts/rwth/Main";
 import { Main as SYSCOMMain } from "@/layouts/syscom/Main";
-import { getInstituteByName } from "@/lib/institutes";
-import type { StringInstitutes } from "@/models/institutes";
-import { Institutes } from "@/models/institutes";
+import type { Institutes } from "@/models/institutes";
 
 import DeddebmeLayout from "./deddebme/Main";
 
 type MainProps = {
-  institute: StringInstitutes;
+  institute: Institutes;
   children?: React.ReactNode;
   meta?: React.ReactNode;
   pad?: boolean;
 };
 
 export default function Main(props: MainProps) {
-  const institute = useMemo(
-    () => getInstituteByName(props.institute),
-    [props.institute]
-  );
-  switch (institute) {
-    case Institutes.SYSCOM:
+  switch (props.institute) {
+    case "SYSCOM":
       return (
-        <SYSCOMMain institute={institute} meta={props.meta}>
+        <SYSCOMMain institute={props.institute} meta={props.meta}>
           {props.children}
         </SYSCOMMain>
       );
-    case Institutes.ES:
+    case "ES":
       return (
-        <ESMain institute={institute} meta={props.meta}>
+        <ESMain institute={props.institute} meta={props.meta}>
           {props.children}
         </ESMain>
       );
-    case Institutes.CIGOL:
+    case "CIGOL":
       return (
-        <CIGOLMain institute={institute} meta={props.meta}>
+        <CIGOLMain institute={props.institute} meta={props.meta}>
           {props.children}
         </CIGOLMain>
       );
-    case Institutes.DEDDEBME:
+    case "DEDDEBME":
       return <DeddebmeLayout>{props.children}</DeddebmeLayout>;
     default:
       return (
         <HTWRMain
-          institute={institute}
+          institute={props.institute}
           meta={props.meta}
           pad={props.pad}
-          navbarConfig={getNavbarConfig(institute)}
+          navbarConfig={getNavbarConfig(props.institute)}
         >
           {props.children}
         </HTWRMain>

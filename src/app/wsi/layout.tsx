@@ -52,7 +52,7 @@ export const viewport: Viewport = {
 };
 
 const WSILayout: FC<WSILayoutProps> = ({ children }) => {
-  return <Main institute="wsi">{children}</Main>;
+  return <Main institute="WSI">{children}</Main>;
 };
 
 export default WSILayout;

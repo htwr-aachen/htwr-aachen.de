@@ -1,30 +1,4 @@
-export enum Institutes {
-  HTWR = 0,
-  SYSCOM,
-  ES,
-  SCIL,
-  WSI,
-  SIBD,
-  CIGOL,
-  CESTI,
-  DEDDEBME,
-  MALE,
-  __LENGTH,
-}
-
-export type StringInstitutes =
-  | "htwr"
-  | "syscom"
-  | "es"
-  | "scil"
-  | "wsi"
-  | "sibd"
-  | "cigol"
-  | "cesti"
-  | "deddebme"
-  | "male";
-
-export const InstitutesMap = {
+export const INSTITUTES_MAP = {
   HTWR: 0,
   SYSCOM: 1,
   ES: 2,
@@ -35,11 +9,13 @@ export const InstitutesMap = {
   CESTI: 7,
   DEDDEBME: 8,
   MALE: 9,
-};
-export const INSTITUTES_LENGTH = Object.keys(InstitutesMap).length;
+} as const;
+
+export type Institutes = keyof typeof INSTITUTES_MAP;
+export const INSTITUTES_LENGTH = Object.keys(INSTITUTES_MAP).length;
 
 export type Institute = {
-  name: string;
+  name: Institutes;
   subject: string;
   professor: string;
   fullName: string;

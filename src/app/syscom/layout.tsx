@@ -42,5 +42,5 @@ export const viewport: Viewport = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="syscom">{props.children}</Main>;
+  return <Main institute="SYSCOM">{props.children}</Main>;
 }

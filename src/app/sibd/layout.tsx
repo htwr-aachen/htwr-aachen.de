@@ -47,5 +47,5 @@ export const viewport: Viewport = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="sibd">{props.children}</Main>;
+  return <Main institute="SIBD">{props.children}</Main>;
 }

@@ -1,4 +1,4 @@
-import { Institutes } from "@/models/institutes";
+import type { Institutes } from "@/models/institutes";
 import type { NavbarConfig } from "@/models/layout";
 
 export const DefaultNavbar: NavbarConfig = {
@@ -343,17 +343,17 @@ export const MaLeNavbar: NavbarConfig = {
 };
 export function getNavbarConfig(institute: Institutes): NavbarConfig {
   switch (institute) {
-    case Institutes.SCIL:
+    case "SCIL":
       return SCILNavbarConfig;
-    case Institutes.WSI:
+    case "WSI":
       return WSINavbar;
-    case Institutes.SIBD:
+    case "SIBD":
       return SIBDNavbar;
-    case Institutes.CESTI:
+    case "CESTI":
       return CESTINavbar;
-    case Institutes.DEDDEBME:
+    case "DEDDEBME":
       return DEDDEBMENavbar;
-    case Institutes.MALE:
+    case "MALE":
       return MaLeNavbar;
     default:
       return DefaultNavbar;

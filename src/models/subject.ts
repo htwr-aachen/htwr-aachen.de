@@ -1,8 +1,8 @@
-import type { StringInstitutes } from "./institutes";
+import type { Institutes } from "./institutes";
 
 export type Subject = {
   name: string;
-  institute: StringInstitutes;
+  institute: Institutes;
   teachingDir: string;
   displayName: string;
   fullName?: string;

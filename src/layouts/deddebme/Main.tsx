@@ -1,22 +1,19 @@
 import type { ReactNode } from "@mdx-js/react/lib";
 
 import { getNavbarConfig } from "@/data/layout";
-import { getInstituteByName } from "@/lib/institutes";
-import type { StringInstitutes } from "@/models/institutes";
+import type { Institutes } from "@/models/institutes";
 
 import DeddebmeNavbar from "./Navbar";
 import { DeddebmeSidenav } from "./Sidenav";
 
 type DeddebmeLayoutProps = {
   children: ReactNode;
-  institute?: StringInstitutes;
+  institute?: Institutes;
 };
 
 // Layout for deddebme(embedded) pages
 export default function DeddebmeLayout(props: DeddebmeLayoutProps) {
-  const navbarConfig = getNavbarConfig(
-    getInstituteByName(props.institute || "deddebme")
-  );
+  const navbarConfig = getNavbarConfig(props.institute || "DEDDEBME");
   return (
     <div className="">
       <DeddebmeNavbar config={navbarConfig} />

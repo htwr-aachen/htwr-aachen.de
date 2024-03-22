@@ -6,7 +6,8 @@ import {
   getNextInstitute,
   getPrevInstitute,
 } from "@/lib/institutes";
-import { Institutes } from "@/models/institutes";
+import type { Institutes } from "@/models/institutes";
+import { INSTITUTES_LENGTH, INSTITUTES_MAP } from "@/models/institutes";
 
 type InstituteSwitchesProps = {
   institute: Institutes;
@@ -50,11 +51,11 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
       return links;
     }
 
-    if (!institute || institute >= Institutes.__LENGTH) {
-      institute = Institutes.HTWR;
+    if (!institute || INSTITUTES_MAP[institute] >= INSTITUTES_LENGTH) {
+      institute = "HTWR";
     }
 
-    if (institute === Institutes.HTWR) {
+    if (institute === "HTWR") {
       return [];
     }
 
