@@ -27,6 +27,17 @@ const Index: FC = () => {
       <Gallery>
         <GalleryItem>
           <GalleryImage
+            src={"/assets/other/bluecard-extended.jpg"}
+            alt="Bluecard??"
+            width={900}
+            height={600}
+          ></GalleryImage>
+          <GalleryLabel headline="Ich kann das alles nichtmehr">
+            Warum zwei Farben? Warum alles?
+          </GalleryLabel>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src={"/assets/rwth/gallery/star.png"}
             alt="GitHub Stars 👉️👈️?"
             width={600}
