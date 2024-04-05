@@ -2,9 +2,10 @@
 // This will be used when displaying content that is not directly related to RWTH or its chairs/institues (docs, blog,...)
 
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import HTWRIcon from "@/components/icons/htwr";
-import { ReactNode } from "react";
+
 import NavMenu from "./nav";
 
 export function Header(props: {
@@ -13,7 +14,7 @@ export function Header(props: {
   prefix: string;
 }) {
   return (
-    <header className="bg-background text-foreground grid grid-cols-[1fr_auto] px-16 py-6">
+    <header className="fixed top-0 z-50 grid h-36 w-full grid-rows-2 gap-6 border-b border-neutral-200 bg-background/[0.6]  px-16 py-6 text-foreground backdrop-blur-sm dark:border-white/[0.1] md:h-20 md:grid-cols-[1fr_auto] md:grid-rows-1">
       <div className="flex flex-row items-center text-neutral-100">
         <Link href="/">
           <HTWRIcon height={30}></HTWRIcon>

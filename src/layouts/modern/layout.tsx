@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 import { Header } from "./nav/header";
-import { useTheme } from "next-themes";
 
 const Modern = (props: {
   children: ReactNode;
@@ -10,9 +9,9 @@ const Modern = (props: {
   nav: ReactNode;
 }) => {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header name={props.name} prefix={props.prefix} nav={props.nav} />
-      {props.children}
+      <div className="pt-40 md:pt-24">{props.children}</div>
     </div>
   );
 };

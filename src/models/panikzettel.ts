@@ -1,7 +1,8 @@
 export type Panikzettel = {
   name: string;
-  type: string;
+  type: "pf" | "wpf" | "af";
   filename: string;
   url: string;
   semester?: number;
+  shortname?: string;
 };

@@ -63,7 +63,7 @@ const navigationMenuTriggerStyle = cva(
 );
 
 const invertedNavigationMenuTriggerStyle = cva(
-  "data-[active]:bg-accent-foreground/85 data-[state=open]:bg-accent-foreground/85 group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-accent-foreground px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-foreground/75 hover:text-accent focus:bg-accent-foreground/75 focus:text-accent focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+  "group relative inline-flex h-10 w-max items-center justify-center rounded-md bg-accent-foreground px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-foreground/75 hover:text-accent focus:bg-accent-foreground/75 focus:text-accent focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent-foreground/85 data-[state=open]:bg-accent-foreground/85"
 );
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
@@ -76,7 +76,7 @@ const NavigationMenuTrigger = React.forwardRef<
   >
     {children}{" "}
     <ChevronDown
-      className="relative top-[1px] ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
+      className="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
       aria-hidden="true"
     />
   </NavigationMenuPrimitive.Trigger>

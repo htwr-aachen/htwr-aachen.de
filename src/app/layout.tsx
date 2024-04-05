@@ -3,12 +3,13 @@ import "@/styles/simple.scss";
 
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 import type { FC } from "react";
 
+import { ThemeProvider } from "@/components/theme-provider";
 import AppMain from "@/layouts/AppMain";
 import { cn } from "@/lib/utils";
 import { AppConfig, BaseURL } from "@/utils/AppConfig";
-import { ThemeProvider } from "@/components/theme-provider";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -32,6 +33,21 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+const lmserif = localFont({
+  src: [
+    {
+      path: "../../public/lmroman10-regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/lmroman10-bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-lmserif",
+});
 export const metadata: Metadata = {
   title: {
     template: "%s - HTWR",
@@ -112,7 +128,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       </head>
       <body
         className={cn(
-          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${hkGrotesk.variable}`
+          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable} ${hkGrotesk.variable}`
         )}
       >
         <AppMain>
