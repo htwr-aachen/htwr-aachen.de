@@ -1,13 +1,14 @@
 import "@/styles/global.css";
 import "@/styles/simple.scss";
+import "@fontsource-variable/hanken-grotesk";
 
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Inter, Roboto } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import type { FC } from "react";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import AppMain from "@/layouts/AppMain";
+import { PushNotifyProvider } from "@/layouts/SharedPushNotify";
 import { cn } from "@/lib/utils";
 import { AppConfig, BaseURL } from "@/utils/AppConfig";
 
@@ -16,15 +17,18 @@ type RootLayoutProps = {
 };
 
 // main typeface
-const hkGrotesk = Hanken_Grotesk({
-  subsets: ["latin", "latin-ext"],
+/* const hkGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-hk-grotesk",
-});
+  display: "swap",
+}); */
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
 });
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -49,10 +53,6 @@ const lmserif = localFont({
   variable: "--font-lmserif",
 });
 export const metadata: Metadata = {
-  title: {
-    template: "%s - HTWR",
-    default: AppConfig.title,
-  },
   icons: [
     {
       rel: "apple-touch-icon",
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html className="light" lang={AppConfig.locale}>
+    <html suppressHydrationWarning lang={AppConfig.locale}>
       <head>
         <link
           rel="stylesheet"
@@ -128,19 +128,19 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       </head>
       <body
         className={cn(
-          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable} ${hkGrotesk.variable}`
+          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable}`
         )}
       >
-        <AppMain>
+        <PushNotifyProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem={false}
             disableTransitionOnChange
           >
-            {children}
+            <div className="min-h-screen">{children}</div>
           </ThemeProvider>
-        </AppMain>
+        </PushNotifyProvider>
       </body>
     </html>
   );

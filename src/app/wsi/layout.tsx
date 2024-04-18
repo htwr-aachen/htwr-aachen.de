@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import type { FC } from "react";
+import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
-type WSILayoutProps = {
-  children: React.ReactNode;
-};
+import { institute } from "./config";
+import { navbar } from "./navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -51,8 +50,10 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
 
-const WSILayout: FC<WSILayoutProps> = ({ children }) => {
-  return <Main institute="WSI">{children}</Main>;
-};
-
-export default WSILayout;
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <Main institute={institute} navbar={navbar}>
+      {children}
+    </Main>
+  );
+}

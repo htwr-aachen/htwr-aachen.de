@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/syscom/Main";
 
 export const metadata: Metadata = {
   title: {
@@ -42,5 +42,5 @@ export const viewport: Viewport = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="SYSCOM">{props.children}</Main>;
+  return <Main institute="syscom">{props.children}</Main>;
 }

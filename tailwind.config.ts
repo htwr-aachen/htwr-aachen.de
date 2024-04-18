@@ -18,7 +18,7 @@ const config = {
       mono: ["monospace"],
       roboto: ["var(--font-roboto)", "sans-serif"],
       sans: [
-        "var(--font-hk-grotesk)",
+        "Hanken Grotesk Variable",
         "var(--font-inter)",
         "var(--font-roboto)",
         "sans-serif",
@@ -92,6 +92,9 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      borderWidth: {
+        "1": "1px",
       },
       keyframes: {
         "accordion-down": {

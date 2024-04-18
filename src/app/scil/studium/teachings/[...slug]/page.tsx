@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 
-import RossmanithQuiz from "@/components/teachings/Quizes/Rossmanith";
-import TeachingView from "@/components/teachings/View";
-import type { SubjectNames } from "@/data/subjects";
-import { getTeaching, getTeachingsMetadata } from "@/lib/teaching";
+import RossmanithQuiz from "@/components/summaries/components/quizzes/Rossmanith";
+import SummaryView from "@/components/summaries/view";
+import type { Subjects } from "@/config/subjects";
+import { getSummariesMetadata, getSummary } from "@/lib/summaries";
 
-const subject: SubjectNames = "buk";
+const subject: Subjects = "buk";
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div>
-      <TeachingView
+      <SummaryView
         subject={subject}
         slug={params.slug}
-        components={[RossmanithQuiz]}
-      ></TeachingView>
+        components={{ RossmanithQuiz }}
+      ></SummaryView>
     </div>
   );
 }
 
 export async function generateStaticParams() {
-  const teachings = await getTeachingsMetadata(subject);
+  const teachings = await getSummariesMetadata(subject);
 
   return teachings.map((t) => ({
     slug: t.slug,
@@ -32,22 +32,20 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta, url } = await getTeaching(params.slug, subject);
+  const { meta, url } = await getSummary(params.slug, subject);
 
-  const authors = Array.isArray(meta.author) ? meta.author : [meta.author];
-  const images = Array.isArray(meta.images) ? meta.images : [meta.images];
   return {
     title: meta.fullTitle,
     description: meta.description,
     twitter: {
       title: meta.fullTitle,
       description: meta.description,
-      images: images.map((image) => ({
+      images: meta.images.map((image) => ({
         url: image.src,
       })),
       card: "summary",
     },
-    authors: authors.map((x) => ({ name: x })),
+    authors: meta.authors.map((x) => ({ name: x })),
     alternates: {
       canonical: url,
     },

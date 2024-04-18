@@ -69,7 +69,7 @@ const SharedPushNotify = () => {
         <Link href="/updates">Wo Klausuren?</Link>
       </p>
       <button
-        className="min-h-10 bg-white/40 px-4 py-2 hover:bg-white/60 lg:h-[80%] xl:absolute xl:right-10"
+        className="min-h-10 bg-white/40 px-4 py-2 hover:bg-white/60 lg:h-4/5 xl:absolute xl:right-10"
         onClick={() => setShow(false)}
       >
         Nerv nicht

@@ -1,7 +1,4 @@
-
-import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
 import type { LayoutProps } from "@/models/layout";
@@ -13,10 +10,9 @@ type SYSCOMSProps = LayoutProps;
 
 export function Main(props: SYSCOMSProps) {
   return (
-    <div className="text-black bg-white">
+    <div className="bg-white text-black">
       <div className="mx-auto px-1 text-gray-700 antialiased md:max-w-[910px]">
         <SYSCOMHead />
-        {props.meta}
         <div className="md:max-w-{910px}">
           <SYSCOMNavbar />
 
@@ -26,9 +22,7 @@ export function Main(props: SYSCOMSProps) {
         </div>
       </div>
       <footer className="lg:py-20">
-        <InstituteSwitches
-          institute={props.institute}
-        />
+        <InstituteSwitches institute={props.institute} />
         <div className=" z-50 text-center text-sm">
           Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
           <Link href={"/impressum"}>Impressum </Link> &{" "}

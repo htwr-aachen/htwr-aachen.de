@@ -3,15 +3,15 @@ import Link from "next/link";
 import { join } from "path";
 
 import { HeadLine } from "@/components/rwth/headline";
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 import { getAllDocsFromDir } from "@/lib/documents";
 
 import { MaterialienSchnellzugriff } from "../../Schnellzugriff";
 
 async function getData() {
   const folien = getAllDocsFromDir(
-    join(process.cwd(), "public", "teaching-assets", "wsi", "folien"),
-    "/teaching-assets/wsi/folien",
+    join(process.cwd(), "public", "content-assets", "stocha", "Folien"),
+    "/content-assets/stocha/Folien",
     false
   );
 
@@ -47,7 +47,7 @@ export default async function TeachingsPage() {
             <li>
               <a
                 target={"_blank"}
-                href="/teaching-assets/wsi/folien-merged.pdf"
+                href="/content-assets/stocha/folien-merged.pdf"
               >
                 Folienmerge
               </a>
@@ -55,7 +55,7 @@ export default async function TeachingsPage() {
             <li>
               <a
                 target={"_blank"}
-                href="/teaching-assets/wsi/formelsammlung.pdf"
+                href="/content-assets/stocha/formelsammlung.pdf"
               >
                 Formelsammlung
               </a>
@@ -101,7 +101,7 @@ export default async function TeachingsPage() {
               </a>
               ): <br />
               <a
-                href="/teaching-assets/wsi/zusammenfassung.pdf"
+                href="/content-assets/stocha/zusammenfassung.pdf"
                 target="_blank"
               >
                 pdf
@@ -174,7 +174,7 @@ export default async function TeachingsPage() {
           </p>
 
           <ul className="list-disc px-4 pt-8 lg:pl-8">
-            <TeachingList subject="stocha" />
+            <SummaryList subject="stocha" />
           </ul>
         </div>
         <MaterialienSchnellzugriff />

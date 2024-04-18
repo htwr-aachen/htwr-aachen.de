@@ -1,27 +1,34 @@
 import type { ReactNode } from "@mdx-js/react/lib";
 
-import { getNavbarConfig } from "@/data/layout";
-import type { Institutes } from "@/models/institutes";
+import InstituteSwitches from "@/components/InstituteSwitches";
+import type { Institutes } from "@/config/institutes";
+import type { NavbarConfig } from "@/models/layout";
 
-import DeddebmeNavbar from "./Navbar";
-import { DeddebmeSidenav } from "./Sidenav";
+import { DefaultDeddebmeNavbar } from "./default-navbar";
+import DeddebmeNavbar from "./navbar/Navbar";
+import { DeddebmeSidenav } from "./navbar/Sidenav";
 
 type DeddebmeLayoutProps = {
   children: ReactNode;
-  institute?: Institutes;
+  institute: Institutes;
+  navbar?: NavbarConfig;
 };
 
 // Layout for deddebme(embedded) pages
-export default function DeddebmeLayout(props: DeddebmeLayoutProps) {
-  const navbarConfig = getNavbarConfig(props.institute || "DEDDEBME");
+export default function DeddebmeLayout({
+  children,
+  institute,
+  navbar = DefaultDeddebmeNavbar,
+}: DeddebmeLayoutProps) {
   return (
-    <div className="">
-      <DeddebmeNavbar config={navbarConfig} />
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <DeddebmeNavbar config={navbar} />
       <div className="mx-auto grid max-w-6xl antialiased md:grid-cols-[auto_1fr]">
-        <DeddebmeSidenav config={navbarConfig} />
+        <DeddebmeSidenav config={navbar} />
 
-        <div className="px-5 ">{props.children}</div>
+        <div className="px-5 ">{children}</div>
       </div>
+      <InstituteSwitches institute={institute} />
     </div>
   );
 }

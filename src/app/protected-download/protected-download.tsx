@@ -55,7 +55,7 @@ export const ProtectedDownloadFlow: FC = () => {
           setError(`Es ist irgendwas falsch gelaufen :(${res.status}`);
           break;
       }
-    } catch (e) {
+    } catch (_error) {
       setError(`Es ist irgendwas falsch gelaufen :( `);
     }
   };

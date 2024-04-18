@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function sibdPage() {
   return (
     <div>
-      <HeadLine>DBIS :(</HeadLine>
+      <HeadLine>SIBD :(</HeadLine>
 
       <SIBDSchnellzugriff />
     </div>

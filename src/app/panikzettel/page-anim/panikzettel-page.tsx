@@ -25,7 +25,7 @@ export default function PanikzettelPage({ children }: { children: ReactNode }) {
   return (
     <div
       className={cn(
-        "md:min-h-[1020px] h-full md:min-w-[750px] max-w-[100vw] md:w-auto w-screen md:auto bg-white rounded-lg",
+        "md:min-h-[1020px] h-full md:min-w-[750px] max-w-[100vw] md:w-auto w-screen md:auto bg-white rounded-t-lg",
         lmsans.variable
       )}
     >

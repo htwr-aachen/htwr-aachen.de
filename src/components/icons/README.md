@@ -1,0 +1,3 @@
+# SVG Icons
+
+- HTWR-Logo

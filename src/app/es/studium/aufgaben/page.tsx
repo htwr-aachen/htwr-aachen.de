@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { join } from "path";
 
-import { getAllDocsFromDir } from "@/lib/documents";
-
-const aufgabenPath = join(
-  process.cwd(),
-  "public",
-  "teaching-assets",
-  "es",
-  "aufgaben"
-);
+import { SubjectDocumentList } from "@/components/documents/list";
 
 export const metadata: Metadata = {
   title: "Aufgaben",
@@ -21,12 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const aufgaben = await getAllDocsFromDir(
-    aufgabenPath,
-    "/teaching-assets/es/aufgaben",
-    true
-  );
-
   return (
     <div>
       <h1 className="text-4xl font-light" id="aufgaben">
@@ -36,10 +21,10 @@ export default async function Page() {
         Wenn jemand bessere Lösugen abgeben will:{" "}
         <a
           target={"_blank"}
-          href="mailto:jonas.max.schneider@gmail.com"
+          href="mailto:feedback@htwr-aachen.de"
           rel="noreferrer"
         >
-          jonas.max.schneider@gmail.com
+          feedback@htwr-aachen.de
         </a>{" "}
         oder Discord:{" "}
         <a
@@ -51,18 +36,7 @@ export default async function Page() {
         </a>
       </span>
 
-      <ul className="ml-8 mt-8 list-disc">
-        {aufgaben.map((aufgabe) => {
-          return (
-            <li key={aufgabe.name}>
-              <Link href={aufgabe.url} target={"_blank"}>
-                {aufgabe.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-
+      <SubjectDocumentList subject="swt" rename={true} />
       <span className="mt-5 block">
         Klausuren gibts <Link href={"/es/studium/klausuren"}>hier</Link> und
         Zusammenfassungen <Link href={"/es/studium/teachings"}>hier.</Link>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { HeadLine } from "@/components/rwth/headline";
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
@@ -15,7 +15,7 @@ export default async function Teachings() {
   return (
     <div>
       <HeadLine>Zusammenfasungen</HeadLine>
-      <TeachingList subject="psp" />
+      <SummaryList subject="psp" />
     </div>
   );
 }

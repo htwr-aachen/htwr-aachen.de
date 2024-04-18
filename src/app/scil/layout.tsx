@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
+
+import { navbar } from "./navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -45,5 +47,9 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="scil">{props.children}</Main>;
+  return (
+    <Main navbar={navbar} institute="scil">
+      {props.children}
+    </Main>
+  );
 }

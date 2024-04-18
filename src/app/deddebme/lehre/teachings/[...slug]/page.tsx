@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 
-import TeachingView from "@/components/teachings/View";
-import type { SubjectNames } from "@/data/subjects";
-import { getTeaching, getTeachingsMetadata } from "@/lib/teaching";
+import SummaryView from "@/components/summaries/view";
+import type { Subjects } from "@/config/subjects";
+import { getSummariesMetadata, getSummary } from "@/lib/summaries";
 
-const subject: SubjectNames = "psp";
+const subject: Subjects = "psp";
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div>
-      <TeachingView subject={subject} slug={params.slug}></TeachingView>
+      <SummaryView subject={subject} slug={params.slug}></SummaryView>
     </div>
   );
 }
 
 export async function generateStaticParams() {
-  const teachings = await getTeachingsMetadata(subject);
+  const teachings = await getSummariesMetadata(subject);
 
   return teachings.map((t) => ({
     slug: t.slug,
@@ -27,9 +27,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta, url } = await getTeaching(params.slug, subject);
+  const { meta, url } = await getSummary(params.slug, subject);
 
-  const authors = Array.isArray(meta.author) ? meta.author : [meta.author];
+  const authors = Array.isArray(meta.authors) ? meta.authors : [meta.authors];
 
   return {
     title: meta.fullTitle,
@@ -46,7 +46,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       title: meta.fullTitle,
-      authors: meta.author,
+      authors: meta.authors,
       publishedTime: meta.date,
       siteName: "htwr-aachen",
       url,

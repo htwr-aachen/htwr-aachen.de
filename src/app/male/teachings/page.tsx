@@ -3,15 +3,15 @@ import Link from "next/link";
 import { join } from "path";
 
 import { HeadLine } from "@/components/rwth/headline";
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 import { getAllDocsFromDir } from "@/lib/documents";
 
 import { MaterialienSchnellzugriff } from "../Schnellzugriff";
 
 async function getData() {
   const folien = getAllDocsFromDir(
-    join(process.cwd(), "public", "teaching-assets", "male", "folien"),
-    "/teaching-assets/male/folien",
+    join(process.cwd(), "public", "content-assets", "male", "Folien"),
+    "/content-assets/male/Folien",
     false
   );
 
@@ -48,7 +48,7 @@ export default async function TeachingsPage() {
             <li>
               <a
                 target={"_blank"}
-                href="/teaching-assets/male/folien-merged.pdf"
+                href="/content-assets/male/folien-merged.pdf"
               >
                 Folienmerge
               </a>
@@ -117,7 +117,7 @@ export default async function TeachingsPage() {
           </p>
 
           <ul className="list-disc px-4 pt-8 lg:pl-8">
-            <TeachingList subject="male" />
+            <SummaryList subject="male" />
           </ul>
         </div>
         <MaterialienSchnellzugriff />

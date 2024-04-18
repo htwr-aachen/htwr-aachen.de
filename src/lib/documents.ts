@@ -1,82 +1,131 @@
-import { readdir } from "fs/promises";
+import type { Dirent, Stats } from "fs";
+import { readdir, stat } from "fs/promises";
 import natsort from "natsort";
+import { join } from "path";
 
-import type { SubjectNames } from "@/data/subjects";
-import { APIURL } from "@/utils/AppConfig";
+import { type Subjects, SubjectConfig } from "@/config/subjects";
 
+import { renameDocument } from "./documents/renamer";
 import urlJoin from "./url";
+
+// NEW IMPL
+export type DocumentCollection = {
+  name: string;
+  categories: DocumentCollection[];
+  documents: Document[];
+};
 
 export type Document = {
   name: string;
   url: string;
-  year: number;
+  year?: number;
+  authors?: string;
 };
 
-export type Exam = {
-  name: string;
-  subject: string;
-  filename: string;
-  created: string;
-};
+function documentFromDirent(
+  dirent: Dirent,
+  normalizedParentPath: string[],
+  config: { prefix: string; sort: boolean }
+): Document {
+  return {
+    url: urlJoin(config.prefix, ...normalizedParentPath, dirent.name),
+    name: dirent.name,
+    year: 0,
+    authors: "",
+  };
+}
 
-export async function getExamMeta(subject: SubjectNames): Promise<Exam[]> {
+const sorter = natsort({ insensitive: true });
+
+async function documentCollectionFromDir(
+  path: string,
+  config: { prefix: string; sort: boolean },
+  normalizedPath: string[] = []
+): Promise<DocumentCollection> {
   try {
-    const res = await fetch(urlJoin(APIURL, `/exams?subject=${subject}`), {
-      method: "GET",
-      redirect: "follow",
-      next: {
-        revalidate: 3600, // 1h
-      },
+    const dirents = await readdir(path, {
+      recursive: false,
+      withFileTypes: true,
     });
 
-    if (res.status !== 200) {
-      return [];
-    }
+    const empty: DocumentCollection = {
+      name: "",
+      categories: [],
+      documents: [],
+    };
 
-    const data = await res.json();
-    return data;
-  } catch (e) {
-    return [];
+    const result = await dirents.reduce<Promise<DocumentCollection>>(
+      async (accumulatorPromise, dirent) => {
+        if (dirent.isFile()) {
+          const document = documentFromDirent(dirent, normalizedPath, config);
+          (await accumulatorPromise).documents.push(document);
+          return accumulatorPromise;
+        }
+        if (dirent.isDirectory()) {
+          const category = await documentCollectionFromDir(
+            join(path, dirent.name),
+            config,
+            [...normalizedPath, dirent.name]
+          );
+
+          (await accumulatorPromise).categories.push(category);
+          return accumulatorPromise;
+        }
+
+        return accumulatorPromise;
+      },
+      Promise.resolve(empty)
+    );
+    result.documents.sort((a, b) => sorter(a.name, b.name));
+    result.name = normalizedPath.at(-1) || "";
+
+    return result;
+  } catch {
+    return { documents: [], categories: [], name: "" };
   }
 }
 
-export const getProtectedDownloads = async (
-  subject: SubjectNames
-): Promise<string[]> => {
+/**
+ * @param path - path to the local documents
+ * @param urlPrefix - the prefix to add to the document urls.
+ */
+export async function includeLocalDocuments(
+  path: string,
+  urlPrefix?: string,
+  sorted = true
+): Promise<DocumentCollection> {
+  // overwrite
+  path = join(process.cwd(), "public", "content-assets", path);
+  const documentCollection = await documentCollectionFromDir(path, {
+    prefix: urlPrefix || "",
+    sort: sorted,
+  });
+
+  return documentCollection;
+}
+
+/**
+ *
+ */
+export async function hasDocument(
+  subject: Subjects,
+  relPath: string
+): Promise<[boolean, string, Stats | undefined]> {
+  const path = join(SubjectConfig[subject].documentLocation, relPath);
+  const url = urlJoin(
+    "/content-assets",
+    subject,
+    relPath.replaceAll(/\\/g, "/")
+  );
   try {
-    const exams = await getExamMeta(subject);
-    return exams.map((e) => e.filename);
-  } catch (_err) {
-    return [];
+    const stats = await stat(path);
+    return [true, url, stats];
+  } catch {
+    return [false, url, undefined];
   }
-};
+}
 
-const replacer = (file: string): string => {
-  const definition = file.substring(0, 2);
-  const rest = file
-    .substring(2)
-    .replace("wdh", "Wiederholungsklausur")
-    .replace("lsg", "mit Lösung")
-    .replace("pro", "Probe")
-    .replaceAll("-", " ")
-    .replaceAll("_", " ");
-
-  switch (definition) {
-    case "VL":
-    case "vl":
-      return `Vorlesung ${rest}`;
-    case "ue":
-      return `Übung ${rest}`;
-    case "gl":
-      return `Globalübung (Glob) ${rest}`;
-    case "ss":
-      return `Sommersemester ${rest}`;
-    case "ws":
-      return `Wintersemester ${rest}`;
-    default:
-      return file;
-  }
-};
+// OLD
 
 export async function getAllDocsFromDir(
   dir: string,
@@ -87,7 +136,7 @@ export async function getAllDocsFromDir(
     let docs: Document[] = [];
     const files = await readdir(dir, { withFileTypes: true });
     docs = files.map((file) => {
-      const name = replaceWords ? replacer(file.name) : file.name;
+      const name = replaceWords ? renameDocument(file.name) : file.name;
       return {
         name,
         url: `${urlPrefix}/${file.name}`,
@@ -95,11 +144,10 @@ export async function getAllDocsFromDir(
       };
     });
 
-    const sorter = natsort({ insensitive: true });
     docs.sort((a, b) => sorter(a.name, b.name));
 
     return docs;
-  } catch (err) {
+  } catch (_error) {
     return [];
   }
 }

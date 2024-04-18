@@ -5,33 +5,41 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-import type { FC, ReactChild, ReactNode } from "react";
+import { type FC, type ReactChild, type ReactNode, forwardRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 
-type GalleryImageProps = ImageProps;
+import { cn } from "@/lib/utils";
 
-const GalleryImage: FC<GalleryImageProps> = (props) => {
+function GalleryImage(props: ImageProps) {
   return (
     <div className="relative h-full w-auto overflow-hidden">
-      <Image // eslint-disable-line jsx-a11y/alt-text
-        className="absolute left-[50%] top-[50%] block w-auto -translate-x-1/2 -translate-y-1/2 object-fill"
+      <Image
         {...props}
+        className={cn(
+          "absolute left-1/2 top-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
+          props.className
+        )}
+        alt={props.alt}
       ></Image>
     </div>
   );
-};
+}
 
-type GalleryItemProps = {
-  children?: ReactNode;
-};
-
-const GalleryItem: FC<GalleryItemProps> = ({ children }) => {
-  return (
-    <div className="grid h-[500px] grid-rows-[1fr_auto] overflow-hidden">
-      {children}
-    </div>
-  );
-};
+const GalleryItem = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    role="img"
+    className={cn(
+      "grid lg:h-[650px] h-[450px] grid-rows-[1fr_auto] overflow-hidden",
+      className
+    )}
+    {...props}
+  />
+));
+GalleryItem.displayName = "GalleryItem";
 
 type GalleryLabelProps = {
   children?: ReactNode;
@@ -148,7 +156,7 @@ const Gallery: FC<GalleryProps> = ({ children }) => {
       infiniteLoop
       className="w-full"
       showIndicators={false}
-      swipeable={false}
+      swipeable={true}
       autoPlay
       interval={5000}
       showThumbs={false}

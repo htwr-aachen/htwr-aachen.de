@@ -1,8 +1,6 @@
-import { useMemo } from "react";
+import { type Institutes, InstituteConfig } from "@/config/institutes";
+import type { Institute } from "@/models/institutes";
 
-import { getInstituteConfig } from "@/lib/institutes";
-import type { Institutes } from "@/models/institutes";
-
-export function useInstituteConfig(institute: Institutes) {
-  return useMemo(() => getInstituteConfig(institute), [institute]);
+export function useInstituteConfig(institute: Institutes): Institute {
+  return InstituteConfig[institute];
 }

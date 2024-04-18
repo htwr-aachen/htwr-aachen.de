@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
  * @param {string} prefix - The prefix that should be used to check
  * @returns {bool} The result. `true` -> the address /prefix/{...}. `false` otherwise
  */
-export function useIsActive(prefix: string): bool {
+export function useIsActive(prefix: string): boolean {
   if (prefix === "") prefix = "/";
 
   const pathname = usePathname();

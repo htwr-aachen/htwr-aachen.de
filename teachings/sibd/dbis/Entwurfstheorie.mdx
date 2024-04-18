@@ -17,19 +17,21 @@ tags:
 # Entwurfstheorie
 
 ## Abhängigkeiten
-Sei $X$ die Attributenmenge einer Relation $R$. Eine Abhängigkeit ist eine relation $\alpha \to \beta, \alpha, \beta \subseteq X$. Also $\beta$ ist funktional abhängig von $\alpha$.
+
+Sei $X$ die Attributenmenge einer Relation $R$. Eine Abhängigkeit ist eine Relation $\alpha \to \beta, \alpha, \beta \subseteq X$. Also $\beta$ ist funktional abhängig von $\alpha$.
 also gdw. $r.a = t.a \implies r.b = t.b$ für alle $r,t \in R$.
 
-Hier kommt dann die Notation auf 
+Hier kommt dann die Notation auf
+
 - $\{ A,B \} \to \{ C \}$ bzw. $A,B \to C$
 
 Hiermit können wir nun Schlüssel gut definieren:
 
 - Eindeutigkeit
-$\alpha \subseteq X$ heißt Superschlüssel, falls $\alpha \to X$ gilt.
+  $\alpha \subseteq X$ heißt Superschlüssel, falls $\alpha \to X$ gilt.
 
 - Minimalität
-$\beta \subseteq X$ heißt voll funktional abhängig von $\alpha$ falls:
+  $\beta \subseteq X$ heißt voll funktional abhängig von $\alpha$ falls:
   - $\alpha \to \beta$ gilt
   - $\alpha - {A} \nrightarrow \beta$ für alle $A \in \alpha$ also $\alpha$ ist minimal.
 
@@ -40,6 +42,7 @@ Und der Primärschlüssel ist dann ein Schlüsselkandidat, der minimal ist.
 
 Bestimmung funktionaler Abhängigkeiten:
 Seien $\alpha, \beta, \gamma \subseteq X$.
+
 - Reflexivität: $\beta \subseteq \alpha \implies \alpha \to \beta$
 - Verstärkung: $\alpha \to \beta \implies \alpha \cup \gamma \to \beta \cup \gamma$
 - Transitivität: $\alpha \to \beta, \beta \to \gamma \implies \alpha \to \gamma$
@@ -48,14 +51,15 @@ Eine Abhängigkeit ist ableitbar, falls es eine Folge gibt von Abhängigkeiten, 
 $F \vdash f$
 
 Erweiteruingen:
+
 - Vereinigung: $\alpha \to \beta, \alpha \to \gamma \implies \alpha \to \beta \gamma$
 - Dekomposition: $\alpha \to \beta \gamma \implies \alpha \to \beta, \alpha \to \gamma$
 - Pseudotransitivität: $\alpha \to \beta, \gamma \beta \to \delta \implies \alpha \gamma \to \delta$
 
-
 Hieraus bildet man dann die **Attributhülle**.
 
 Beispiel: $F=\{ A \to C, B \to A, AB \to C \}$
+
 - AttrHülle(F, \{B\})
 
 Anfang: $\{B\}$
@@ -71,9 +75,9 @@ Alle Normalformen setzten die vorherige vorraus. Also 2NF setzt 1NF vorraus. 3NF
 - 0NF: Nicht normalisiert. Alles steht in einer einzigen Tabelle und ist nicht aufgeteilt.
 - 1NF: Alle Attribute haben atomare Werte (String, Integer, etc.). z.B. Name => Vorname, Nachname | Adresse => Straße, Hausnummer, PLZ, Ort
 - 2NF: Alle Attribute sind voll funktional abhängig vom Primärschlüssel. z.B. Menge ist voll funktional abhängig vom Bestellungs Nr. & Artikel Nr.
-- 3NF: Kein Nichtschlüsselattribut hängt transitiv von einem Schlüsselkandidaten ab. Bsp: Ort => PLZ => Kunden Nr. Ort ist transitiv abhängig von Kunden Nr. Somit neue Relation mit PLZ und Ort. (Synthesealgorithmus) 
+- 3NF: Kein Nichtschlüsselattribut hängt transitiv von einem Schlüsselkandidaten ab. Bsp: Ort => PLZ => Kunden Nr. Ort ist transitiv abhängig von Kunden Nr. Somit neue Relation mit PLZ und Ort. (Synthesealgorithmus)
 - BCNF: Jede Information wird genau einmal gespeichert (Dekompositionsalgorithmus)
-
 
 Im Endeeffekt das hier:
 https://normalizer.db.in.tum.de/index.py
+

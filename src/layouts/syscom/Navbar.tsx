@@ -3,34 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useContext, type Dispatch, type SetStateAction } from "react";
 
+import { FacultiesButton } from "@/components/faculties-nav/button";
 import { useInstituteActive } from "@/hooks/layout";
 
 import { MenuButton } from "./MenuButton";
-import { FacultiesNavContext } from "../faculties-nav/nav";
 
-type SYSCOMNavbarProps = {
-};
+type SYSCOMNavbarProps = {};
 
-export default function SYSCOMNavbar(props: SYSCOMNavbarProps) {
+export default function SYSCOMNavbar(_props: SYSCOMNavbarProps) {
   const pathname = usePathname();
   const isActive = useInstituteActive("syscom");
-  const [_open, setOpen] = useContext(FacultiesNavContext)
 
   return (
     <div className="pt-3">
       <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
         <div className="self-center justify-self-center">
-          <button
-            type="button"
-            className="m-2 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
-            onClick={() => {
-              setOpen((x) => !x);
-            }}
-          >
-            Fakultäten & Institute
-          </button>
+          <FacultiesButton asChild>
+            <button className="m-2 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300">
+              Fakultäten & Institute
+            </button>
+          </FacultiesButton>
           <Link href="/syscom" className="no-b">
             <Image
               src={"/assets/syscom/syscom.png"}

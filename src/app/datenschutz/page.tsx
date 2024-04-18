@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { FC } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
 export const metadata: Metadata = {
   title: "Wehe einer schickt mir nen Brief - Datenschutz",

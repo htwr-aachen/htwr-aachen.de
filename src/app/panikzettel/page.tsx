@@ -1,4 +1,5 @@
-import { Info } from "lucide-react";
+import { FileQuestion, Info } from "lucide-react";
+import Link from "next/link";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import urlJoin from "@/lib/url";
@@ -93,13 +94,24 @@ export default async function Page() {
         </SkewedPanikzettelFrontpage>
       </div>
       <svg
-        className="h-[150px] w-screen fill-white"
+        className="h-[150px] w-screen -translate-y-3 fill-white"
         preserveAspectRatio="none"
         viewBox="0 0 1920 350"
       >
         <path d="M 1920,0 1380.2201,158.73457 1343.4624,30.641294 934.85444,266.96729 883.31522,37.415096 312.94679,322.66254 211.46135,75.046817 0,311.04763 V 0 Z" />
       </svg>
       <div className="max-w-prose px-4 py-24 md:mx-auto">
+        <Alert className="mb-7">
+          <FileQuestion className="mr-2 size-5" />
+          <AlertTitle>Mitmachen?!</AlertTitle>
+          <AlertDescription>
+            Schau mal bei dem{" "}
+            <a href="https://git.rwth-aachen.de/jonas.max.schneider/panikzettel">
+              Repository
+            </a>{" "}
+            oder der <Link href="/docs/panikzettel">Dokumenation</Link> vorbei.
+          </AlertDescription>
+        </Alert>
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold">
           Updates & Neuigkeiten
         </h2>

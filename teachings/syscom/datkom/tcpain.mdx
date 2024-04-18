@@ -133,7 +133,7 @@ Zusätzlich zu dem Sendefenster, gibt es noch das Congestion Window (_cwnd_). Da
 Aber statt das Auto zu reparieren wenn die Kupplung abgefahren ist, kann auch einfach besser Autofahren $\Rightarrow$ TCP kann auch langsamer fahren und macht somit Congestion Avoidance.
 
 <div className="center">
-  ![tcp-slow-start](/teaching-assets/syscom/tcp-slow-start.png)
+  ![tcp-slow-start](/summary-assets/syscom/tcp-slow-start.png)
 </div>
 
 Das ist zwar viel, aber im Prinzip tastet es sich von 1 _MSS_ zu 2 _MSS_ zu 4 _MSS_ usw. vor, bis _ssthresh_ erreicht ist. dann erhöht man _cwnd_ um 1 _MSS_ pro RTT (Round Trip Time) (linear).

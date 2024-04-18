@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { type FC, useMemo } from "react";
 
-import {
-  getInstituteConfig,
-  getNextInstitute,
-  getPrevInstitute,
-} from "@/lib/institutes";
-import type { Institutes } from "@/models/institutes";
-import { INSTITUTES_LENGTH, INSTITUTES_MAP } from "@/models/institutes";
+import { type Institutes, InstituteConfig } from "@/config/institutes";
+import { getNextInstitute, getPrevInstitute } from "@/lib/institutes";
 
 type InstituteSwitchesProps = {
   institute: Institutes;
@@ -51,11 +46,7 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
       return links;
     }
 
-    if (!institute || INSTITUTES_MAP[institute] >= INSTITUTES_LENGTH) {
-      institute = "HTWR";
-    }
-
-    if (institute === "HTWR") {
+    if (!institute || institute === "htwr") {
       return [];
     }
 
@@ -63,12 +54,12 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
     const next = getNextInstitute(institute);
     links = [
       {
-        name: getInstituteConfig(prev).name,
-        url: getInstituteConfig(prev).href,
+        name: InstituteConfig[prev].name,
+        url: InstituteConfig[prev].href,
       },
       {
-        name: getInstituteConfig(next).name,
-        url: getInstituteConfig(next).href,
+        name: InstituteConfig[next].name,
+        url: InstituteConfig[next].href,
       },
     ];
 
