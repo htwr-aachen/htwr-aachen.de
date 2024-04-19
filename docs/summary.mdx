@@ -11,7 +11,7 @@ Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht
 
 ```
 src/
-└── teachings/
+└── summaries/
     └── cigol/
         └── malo/
             ├── ASKompaktheitssatz.mdx
@@ -27,15 +27,13 @@ src/
 
 </div>
 
-## Grober Überblick
+### Grober Überblick
 
 Alle Zusammenfassungen auf HTWR werden mittles `.mdx` Datei geschrieben. Im Grunde einfach `Markdown` wie ihr es aus z.B. Obsidian kennt,
 bloß mit zusätzlichen features wie Javascript support und wichtiger für HTWR custom react component support.
 
 HTWR erkennt für bestehende Fächer automatisch neue Dateien im entsprechenden Fach ordner.
-Die Sortierung ist einleuchtent src -> teachings -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
-
-## Syntax & Semantik
+Die Sortierung ist einleuchtent src -> summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
 
 HTWR unterstützt die GitHub Markdown syntax inclusive
 
@@ -52,35 +50,3 @@ main = putStrLn "Hello, World!"
 für Code-Highlighting und
 \$ \sum\_\{k=1\}^n k = \frac\{n(n+1)\}\{2\} \$ wird zu $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
 für LaTex Mathe. Sobald es möglich wird möchte ich auch typst einbinden, habe dafür aber noch nichts gefunden.
-
-### Metadaten
-
-Die einzelnen Dateien enthalten Metadaten mittles Frontmatter
-
-```md
----
-# src/teachings/cigol/malo/ASKompaktheitssatz.mdx
-title: TKKG und der rätselhafte Kompaktheitssatz
-order: 2
-description: In dieser Folge von TKKG müssen die vier Freunde ein Rätsel lösen, ob eine scheiß Formelmenge jetzt erfüllbar ist oder nicht
-author: Jonas Schneider
-date: 14/08/2023
-tags: [Kompaktheitssatz]
----
-
-# Kompaktheitssatz
-
-[...]
-```
-
-Folgendes fällt auf:
-
-- Wie ihr seht wird hier auch der tatsächliche `title` angegeben der dann statt dem Dateinamen genutzt wird.
-- `order` ist schafft eine Reihenfolge der Artikel, die auch in der [Übersicht](/cigol/studium/teachings) zu sehen ist. Falls order weggelassen wird, wird der Wert 9999 genutzt.
-- `description` wird Hauptsächlich beim versenden der Seite (z.B. über discord) angezeigt. Hat aber auch für Herrn Dr. Google eine Bedeutung.
-- `author`/ `authors` können beide benutzt werden z.B. ginge auch `author: ["a", "b"]` oder `authors: ["a", "b"]` aber auch `authors: a, b, Detlef`
-- `date` ist selbsterklärend
-- `tags` sind einfach eine Liste die auch in der Übersicht zu sehen sind. Sie sind auch SEO relevant
-- `fullTitle` falls eine Längere Form des Titels gewünscht ist, die in der Übersicht nicht angezeigt werden sollte
-
-## Neue Zusammenfassungen erstellen

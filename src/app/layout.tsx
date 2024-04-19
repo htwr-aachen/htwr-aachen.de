@@ -7,10 +7,10 @@ import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import type { FC } from "react";
 
+import { BannerNotifyProvider } from "@/components/banner-provider";
 import { ThemeProvider } from "@/components/theme-provider";
-import { PushNotifyProvider } from "@/layouts/SharedPushNotify";
+import { AppConfig, BaseURL } from "@/config/app";
 import { cn } from "@/lib/utils";
-import { AppConfig, BaseURL } from "@/utils/AppConfig";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -131,7 +131,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable}`
         )}
       >
-        <PushNotifyProvider>
+        <BannerNotifyProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -140,7 +140,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           >
             <div className="min-h-screen">{children}</div>
           </ThemeProvider>
-        </PushNotifyProvider>
+        </BannerNotifyProvider>
       </body>
     </html>
   );

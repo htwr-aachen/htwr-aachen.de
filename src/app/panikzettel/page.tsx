@@ -2,9 +2,9 @@ import { FileQuestion, Info } from "lucide-react";
 import Link from "next/link";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { APIURL } from "@/config/app";
 import urlJoin from "@/lib/url";
 import type { Panikzettel } from "@/models/panikzettel";
-import { APIURL } from "@/utils/AppConfig";
 
 import { PANIKZETTEL_EMAIL, PANIKZETTEL_REPO_URL } from "./config";
 import PanikzettelPage from "./page-anim/panikzettel-page";

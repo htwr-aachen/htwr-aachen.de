@@ -4,89 +4,21 @@ title: Frontend Docs
 
 # Frontend development
 
-Alle sagen es sei einfach, aber es ist _einfach_ nur (unnötig) kompliziert. Aber es macht Spaß, man kann wenigstens sehen was man erschafft.
+![Busy Waiting](https://i.pinimg.com/736x/d5/6a/86/d56a86e19872599a7327ef1700f97023.jpg)
 
-[HTWR-aachen.de](/) nutzt [`React`](https://react.dev) und [`Nextjs`](https://nextjs.org) als Bibliothek und Framework.
-Ich werde hier keine so gute Einführung in die beiden Sachen geben können wie sie selber, deswegen guckt da mal vorbei.
+Gehe zurück auf Start und nehme 100 $ von der Bank
 
-HTWR ist in verschiedene Lehrstühle/Institute (`inistitues`) aufgegliedert ähnlich wie es die Informatik auch ist.
+- [Einführung HTWR Frontend development](/docs/frontend/intro)
+- [Sehr nützliche Components](/docs/frontend/components)
 
-<Alert>
-  <Info className="size-5 mr-2" />
-  <AlertTitle>Lehrstühle vs Institute</AlertTitle>
-  <AlertDescription>
-    Tatsächlich sind Institute ein oder mehrere Lehrstühle die sich zusammen
-    getan haben. Ein Lehrstuhl ist einfach nur die Stelle eines Professors.
-  </AlertDescription>
-</Alert>
+#### Wie mache ich etwas richtig?
 
-Die Institute unterrichten dann mehrere Fächer (`subjects`) die dann bei HTWR aufgearbeitet werden.
-Jedoch, können Fächer auch von mehreren Instituten zusammen gemacht sein.
+Ich werde bald mehr genauer spezifizieren.
+Aber zunächst angefangen mit den URLs:
 
-Also ergibt sich so ein Modell
+- [URL Spezifikation](/docs/frontend/url-spezifikation)
 
-```ts
-// src/models/institute.ts
-export type Institute = {
-  name: Institutes;
-  professor: string;
-  fullName: string;
-  href: string;
-  // {... etc.}
-};
+## Guides
 
-// src/models/subjects.ts
-export type Subject = {
-  name: string;
-  institutes: Institutes[];
-  displayName: string;
-  fullName?: string;
-  articlesURL: string;
-  articlesPath: string;
-};
-```
-
-## Grundlagen
-
-HTWR benutzt den halbwegs neuen _App Router_ von Nextjs, dass bedeutet in `/src/app` werden alle URL Pfade als Order definiert.
-In jedem Order befindet sich dann eine `page.tsx` Datei, die die Seite rendert.
-
-<Alert>
-  <Info className="size-5 mr-2" />
-  <AlertTitle>Server vs Client Component</AlertTitle>
-  <AlertDescription>
-    Die Seite ist im normalfall ein Server Component, kann aber, falls
-    Interaktion gewünscht ist (z.B. durch `useState`) in ein Client Component
-    verwandelt werden. Lest euch die [Next
-    Dokumentation](https://nextjs.org/docs/app/building-your-application/rendering)
-    durch.
-  </AlertDescription>
-</Alert>
-
-Das Seite wird dann in an der stelle von `{children}` in einem Layout eingefügt, das dann wiederum im `{children}` eines höheren Layouts eingefügt wird bis zum root `/src/app/layout.tsx`.
-
-`[subject], [...slug]` sind dynamische Pfade, die (alle) pattern matching (mit `...` rekursiv) nutzten und den erkannten Wert als Parameter an die darunterliegenden Seiten weitergibt.
-
-So können dynamisch die Zusammenfassungen aus dem Dateiordner gezogen werden und dann mit nur einem `page.tsx` alle gerendert werden.
-
-Viele weiter Informationen lassen sich sehr gut bei Bedarf in der [Next Dokumentation](https://nextjs.org/docs) (Achtet darauf **App Router** links oben ausgewählt zu haben).
-
-### Layouts
-
-Das _root layout_ ist absichtlich sehr schlicht.
-Es beinhaltet nur die Schriftarten und Metadaten Headers der Webseite, sowie eine Grundlegende (simplifiziert)
-
-```html
-<html>
-  <head></head>
-  <body>
-    {children}
-  </body>
-</html>
-```
-
-Denn jedes Institute hat sein eigenes Layout `/src/layouts`.
-Viele benutzten aber das RWTH CMS System, welches als Component `src/layouts/rwth` zur Verfügung steht.
-Hier lässt sich das Logo und die Navigationsleiste (und die Mobile Navigation) konfigurieren.
-
-Embedded/Deddebme, SE/ES, Logic/Cigol und ComSys/SysCom haben eigene Layouts, über eine Grundlegende API ähnlich wie das RWTH Layout konfiguriert werden können (brauchen sie aber eigentlich nicht).
+Es gibt für viele Aktionen einzelne Guides. Fürs erstellen eines neuen Lehrstuhls, Fachs oder Zusammenfassung etc..
+[Hier](/docs/guides).

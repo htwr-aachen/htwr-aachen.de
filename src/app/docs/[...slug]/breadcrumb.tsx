@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { UrlObject } from "url";
 
 import {
   Breadcrumb,
@@ -29,6 +30,39 @@ export function getURLUntil(
   return urlJoin(baseURL, ...slug.slice(0, n + 1));
 }
 
+function DocsBreadcrumbItem({
+  pathElement,
+  last = false,
+  href,
+}: {
+  pathElement: string;
+  last?: boolean;
+  href: string | UrlObject;
+}) {
+  return (
+    <>
+      <BreadcrumbItem key={pathElement}>
+        {last ? (
+          <BreadcrumbPage>{pathElement}</BreadcrumbPage>
+        ) : (
+          <BreadcrumbLink asChild>
+            <Link href={href} className="text-foreground">
+              {pathElement}
+            </Link>
+          </BreadcrumbLink>
+        )}
+      </BreadcrumbItem>
+      {!last && <BreadcrumbSeparator />}
+    </>
+  );
+}
+
+/**
+ * A UI component that creates a breadcrumb list
+ * e.g. docs / frontend / url-definition ...
+ * @param props.slug - the divided pathnames
+ * @param props.baseURL - the root URL to stop
+ */
 export function DocsBreadcrumb({
   slug,
   baseURL,
@@ -48,31 +82,14 @@ export function DocsBreadcrumb({
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         {slug.length > 0 &&
-          slug.map((pathElement, i) => {
-            return (
-              <div key={pathElement}>
-                <BreadcrumbItem key={pathElement}>
-                  {i === slug.length - 1 ? (
-                    <BreadcrumbPage>{pathElement}</BreadcrumbPage>
-                  ) : (
-                    <BreadcrumbLink asChild>
-                      <Link
-                        href={getURLUntil(slug, i, baseURL)}
-                        className="text-foreground"
-                      >
-                        {pathElement}
-                      </Link>
-                    </BreadcrumbLink>
-                  )}
-                </BreadcrumbItem>
-                {i === slug.length - 1 ? (
-                  <></>
-                ) : (
-                  <BreadcrumbSeparator key={`${pathElement}-sep`} />
-                )}
-              </div>
-            );
-          })}
+          slug.map((pathElement, i) => (
+            <DocsBreadcrumbItem
+              key={pathElement}
+              pathElement={pathElement}
+              href={getURLUntil(slug, i, baseURL)}
+              last={i === slug.length - 1}
+            />
+          ))}
       </BreadcrumbList>
     </Breadcrumb>
   );

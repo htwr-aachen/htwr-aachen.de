@@ -1,4 +1,6 @@
-import { readdir, readFile } from "fs/promises";
+import { compareDesc } from "date-fns";
+import type { Stats } from "fs";
+import { readdir, readFile, stat } from "fs/promises";
 import type { GrayMatterFile } from "gray-matter";
 import matter from "gray-matter";
 import path, { join } from "path";
@@ -6,7 +8,7 @@ import path, { join } from "path";
 import type { CorpusConfig } from "@/models/corpus";
 import { InvalidCorpusConfig } from "@/models/corpus";
 
-import { type ArticleMeta } from "./articles";
+import type { ArticleMeta } from "./articles";
 import urlJoin from "./url";
 
 function toAuthorsArray(val: string | string[] | undefined): string[] {
@@ -34,7 +36,8 @@ export function parseFrontmatter(
   matterFile: GrayMatterFile<string>,
   basePath: string,
   fileName: string,
-  corpusConfig: CorpusConfig
+  corpusConfig: CorpusConfig,
+  fileStat: Stats
 ): ArticleMeta {
   const { data } = matterFile;
   const frontMatter: ArticleMeta = {
@@ -43,9 +46,9 @@ export function parseFrontmatter(
     meta: {
       title: data.title || "--Unbennant--",
       fullTitle: data.fullTitle || data.title || "--Unbennant--",
-      date: data.date || "",
+      date: data.date || fileStat.mtime.toISOString(),
       tags: data.tags || [],
-      order: parseInt(data.order, 10) || 9999,
+      order: parseInt(data.order, 10) || -1,
       authors:
         [...toAuthorsArray(data.author), ...toAuthorsArray(data.authors)] || [],
       description: data.description || "",
@@ -65,6 +68,22 @@ export function parseFrontmatter(
   frontMatter.slug = [...subpath, fileName.replace(/\.mdx$/, "")];
   frontMatter.url = urlJoin(corpusConfig.articlesURL, ...frontMatter.slug);
   return frontMatter;
+}
+
+function orderArticles(articles: ArticleMeta[]): ArticleMeta[] {
+  return articles.sort((a, b) => {
+    if (a.meta.order >= 0 && a.meta.order >= 0) {
+      return a.meta.order - b.meta.order;
+    }
+    if (a.meta.order >= 0 && b.meta.order < 0) {
+      return 1;
+    }
+
+    if (a.meta.order < 0 && b.meta.order >= 0) {
+      return -1;
+    }
+    return compareDesc(new Date(a.meta.date), new Date(b.meta.date));
+  });
 }
 
 /**
@@ -88,12 +107,14 @@ export async function getArticlesMetadata(
       files.map(async (file) => {
         const fullFilePath = join(file.path, file.name);
         const content = await readFile(fullFilePath, "utf-8");
+        const stats = await stat(fullFilePath);
 
         return parseFrontmatter(
           matter(content),
           file.path,
           file.name,
-          corpusConfig
+          corpusConfig,
+          stats
         );
       })
     );
@@ -108,5 +129,5 @@ export async function getArticlesMetadata(
     }
   }
 
-  return metas.sort((a, b) => a.meta.order - b.meta.order);
+  return orderArticles(metas);
 }

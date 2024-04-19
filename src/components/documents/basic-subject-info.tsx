@@ -11,6 +11,13 @@ import { hasDocument } from "@/lib/documents";
 import { getPanikzettelMetadata } from "@/lib/panikzettel";
 import { cn } from "@/lib/utils";
 
+/**
+ * A Link UI component to show a link as a card with a title and desc.
+ * @param props.title - the title of the card
+ * @param props.description - the descriptions of the card
+ * @param props.children - additional content will be under the desc.
+ * @param props.href - the link href.
+ */
 export function LinkCard({
   title,
   description,
@@ -39,6 +46,14 @@ export function LinkCard({
   );
 }
 
+/**
+ * A component that search for and displays basic subject materials as LinkCards.
+ * This includes:
+ * - Panikzettel from the htwr panikzettel api.
+ * - Folien-merged.pdf under the subject content-assets directory
+ * - (Planned) all files under the root subject content-assets dir.
+ * @param props.subject - the subject to search materials for
+ */
 export default async function BasicSubjectInfo({
   subject,
   children,

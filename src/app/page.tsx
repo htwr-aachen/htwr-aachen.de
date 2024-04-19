@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const Index: FC = () => {
   return (
-    <Main institute="htwr" limitWidth addPadding={false}>
+    <Main institute="htwr" fullWidth addPadding={false}>
       <Gallery>
         <GalleryItem>
           <GalleryImage

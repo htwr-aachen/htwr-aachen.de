@@ -11,6 +11,9 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 
+/**
+ * A UI Component for the DocumentList acting as a heading and Collapsible trigger
+ */
 function DocumentListHeading({
   children,
   level,
@@ -56,6 +59,11 @@ export type BaseDocumentListProps = {
   rename?: boolean;
 };
 
+/**
+ * A UI component that can visualize a directory structure using Collapsible Component
+ * @param props.includeRoot - whether to include the root dir.
+ * @param props.rename - whether to rename the file names using the default renamer in lib/documents.ts
+ */
 export function BaseDocumentList({
   docs,
   level = 0,

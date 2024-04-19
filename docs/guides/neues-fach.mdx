@@ -1,0 +1,75 @@
+---
+title: "Guide: Neues Fach zu bestehendem Institut hinzufügen"
+tags: ["Guides"]
+---
+
+# Guide: Neues Fach zu bestehendem Institut hinzufügen
+
+## Schritt 1
+
+neues Fach einrichten.
+
+Gehe zu `/src/config/subjects.ts` hier siehst du ein Object in dem alle Fächer aufgelistet sind.
+Füge (am besten) unten ein neues Fach hinzu. Hierbei sind auf folgende Dinge zu achten. Sagen wir mal ihr wolltet `datkom` hinzufügen:
+
+```ts
+{...}
+  datkom: {
+    institutes: ["syscom"],
+    name: "datkom",
+    displayName: "DatKom",
+    fullName: "Datenkommunikation",
+    articlesPath: join(DefaultTeachingDir, "syscom", "datkom"),
+    articlesURL: urlJoin(BaseURL, "/syscom/studium/teachings"),
+    documentsPath: join(DefaultContentPath, "datkom"),
+  },
+{...}
+
+```
+
+- Der key (z.B. `datkom`) ist wichtig und wird später auch als key für die Materialliste verwendet etc...
+  Hier solltet ihr euch nicht verschreiben oder eine komische Schreibweise verwenden (am besten klein geschrieben). Fort an soll er `KeyName` heißen.
+- Die `institutes` ist/sind der/die Lehrstühle die das Fach anbieten. In unserem Fall also nur `syscom`.
+  <Alert>
+    <Info className="size-4 mr-2"></Info>
+    <AlertTitle>Instituts Namen</AlertTitle>
+    <AlertDescription>
+      Auch die institute haben vordefinierte Namen. Die Namen unter `institutes`
+      sollten mit den Keys/Namen der Definition unter
+      `/src/config/institutes.ts` Übereinstimmen!
+    </AlertDescription>
+  </Alert>
+- `displayName` wird üblicherweise an Stellen wie dem InstituteSwitch (FacultiesNav) angezeigt.
+- `fullName` ergibt sich selber
+- `articlesPath`: `DefaultTeachingDir` ist `/summaries`, `join` erstellt einfach nur ein validen Pfad mit den gegebenen Teilpfaden. Articles sind in diesem Falle die Zusammenfassungen. Dieser Dateipfad wird später nach Zusammenfassungen durchsucht.
+- `articlesURL`: Die URL an dem später die Übersicht und mit `URL/{name}` die Zusammenfassungen angezeigt werden können.
+  In der neuen URL Spezifikation sollte dies für datkom `urlJoin(BaseURL, "/syscom/datkom/summaries)` sein.
+- documentsPath: Der Pfad an dem nach materialien wie Folien und Aufgaben gesucht wird. `DefaultContentPath = "/public/content-assets/`
+
+Das meiste Sollte gleich bleiben nur `datkom` und `syscom` sollten ausgetauscht werden (und `articleURL`).
+
+## Schritt 2 Template kopieren
+
+Unter `/src/app/_%institutename%` ist ein Template für ein neues Institute inklusive eines neuen Fachs.
+
+! Kopiert nun einfach `/src/app/_%institutename%/%subjectname%` in das entsprechende bestehende Institute/Lehrstuhl
+und ändert den Namen des Orders zu dem KeyName.
+
+Geht nun alle Dateien in dem neuen Order/Subordnern durch und lest euch alle Kommentare durch.
+Ihr müsst insbesondere bei `CHANGE_ME` und bei `%subjectname%` die Sachen zu eurem neuen Fach ändern.
+
+## Schritt 3 Fach beim Institute konfigurieren.
+
+Damit auf der Institutsseite das Fach zur Auswahl steht, muss es unter `/src/app/[institut]/config.ts` in dem Feld `subjects` eingetragen sein. Euer IDE sollte euch den KeyName bereits vorschlagen bei einer Eingabe.
+
+## Schritt 4 Content hinzufügen
+
+So eigentlich seit ihr schon fertig.
+Jetzt könnt ihr unter `/summaries` neue Zusammenfassungen erstellen und unter `/public/content-assets` neue Materialien bereitsstellen
+(hier werden insbesondere auch Unterordner angezeigt zum Gruppieren z.B. nach Jahr)
+
+Ihr könnt mit `pnpm install` und dann `pnpm run dev` unter [http://localhost:3000/[institute]](http://localhost:3000/)(ersest `[institute]` natürlich mit euerem Lehrstuhl) sehen ob euer Fach automatisch der Liste der Fächern hinzugefügt wurde. Geht dann einfach mal ein paar Pfade eueres Faches durch und guckt ob alles passt.
+
+Also Frohes Schaffen
+
+Zum Schluss müsst ihr natürlich gemäß dem Contributor-Guide ein Pull-Request machen. Bei Fragen steh ich natürlich jederzeit bereit.

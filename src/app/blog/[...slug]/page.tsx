@@ -4,17 +4,17 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Suspense } from "react";
 
+import { getURLUntil } from "@/app/docs/[...slug]/breadcrumb";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { getArticlesMetadata } from "@/lib/article-metadata";
 import { getArticle } from "@/lib/articles";
 import { mdxOptions } from "@/lib/markdown";
 
-import { docsArticleConfig } from "../config";
-import { DocsBreadcrumb, getURLUntil } from "./breadcrumb";
+import { blogArticleConfig } from "../config";
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const docs = await getArticle(params.slug, docsArticleConfig);
+  const blog = await getArticle(params.slug, blogArticleConfig);
   return (
     <div>
       <Suspense
@@ -22,19 +22,17 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           <LoaderIcon className="absolute left-0 top-0 m-auto animate-spin"></LoaderIcon>
         }
       >
-        <div className="mx-auto flex max-w-screen-lg flex-row items-center py-5">
+        <div className="mx-auto flex max-w-prose flex-row items-center py-5">
           <Button asChild className="mr-4">
-            <Link href={getURLUntil(params.slug, -1, "/docs")}>
+            <Link href={getURLUntil(params.slug, -1, "/blog")}>
               <ChevronLeft className="mr-2 size-4" />
               Zurück
             </Link>
           </Button>
-
-          <DocsBreadcrumb slug={params.slug} baseURL="/docs"></DocsBreadcrumb>
         </div>
-        <div className="prose mx-auto max-w-screen-lg py-7 dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
+        <div className="prose mx-auto max-w-prose rounded-lg bg-muted px-4 py-7 dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
           <MDXRemote
-            source={docs.content}
+            source={blog.content}
             options={mdxOptions}
             components={{ Alert, AlertTitle, AlertDescription, Info }}
           />
@@ -45,7 +43,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 }
 
 export async function generateStaticParams() {
-  const teachings = await getArticlesMetadata(docsArticleConfig);
+  const teachings = await getArticlesMetadata(blogArticleConfig);
 
   return teachings.map((t) => ({
     slug: t.slug,
@@ -57,7 +55,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta, url } = await getArticle(params.slug, docsArticleConfig);
+  const { meta, url } = await getArticle(params.slug, blogArticleConfig);
 
   return {
     title: meta.fullTitle,

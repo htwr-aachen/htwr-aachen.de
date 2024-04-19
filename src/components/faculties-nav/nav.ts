@@ -70,6 +70,20 @@ export const FacultiesNavContent: {
         name: "Panikzettel",
         tooltip: "Gute zusammenfassungen zum halben Preis",
       },
+      {
+        href: "/docs",
+        path: "/docs",
+        content: "Docs",
+        name: "docs",
+        tooltip: "Dokumentation fürs Mitarbeiten",
+      },
+      {
+        href: "/blog",
+        path: "/blog",
+        content: "Blog",
+        name: "blog",
+        tooltip: "Immer auf dem Stand der Dinge bleiben",
+      },
     ],
   },
   right: {

@@ -8,6 +8,9 @@ import urlJoin from "@/lib/url";
 import type { BaseDocumentListProps } from "./list-ui";
 import { BaseDocumentList } from "./list-ui";
 
+/**
+ * A component to include local documents from this next server
+ */
 export async function DocumentList({
   path,
   ...props
@@ -20,6 +23,11 @@ export async function DocumentList({
   return <BaseDocumentList docs={collection} {...props}></BaseDocumentList>;
 }
 
+/**
+ * A convinience component to get the DocumentList with the subjects configured name and path
+ * @param props.subject - the subject to show documents for
+ * @param props.subpath - join/append this to the root dir of the path
+ */
 export async function SubjectDocumentList({
   subject,
   subpath = "",

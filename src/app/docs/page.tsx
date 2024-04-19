@@ -1,5 +1,7 @@
 import {
+  Binary,
   Code,
+  GitPullRequest,
   NotebookText,
   PencilRuler,
   PenLine,
@@ -9,8 +11,10 @@ import {
 import { BentoGrid, BentoGridLink } from "@/components/ui/bento";
 
 import {
+  BackendIcon,
   CustomAnim,
   ExamAnim,
+  GuidesIcon,
   PanikzettelAnim,
   TeachingAnim,
   TypoAnim,
@@ -53,7 +57,7 @@ export default function Page() {
         ></BentoGridLink>
         <BentoGridLink
           href="/docs/frontend"
-          title="Eigenes Zeugs kreieren"
+          title="Frontend Dokumentation"
           description="Du kannst React/Nextjs und hast irgendeine ... wirklich irgendeine Idee? Motto: Jeder darf alles!"
           className="[&>p:text-lg] md:col-span-2"
           icon={<Code></Code>}
@@ -66,6 +70,22 @@ export default function Page() {
           className="[&>p:text-lg]"
           icon={<PencilRuler></PencilRuler>}
           header={<PanikzettelAnim></PanikzettelAnim>}
+        />
+        <BentoGridLink
+          href="/docs/backend"
+          title="Backend Dokumentation"
+          description="Ist nicht viel, kann aber noch werden"
+          className="[&>p:text-lg]"
+          icon={<Binary></Binary>}
+          header={<BackendIcon></BackendIcon>}
+        />
+        <BentoGridLink
+          href="/docs/guides"
+          title="Guides für common tasks"
+          description="Alles ist fürs leichte Bearbeiten gemacht"
+          className="[&>p:text-lg] md:col-span-2"
+          icon={<GitPullRequest></GitPullRequest>}
+          header={<GuidesIcon></GuidesIcon>}
         />
       </BentoGrid>
     </div>

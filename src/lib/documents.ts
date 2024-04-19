@@ -111,7 +111,7 @@ export async function hasDocument(
   subject: Subjects,
   relPath: string
 ): Promise<[boolean, string, Stats | undefined]> {
-  const path = join(SubjectConfig[subject].documentLocation, relPath);
+  const path = join(SubjectConfig[subject].documentsPath, relPath);
   const url = urlJoin(
     "/content-assets",
     subject,

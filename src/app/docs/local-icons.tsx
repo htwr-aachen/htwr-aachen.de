@@ -219,3 +219,70 @@ export function PanikzettelAnim() {
     </motion.div>
   );
 }
+export function BackendIcon() {
+  const variants = {
+    initial: {
+      pathLength: 0,
+    },
+    animate: {
+      pathLength: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+  return (
+    <motion.div
+      initial="initial"
+      whileHover="animate"
+      className="flex size-full items-center justify-center"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        className="size-40 stroke-current text-white"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <motion.path variants={variants} d="M4 18V6" />
+        <motion.path variants={variants} d="M20 6L20 18" />
+        <motion.path d="M12 10C16.4183 10 20 8.20914 20 6C20 3.79086 16.4183 2 12 2C7.58172 2 4 3.79086 4 6C4 8.20914 7.58172 10 12 10Z" />
+        <motion.path d="M20 12C20 14.2091 16.4183 16 12 16C7.58172 16 4 14.2091 4 12" />
+        <motion.path d="M20 18C20 20.2091 16.4183 22 12 22C7.58172 22 4 20.2091 4 18" />
+      </svg>
+    </motion.div>
+  );
+}
+export function GuidesIcon() {
+  const variants = {
+    initial: {
+      rotate: 0,
+    },
+    animate: {
+      rotate: 180,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+  return (
+    <motion.div
+      initial="initial"
+      whileHover="animate"
+      className="flex size-full items-center justify-center"
+    >
+      <svg
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+        className="size-40 fill-current text-white"
+      >
+        <path d="M640 608h-64V416h64v192zm0 160v160a32 32 0 0 1-32 32H416a32 32 0 0 1-32-32V768h64v128h128V768h64zM384 608V416h64v192h-64zm256-352h-64V128H448v128h-64V96a32 32 0 0 1 32-32h192a32 32 0 0 1 32 32v160z" />
+        <motion.path
+          variants={variants}
+          d="m220.8 256-71.232 80 71.168 80H768V256H220.8zm-14.4-64H800a32 32 0 0 1 32 32v224a32 32 0 0 1-32 32H206.4a32 32 0 0 1-23.936-10.752l-99.584-112a32 32 0 0 1 0-42.496l99.584-112A32 32 0 0 1 206.4 192zm678.784 496-71.104 80H266.816V608h547.2l71.168 80zm-56.768-144H234.88a32 32 0 0 0-32 32v224a32 32 0 0 0 32 32h593.6a32 32 0 0 0 23.936-10.752l99.584-112a32 32 0 0 0 0-42.496l-99.584-112A32 32 0 0 0 828.48 544z"
+        />
+      </svg>
+    </motion.div>
+  );
+}

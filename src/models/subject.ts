@@ -7,5 +7,5 @@ export type Subject = {
   fullName?: string;
   articlesURL: string;
   articlesPath: string;
-  documentLocation: string;
+  documentsPath: string;
 };

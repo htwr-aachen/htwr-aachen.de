@@ -1,4 +1,4 @@
-import { access, readFile } from "fs/promises";
+import { access, readFile, stat } from "fs/promises";
 import matter from "gray-matter";
 import path, { join } from "path";
 import { cache } from "react";
@@ -16,7 +16,7 @@ export type Article = {
   meta: {
     title?: string;
     fullTitle?: string;
-    date?: string;
+    date: string;
     tags?: string[];
     authors: string[];
     description?: string;
@@ -41,6 +41,7 @@ export async function getSurroundingArticles(
   corpusConfig: CorpusConfig
 ): Promise<{ prev: ArticleMeta | undefined; next: ArticleMeta | undefined }> {
   const articles = await getArticlesMetadata(corpusConfig);
+
   const article = articles.find((x) => deepEqual(x.slug, slug));
 
   if (!article) {
@@ -79,6 +80,7 @@ async function _getArticle(
   try {
     await access(fp);
     const content = await readFile(fp, "utf-8");
+    const stats = await stat(fp);
 
     const parsedMatter = matter(content);
     const frontMatter = parseFrontmatter(
@@ -89,7 +91,8 @@ async function _getArticle(
         .filter((x) => x !== "")
         .join(path.sep),
       path.basename(fp),
-      corpusConfig
+      corpusConfig,
+      stats
     );
     frontMatter.meta.images = getImages(parsedMatter.content);
 

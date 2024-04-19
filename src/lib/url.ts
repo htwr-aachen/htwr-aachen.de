@@ -1,6 +1,6 @@
 // CODE BY: jfromaniello (https://github.com/jfromaniello/url-join)
 
-import { BaseURL } from "@/utils/AppConfig";
+import { BaseURL } from "@/config/app";
 
 function normalize(strArray: string[]) {
   const resultArray = [];

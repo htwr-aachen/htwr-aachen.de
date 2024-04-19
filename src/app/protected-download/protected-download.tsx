@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import type { FC } from "react";
 import { useState } from "react";
 
-import { API_URL } from "@/utils/TeachingConfig";
+import { APIURL } from "@/config/app";
 
 const PASSWORD_HELP =
   "Wie würde Giesl die Zahl 1 in der Programmiersprache seiner Wahl schreiben? Alles zusammengeschrieben klein ohne Klammern punkte etc.";
@@ -26,7 +26,7 @@ export const ProtectedDownloadFlow: FC = () => {
       });
 
       const res = await fetch(
-        `${API_URL}/download/klausuren?${params.toString()}`,
+        `${APIURL}/download/klausuren?${params.toString()}`,
         {
           method: "GET",
           redirect: "follow",

@@ -1,8 +1,9 @@
 import { join } from "path";
 
 import urlJoin from "@/lib/url";
-import { BaseURL } from "@/utils/AppConfig";
-import { DefaultTeachingDir } from "@/utils/TeachingConfig";
+
+import { BaseURL } from "./app";
+import { DefaultSummaryPath } from "./summary";
 
 const DefaultContentPath = join(process.cwd(), "public", "content-assets");
 
@@ -15,81 +16,81 @@ export const SubjectConfig = {
     name: "buk",
     displayName: "BuK",
     fullName: "Berechenbarkeit und Komplexität",
-    articlesPath: join(DefaultTeachingDir, "scil", "buk"),
+    articlesPath: join(DefaultSummaryPath, "scil", "buk"),
     articlesURL: urlJoin(BaseURL, "/scil/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "buk"),
+    documentsPath: join(DefaultContentPath, "buk"),
   },
   swt: {
     institutes: ["es"],
     name: "swt",
     displayName: "SWT",
     fullName: "Softwaretechnik",
-    articlesPath: join(DefaultTeachingDir, "es", "swt"),
+    articlesPath: join(DefaultSummaryPath, "es", "swt"),
     articlesURL: urlJoin(BaseURL, "/es/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "swt"),
+    documentsPath: join(DefaultContentPath, "swt"),
   },
   dbis: {
     institutes: ["sibd"],
     name: "dbis",
     displayName: "DBIS",
     fullName: "Datenbanken und Informationssysteme",
-    articlesPath: join(DefaultTeachingDir, "sibd", "dbis"),
-    articlesURL: urlJoin(BaseURL, "/sibd/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "dbis"),
+    articlesPath: join(DefaultSummaryPath, "sibd", "dbis"),
+    articlesURL: urlJoin(BaseURL, "/sibd/dbis/summaries"), // this is the new stable api
+    documentsPath: join(DefaultContentPath, "dbis"),
   },
   datkom: {
     institutes: ["syscom"],
     name: "datkom",
     displayName: "DatKom",
     fullName: "Datenkommunikation",
-    articlesPath: join(DefaultTeachingDir, "syscom", "datkom"),
+    articlesPath: join(DefaultSummaryPath, "syscom", "datkom"),
     articlesURL: urlJoin(BaseURL, "/syscom/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "datkom"),
+    documentsPath: join(DefaultContentPath, "datkom"),
   },
   stocha: {
     institutes: ["wsi"],
     name: "stocha",
     displayName: "Stocha",
     fullName: "Stochastik",
-    articlesPath: join(DefaultTeachingDir, "wsi", "stocha"),
+    articlesPath: join(DefaultSummaryPath, "wsi", "stocha"),
     articlesURL: urlJoin(BaseURL, "/wsi/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "stocha"),
+    documentsPath: join(DefaultContentPath, "stocha"),
   },
   malo: {
     institutes: ["cigol"],
     name: "malo",
     displayName: "Malo",
     fullName: "Mathematische Logik",
-    articlesPath: join(DefaultTeachingDir, "cigol", "malo"),
+    articlesPath: join(DefaultSummaryPath, "cigol", "malo"),
     articlesURL: urlJoin(BaseURL, "/cigol/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "malo"),
+    documentsPath: join(DefaultContentPath, "malo"),
   },
   itsec: {
     institutes: ["cesti"],
     name: "itsec",
     displayName: "IT-Sec",
     fullName: "IT-Security",
-    articlesPath: join(DefaultTeachingDir, "cesti", "itsec"),
+    articlesPath: join(DefaultSummaryPath, "cesti", "itsec"),
     articlesURL: urlJoin(BaseURL, "/cesti/studium/teachings"),
-    documentLocation: join(DefaultContentPath, "itsec"),
+    documentsPath: join(DefaultContentPath, "itsec"),
   },
   psp: {
     institutes: ["deddebme"],
     name: "psp",
     displayName: "PSP",
     fullName: "Praktikum Systemprogrammierung",
-    articlesPath: join(DefaultTeachingDir, "deddebme", "psp"),
+    articlesPath: join(DefaultSummaryPath, "deddebme", "psp"),
     articlesURL: urlJoin(BaseURL, "/deddebme/lehre/teachings"),
-    documentLocation: join(DefaultContentPath, "psp"),
+    documentsPath: join(DefaultContentPath, "psp"),
   },
   male: {
     institutes: ["male"],
     name: "male",
     displayName: "MaLe",
     fullName: "Elements of Machine Learning and Data Science",
-    articlesPath: join(DefaultTeachingDir, "male", "male"),
+    articlesPath: join(DefaultSummaryPath, "male", "male"),
     articlesURL: urlJoin(BaseURL, "/male/teachings"),
-    documentLocation: join(DefaultContentPath, "male"),
+    documentsPath: join(DefaultContentPath, "male"),
   },
 } as const;
 

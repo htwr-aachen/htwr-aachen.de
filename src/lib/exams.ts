@@ -1,5 +1,5 @@
+import { APIURL } from "@/config/app";
 import type { Subjects } from "@/config/subjects";
-import { APIURL } from "@/utils/AppConfig";
 
 import urlJoin from "./url";
 

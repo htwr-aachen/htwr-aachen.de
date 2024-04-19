@@ -4,7 +4,7 @@ import { BaseURL } from "@/config/app";
 import urlJoin from "@/lib/url";
 import type { CorpusConfig } from "@/models/corpus";
 
-export const docsArticleConfig: CorpusConfig = {
-  articlesURL: urlJoin(BaseURL, "/docs"),
-  articlesPath: join(process.cwd(), "docs"),
+export const blogArticleConfig: CorpusConfig = {
+  articlesURL: urlJoin(BaseURL, "/blog"),
+  articlesPath: join(process.cwd(), "blog"),
 };

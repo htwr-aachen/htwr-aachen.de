@@ -3,6 +3,9 @@ import Link from "next/link";
 
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
+/**
+ * A component to view and filter all exams to the subject
+ */
 export default function ExamsInfo() {
   return (
     <Alert>
