@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { HeadLine } from "@/components/rwth/headline";
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
 export const metadata: Metadata = {
   title: "Jobs",

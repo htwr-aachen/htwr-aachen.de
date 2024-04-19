@@ -2,18 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 
-import { FakultätsNavMobile } from "../rwth/FakultätsNav";
+import { FacultiesButton } from "@/components/faculties-nav/button";
+
 import Navlink from "./Navlink";
 
-type ESNavbarProps = {
-  fakultätsNavOpen: boolean;
-  setFakultätsNavOpen: Dispatch<SetStateAction<boolean>>;
-};
+type ESNavbarProps = {};
 
-export default function ESNavbar(props: ESNavbarProps) {
+export default function ESNavbar(_props: ESNavbarProps) {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
@@ -28,16 +25,9 @@ export default function ESNavbar(props: ESNavbarProps) {
       className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
     >
       <div className="ml-8 flex flex-wrap items-center justify-center lg:ml-auto lg:mr-16 lg:justify-self-end">
-        <button
-          type="button"
-          className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300"
-          onClick={() => {
-            props.setFakultätsNavOpen((x) => !x);
-            setNavOpen(true);
-          }}
-        >
+        <FacultiesButton className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300">
           Fakultäten & Institute
-        </button>
+        </FacultiesButton>
         <Link href={"/es"}>
           <Image
             src={"/assets/es/es.png"}
@@ -78,10 +68,6 @@ export default function ESNavbar(props: ESNavbarProps) {
             navOpen ? "flex" : "hidden"
           }`}
         >
-          <FakultätsNavMobile
-            open={props.fakultätsNavOpen}
-            setOpen={props.setFakultätsNavOpen}
-          />
           <Navlink
             display={{ name: "Essays", href: "/es/eassys" }}
             links={[{ name: "Nichts", href: "/es/nichts" }]}
@@ -108,7 +94,7 @@ export default function ESNavbar(props: ESNavbarProps) {
             links={[
               { name: "Klausuren", href: "/es/studium/klausuren" },
               { name: "Aufgaben", href: "/es/studium/aufgaben" },
-              { name: "Teachings", href: "/es/studium/teachings" },
+              { name: "Zusammenfassungen", href: "/es/studium/teachings" },
             ]}
             isDroped={dropdownActive === 4}
             dropdownNumer={4}

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import Main from "@/layouts/deddebme/Main";
+
+import { institute } from "./config";
 
 export const metadata: Metadata = {
   title: {
@@ -45,5 +47,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="deddebme">{props.children}</Main>;
+  return <Main institute={institute}>{props.children}</Main>;
 }

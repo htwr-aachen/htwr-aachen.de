@@ -1,9 +1,10 @@
 import { useCallback, useState } from "react";
 
-import { getRealInstitutes } from "@/lib/institutes";
+import { RealInstituteConfig } from "@/config/institutes";
+import { SubjectConfig } from "@/config/subjects";
 import type { Institute } from "@/models/institutes";
 
-const institutes = getRealInstitutes();
+const institutes = Object.values(RealInstituteConfig);
 
 export function useInstituteSearch(
   initial?: Institute[]
@@ -25,9 +26,11 @@ export function useInstituteSearch(
         const fullNameSearch = institute.fullName
           ?.toLowerCase()
           .includes(queryLower);
-        const subjectSearch = institute.subject
-          ?.toLowerCase()
-          .includes(queryLower);
+
+        const subjectSearch = Object.entries(SubjectConfig)
+          .filter(([key, _]) => key.toLowerCase().includes(queryLower))
+          .flatMap(([_, val]) => val.institutes);
+
         const professorSearch = institute.professor
           ?.toLowerCase()
           .includes(queryLower);

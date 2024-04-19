@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { join } from "path";
 
+import BasicSubjectInfo from "@/components/documents/basic-subject-info";
+import { SubjectDocumentList } from "@/components/documents/list";
 import { ExamNotice } from "@/components/scrap/ExamNotice";
-import TeachingList from "@/components/teachings/List";
-import { getAllDocsFromDir, getProtectedDownloads } from "@/lib/documents";
-
-const aufgabenPath = join(
-  process.cwd(),
-  "public",
-  "teaching-assets",
-  "syscom",
-  "aufgaben"
-);
+import SummaryList from "@/components/summaries/list";
+import { getProtectedDownloads } from "@/lib/exams";
 
 export const metadata: Metadata = {
   title: "Alles rund um datkom",
@@ -23,90 +16,50 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const aufgaben = await getAllDocsFromDir(
-    aufgabenPath,
-    "/teaching-assets/syscom/afugaben"
-  );
-
-  const klausuren = await getProtectedDownloads("datkom");
+  const exams = await getProtectedDownloads("datkom");
 
   return (
     <div>
-      <h1>Liste von Hilfen:</h1>
-
+      <BasicSubjectInfo subject="datkom" />
       <p>
         Wehrle einer beschwert sich über Rechtschreib- und Grammatikfehler! Fix
         die{" "}
-        <Link href={"https://github.com/jonsch318/htwr-aachen.de"}>
-          https://github.com/jonsch318/htwr-aachen.de
+        <Link href={"https://github.com/htwr-aachen/htwr-aachen.de"}>
+          https://github.com/htwr-aachen/htwr-aachen.de
         </Link>{" "}
         selber.{" "}
       </p>
 
-      <p>
-        <Link
-          href={"https://fastupload.io/Q3atHhGZ7nBCyde/file"}
-          target={"_blank"}
-        >
-          Zusammengesetzte Vorlesungsfolien (fastupload kostet mich nichts)
-        </Link>{" "}
-        <br />
-        <Link
-          href={"/teaching-assets/syscom/folien-combined.pdf"}
-          target={"_blank"}
-        >
-          Zusammengesetzte Vorlesungsfolien (45Mb jedes mal :[...)
-        </Link>
-      </p>
+      <h2 className="my-6 text-2xl font-semibold">
+        Vielleicht nützliche Zusammenfassungen in ihrem eigenen Stil
+      </h2>
 
-      <p>Erklärungen in ihrem eigenen Stil</p>
-
-      <TeachingList subject="datkom" />
+      <SummaryList subject="datkom" />
 
       <ExamNotice></ExamNotice>
+
       <ul className="ml-8 list-disc">
-        {klausuren.map((klausur) => {
+        {exams.map((exam) => {
           return (
-            <li key={klausur}>
+            <li key={exam}>
               <Link
                 href={{
                   pathname: "/protected-download",
-                  query: { file: klausur },
+                  query: { file: exam },
                 }}
                 target="_blank"
               >
-                {klausur}
+                {exam}
               </Link>
             </li>
           );
         })}
       </ul>
 
-      <h2 id="aufgaben">Und weil es möglich ist auch alle Aufgabenblätter</h2>
-
-      <ul className="ml-8 list-disc">
-        {aufgaben.map((aufgabe) => {
-          return (
-            <li key={aufgabe.name}>
-              <Link href={aufgabe.url} target={"_blank"}>
-                {aufgabe.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-
-      <ul className="ml-8 list-disc">
-        {aufgaben.map((aufgabe) => {
-          return (
-            <li key={aufgabe.name}>
-              <Link href={aufgabe.url} target={"_blank"}>
-                {aufgabe.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <h2 className="my-6 text-2xl font-semibold">
+        Und weil es möglich ist auch alle Aufgabenblätter
+      </h2>
+      <SubjectDocumentList subject="datkom" />
     </div>
   );
 }

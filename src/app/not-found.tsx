@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
 export const metadata: Metadata = {
   title: "404 Dirk sucht weiter - HTWR",

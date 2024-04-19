@@ -55,3 +55,7 @@ git push
 ```
 
 und online ein Pull-Reqeust des neuen Branches auf master. Falls ich ihn annehme, wird er dann automatisch durch continous itegration and delivery online gestellt.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=htwr-aachen/htwr-aachen.de&type=Date)](https://star-history.com/#htwr-aachen/htwr-aachen.de&Date)

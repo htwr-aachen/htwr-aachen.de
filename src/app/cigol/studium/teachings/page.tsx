@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
@@ -20,12 +20,12 @@ export default function TeachingsPage() {
 
       <ul className="my-2 ml-8 list-disc">
         <li>
-          <a target={"_blank"} href="/teaching-assets/cigol/malo/script_23.pdf">
+          <a target={"_blank"} href="/content-assets/malo/script_23.pdf">
             Script 2023
           </a>
         </li>
         <li>
-          <a target={"_blank"} href="/teaching-assets/cigol/malo/script_18.pdf">
+          <a target={"_blank"} href="/content-assets/malo/script_18.pdf">
             Script 2018 (ist größtenteils gleich)
           </a>
         </li>
@@ -108,7 +108,7 @@ export default function TeachingsPage() {
         die Titel haben. Ich sammel hier gerne Tips wenn ich die mitbekomme.
       </p>
 
-      <TeachingList subject="malo" />
+      <SummaryList subject="malo" />
     </div>
   );
 }

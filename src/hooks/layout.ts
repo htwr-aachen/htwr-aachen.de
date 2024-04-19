@@ -1,6 +1,6 @@
 import { usePathname } from "next/navigation";
 
-export const useIsActive = (instituteName: string = "") => {
+export const useInstituteActive = (instituteName: string = "") => {
   const pathname = usePathname();
 
   return (path: string = "/") => {

@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 
-import type { SubjectNames } from "@/data/subjects";
-import { getTeachingsMetadata } from "@/lib/teaching";
+import type { Subjects } from "@/config/subjects";
+import { getSummariesMetadata } from "@/lib/summaries";
 
 /**
  * GET inputs the subject and ouputs the metadata for found techings in order.
@@ -16,9 +16,9 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const teachings = await getTeachingsMetadata(subject as SubjectNames);
+    const teachings = await getSummariesMetadata(subject as Subjects);
     return new Response(JSON.stringify(teachings), { status: 200 });
-  } catch (err) {
+  } catch (_err) {
     return new Response(JSON.stringify([]), { status: 500 });
   }
 }

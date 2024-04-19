@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { HeadLine } from "@/components/rwth/headline";
 import { ExamNotice } from "@/components/scrap/ExamNotice";
-import { getProtectedDownloads } from "@/lib/documents";
+import { getProtectedDownloads } from "@/lib/exams";
 
 import { SCILSchnellzugriff } from "../../schnellzugriff";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const klausuren = await getProtectedDownloads("buk");
+  const exams = await getProtectedDownloads("buk");
   return (
     <div>
       <div className="px-2">
@@ -27,17 +27,17 @@ export default async function Page() {
             <ExamNotice></ExamNotice>
 
             <ul className="ml-8 mt-8 list-disc">
-              {klausuren.map((klausur) => {
+              {exams.map((exam) => {
                 return (
-                  <li key={klausur}>
+                  <li key={exam}>
                     <Link
                       href={{
                         pathname: "/protected-download",
-                        query: { file: klausur },
+                        query: { file: exam },
                       }}
                       target="_blank"
                     >
-                      {klausur}
+                      {exam}
                     </Link>
                   </li>
                 );

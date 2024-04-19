@@ -1,0 +1,52 @@
+---
+title: Zusammenfassungen
+author: Jonas Schneider
+---
+
+# Zusammenfassungen
+
+Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht und euch die Dateistruktur anschaut, werdet ihr ungefähr volgendes auffinden:
+
+<div className="not-prose">
+
+```
+src/
+└── summaries/
+    └── cigol/
+        └── malo/
+            ├── ASKompaktheitssatz.mdx
+            ├── Axiomatisierbarkeit.mdx
+            ├── EF_Spiele.mdx
+            ├── Einführung_Aussagenlogik.mdx
+            ├── Einführung_Prädikatenlogik.mdx
+            ├── Resolution.mdx
+            ├── Spieltheorie.mdx
+            ├── TolleStrukturen.mdx
+            └── Wasdas.mdx
+```
+
+</div>
+
+### Grober Überblick
+
+Alle Zusammenfassungen auf HTWR werden mittles `.mdx` Datei geschrieben. Im Grunde einfach `Markdown` wie ihr es aus z.B. Obsidian kennt,
+bloß mit zusätzlichen features wie Javascript support und wichtiger für HTWR custom react component support.
+
+HTWR erkennt für bestehende Fächer automatisch neue Dateien im entsprechenden Fach ordner.
+Die Sortierung ist einleuchtent src -> summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
+
+HTWR unterstützt die GitHub Markdown syntax inclusive
+
+\`\`\`haskell \
+main = putStrLn "Hello, World!" \
+\`\`\`
+
+wird zu
+
+```haskell
+main = putStrLn "Hello, World!"
+```
+
+für Code-Highlighting und
+\$ \sum\_\{k=1\}^n k = \frac\{n(n+1)\}\{2\} \$ wird zu $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
+für LaTex Mathe. Sobald es möglich wird möchte ich auch typst einbinden, habe dafür aber noch nichts gefunden.

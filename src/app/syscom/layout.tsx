@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/syscom/Main";
 
 export const metadata: Metadata = {
   title: {

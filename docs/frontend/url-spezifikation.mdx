@@ -1,0 +1,32 @@
+---
+title: URL Definition
+---
+
+# NEUE URL Spezifikation
+
+Ich will jetzt deutlich stabiliere api und url-definitionen haben.
+
+Noch sind wenige Fächer auf der neuen API, aber das wird sich schnell ändern:
+
+- `/`: root HTWR Seite
+- `/[institute]`: Die Oberseite eines Institutes/Lehrstuhls / Auswahl der Fächer
+- `/[institute]/[subject]`: Die Seite eines Faches. Individuelle Memes und Verlinkung zu:
+- `/[institute]/[subject]/materials`: Material für ein Fach
+- `/[institute]/[subject]/summaries`: Zusammenfassungen für ein Fach
+- `/[institute]/[subject]/exams`: Klausurprotokolle für ein Fach
+
+Zudem noch:
+
+- `/panikzettel`: Übersicht über alle Panikzettel
+- `/panikzettel/[subject].pdf`: Download eines Panikzettel für ein Fach
+- `/blog`: Mein HTWR blog
+- `/docs`: Ihr seid gerade da.
+- `/...`: Alle möglichen kleinen/rechtlichen Sachen und eventuell ein paar Eastereggs
+
+## ALTE
+
+- `/`: root HTWR Seite
+- `/[institute]`: Die Seite eines Faches. Memes und so
+- `/[institute]/studium`: Die Seite eines Faches. Individuelle Memes. Wurde manchmal geskipped
+- `/[institute]/studium/aufgaben`: Material für ein Fach
+- `/[institute]/studium/teachings`: Zusammenfassungen für ein Fach und Folien-Merge und so...

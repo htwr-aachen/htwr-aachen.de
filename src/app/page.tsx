@@ -9,8 +9,10 @@ import {
   GalleryLabel,
 } from "@/components/rwth/gallery";
 import { Persona, PersonaElement } from "@/components/rwth/persona";
-import Main from "@/layouts/Main";
-import { getRealInstitutes } from "@/lib/institutes";
+import { RealInstituteConfig } from "@/config/institutes";
+import { Main } from "@/layouts/rwth/Main";
+import { findAssociatedSubjects } from "@/lib/subjects";
+import type { Institute } from "@/models/institutes";
 
 export const metadata: Metadata = {
   title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
 
 const Index: FC = () => {
   return (
-    <Main institute="htwr" pad>
+    <Main institute="htwr" fullWidth addPadding={false}>
       <Gallery>
         <GalleryItem>
           <GalleryImage
@@ -88,7 +90,7 @@ const Index: FC = () => {
       </Gallery>
       <div>
         <Persona>
-          {getRealInstitutes().map((institute) => {
+          {Object.values(RealInstituteConfig).map((institute: Institute) => {
             return (
               <PersonaElement href={institute.href} key={institute.name}>
                 <Image
@@ -98,7 +100,8 @@ const Index: FC = () => {
                   width={32}
                   height={32}
                 />
-                {institute.name} / {institute.subject}
+                {institute?.displayName || institute.name} /{" "}
+                {findAssociatedSubjects(institute.name)}
               </PersonaElement>
             );
           })}

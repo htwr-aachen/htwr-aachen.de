@@ -1,42 +1,17 @@
-import { InstituteConfig } from "@/data/institutes";
-import type { Institute, StringInstitutes } from "@/models/institutes";
-import { Institutes, INSTITUTES_LENGTH } from "@/models/institutes";
+import type { Institutes as InstitutesNew } from "@/config/institutes";
+import { InstituteConfig, InstituteCount } from "@/config/institutes";
 
-export const getInstituteByName = (name: string): Institutes => {
-  const institute = InstituteConfig.find(
-    (inst) => inst.name === name.toUpperCase()
-  );
-  if (!institute) {
-    return Institutes.HTWR;
-  }
-  return InstituteConfig.indexOf(institute);
-};
-
-export function getNextInstitute(current: Institutes): Institutes {
-  const next = (current + 1) % INSTITUTES_LENGTH;
-  if (next === Institutes.HTWR) return next + 1;
-  return next;
+export function getNextInstitute(current: InstitutesNew) {
+  let next =
+    (Object.keys(InstituteConfig).indexOf(current) + 1) % InstituteCount;
+  if (next === 0) next++;
+  return Object.keys(InstituteConfig)[next] as InstitutesNew;
 }
 
-export function getPrevInstitute(current: Institutes): Institutes {
-  const prev = (current - 1 + INSTITUTES_LENGTH) % INSTITUTES_LENGTH;
-  if (prev === Institutes.HTWR) return prev + 1;
-  return prev;
-}
-
-export function getInstituteConfig(institute: Institutes): Institute {
-  const config = InstituteConfig[institute];
-  if (!config) {
-    return InstituteConfig[Institutes.HTWR];
-  }
-  return config;
-}
-
-export function getInstituteConfigByName(name: StringInstitutes): Institute {
-  const inst = getInstituteByName(name);
-  return getInstituteConfig(inst);
-}
-
-export function getRealInstitutes(): Institute[] {
-  return InstituteConfig.slice(1);
+export function getPrevInstitute(current: InstitutesNew) {
+  let prev =
+    (Object.keys(InstituteConfig).indexOf(current) - 1 + InstituteCount) %
+    InstituteCount;
+  if (prev === 0) prev++;
+  return Object.keys(InstituteConfig)[prev] as InstitutesNew;
 }

@@ -99,7 +99,7 @@ const Navlink: FC<NavlinkProps> = ({
           <div
             className={
               dropdownActive
-                ? "visible absolute right-2 rounded-md border-[1px] border-gray-300 bg-white lg:right-auto"
+                ? "visible absolute right-2 rounded-md rounded-tl-none border-1 border-black/50 bg-white lg:right-auto"
                 : "visible hidden"
             }
           >

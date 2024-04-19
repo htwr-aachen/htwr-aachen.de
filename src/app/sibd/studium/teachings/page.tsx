@@ -3,7 +3,7 @@ import Link from "next/link";
 import { join } from "path";
 
 import { HeadLine } from "@/components/rwth/headline";
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 import { getAllDocsFromDir } from "@/lib/documents";
 
 import { SIBDSchnellzugriff } from "../../schnellzugriff";
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const folien = await getAllDocsFromDir(
-    join(process.cwd(), "public", "teaching-assets", "sibd", "dbis", "folien"),
-    "/teaching-assets/sibd/dbis/folien",
+    join(process.cwd(), "public", "content-assets", "dbis", "Folien"),
+    "/content-assets/dbis/Folien",
     true
   );
   return (
@@ -32,13 +32,13 @@ export default async function Page() {
               Vorlesungsfolien / Script
             </h1>
 
-            <p className="my-2">It's stocha time.</p>
+            <p className="my-2">It's dbis time.</p>
 
             <ul className="my-2 ml-8 list-disc">
               <li>
                 <a
                   target={"_blank"}
-                  href="/teaching-assets/sibd/dbis/folien-merged.pdf"
+                  href="/content-assets/dbis/folien-merged.pdf"
                 >
                   Folienmerge
                 </a>
@@ -111,7 +111,7 @@ export default async function Page() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/teaching-assets/sibd/dbis/gremlin.pdf"}>
+                  <Link href={"/content-assets/dbis/gremlin.pdf"}>
                     Gremlin Folien
                   </Link>
                 </li>
@@ -152,7 +152,7 @@ export default async function Page() {
             <br />
 
             <ul className="list-disc px-4 pt-8 lg:pl-8">
-              <TeachingList subject="dbis" />
+              <SummaryList subject="dbis" />
             </ul>
           </div>
           <SIBDSchnellzugriff />

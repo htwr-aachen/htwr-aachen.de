@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 
 export const metadata: Metadata = {
   title: "Zusammenfassungen",
@@ -29,7 +29,7 @@ export default function Page() {
 
       <ul className="my-2 ml-8 list-disc">
         <li>
-          <a target={"_blank"} href="/teaching-assets/es/folien-merged.pdf">
+          <a target={"_blank"} href="/content-assets/swt/folien-merged.pdf">
             Folienmerge
           </a>
         </li>
@@ -97,7 +97,7 @@ export default function Page() {
         (es gibt meistens eine Allgemeinwissen Frage).
       </p>
 
-      <TeachingList subject="swt" />
+      <SummaryList subject="swt" />
     </div>
   );
 }

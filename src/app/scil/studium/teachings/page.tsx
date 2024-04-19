@@ -3,7 +3,7 @@ import Link from "next/link";
 import { join } from "path";
 
 import { HeadLine } from "@/components/rwth/headline";
-import TeachingList from "@/components/teachings/List";
+import SummaryList from "@/components/summaries/list";
 import { getAllDocsFromDir } from "@/lib/documents";
 
 import { SCILSchnellzugriff } from "../../schnellzugriff";
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const folien = await getAllDocsFromDir(
-    join(process.cwd(), "public", "teaching-assets", "scil", "folien"),
-    "/teaching-assets/scil/folien",
+    join(process.cwd(), "public", "content-assets", "buk", "Folien"),
+    "/content-assets/buk/Folien",
     true
   );
   return (
@@ -41,7 +41,7 @@ export default async function Page() {
               <li>
                 <a
                   target={"_blank"}
-                  href="/teaching-assets/scil/folien-merged.pdf"
+                  href="/content-assets/buk/folien-merged.pdf"
                 >
                   Folienmerge
                 </a>
@@ -129,7 +129,7 @@ export default async function Page() {
             </p>
 
             <ul className="list-disc px-4 pt-8 lg:pl-8">
-              <TeachingList subject="buk" />
+              <SummaryList subject="buk" />
             </ul>
           </div>
           <SCILSchnellzugriff />

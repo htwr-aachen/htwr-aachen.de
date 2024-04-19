@@ -6,8 +6,6 @@ import type { FC } from "react";
 import { Suspense, useEffect, useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import Main from "@/layouts/Main";
-import { Meta } from "@/layouts/Meta";
 
 import styles from "./botmein.module.scss";
 
@@ -177,7 +175,7 @@ function BotMeInPageRouter() {
   };
 
   return (
-    <Main institute="htwr" meta={<Meta title="BotMeIn @ HTWR"></Meta>}>
+    <>
       <HeadLine>
         BotMeIn{" "}
         <span className="text-center text-2xl">
@@ -191,13 +189,13 @@ function BotMeInPageRouter() {
       {page === TutorialQuery && (
         <TutorialPage page={page} setPage={setNewPage} />
       )}
-    </Main>
+    </>
   );
 }
 
 export default function BotMeInPage() {
   return (
-    <Main institute="htwr" meta={<Meta title="BotMeIn @ HTWR"></Meta>}>
+    <>
       <HeadLine>
         BotMeIn{" "}
         <span className="text-center text-2xl">
@@ -209,6 +207,6 @@ export default function BotMeInPage() {
       >
         <BotMeInPageRouter></BotMeInPageRouter>
       </Suspense>
-    </Main>
+    </>
   );
 }

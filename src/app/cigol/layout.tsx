@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/cigol/Main";
+
+import { institute } from "./config";
 
 export const metadata: Metadata = {
   title: {
@@ -48,5 +50,5 @@ export const viewport: Viewport = {
 };
 
 export default function CIGOLLayout({ children }: { children: ReactNode }) {
-  return <Main institute="cigol">{children}</Main>;
+  return <Main institute={institute}>{children}</Main>;
 }

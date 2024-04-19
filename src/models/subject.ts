@@ -1,10 +1,11 @@
-import type { StringInstitutes } from "./institutes";
+import type { Institutes } from "@/config/institutes";
 
 export type Subject = {
   name: string;
-  institute: StringInstitutes;
-  teachingDir: string;
+  institutes: Institutes[] | readonly Institutes[];
   displayName: string;
   fullName?: string;
-  teachingURL: string;
+  articlesURL: string;
+  articlesPath: string;
+  documentsPath: string;
 };

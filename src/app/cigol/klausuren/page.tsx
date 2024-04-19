@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ExamNotice } from "@/components/scrap/ExamNotice";
-import { getProtectedDownloads } from "@/lib/documents";
+import { getProtectedDownloads } from "@/lib/exams";
 
 export const metadata: Metadata = {
   title: "Klausuren",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const klausuren = await getProtectedDownloads("malo");
+  const exams = await getProtectedDownloads("malo");
 
   return (
     <div>
@@ -25,17 +25,17 @@ export default async function Page() {
           <div className="mx-2 lg:m-0">
             <ExamNotice></ExamNotice>
             <ul className="ml-8 mt-8 list-disc">
-              {klausuren.map((klausur) => {
+              {exams.map((exam) => {
                 return (
-                  <li key={klausur}>
+                  <li key={exam}>
                     <Link
                       href={{
                         pathname: "/protected-download",
-                        query: { file: klausur },
+                        query: { file: exam },
                       }}
                       target="_blank"
                     >
-                      {klausur}
+                      {exam}
                     </Link>
                   </li>
                 );

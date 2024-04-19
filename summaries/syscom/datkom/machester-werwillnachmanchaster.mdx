@@ -1,0 +1,140 @@
+---
+title: Manchester - Wer will nach Manchester (Codierungsarten)
+description: Das Nachschlagwerk der codierungsarten
+tags: [layer1]
+order: 2
+author: Jonas Schneider
+---
+
+## Überblick
+
+Also jetzt fragt man sich natürlich, wie übertrage ich denn nun letzendlich die Daten?
+
+Naja eigentlich wollte ich hier auch was animiertes machen, aber charjs ist dafür irgendwie scheiße. Also hier nun per Bild sry :/
+
+Codierung versucht eine bestimmte Bitfolge in eine Signal zu übertragen, dass später decodiert werden kann.
+
+Hierfür gibt es bestimmte (simplere) Arten:
+
+![Eine Übersicht der simplen Coderungsarten](/summary-assets/syscom/simple-codes.png)
+
+und es gibt Biphase-codes, die eine **Selbsttaktung**, wo die Clocks snychronisiert werden können, ermöglichen:
+
+![Eine Übersicht der Biphase-coderungsarten](/summary-assets/syscom/biphase-codes.png)
+
+Letztendlich gibt es noch die richtig abgefahrenen Arten wie:
+
+- **4B/5B:** Hier wird diff. NRZ verwendet aber man bildet je 4Bit eingabe auf 5Bit Übertragung ab, somit behält man eine gute Effizienz und selbsttaktung
+
+- 8B/10B: Ähnlich wie 4B/5B, nur mit 8Bit Eingabe und 10Bit Übertragung, wird für 1 GBit/s Ethernet verwendet.
+
+- 4B3T: Weirder schieß mit Zuständen, inder in 3 Takte 4 Bit übertragen werden
+
+Es gibt außerdem die Möglichkeit ein digitales Signal in den Variablen einer Welle zu codieren:
+
+- Amplitudenmodulation (AM): Hier wird die Amplitude des Signals verändert, um die Information zu übertragen (1 = hohe Amplitude, 0 = niedrige Amplitude). Ermöglicht durch Oszillator der entweder mit Ground oder V_cc verbindet.
+
+- Frequenzmodulation (FM): Hier wird die Frequenz des Signals verändert, um die Information zu übertragen (1 = hohe Frequenz, 0 = niedrige Frequenz). Ermöglicht durch unterschiedliche Oszillatoren
+
+- Phasenmodulation (PM): Hier wird die Phase des Signals verändert, um die Information zu übertragen (1 = hohe Phase, 0 = niedrige Phase). Ermöglicht durch eine Verzögerung des Signals.
+
+- Quadraturmodulation (QM): Hier wird Amplitudenmodulation und Phasenmodulation kombiniert, um die Information zu übertragen. Es entsteht diese Zielscheibe:
+
+- Pulse-Code-Modulation (PCM): Ach keine Ahnung nicht wichtig
+
+![Quadraturmodulation](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/16QAM_Gray_Coded.svg/220px-16QAM_Gray_Coded.svg.png)
+
+## Effizienz
+
+Die Effizienz einer Coderung ist $\frac{\text{Anzahl Eingabebits}}{\text{Anzahl Schritte / Ausgabebits}}$. Z.B.:
+
+- NRZ: $\frac{1}{1} = 1$
+- Manchester: $\frac{1}{2} = 0.5$
+- 4B/5B: $\frac{4}{5} = 0.8$
+
+Somit kann dann auch mit einer Schrittgeschwidigkeit von $1000$ baud und einer Manchaster-Coderung (nur eine) Übertragungsgeschwindigkeit von $500$ Bit/s erreicht werden.
+
+<hr className="border-black"></hr>
+
+## **Shannon**
+
+Shannon berechnet theoretische maximale Datenrate bei Zufälligen Rauschen:
+
+!> $C = B \cdot \log_2(1 + \frac{S}{N})$ mit $S = $ Signalstärke und $N = $ Rauschen, $B = $ Bandbreite
+
+Hier bekommt man eigentlich immer den Signal-Rausch-Abstand (SNR) und muss dann die Datenrate berechnen.
+Hierfür sind diese Formeln hilfreich:
+
+- $20db \approx 10^2$
+- $30db \approx 10^3$
+- $50db \approx 10^5$
+
+und dann ist es einfach nur noch einsetzten.
+
+## **Nyquist**
+
+Nyquist hingegen berechnet die maximale Datenrate bei einem störungsfreien Kanal bei einer bestimmten Signalstufen
+
+!> $C = 2B \cdot \log_2(S)$ mit $S = $ Signalstufen, $B = $ Bandbreite
+
+auch hier nur einsetzten.
+
+Für die kombination der beiden gilt dann natürlich
+
+$C_{max} = \min(C_{Shannon}, C_{Nyquist})$
+
+## **Abtasttheorem**
+
+Das Abtasttheorem besagt, das wenn man eine Frequenz $f_{A}$ abtasten will, muss die Grenzfreuquenz $f_{G}$ mindestens $2f_{A}$ betragen.
+Damit man z.B. nicht immer nur Hügel misst und immer das Tal verpasst.
+
+<hr className="border-black"></hr>
+
+## Aufgaben
+
+x> Zeichne die Codierung von 10101010 mit NRZ, Manchester und Biphase
+
+<Spoiler>
+  Naja wenn man das geübt hat, geht das wie alles andere auch. Wendet einfach
+  immer wieder das Schema an und verwecheslt die einzelnen Subklassen nicht.
+</Spoiler>
+
+x> Decodiere die Codierung von dem NRZ code (BILD)...
+
+<Spoiler>Naja easy.</Spoiler>
+
+x> Es ist eine Schrittgeschwidigkeit von $1000$ baud gegeben. Berechne die Übertragungsgeschwindigkeit für NRZ, Manchester und Biphase
+
+<Spoiler>
+  Wie oben $1000$ baud mit NRZ ist $1000$ Bit/s, mit Manchester $500$ Bit/s und
+  mit Biphase $500$ Bit/s.
+</Spoiler>
+
+x> Gegeben ein Signalbild, welche Modulation wurde verwendet?
+
+<Spoiler>
+  Dann muss man auf unterschiedliche Frequenzen, Amplituden und Phasen achten.
+  Gegebenenfalls mehreres.
+</Spoiler>
+
+x> Decodiere oder codiere mit einer 16QAM Modulation
+
+<Spoiler>
+  Dann bekommt man diese Zielscheibe und muss dann was ablesen oder so.
+</Spoiler>
+
+x> Zusammen mit Nyquist und Shannon, ist eine 256QAM einsetztbar
+
+<Spoiler>
+!> $C = 2 \cdot B \cdot \log_2(n)$ mit $n = $ Anzahl der möglichen Zustände und $B = $ Bandbreite
+
+Somit muss man die theoretische maximale Daterate mit Shannon berechnen und dann Nyquist für 256Zustände berechnen, falls es $\ge$ ist, dann ist es einsetzbar.
+
+</Spoiler>
+
+x> Welche Datenrate wird benötigt bei einer Abtastung von $20Hz-20kHz$ möglich bei $16Bit$ quantisierung?
+
+<Spoiler>
+  Wegen Abtasttheorem $40Khz$ und dann $16Bit$ quantisierung, also $40000 \cdot
+  16 = 640000$ Bit/s
+</Spoiler>

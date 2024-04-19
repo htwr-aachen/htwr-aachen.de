@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
 import { ProtectedDownloadFlow } from "./protected-download";
 

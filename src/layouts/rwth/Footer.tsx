@@ -1,21 +1,20 @@
-"ise client";
+"use client";
 
 import Link from "next/link";
 import { type FC, useContext } from "react";
 
+import { BannerNotifyContext } from "@/components/banner-provider";
 import InstituteSwitches from "@/components/InstituteSwitches";
-import type { Institutes } from "@/models/institutes";
-
-import { PushNotifyContext } from "../SharedPushNotify";
+import type { Institutes } from "@/config/institutes";
 
 type FooterProps = {
   institute: Institutes;
 };
 
 const Footer: FC<FooterProps> = ({ institute }) => {
-  const { setShow } = useContext(PushNotifyContext);
+  const { setShow } = useContext(BannerNotifyContext);
   return (
-    <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-[1280px]">
+    <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-screen-xl">
       <InstituteSwitches institute={institute} />
       <div className="py-12 text-center">
         <Link href={"/updates"} className="text-white hover:border-b-1">

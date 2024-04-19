@@ -1,21 +1,34 @@
 import "@/styles/global.css";
-import "@/styles/markdown.scss";
+import "@/styles/simple.scss";
+import "@fontsource-variable/hanken-grotesk";
 
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 import type { FC } from "react";
 
-import AppMain from "@/layouts/AppMain";
-import { AppConfig, BaseURL } from "@/utils/AppConfig";
+import { BannerNotifyProvider } from "@/components/banner-provider";
+import { ThemeProvider } from "@/components/theme-provider";
+import { AppConfig, BaseURL } from "@/config/app";
+import { cn } from "@/lib/utils";
 
 type RootLayoutProps = {
   children: React.ReactNode;
 };
 
+// main typeface
+/* const hkGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-hk-grotesk",
+  display: "swap",
+}); */
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
 });
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -24,11 +37,22 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+const lmserif = localFont({
+  src: [
+    {
+      path: "../../public/lmroman10-regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/lmroman10-bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-lmserif",
+});
 export const metadata: Metadata = {
-  title: {
-    template: "%s - HTWR",
-    default: AppConfig.title,
-  },
   icons: [
     {
       rel: "apple-touch-icon",
@@ -79,7 +103,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang={AppConfig.locale}>
+    <html suppressHydrationWarning lang={AppConfig.locale}>
       <head>
         <link
           rel="stylesheet"
@@ -102,11 +126,21 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           src="https://plausible.htwr-aachen.de/js/script.js"
         ></script>
       </head>
-      <body>
-        <div className={`${inter.className} ${roboto.className}`}>
-          <div className="bg"></div>
-          <AppMain>{children}</AppMain>
-        </div>
+      <body
+        className={cn(
+          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable}`
+        )}
+      >
+        <BannerNotifyProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <div className="min-h-screen">{children}</div>
+          </ThemeProvider>
+        </BannerNotifyProvider>
       </body>
     </html>
   );

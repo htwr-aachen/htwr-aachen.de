@@ -1,0 +1,86 @@
+---
+title: "SWT 2.0"
+description: Nicht schooon wieder....
+author: Jonas Schneider
+date: 31/07/2023
+order: 2
+tags:
+  [
+    Entity-Relationship-Model,
+    Datenbankentwurf
+  ]
+---
+
+So ne scheiße
+
+# Datenbankentwurf
+Jaja ist wichtig Datenschema zu planen etc. Man kennt den Quatsch
+- Korrektheit
+- Vollständigkeit
+- Minimalität
+- Lesbarkeit
+- Anpassbarkeit
+- Normalisierung 
+
+So Stichwörter abgehakt. Was nun? 
+
+## Entity-Relationship-Model (ER-Diagramme)
+- Entität Typen: Objekte, die gespeichert werden: z.B. Studenten
+- Attribut Typen: Attribute, die zu den Objekten gehören: z.B. Mat.Nr., Lebenswille
+- Beziehungen: Beziehungen zwischen den Objekten: z.B. Hat Student A Freunde?
+
+
+### Entity
+**Entities** müssen "existieren" und unterscheidbar sein von anderen Entities.
+Ein **Entity-Typ** ist dann eine Menge von Entities, mit den gleichen Attributen. Ein **Entity-Set** ist praktisch das gleiche wie Entity-Typen aber zur Laufzeit.
+ 
+**Entity-Typen werden durch Rechtecke dargestellt.**
+
+### Attribute
+Ja ist selbst erklärend. Attribute haben einen Namen (und einen Wertebereich).
+Zudem gibt es noch **Schlüsselattribute**. Die sind zusammen ein eindeutiger Identifikator für ein Entity (z.B. Mat.Nr).
+
+**Attribute werden durch Ovale dargestellt. Kein Wertebereich bei ER-Diagramme. Schlüsselattribute werden unterstrichen**
+
+Ein Attribut kann wieder aus mehreren **Teilattributen** bestehen (z.B. Adresse => Straße, Hausnummer, PLZ, Ort). Die werden auch als Attribute dargestellt, aber dann mit einem Strich mit dem Oberattribut verbunden.
+
+Ein Attribut kann auch ein Array sein. Dann wird es einfach doppelt umrandet. 
+
+### Beziehungen
+
+Beziehungen zwischen Entities werden durch **Raute** dargestellt. Die Raute hat einen Namen.
+Zusätzlich gibt es noch pro Entity-Typ eine **Kardinalität**. Die gibt an, wie viele Entities mit einem anderen Entity verbunden sein können.
+- 1:1
+- 1:n
+- n:m
+
+sind die häufigsten. Auch Beziehungen können ein Attribut haben. Die sind dann einfach mit der Raute verbunden.
+Sie wird oft durch die **(min,max)** Schreibweise angegeben: Heißt z.B. (1, n) => mindestens 1, kein Maximum.
+
+#### Starke v. Schwache Entities
+Entitäten können schwach sein, das heißt sie können nur existieren, wenn sie mit einem anderen Entity verbunden sind. z.B. Ein Raum braucht ein Gebäude.
+Schwache Entitäten haben eine (1,1) - Kardinalität zu dem Entity, von dem sie abhängen. Ein Raum liegt immer in einem Gebäude, dass kann aber viele Räume haben
+
+
+### General/Spezialisierunzeptueller Entwurf
+- Abstraktionskonzepte
+- Richtlinien
+- Total (t neben dem Dreieck): Jedes Entity des Ober-Typs muss auch ein Entity des Unter-Typs sein
+- Partiell (p neben dem Dreieck): Es gibt Entities des Ober-Typs, die nicht auch ein Entity des Unter-Typs sind
+
+Die können wiederum:
+- Disjunkt: Ein Entity kann nur zu einem Unter-Typ gehören
+- Nicht Disjunkt: Ein Entity kann zu mehreren Unter-Typen gehören
+
+## Konzeptioneller Entwurf
+
+  - Klassifikation: Erkennen der Entitäten
+  - Aggregation: Zusammenfassen von Attributen zu Entitäten
+  - Assoziation: Erkennen von Beziehungen zwischen Entitäten
+  - Generalisierung: Erkennen von Generalisierungen
+
+Unterschied zwischen Entität und Attribut: Falls das Konzept eigene Eigenschaften hat oder mehrfach auftaucht => Entität | sonst Attribut
+Unterschied zwischen Generalisierung und Attribut: Falls das Unterkonzept andere Eigenschaften hat => Generalisierung | sonst Attribut
+
+![ER-Diagramm](/summary-assets/sibd/dbis/teachings/er-diagramm.png)
+  

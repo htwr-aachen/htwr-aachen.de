@@ -1,0 +1,178 @@
+---
+title: tcpain (tcp, udp, maybe bissle quic)
+date: 02/02/2023
+author: Jonas Schneider
+description: Überblick über TCP und UDP inklusive Header und Verbindungsaufbau und so
+order: 7
+---
+
+> "Ich bin ehrlich jetzt wirds scheiße"
+
+## Nutzen
+
+IP gibt und ein gutes System Datenpaket an einen anderen Empfänger zu senden.
+Allerdings haben wir Datenströme, keine Pakete und ich würde gerne wollen, dass wenn ich 2000€ an überweise, die Bank nicht 0020€ erhält, da die Reihenfolge vertausch wurde.
+
+Also braucht man doch wieder eine Verbindungsorientierte Kommunikation, die alles sicher überträgt, mit den Vorteilen der globalen Kommunikation von IP.
+Wir müssen praktisch die Übertragung der Daten steuern und kontrollieren => **TCP (transmission control protocol)**.
+
+Ob ihrs glaubt oder nicht, langsam gehts in den nützlichen Teil der VO über. TCP ist praktisch und durch alle Betriebssystem sehr leicht erreichbar.
+
+## Header
+
+Ein typischer Header ist 20 Byte groß und sieht so aus:
+
+![TCP-Header](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/TCP_Header.svg/1024px-TCP_Header.svg.png)
+
+Also:
+
+### Ports
+
+Ports sind Nummern, die die verschiedenen Datenströme unterscheiden. Somit kann Chrome port 23000 verwenden und Firefox port 23001 und beide bekommen ihre Daten.
+
+Socket = IP + Port Identifiziert also eine bestimmte Anwendung auf einem bestimmten Rechner.
+
+### Back to Header
+
+<div className="center">
+  ![bisschen
+  aufmunterung](https://media.tenor.com/bF9dtMBndV8AAAAC/king-of-the-hill-hank.gif)
+</div>
+
+- **Source Port** [2 Byte] und **Destination Port** [2 Byte]: sind die Ports, die die Datenströme identifizieren (klar)
+- **Sequence Number** (_SEQ-NO_) [4 Byte]: ist die Nummer des ersten Byte dieses TCP--Paket oder die Initalisierungsnummer beim Verbindungsaufbau.
+  Sie wird dafür verwendet, um die Daten zu sortieren. **Sie wird immer dann erhöht, Daten gesendet werden, oder eine Verbindung auf- oder abgebaut werden. (!NICHT BEI REINEN ACKS!)**
+- **Acknowledgement Number** (_ACK-NO_) [4 Byte]: ist die Nummer des nächsten Byte, das erwartet wird.
+- **Data Offset** [4 Bit]: Länge des Headers in 32-Bit Blöcken. (Weil optionen skalieren können)
+- **Reserved** [3 Bit]: Wird nicht verwendet
+- **Flags** [9 Bit]:
+  - **NS** [1 Bit]: Nicht verwendet
+  - **CWR und ECE** [2 Bit]: ECN-Echo teilt Überlastung mit & Congestion Window Reduced zeigt, dass der Sender die Window Size reduziert hat
+  - **URG** [1 Bit]: Urgent (wird meist nicht verwendet)
+  - **ACK** [1 Bit]: Acknowledgement Erfolgreiche empfangen der Daten bis Acknowledgement Number.
+  - **PSH** [1 Bit]: Push effizienteres Senden von Daten, da Puffer übergangen wird (juckt nicht)
+  - **RST** [1 Bit]: Reset Verbindung wird abgebrochen durch einen Fehler
+  - **SYN** [1 Bit]: Synchronisation Verbindungsaufbau-Flag
+  - **FIN** [1 Bit]: Finish Verbindung wird beendet
+- **Window Size** (WIN) [2 Byte]: Größe des Empfangsfensters (wird von Receiver bestimmt)
+- **Checksum** [2 Byte]: Prüfsumme des Headers und Daten
+- **Urgent Pointer** [2 Byte]: ist egal
+- **Options** [0-40 Byte]: sind Optionen, die den Header erweitern. (z.B. Maximum Segment Size, Window Scale, Selective Acknowledgement, Time Stamp, etc.)
+- Daten...
+
+> Uff das viel, aber das wichtigste sind die Portnummern, die Sequenznummer, die Acknowledgementnummer und die ACK, SYN, FIN Flags. Der Rest ist nicht so wichtig.
+
+## Verbindungsaufbau
+
+So step by step mal ein typical tcp Kommunikation.
+
+1.  Gerät 1 [A] wählt eine Initalisierungsnummer (Sequence Number) aus (z.B. 1) und schickt sie zusammen mit dem Syn-Flag (_SEQ-NO_=1)
+
+    $\longrightarrow$ Gerät 2 [B] sendet Syn Ack mit ebenfalls (_anderer!_)zufälliger Sequenznummer (_SEQ-NO_=42, _ACK-NO_=2)
+
+    $\longrightarrow$ [A] sendet Ack (_SEQ-NO_=2, _ACK-NO_=43). Nun ist die Verbindung aktiv (hier könnten die ersten Daten gesendet werden)
+
+2.  [A] sendet Daten (5 Byte) (_SEQ-NO_=2, _ACK-NO_=43)
+
+    [A] sendet weiter Daten (5 Byte) (_SEQ-NO_=7, _ACK-NO_=43) \*1
+
+3.  [B] erhält beide Datenpakete leicht verschoben (zeitlich).
+
+    [B] sendet Ack (_SEQ-NO_=43, _ACK-NO_=7) \*2.
+
+    [B] sendet Ack (_SEQ-NO_=43, _ACK-NO_=12)
+
+4.  [A] erhält beide Ack Pakete und weiß, dass die Daten bei [B] angekommen sind. Nun will es die Verbindung beenden.
+
+    [A] sendet FIN-Flag (_SEQ-NO_=12, _ACK-NO_=43)
+
+    $\longrightarrow$ [B] sendet FIN-Ack-Flag (_SEQ-NO_=43, _ACK-NO_=13)
+
+    $\longrightarrow$ [A] sendet Ack (_SEQ-NO_=13, _ACK-NO_=44). Verbindung ist beendet.
+
+So jetzt gibts noch Sternchen zu klären:
+
+\*1: Hier kommt es natürlich auf das Sendefenster drauf an, ob [A] die Datenpakete hintereinander senden kann oder ob es warten muss, bis [B] das Ack gesendet hat.
+Das Sendefenster wird bei dem unteranderem beim Verbindungsaufbau festgelegt. Hier sendet [A] mit dem SYN-Flag auch die Window Size und MSS (Maximum Segment Size) die [A] haben kann mit.
+[B] kann dann entscheiden, wie groß das Sendefenster sein soll und sendet ist mit dem SYN-ACK mit.
+
+Das Sendefenster und _MSS_ ist dann das minimum der beiden Werte.
+*Lasst euch bei diesen dummen Diagrammen nicht verwirren. *WIN* und *MSS* bleiben hoffentlich gleich, die *SEQ-NO* und *ACK-NO* sind die wichtigen Werte*.
+
+\*2: Hier ist es wichtig zu wissen, dass [B] falls Paket 2 vor 1 ankommt, wartet bis 1 angekommen ist, und dann nur ein Ack mit _ACK-NO_ 12 sendet.
+
+### Es wird komplizierter
+
+<div className="center my-2">### [Erlösung](https://bit.ly/3X3uJN6)</div>
+
+Es sind mehrere Themen zu besprechen:
+
+- Neuübtragung: Eigentlich Go-Back-N, aber es Selective Acknowledgement und Selective Repeat beim Verbindungsaufbau gesagt werden.
+
+- Variables Fenster: Sender und Empfänger können das Fenster verändern. Sender kann es verkleinern, wenn es zu viele Pakete verloren hat. Empfänger kann es verkleinern, wenn es zu viele Pakete empfangen hat. Dies geschieht durchs _WIN_-Feld.
+
+  Hier gibt es das **SILLY-WINDOW-SYNDROM**. Wenn [B] sagt _WIN_=0, da er überlastet ist, dann ein Byte ausliest und _WIN_=1 mit vorherigen _ACK-NO_ an [A] sendet, schickt [A] ein Byte und [B] setzt wieder _WIN_=0. Das ist ziemlich ineffizent.
+  Die Lösung ist das man einfach wartet bis Buffer halb leer ist (Clarks Solution) oder bis der Sender ein _MSS_ senden kann (Nagle's Algorithmus).
+
+  <div className="center">
+    ![silly girl](https://media.tenor.com/pSbKXoPcQFYAAAAM/wonka-tell-me.gif)
+  </div>
+
+- Stausituationen:
+  Wenn mehr leude senden, als das Netzwerk verarbeiten kann, dann kommt es zu verworfenen Paketen, diese werden von TCP erkannt, da TCP auf das Ausbleiben eines ACKS ein Time-Out hat.
+
+  **Was dann geschah, werden Sie nicht kommen sehen😨🥶:**
+
+### TCP-Congestion-Control
+
+<div className="center my-2">### [Erlösung](https://bit.ly/3X3uJN6)</div>
+<div className="center my-2">### [Erlösung](https://bit.ly/3X3uJN6)</div>
+
+Zusätzlich zu dem Sendefenster, gibt es noch das Congestion Window (_cwnd_). Das ist initial hoch eingestellt (Sendefenster). Es wird das Netzwerk abgeschätzt und ein Schwellenwert (_ssthresh_) ermittelt.
+
+Aber statt das Auto zu reparieren wenn die Kupplung abgefahren ist, kann auch einfach besser Autofahren $\Rightarrow$ TCP kann auch langsamer fahren und macht somit Congestion Avoidance.
+
+<div className="center">
+  ![tcp-slow-start](/summary-assets/syscom/tcp-slow-start.png)
+</div>
+
+Das ist zwar viel, aber im Prinzip tastet es sich von 1 _MSS_ zu 2 _MSS_ zu 4 _MSS_ usw. vor, bis _ssthresh_ erreicht ist. dann erhöht man _cwnd_ um 1 _MSS_ pro RTT (Round Trip Time) (linear).
+
+Falls das Netzwerk zu einem Zeitpunkt überlastet ist, dann wird _ssthresh_ auf die hälfte des erreichten Wertes gesetzt und _cwnd_ auf 1 _MSS_ gesetzt. Dann wird von vorne angefangen.
+
+Falls du dich jetzt fragst wie ein Stau erkannt wird, dann halt dein Maul und denk nicht so viel. Falls der Sender keine _ACKs_ erhält und es gibt ein Time-Out, dann ist das Netzwerk stark überlastet,
+falls man Dup-Acks erhält, dann ist das Netzwerk entweder leicht überlastet oder die Verbindung im Audimax ist mal wieder im Arsch.
+
+- TCP Reno Fast Recovery: Falls mann ein Tripple-DupAck erhält, dann wird _ssthresh_ auf die Hälfte des erreichten Wertes gesetzt, aber _cwnd_ nicht auf 1 _MSS_ gesetzt, sondern auf _ssthresh_ und lässt somit den exponentionellen Teil weg.
+
+- TCP Tahoe: Siehe Diagramm oben, es wird von 1 _MSS_ begonnen. **Frühere Version**.
+
+Der average Durchsatz $R_{avg} = \frac{\#packets \cdot MSS}{\#rounds \cdot RTT} = \sqrt{\frac{3}{2}} \frac{MSS}{RTT \cdot \sqrt{\frac{1}{\#packets}}}$. Wer das lernt kann mich mal.
+
+- Gibt noch mehr Staukontrolle (TCP SACK, CUBIC, BIC, Compound TCP) ist aber unnötig.
+
+- Der Time-Out wird heute meist $RTO = RTT + 4 \beta$. $\beta$ ist die Standardabweichung der RTT.
+
+- Durch IP kann das Netzwerk sogar TCP eine Überlastung mitteilen (ECP, CE Felder).
+
+- Die 3 Nachrichten erhöhen Latenz und deswegen gibt es TCP Fast Open (TFO).
+
+## UDP
+
+Zum schluss noch was dummes aber schnelles: UDP.
+
+<div className="center">
+  ![Forrest
+  Running](https://media.tenor.com/fP8tlr2kTzQAAAAC/forrest-gump-running.gif)
+</div>
+
+Hier gibt es die Felder:
+
+- Source Port, Destination Port [$2 \cdot 2$ Byte]
+- Message Length [$2$ Byte]
+- Checksum [$2$ Byte] (optional)
+- Data...
+
+Das wars auch schon, keine Kontrollmechnism.
+
+!> "UDP ist einfach, kommt eh nicht in der Klausur dran."

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { FC } from "react";
 
-import Main from "@/layouts/Main";
+import { Main } from "@/layouts/rwth/Main";
 
 export const metadata: Metadata = {
   title: "Wehe einer schickt mir nen Brief - Datenschutz",
@@ -11,37 +11,33 @@ export const metadata: Metadata = {
 const Datenschutz: FC = () => {
   return (
     <Main institute="htwr">
-      <div>
-        <h1 className="my-4 font-sans text-3xl font-bold">
-          Datenschutz&shy;erkl&auml;rung
-        </h1>
-        <h2 className="my-4 font-sans text-2xl font-bold">Unkompliziert</h2>
+      <div className="prose">
+        <h1>Datenschutz&shy;erkl&auml;rung</h1>
+        <h2>Unkompliziert</h2>
         <p className="">
-          Ich verwende kein Google-Analytics (mehr). Ich habe alle externen
+          Ich verwende kein Google-Analytics (mehr). Stattdessen Plausible,
+          welches aber keine Personenbezogenen Daten erfasst (außer IP aber das
+          ist nicht wirklich Personenbezogen) Ich habe alle externen
           iframe-embeds herausgenommen, <b>außer</b>{" "}
           <a href="https://giphy.com/">giphy.com</a> (alle neuen Sachen mit gif
           Bildern statt IFrames gemacht)
         </p>
-        <p className="my-2">
+        <p>
           Ich verwende keine Cookies, außerhalb von einer, die die Subseite
           (Institutsstil) angibt, also keine Daten enthält, die in irgendeiner
           weise Personen zugeordnet werden können.
         </p>
-        <p className="my-2">
+        <p>
           Es ist halt auch grundlegend eine statische Webseite ohne Anmeldung
           oder ähnliches. :)
         </p>
-        <p className="my-2">
+        <p>
           Aber weil ich die scheiße machen muss hier das rechtliche: (bewusst
           etwas weniger spezifisch, da ich vllt. noch was veränder)
         </p>
-        <h2 className="my-4 font-sans text-2xl font-bold">
-          1. Datenschutz auf einen Blick
-        </h2>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Allgemeine Hinweise
-        </h3>
-        <p className="ml-4">
+        <h2>1. Datenschutz auf einen Blick</h2>
+        <h3>Allgemeine Hinweise</h3>
+        <p>
           Die folgenden Hinweise geben einen einfachen &Uuml;berblick
           dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert, wenn Sie
           diese Website besuchen. Personenbezogene Daten sind alle Daten, mit
@@ -49,45 +45,37 @@ const Datenschutz: FC = () => {
           Ausf&uuml;hrliche Informationen zum Thema Datenschutz entnehmen Sie
           unserer unter diesem Text aufgef&uuml;hrten Datenschutzerkl&auml;rung.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Datenerfassung auf dieser Website
-        </h3>
-        <h4 className="my-2 font-sans text-lg font-medium">
+        <h3>Datenerfassung auf dieser Website</h3>
+        <h4>
           Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser Website?
         </h4>
-        <p className="ml-4">
+        <p>
           Die Datenverarbeitung auf dieser Website erfolgt durch den
           Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem Abschnitt
           &bdquo;Hinweis zur Verantwortlichen Stelle&ldquo; in dieser
           Datenschutzerkl&auml;rung entnehmen.
-        </p>{" "}
-        <h4 className="my-2 font-sans text-lg font-medium">
-          Wie erfassen wir Ihre Daten?
-        </h4>{" "}
-        <p className="ml-4">
+        </p>
+        <h4>Wie erfassen wir Ihre Daten?</h4>{" "}
+        <p>
           Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese
           mitteilen. Hierbei kann es sich z.&nbsp;B. um Daten handeln, die Sie
           in ein Kontaktformular eingeben.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Andere Daten werden automatisch oder nach Ihrer Einwilligung beim
           Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem
           technische Daten (z.&nbsp;B. Internetbrowser, Betriebssystem oder
           Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt
           automatisch, sobald Sie diese Website betreten.
         </p>{" "}
-        <h4 className="my-2 font-sans text-lg font-medium">
-          Wof&uuml;r nutzen wir Ihre Daten?
-        </h4>{" "}
-        <p className="ml-4">
+        <h4>Wof&uuml;r nutzen wir Ihre Daten?</h4>{" "}
+        <p>
           Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung
           der Website zu gew&auml;hrleisten. Andere Daten k&ouml;nnen zur
           Analyse Ihres Nutzerverhaltens verwendet werden.
         </p>{" "}
-        <h4 className="my-2 font-sans text-lg font-medium">
-          Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?
-        </h4>{" "}
-        <p className="ml-4">
+        <h4>Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?</h4>{" "}
+        <p>
           Sie haben jederzeit das Recht, unentgeltlich Auskunft &uuml;ber
           Herkunft, Empf&auml;nger und Zweck Ihrer gespeicherten
           personenbezogenen Daten zu erhalten. Sie haben au&szlig;erdem ein
@@ -99,30 +87,24 @@ const Datenschutz: FC = () => {
           personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein
           Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde zu.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Hierzu sowie zu weiteren Fragen zum Thema Datenschutz k&ouml;nnen Sie
           sich jederzeit an uns wenden.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Analyse-Tools und Tools von Dritt&shy;anbietern
-        </h3>
-        <p className="ml-4">
+        <h3>Analyse-Tools und Tools von Dritt&shy;anbietern</h3>
+        <p>
           Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch
           ausgewertet werden. Das geschieht vor allem mit sogenannten
           Analyseprogrammen.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Detaillierte Informationen zu diesen Analyseprogrammen finden Sie in
           der folgenden Datenschutzerkl&auml;rung.
         </p>
-        <h2 className="my-4 font-sans text-2xl font-bold">2. Hosting</h2>
-        <p className="ml-4">
-          Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
-        </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Externes Hosting
-        </h3>{" "}
-        <p className="ml-4">
+        <h2>2. Hosting</h2>
+        <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
+        <h3>Externes Hosting</h3>{" "}
+        <p>
           Diese Website wird extern gehostet. Die personenbezogenen Daten, die
           auf dieser Website erfasst werden, werden auf den Servern des Hosters
           / der Hoster gespeichert. Hierbei kann es sich v.&nbsp;a. um
@@ -130,7 +112,7 @@ const Datenschutz: FC = () => {
           Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige
           Daten, die &uuml;ber eine Website generiert werden, handeln.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Das externe Hosting erfolgt zum Zwecke der Vertragserf&uuml;llung
           gegen&uuml;ber unseren potenziellen und bestehenden Kunden (Art. 6
           Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und
@@ -143,27 +125,25 @@ const Datenschutz: FC = () => {
           Nutzers (z.&nbsp;B. Device-Fingerprinting) im Sinne des TTDSG umfasst.
           Die Einwilligung ist jederzeit widerrufbar.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten,
           wie dies zur Erf&uuml;llung seiner Leistungspflichten erforderlich ist
           und unsere Weisungen in Bezug auf diese Daten befolgen.
         </p>{" "}
-        <p className="ml-4">Wir setzen folgende(n) Hoster ein:</p>
-        <p className="ml-4">
+        <p>Wir setzen folgende(n) Hoster ein:</p>
+        <p>
           Dienstanbieter ist das amerikanische Unternehmen Vercel Inc., 340 S
           Lemon Ave #4133, Walnut, CA 91789.
         </p>
-        <h2 className="my-4 font-sans text-2xl font-bold">
-          3. Allgemeine Hinweise und Pflicht&shy;informationen
-        </h2>
-        <h3 className="my-2 font-sans text-xl font-semibold">Datenschutz</h3>{" "}
-        <p className="ml-4">
+        <h2>3. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
+        <h3>Datenschutz</h3>{" "}
+        <p>
           Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen
           Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
           vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften
           sowie dieser Datenschutzerkl&auml;rung.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Wenn Sie diese Website benutzen, werden verschiedene personenbezogene
           Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie
           pers&ouml;nlich identifiziert werden k&ouml;nnen. Die vorliegende
@@ -171,39 +151,37 @@ const Datenschutz: FC = () => {
           wof&uuml;r wir sie nutzen. Sie erl&auml;utert auch, wie und zu welchem
           Zweck das geschieht.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Wir weisen darauf hin, dass die Daten&uuml;bertragung im Internet
           (z.&nbsp;B. bei der Kommunikation per E-Mail) Sicherheitsl&uuml;cken
           aufweisen kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff
           durch Dritte ist nicht m&ouml;glich.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Hinweis zur verantwortlichen Stelle
-        </h3>{" "}
-        <p className="ml-4">
+        <h3>Hinweis zur verantwortlichen Stelle</h3>{" "}
+        <p>
           Die verantwortliche Stelle f&uuml;r die Datenverarbeitung auf dieser
           Website ist:
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Jonas Schneider
           <br />
           Mostardstr. 22
           <br />
           52062 Aachen
         </p>
-        <p className="ml-4">
+        <p>
           Telefon: +4915731086384
           <br />
           E-Mail: jonas.max.schneider@gmail.com
         </p>
-        <p className="ml-4">
+        <p>
           Verantwortliche Stelle ist die nat&uuml;rliche oder juristische
           Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und
           Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen,
           E-Mail-Adressen o. &Auml;.) entscheidet.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">Speicherdauer</h3>{" "}
-        <p className="ml-4">
+        <h3>Speicherdauer</h3>{" "}
+        <p>
           Soweit innerhalb dieser Datenschutzerkl&auml;rung keine speziellere
           Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten
           bei uns, bis der Zweck f&uuml;r die Datenverarbeitung entf&auml;llt.
@@ -215,11 +193,11 @@ const Datenschutz: FC = () => {
           Aufbewahrungsfristen); im letztgenannten Fall erfolgt die
           L&ouml;schung nach Fortfall dieser Gr&uuml;nde.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
+        <h3>
           Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf
           dieser Website
         </h3>{" "}
-        <p className="ml-4">
+        <p>
           Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten
           wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit.
           a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere
@@ -242,10 +220,10 @@ const Datenschutz: FC = () => {
           jeweils im Einzelfall einschl&auml;gigen Rechtsgrundlagen wird in den
           folgenden Abs&auml;tzen dieser Datenschutzerkl&auml;rung informiert.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
+        <h3>
           Hinweis zur Datenweitergabe in die USA und sonstige Drittstaaten
         </h3>{" "}
-        <p className="ml-4">
+        <p>
           Wir verwenden unter anderem Tools von Unternehmen mit Sitz in den USA
           oder sonstigen datenschutzrechtlich nicht sicheren Drittstaaten. Wenn
           diese Tools aktiv sind, k&ouml;nnen Ihre personenbezogene Daten in
@@ -262,18 +240,18 @@ const Datenschutz: FC = () => {
           Einfluss.
         </p>
         <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>{" "}
-        <p className="ml-4">
+        <p>
           Viele Datenverarbeitungsvorg&auml;nge sind nur mit Ihrer
           ausdr&uuml;cklichen Einwilligung m&ouml;glich. Sie k&ouml;nnen eine
           bereits erteilte Einwilligung jederzeit widerrufen. Die
           Rechtm&auml;&szlig;igkeit der bis zum Widerruf erfolgten
           Datenverarbeitung bleibt vom Widerruf unber&uuml;hrt.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
+        <h3>
           Widerspruchsrecht gegen die Datenerhebung in besonderen F&auml;llen
           sowie gegen Direktwerbung (Art. 21 DSGVO)
         </h3>{" "}
-        <p className="ml-4">
+        <p>
           WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER
           F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GR&Uuml;NDEN, DIE
           SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG
@@ -288,7 +266,7 @@ const Datenschutz: FC = () => {
           VERARBEITUNG DIENT DER GELTENDMACHUNG, AUS&Uuml;BUNG ODER VERTEIDIGUNG
           VON RECHTSANSPR&Uuml;CHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
         </p>{" "}
-        <p className="ml-4">
+        <p>
           WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU
           BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE
           VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE
@@ -298,11 +276,11 @@ const Datenschutz: FC = () => {
           MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21
           ABS. 2 DSGVO).
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
+        <h3>
           Beschwerde&shy;recht bei der zust&auml;ndigen
           Aufsichts&shy;beh&ouml;rde
         </h3>{" "}
-        <p className="ml-4">
+        <p>
           Im Falle von Verst&ouml;&szlig;en gegen die DSGVO steht den
           Betroffenen ein Beschwerderecht bei einer Aufsichtsbeh&ouml;rde,
           insbesondere in dem Mitgliedstaat ihres gew&ouml;hnlichen Aufenthalts,
@@ -310,10 +288,8 @@ const Datenschutz: FC = () => {
           Versto&szlig;es zu. Das Beschwerderecht besteht unbeschadet
           anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Recht auf Daten&shy;&uuml;bertrag&shy;barkeit
-        </h3>{" "}
-        <p className="ml-4">
+        <h3>Recht auf Daten&shy;&uuml;bertrag&shy;barkeit</h3>{" "}
+        <p>
           Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung
           oder in Erf&uuml;llung eines Vertrags automatisiert verarbeiten, an
           sich oder an einen Dritten in einem g&auml;ngigen, maschinenlesbaren
@@ -321,10 +297,8 @@ const Datenschutz: FC = () => {
           &Uuml;bertragung der Daten an einen anderen Verantwortlichen
           verlangen, erfolgt dies nur, soweit es technisch machbar ist.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Auskunft, L&ouml;schung und Berichtigung
-        </h3>{" "}
-        <p className="ml-4">
+        <h3>Auskunft, L&ouml;schung und Berichtigung</h3>{" "}
+        <p>
           Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit
           das Recht auf unentgeltliche Auskunft &uuml;ber Ihre gespeicherten
           personenbezogenen Daten, deren Herkunft und Empf&auml;nger und den
@@ -332,16 +306,14 @@ const Datenschutz: FC = () => {
           L&ouml;schung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema
           personenbezogene Daten k&ouml;nnen Sie sich jederzeit an uns wenden.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          Recht auf Einschr&auml;nkung der Verarbeitung
-        </h3>{" "}
-        <p className="ml-4">
+        <h3>Recht auf Einschr&auml;nkung der Verarbeitung</h3>{" "}
+        <p>
           Sie haben das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer
           personenbezogenen Daten zu verlangen. Hierzu k&ouml;nnen Sie sich
           jederzeit an uns wenden. Das Recht auf Einschr&auml;nkung der
           Verarbeitung besteht in folgenden F&auml;llen:
         </p>{" "}
-        <ul className="ml-4 list-disc">
+        <ul>
           {" "}
           <li>
             Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten
@@ -371,7 +343,7 @@ const Datenschutz: FC = () => {
             Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
           </li>{" "}
         </ul>{" "}
-        <p className="ml-4">
+        <p>
           Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten
           eingeschr&auml;nkt haben, d&uuml;rfen diese Daten &ndash; von ihrer
           Speicherung abgesehen &ndash; nur mit Ihrer Einwilligung oder zur
@@ -381,10 +353,8 @@ const Datenschutz: FC = () => {
           wichtigen &ouml;ffentlichen Interesses der Europ&auml;ischen Union
           oder eines Mitgliedstaats verarbeitet werden.
         </p>
-        <h3 className="my-2 font-sans text-xl font-semibold">
-          SSL- bzw. TLS-Verschl&uuml;sselung
-        </h3>{" "}
-        <p className="ml-4">
+        <h3>SSL- bzw. TLS-Verschl&uuml;sselung</h3>{" "}
+        <p>
           Diese Seite nutzt aus Sicherheitsgr&uuml;nden und zum Schutz der
           &Uuml;bertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen
           oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-
@@ -393,7 +363,7 @@ const Datenschutz: FC = () => {
           &bdquo;http://&ldquo; auf &bdquo;https://&ldquo; wechselt und an dem
           Schloss-Symbol in Ihrer Browserzeile.
         </p>{" "}
-        <p className="ml-4">
+        <p>
           Wenn die SSL- bzw. TLS-Verschl&uuml;sselung aktiviert ist, k&ouml;nnen
           die Daten, die Sie an uns &uuml;bermitteln, nicht von Dritten
           mitgelesen werden.

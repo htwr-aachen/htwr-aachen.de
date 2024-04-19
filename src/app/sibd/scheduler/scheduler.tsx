@@ -30,7 +30,7 @@ export default function SchedulerPage() {
       res += `isRc: ${isRc} | isAca: ${isAca} | isSt: ${isSt}`;
       setResult(res);
       setError("");
-    } catch (err) {
+    } catch (_error) {
       setError("du musst was falsches eingegeben haben :/");
       setResult("");
     }

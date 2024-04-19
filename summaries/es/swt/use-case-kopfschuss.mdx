@@ -1,0 +1,102 @@
+---
+title: Use-Case-Kopfschuss (UML Use Case Diagram)[sicher]
+description: UML Use Case Diagramme
+order: 2
+author: Jonas Schneider
+date: 14/02/2023
+tags:
+  [
+    Analyse,
+    UML,
+    Use-Case,
+    Diagramm,
+    Aktivitätsdiagramm,
+    AD,
+    Use-Case-Diagramm,
+    UC,
+  ]
+---
+
+## Einordnung
+
+> Use Case Diagramme [^1] sind Teil der Anforderungsanalyse, also Teil der Analyse
+
+In der Anforderungsanalyse muss ein Softwarehersteller herausfinden, was genau ein Kunde jetzt von ihm will. Da wenn ein Kunde sagt:
+
+> "Ich will eine Software für einen Atomreaktor haben"
+
+du schon noch ein paar kleinere Details noch wissen solltest, um tatsächlich den Wünschen des Kunden gerecht zu werden.
+
+Hierzu folgende Definition:
+
+- **Lastenheft**: Ein Lastenheft beschreibt die Anforderungen an ein Produkt + Besprechung mit dem Kunden $\Rightarrow$ Ergebnis: **Pflichtenheft**
+
+- **Systemmodellierung**: Systemmodellierung ist die Darstellung der Systemarchitektur und der Systemkomponenten. Hierzu gehören auch die Use-Case-Diagramme. (Ist alles bullshit für das Aufgschreiben was geliefert werden soll)
+
+### Toleranz und Willkür
+
+Die Frage der Genauigkeit, kommt bei uns relativ schnell, da wenn du in Fosap das $\in L$ weglässt, deine Klausur ungefähr so lange durchhälst wie du im Bett,
+aber meine Meinung dazu ist... Rumpe hat selber kein Plan, wenn du etwas sieht wie \<\< abstract \>\> und \{abstract\},
+dann ist das ein Hinweis, dass es wirklich egal ist solange du die grobe Struktur hast.
+
+## UML
+
+Hier ein Inception Diagramm über UML Diagramme:
+![UML Diagramm der Diagramme](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/UML-Diagrammhierarchie.svg/1920px-UML-Diagrammhierarchie.svg.png)
+
+Wichtig sind hier vorallem:
+
+- Use-Case-Diagramme
+- Klassendiagramme
+- Sequenzdiagramme
+- Zustandsdiagramme
+
+### Wir beginnen mit dem Use-Case Diagramm (es ist auch das erste was man vermutlich machen würde)
+
+x> Der Diagrammtyp von Use-Case-Diagrammen ist **UC**
+
+![Use-Case-Diagramm](/summary-assets/es/use-case-diagramm.png)
+
+Das erste Oben ist das eigentlich Use-Case Diagramm. Ein **Use-Case** ist eine Folge von Dingen, die ein System ausführen kann, wenn es mit wem interagiert.
+Wenn ich jetzt gerade diese Zusammenfassung schreibe, **nehme** ich an dem use-case **Teil**.
+
+Aber da ich ja auch noch SWT schreibe, enthalte ich auch die Rolle "du", also ein random normie Student und muss auch Klausuren machen Stichwort: **Vererbung**.
+
+x> Erweiterungen (wollen die Vermutlich von dir)
+
+Ich wurde gebeten noch die Erweiterungen zu nennen. Also less go
+
+- **Spezialisierung**: Wenn es von einem Use-Case eine Spezialisierung (also eine genauere Beschreibung) gibt, wird diese mit so einem Vererbungspfeil dargestellt. Folie 113 im Merge falls ihrs genau sehen wollt.
+
+- **Abstrakte Spezialisierung**: Falls der generische Use-Case nicht eintreffen kann, markiert man ihn mit `{abstract}`.
+
+- **inlcludes**: ein gestrichelter Pfeil mit einfachem Pfeilkopf zeigt an, dass ein Use-Case einen anderen Use-Case enthält. Zudem schreib man auf dem Pfeil `<<include>>`
+
+- **Erweiterung**: Falls ein Use-Case Zusatzwünsche bietet: Z.B. Ein Use Case Pizza backen mit _extension point_ Belag: hat gestrichelte Pfeile (!anders herum reingehend in den Pizza backen Use-Case) mit einem Pfeilkopf und `<<extend>>` drauf.
+
+![WTF](https://media.tenor.com/y4QbP8-Oo6gAAAAd/laughing-green.gif)
+
+<RumpeQuiz />
+
+### Aktivitätsdiagramm (AD)
+
+x> Der Diagrammtyp von Aktivitätsdiagrammen ist **AD**
+
+Diese Diagramme werden oft als Verfeinerung von Use-Case-Diagrammen benutzt, und beschreiben Verhalten.
+
+![Aktivitätsdiagramm](/summary-assets/es/Aktivitätsdiagramm.svg)
+
+Das ist auch alles was man da wissen muss. Achtet darauf, Gabelungen und Verzweigungen immer zusammenzuführen!!
+
+Verzweigungen vs. Gabelungen: Bei Verzweigungen nimmt man einen Pfad **oder** den anderen,
+bei Gabelungen nimmt man zwingend beide, und macht auch erst weiter, wenn beide abgeschlossen sind.
+Die Aktionen werden hier also parallel ausgeführt.
+
+Optional:
+
+Man kann Aktivitäten auf Akteure aufteilen, in dem man bspw Aktion A in die Swim Lane von Akteur 1 schreibt.
+
+Objekte können auch eingefügt werden, immer dann wenn ein Objekt von einer in die nächste Aktivität übertragen wird
+(bspw ein Protokoll oder so, wird in Aktion A erstellt und in Aktion B verwendet)
+
+[^1]: [Wikipedia Use-Case-Diagramm](https://de.wikipedia.org/wiki/Use-Case-Diagramm)
