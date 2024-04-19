@@ -84,7 +84,7 @@
     "remark-react": "^9.0.1",
     "remark-rehype": "^10.1.0",
     "sharp": "^0.31.3",
-    "tailwind-merge": "^2.2.2",
+    "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.2",
