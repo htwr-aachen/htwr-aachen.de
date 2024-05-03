@@ -45,16 +45,17 @@ type GalleryLabelProps = {
   children?: ReactNode;
   headline?: string;
   url?: string;
-  externalUrl?: string;
-  externalUrlText?: string;
+  externalUrls?: {
+    url: string,
+    text: string
+  }[]
 };
 
 const GalleryLabel: FC<GalleryLabelProps> = ({
   headline,
   children,
   url,
-  externalUrl,
-  externalUrlText,
+  externalUrls
 }) => {
   return (
     <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
@@ -72,16 +73,20 @@ const GalleryLabel: FC<GalleryLabelProps> = ({
           ) : (
             <></>
           )}
-          {externalUrl ? (
-            <a
-              href={externalUrl}
-              className="mt-2 justify-self-end rounded bg-black px-3 py-1 text-white hover:border-b-0 hover:bg-white hover:text-black lg:justify-self-start"
-            >
-              {externalUrlText}
-            </a>
-          ) : (
-            <></>
-          )}
+          <span className="justify-self-start" style={{ marginTop: "10px", marginBottom: "-10px" }}>
+            {externalUrls?.map(({ url: extUrl, text: extText }) => {
+              return (
+                <a
+                  key={extUrl}
+                  href={extUrl}
+                  className="mt-2 justify-self-end rounded bg-black px-3 py-1 text-white hover:border-b-0 hover:bg-white hover:text-black lg:justify-self-start"
+                  style={{ marginLeft: "10pt" }}
+                >
+                  {extText}
+                </a>
+              )
+            })}
+          </span>
         </div>
       </div>
     </div>
