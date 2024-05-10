@@ -47,8 +47,10 @@ const Index: FC = () => {
           ></GalleryImage>
           <GalleryLabel
             headline="GitHub Stars 👉️👈️?"
-            externalUrl="https://github.com/jonsch318/htwr-aachen.de"
-            externalUrlText="GitHub Link"
+            externalUrls={[{
+              url: "https://github.com/jonsch318/htwr-aachen.de",
+              text: "GitHub Link"
+            }]}
           >
             Ziel 100 Sterne.
           </GalleryLabel>
@@ -85,6 +87,29 @@ const Index: FC = () => {
           ></GalleryImage>
           <GalleryLabel headline="WARUM?" url="/scil/studium">
             Warum sieht das Ende so gut aus?
+          </GalleryLabel>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
+            src={"/assets/other/moodle-loading.png"}
+            alt="Einen Moment bitte"
+            width={1920}
+            height={975}
+          ></GalleryImage>
+          <GalleryLabel
+            headline="Exzellenz-Websites"
+            externalUrls={[
+              {
+                url: "https://addons.mozilla.org/de/firefox/addon/quality-of-rwth",
+                text: "Firefox"
+              },
+              {
+                url: "https://chromewebstore.google.com/detail/hhjhbkpidgloeeflpnoajpicjhocbdjk",
+                text: "Chromium-Basiertes"
+              }
+            ]}
+          >
+            Die Quality of RWTH Browser Extension überspringt automatisiert unnötige Logins und beschleunigt den Moodle Workflow.
           </GalleryLabel>
         </GalleryItem>
       </Gallery>
