@@ -68,8 +68,8 @@ const Index: FC = () => {
         </GalleryItem>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/rwth/gallery/informatikzentrum.png"}
-            alt="Informationzentrum"
+            src={"/assets/rwth/gallery/htwr_zentrum_informatik.png"}
+            alt="HTWR Zentrum Informatik"
             width={300}
             height={500}
           ></GalleryImage>
