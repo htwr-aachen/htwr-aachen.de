@@ -47,10 +47,12 @@ const Index: FC = () => {
           ></GalleryImage>
           <GalleryLabel
             headline="GitHub Stars 👉️👈️?"
-            externalUrls={[{
-              url: "https://github.com/jonsch318/htwr-aachen.de",
-              text: "GitHub Link"
-            }]}
+            externalUrls={[
+              {
+                url: "https://github.com/jonsch318/htwr-aachen.de",
+                text: "GitHub Link",
+              },
+            ]}
           >
             Ziel 100 Sterne.
           </GalleryLabel>
@@ -101,15 +103,16 @@ const Index: FC = () => {
             externalUrls={[
               {
                 url: "https://addons.mozilla.org/de/firefox/addon/quality-of-rwth",
-                text: "Firefox"
+                text: "Firefox",
               },
               {
                 url: "https://chromewebstore.google.com/detail/hhjhbkpidgloeeflpnoajpicjhocbdjk",
-                text: "Chromium-Basiertes"
-              }
+                text: "Chromium-Basiertes",
+              },
             ]}
           >
-            Die Quality of RWTH Browser Extension überspringt automatisiert unnötige Logins und beschleunigt den Moodle Workflow.
+            Die Quality of RWTH Browser Extension überspringt automatisiert
+            unnötige Logins und beschleunigt den Moodle Workflow.
           </GalleryLabel>
         </GalleryItem>
       </Gallery>

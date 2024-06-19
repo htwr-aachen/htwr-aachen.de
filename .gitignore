@@ -1,3 +1,6 @@
+#sitemap
+public/sitemap-*.xml
+
 # Logs
 logs
 *.log

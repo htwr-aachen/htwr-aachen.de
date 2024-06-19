@@ -46,16 +46,16 @@ type GalleryLabelProps = {
   headline?: string;
   url?: string;
   externalUrls?: {
-    url: string,
-    text: string
-  }[]
+    url: string;
+    text: string;
+  }[];
 };
 
 const GalleryLabel: FC<GalleryLabelProps> = ({
   headline,
   children,
   url,
-  externalUrls
+  externalUrls,
 }) => {
   return (
     <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
@@ -73,7 +73,10 @@ const GalleryLabel: FC<GalleryLabelProps> = ({
           ) : (
             <></>
           )}
-          <span className="justify-self-start" style={{ marginTop: "10px", marginBottom: "-10px" }}>
+          <span
+            className="justify-self-start"
+            style={{ marginTop: "10px", marginBottom: "-10px" }}
+          >
             {externalUrls?.map(({ url: extUrl, text: extText }) => {
               return (
                 <a
@@ -84,7 +87,7 @@ const GalleryLabel: FC<GalleryLabelProps> = ({
                 >
                   {extText}
                 </a>
-              )
+              );
             })}
           </span>
         </div>
