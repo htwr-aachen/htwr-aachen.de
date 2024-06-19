@@ -1,8 +1,8 @@
 ---
 title: Warum will der Code nicht 😞
 description: Häufige Probleme
-author: Nils Eisenach
-date: 03/12/2023
+author: Nils Eisenach, Adrian Schmitz
+date: 03/12/2023, 20/06/2024
 order: 1
 tags: [PSP, ATmega 644]
 ---
@@ -37,5 +37,19 @@ tags: [PSP, ATmega 644]
 - Komisches Verhalten von Testtasks (Flackern, komische zeichen, delay geht nicht)
   - Die Scheduler-ISR hat eine lokale variable, die vor dem ändern des Stack pointers den Prozessstack überschreibt (*selten*)
 
-# Versuch 3
-- 
+# Versuch 4
+- Externe SRAM funktioniert irgendwie nicht
+  - Ist das Externe SRAM Modul auch drauf gesteckt?
+- Externe SRAM geht immer noch nicht
+  - Hat der Externe SRAM Strom? Der braucht nämlich zusätzlich Strom auf seinen zwei Pins oben. GND auf GND und VCC auf VCC!
+- Externe SRAM ist auf dem Board und hat Strom, aber funktioniert nicht
+  - Sehr wahrscheinlich ist die Initialisierung falsch. Manche Register müssen in einer bestimmten Reihenfolge gesetzt werden!
+  - Es ist gut möglich das der Externe SRAM eine valide Konfiguration hatte, die aber durch euren Code falsch angesprochen wurde und nun falsche Daten drin stehen und auch nicht mehr richtig ausgelesen werden kann, sogar gar nicht mehr Konfigurierbar ist. In dem Fall muss wahrscheinlich euch ein neuer Externer SRAM gegeben werden, damit der andere sich erholen kann (flüchtiger Speicher!).
+- Komische Symbole erscheinen auf dem LCD(isplay)
+  - In manchen Testtasks ist es wichtig das euer `os_kill` verünftig den Heap aufräumt. Ist die Implmentation dieser Funktionalität falsch oder fehlt. Was dann geschieht weiß nur Gott und der GNU-Compiler.
+- Soft/Hard-Timeout der Testtask
+  - Vor allem der Externe SRAM ist durch seine Kommunikation, wie sie zu implementieren ist, sehr träge. Ihr wollt so früh wie möglich aufhören den Speicher zu durchsuchen wie es die Allokationstrategie oder verlangte Methode braucht.
+- Speicheroptimierung durch Linked-List
+  - An sich eine gute Idee, funktioniert aber auf nem Microcontroller so gar nicht. Zumindest nicht diesem. Eure Struktur wächst Teilweise einer größer größer dem Heap den ihr erstellt (denn im schlimmsten Fall fragt ein Prozess jeden verfügbaren Speicher in vereinzelten Byte Blöcken an). Außerdem müsst euch dann nicht um wilde Pointer und so kümmern die nach der Terminierung des Prozesses noch irgendwo im Speicher rumgeistern. Habe aber auch gehört von Leuten die es probiert haben so zu implementieren, dass das ultra langsam ist.
+- Fragt volle Use-Size an bei leerem Heap, schlägt fehl auf externem SRAM
+  - Überlegt euch: Welchen Datentyp hat `MemAddr`, was ist der kleinste Wert von `MemAddr`, was der größte? Berücksichtigt ihr das schon, geht auch sicher das ihr über eure Schleifenbedingung nachdenkt ob die jemals erfüllt/nicht erfüllt wird. Letzteres ist meistens das Problem, das ihr in einer Endlosschleife gefangen seid.
