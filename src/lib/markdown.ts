@@ -1,7 +1,7 @@
+import rehypeShiki from "@shikijs/rehype";
 import mdxMermaid from "mdx-mermaid";
 import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import rehypeKatex from "rehype-katex";
-import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
@@ -26,7 +26,11 @@ export const mdxOptions: SerializeOptions = {
       remarkHint,
       [mdxMermaid, { output: "svg" }],
     ],
-    rehypePlugins: [rehypeKatex, [rehypePrism, { plugins: ["line-numbers"] }]],
+    rehypePlugins: [
+      rehypeKatex,
+      // @ts-ignore
+      [rehypeShiki, { themes: { light: "github-dark", dark: "vitesse-dark" } }],
+    ],
     format: "mdx",
   },
 };
