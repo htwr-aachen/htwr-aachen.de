@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { HeadLine } from "@/components/rwth/headline";
 import SummaryList from "@/components/summaries/list";
 
 export const metadata: Metadata = {
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default async function Teachings() {
   return (
     <div>
-      <HeadLine>Zusammenfasungen</HeadLine>
+      <h1>Tipps & Tricks</h1>
       <SummaryList subject="psp" />
     </div>
   );

@@ -1,9 +1,12 @@
+import "./style.scss";
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import Main from "@/layouts/deddebme/Main";
 
 import { institute } from "./config";
+import { navbar } from "./navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -47,5 +50,9 @@ export const metadata: Metadata = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute={institute}>{props.children}</Main>;
+  return (
+    <Main navbar={navbar} institute={institute}>
+      {props.children}
+    </Main>
+  );
 }

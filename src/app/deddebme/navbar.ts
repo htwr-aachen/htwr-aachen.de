@@ -14,45 +14,23 @@ export const navbar: NavbarConfig = {
   },
   linkElements: [
     {
-      name: "⚠Lehre",
-      href: "/deddebme/lehre",
-      path: "/lehre",
+      name: "⚠PSP",
+      href: "/deddebme/psp",
+      path: "/psp",
       links: [
         {
-          name: "Zusammenfassungen",
-          href: "/deddebme/lehre/teachings",
-        },
-        {
-          name: "Resourcen",
-          href: "/deddebme/lehre/resources",
+          name: "Tipps & Tricks",
+          href: "/deddebme/psp/summaries",
         },
       ],
     },
     {
-      name: "⚠Forschung",
-      href: "/deddebme/lehre",
+      name: "Kontak",
+      href: "/contact",
     },
     {
-      name: "Tools",
-      href: "/nichts",
-    },
-    {
-      name: "Lehrstuhl",
-      href: "/nichts",
-      links: [
-        {
-          name: "Kontakt",
-          href: "/contact",
-        },
-        {
-          name: "Impressum",
-          href: "/impressum",
-        },
-        {
-          name: "Datenschutz",
-          href: "/datenschutz",
-        },
-      ],
+      name: "Impressum",
+      href: "/impressum",
     },
   ],
 };

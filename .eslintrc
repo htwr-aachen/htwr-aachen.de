@@ -54,6 +54,7 @@
 				"project": "./tsconfig.json"
 			},
 			"rules": {
+				"no-restricted-syntax": "off",
 				"no-unused-vars": [
 					"warn",
 					{
