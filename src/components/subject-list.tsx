@@ -6,6 +6,7 @@ import type { UrlObject } from "url";
 
 import { type Subjects, SubjectConfig } from "@/config/subjects";
 import urlJoin from "@/lib/url";
+import type { Subject } from "@/models/subject";
 
 /**
  * Renders a selection of subjects to navigate to. Functionally adds the subject name to the current path unless overwritten.
@@ -25,6 +26,7 @@ export function SubjectList({
       <p>Fächer zur Auswahl:</p>
       <ul className="ml-6 list-disc [&>li]:my-6">
         {subjects.map((name) => {
+          const config: Subject = SubjectConfig[name];
           return (
             <li key={name}>
               <Link
@@ -35,9 +37,7 @@ export function SubjectList({
                     : urlJoin(pathname, name)
                 }
               >
-                {SubjectConfig[name].displayName ||
-                  SubjectConfig[name].fullName ||
-                  SubjectConfig[name].name}
+                {config.displayName || config.fullName || config.name}
               </Link>
             </li>
           );

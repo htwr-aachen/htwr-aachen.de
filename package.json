@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "htwr-aachen",
   "version": "1.0.0",
   "scripts": {
@@ -19,7 +20,7 @@
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
     "prepare": "husky install",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs"
   },
   "dependencies": {
     "@fontsource-variable/hanken-grotesk": "^5.0.21",
@@ -31,11 +32,12 @@
     "@next/env": "^13.5.6",
     "@next/mdx": "^13.5.6",
     "@radix-ui/react-collapsible": "^1.1.0",
-    "@radix-ui/react-dialog": "^1.1.0",
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@remark-embedder/core": "^3.0.3",
     "@remark-embedder/transformer-oembed": "^3.0.0",
+    "@shikijs/rehype": "^1.9.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/mapbox__rehype-prism": "^0.8.3",
     "@types/mdx": "^2.0.13",
@@ -44,6 +46,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^2.30.0",
+    "feed": "^4.2.2",
     "framer-motion": "^8.5.5",
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
@@ -84,6 +87,7 @@
     "remark-react": "^9.0.1",
     "remark-rehype": "^10.1.0",
     "sharp": "^0.31.3",
+    "shiki": "^1.9.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "unified": "^10.1.2",
@@ -93,7 +97,7 @@
     "webpack": "^5.92.1"
   },
   "devDependencies": {
-    "@percy/cli": "^1.28.7",
+    "@percy/cli": "^1.28.8",
     "@percy/cypress": "^3.1.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
@@ -102,7 +106,7 @@
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.5.12",
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "^18.19.37",
+    "@types/node": "^18.19.39",
     "@types/prismjs": "^1.26.4",
     "@types/react": "^18.3.3",
     "@types/react-katex": "^3.0.4",
@@ -125,12 +129,12 @@
     "eslint-plugin-jest": "^27.9.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^9.0.0",
-    "eslint-plugin-tailwindcss": "^3.17.3",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-testing-library": "^5.11.1",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jest": "^29.7.0",
@@ -145,7 +149,7 @@
     "semantic-release": "^19.0.5",
     "start-server-and-test": "^1.15.4",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "release": {
     "branches": [

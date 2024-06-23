@@ -2,28 +2,29 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { HTMLAttributes } from "react";
 import { Suspense } from "react";
 
-import type { Subjects } from "@/config/subjects";
+import { getArticle } from "@/lib/articles";
 import { mdxOptions } from "@/lib/markdown";
-import { getSummary } from "@/lib/summaries";
+import type { Subject } from "@/models/subject";
 
 import { DefaultSummaryComponents } from "./components";
 import SummaryLayout from "./layout";
 
 export default async function SummaryView({
-  subject,
+  subjectConfig,
   slug,
   components = {},
   ...props
 }: {
-  subject: Subjects;
+  subjectConfig: Subject;
   slug: string[];
   components?: any;
 } & HTMLAttributes<HTMLDivElement>) {
-  const summary = await getSummary(slug, subject);
+  const summary = await getArticle(slug, subjectConfig);
+
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <SummaryLayout
-        subject={subject}
+        subjectConfig={subjectConfig}
         meta={summary}
         prev={summary.prev}
         next={summary.next}

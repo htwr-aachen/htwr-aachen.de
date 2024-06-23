@@ -26,11 +26,10 @@ export class UnknownSubjectError extends Error {
  */
 export async function getSummary(slug: string[], subject: Subjects) {
   const subjectConfig = SubjectConfig[subject];
-
-  // const subjectConfig = getSubject(subject);
   if (!subjectConfig) {
     throw new UnknownSubjectError(subject);
   }
+
   return getArticle(slug, subjectConfig);
 }
 

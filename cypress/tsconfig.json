@@ -1,12 +1,21 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["node", "cypress", "@percy/cypress", "@testing-library/cypress"],
-
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "cypress",
+      "@percy/cypress",
+      "@testing-library/cypress"
+    ],
     "isolatedModules": false
   },
-  "include": ["**/*.ts"],
+  "include": [
+    "**/*.ts"
+  ],
   "exclude": []
 }

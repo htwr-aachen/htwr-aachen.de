@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
-import { HeadLine } from "@/components/rwth/headline";
 import SummaryList from "@/components/summaries/list";
 
 export const metadata: Metadata = {
@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <div>
-      <HeadLine>Lehre</HeadLine>
+      <h1>PSP</h1>
+      <Image
+        src="/content-assets/deddebme/other/suffering-psp.gif"
+        alt="POV: PSP"
+        width={200}
+        height={100}
+      />
       <SummaryList subject="psp" />
     </div>
   );

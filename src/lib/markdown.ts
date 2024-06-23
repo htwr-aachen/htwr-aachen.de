@@ -1,10 +1,12 @@
-import rehypeShiki from "@shikijs/rehype";
+import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
 import mdxMermaid from "mdx-mermaid";
 import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
+
+import { highlighter } from "./highlighting";
 
 // this is disbled for now
 /* export function handleHTML(html: string, info: TransformerInfo) {
@@ -28,8 +30,17 @@ export const mdxOptions: SerializeOptions = {
     ],
     rehypePlugins: [
       rehypeKatex,
-      // @ts-ignore
-      [rehypeShiki, { themes: { light: "github-dark", dark: "vitesse-dark" } }],
+      [
+        // @ts-ignore
+        rehypeShikiFromHighlighter,
+        highlighter,
+        {
+          themes: {
+            light: "github-dark",
+            dark: "github-light",
+          },
+        },
+      ],
     ],
     format: "mdx",
   },
@@ -39,7 +50,7 @@ export function getImages(content: string): { alt: string; src: string }[] {
   const regex =
     /!\[(?<altText>.*)\]\s*\((?<imageURL>.+)\)|img\s*src="(?<imageURL1>[^"]*)"\s*alt="(?<altText1>[^"]*)" \/>|img\s*alt="(?<altText2>[^"]*)"\s*src="(?<imageURL2>[^"]*)" \/>/gm;
 
-  const images = [];
+  const images: { src: string; alt: string }[] = [];
 
   for (let m = regex.exec(content); m !== null; m = regex.exec(content)) {
     if (m.index === regex.lastIndex) regex.lastIndex++;

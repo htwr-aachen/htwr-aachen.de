@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 
 import RumpeQuiz from "@/components/summaries/components/quizzes/Rumpe";
 import SummaryView from "@/components/summaries/view";
-import type { Subjects } from "@/config/subjects";
-import { getSummariesMetadata, getSummary } from "@/lib/summaries";
+import { type Subjects, SubjectConfig } from "@/config/subjects";
+import { getArticlesMetadata } from "@/lib/article-metadata";
+import { getArticle } from "@/lib/articles";
 
 const subject: Subjects = "swt";
+const subjectConfig = SubjectConfig[subject];
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div>
       <SummaryView
-        subject={subject}
+        subjectConfig={subjectConfig}
         slug={params.slug}
         components={{ RumpeQuiz }}
       ></SummaryView>
@@ -20,7 +22,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 }
 
 export async function generateStaticParams() {
-  const teachings = await getSummariesMetadata(subject);
+  const teachings = await getArticlesMetadata(subjectConfig);
 
   return teachings.map((t) => ({
     slug: t.slug,
@@ -32,7 +34,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta, url } = await getSummary(params.slug, subject);
+  const { meta, url } = await getArticle(params.slug, subjectConfig);
 
   return {
     title: meta.fullTitle,

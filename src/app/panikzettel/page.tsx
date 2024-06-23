@@ -1,4 +1,5 @@
 import { FileQuestion, Info } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -34,6 +35,12 @@ function filterPanikzettel(panikzettel: Panikzettel[], semester: number) {
     return x.semester === semester;
   });
 }
+
+export const metadata: Metadata = {
+  title: "Panikzettel",
+  description:
+    "Die neue ultimative Panikzettelsammlung. Ein erweiterter weiterhin gepflegter Klon der originalen Seite",
+};
 
 export default async function Page() {
   const panikzettel = await getData();

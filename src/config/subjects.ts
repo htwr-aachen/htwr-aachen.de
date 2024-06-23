@@ -80,7 +80,7 @@ export const SubjectConfig = {
     displayName: "PSP",
     fullName: "Praktikum Systemprogrammierung",
     articlesPath: join(DefaultSummaryPath, "deddebme", "psp"),
-    articlesURL: urlJoin(BaseURL, "/deddebme/lehre/teachings"),
+    articlesURL: urlJoin(BaseURL, "/deddebme/psp/summaries"),
     documentsPath: join(DefaultContentPath, "psp"),
   },
   male: {

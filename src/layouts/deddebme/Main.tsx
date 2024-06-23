@@ -21,7 +21,7 @@ export default function DeddebmeLayout({
   navbar = DefaultDeddebmeNavbar,
 }: DeddebmeLayoutProps) {
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
+    <div className="deddebme min-h-screen bg-stone-50 text-stone-900">
       <DeddebmeNavbar config={navbar} />
       <div className="mx-auto grid max-w-6xl antialiased md:grid-cols-[auto_1fr]">
         <DeddebmeSidenav config={navbar} />
