@@ -27,6 +27,12 @@ const configuredBundleAnalyzer = withBundleAnalyzer({
 
 export default configuredBundleAnalyzer(
   withMDX({
+    experimental: {
+      turbo: {
+        resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js"],
+      },
+    },
+    transpilePackages: ["next-mdx-remote"],
     output: "standalone",
     eslint: {
       dirs: ["."],

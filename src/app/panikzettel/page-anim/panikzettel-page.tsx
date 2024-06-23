@@ -43,6 +43,9 @@ export default function PanikzettelPage({ children }: { children: ReactNode }) {
           Version 1 | {format(new Date(), "dd.MM.yyyy")}
         </span>
         <span className="font-lmserif text-sm text-black">Jonas Schneider</span>
+        <span className="font-lmserif text-sm text-black">
+          🟢 neuer als 2 Jahre, 🟡 neuer als 4 Jahre, 🔴 vertrau Bruder
+        </span>
       </div>
       <div className="grid w-full gap-10 px-4 py-12 font-lmsans text-black md:mx-auto md:max-w-[calc((2*65ch)+2.5rem)] md:grid-cols-2 md:justify-evenly">
         {children}

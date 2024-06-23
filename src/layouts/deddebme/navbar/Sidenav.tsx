@@ -13,7 +13,7 @@ export function DeddebmeSidenav(props: DeddebmeSidenavProps) {
     <div className="mx-5 my-10 flex flex-col text-sm md:my-0 md:ml-0 md:w-52">
       <ul className="w-full">
         {props.config.linkElements.map((link) => (
-          <li key={link.path} className="w-full">
+          <li key={link.name + link.path} className="w-full">
             <SidenavLink level={1} {...link} />
           </li>
         ))}

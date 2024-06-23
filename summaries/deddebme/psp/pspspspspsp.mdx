@@ -8,6 +8,7 @@ tags: [PSP, Versuch 0, ATmega 644]
 ---
 
 # Hilfreiche Tipps
+
 - Die Hiwis möchten meistens geduzt werden :)
 - Die Aufgaben können deutlich länger dauern als man denkt
   - Frühzeitig anfangen!!!
@@ -23,18 +24,22 @@ tags: [PSP, Versuch 0, ATmega 644]
 - Nach der Nachbefragung, dürft ihr erst gehen wenn ihr die Präsenzaufgaben fertig habt (oder nach Ablauf der Zeit)
 
 # Allgemein
+
 Der ATmega 644 (das ist der große Chip in der Mitte vom Board), kann über seine Ports verschiedene Sachen ansteuern.
 An welchen Ports die Geräte genau angeschlossen sind, kann der Tabelle ganz unten in den Versuchsdokumenten entnommen werden, jedoch sind das die häufigsten Anschlüsse.
+
 1. Das LC~~D~~-Display: Häufig an PORTA oder PORTB
 2. Die Taster (Buttons): Eigentlich immer an PORTC (PINC7, PINC6, PINC1, PINC0)
 3. Die LEDs: Wenn genutzt, dann meistens an PORTD
 
 # Wie lese/schreibe ich an die ports?
+
 Zum lesen und schreiben muss man erst über das entsprechende Data-Direction-Register (DDRA, DDRB, DDRC, DDRD) festlegen welche Operation man ausführen will. Lesen entspricht in dem Fall einer $0$ während man zum schreiben eine $1$ setzen muss.
 
 Wie setzt man aber eigentlich einzelne Bits?
 Es gibt drei Operationen mit denen man einfach einzelne Bits setzen kann, **ohne** dass sich die anderen Bits auch ändern.
-```C
+
+```c
 uint8_t a = 0b11001100;
 uint8_t res = 0;
 // setzte das MSB (most significant bit (das Bit ganz links))
@@ -58,8 +63,10 @@ res ^= 0b01010101; // res ist jetzt 0b10011001
 // In C macht das der "~" Operator
 res = ~res; // res ist jetzt 0b01100110
 ```
+
 Neben diesen Operationen gibt es auch noch die bitweisen shifts.
-```C
+
+```c
 uint8_t res = 0b00000001;
 // Schifte res um 3 nach links
 res = res << 3; // res ist jetzt 0b00001000
@@ -68,10 +75,13 @@ res = 0b00110011;
 // shifte res um 2 nach rechts
 res = res >> 2; // res ist jetzt 0b00001100
 ```
+
 Bei den shifts ist zu beachten, dass alle bits, welche aus der Zahl "rausfallen", verschwinden.
+
 ## Bitweise Operationen: Zusammenfassung
+
 | Name         | Operator |    Anwendung    | Ergebnis                                               |
-|:-------------|:--------:|:---------------:|:-------------------------------------------------------|
+| :----------- | :------: | :-------------: | :----------------------------------------------------- |
 | und          |   `&`    | `res = a & b;`  | Wenn beide bits $1$ sind: $1$, sonst $0$               |
 | oder         |   `\|`   | `res = a \| b;` | Wenn **mindestens** ein bit $1$ ist: $1$, sonst $0$    |
 | xor          |   `^`    | `res = a ^ b;`  | Wenn **nur** ein bit $1$ ist, $1$: sonst $0$           |
@@ -80,13 +90,16 @@ Bei den shifts ist zu beachten, dass alle bits, welche aus der Zahl "rausfallen"
 | shift rechts |   `>>`   | `res = a >> b;` | Verschiebe jedes Bit in `a` um `b` stellen nach rechts |
 
 ## lesen?
+
 Zum lesen muss man nicht nur das `DDR` auf $0$ setzen, sondern auch einen sogenannten Pullup-Widerstand.
 Warum das so ist, steht in der Präsentation zu Versuch $0$ (Sonst fragt gerne die PSP-Hiwis).
 Setzen kann man das über das entsprechende `PORT` Register in dem man die entsprechenden Bits setzt.
 Wenn das alles getan ist, kann man über das entsprechende `PIN` Register den Wert einlesen.
 **Achtung**: buttons beispielsweise, sind active-low, also $1$ wenn sie nicht gedrückt sind und $0$ wenn sie gedrückt sind.
+
 ### Beispiel buttons
-```C
+
+```c
 // Zwei buttons sind an PORT-A angeschlossen, einer an Pin-0 und einer an Pin-4
 // Die Methode soll in den ersten zwei bits den Status der buttons wiedergeben,
 // wobei 1 pressed und 0 not-pressed darstellt
@@ -106,8 +119,10 @@ uint8_t buttons_get(void)
 ```
 
 ## Schreiben
+
 Beim schreiben ist eigentlich nur das DDR wichtig, da man sonst nichts weiteres einstellen muss.
-```C
+
+```c
 // Als beispiel schreibt diese Methode einfach nur die
 // ersten 4 bits vom übergebenen Wert auf Port-C
 void write_port_c(uint8_t val)
@@ -117,3 +132,4 @@ void write_port_c(uint8_t val)
   PORTC = (PORTC & 0b11110000) | (val & 0b00001111); // schreibe die unteren 4 bits ohne die oberen zu ändern
 }
 ```
+

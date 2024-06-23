@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
 
 import SummaryView from "@/components/summaries/view";
-import type { Subjects } from "@/config/subjects";
-import { getSummariesMetadata, getSummary } from "@/lib/summaries";
+import { type Subjects, SubjectConfig } from "@/config/subjects";
+import { getArticlesMetadata } from "@/lib/article-metadata";
+import { getArticle } from "@/lib/articles";
 
 const subject: Subjects = "dbis";
-
+const subjectConfig = SubjectConfig[subject];
 export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div>
-      <SummaryView subject={subject} slug={params.slug}></SummaryView>
+      <SummaryView
+        subjectConfig={subjectConfig}
+        slug={params.slug}
+      ></SummaryView>
     </div>
   );
 }
 
 export async function generateStaticParams() {
-  const teachings = await getSummariesMetadata(subject);
+  const teachings = await getArticlesMetadata(subjectConfig);
 
   return teachings.map((t) => ({
     slug: t.slug,
@@ -27,7 +31,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] };
 }): Promise<Metadata> {
-  const { meta, url } = await getSummary(params.slug, subject);
+  const { meta, url } = await getArticle(params.slug, subjectConfig);
 
   return {
     title: meta.fullTitle,

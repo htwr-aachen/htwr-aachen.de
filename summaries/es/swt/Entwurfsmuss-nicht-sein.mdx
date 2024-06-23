@@ -112,7 +112,9 @@ Ein Singleton ist eine Klasse, die nur einmal instanziiert werden (für die die 
 Wie wird das gemacht bsp. Java:
 
 <div className="line-numbers">
-```Java
+  
+```java
+  
 public class MySingleton {
   protected static MySingleton instance;
 
@@ -133,6 +135,7 @@ protected void \_someMethod() {/* Do something */}
 }
 
 ```
+
 </div>
 
 Durch das statische Objekt instance, wird sichergestellt,
@@ -172,4 +175,3 @@ Hier ein paar Tipps:
 - Wenn du unterschiedliche Typen von Objekten erstellen willst $\Rightarrow$ Factory
 
 Insgesamt ist es häufig nicht ganz eindeutig welches jetzt das schlauste ist (sie sind ja auch kombinierbar), aber manches klappt halt besser als andere.
-```

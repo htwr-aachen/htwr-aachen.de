@@ -83,3 +83,23 @@
     @apply hover:no-underline;
   }
 }
+
+.shiki {
+  @apply rounded-3xl hover:rounded-2xl transition-all shadow-md shadow-black/50 my-4 py-4;
+}
+
+.shiki > code {
+  counter-reset: step;
+  counter-increment: step 0;
+  padding: 0;
+}
+
+.shiki > code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+}

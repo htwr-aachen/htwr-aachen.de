@@ -27,7 +27,7 @@ export function SidenavLink(props: { level: number } & LinkElement) {
       </Link>
       <ul className="mb-1 pl-6">
         {props.links?.map((l) => (
-          <li key={l.path} className="w-full">
+          <li key={l.name + l.path} className="w-full">
             <SidenavLink level={props.level + 1} {...l} />
           </li>
         ))}

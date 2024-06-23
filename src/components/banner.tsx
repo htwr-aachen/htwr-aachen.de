@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { blogArticleConfig } from "@/app/blog/config";
+import { blogArticleConfig } from "@/app/(blog)/blog/config";
 import { getArticlesMetadata } from "@/lib/article-metadata";
 
 /**

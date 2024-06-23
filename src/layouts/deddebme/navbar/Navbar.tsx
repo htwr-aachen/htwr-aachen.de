@@ -13,7 +13,7 @@ type DeddebmeNavbarProps = {
 export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
   return (
     <div>
-      <nav className="mx-auto my-4 grid max-w-6xl grid-cols-2 items-center justify-items-center">
+      <nav className="mx-auto mb-4 grid max-w-6xl grid-cols-2 items-center justify-items-center">
         <div className="pt-4 text-center">
           <span className="text-rwth-accen mr-4 content-center text-center font-semibold">
             Professor Dr.-Ing. Stefan Kowalewski

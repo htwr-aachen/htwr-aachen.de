@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           <DocsBreadcrumb slug={params.slug} baseURL="/docs"></DocsBreadcrumb>
         </div>
-        <div className="prose mx-auto max-w-screen-lg py-7 dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
+        <div className="prose mx-auto max-w-screen-lg py-7 dark:prose-invert prose-code:rounded prose-code:px-2 prose-code:font-mono">
           <MDXRemote
             source={docs.content}
             options={mdxOptions}
