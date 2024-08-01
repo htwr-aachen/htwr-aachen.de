@@ -1,4 +1,4 @@
-import format from "date-fns/format";
+import { format } from "date-fns";
 import localFont from "next/font/local";
 import Link from "next/link";
 import type { ReactNode } from "react";
