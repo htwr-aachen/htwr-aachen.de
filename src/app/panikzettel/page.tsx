@@ -48,7 +48,7 @@ export default async function Page() {
   return (
     <div className={"w-screen "}>
       <Alert className="mx-auto mt-12 w-4/6">
-        <Info className="size-4"></Info>
+        <Info className="size-4" />
         <AlertTitle>Achtung! Fertig! Fork!</AlertTitle>
         <AlertDescription>
           Dies ist weiterhin ein Fork des nun ungepflegten Repositories von{" "}
@@ -101,6 +101,8 @@ export default async function Page() {
         </SkewedPanikzettelFrontpage>
       </div>
       <svg
+        role="img"
+        aria-label="Document with Questionmark"
         className="h-[150px] w-screen -translate-y-3 fill-white"
         preserveAspectRatio="none"
         viewBox="0 0 1920 350"
