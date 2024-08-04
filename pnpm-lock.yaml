@@ -226,8 +226,8 @@ importers:
         version: 5.93.0
     devDependencies:
       '@percy/cli':
-        specifier: ^1.29.0
-        version: 1.29.0(typescript@5.5.4)
+        specifier: ^1.29.1
+        version: 1.29.1(typescript@5.5.4)
       '@percy/cypress':
         specifier: ^3.1.2
         version: 3.1.2(cypress@12.17.4)
@@ -253,8 +253,8 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6
       '@types/node':
-        specifier: ^18.19.42
-        version: 18.19.42
+        specifier: ^18.19.43
+        version: 18.19.43
       '@types/prismjs':
         specifier: ^1.26.4
         version: 1.26.4
@@ -277,11 +277,11 @@ importers:
         specifier: ^5.62.0
         version: 5.62.0(eslint@8.57.0)(typescript@5.5.4)
       autoprefixer:
-        specifier: ^10.4.19
-        version: 10.4.19(postcss@8.4.40)
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.40)
       commitizen:
         specifier: ^4.3.0
-        version: 4.3.0(@types/node@18.19.42)(typescript@5.5.4)
+        version: 4.3.0(@types/node@18.19.43)(typescript@5.5.4)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -314,7 +314,7 @@ importers:
         version: 2.29.1(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-jest:
         specifier: ^27.9.0
-        version: 27.9.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(jest@29.7.0(@types/node@18.19.42))(typescript@5.5.4)
+        version: 27.9.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(jest@29.7.0(@types/node@18.19.43))(typescript@5.5.4)
       eslint-plugin-jest-dom:
         specifier: ^4.0.3
         version: 4.0.3(eslint@8.57.0)
@@ -347,7 +347,7 @@ importers:
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)
       jest:
         specifier: ^29.7.0
-        version: 29.7.0(@types/node@18.19.42)
+        version: 29.7.0(@types/node@18.19.43)
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0
@@ -952,50 +952,50 @@ packages:
   '@octokit/types@9.3.2':
     resolution: {integrity: sha512-D4iHGTdAnEEVsB8fl95m1hiz7D5YiRdQ9b/OEb3BYRVwbLsGHcRVPz+u+BgRLNk0Q0/4iZCBqDN96j2XNxfXrA==}
 
-  '@percy/cli-app@1.29.0':
-    resolution: {integrity: sha512-Frb4/OEKTjOvnVuC4YUnTeLWkX6bMD3/VXOA3yFOnLh+wDAnyAV9bwJ6XgbgsKiR9TPR3wEwebtUz1v0/rk2ZQ==}
+  '@percy/cli-app@1.29.1':
+    resolution: {integrity: sha512-qtTcvs4kf72BTMfaSdC3oppPIJ5fE+rCI1Refr4WDUEXqYfG6nkRQ4HmdyAIluDwVz+fTEQPxM1xU+mjOTlAWw==}
     engines: {node: '>=14'}
 
-  '@percy/cli-build@1.29.0':
-    resolution: {integrity: sha512-HB4qoF4Wtuf/C5kXfRBTvPo+DX/OkA2fxRzdMuMPO0Tw7gb6K0YCzjoe7VhmssFa4MgfV2z7UK284bQg8HobvQ==}
+  '@percy/cli-build@1.29.1':
+    resolution: {integrity: sha512-q6n6lsHQtJZDgtuxQ2CMKqVahAyfF0C2+BfZCylpZfj9hV/V0+Wz5K9ymOaSLSV59FWsDfMzgfB0poGNM10btA==}
     engines: {node: '>=14'}
 
-  '@percy/cli-command@1.29.0':
-    resolution: {integrity: sha512-x8XQvpCLQ2/rxKKOdK9jcvRY14t6UNC42Z4T7LmRPtYrk1v8AXq2HxbjdNzrjmCDRUjM5QrYrIrRbfcj7OYlDA==}
-    engines: {node: '>=14'}
-    hasBin: true
-
-  '@percy/cli-config@1.29.0':
-    resolution: {integrity: sha512-+9cFL8A8Mnb3S2RkH1Yjr6Fozlhjka4LiE1mpAH7IUqK/AGjUDKVQsWPs+x7HsCbGXwbFos29SmfEWuf7d0Idw==}
-    engines: {node: '>=14'}
-
-  '@percy/cli-exec@1.29.0':
-    resolution: {integrity: sha512-Kw94FS7KJScCjyIfjAIWUbjCVCi4S+PYuZ2RQVVJnG9elbo3c+LEaIACvIpHs+fBNRDJ+Xn7xkOfoHPzecpCVA==}
-    engines: {node: '>=14'}
-
-  '@percy/cli-snapshot@1.29.0':
-    resolution: {integrity: sha512-+3vkgOROGk9K4zLECtP0Lu8cwZ/dDatcfYxXVHCopQX0uSdki9CS777vJyMFBsZLy5XHkv72YdGbrofyz+TfIw==}
-    engines: {node: '>=14'}
-
-  '@percy/cli-upload@1.29.0':
-    resolution: {integrity: sha512-5vm88PiiBvFz2eexhRRjJHQz0BW76IoDCeai4JOFTjQoiTn6A5k/7AnVhCubzuL+Z3qYJEyY5rkx6Q0IBEwStg==}
-    engines: {node: '>=14'}
-
-  '@percy/cli@1.29.0':
-    resolution: {integrity: sha512-VAIZTsNyBkdF7LCdPNgO9gKYW5APsVAwwAZNJq0t6aKSpWtjsGbcPRpvhPq2nyp9e8dHEjgXwvdkUFeUOYX2lQ==}
+  '@percy/cli-command@1.29.1':
+    resolution: {integrity: sha512-kNnQ78wM2Bj5kJxMztoxvP8we/XyWGIUpxl1JDCEW7N3fmQns/0pGYNIHEVhG3JkPQbVcvZZ+lHfaIfh6tlTUw==}
     engines: {node: '>=14'}
     hasBin: true
 
-  '@percy/client@1.29.0':
-    resolution: {integrity: sha512-PNgq1sfyFigXZhQ7vKR8cmqSYHihRT6Ef3noSksQylg7ZhPVhkF7uynXo9maeehhGLHgCJwsWvxaZlDXT9TVWg==}
+  '@percy/cli-config@1.29.1':
+    resolution: {integrity: sha512-vgnVrAKq9QU/tneMrcXZ1F9NDyJokEO1SgscFJ2qHO8c8HqnXpILz2fI5dvSkq9vYVjxlXPmbC5bCjrSZdLx+w==}
     engines: {node: '>=14'}
 
-  '@percy/config@1.29.0':
-    resolution: {integrity: sha512-iE46YewAM3W3ATQDGj1/+MBTLARZ4MenUi5MefrZflK4ImnG5eo3NkT4PH0SLYMpr7K6zINRcX3tsRIob+8I/g==}
+  '@percy/cli-exec@1.29.1':
+    resolution: {integrity: sha512-X2ZWcSvdx4oWyKsk2+Egon+tuoIZygBZMlq9cN2VbVRYgs+Ek4XdwLDMRKntOCv8KIk5601af4cwVw3SpibS1Q==}
     engines: {node: '>=14'}
 
-  '@percy/core@1.29.0':
-    resolution: {integrity: sha512-/6yKVmzrBJnb3ZnAwYuC9bLPYXM22SpaifxkIGGN/gtphm3pRgo6B4lPc+3wPFsulJumMle5W1tDq7bfwcpZSA==}
+  '@percy/cli-snapshot@1.29.1':
+    resolution: {integrity: sha512-RxOdZtgws8V229+BsExNtZgqbKP/ma5EjYJIz8xmzWURtTh7fhGLcMNixCkJcOUCF+uyFq5/Gzk41lBjx8+Lwg==}
+    engines: {node: '>=14'}
+
+  '@percy/cli-upload@1.29.1':
+    resolution: {integrity: sha512-Zxpa+4ImNjJIZNHwQmxRm5N1hxRcRopqXulNe1JrA8ap6FH1IkncA9nUOtgucSKhAmHQb4qpYtv4A90vLWjf7Q==}
+    engines: {node: '>=14'}
+
+  '@percy/cli@1.29.1':
+    resolution: {integrity: sha512-lYDOyDKgGMAEFZL9dkDYL+w1nunSirmnWgzcsMUI2BzGO2dW/zq4WNJVaH/In/xwioX1uVqzQ28rgl1vnmqwRA==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  '@percy/client@1.29.1':
+    resolution: {integrity: sha512-86IIyqinoUTZdSmEY63MrolEvV3s2ZL9/tRlx3LvtO0RSsyf2pE5MCPh/eHBpe/kSRBI4xZ2fgrU7CYw/giE7g==}
+    engines: {node: '>=14'}
+
+  '@percy/config@1.29.1':
+    resolution: {integrity: sha512-kE04gpap7qmSw/lPnO3LA5P/TLw0HYqLHruvRkeaxTH6a5LoLXTyBNpxfTZLMtpu6WWcB50d21mRfVWA3JCtVQ==}
+    engines: {node: '>=14'}
+
+  '@percy/core@1.29.1':
+    resolution: {integrity: sha512-G/w5Xrt7rYOQbu2tP74EDTZCOltpDXMLC6KoGxKsq6pz7tEuZLLjNwl0+ltrQ333dSvB4URpOkilRKMOa1AoCw==}
     engines: {node: '>=14'}
 
   '@percy/cypress@3.1.2':
@@ -1003,23 +1003,23 @@ packages:
     peerDependencies:
       cypress: '>=3'
 
-  '@percy/dom@1.29.0':
-    resolution: {integrity: sha512-3+ii3n/d3KjluYfc+wCLzmnOICWJBvh4Qmdpq5USUrLP9tuvIdlpWlT+ukMuRsgDMCYQlvjv/v3SAqmoMafDYw==}
+  '@percy/dom@1.29.1':
+    resolution: {integrity: sha512-Cd+lPy8ezdZLKTd2xQ2NcvoHB/TpwQmDlG7apnaEfaiv60IW7Iq+HAWTzw89Lb/x5ueYL3YadUs558W3+8ZEPQ==}
 
-  '@percy/env@1.29.0':
-    resolution: {integrity: sha512-/ETi/xybkXX3BqpbOn9jmV7cth5kATo3efZBZLrAClzIws3hr6AZOU/HQYEvX81R+0Dt+pR0U/Lujq7j6OcX5g==}
+  '@percy/env@1.29.1':
+    resolution: {integrity: sha512-/FZpNLjfKpBHhq4o5vDlAeGdKgjGBbs7YemmcY20J+iuU4G8Iy79UVfdAQmHnsjSgX2p4RYHooaOuMPi0Df1tw==}
     engines: {node: '>=14'}
 
-  '@percy/logger@1.29.0':
-    resolution: {integrity: sha512-BZZ8dsXDmEuGBuZ4hatMthHSvrNWzJWmgAO53rH4slPIWPUd1qtofEZd+0qtwhwgtLV6aKIES+4D2nBmbLxT8g==}
+  '@percy/logger@1.29.1':
+    resolution: {integrity: sha512-ykEJh3YN4sOz3tJ2/pN9avxhX0Gy+UNKzBFhRKfLUldxPv9jUkSzMAT8eAi40CQP0ZjtOh5XkFCvBRIV6c6LuQ==}
     engines: {node: '>=14'}
 
-  '@percy/sdk-utils@1.29.0':
-    resolution: {integrity: sha512-1spFHrK8u4l5Z7RvUrsyCFtl5vvFcsSNANViTFxMemLUGfpf/xpZgqnZ6kggH0x5PuC6UxiPRmI30hA0COPZGw==}
+  '@percy/sdk-utils@1.29.1':
+    resolution: {integrity: sha512-SSc9i/cFcEPAMCRgbjJs5LAHn1eZxzFcvhVszuXdIo9TZeECEFr9Vxe/cRpm188yMIfxL+8nwn26CQMVnGdlcQ==}
     engines: {node: '>=14'}
 
-  '@percy/webdriver-utils@1.29.0':
-    resolution: {integrity: sha512-QlALpphxES+IllmW9tDzExBInVuJZmdGkb3xbBHdsaTxXsNEm24CGCZHaR88gMdUAse06yyw+GW23pxs7/AaVQ==}
+  '@percy/webdriver-utils@1.29.1':
+    resolution: {integrity: sha512-fDWpKbkzA6LSCxwrZnpIU5myBR8/C5wHogHodpiJF9EHC+l+ucPiuGiHXvfI354ofD52VEavcVdl967F0ypaIA==}
     engines: {node: '>=14'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -1034,8 +1034,8 @@ packages:
     resolution: {integrity: sha512-YcPQ8a0jwYU9bTdJDpXjMi7Brhkr1mXsXrUJvjqM2mQDgkRiz8jFaQGOdaLxgjtUfQgZhKy/O3cG/YwmgKaxLA==}
     engines: {node: '>=12.22.0'}
 
-  '@pnpm/npm-conf@2.2.2':
-    resolution: {integrity: sha512-UA91GwWPhFExt3IizW6bOeY/pQ0BkuNwKjk9iQW9KqxluGCrg4VenZ0/L+2Y0+ZOtme72EVvg6v0zo3AMQRCeA==}
+  '@pnpm/npm-conf@2.3.0':
+    resolution: {integrity: sha512-DqrO+oXGR7HCuicNy6quk6ALJSDDPKI7RZz1bP5im8mSL8J2e+9w26LdkjuAfpAjOutYUJVbnXnx4IbTQeIgfw==}
     engines: {node: '>=12'}
 
   '@polka/url@1.0.0-next.25':
@@ -1683,8 +1683,8 @@ packages:
   '@types/node@16.18.104':
     resolution: {integrity: sha512-OF3keVCbfPlkzxnnDBUZJn1RiCJzKeadjiW0xTEb0G1SUJ5gDVb3qnzZr2T4uIFvsbKJbXy1v2DN7e2zaEY7jQ==}
 
-  '@types/node@18.19.42':
-    resolution: {integrity: sha512-d2ZFc/3lnK2YCYhos8iaNIYu9Vfhr92nHiyJHRltXWjXUBjEE+A4I58Tdbnw4VhggSW+2j5y5gTrLs4biNnubg==}
+  '@types/node@18.19.43':
+    resolution: {integrity: sha512-Mw/YlgXnyJdEwLoFv2dpuJaDFriX+Pc+0qOBJ57jC1H6cDxIj2xc5yUrdtArDVG0m+KV6622a4p2tenEqB3C/g==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2120,8 +2120,8 @@ packages:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
 
-  autoprefixer@10.4.19:
-    resolution: {integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==}
+  autoprefixer@10.4.20:
+    resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -2227,8 +2227,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  browserslist@4.23.2:
-    resolution: {integrity: sha512-qkqSyistMYdxAcw+CzbZwlBy8AGmS/eEWs+sEV5TnLRGDOL+C5M2EnH6tlZyg0YoAxGJAFKh61En9BR941GnHA==}
+  browserslist@4.23.3:
+    resolution: {integrity: sha512-btwCFJVjI4YWDNfau8RhZ+B1Q/VLoUITrm3RlP6y1tYGWIOa+InuYiRGXUBXo8nA1qKmHMyLB/iVQg5TT4eFoA==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -2298,8 +2298,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001646:
-    resolution: {integrity: sha512-dRg00gudiBDDTmUhClSdv3hqRfpbOnU28IpI1T6PBTLWa+kOj0681C8uML3PifYfREuBrVjDGhL3adYpBT6spw==}
+  caniuse-lite@1.0.30001647:
+    resolution: {integrity: sha512-n83xdNiyeNcHpzWY+1aFbqCK7LuLfBricc4+alSQL2Xb6OR3XpnQAmlDG+pQcdTfiHRuLcQ96VOfrPSGiNJYSg==}
 
   capture-stack-trace@1.0.2:
     resolution: {integrity: sha512-X/WM2UQs6VMHUtjUDnZTRI+i1crWteJySFzr9UpGoQa4WQffXVTTXuekjl7TjZRlcF2XfjgITT0HxZ9RnxeT0w==}
@@ -7958,7 +7958,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.25.2
       '@babel/helper-validator-option': 7.24.8
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -8124,7 +8124,7 @@ snapshots:
   '@commitlint/execute-rule@19.0.0':
     optional: true
 
-  '@commitlint/load@19.2.0(@types/node@18.19.42)(typescript@5.5.4)':
+  '@commitlint/load@19.2.0(@types/node@18.19.43)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -8132,7 +8132,7 @@ snapshots:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.5.4)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.42)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@18.19.43)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -8266,7 +8266,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -8279,14 +8279,14 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@18.19.42)
+      jest-config: 29.7.0(@types/node@18.19.43)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -8311,7 +8311,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-mock: 29.7.0
 
   '@jest/expect-utils@29.7.0':
@@ -8329,7 +8329,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -8351,7 +8351,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -8421,7 +8421,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
@@ -8687,49 +8687,49 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 18.1.1
 
-  '@percy/cli-app@1.29.0(typescript@5.5.4)':
+  '@percy/cli-app@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
-      '@percy/cli-exec': 1.29.0(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
+      '@percy/cli-exec': 1.29.1(typescript@5.5.4)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - typescript
       - utf-8-validate
 
-  '@percy/cli-build@1.29.0(typescript@5.5.4)':
+  '@percy/cli-build@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - typescript
       - utf-8-validate
 
-  '@percy/cli-command@1.29.0(typescript@5.5.4)':
+  '@percy/cli-command@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/config': 1.29.0(typescript@5.5.4)
-      '@percy/core': 1.29.0(typescript@5.5.4)
-      '@percy/logger': 1.29.0
+      '@percy/config': 1.29.1(typescript@5.5.4)
+      '@percy/core': 1.29.1(typescript@5.5.4)
+      '@percy/logger': 1.29.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - typescript
       - utf-8-validate
 
-  '@percy/cli-config@1.29.0(typescript@5.5.4)':
+  '@percy/cli-config@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - typescript
       - utf-8-validate
 
-  '@percy/cli-exec@1.29.0(typescript@5.5.4)':
+  '@percy/cli-exec@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
-      '@percy/logger': 1.29.0
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
+      '@percy/logger': 1.29.1
       cross-spawn: 7.0.3
       which: 2.0.2
     transitivePeerDependencies:
@@ -8738,9 +8738,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@percy/cli-snapshot@1.29.0(typescript@5.5.4)':
+  '@percy/cli-snapshot@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
       yaml: 2.5.0
     transitivePeerDependencies:
       - bufferutil
@@ -8748,9 +8748,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@percy/cli-upload@1.29.0(typescript@5.5.4)':
+  '@percy/cli-upload@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
       fast-glob: 3.3.2
       image-size: 1.1.1
     transitivePeerDependencies:
@@ -8759,45 +8759,45 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@percy/cli@1.29.0(typescript@5.5.4)':
+  '@percy/cli@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/cli-app': 1.29.0(typescript@5.5.4)
-      '@percy/cli-build': 1.29.0(typescript@5.5.4)
-      '@percy/cli-command': 1.29.0(typescript@5.5.4)
-      '@percy/cli-config': 1.29.0(typescript@5.5.4)
-      '@percy/cli-exec': 1.29.0(typescript@5.5.4)
-      '@percy/cli-snapshot': 1.29.0(typescript@5.5.4)
-      '@percy/cli-upload': 1.29.0(typescript@5.5.4)
-      '@percy/client': 1.29.0
-      '@percy/logger': 1.29.0
+      '@percy/cli-app': 1.29.1(typescript@5.5.4)
+      '@percy/cli-build': 1.29.1(typescript@5.5.4)
+      '@percy/cli-command': 1.29.1(typescript@5.5.4)
+      '@percy/cli-config': 1.29.1(typescript@5.5.4)
+      '@percy/cli-exec': 1.29.1(typescript@5.5.4)
+      '@percy/cli-snapshot': 1.29.1(typescript@5.5.4)
+      '@percy/cli-upload': 1.29.1(typescript@5.5.4)
+      '@percy/client': 1.29.1
+      '@percy/logger': 1.29.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - typescript
       - utf-8-validate
 
-  '@percy/client@1.29.0':
+  '@percy/client@1.29.1':
     dependencies:
-      '@percy/env': 1.29.0
-      '@percy/logger': 1.29.0
+      '@percy/env': 1.29.1
+      '@percy/logger': 1.29.1
       pako: 2.1.0
 
-  '@percy/config@1.29.0(typescript@5.5.4)':
+  '@percy/config@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/logger': 1.29.0
+      '@percy/logger': 1.29.1
       ajv: 8.17.1
       cosmiconfig: 8.3.6(typescript@5.5.4)
       yaml: 2.5.0
     transitivePeerDependencies:
       - typescript
 
-  '@percy/core@1.29.0(typescript@5.5.4)':
+  '@percy/core@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/client': 1.29.0
-      '@percy/config': 1.29.0(typescript@5.5.4)
-      '@percy/dom': 1.29.0
-      '@percy/logger': 1.29.0
-      '@percy/webdriver-utils': 1.29.0(typescript@5.5.4)
+      '@percy/client': 1.29.1
+      '@percy/config': 1.29.1(typescript@5.5.4)
+      '@percy/dom': 1.29.1
+      '@percy/logger': 1.29.1
+      '@percy/webdriver-utils': 1.29.1(typescript@5.5.4)
       content-disposition: 0.5.4
       cross-spawn: 7.0.3
       extract-zip: 2.0.1(supports-color@8.1.1)
@@ -8817,23 +8817,23 @@ snapshots:
 
   '@percy/cypress@3.1.2(cypress@12.17.4)':
     dependencies:
-      '@percy/sdk-utils': 1.29.0
+      '@percy/sdk-utils': 1.29.1
       cypress: 12.17.4
 
-  '@percy/dom@1.29.0': {}
+  '@percy/dom@1.29.1': {}
 
-  '@percy/env@1.29.0':
+  '@percy/env@1.29.1':
     dependencies:
-      '@percy/logger': 1.29.0
+      '@percy/logger': 1.29.1
 
-  '@percy/logger@1.29.0': {}
+  '@percy/logger@1.29.1': {}
 
-  '@percy/sdk-utils@1.29.0': {}
+  '@percy/sdk-utils@1.29.1': {}
 
-  '@percy/webdriver-utils@1.29.0(typescript@5.5.4)':
+  '@percy/webdriver-utils@1.29.1(typescript@5.5.4)':
     dependencies:
-      '@percy/config': 1.29.0(typescript@5.5.4)
-      '@percy/sdk-utils': 1.29.0
+      '@percy/config': 1.29.1(typescript@5.5.4)
+      '@percy/sdk-utils': 1.29.1
     transitivePeerDependencies:
       - typescript
 
@@ -8846,7 +8846,7 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.10
 
-  '@pnpm/npm-conf@2.2.2':
+  '@pnpm/npm-conf@2.3.0':
     dependencies:
       '@pnpm/config.env-replace': 1.1.0
       '@pnpm/network.ca-file': 1.0.2
@@ -9453,7 +9453,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
     optional: true
 
   '@types/d3-scale-chromatic@3.0.3': {}
@@ -9486,7 +9486,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
 
   '@types/hast@2.3.10':
     dependencies:
@@ -9517,7 +9517,7 @@ snapshots:
 
   '@types/jsdom@20.0.1':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       '@types/tough-cookie': 4.0.5
       parse5: 7.1.2
 
@@ -9531,7 +9531,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
 
   '@types/make-fetch-happen@10.0.4':
     dependencies:
@@ -9562,12 +9562,12 @@ snapshots:
 
   '@types/node-fetch@2.6.11':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       form-data: 4.0.0
 
   '@types/node@16.18.104': {}
 
-  '@types/node@18.19.42':
+  '@types/node@18.19.43':
     dependencies:
       undici-types: 5.26.5
 
@@ -9610,7 +9610,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
 
   '@types/retry@0.12.5': {}
 
@@ -9624,7 +9624,7 @@ snapshots:
 
   '@types/ssri@7.1.5':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
 
   '@types/stack-utils@2.0.3': {}
 
@@ -9648,7 +9648,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
     optional: true
 
   '@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)':
@@ -10064,10 +10064,10 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  autoprefixer@10.4.19(postcss@8.4.40):
+  autoprefixer@10.4.20(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
-      caniuse-lite: 1.0.30001646
+      browserslist: 4.23.3
+      caniuse-lite: 1.0.30001647
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -10215,12 +10215,12 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  browserslist@4.23.2:
+  browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001646
+      caniuse-lite: 1.0.30001647
       electron-to-chromium: 1.5.4
       node-releases: 2.0.18
-      update-browserslist-db: 1.1.0(browserslist@4.23.2)
+      update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
   bser@2.1.1:
     dependencies:
@@ -10304,12 +10304,12 @@ snapshots:
 
   caniuse-api@3.0.0:
     dependencies:
-      browserslist: 4.23.2
-      caniuse-lite: 1.0.30001646
+      browserslist: 4.23.3
+      caniuse-lite: 1.0.30001647
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001646: {}
+  caniuse-lite@1.0.30001647: {}
 
   capture-stack-trace@1.0.2: {}
 
@@ -10533,10 +10533,10 @@ snapshots:
       has-own-prop: 2.0.0
       repeat-string: 1.6.1
 
-  commitizen@4.3.0(@types/node@18.19.42)(typescript@5.5.4):
+  commitizen@4.3.0(@types/node@18.19.43)(typescript@5.5.4):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@18.19.42)(typescript@5.5.4)
+      cz-conventional-changelog: 3.3.0(@types/node@18.19.43)(typescript@5.5.4)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -10634,9 +10634,9 @@ snapshots:
     dependencies:
       layout-base: 1.0.2
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.42)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@18.19.43)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       cosmiconfig: 9.0.0(typescript@5.5.4)
       jiti: 1.21.6
       typescript: 5.5.4
@@ -10673,13 +10673,13 @@ snapshots:
     dependencies:
       capture-stack-trace: 1.0.2
 
-  create-jest@29.7.0(@types/node@18.19.42):
+  create-jest@29.7.0(@types/node@18.19.43):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@18.19.42)
+      jest-config: 29.7.0(@types/node@18.19.43)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -10857,16 +10857,16 @@ snapshots:
 
   cytoscape@3.30.1: {}
 
-  cz-conventional-changelog@3.3.0(@types/node@18.19.42)(typescript@5.5.4):
+  cz-conventional-changelog@3.3.0(@types/node@18.19.43)(typescript@5.5.4):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.0(@types/node@18.19.42)(typescript@5.5.4)
+      commitizen: 4.3.0(@types/node@18.19.43)(typescript@5.5.4)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.2.0(@types/node@18.19.42)(typescript@5.5.4)
+      '@commitlint/load': 19.2.0(@types/node@18.19.43)(typescript@5.5.4)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -11583,13 +11583,13 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-  eslint-plugin-jest@27.9.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(jest@29.7.0(@types/node@18.19.42))(typescript@5.5.4):
+  eslint-plugin-jest@27.9.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(jest@29.7.0(@types/node@18.19.43))(typescript@5.5.4):
     dependencies:
       '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.5.4)
       eslint: 8.57.0
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
-      jest: 29.7.0(@types/node@18.19.42)
+      jest: 29.7.0(@types/node@18.19.43)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13023,7 +13023,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3
@@ -13043,16 +13043,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@18.19.42):
+  jest-cli@29.7.0(@types/node@18.19.43):
     dependencies:
       '@jest/core': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@18.19.42)
+      create-jest: 29.7.0(@types/node@18.19.43)
       exit: 0.1.2
       import-local: 3.2.0
-      jest-config: 29.7.0(@types/node@18.19.42)
+      jest-config: 29.7.0(@types/node@18.19.43)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -13062,7 +13062,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@18.19.42):
+  jest-config@29.7.0(@types/node@18.19.43):
     dependencies:
       '@babel/core': 7.25.2
       '@jest/test-sequencer': 29.7.0
@@ -13087,7 +13087,7 @@ snapshots:
       slash: 3.0.0
       strip-json-comments: 3.1.1
     optionalDependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -13117,7 +13117,7 @@ snapshots:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3
@@ -13131,7 +13131,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -13141,7 +13141,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -13180,7 +13180,7 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@29.7.0):
@@ -13215,7 +13215,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -13243,7 +13243,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       cjs-module-lexer: 1.3.1
       collect-v8-coverage: 1.0.2
@@ -13289,7 +13289,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -13308,7 +13308,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -13317,23 +13317,23 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 18.19.42
+      '@types/node': 18.19.43
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@18.19.42):
+  jest@29.7.0(@types/node@18.19.43):
     dependencies:
       '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.2.0
-      jest-cli: 29.7.0(@types/node@18.19.42)
+      jest-cli: 29.7.0(@types/node@18.19.43)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -14484,7 +14484,7 @@ snapshots:
       '@next/env': 14.2.5
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001646
+      caniuse-lite: 1.0.30001647
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
@@ -14894,7 +14894,7 @@ snapshots:
 
   postcss-colormin@5.3.1(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.4.40
@@ -14902,7 +14902,7 @@ snapshots:
 
   postcss-convert-values@5.1.3(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       postcss: 8.4.40
       postcss-value-parser: 4.2.0
 
@@ -14949,7 +14949,7 @@ snapshots:
 
   postcss-merge-rules@5.1.4(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       caniuse-api: 3.0.0
       cssnano-utils: 3.1.0(postcss@8.4.40)
       postcss: 8.4.40
@@ -14969,7 +14969,7 @@ snapshots:
 
   postcss-minify-params@5.1.4(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       cssnano-utils: 3.1.0(postcss@8.4.40)
       postcss: 8.4.40
       postcss-value-parser: 4.2.0
@@ -15015,7 +15015,7 @@ snapshots:
 
   postcss-normalize-unicode@5.1.1(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       postcss: 8.4.40
       postcss-value-parser: 4.2.0
 
@@ -15038,7 +15038,7 @@ snapshots:
 
   postcss-reduce-initial@5.1.2(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       caniuse-api: 3.0.0
       postcss: 8.4.40
 
@@ -15428,7 +15428,7 @@ snapshots:
 
   registry-auth-token@5.0.2:
     dependencies:
-      '@pnpm/npm-conf': 2.2.2
+      '@pnpm/npm-conf': 2.3.0
 
   registry-url@3.1.0:
     dependencies:
@@ -16151,7 +16151,7 @@ snapshots:
 
   stylehacks@5.1.1(postcss@8.4.40):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       postcss: 8.4.40
       postcss-selector-parser: 6.1.1
 
@@ -16620,9 +16620,9 @@ snapshots:
 
   unzip-response@2.0.1: {}
 
-  update-browserslist-db@1.1.0(browserslist@4.23.2):
+  update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       escalade: 3.1.2
       picocolors: 1.0.1
 
@@ -16848,7 +16848,7 @@ snapshots:
       '@webassemblyjs/wasm-parser': 1.12.1
       acorn: 8.12.1
       acorn-import-attributes: 1.9.5(acorn@8.12.1)
-      browserslist: 4.23.2
+      browserslist: 4.23.3
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.1
       es-module-lexer: 1.5.4
