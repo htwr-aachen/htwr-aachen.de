@@ -1,11 +1,11 @@
 export type Panikzettel = {
-	name: string;
-	type: "pf" | "wpf" | "af";
-	filename: string;
-	url: string;
-	semester?: number;
-	shortname?: string;
-	date?: string;
+  name: string;
+  type: "pf" | "wpf" | "af";
+  filename: string;
+  url: string;
+  semester?: number;
+  shortname?: string;
+  date?: string;
 };
 
 export const COMPULSORY_SUBJECT = "compulsory";
