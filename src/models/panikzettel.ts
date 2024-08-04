@@ -1,6 +1,11 @@
 export type Panikzettel = {
   name: string;
-  type: "pf" | "wpf" | "af";
+  type:
+    | typeof COMPULSORY_SUBJECT
+    | typeof COMPULSORY_ELECTIVE_SUBJECT
+    | typeof NON_TECHNICAL_ELECTIVE_SUBJECT
+    | typeof APPLICATION_AREA_SUBJECT
+    | "other";
   filename: string;
   url: string;
   semester?: number;
