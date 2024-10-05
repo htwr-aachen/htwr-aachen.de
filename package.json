@@ -56,7 +56,6 @@
     "katex": "^0.16.11",
     "lucide-react": "^0.358.0",
     "mdx-embed": "^1.1.2",
-    "mdx-mermaid": "^2.0.1",
     "mermaid": "^10.9.2",
     "mini-css-extract-plugin": "^2.9.1",
     "natsort": "^2.0.3",

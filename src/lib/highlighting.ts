@@ -1,7 +1,9 @@
-import { getHighlighter } from "shiki";
-import { bundledLanguages } from "shiki/langs";
+import { bundledLanguages, createHighlighter } from "shiki";
 
-export const highlighter = await getHighlighter({
-  themes: ["github-light", "github-dark"],
-  langs: [...Object.keys(bundledLanguages)],
+export const highlighter = await createHighlighter({
+  themes: [
+    import("shiki/themes/github-dark.mjs"),
+    import("shiki/themes/github-light.mjs"),
+  ],
+  langs: Object.keys(bundledLanguages),
 });

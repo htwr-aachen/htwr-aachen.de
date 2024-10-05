@@ -1,19 +1,16 @@
 ---
 title: SPARQL ✨
-description: Woow Mongo 
+description: Woow Mongo
 author: Jonas Schneider
 date: 1/08/2023
 order: 8
-tags:
-  [
-    XML,
-    Graphdatenbanken
-  ]
+tags: [XML, Graphdatenbanken]
 ---
 
 ## Skalierung
+
 - Vertikale Skalierung bedeuted, dass jeder Knoten mehr Leistung hat (Mehr RAM, )
-![buy ram](https://media.tenor.com/YcFi_XrKoJcAAAAC/digibyte-dgb.gif)
+  ![buy ram](https://media.tenor.com/YcFi_XrKoJcAAAAC/digibyte-dgb.gif)
 - Horizontale Skalierung bedeuted, dass mehr Knoten hinzugefügt werden
   - Verteilte Tabellen auf mehreren Knoten
   - Synchronisations und Konsistenzprobleme => Overhead
@@ -21,46 +18,50 @@ tags:
   - Replikation: Daten werden auf mehrere Knoten verteilt und können so parallel abgefragt werden
     - 2PC: 2 Phase Commit => 1. Phase Prepare | 2. Phase Commit mit ACK's mal wieder :)
   - CAP: Consistency | Availability | Partition Tolerance => Nur 2 von 3. gehen
-  - Daher BASE: Basically Available | Soft State (kann also temporär inkonsistent sein)| Eventual Consistency als ACID Ersatz  
+  - Daher BASE: Basically Available | Soft State (kann also temporär inkonsistent sein)| Eventual Consistency als ACID Ersatz
 
 ## NoSQL
+
 - Dokumentendatenbanken
 - Key-Value Datenbanken
 - Graphdatenbanken
 - Spaltenorientierte Datenbanken
 
 ## Dokumentendatenbanken
+
 - Dokumente sind JSON / XML / PDF / ...
 - Dokumente sind indexiert
 - Bsp: MongoDB (Nutzt BSON: Binary Json)
 
 ## Key-Value Datenbanken
+
 - Key-Value Paare
 - Bsp: Redis (Wird oft als Cache verwendet und ist größtenteils in Memory)
 
 ## Graphdatenbanken
+
 - Knoten sind Entities
 - Kanten sind Relationen/Beziehungen
 - Bsp: Neo4J
-
 
 ## RDF
 
 - Resourcen im Tripel Format: Subjekt-Prädikat-Objekt. "Aachen ist eine Stadt"
 
 Leider gehen mermaid diagramme noch nicht in einer experimentellen version von mdx-remote...
-{/* 
-```mermaid
+
+``mermaid
 graph LR
-  A(Ressource ) -- Eigenschaft --> B(Wert)
-``` */}
+A(Ressource ) -- Eigenschaft --> B(Wert)
+
+````
 
 - Ressourcen sind: URI, Blank Nodes (URI: Uniform Resource Identifier bsp: `urn:example:animal:ferret:nose`)
 - Eigenschaften sind: URI die eine Eigenschaft beschreibt
 - Werte sind: URI, Blank Nodes, Literale (Strings interpretiert mit Datentyp `"123"^^http//www.w3.org/2001/XMLSchema#int`)
 
 Leider gehen mermaid diagramme noch nicht in einer experimentellen version von mdx-remote...
-{/* 
+{/*
 ```mermaid
 graph LR
   HansMueller(Bsp:HansMueller) -- Bsp:hatAdresse --> EmptyNode( )
@@ -104,22 +105,22 @@ Somit ergibt sich eine Abfrage wie folgt:
     wbsp:John foaf:knows ?friend .
     ?friend foaf:firstname ?friendname .
   }
-```
+````
 
 Weiteres:
-  - Modifikatoren
-    - `ORDER BY ASC/DESC ?x`
-    - `LIMIT n | OFFSET n`: Limitiert die Anzahl der Ergebnisse oder gibt die ersten n Ergebnisse nicht zurück
-  - Vergleichungen von urls
-    - `== | != ` Großschreibungen relevant
-  - Filter
-    - `! | && | ||` Logisch... halt wirklich
-    - `+ | - | * | /`
-    - `= | != | < | > | ...`
-    - `isURI() | isBlank() | isLiteral() | str() | lang() | datatype() | regex() | contains()`
-  - `OPTIONAL`: `{GraphMuster1} OPTIONAL {Optionale Sache}` ähnlich wie left join 
-  - `UNION`: Selbst erklärend
-  - `SELECT DISTINCT`: Auch selbst erklärend
-  
+
+- Modifikatoren
+  - `ORDER BY ASC/DESC ?x`
+  - `LIMIT n | OFFSET n`: Limitiert die Anzahl der Ergebnisse oder gibt die ersten n Ergebnisse nicht zurück
+- Vergleichungen von urls
+  - `== | != ` Großschreibungen relevant
+- Filter
+  - `! | && | ||` Logisch... halt wirklich
+  - `+ | - | * | /`
+  - `= | != | < | > | ...`
+  - `isURI() | isBlank() | isLiteral() | str() | lang() | datatype() | regex() | contains()`
+- `OPTIONAL`: `{GraphMuster1} OPTIONAL {Optionale Sache}` ähnlich wie left join
+- `UNION`: Selbst erklärend
+- `SELECT DISTINCT`: Auch selbst erklärend
 
 Der Rest ist unnütz (denke ich)

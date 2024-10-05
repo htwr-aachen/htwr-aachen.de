@@ -1,22 +1,38 @@
+import withBundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
-import mdxMermaid from "mdx-mermaid";
-import rehypeKatex from "rehype-katex";
-import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
-import withBundleAnalyzer from "@next/bundle-analyzer";
+import rehypeKatex from "rehype-katex";
+import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
+import { bundledLanguages, createHighlighter } from "shiki";
+
+export const highlighter = await createHighlighter({
+  themes: [
+    import("shiki/themes/github-dark.mjs"),
+    import("shiki/themes/github-light.mjs"),
+  ],
+  langs: Object.keys(bundledLanguages),
+});
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [
-      remarkMath,
-      remarkGfm,
-      remarkHint,
-      [mdxMermaid, { output: "svg" }],
+    remarkPlugins: [remarkMath, remarkGfm, remarkHint],
+    rehypePlugins: [
+      rehypeKatex,
+      [
+        // @ts-ignore
+        rehypeShikiFromHighlighter,
+        highlighter,
+        {
+          themes: {
+            light: "github-dark",
+            dark: "github-light",
+          },
+        },
+      ],
     ],
-    rehypePlugins: [rehypeKatex, [rehypePrism, { plugins: ["line-numbers"] }]],
     format: "mdx",
   },
 });

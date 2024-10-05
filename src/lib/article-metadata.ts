@@ -49,8 +49,10 @@ export function parseFrontmatter(
       date: data.date || fileStat.mtime.toISOString(),
       tags: data.tags || [],
       order: parseInt(data.order, 10) || -1,
-      authors:
-        [...toAuthorsArray(data.author), ...toAuthorsArray(data.authors)] || [],
+      authors: [
+        ...toAuthorsArray(data.author),
+        ...toAuthorsArray(data.authors),
+      ],
       description: data.description || "",
       images: data.images || [],
     },

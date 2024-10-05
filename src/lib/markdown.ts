@@ -1,5 +1,4 @@
 import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
-import mdxMermaid from "mdx-mermaid";
 import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
@@ -22,12 +21,7 @@ import { highlighter } from "./highlighting";
 
 export const mdxOptions: SerializeOptions = {
   mdxOptions: {
-    remarkPlugins: [
-      remarkMath,
-      remarkGfm,
-      remarkHint,
-      [mdxMermaid, { output: "svg" }],
-    ],
+    remarkPlugins: [remarkMath, remarkGfm, remarkHint],
     rehypePlugins: [
       rehypeKatex,
       [
