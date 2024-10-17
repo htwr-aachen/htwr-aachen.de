@@ -1,0 +1,55 @@
+.subCont {
+  @apply bg-gray-200 my-0 block  px-3 text-left py-6 relative h-96 rounded-lg shadow-md hover:skew-x-2 hover:skew-y-1 hover:scale-105 transition-all hover:bg-gray-300 cursor-pointer;
+}
+
+.subCont h3 {
+  @apply text-2xl font-bold text-center;
+}
+
+.subCont hr {
+  @apply border border-green-500 w-1/2 mx-auto mt-2 mb-6;
+}
+
+.subCont ul {
+  @apply font-medium text-lg list-disc ml-6;
+}
+
+.subCont ul li {
+  @apply my-1;
+}
+
+.subCont .btn {
+  @apply mt-4  text-center text-lg bg-green-500 px-4 py-2 rounded text-white hover:scale-105 transition duration-300 ease-in-out;
+}
+
+.cont {
+  @apply grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 my-3 gap-5;
+}
+
+.tutorial {
+  @apply relative;
+}
+
+.tutorial h1 {
+  @apply text-4xl font-bold text-center font-sans;
+}
+
+.tutorial h3 {
+  @apply text-xl font-medium border-b-1 border-black my-3;
+}
+
+.tutorial ul {
+  @apply font-medium list-disc ml-6;
+}
+
+.tutorial ul li {
+  @apply my-1;
+}
+
+.automatic {
+  @apply relative;
+}
+
+.automatic h1 {
+  @apply text-4xl font-bold text-center font-sans;
+}
