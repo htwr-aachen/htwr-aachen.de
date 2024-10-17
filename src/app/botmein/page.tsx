@@ -7,7 +7,7 @@ import { Suspense, useEffect, useState } from "react";
 
 import { HeadLine } from "@/components/rwth/headline";
 
-import styles from "./botmein.module.scss";
+import styles from "./botmein.module.css";
 
 const IntroQuery = "intro";
 const AutomaticQuery = "automatic";
