@@ -105,11 +105,8 @@ async function _getArticle(
       next,
     };
   } catch (error: unknown) {
-    if (
-      error instanceof Error &&
-      (<{ code: unknown }>(<unknown>error)).code === "ENOENT"
-    ) {
-      throw new InvalidCorpusConfig("path error", error);
+    if (error instanceof Error) {
+      throw new InvalidCorpusConfig("file error", error.message);
     } else {
       throw new InvalidCorpusConfig("unexpected error", String(error));
     }

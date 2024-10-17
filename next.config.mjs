@@ -45,7 +45,7 @@ export default configuredBundleAnalyzer(
   withMDX({
     experimental: {
       turbo: {
-        resolveExtensions: [".tsx", ".ts", ".jsx", ".js"],
+        resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js"],
       },
       mdxRs: true,
     },
