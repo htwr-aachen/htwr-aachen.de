@@ -45,8 +45,9 @@ export default configuredBundleAnalyzer(
   withMDX({
     experimental: {
       turbo: {
-        resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js"],
+        resolveExtensions: [".tsx", ".ts", ".jsx", ".js"],
       },
+      mdxRs: true,
     },
     transpilePackages: ["next-mdx-remote"],
     output: "standalone",

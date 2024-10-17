@@ -1,5 +1,5 @@
 import "@/styles/global.css";
-import "@/styles/simple.scss";
+import "@/styles/markdown.css";
 import "@fontsource-variable/hanken-grotesk";
 
 import type { Metadata } from "next";

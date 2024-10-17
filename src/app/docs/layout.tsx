@@ -1,4 +1,4 @@
-import "../../styles/simple.scss";
+import "../../styles/markdown.css";
 
 import type { Metadata } from "next";
 
