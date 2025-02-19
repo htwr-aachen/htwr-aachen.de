@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { type ReactNode } from "react";
 
 import { useScrollPosition } from "@/hooks/useScrollPosition";

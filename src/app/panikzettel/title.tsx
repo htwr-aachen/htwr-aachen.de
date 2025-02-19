@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // This is the title animation for the panikzettel page.
 // Because of the animation process it is better lived outside the page as a standalone component.
