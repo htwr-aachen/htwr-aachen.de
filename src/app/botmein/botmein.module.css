@@ -1,55 +1,156 @@
 .subCont {
-  @apply bg-gray-200 my-0 block  px-3 text-left py-6 relative h-96 rounded-lg shadow-md hover:skew-x-2 hover:skew-y-1 hover:scale-105 transition-all hover:bg-gray-300 cursor-pointer;
+  background-color: #e5e7eb; /* bg-gray-200 */
+  margin-top: 0;
+  margin-bottom: 0;
+  display: block;
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  text-align: left;
+  padding-top: 1.5rem; /* py-6 */
+  padding-bottom: 1.5rem; /* py-6 */
+  position: relative;
+  height: 24rem; /* h-96 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  transition-property: all;
+  cursor: pointer;
+}
+
+.subCont:hover {
+  --tw-skew-x: 2deg; /* hover:skew-x-2 */
+  --tw-skew-y: 1deg; /* hover:skew-y-1 */
+  transform: skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scale(1.05); /* hover:scale-105 */
+  background-color: #d1d5db; /* hover:bg-gray-300 */
 }
 
 .subCont h3 {
-  @apply text-2xl font-bold text-center;
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  font-weight: 700; /* font-bold */
+  text-align: center;
 }
 
 .subCont hr {
-  @apply border border-green-500 w-1/2 mx-auto mt-2 mb-6;
+  border-width: 1px; /* border */
+  border-color: #10b981; /* border-green-500 */
+  width: 50%; /* w-1/2 */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem; /* mt-2 */
+  margin-bottom: 1.5rem; /* mb-6 */
 }
 
 .subCont ul {
-  @apply font-medium text-lg list-disc ml-6;
+  font-weight: 500; /* font-medium */
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+  list-style-type: disc;
+  margin-left: 1.5rem; /* ml-6 */
 }
 
 .subCont ul li {
-  @apply my-1;
+  margin-top: 0.25rem; /* my-1 */
+  margin-bottom: 0.25rem; /* my-1 */
 }
 
 .subCont .btn {
-  @apply mt-4  text-center text-lg bg-green-500 px-4 py-2 rounded text-white hover:scale-105 transition duration-300 ease-in-out;
+  margin-top: 1rem; /* mt-4 */
+  text-align: center;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+  background-color: #10b981; /* bg-green-500 */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  border-radius: 0.25rem; /* rounded */
+  color: white;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+}
+
+.subCont .btn:hover {
+  transform: scale(1.05); /* hover:scale-105 */
 }
 
 .cont {
-  @apply grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 my-3 gap-5;
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr)); /* grid-rows-2 */
+  margin-top: 0.75rem; /* my-3 */
+  margin-bottom: 0.75rem; /* my-3 */
+  gap: 1.25rem; /* gap-5 */
+}
+
+@media (min-width: 1024px) {
+  .cont {
+    grid-template-rows: repeat(1, minmax(0, 1fr)); /* lg:grid-rows-1 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* lg:grid-cols-2 */
+  }
 }
 
 .tutorial {
-  @apply relative;
+  position: relative;
 }
 
 .tutorial h1 {
-  @apply text-4xl font-bold text-center font-sans;
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 2.5rem;
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif; /* font-sans */
 }
 
 .tutorial h3 {
-  @apply text-xl font-medium border-b-1 border-black my-3;
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem;
+  font-weight: 500; /* font-medium */
+  border-bottom-width: 1px; /* border-b-1 */
+  border-color: black;
+  margin-top: 0.75rem; /* my-3 */
+  margin-bottom: 0.75rem; /* my-3 */
 }
 
 .tutorial ul {
-  @apply font-medium list-disc ml-6;
+  font-weight: 500; /* font-medium */
+  list-style-type: disc;
+  margin-left: 1.5rem; /* ml-6 */
 }
 
 .tutorial ul li {
-  @apply my-1;
+  margin-top: 0.25rem; /* my-1 */
+  margin-bottom: 0.25rem; /* my-1 */
 }
 
 .automatic {
-  @apply relative;
+  position: relative;
 }
 
 .automatic h1 {
-  @apply text-4xl font-bold text-center font-sans;
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 2.5rem;
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif; /* font-sans */
 }

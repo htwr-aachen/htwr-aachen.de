@@ -1,5 +1,3 @@
-import type { ReactNode } from "@mdx-js/react/lib";
-
 import InstituteSwitches from "@/components/InstituteSwitches";
 import type { Institutes } from "@/config/institutes";
 import type { NavbarConfig } from "@/models/layout";
@@ -7,6 +5,7 @@ import type { NavbarConfig } from "@/models/layout";
 import { DefaultDeddebmeNavbar } from "./default-navbar";
 import DeddebmeNavbar from "./navbar/Navbar";
 import { DeddebmeSidenav } from "./navbar/Sidenav";
+import { ReactNode } from "react";
 
 type DeddebmeLayoutProps = {
   children: ReactNode;

@@ -9,7 +9,7 @@ type SpoilerProps = {
   blur?: number;
 };
 
-const Spoiler: FC<SpoilerProps> = ({ children, blur = 4 }) => {
+const Spoiler: FC<SpoilerProps> = ({ children }) => {
   const [isSpoilerVisible, setSpoilerVisible] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ const Spoiler: FC<SpoilerProps> = ({ children, blur = 4 }) => {
             ? "cursor-text select-text blur-0"
             : "hover:scale-105"
         }`}
-        style={{ filter: isSpoilerVisible ? "blur(0)" : `blur(${blur-sm}px)` }}
+        style={{ filter: isSpoilerVisible ? "blur(0)" : `blur-sm` }}
         onClick={() => setSpoilerVisible(true)}
       >
         {children}
