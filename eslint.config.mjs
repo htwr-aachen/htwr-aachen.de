@@ -14,7 +14,6 @@ export default [
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
   jsxA11y.flatConfigs.recommended,
-
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     rules: {
