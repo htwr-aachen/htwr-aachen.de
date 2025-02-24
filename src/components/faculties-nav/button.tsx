@@ -4,9 +4,10 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children, cloneElement, isValidElement } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { FacultiesDesktopNav } from "./desktop";
 import { FacultiesMobileNav } from "./mobile";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 type AsChildProps<DefaultElementProps> =
   | ({ asChild?: false } & DefaultElementProps)
@@ -55,14 +56,18 @@ export function FacultiesButton({ asChild, ...props }: ButtonProps) {
   return (
     <>
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger asChild title="Fakultätsübersicht">
           <Component {...props} />
         </SheetTrigger>
         <SheetContent
           hasCloseButton={false}
-          side="none"
+          title="Fakultätsübersicht"
+          side="top"
           className="p-0 max-lg:inset-y-0 max-lg:right-0 max-lg:h-full  max-lg:w-[300px] max-lg:border-l max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right lg:inset-x-0 lg:top-0 lg:border-b lg:data-[state=closed]:slide-out-to-top lg:data-[state=open]:slide-in-from-top"
         >
+          <VisuallyHidden>
+            <SheetTitle>Fakultätsübersicht</SheetTitle>
+          </VisuallyHidden>
           <FacultiesDesktopNav />
           <FacultiesMobileNav />
         </SheetContent>

@@ -32,7 +32,7 @@ export default function ESNavbar() {
             width={276}
             height={70}
             alt="ComSys Logo"
-            className="aspect-auto h-[70px] w-[276]"
+            className="aspect-auto h-[70px] w-276"
           />
         </Link>
       </div>

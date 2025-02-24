@@ -16,7 +16,7 @@ const ListLinkItem = React.forwardRef<
         <Link
           ref={ref}
           className={cn(
-            "no-b block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "no-b block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
@@ -39,7 +39,7 @@ const NavLink = React.forwardRef<
   return (
     <Link href={href} legacyBehavior passHref ref={ref} {...props}>
       <NavigationMenuLink
-        className={cn("no-b [&>a]:hover:no-underline", className)}
+        className={cn("no-b hover:[&>a]:no-underline", className)}
       >
         {children}
       </NavigationMenuLink>

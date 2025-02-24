@@ -23,7 +23,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
           <LoaderIcon className="absolute left-0 top-0 m-auto animate-spin"></LoaderIcon>
         }
       >
-        <div className="mx-auto flex max-w-screen-lg flex-row items-center py-5">
+        <div className="mx-auto flex max-w-(--breakpoint-lg) flex-row items-center py-5">
           <Button asChild className="mr-4">
             <Link href={getURLUntil(params.slug, -1, "/docs")}>
               <ChevronLeft className="mr-2 size-4" />
@@ -33,7 +33,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
 
           <DocsBreadcrumb slug={params.slug} baseURL="/docs"></DocsBreadcrumb>
         </div>
-        <div className="prose mx-auto max-w-screen-lg py-7 dark:prose-invert prose-code:rounded prose-code:px-2 prose-code:font-mono">
+        <div className="prose mx-auto max-w-(--breakpoint-lg) py-7 dark:prose-invert prose-code:rounded prose-code:px-2 prose-code:font-mono">
           <MDXRemote
             source={docs.content}
             options={mdxOptions}

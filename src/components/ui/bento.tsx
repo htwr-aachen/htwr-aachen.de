@@ -39,7 +39,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 text-card-foreground rounded-xl group/bento hover:shadow-2xl shadow-card-foreground/5 transition duration-200 p-4 bg-card border-card-foreground/10 border shadow justify-between flex flex-col space-y-4",
+        "row-span-1 text-card-foreground rounded-xl group/bento hover:shadow-2xl shadow-card-foreground/5 transition duration-200 p-4 bg-card border-card-foreground/10 border shadow-sm justify-between flex flex-col space-y-4",
         className
       )}
     >
@@ -79,7 +79,7 @@ export const BentoGridLink = ({
       href={href}
       passHref={passHref === undefined ? true : passHref}
       className={cn(
-        "no-b row-span-1 text-card-foreground rounded-xl group/bento hover:shadow-2xl shadow-card-foreground/5 transition duration-200 p-4 bg-card border-card-foreground/10 border shadow justify-between flex flex-col space-y-4",
+        "no-b row-span-1 text-card-foreground rounded-xl group/bento hover:shadow-2xl shadow-card-foreground/5 transition duration-200 p-4 bg-card border-card-foreground/10 border shadow-sm justify-between flex flex-col space-y-4",
         className
       )}
     >

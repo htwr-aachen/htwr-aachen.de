@@ -24,7 +24,7 @@ export const DocsNav = (
             <li className="row-span-3">
               <NavigationMenuLink asChild>
                 <Link
-                  className="no-b flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                  className="no-b flex size-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden focus:shadow-md"
                   href="/docs"
                 >
                   <HTWRIcon height={20} />

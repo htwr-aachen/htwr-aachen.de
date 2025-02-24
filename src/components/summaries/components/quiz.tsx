@@ -51,7 +51,7 @@ export default function ZitateQuiz({
   }, [zitat]);
 
   return (
-    <div className="relative my-4 grid grid-rows-3 rounded-2xl bg-gradient-to-tl from-black to-blue-900 px-4 py-2 text-white lg:px-10 lg:pt-8">
+    <div className="relative my-4 grid grid-rows-3 rounded-2xl bg-linear-to-tl from-black to-blue-900 px-4 py-2 text-white lg:px-10 lg:pt-8">
       <div className="flex items-center justify-center text-center">
         <span className="mr-4 text-4xl">?</span>
         <span className="mr-4 align-middle">

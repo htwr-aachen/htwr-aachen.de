@@ -119,7 +119,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       </head>
       <body
         className={cn(
-          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable}`
+          `font-sans antialiased min-h-screen bg-background ${inter.variable} ${roboto.variable} ${lmserif.variable}`,
         )}
       >
         <BannerNotifyProvider>

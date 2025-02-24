@@ -7,7 +7,7 @@ import {
 
 export const MaterialienSchnellzugriff: FC = () => {
   return (
-    <div className="max-h-[410]">
+    <div className="max-h-410">
       <Schnellzugriff title="Materialien">
         <Schnellzugrifflink href="/cesti/studium//teachings">
           Zusammenfassungen

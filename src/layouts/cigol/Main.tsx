@@ -61,13 +61,13 @@ const Main = (props: CIGOLMainProps) => {
           <div className="absolute bottom-[-2px] right-6 hidden flex-row lg:flex">
             <button
               type="button"
-              className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
+              className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-linear-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
             >
               Deutsch
             </button>
             <button
               type="button"
-              className="rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-[#efebdd] to-[#e7e1cf] px-3 py-1 font-sans text-lg font-medium hover:from-[#efebdd] hover:to-[#fefaeb]"
+              className="rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-linear-to-b from-[#efebdd] to-[#e7e1cf] px-3 py-1 font-sans text-lg font-medium hover:from-[#efebdd] hover:to-[#fefaeb]"
             >
               English
             </button>

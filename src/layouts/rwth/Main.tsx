@@ -31,7 +31,7 @@ const Main = ({
 }: MainProps) => {
   return (
     <div className={`${institute} relative bg-[#e5e5e5] text-black`}>
-      <div className="min-h-screen w-full max-w-screen-xl lg:mx-auto">
+      <div className="min-h-screen w-full max-w-(--breakpoint-xl) lg:mx-auto">
         <Navbar config={navbar || DefaultNavbar} institute={institute} />
         <BannerContent>
           <BlogBannerContent />
