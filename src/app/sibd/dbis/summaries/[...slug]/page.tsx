@@ -7,7 +7,10 @@ import { getArticle } from "@/lib/articles";
 
 const subject: Subjects = "dbis";
 const subjectConfig = SubjectConfig[subject];
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const params = await props.params;
   return (
     <div>
       <SummaryView
@@ -26,11 +29,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const { meta, url } = await getArticle(params.slug, subjectConfig);
 
   return {

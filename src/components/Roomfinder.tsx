@@ -40,7 +40,7 @@ const Roomfinder: FC<RoomfinderProps> = ({
       if (matrikelNummer >= config[i].minNum) {
         if (config[i].name === "error") {
           setError(
-            `Typisch Informatikstudent immer alles ausprobieren... Matrikelnummer > ${config[i].minNum} pfff`
+            `Typisch Informatikstudent immer alles ausprobieren... Matrikelnummer > ${config[i].minNum} pfff`,
           );
           setRoom("");
         } else {
@@ -54,7 +54,7 @@ const Roomfinder: FC<RoomfinderProps> = ({
 
   return (
     <div className="my-4 rounded bg-gray-200 px-3 py-2">
-      <h3 className="py-2 text-lg ">
+      <h3 className="py-2 text-lg">
         {text} {semester ? `Semester: ${semester}` : ""}
       </h3>
       <input

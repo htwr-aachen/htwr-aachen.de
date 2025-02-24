@@ -7,7 +7,7 @@ import {
 
 export const SIBDSchnellzugriff: FC = () => {
   return (
-    <div className="max-h-[410]">
+    <div className="max-h-410">
       <Schnellzugriff title="Materialien">
         <Schnellzugrifflink href="/sibd/studium">Studium</Schnellzugrifflink>
         <Schnellzugrifflink href="/sibd/studium/klausuren">

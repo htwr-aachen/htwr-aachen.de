@@ -37,7 +37,7 @@ export function parseFrontmatter(
   basePath: string,
   fileName: string,
   corpusConfig: CorpusConfig,
-  fileStat: Stats
+  fileStat: Stats,
 ): ArticleMeta {
   const { data } = matterFile;
   const frontMatter: ArticleMeta = {
@@ -94,7 +94,7 @@ function orderArticles(articles: ArticleMeta[]): ArticleMeta[] {
  * @throws {InvalidCorpusConfig} - if path was invalid
  */
 export async function getArticlesMetadata(
-  corpusConfig: CorpusConfig
+  corpusConfig: CorpusConfig,
 ): Promise<ArticleMeta[]> {
   let metas: ArticleMeta[] = [];
   try {
@@ -116,9 +116,9 @@ export async function getArticlesMetadata(
           file.path,
           file.name,
           corpusConfig,
-          stats
+          stats,
         );
-      })
+      }),
     );
   } catch (error: unknown) {
     if (

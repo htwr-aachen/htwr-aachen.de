@@ -22,7 +22,7 @@ import urlJoin from "@/lib/url";
 export function getURLUntil(
   slug: string[],
   n: number,
-  baseURL: string
+  baseURL: string,
 ): string {
   if (n < 0) {
     return urlJoin(baseURL, ...slug.slice(0, n));

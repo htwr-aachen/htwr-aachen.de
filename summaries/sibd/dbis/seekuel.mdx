@@ -4,10 +4,7 @@ description: SQL und Anfragen
 author: Jonas Schneider
 date: 31/07/2023
 order: 4
-tags:
-  [
-    SQL
-  ]
+tags: [SQL]
 ---
 
 ## SQL
@@ -15,6 +12,7 @@ tags:
 Ich werde das hier eher ausführlich machen. SQL sollte man eh können/lernen also...
 
 Typen:
+
 - NUMBER
 - DECIMAL(p,s)
 - **INTEGER**
@@ -129,6 +127,7 @@ gibt alle (name, semester) paare aus der Tabelle
 ```sql
 SELECT MatrNr as Matrikelnummer, Name, Semester FROM Student
 ```
+
 gibt alle (MatrNr, Name, Semester) paare aus der Tabelle, wobei die MatrNr als Matrikelnummer ausgegeben wird.
 
 ```sql
@@ -136,7 +135,9 @@ SELECT DISTINCT Semester FROM Student
 ```
 
 ### WHERE
+
 Kann volgende Sachen enthalten:
+
 - Vergleichsoperator
 - `BETWEEN` (z.B. `Semester BETWEEN 1 AND 3`)
 - `LIKE` (z.B. `Name LIKE 'A%'`)
@@ -145,20 +146,19 @@ Kann volgende Sachen enthalten:
 - Arithmetische Ausdrücke (z.B. Semester + 1 = 2)
 - Mengenoperatoren: `IN`, `NOT IN`, `< ANY`, EXISTS (z.B. Semester IN (1,2,3))
 
-
-| Operation               | Relationale Algebra  | SQL-Abfrage                                  |
-|-------------------------|----------------------|----------------------------------------------|
-| Vereinigung             | $$R \cup T$$                | `SELECT * FROM R UNION SELECT * FROM T`      |
-| Differenz               | $$R - T$$                | `SELECT * FROM R EXCEPT SELECT * FROM T`     |
-| Kreuzprodukt            | $$R \times T$$                | `SELECT * FROM R CROSS JOIN T`               |
-| Selektion               | $$\sigma_{B=b}(R)$$           | `SELECT * FROM R WHERE B = 'b'`              |
-| Projektion              | $$\phi_{A,C}(R)$$           | `SELECT DISTINCT A, C FROM R`               |
-| Umbenennung (Relation)  | $$\rho_V(R)$$               | `SELECT V.A FROM R AS V`                     |
-| Umbenennung (Attribut)  |$$ \rho_{K\leftarrow C}(R)$$           | `SELECT A, B, C AS K, D FROM R`              |
-| Projektion (ohne Duplikate)| $$\pi_{A,C}(R)$$           | `SELECT A, C FROM R`                         |
- |Natürlicher Verbund (Natural Join)       | $$R \bowtie U$$                | `SELECT * FROM R NATURAL JOIN U`             |
-| Theta-Join                | $$R \bowtie_{B \theta F} S$$          | `SELECT * FROM R, S WHERE B` $\theta$ `F`             |
-| Theta-Join                | $$R \bowtie_{B \theta F} S$$          | `SELECT * FROM R JOIN S ON B` $\theta$ `F`         | 
+| Operation                          | Relationale Algebra           | SQL-Abfrage                                |
+| ---------------------------------- | ----------------------------- | ------------------------------------------ |
+| Vereinigung                        | $$R \cup T$$                  | `SELECT * FROM R UNION SELECT * FROM T`    |
+| Differenz                          | $$R - T$$                     | `SELECT * FROM R EXCEPT SELECT * FROM T`   |
+| Kreuzprodukt                       | $$R \times T$$                | `SELECT * FROM R CROSS JOIN T`             |
+| Selektion                          | $$\sigma_{B=b}(R)$$           | `SELECT * FROM R WHERE B = 'b'`            |
+| Projektion                         | $$\phi_{A,C}(R)$$             | `SELECT DISTINCT A, C FROM R`              |
+| Umbenennung (Relation)             | $$\rho_V(R)$$                 | `SELECT V.A FROM R AS V`                   |
+| Umbenennung (Attribut)             | $$ \rho\_{K\leftarrow C}(R)$$ | `SELECT A, B, C AS K, D FROM R`            |
+| Projektion (ohne Duplikate)        | $$\pi_{A,C}(R)$$              | `SELECT A, C FROM R`                       |
+| Natürlicher Verbund (Natural Join) | $$R \bowtie U$$               | `SELECT * FROM R NATURAL JOIN U`           |
+| Theta-Join                         | $$R \bowtie_{B \theta F} S$$  | `SELECT * FROM R, S WHERE B` $\theta$ `F`  |
+| Theta-Join                         | $$R \bowtie_{B \theta F} S$$  | `SELECT * FROM R JOIN S ON B` $\theta$ `F` |
 
 Man kann auch Unterabfragen machen:
 
@@ -177,16 +177,19 @@ Also gibt mir alle Leute die im gleichen Semester sind wie Müller.
 - `MAX(A)` gibt den größten Wert in A zurück
 
 - `GROUP BY` gruppiert die Tupel nach einem oder mehreren Attributen
+
 ```sql
 SELECT Semester, COUNT(*) FROM Student GROUP BY Semester;
 ```
 
 - `HAVING` filtert die Gruppen
+
 ```sql
 SELECT Semester, COUNT(*) FROM Student GROUP BY Semester HAVING COUNT(*) > 2;
 ```
 
 - `ORDER BY` sortiert die Tupel mit aufsteigendem (`ASC`) oder absteigendem (`DESC`) Wert
+
 ```sql
 SELECT Semester, COUNT(*) FROM Student GROUP BY Semester ORDER BY Semester ASC;
 ```
@@ -194,8 +197,8 @@ SELECT Semester, COUNT(*) FROM Student GROUP BY Semester ORDER BY Semester ASC;
 - `LIMIT` beschränkt die Anzahl der ausgegebenen Tupel
 - `OFFSET` gibt an, wo die Ausgabe beginnen soll
 
-
 ### Nichtmehr so viel (Transaktionen)
+
 - `BEGIN TRANSACTION` beginnt eine Transaktion
 - `COMMIT` beendet eine Transaktion
 - `ROLLBACK` macht die Änderungen einer Transaktion rückgängig

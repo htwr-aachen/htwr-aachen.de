@@ -2,7 +2,7 @@
 
 // confusing name but its better lived in a separate file than in page
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Copyright } from "lucide-react";
 
 export function ExamAnim() {

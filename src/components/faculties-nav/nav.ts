@@ -4,11 +4,6 @@ import type { ReactNode } from "react";
 // and require seperate react elements and positions anyway (other possibilities are react portals).
 
 /**
- * This are the unified Props of the desktop and mobile faculties navbars
- */
-export type FacultiesNavProps = {};
-
-/**
  * A type for declaring a valid nav link for the faculties navigation
  */
 export type FacultiesNavLink = {

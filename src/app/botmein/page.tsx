@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import Prism from "prismjs";
 import type { FC } from "react";
 import { Suspense, useEffect, useState } from "react";
 
@@ -15,14 +14,12 @@ const TutorialQuery = "tutorial";
 
 type PageProps = {
   page: string;
-  setPage: (page: string) => void;
+  setPage: (_page: string) => void;
 };
 
 const TutorialPage: FC<PageProps> = (props) => {
   useEffect(() => {
-    const highlight = async () => {
-      await Prism.highlightAll();
-    };
+    const highlight = async () => {};
     highlight();
   });
 
@@ -32,7 +29,7 @@ const TutorialPage: FC<PageProps> = (props) => {
         onClick={() => {
           props.setPage(IntroQuery);
         }}
-        className="absolute left-1 top-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
+        className="absolute top-1 left-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
       >
         Zurück
       </button>
@@ -96,7 +93,7 @@ const AutomatPage: FC<PageProps> = (props) => {
         onClick={() => {
           props.setPage(IntroQuery);
         }}
-        className="absolute left-1 top-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
+        className="absolute top-1 left-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
       >
         Zurück
       </button>

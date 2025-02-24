@@ -18,7 +18,7 @@ export default function Page() {
       <HeadLine title="Studium" />
       <p className="my-4">Jaja hier kommt bald was für BuK.</p>
 
-      <div className="max-h-[410]">
+      <div className="max-h-410">
         <SCILSchnellzugriff />
       </div>
     </div>

@@ -38,7 +38,7 @@ export type NavbarConfig = {
 
 export function toValue(
   input: number | `${number}` | undefined,
-  defaultValue = 0
+  defaultValue = 0,
 ) {
   switch (typeof input) {
     case "number":

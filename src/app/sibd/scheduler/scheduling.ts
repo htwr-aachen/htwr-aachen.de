@@ -8,10 +8,10 @@ type ScheduleItem = {
 export function findTransactionOperationIndex(
   schedule: ScheduleItem[],
   transaction: number,
-  operation: Operation
+  operation: Operation,
 ): number {
   return schedule.findIndex(
-    (op) => op.transaction === transaction && op.operation === operation
+    (op) => op.transaction === transaction && op.operation === operation,
   );
 }
 
@@ -34,7 +34,7 @@ export function parseSchedule(schedule: string): ScheduleItem[] {
 function accessToString(
   operation: Operation,
   transaction: number,
-  resource: string | null
+  resource: string | null,
 ): string {
   return resource !== null
     ? `${operation}${transaction}(${resource})`
@@ -57,10 +57,10 @@ export function visualizeSchedule(parsedSchedule: ScheduleItem[]): string {
       item.operation === "r"
         ? "read"
         : item.operation === "w"
-        ? "write"
-        : item.operation === "c"
-        ? "commit "
-        : "abort";
+          ? "write"
+          : item.operation === "c"
+            ? "commit "
+            : "abort";
     if (item.resource) {
       operationString += ` ${item.resource}`;
     }
@@ -88,7 +88,7 @@ export function visualizeSchedule(parsedSchedule: ScheduleItem[]): string {
 }
 
 export function rcAcaStCheck(
-  parsedSchedule: ScheduleItem[]
+  parsedSchedule: ScheduleItem[],
 ): [boolean, boolean, boolean] {
   let isRc = true;
   let isAca = true;
@@ -102,7 +102,7 @@ export function rcAcaStCheck(
     const transactionCommitIndex = findTransactionOperationIndex(
       parsedSchedule,
       transaction,
-      "c"
+      "c",
     );
     if (transactionCommitIndex === -1) {
       isRc = isAca = isSt = false;
@@ -141,10 +141,10 @@ export function conf(parsedSchedule: ScheduleItem[]): Set<string> {
   const abortingTransactions = new Set(
     parsedSchedule
       .filter((op) => op.operation === "a")
-      .map((op) => op.transaction)
+      .map((op) => op.transaction),
   );
   const filteredSchedule = parsedSchedule.filter(
-    (op) => !abortingTransactions.has(op.transaction)
+    (op) => !abortingTransactions.has(op.transaction),
   );
   const conflicts = new Set<string>();
 
@@ -160,12 +160,12 @@ export function conf(parsedSchedule: ScheduleItem[]): Set<string> {
           `${accessToString(
             op.operation,
             op.transaction,
-            op.resource
+            op.resource,
           )}, ${accessToString(
             nextOp.operation,
             nextOp.transaction,
-            nextOp.resource
-          )}`
+            nextOp.resource,
+          )}`,
         );
       }
     }

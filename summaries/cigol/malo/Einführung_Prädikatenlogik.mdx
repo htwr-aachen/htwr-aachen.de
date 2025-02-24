@@ -15,12 +15,12 @@ less goo weiter gehts in der Reise in die Mathematische Logik
 
 Jetzt wirds deutlich komplizierter als Boolsche Algebra. Wir wollen jetzt über
 "beliebige" Strukturen sprechen nichtmehr über 0 und 1 damit Unbekannte nicht
-weiter mit "Ach du bist Informatiker dann red ich mal mit dir 01001000 01100001 
-01101100 01110100 00100000 01100100 01100101 01101001 01101110 00100000 
-01001101 01100001 01110101 01101100 00100000 01001101 01100001 01001100 
+weiter mit "Ach du bist Informatiker dann red ich mal mit dir 01001000 01100001
+01101100 01110100 00100000 01100100 01100101 01101001 01101110 00100000
+01001101 01100001 01110101 01101100 00100000 01001101 01100001 01001100
 01101111"
 
-Hierfür brauchen wir ein **Universum**: das besagt welche elemente uns zur 
+Hierfür brauchen wir ein **Universum**: das besagt welche elemente uns zur
 Verfügung stehen. Z.B. $\mathbb{N}$ also irgendeine Menge von Sachen sie darf
 nicht leer sein.
 
@@ -32,17 +32,17 @@ Aus diesen Symbolen und deren Stelligkeiten bauen wir uns die Signatur $\tau$ (e
 nicht um was es tatsächlich bedeutet).
 
 Eine $\tau$-Struktur $\mathfrak(A)$ (ein Fraktur A: Handschriftlich schreibt
-man es meist anders) ist dann das Universum, und eine Interpretation der 
+man es meist anders) ist dann das Universum, und eine Interpretation der
 Symbole aus der Signatur. Wir sagen nun also ok das zeichen "+" heißt in dieser
-Struktur mit Universum $\mathbb{N}$ das normale addieren. 
+Struktur mit Universum $\mathbb{N}$ das normale addieren.
 
-Hierfür schreiben wir für die **Interpretation** (also die wirklche 
+Hierfür schreiben wir für die **Interpretation** (also die wirklche
 Funktion/Relation $f^{\mathfrak{A}}$) für das Funktionssymbol $f$.
 
-**Substrukturen** sind relativ simple definiert: Nimm Teilmenge des Universum und 
+**Substrukturen** sind relativ simple definiert: Nimm Teilmenge des Universum und
 Nimm nur die Relationen/Funktionen die innerhalb dieser Teilmenge operieren.
 Funktionen müssen immer abgeschlossen in dem Universum sein.
-(Falls die Ergebnisse von den Funktionen **der Elternstruktur** auch nur in der Teilmenge liegen so 
+(Falls die Ergebnisse von den Funktionen **der Elternstruktur** auch nur in der Teilmenge liegen so
 ist die Struktur abgeschlossen). Erweiterungen sind das Gegenteil von Substrukturen
 
 Bei **Reduktionen** lassen wir einfach manche Funktionen/Relationen weg.
@@ -60,11 +60,10 @@ Wir haben in **jeder** Struktur folgendes Grundalphabet:
 - Klammern
 - den Relationen und Funktionssymbolen in der Signatur.
 
-
 Daraus kann man sich dann schön was zusammenbauen. Z.B. $\varphi = \forall v_1 \exists v_2 (v_1 < v_3 \land \lnot(v_2 = v_3))$
 
-Hierbei sind die Variablen $v_1, v_2$ an einen Quantor **gebunden** und 
-$v_3$ ist frei: Hießt würde man $\Phi$ aufrufen wollen, müsste man ein $v_3$ 
+Hierbei sind die Variablen $v_1, v_2$ an einen Quantor **gebunden** und
+$v_3$ ist frei: Hießt würde man $\Phi$ aufrufen wollen, müsste man ein $v_3$
 übergeben.
 
 Es werden keine Klammern bei Funktionen gemacht, $f$ einstellig, $g$ zweistellig
@@ -75,7 +74,7 @@ $x, c, fx, gxx, gfxc, ggccfx$ letzteres wäre $g(g(c,c), f(x))$
 ### Semantik
 
 Ist eigentlich echt nicht kompliziert. Die Sachen machen halt das was sie immer
-schon gemacht haben. 
+schon gemacht haben.
 
 **Folgerungen**: Fast gleich zu der Folgerungsbeziehung in der AL.
 Nur $\Phi_{\text{Gruppe}} \models \varphi$ heißt also $\varphi$ gilt in jeder Gruppe, aber
@@ -84,33 +83,34 @@ Möglichen Belegung der freien Variablen von $\varphi$.
 
 Hier muss aber nochmal erklärt werden was nun ein Model ist:
 
-Ein Modell von $\varphi$ wäre ist eine Struktur mit der gleichen Signatur von $\varphi$ 
-und eine Belegung möglicher freier Variablen $\beta: X \to A$. Das ist dann eine 
+Ein Modell von $\varphi$ wäre ist eine Struktur mit der gleichen Signatur von $\varphi$
+und eine Belegung möglicher freier Variablen $\beta: X \to A$. Das ist dann eine
 Interpretation $\mathfrak{I}=(\mathfrak{A}, \beta)$. Somit ist
- $[\varphi]^\mathfrak{I} \in \{0,1\}$ entweder falsch oder wahr.
+$[\varphi]^\mathfrak{I} \in \{0,1\}$ entweder falsch oder wahr.
 
 ## Normalformen
-Auch hier gibt es mal wieder praktische Normalformen. 
+
+Auch hier gibt es mal wieder praktische Normalformen.
 
 - **Negationsnormalform**: Kein $\to$ und Negationen kommen nur bei atomaren Formeln
-(also nur bei z.B. $x\neq y$, $\lnot Rxy$, $\lnot fxy$)
+  (also nur bei z.B. $x\neq y$, $\lnot Rxy$, $\lnot fxy$)
   - Hierfür gilt: $\lnot \forall x \varphi = \exists x \lnot \varphi$ und andersherum
 - **Termreduzierte Normalform**: Nur noch atomare Formeln($Rx, fx=y, x=y$)
 - **Pränex-Normalform** PNF: Die Quantoren ganz am Anfang:
   - Hierfür gilt: $\exists x(\varphi \lor \psi) \equiv \exists x \varphi \lor \exists \psi$
   - Und: $\forall x(\varphi \land \psi) \equiv \forall x \varphi \land \forall x \psi$
-  - Und: $\exists x \exists y \varphi \equiv \exists y \exists x \varphi$ genauso für 
-    $\forall$. 
+  - Und: $\exists x \exists y \varphi \equiv \exists y \exists x \varphi$ genauso für
+    $\forall$.
   - Und falls $x \notin \psi$: $\psi \land \exists x \varphi \equiv 
     \exists x (\psi \land \varphi)$ genauso für $\lor$ und für $\forall$
   - Das heißt wir müssen manchmal gebundene Variablen umbennen um in die PNF zu kommen
-- **Skolem Normalform** (ist nur **erfüllbarkeits-äquivlanent** heißt, das Modell 
-ist vermutlich nicht das gleiche aber $\varphi'$ ist genau dann erfüllbar wenn $\varphi$ das ist)
+- **Skolem Normalform** (ist nur **erfüllbarkeits-äquivlanent** heißt, das Modell
+  ist vermutlich nicht das gleiche aber $\varphi'$ ist genau dann erfüllbar wenn $\varphi$ das ist)
   - Für jeden Satz $\psi \in FO(\sigma)$ gibt es ein Satz
-  $\varphi \in FO(\tau \subseteq \sigma)$ mit der Form: $\forall y_1 ... \forall y_n \varphi'$, $\varphi'$ Quantorenfrei
-
+    $\varphi \in FO(\tau \subseteq \sigma)$ mit der Form: $\forall y_1 ... \forall y_n \varphi'$, $\varphi'$ Quantorenfrei
 
 ## Quantorenrang
+
 $qr(\psi)$ bezeichnet den **Quantorenrang** (wird später gebraucht). Zähl einfach die maximale verschachtelung Tiefe von Quantoren.
 Z.B. $\psi = \exists x ((x = y) \lor \exists z (x = z) \quad qr(\psi)) = 2$. Simpel
 

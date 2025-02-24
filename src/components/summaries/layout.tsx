@@ -12,7 +12,7 @@ export default function SummaryLayout(
     subjectConfig: Subject;
     next?: ArticleMeta;
     prev?: ArticleMeta;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   return (
     <article className="markdown line-numbers">
@@ -26,14 +26,13 @@ export default function SummaryLayout(
         <h1 className="inline text-2xl font-bold">{props.meta.meta.title}</h1> |{" "}
         <Link href={props.subjectConfig.articlesURL}>Back to Overview</Link>
       </div>
-
       <div
         className={`wrapper m-4 border-1 border-gray-600 p-4 pb-8 lg:px-8 ${props.className}`}
+        /* @next-codemod-error 'props' is used with spread syntax (...). Any asynchronous properties of 'props' must be awaited when accessed. */
         {...props}
       >
         {props.children}
       </div>
-
       <div>
         <Link href={props.subjectConfig.articlesURL}>Back to Overview</Link>{" "}
         {props.prev != null ? (

@@ -10,9 +10,7 @@ import type { LayoutProps } from "@/models/layout";
 
 import CigolSideNav from "./sidenav";
 
-type CIGOLProps = {};
-
-export type CIGOLMainProps = LayoutProps & CIGOLProps;
+export type CIGOLMainProps = LayoutProps;
 
 const Main = (props: CIGOLMainProps) => {
   const config = useInstituteConfig(props.institute);
@@ -20,7 +18,7 @@ const Main = (props: CIGOLMainProps) => {
     <div className="cigol relative min-h-screen bg-white text-black">
       <div>
         <nav
-          className="relative grid grid-rows-[auto_auto_auto] justify-center gap-2 border-b-2 border-[#c1bcb2] bg-[#f5eedd] py-4 lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1  lg:py-0"
+          className="relative grid grid-rows-[auto_auto_auto] justify-center gap-2 border-b-2 border-[#c1bcb2] bg-[#f5eedd] py-4 lg:grid-cols-[auto_1fr_auto] lg:grid-rows-1 lg:py-0"
           style={{
             background:
               "inear-gradient(283deg, rgba(245,238,221,1) 0%, rgba(252,249,241,1) 78%, rgba(245,238,221,1) 100%)",
@@ -56,20 +54,20 @@ const Main = (props: CIGOLMainProps) => {
                 alt="Logo"
                 width={200}
                 height={56}
-                className="mr-6 mt-4 w-[200px] bg-transparent"
+                className="mt-4 mr-6 w-[200px] bg-transparent"
               />
             </Link>
           </div>
-          <div className="absolute bottom-[-2px] right-6 hidden flex-row lg:flex">
+          <div className="absolute right-6 bottom-[-2px] hidden flex-row lg:flex">
             <button
               type="button"
-              className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
+              className="mr-1 rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-linear-to-b from-white to-[#f9f5ec] px-3 py-1 font-sans text-lg font-medium"
             >
               Deutsch
             </button>
             <button
               type="button"
-              className="rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-gradient-to-b from-[#efebdd] to-[#e7e1cf] px-3 py-1 font-sans text-lg font-medium hover:from-[#efebdd] hover:to-[#fefaeb]"
+              className="rounded-t-lg border-2 border-b-0 border-[#c1bcb2] bg-linear-to-b from-[#efebdd] to-[#e7e1cf] px-3 py-1 font-sans text-lg font-medium hover:from-[#efebdd] hover:to-[#fefaeb]"
             >
               English
             </button>

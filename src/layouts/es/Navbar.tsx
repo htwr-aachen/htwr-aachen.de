@@ -8,9 +8,7 @@ import { FacultiesButton } from "@/components/faculties-nav/button";
 
 import Navlink from "./Navlink";
 
-type ESNavbarProps = {};
-
-export default function ESNavbar(_props: ESNavbarProps) {
+export default function ESNavbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
@@ -24,7 +22,7 @@ export default function ESNavbar(_props: ESNavbarProps) {
       id="navbar"
       className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
     >
-      <div className="ml-8 flex flex-wrap items-center justify-center lg:ml-auto lg:mr-16 lg:justify-self-end">
+      <div className="ml-8 flex flex-wrap items-center justify-center lg:mr-16 lg:ml-auto lg:justify-self-end">
         <FacultiesButton className="mr-3 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300">
           Fakultäten & Institute
         </FacultiesButton>
@@ -34,7 +32,7 @@ export default function ESNavbar(_props: ESNavbarProps) {
             width={276}
             height={70}
             alt="ComSys Logo"
-            className="aspect-auto h-[70px] w-[276]"
+            className="aspect-auto h-[70px] w-276"
           />
         </Link>
       </div>

@@ -60,15 +60,16 @@ Bei Stichproben gilt: $L(\vartheta \mid x_1, ..., x_n) = \prod_{i=1}^n L(\varthe
 2. Log-Likelihood-Fkt aufstellen $l(\vartheta) = \log(L(\vartheta \mid x_1, ..., x_n))$
 3. Kritische Punkte berechnen: $l'(\vartheta) = 0$, also Kandidaten für Extrema
 4. Zeigen, dass eins lokales Maximum ist, also $l''(\vartheta) < 0$.
-5. Zeigen das es ein globales Maximum ist. 
+5. Zeigen das es ein globales Maximum ist.
 
 Detaillierter:
+
 1. Wie immer beschreibt $\vartheta$ die Parameter einer Verteilung in A37 der glob zum Beispiel das $\alpha$ der Pareto Verteilung.
    Bei einer diskreten Stichprobe ist der $L(p_\vartheta(x)$ natürlich die Zähldichte von $x$ (wie man bestimmt schon immer erkannt hat. Gibt ja so wenige $p$).
    Analog ist $L(\vartheta \mid x) = f_\vartheta (x)$ bei stetigen Stichproben die Dichtefunktion von $x$.
 
-    Der Unterschied zwischen Likelihood und Dichtefunktion ist nur der Parameter. Bei der Dichtefunktion ist er als Parameter gegeben, bei der Likelihood-Fkt ist er die Variable, die wir verändern/optimieren wollen.
-    Bei Max-Likelihood suchen wir also bei einer gegeben Verteilung die Parameter der Verteilung, die die Daten die wir gesehen haben am wahrscheinlichsten machen.
+   Der Unterschied zwischen Likelihood und Dichtefunktion ist nur der Parameter. Bei der Dichtefunktion ist er als Parameter gegeben, bei der Likelihood-Fkt ist er die Variable, die wir verändern/optimieren wollen.
+   Bei Max-Likelihood suchen wir also bei einer gegeben Verteilung die Parameter der Verteilung, die die Daten die wir gesehen haben am wahrscheinlichsten machen.
 
 2. Log-Likelihood-Fkt einfach nur $l(\vartheta) = \log(L(\vartheta \mid x_1, ..., x_n))$ anwenden und vereinfachen.
-3. Alles andere Kurvendiskussion. Hier ist wichtig: **Ihr leitet nach $\alpha$ ab**! 
+3. Alles andere Kurvendiskussion. Hier ist wichtig: **Ihr leitet nach $\alpha$ ab**!

@@ -14,7 +14,7 @@ const Schnellzugrifflink: FC<SchnellzugrifflinkProps> = ({
 }) => {
   const parsedLink = (
     <Link
-      className=" block w-full py-2 pl-6 font-normal text-black hover:border-b-0"
+      className="block w-full py-2 pl-6 font-normal text-black hover:border-b-0"
       href={href}
     >
       {children}
@@ -24,7 +24,7 @@ const Schnellzugrifflink: FC<SchnellzugrifflinkProps> = ({
   return (
     <li
       className={
-        "border-t-1  border-dotted border-[#555] font-normal text-black last:border-b-1 hover:bg-[#e5e1be]"
+        "border-t-1 border-dotted border-[#555] font-normal text-black last:border-b-1 hover:bg-[#e5e1be]"
       }
     >
       {sub ? (
@@ -45,11 +45,11 @@ type SchnellzugriffProps = {
 
 const Schnellzugriff: FC<SchnellzugriffProps> = ({ children, title }) => {
   return (
-    <div className="min-h-[410px] bg-rwth-warn2">
+    <div className="bg-rwth-warn2 min-h-[410px]">
       <h2 className="bg-rwth-warn py-4 text-center text-xl font-semibold">
         {title}
       </h2>
-      <ul className="mx-0 my-3 !list-none pl-4 pr-3">{children}</ul>
+      <ul className="mx-0 my-3 list-none! pr-3 pl-4">{children}</ul>
     </div>
   );
 };

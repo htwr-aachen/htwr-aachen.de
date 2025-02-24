@@ -20,7 +20,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
           </span>
           <FacultiesButton
             type="button"
-            className="mx-auto mr-3 rounded bg-accent px-2 py-1 text-stone-50 hover:bg-accent/75"
+            className="bg-accent hover:bg-accent/75 mx-auto mr-3 rounded px-2 py-1 text-stone-50"
           >
             Fakultäten & Institute
           </FacultiesButton>
@@ -36,7 +36,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
             />
           </Link>
           <div
-            className={`h-[${props.config.logo.height}px] mx-4 w-1 bg-rwth-accent`}
+            className={`h-[${props.config.logo.height}px] bg-rwth-accent mx-4 w-1`}
           />
           <Link href="/" className="no-b">
             <Image

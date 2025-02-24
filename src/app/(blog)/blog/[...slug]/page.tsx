@@ -13,13 +13,16 @@ import { mdxOptions } from "@/lib/markdown";
 
 import { blogArticleConfig } from "../config";
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const params = await props.params;
   const blog = await getArticle(params.slug, blogArticleConfig);
   return (
     <div>
       <Suspense
         fallback={
-          <LoaderIcon className="absolute left-0 top-0 m-auto animate-spin"></LoaderIcon>
+          <LoaderIcon className="absolute top-0 left-0 m-auto animate-spin"></LoaderIcon>
         }
       >
         <div className="mx-auto flex max-w-prose flex-row items-center py-5">
@@ -30,7 +33,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             </Link>
           </Button>
         </div>
-        <div className="prose mx-auto max-w-prose rounded-lg bg-muted px-4 py-7 dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
+        <div className="prose bg-muted dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none mx-auto max-w-prose rounded-lg px-4 py-7">
           <MDXRemote
             source={blog.content}
             options={mdxOptions}
@@ -50,11 +53,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const { meta, url } = await getArticle(params.slug, blogArticleConfig);
 
   return {

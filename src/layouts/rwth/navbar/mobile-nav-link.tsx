@@ -32,7 +32,7 @@ const SidenavButton: FC<SidenavButtonProps> = ({ children, href }) => {
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         xmlSpace="preserve"
-        className={` mr-3 h-[14px] ${
+        className={`mr-3 h-[14px] ${
           pathname.startsWith(href.toString())
             ? "fill-white"
             : "fill-rwth-accent"

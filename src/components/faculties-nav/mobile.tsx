@@ -7,12 +7,11 @@ import { findAssociatedSubjects } from "@/lib/subjects";
 import { SheetClose } from "../ui/sheet";
 import FacultiesBreadcrumb from "./breadcrumb";
 import { FacultiesNavHeading } from "./heading";
-import { type FacultiesNavProps } from "./nav";
 import { FacultiesNavLink } from "./nav-link";
 
-export function FacultiesMobileNav(_props: FacultiesNavProps) {
+export function FacultiesMobileNav() {
   const [filteredInstitute, searchInstitutes] = useInstituteSearch(
-    Object.values(RealInstituteConfig)
+    Object.values(RealInstituteConfig),
   );
   return (
     <div className="bg-rwth-accent p-0 lg:hidden">
@@ -43,7 +42,7 @@ export function FacultiesMobileNav(_props: FacultiesNavProps) {
                       key={institute.name}
                       href={institute.href}
                       subElement={findAssociatedSubjects(institute.name).join(
-                        " | "
+                        " | ",
                       )}
                       tooltipContent={institute.fullName}
                       tooltipPlace="left"

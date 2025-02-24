@@ -8,7 +8,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/nichts"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               Forschung
             </Link>
@@ -16,7 +16,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/cigol/studium/teachings"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               ⚠Lehre
             </Link>
@@ -24,7 +24,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/cigol/studium/klausuren"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               ⚠Klausuren
             </Link>
@@ -32,7 +32,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/cigol/studium/aufgaben"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               ⚠Aufgaben
             </Link>
@@ -40,7 +40,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/nichts"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               Bücher
             </Link>
@@ -48,7 +48,7 @@ export default function CigolSideNav() {
           <li className="py-1 first:pt-0">
             <Link
               href={"/contact"}
-              className="text-xl font-bold text-black text-opacity-60 hover:border-b-0 hover:text-opacity-100"
+              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               Kontakt
             </Link>

@@ -20,7 +20,7 @@ export default async function Page() {
   const folien = await getAllDocsFromDir(
     join(process.cwd(), "public", "content-assets", "dbis", "Folien"),
     "/content-assets/dbis/Folien",
-    true
+    true,
   );
   return (
     <div>
@@ -32,7 +32,7 @@ export default async function Page() {
               Vorlesungsfolien / Script
             </h1>
 
-            <p className="my-2">It's dbis time.</p>
+            <p className="my-2">It&apos;s dbis time.</p>
 
             <ul className="my-2 ml-8 list-disc">
               <li>
@@ -87,13 +87,17 @@ export default async function Page() {
 
           <div className="my-8 lg:col-span-2">
             <div className="mb-4">
-              <h1 className="mb-2 mt-4 font-sans text-4xl">
+              <h1 className="mt-4 mb-2 font-sans text-4xl">
                 Hilfreiche Sachen für die Klausur
               </h1>
 
               <ul className="my-4 ml-8 list-disc">
                 <li>
-                  <a href="https://chat.openai.com/" target="_blank">
+                  <a
+                    href="https://chat.openai.com/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     https://chat.openai.com
                   </a>
                 </li>
@@ -101,6 +105,7 @@ export default async function Page() {
                   <a
                     href="https://normalizer.db.in.tum.de/index.py"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     https://normalizer.db.in.tum.de/index.py
                   </a>
@@ -118,7 +123,7 @@ export default async function Page() {
               </ul>
             </div>
 
-            <h1 className="mb-2 mt-4 font-sans text-4xl">
+            <h1 className="mt-4 mb-2 font-sans text-4xl">
               Erklärungen in ihrem eigenen Stil
             </h1>
 

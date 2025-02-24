@@ -23,7 +23,7 @@ import {
 export default function Page() {
   return (
     <div className="items-center justify-center">
-      <h1 className="text-center text-3xl font-bold drop-shadow-glow md:py-48 md:text-8xl">
+      <h1 className="drop-shadow-glow text-center text-3xl font-bold md:py-48 md:text-8xl">
         Willkommen zu den HTWR/docs
       </h1>
       {

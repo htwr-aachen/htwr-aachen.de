@@ -12,7 +12,7 @@ export default function MobileSidenav({ config }: { config: NavbarConfig }) {
       <div className="w-full bg-white">
         <div className="w-full p-2">
           <input
-            className="w-full text-ellipsis whitespace-nowrap rounded bg-[#d1d1d1] px-3 py-2 text-sm text-[#333] placeholder:text-[#333]"
+            className="w-full rounded bg-[#d1d1d1] px-3 py-2 text-sm text-ellipsis whitespace-nowrap text-[#333] placeholder:text-[#333]"
             type="search"
             placeholder="Suche (hättest du gerne)"
           />
@@ -20,7 +20,7 @@ export default function MobileSidenav({ config }: { config: NavbarConfig }) {
         <FacultiesButton />
         <Link
           href="/"
-          className="block w-full border-t-1 border-dotted bg-rwth-accent px-4 py-3 font-light text-white hover:border-b-0 hover:border-white"
+          className="bg-rwth-accent block w-full border-t-1 border-dotted px-4 py-3 font-light text-white hover:border-b-0 hover:border-white"
         >
           Hauptseite der HTWR
         </Link>
@@ -28,7 +28,7 @@ export default function MobileSidenav({ config }: { config: NavbarConfig }) {
           {config.linkElements.map((link) => {
             return (
               <div key={link.name}>
-                <h1 className=" p-2 font-bold opacity-75">{link.name}</h1>
+                <h1 className="p-2 font-bold opacity-75">{link.name}</h1>
                 <ul className="ml-6">
                   <SidenavButton href={link.href.toString()}>
                     {link.name}

@@ -11,11 +11,6 @@ tags: [Modallogik, Bisimulation]
 
 Die Modallogik handelt von Transitionssystemen/Graphen.
 
-{/*```mermaid
-flowchart LR
-  u-->|a|v
-``` */}
-
 Definition:
 - Alle aussagenlogischen Formeln mit Aussagenvars. $P_i$ sind in ML.
 - Wenn $\varphi, \psi \in ML$ dann auch $\lnot \psi, (\varphi \lor \psi), ...$
@@ -38,7 +33,7 @@ Eine Bisimulation zwischen $K, K'$ ist eine Relation $Z \subseteq V \times V'$, 
 
 - $v \in P_i$ gdw. $v' \in P'_i$ für alle $i \in I$
 - **Hin**: Für alle $a \in A, w \in V$ mit $v \overset{a}{\to}w$ existiert ein $w' \in V'$ mit $v' \overset{a}{\to}w'$ und es ist $(w,w') \in Z$
-- **Her**: Genau anderherum für alle $a \in A, w' \in V'$ ...
+- **Her**: Genau andersherum für alle $a \in A, w' \in V'$ ...
 
 Zwei Strukturen sind bisimilar $K,u \sim K', u'$ wenn es eine Bisimulation gibt.
 
@@ -64,3 +59,4 @@ Erfüllbar $\varphi \in ML$ haben immer ein Baummodell, also ein Modell welches 
 ## Temporale Logiken
 
 k.p. mach ich erstmal nicht.
+```

@@ -57,7 +57,7 @@ export default function Page() {
         </li>
       </ul>
 
-      <h1 className="mb-2 mt-4 font-sans text-4xl">
+      <h1 className="mt-4 mb-2 font-sans text-4xl">
         Erklärungen in ihrem eigenen Stil
       </h1>
 
@@ -90,7 +90,8 @@ export default function Page() {
       </span>
 
       <p className="my-4">
-        Wie zur Hölle bekomme ich aus SWT bitte irgendwas "witziges" heraus??
+        Wie zur Hölle bekomme ich aus SWT bitte irgendwas &quot;witziges&quot;
+        heraus??
         <br />
         Ich probiere hier eher durch alle Diagrammtypen durchzugehen, da dass
         eigentlich das wichtige ist. Ein paar Wissensfragen sind aber auch dabei

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // This is the title animation for the panikzettel page.
 // Because of the animation process it is better lived outside the page as a standalone component.
@@ -28,7 +28,7 @@ export default function PanikzettelTitleAnim() {
     },
   };
   return (
-    <motion.h1 className="z-10 text-center text-6xl font-bold drop-shadow-glow md:my-24 md:mt-16 md:text-9xl md:leading-[10rem]">
+    <motion.h1 className="drop-shadow-glow z-10 text-center text-6xl font-bold md:my-24 md:mt-16 md:text-9xl md:leading-[10rem]">
       <motion.span initial="initial" animate="flicker" variants={textVariants}>
         Panik?
       </motion.span>

@@ -25,7 +25,7 @@ export default async function KlausurenPage() {
         <div className="mx-2 lg:m-0">
           <ExamNotice></ExamNotice>
 
-          <ul className="ml-8 mt-8 list-disc">
+          <ul className="mt-8 ml-8 list-disc">
             {exams.map((exam) => {
               return (
                 <li key={exam}>

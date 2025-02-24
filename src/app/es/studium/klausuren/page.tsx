@@ -27,7 +27,7 @@ export default async function Page() {
         bei Klausuren auf den Namen achten! (Ist mir selber passiert ups)
       </p>
 
-      <ul className="ml-8 mt-8 list-disc">
+      <ul className="mt-8 ml-8 list-disc">
         {exams.map((exam) => {
           return (
             <li key={exam}>

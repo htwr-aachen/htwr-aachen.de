@@ -8,11 +8,12 @@ tags: [Auswertungsspiel]
 ---
 
 ## Auswertungsspiel
+
 Gegeben FO-Satz $\varphi$ zur einfachheit in [Negationsnormalform](/cigol/teachings/Einführung_Prädikatenlogik) und Struktur $\mathfrak{A}$
 Es gibt:
 
 - Die Verifizierin V (ich glaub Geschlecht ist eigentlich egal) [Manchmal auch Spieler 0]: Möchte zeigen,
-dass $\mathfrak{A}$ Modell von $\varphi$ ist.
+  dass $\mathfrak{A}$ Modell von $\varphi$ ist.
 - Den Falsifizierer F [Spieler 1]: Möchte das Gegenteil
 
 ![Lets get ready to rumble meme](https://media.tenor.com/jlnEdGMDXhsAAAAd/bk113-ready-to-rumble.gif)
@@ -21,13 +22,13 @@ Sei nun die Position $\psi(a)$, also am Anfang $\psi = \varphi$
 Nun gilt:
 
 - Falls $\psi$ ein Literal ist, dann gewinnt die Verifizierin, **falls**
- $\mathfrak{A} \models \psi(a)$, sonst gewinnt der Falsifizierer
+  $\mathfrak{A} \models \psi(a)$, sonst gewinnt der Falsifizierer
 - An der Position $\psi(a)=(\theta \lor \eta)$ wällt die Verifizierin eine Richtigung
-also dann geht es entweder bei $\theta$ oder bei $\eta$ weiter
+  also dann geht es entweder bei $\theta$ oder bei $\eta$ weiter
 - An der Position $\psi(a)=(\theta \land \eta)$ wällt der Falsifizierer eine Richtigung
-also dann geht es entweder bei $\theta$ oder bei $\eta$ weiter
+  also dann geht es entweder bei $\theta$ oder bei $\eta$ weiter
 - Bei $\exists x \theta(x, b)$ darf die Verifizierin ein Element aus dem Universum
- auswählen $c \in A$ und dann geht es bei $\theta(c, b)$ weiter
+  auswählen $c \in A$ und dann geht es bei $\theta(c, b)$ weiter
 - Bei $\forall x \theta(x, b)$ geht es analog
 
 Wir bilden hierraus:
@@ -36,23 +37,18 @@ Wir bilden hierraus:
 - $V_0$ die Menge aller Spielpositionen, wo Spieler 0 am Zug ist.
 - $E$ alle möglchen Spielzüge
 
-Das bildet dann natürlich einen **Spielgraphen**, in dem $V_0$ mit Kreisen und $V_1$ mit 
+Das bildet dann natürlich einen **Spielgraphen**, in dem $V_0$ mit Kreisen und $V_1$ mit
 Rechtecken gemalt wird.
 
 Es gibt **Endposition** wo der Spieler der dann am Zug ist verloren hat, da
- er nichts mehr wählen kann.
+er nichts mehr wählen kann.
 
 Eine Partie ist ein $(v_0, ..., v_m)$ mit $v_m$ Endposition.
 Alle Auswertungsspiele sind endlicht und damit **fundiert**
 
 Das Spiel ist **determiniert** wenn von jeder Position aus einer der beiden Spieler
-eine **Gewinnstrategie** (also einen Plan wie er immer Gewinnt) hat. 
+eine **Gewinnstrategie** (also einen Plan wie er immer Gewinnt) hat.
 
 Es gibt **Gewinnzonen** wo ein Spieler eine Gewinnstrategie hat.
 
 Es gilt wegen endlichkeit und so: fundierte Spiele sind immer determiniert
-
-
-
-
-

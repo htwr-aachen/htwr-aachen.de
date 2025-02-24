@@ -67,7 +67,7 @@ export default function SchedulerPage() {
           />
           <button
             type="submit"
-            className="ml-2 rounded bg-rwth-warn/75 px-10 hover:bg-rwth-warn"
+            className="bg-rwth-warn/75 hover:bg-rwth-warn ml-2 rounded px-10"
           >
             Lösen
           </button>
@@ -76,7 +76,7 @@ export default function SchedulerPage() {
         {result && (
           <>
             <h2 className="mt-8 text-2xl underline">Lösung:</h2>
-            <p className="mt-8 whitespace-pre-wrap rounded bg-rwth-accent px-4 py-3 font-mono text-white">
+            <p className="bg-rwth-accent mt-8 rounded px-4 py-3 font-mono whitespace-pre-wrap text-white">
               {result}
             </p>
           </>

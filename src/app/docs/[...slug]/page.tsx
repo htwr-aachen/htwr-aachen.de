@@ -13,16 +13,19 @@ import { mdxOptions } from "@/lib/markdown";
 import { docsArticleConfig } from "../config";
 import { DocsBreadcrumb, getURLUntil } from "./breadcrumb";
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const params = await props.params;
   const docs = await getArticle(params.slug, docsArticleConfig);
   return (
     <div>
       <Suspense
         fallback={
-          <LoaderIcon className="absolute left-0 top-0 m-auto animate-spin"></LoaderIcon>
+          <LoaderIcon className="absolute top-0 left-0 m-auto animate-spin"></LoaderIcon>
         }
       >
-        <div className="mx-auto flex max-w-screen-lg flex-row items-center py-5">
+        <div className="mx-auto flex max-w-(--breakpoint-lg) flex-row items-center py-5">
           <Button asChild className="mr-4">
             <Link href={getURLUntil(params.slug, -1, "/docs")}>
               <ChevronLeft className="mr-2 size-4" />
@@ -32,7 +35,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           <DocsBreadcrumb slug={params.slug} baseURL="/docs"></DocsBreadcrumb>
         </div>
-        <div className="prose mx-auto max-w-screen-lg py-7 dark:prose-invert prose-code:rounded prose-code:px-2 prose-code:font-mono">
+        <div className="prose dark:prose-invert prose-code:rounded prose-code:px-2 prose-code:font-mono mx-auto max-w-(--breakpoint-lg) py-7">
           <MDXRemote
             source={docs.content}
             options={mdxOptions}
@@ -52,11 +55,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] };
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const { meta, url } = await getArticle(params.slug, docsArticleConfig);
 
   return {

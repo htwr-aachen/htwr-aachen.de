@@ -1,5 +1,4 @@
 import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
-import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
@@ -7,25 +6,14 @@ import remarkMath from "remark-math";
 
 import { highlighter } from "./highlighting";
 
-// this is disbled for now
-/* export function handleHTML(html: string, info: TransformerInfo) {
-  const { url, transformer } = info;
-  if (
-    transformer.name === "@remark-embedder/transformer-oembed" ||
-    url.includes("youtube.com")
-  ) {
-    return `<div className="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
-  }
-  return html;
-} */
-
-export const mdxOptions: SerializeOptions = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mdxOptions: any = {
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm, remarkHint],
     rehypePlugins: [
       rehypeKatex,
       [
-        // @ts-ignore
+        // @ts-expect-ignore
         rehypeShikiFromHighlighter,
         highlighter,
         {

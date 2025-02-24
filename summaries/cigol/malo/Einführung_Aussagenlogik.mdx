@@ -4,7 +4,8 @@ order: 1
 description: In dieser Folge finden die Olchies auf ihrer Schrotthalde eine sehr alte Form der Logik. Sie ist schwach und nicht allzu kompliziert aber sie reicht aus, um die Olchies zu verwirren.
 author: Jonas Schneider
 date: 14/08/2023
-tags: [Einführung, Logik, Aussagenlogik, Funktionale Vollständigkeit, Horn Formeln]
+tags:
+  [Einführung, Logik, Aussagenlogik, Funktionale Vollständigkeit, Horn Formeln]
 ---
 
 # Es fängt so easy an und am Ende kommen Herbrand-Strukturen 😭
@@ -68,8 +69,8 @@ So jetzt ein paar Sachen abklappern:
 **Boolesche Funktionen**: Logisch $f: \{0,1\}^n \to \{0,1\}$. $B^n$ ist die Menge aller Booleschen Funktionen mit $n$ Variablen.
 $|B^n| = 2^{2^n}$. Es ist relativ einfach zu sehen, dass jede Boolesche Funktion durch eine Formel darstellbar ist und umgekehrt.
 
-
 **Normalformen**: Hier noch einfach
+
 - KNF: Konjunktive Normalform $\bigwedge_{i=1}^n \bigvee_{j=1}^{m_i} l_{ij}$ wobei $l_{ij}$ Literal ist.
 - DNF: Disjunktive Normalform $\bigvee_{i=1}^n \bigwedge_{j=1}^{m_i} l_{ij}$ wobei $l_{ij}$ Literal ist.
 
@@ -78,10 +79,9 @@ Genauso hatten wir **Funktional Vollständige Mengen** bereits genug.
 Eine Menge $\Omega \subseteq B$ von Booleschen Funktionen ist funktional vollständig, wenn jede Boolesche Funktion durch $\Omega$ darstellbar ist.
 Macht es einfach so wie immer.
 
-
 ## Horn Formeln
 
-Eine Horn Formel ist eine Formel in KNF, die in jeder Disjunktion nur aus **höchstens** einem positiven Literal besteht. 
+Eine Horn Formel ist eine Formel in KNF, die in jeder Disjunktion nur aus **höchstens** einem positiven Literal besteht.
 Geschrieben werden sie entweder in KNF oder in Implikationen(schöner) schreiben, da:
 
 - $\lnot X_1 \lor \lnot X_2 \lor X_3 \equiv X_1 \land X_2 \implies X_3$
@@ -99,6 +99,6 @@ Gegeben Formel: $\varphi = (X \land Y \implies Z) ∧ (X \implies Z) ∧ (1 \imp
 
 4. $M$ gibt an welche Variablen wahr seien müssen. Der Rest ist falsch. Somit ist ein Modell fertig
 
-> Der Markierungsalgorithmus findet **immer das kleinste Modell**. Das ist wichtig, wenn man die Äquivalenz zu einer Horn Formel testen soll. 
+> Der Markierungsalgorithmus findet **immer das kleinste Modell**. Das ist wichtig, wenn man die Äquivalenz zu einer Horn Formel testen soll.
 
 ## TODO: Aufgaben

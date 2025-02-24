@@ -12,7 +12,7 @@ async function getData() {
   const folien = getAllDocsFromDir(
     join(process.cwd(), "public", "content-assets", "stocha", "Folien"),
     "/content-assets/stocha/Folien",
-    false
+    false,
   );
 
   return {
@@ -41,7 +41,7 @@ export default async function TeachingsPage() {
             Vorlesungsfolien / Script
           </h1>
 
-          <p className="my-2">It's stocha time.</p>
+          <p className="my-2">It&apos;s stocha time.</p>
 
           <ul className="my-2 ml-8 list-disc">
             <li>
@@ -110,6 +110,7 @@ export default async function TeachingsPage() {
               <a
                 href="https://typst.app/project/rhyJGOcf8LVWkwKc0fo84Q"
                 target="_blank"
+                rel="noreferrer"
               >
                 typst
               </a>{" "}
@@ -135,7 +136,7 @@ export default async function TeachingsPage() {
           </ul>
         </div>
         <div className="my-8 lg:col-span-2">
-          <h1 className="mb-2 mt-4 font-sans text-4xl">
+          <h1 className="mt-4 mb-2 font-sans text-4xl">
             Erklärungen in ihrem eigenen Stil
           </h1>
 

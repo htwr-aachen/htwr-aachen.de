@@ -7,7 +7,7 @@ import { blogArticleConfig } from "@/app/(blog)/blog/config";
 import { type ArticleMeta, getArticle } from "./articles";
 
 export async function generateBlogRSS(
-  articles: ArticleMeta[]
+  articles: ArticleMeta[],
 ): Promise<string> {
   const feed = new Feed({
     title: "HTWR Blog",

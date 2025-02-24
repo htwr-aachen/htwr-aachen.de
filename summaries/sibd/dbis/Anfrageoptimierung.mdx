@@ -4,10 +4,7 @@ description: SQL und Anfragen
 author: Jonas Schneider
 date: 31/07/2023
 order: 5
-tags:
-  [
-    Anfragenoptimierung
-  ]
+tags: [Anfragenoptimierung]
 ---
 
 ## Anfragebearbeitung
@@ -15,12 +12,6 @@ tags:
 Könnte hilfreich sein um ein Moodle Desaster zu vermeiden.
 
 Eine Anfrage wird wie folgt bearbeitet:
-
-{/*```mermaid
-flowchart TD
-    A[Scanner / Parser] --> B[Anfrageoptimierung]
-    B[Anfragenoptimierung] --> C[Anfrageausführung]
-```*/}
 
 Dabei gibt es 3 Arten von Optimierungen:
 
@@ -38,7 +29,7 @@ Dabei gibt es 3 Arten von Optimierungen:
     8. Join, Vereinigung und Schnitt sind assoziativ
     9. Selektion kann mit Vereinigung und Schnitt vertauscht werden
     10. Projektion kann **nur mit Vereinigung** vertauscht werden
-    11. Selektion und Kreuzprodukt können zu einem Join zusammengefasst werden, wenns passt 
+    11. Selektion und Kreuzprodukt können zu einem Join zusammengefasst werden, wenns passt
     12-15. Irrelevanter Kram / Selbstverständlich
 - Kostenbasierte Optimierung
   - Reihenfolge von Selektionen und Projektionen sind regelbasiert
@@ -69,5 +60,6 @@ Weitere Optimierungen:
 - Indexstrukturen
   - Daten sind nach Schlüssel sortiert
   - Sekundäre Indizes sind weitere Indizes über andere Attribute.
-  - => B-Bäume google it wenn ihrs vergessen habt
+  - => B-Bäume googled wenn ihr es vergessen habt
 - Sekundäre Indizes sind listen, die auf die Speicheradressen der Tupel verweisen (bzw. auf den Schlüssel). Optimierungen unter anderem R-Bäume
+```

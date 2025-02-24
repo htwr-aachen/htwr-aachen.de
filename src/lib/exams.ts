@@ -32,7 +32,7 @@ export async function getExamMeta(subject: Subjects): Promise<Exam[]> {
 }
 
 export const getProtectedDownloads = async (
-  subject: Subjects
+  subject: Subjects,
 ): Promise<string[]> => {
   try {
     const exams = await getExamMeta(subject);

@@ -6,7 +6,7 @@ import { createContext, useContext, useMemo, useState } from "react";
 type SolutionCalculatorProps = {
   name: string;
   description?: string;
-  solutionFunction: (inputVars: InputVarsType) => any;
+  solutionFunction: (_inputVars: InputVarsType) => ReactNode;
   children?: ReactNode;
 };
 
@@ -16,7 +16,7 @@ type InputVarsType = {
 
 type InputContextType = [
   inputVars: InputVarsType,
-  setInputVars: Dispatch<SetStateAction<InputVarsType>>
+  setInputVars: Dispatch<SetStateAction<InputVarsType>>,
 ];
 
 const InputContext = createContext<InputContextType | null>(null);
@@ -36,7 +36,7 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
       <div className="rounded-lg bg-gray-100 px-10 py-8 text-lg">
         <h3 className="text-2xl font-semibold">Aufgabe {props.name}</h3>
         <p className="my-2 px-4 font-serif">{props.description}</p>
-        <p className="px-4 ">{props.children}</p>
+        <p className="px-4">{props.children}</p>
         <h3 className="mt-8 px-2 text-4xl font-medium">Lösung: {solution}</h3>
       </div>
     </InputContext.Provider>
@@ -46,7 +46,7 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
 type SolutionViewProps = {
   name: string;
   description?: string;
-  solution: any;
+  solution: ReactNode;
   children: ReactNode;
 };
 
@@ -55,7 +55,7 @@ const SolutionView: FC<SolutionViewProps> = (props) => {
     <div className="rounded-lg bg-gray-100 px-10 py-8 text-lg">
       <h3 className="text-2xl font-semibold">Aufgabe {props.name}</h3>
       <p className="my-2 px-4 font-serif">{props.description}</p>
-      <p className="px-4 ">{props.children}</p>
+      <p className="px-4">{props.children}</p>
       <h3 className="mt-8 px-2 text-4xl font-medium">
         Lösung: {props.solution}
       </h3>
@@ -69,7 +69,7 @@ type NumberInputProps = {
 
 const NumberInput: FC<NumberInputProps> = ({ name }) => {
   const [inputVars, setInputVars] = useContext(
-    InputContext
+    InputContext,
   ) as InputContextType;
 
   return (

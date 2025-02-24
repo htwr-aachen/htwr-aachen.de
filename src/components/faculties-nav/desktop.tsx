@@ -12,12 +12,12 @@ import { FacultiesNavLink } from "./nav-link";
 
 export function FacultiesDesktopNav() {
   const [filteredInstitute, searchInstitutes] = useInstituteSearch(
-    Object.values(RealInstituteConfig).reverse()
+    Object.values(RealInstituteConfig).reverse(),
   );
 
   return (
     <div
-      className={`relative hidden overflow-hidden bg-rwth-accent px-32 text-white lg:block`}
+      className={`bg-rwth-accent relative hidden overflow-hidden px-32 text-white lg:block`}
     >
       <div className="relative hidden grid-rows-[auto_1fr] lg:grid">
         <div className="grid grid-cols-[1fr_auto] border-b-4 border-white/10 py-6">
@@ -63,7 +63,7 @@ export function FacultiesDesktopNav() {
                 );
               })}
             </ul>
-            <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pb-2 pt-6">
+            <div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pt-6 pb-2">
               <FacultiesNavHeading>Institut suchen</FacultiesNavHeading>
               <div className="grid items-center justify-center">
                 <input

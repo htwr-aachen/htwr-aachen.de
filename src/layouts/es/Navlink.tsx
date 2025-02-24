@@ -15,10 +15,13 @@ type NavlinkProps = {
   links?: LinkType[];
   isDroped?: boolean;
   dropdownNumer?: number;
-  dropdownCallback?: (dropdownNumer: number) => void;
+  dropdownCallback?: (_dropdownNumer: number) => void;
 };
 
-function useOutsideAlerter(ref: RefObject<HTMLElement>, callback: () => void) {
+function useOutsideAlerter(
+  ref: RefObject<HTMLElement | null>,
+  callback: () => void,
+) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -109,7 +112,7 @@ const Navlink: FC<NavlinkProps> = ({
                   <Link
                     href={link.href}
                     style={{ textDecoration: "none !important" }}
-                    className=" px-10 text-black no-underline transition-colors hover:text-blue-400"
+                    className="px-10 text-black no-underline transition-colors hover:text-blue-400"
                   >
                     {link.name}
                   </Link>

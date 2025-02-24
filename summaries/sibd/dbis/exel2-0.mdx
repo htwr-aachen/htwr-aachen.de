@@ -4,13 +4,7 @@ description: Relationale Datenmodelle
 author: Jonas Schneider
 date: 31/07/2023
 order: 3
-tags:
-  [
-    Tabellen,
-    Relationale Modell,
-    Algebra,
-    Kalkül
-  ]
+tags: [Tabellen, Relationale Modell, Algebra, Kalkül]
 ---
 
 ## Begriffe
@@ -18,31 +12,34 @@ tags:
 - **Domäne** $D$: Wertebereich einer Spalte z.B. INTEGER.
 - **Relation**: ist einfach dann gegeben $D_1, ..., D_k: r \subseteq D_1 \times ... \times D_k$: Also eine Tabelle wow.
 - **Tupel**: Eine Zeile der Tabelle, bzw. ein Element der Relation
-- **geordnetes Relationenschema**: Hierbei haben die Zeilen eine feste Ordnung 
+- **geordnetes Relationenschema**: Hierbei haben die Zeilen eine feste Ordnung
 
 ## Relationen
 
 Beispiel ist folgende Tabelle:
 
 | Name    | Einwohnen |   Land |
-|---------|:---------:|-------:|
+| ------- | :-------: | -----: |
 | München | 1.472.000 | Bayern |
 | Bremen  |  569.352  | Bremen |
 | Aachen  |  245.885  |    NRW |
 
 Als geordnetes Schema wäre das:
+
 - Schema: Städte(Name, Einwohner, Land)
-- dom(Name) = STRING, dom(Einwohner) = INTEGER, dom(Land) = STRING 
+- dom(Name) = STRING, dom(Einwohner) = INTEGER, dom(Land) = STRING
 - **Ausprägung** ${(Muenchen, 1.472.000, Bayern), (Bremen, 569.352, Bremen), (Aachen, 245.885, NRW)}$
 - $t_1$(Name) = München. $t_2$(Einwohner) = 569.352
 
 ## Schlüsselattribute
 
 Definition **Schlüsselkandidat**:
- - **Eindeutigkeit**: In keinen zwei Tupeln gleichen sich alle Schlüsselattribute
- - **Minimalität**: Du kannst nicht eins wegnehmen und es ist immer noch ein Schlüsselattribut. (Keine echte Teilmenge erfüllt Eindeutigkeit)
+
+- **Eindeutigkeit**: In keinen zwei Tupeln gleichen sich alle Schlüsselattribute
+- **Minimalität**: Du kannst nicht eins wegnehmen und es ist immer noch ein Schlüsselattribut. (Keine echte Teilmenge erfüllt Eindeutigkeit)
 
 Formell:
+
 - $R$ Relation, $S \subseteq R. t[S]$ ist eine Projektion(Einschränkung) vom Tupel auf die Attribute $S$.
   - $t_1, t_2 \in r: t_1 \neq t_2 \implies t_1[S] \neq t_2[S]$
   - Für alle Attributmengen $T$ die Eindeutigkeit erfüllen gilt: $T \subseteq S \implies T = S$
@@ -54,15 +51,16 @@ Alle Entities und Beziehungen werden als Relationen dargestellt.
 - **Intra**relationale Abhängigkeit: Aussagen über die Konsistenz einer Relation. Z.B.Schlüssel einer Relation
   - Wird durch $\sigma$ ausgedrückt. $\sigma: Rel(X) \to \{true, false\}$. Wobei $X$ eine Menge von Attributen, $Rel(X)$ die Menge aller Relationen über $X$ und $Tup(X)$ wäre das gleiche nur mit Tupeln
   - Man erweitert also das Relationenschema: $R'' = (R', \Sigma_X)$ wobei $\Sigma_X$ die Menge der Intra-Relationen-Abhängigkeiten ist und $R'$ ein geordnetes Relationenschema.
-- **Inter**relationale Abhängigkeit:  Aussagen über die Konsistenz einer Datenbank. Also zum Beispiel Fremdschlüssel müssen existieren.
+- **Inter**relationale Abhängigkeit: Aussagen über die Konsistenz einer Datenbank. Also zum Beispiel Fremdschlüssel müssen existieren.
   - $Dat(R)$ ist die Menge aller Datenbanken über $R$. Eine **Datenbank** ist eine Menge von Relationen
   - Eine Interrelationale Abhängigkeit wird durch $\sigma: Dat(R) \to \{true, false\}$ spezifiziert.
-  - Z.B: $\sigma_{R_i[V] \cap R_j[W] = \emptyset}$ __true__ wenn die Bedingung stimmt, sonst __false__
+  - Z.B: $\sigma_{R_i[V] \cap R_j[W] = \emptyset}$ **true** wenn die Bedingung stimmt, sonst **false**
 
 Somit ist ein Datenbankschema: $D= (R, \Sigma_R)$
 Eine Datenbank ist konsistent/gültig wenn alle Intra- und Interrelationalen Abhängigkeiten erfüllt sind.
 
 ### Fremdschlüssel
+
 Man nutzt um Beziehung zu anderen Entitäten herzustellen deren Schlüssel. Das heißt dann **Fremdschlüssel**.
 Also $\sigma_{R_1[F] \subseteq R_2[K]} \in \Sigma_R$ wobei $F$ die Fremdschlüsselattribute und $K$ die Schlüsselattribute sind.
 
@@ -80,6 +78,7 @@ Ein Student wäre dann Student(<ins>MatrNr</ins>, Name, Semester)
 - **Rekursive Beziehung**: Laufen halt rekursiv...
 
 Generalisierungen 4 Möglichkeiten:
+
 - **partiell**: Tabelle für jeden Entity-Typ
 - **total**: Tabelle für alle Sub-Entities
 - **disjunkt**: eine Tabelle für alle Attribute enthält und ein Typ-Attribut
@@ -89,10 +88,11 @@ Generalisierungen 4 Möglichkeiten:
 - **n-stellige Beziehungen** werden als Relation mit Schlüssel aus den Schlüsseln der Entities und den Attributen gespeichert.
 
 ## Relationale Algebra
- 
+
 Hiermit macht man Operationen auf Relationen. Bissle wie SQL nur in "mathematisch".
 
 Operationen:
+
 - **Vereinigung**: $r \cup s = \{t \in r \lor t \in s\}$
 - **Differenz**: $r - s = \{t \in r \land t \notin s\}$
 - **Kreuzprodukt**: $r \times s = \{t_1 \cup t_2 | t_1 \in r \land t_2 \in s\}$
@@ -102,17 +102,18 @@ Operationen:
 - **Durchschnitt**: $r \cap s = r - (r - s)$
 - **Natural Join**: $R \bowtie S$ Selektierung aus dem Kreuzprodukt von $R$ und $S$ mit der Bedingung, dass die Attribute die gleichen Werte haben.
 - **Theta Join**: $R \bowtie_{\phi} S$ Selektierung aus dem Kreuzprodukt von $R$ und $S$ mit der Bedingung, dass die Formel $\phi$ gilt.
-- **Outer Join**: Hier bleiben nicht nur die Tupel die gleiche Werte haben übrig. Bei left / right bleiben alle der linken / rechten Relation übrig. Bei full bleiben alle übrig. 
+- **Outer Join**: Hier bleiben nicht nur die Tupel die gleiche Werte haben übrig. Bei left / right bleiben alle der linken / rechten Relation übrig. Bei full bleiben alle übrig.
 
 ## Kalkül
 
 Aus der Algebra baut man dann logischer weise ein Kalkül nach MALO Style auf.
- 
+
 Hierbei sind die Atome:
+
 - $t \in R$
-- $t.A \theta s.B$ wobei $\theta$ ein Vergleichsoperator ist. 
+- $t.A \theta s.B$ wobei $\theta$ ein Vergleichsoperator ist.
 - $t.A \theta c$ wobei $c$ ein Konstante ist.
-Verknüpfungen:
+  Verknüpfungen:
 - $\land, \lor, \lnot, \exists, \forall, \to, \leftrightarrow$
 
 > Ja ist glaube ich nicht so spannend
@@ -122,4 +123,3 @@ Vielleicht guck ich mirs später nochmal an
 Oder mit ihren eigenen Worten:
 
 > "Wozu zur Hölle ist das Tupelkalkül zu gebrauchen?"
-

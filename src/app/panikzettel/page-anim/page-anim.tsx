@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import type { ReactNode } from "react";
 
 import { useScrollPosition } from "@/hooks/useScrollPosition";
@@ -20,7 +20,7 @@ export default function PanikzettelPageAnim({
   const widthMotionValue = useTransform(
     scrollY,
     [200, WIDTH_SCALE_POINT],
-    [750, width]
+    [750, width],
   );
   return (
     <motion.div
@@ -28,7 +28,7 @@ export default function PanikzettelPageAnim({
         width: scrollPosition < WIDTH_SCALE_POINT ? widthMotionValue : "100vw",
       }}
       className={cn(
-        "min-h-[1020px] h-full md:min-w-[750px] max-w-[100vw] md:w-[750px] w-screen md:auto bg-white rounded-lg"
+        "md:auto h-full min-h-[1020px] w-screen max-w-[100vw] rounded-lg bg-white md:w-[750px] md:min-w-[750px]",
       )}
     >
       {children}

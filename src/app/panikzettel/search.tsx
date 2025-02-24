@@ -39,14 +39,14 @@ export default function PanikzettelSearch({
     return () => document.removeEventListener("keydown", handler);
   }, [setOpen]);
   return (
-    <div className="relative mx-auto mb-12 mt-4 h-full w-4/6">
+    <div className="relative mx-auto mt-4 mb-12 h-full w-4/6">
       <button
         onClick={() => setOpen(true)}
-        className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2"
+        className="border-input bg-background flex h-10 w-full items-center rounded-md border px-3 py-2"
       >
         <Search className="mr-2 size-4"></Search>
         Suchen...
-        <kbd className="pointer-events-none absolute right-[0.3rem] top-1/2 hidden h-5 -translate-y-1/2 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+        <kbd className="bg-muted pointer-events-none absolute top-1/2 right-[0.3rem] hidden h-5 -translate-y-1/2 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none sm:flex">
           <span className="text-xs">CTRL</span>k
         </kbd>
       </button>
