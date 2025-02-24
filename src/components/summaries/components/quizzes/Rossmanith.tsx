@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import type { Zitat } from "../quiz";
 import ZitateQuiz from "../quiz";
 

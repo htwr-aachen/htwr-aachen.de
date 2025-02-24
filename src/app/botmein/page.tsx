@@ -14,7 +14,7 @@ const TutorialQuery = "tutorial";
 
 type PageProps = {
   page: string;
-  setPage: (page: string) => void;
+  setPage: (_page: string) => void;
 };
 
 const TutorialPage: FC<PageProps> = (props) => {

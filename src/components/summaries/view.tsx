@@ -8,6 +8,7 @@ import type { Subject } from "@/models/subject";
 
 import { DefaultSummaryComponents } from "./components";
 import SummaryLayout from "./layout";
+import { MDXProvider } from "@mdx-js/react";
 
 export default async function SummaryView({
   subjectConfig,
@@ -17,7 +18,7 @@ export default async function SummaryView({
 }: {
   subjectConfig: Subject;
   slug: string[];
-  components?: any;
+  components?: React.ComponentProps<typeof MDXProvider>["components"];
 } & HTMLAttributes<HTMLDivElement>) {
   const summary = await getArticle(slug, subjectConfig);
 

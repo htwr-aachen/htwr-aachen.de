@@ -1,16 +1,18 @@
-import { Link } from "lucide-react";
-
+import Link from "next/link";
 import { HeadLine } from "../rwth/headline";
 import Spoiler from "./components/spoiler";
+import { ComponentProps } from "react";
 
 export const DefaultSummaryComponents = {
   Spoiler,
 
-  img: (props: any) => {
+  img: (props: ComponentProps<"img">) => {
     return <img {...props} loading="lazy" className="centerImg" alt="" />;
   },
-  a: (props: any) => {
+  a: (props: ComponentProps<typeof Link>) => {
     return <Link {...props} rel="noopener noreferrer" passHref />;
   },
-  h1: (props: any) => <HeadLine>{props.children}</HeadLine>,
+  h1: (props: ComponentProps<typeof HeadLine>) => (
+    <HeadLine>{props.children}</HeadLine>
+  ),
 };

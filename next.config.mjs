@@ -22,7 +22,6 @@ const withMDX = createMDX({
     rehypePlugins: [
       rehypeKatex,
       [
-        // @ts-ignore
         rehypeShikiFromHighlighter,
         highlighter,
         {
@@ -71,5 +70,5 @@ export default configuredBundleAnalyzer(
         },
       ];
     },
-  })
+  }),
 );

@@ -17,7 +17,7 @@ function GalleryImage(props: ImageProps) {
         {...props}
         className={cn(
           "absolute left-1/2 top-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
-          props.className
+          props.className,
         )}
         alt={props.alt}
       ></Image>
@@ -34,7 +34,7 @@ const GalleryItem = forwardRef<
     role="img"
     className={cn(
       "grid lg:h-[650px] h-[450px] grid-rows-[1fr_auto] overflow-hidden",
-      className
+      className,
     )}
     {...props}
   />
@@ -103,7 +103,7 @@ type GalleryProps = {
 const GalleryPrevArrow = (
   clickHandler: () => void,
   hasPrev: boolean,
-  label: string
+  label: string,
 ) => {
   if (!hasPrev) return <></>;
   return (
@@ -131,7 +131,7 @@ const GalleryPrevArrow = (
 const GalleryNextArrow = (
   clickHandler: () => void,
   hasNext: boolean,
-  label: string
+  label: string,
 ) => {
   if (!hasNext) return <></>;
   return (
@@ -158,20 +158,20 @@ const GalleryNextArrow = (
 
 const Gallery: FC<GalleryProps> = ({ children }) => {
   return (
-    (<Carousel
-        renderArrowPrev={GalleryPrevArrow}
-        renderArrowNext={GalleryNextArrow}
-        infiniteLoop
-        className="w-full"
-        showIndicators={false}
-        swipeable={true}
-        autoPlay
-        interval={5000}
-        showThumbs={false}
-        dynamicHeight={false}
-      >
-      {children as (ReactElement<any> | number | string)[]}
-    </Carousel>)
+    <Carousel
+      renderArrowPrev={GalleryPrevArrow}
+      renderArrowNext={GalleryNextArrow}
+      infiniteLoop
+      className="w-full"
+      showIndicators={false}
+      swipeable={true}
+      autoPlay
+      interval={5000}
+      showThumbs={false}
+      dynamicHeight={false}
+    >
+      {children as (ReactElement<unknown> | number | string)[]}
+    </Carousel>
   );
 };
 

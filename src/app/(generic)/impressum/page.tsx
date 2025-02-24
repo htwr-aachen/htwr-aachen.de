@@ -22,9 +22,9 @@ const Impressum: FC = () => {
             Da ich hiermit kein Finanziellen Absichten verfolge und auch keine
             Gewinne erziele (mit Werbung oder sonstigem) bräuchte ich vermutlich
             kein Impressum. Andererseits erreiche ich mittlerweile einenen
-            "bedeutsamen Personenkreis" weswegen ich vielleicht doch wieder eins
-            bräuchte... (und habe eventuell redaktionellen/journalistischen
-            Inhalt)
+            &quot;bedeutsamen Personenkreis&quot; weswegen ich vielleicht doch
+            wieder eins bräuchte... (und habe eventuell
+            redaktionellen/journalistischen Inhalt)
           </AlertDescription>
         </Alert>
 

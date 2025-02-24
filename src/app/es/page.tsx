@@ -31,10 +31,11 @@ const index: FC = () => {
         </div>
         <div className="mt-5 grid items-start justify-center md:mt-0 md:items-center">
           <p className="h-min text-center align-middle">
-            "Habe ich euch eigentlich schonmal von{" "}
+            &quot;Habe ich euch eigentlich schonmal von{" "}
             <Link href="/es/studium/klausuren">Klausuren</Link>,{" "}
             <Link href={"/es/studium/teachings"}>dummen Zusammenfassungen</Link>{" "}
-            und <Link href="/es/studium/aufgaben">Aufgaben</Link> erzählt..."
+            und <Link href="/es/studium/aufgaben">Aufgaben</Link>{" "}
+            erzählt...&quot;
           </p>
         </div>
       </div>

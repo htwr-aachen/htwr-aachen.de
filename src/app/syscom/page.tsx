@@ -20,14 +20,10 @@ export default function Page() {
 
       <div className="grid grid-cols-2">
         <div>
-          <iframe
-            src="https://giphy.com/embed/dSetRSJcR3PGqkvjRg"
-            width="200"
-            height="150"
-            frameBorder="0"
-            className="giphy-embed"
-            allowFullScreen
-          ></iframe>
+          <img
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJpamF3aWF0MjJlbXozbDVxczI1YXpuZmw4MTM1OWZ6djhzd202NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dSetRSJcR3PGqkvjRg/giphy.gif"
+            alt="wow gif"
+          />
           <Image
             src="/assets/syscom/wehrle.jpg"
             width={150}

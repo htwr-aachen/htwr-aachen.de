@@ -9,9 +9,7 @@ import { useInstituteActive } from "@/hooks/layout";
 
 import { MenuButton } from "./MenuButton";
 
-type SYSCOMNavbarProps = {};
-
-export default function SYSCOMNavbar(_props: SYSCOMNavbarProps) {
+export default function SYSCOMNavbar() {
   const pathname = usePathname();
   const isActive = useInstituteActive("syscom");
 

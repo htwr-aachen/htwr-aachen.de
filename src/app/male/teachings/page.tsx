@@ -12,7 +12,7 @@ async function getData() {
   const folien = getAllDocsFromDir(
     join(process.cwd(), "public", "content-assets", "male", "Folien"),
     "/content-assets/male/Folien",
-    false
+    false,
   );
 
   return {
@@ -42,7 +42,7 @@ export default async function TeachingsPage() {
             Vorlesungsfolien / Script
           </h1>
 
-          <p className="my-2">It's stocha time.</p>
+          <p className="my-2">It&apos;s stocha time.</p>
 
           <ul className="my-2 ml-8 list-disc">
             <li>
@@ -54,7 +54,11 @@ export default async function TeachingsPage() {
               </a>
             </li>
             <li>
-              <a target={"_blank"} href="https://panikzettel.htwr-aachen.de">
+              <a
+                target={"_blank"}
+                rel="noreferrer"
+                href="https://panikzettel.htwr-aachen.de"
+              >
                 Panikzettel
               </a>
             </li>

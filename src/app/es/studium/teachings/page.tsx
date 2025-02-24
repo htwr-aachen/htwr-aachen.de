@@ -90,7 +90,8 @@ export default function Page() {
       </span>
 
       <p className="my-4">
-        Wie zur Hölle bekomme ich aus SWT bitte irgendwas "witziges" heraus??
+        Wie zur Hölle bekomme ich aus SWT bitte irgendwas &quot;witziges&quot;
+        heraus??
         <br />
         Ich probiere hier eher durch alle Diagrammtypen durchzugehen, da dass
         eigentlich das wichtige ist. Ein paar Wissensfragen sind aber auch dabei

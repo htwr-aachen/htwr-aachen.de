@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export type Zitat = {
   text: string;
@@ -18,7 +18,7 @@ export default function ZitateQuiz({
 }) {
   const [resolved, setResolved] = useState<boolean | null>(null);
   const [internalZitat, setInternalZitat] = useState<Zitat | null>(
-    zitat || null
+    zitat || null,
   );
 
   let deepCopy: Zitat[] = [];
@@ -60,7 +60,8 @@ export default function ZitateQuiz({
         <span className="text-4xl">?</span>
       </div>
       <div className="text-center text-2xl">
-        "{internalZitat?.text}"<hr className="mt-2 bg-none opacity-40"></hr>
+        &quot;{internalZitat?.text}&quot;
+        <hr className="mt-2 bg-none opacity-40"></hr>
       </div>
       <div className="grid w-full items-center">
         {resolved === null ? (

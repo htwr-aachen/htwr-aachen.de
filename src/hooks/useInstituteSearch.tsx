@@ -7,8 +7,8 @@ import type { Institute } from "@/models/institutes";
 const institutes = Object.values(RealInstituteConfig);
 
 export function useInstituteSearch(
-  initial?: Institute[]
-): [Institute[], (query: string) => void] {
+  initial?: Institute[],
+): [Institute[], (_query: string) => void] {
   const [current, setCurrent] = useState<Institute[]>(initial || []);
 
   const search = useCallback(
@@ -39,7 +39,7 @@ export function useInstituteSearch(
 
       setCurrent(results);
     },
-    [institutes]
+    [institutes],
   );
 
   return [current, search];

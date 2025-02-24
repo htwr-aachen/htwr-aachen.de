@@ -6,7 +6,7 @@ import { createContext, useContext, useMemo, useState } from "react";
 type SolutionCalculatorProps = {
   name: string;
   description?: string;
-  solutionFunction: (inputVars: InputVarsType) => any;
+  solutionFunction: (_inputVars: InputVarsType) => ReactNode;
   children?: ReactNode;
 };
 
@@ -16,7 +16,7 @@ type InputVarsType = {
 
 type InputContextType = [
   inputVars: InputVarsType,
-  setInputVars: Dispatch<SetStateAction<InputVarsType>>
+  setInputVars: Dispatch<SetStateAction<InputVarsType>>,
 ];
 
 const InputContext = createContext<InputContextType | null>(null);
@@ -46,7 +46,7 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
 type SolutionViewProps = {
   name: string;
   description?: string;
-  solution: any;
+  solution: ReactNode;
   children: ReactNode;
 };
 
@@ -69,7 +69,7 @@ type NumberInputProps = {
 
 const NumberInput: FC<NumberInputProps> = ({ name }) => {
   const [inputVars, setInputVars] = useContext(
-    InputContext
+    InputContext,
   ) as InputContextType;
 
   return (
