@@ -8,9 +8,7 @@ import { FacultiesButton } from "@/components/faculties-nav/button";
 
 import Navlink from "./Navlink";
 
-type ESNavbarProps = {};
-
-export default function ESNavbar(_props: ESNavbarProps) {
+export default function ESNavbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import Prism from "prismjs";
 import type { FC } from "react";
 import { Suspense, useEffect, useState } from "react";
 
@@ -20,9 +19,7 @@ type PageProps = {
 
 const TutorialPage: FC<PageProps> = (props) => {
   useEffect(() => {
-    const highlight = async () => {
-      await Prism.highlightAll();
-    };
+    const highlight = async () => {};
     highlight();
   });
 

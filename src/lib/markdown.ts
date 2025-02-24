@@ -7,25 +7,13 @@ import remarkMath from "remark-math";
 
 import { highlighter } from "./highlighting";
 
-// this is disbled for now
-/* export function handleHTML(html: string, info: TransformerInfo) {
-  const { url, transformer } = info;
-  if (
-    transformer.name === "@remark-embedder/transformer-oembed" ||
-    url.includes("youtube.com")
-  ) {
-    return `<div className="embed-youtube aspect-w-16 aspect-h-9">${html}</div>`;
-  }
-  return html;
-} */
-
 export const mdxOptions: SerializeOptions = {
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm, remarkHint],
     rehypePlugins: [
       rehypeKatex,
       [
-        // @ts-ignore
+        // @ts-expect-ignore
         rehypeShikiFromHighlighter,
         highlighter,
         {

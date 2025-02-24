@@ -22,7 +22,6 @@ export function DeddebmeSidenav(props: DeddebmeSidenavProps) {
         <button
           className="mt-10 border-2 border-rwth-accent px-2 font-bold text-rwth-accent"
           onClick={() => {
-            // eslint-disable-next-line no-alert
             alert("Mach PSP weiter");
           }}
         >

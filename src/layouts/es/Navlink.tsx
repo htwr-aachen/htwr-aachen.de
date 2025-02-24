@@ -15,10 +15,13 @@ type NavlinkProps = {
   links?: LinkType[];
   isDroped?: boolean;
   dropdownNumer?: number;
-  dropdownCallback?: (dropdownNumer: number) => void;
+  dropdownCallback?: (_dropdownNumer: number) => void;
 };
 
-function useOutsideAlerter(ref: RefObject<HTMLElement | null>, callback: () => void) {
+function useOutsideAlerter(
+  ref: RefObject<HTMLElement | null>,
+  callback: () => void,
+) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element

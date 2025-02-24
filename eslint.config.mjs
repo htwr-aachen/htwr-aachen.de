@@ -2,9 +2,8 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import reactCompiler from "eslint-plugin-react-compiler";
-import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -12,26 +11,10 @@ export default [
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-      },
-    },
-  },
-  {
-    ...pluginReact.configs.flat.recommended,
-    settings: { react: { version: "detect" } },
-  },
+  pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
-  reactCompiler.configs.recommended,
-  {
-    plugins: {
-      "react-hooks": reactHooks,
-    },
-    rules: hooksPlugin.configs.recommended.rules,
-  },
-  eslintPluginPrettier,
+  jsxA11y.flatConfigs.recommended,
+
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     rules: {
@@ -58,4 +41,5 @@ export default [
   {
     ignores: [".next/*"],
   },
+  eslintConfigPrettier,
 ];

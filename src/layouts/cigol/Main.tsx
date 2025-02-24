@@ -10,9 +10,7 @@ import type { LayoutProps } from "@/models/layout";
 
 import CigolSideNav from "./sidenav";
 
-type CIGOLProps = {};
-
-export type CIGOLMainProps = LayoutProps & CIGOLProps;
+export type CIGOLMainProps = LayoutProps;
 
 const Main = (props: CIGOLMainProps) => {
   const config = useInstituteConfig(props.institute);

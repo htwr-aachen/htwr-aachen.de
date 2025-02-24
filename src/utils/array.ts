@@ -1,4 +1,4 @@
-export function deepEqual(a: any[], b: any[]) {
+export function deepEqual(a: unknown[], b: unknown[]) {
   if (a === b) return true;
   if (a == null || b == null) return false;
   if (a.length !== b.length) return false;
