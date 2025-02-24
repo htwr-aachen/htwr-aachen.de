@@ -23,7 +23,7 @@ type PersonaProps = {
 };
 export const Persona: FC<PersonaProps> = ({ children }) => {
   return (
-    <ul className="flex min-h-[115px] flex-wrap items-center justify-center bg-rwth-warn px-2">
+    <ul className="bg-rwth-warn flex min-h-[115px] flex-wrap items-center justify-center px-2">
       {children}
     </ul>
   );

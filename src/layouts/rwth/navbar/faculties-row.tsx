@@ -20,7 +20,7 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
         >
           <Image
             {...logo}
-            className={cn("bg-white overflow-clip max-w-[350px]")}
+            className={cn("max-w-[350px] overflow-clip bg-white")}
             alt={logo.alt}
             width={logo.width || 224}
             height={logo.width || 110}
@@ -35,7 +35,7 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
           className="no-b relative z-10 h-full w-20"
         >
           <Image
-            className={cn(" overflow-clip object-scale-down max-h-10")}
+            className={cn("max-h-10 overflow-clip object-scale-down")}
             alt={logo.alt}
             src={logo.src}
             fill

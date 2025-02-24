@@ -16,7 +16,7 @@ function GalleryImage(props: ImageProps) {
       <Image
         {...props}
         className={cn(
-          "absolute left-1/2 top-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
+          "absolute top-1/2 left-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
           props.className,
         )}
         alt={props.alt}
@@ -33,7 +33,7 @@ const GalleryItem = forwardRef<
     ref={ref}
     role="img"
     className={cn(
-      "grid lg:h-[650px] h-[450px] grid-rows-[1fr_auto] overflow-hidden",
+      "grid h-[450px] grid-rows-[1fr_auto] overflow-hidden lg:h-[650px]",
       className,
     )}
     {...props}
@@ -59,7 +59,7 @@ const GalleryLabel: FC<GalleryLabelProps> = ({
 }) => {
   return (
     <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
-      <div className="grid w-full grid-rows-2 bg-rwth-accent px-8 py-6 font-sans text-white lg:mb-6 lg:w-[750px] lg:grid-cols-[auto_1fr] lg:grid-rows-1">
+      <div className="bg-rwth-accent grid w-full grid-rows-2 px-8 py-6 font-sans text-white lg:mb-6 lg:w-[750px] lg:grid-cols-[auto_1fr] lg:grid-rows-1">
         <h2 className="pr-4 text-3xl font-medium lg:w-[300px]">{headline}</h2>
         <div className="grid">
           <p className="text-left text-sm font-normal">{children}</p>
@@ -110,7 +110,7 @@ const GalleryPrevArrow = (
     <div className="absolute grid h-full items-center justify-start">
       <button
         onClick={clickHandler}
-        className="relative z-10 bg-black/50 hover:bg-rwth-accent/100"
+        className="hover:bg-rwth-accent/100 relative z-10 bg-black/50"
         type="button"
         aria-label={label}
       >
@@ -135,10 +135,10 @@ const GalleryNextArrow = (
 ) => {
   if (!hasNext) return <></>;
   return (
-    <div className="absolute right-0 top-0 grid h-full items-center justify-end">
+    <div className="absolute top-0 right-0 grid h-full items-center justify-end">
       <button
         onClick={clickHandler}
-        className="relative z-10 bg-black/50 hover:bg-rwth-accent/100"
+        className="hover:bg-rwth-accent/100 relative z-10 bg-black/50"
         type="button"
         aria-label={label}
       >

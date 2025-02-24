@@ -8,6 +8,7 @@ tags: [PSP, ATmega 644]
 ---
 
 # Allgemeine Probleme
+
 - Pointer Arithmetik kann komplexer sein, als man denkt:
   - `((*uint32_t)ptr) + i == ptr + (i * sizeof(uint32_t))`
   - Nur weil anstelle von `arr[12]`, `12[arr]` auch valider Code ist, heißt es nicht, dass es gut ist!
@@ -21,6 +22,7 @@ tags: [PSP, ATmega 644]
   - Einen einfachen String an os_errorPSTR übergeben
 
 # Endlose Probleme (Hängt in Schleife)
+
 - Ist die Endbedingung ein Wert, den die Iterationsvariable nicht annhemen kann?
   - `for(uint8_t i = 0; i < 300; i++);`: i kann nie größer oder gleich 300 sein
   - `for(uint8_t i = 300; i >= 0; i--);`: i kann nie kleiner als 0 sein
@@ -29,6 +31,7 @@ tags: [PSP, ATmega 644]
   - Wird der Prozess im scheduler wieder auf ready gesetzt?
 
 # "`System error: soft reset`"
+
 - Wird unabsichtlich in den Registerbereich geschrieben?
   - schreiben in Adressen unter `0x100`
 - Wird der Stackpointer falsch gesetzt?
@@ -37,10 +40,12 @@ tags: [PSP, ATmega 644]
   - Ist `os_dispatcher` auf dem Stack oder wird immer noch das Programm selbst auf den Stack getan?
 
 # Versuch 2
+
 - Komisches Verhalten von Testtasks (Flackern, komische zeichen, delay geht nicht)
-  - Die Scheduler-ISR hat eine lokale variable, die vor dem ändern des Stack pointers den Prozessstack überschreibt (*selten*)
+  - Die Scheduler-ISR hat eine lokale variable, die vor dem ändern des Stack pointers den Prozessstack überschreibt (_selten_)
 
 # Versuch 4
+
 - Externe SRAM funktioniert irgendwie nicht
   - Ist das Externe SRAM Modul auch drauf gesteckt?
 - Externe SRAM geht immer noch nicht

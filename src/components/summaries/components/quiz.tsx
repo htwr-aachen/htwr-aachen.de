@@ -88,7 +88,7 @@ export default function ZitateQuiz({
             </span>
             <button
               onClick={() => reset()}
-              className="absolute right-4 rounded-md  bg-blue-900 px-2 py-1 transition-colors hover:bg-black lg:bottom-2"
+              className="absolute right-4 rounded-md bg-blue-900 px-2 py-1 transition-colors hover:bg-black lg:bottom-2"
             >
               Nochmal :D
             </button>

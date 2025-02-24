@@ -15,7 +15,7 @@ export default function SYSCOMNavbar() {
 
   return (
     <div className="pt-3">
-      <nav className="h-[210px] grid md:grid-cols-2 grid-cols-[30%_1fr] h-{200px} bg-white border-blue-500 border-4 rounded-2xl ml-{-2px} mr-{-2px} p-4">
+      <nav className="h-{200px} ml-{-2px} mr-{-2px} grid h-[210px] grid-cols-[30%_1fr] rounded-2xl border-4 border-blue-500 bg-white p-4 md:grid-cols-2">
         <div className="self-center justify-self-center">
           <FacultiesButton asChild>
             <button className="m-2 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300">

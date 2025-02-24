@@ -51,14 +51,14 @@ export default async function Page() {
   const panikzettel = await getData();
 
   return (
-    <div className={"w-screen "}>
+    <div className={"w-screen"}>
       <Alert className="mx-auto mt-12 w-4/6">
         <Info className="size-4" />
         <AlertTitle>Achtung! Fertig! Fork!</AlertTitle>
         <AlertDescription>
           Dies ist weiterhin ein Fork des nun ungepflegten Repositories von{" "}
           <a
-            className="no-b inline text-foreground underline"
+            className="no-b text-foreground inline underline"
             href="https://panikzettel.philworld.de"
           >
             philworld.de
@@ -97,13 +97,13 @@ export default async function Page() {
             <PanikzettelSelection
               title="Wahlpflichfächer"
               selection={panikzettel.filter(
-                (x) => x.type === COMPULSORY_ELECTIVE_SUBJECT
+                (x) => x.type === COMPULSORY_ELECTIVE_SUBJECT,
               )}
             />
             <PanikzettelSelection
               title="Anwendungsfächer"
               selection={panikzettel.filter(
-                (x) => x.type === APPLICATION_AREA_SUBJECT
+                (x) => x.type === APPLICATION_AREA_SUBJECT,
               )}
             />
           </PanikzettelPage>

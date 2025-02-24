@@ -20,7 +20,7 @@ export default function DesktopNavbar({
     <nav className="relative w-full">
       <FacultiesRow logo={config.logo}></FacultiesRow>
       <div
-        className="branding hidden border-black bg-rwth-branding lg:block"
+        className="branding bg-rwth-branding hidden border-black lg:block"
         role="banner"
       >
         <div className="mx-auto max-w-[980px]">
@@ -29,13 +29,13 @@ export default function DesktopNavbar({
               marginLeft: Math.min(toValue(config.logo.width, 224), 350),
               height: Math.min(toValue(config.logo.height, 110) - 40, 100),
             }}
-            className="block pl-5 pt-3 text-lg font-normal"
+            className="block pt-3 pl-5 text-lg font-normal"
           >
             {InstituteConfig[institute].name}
           </span>
         </div>
       </div>
-      <div className="nav-global hidden bg-rwth-branding lg:block">
+      <div className="nav-global bg-rwth-branding hidden lg:block">
         <div className="mx-auto w-full max-w-[980px]">
           <ul className="flex flex-row justify-end">
             {config.linkElements.map((linkElement, i) => {

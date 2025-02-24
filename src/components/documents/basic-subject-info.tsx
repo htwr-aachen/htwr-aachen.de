@@ -32,13 +32,13 @@ export function LinkCard({
     <a
       className={cn(
         props.className,
-        "no-b text-white bg-rwth-accent hover:bg-muted/75 p-6 rounded-xl w-60 min-h-56 block"
+        "no-b bg-rwth-accent hover:bg-muted/75 block min-h-56 w-60 rounded-xl p-6 text-white",
       )}
       {...props}
     >
       <Link className="mr-2 inline size-5" />
       <h3 className="inline-block text-2xl font-bold">{title}</h3>
-      <span className="block pb-4 text-sm text-muted-foreground">
+      <span className="text-muted-foreground block pb-4 text-sm">
         {description}
       </span>
       {children}
@@ -64,20 +64,20 @@ export default async function BasicSubjectInfo({
   children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>) {
   const panikzettel = (await getPanikzettelMetadata()).find(
-    (x) => x.shortname === subject || x.url.endsWith(`${subject}.pdf`)
+    (x) => x.shortname === subject || x.url.endsWith(`${subject}.pdf`),
   );
 
   const [hasMerge, mergeUrl, mergeMeta] = await hasDocument(
     subject,
-    "folien-merged.pdf"
+    "folien-merged.pdf",
   );
 
   return (
     <div
       {...props}
       className={cn(
-        "not-prose flex flex-wrap justify-center gap-6 my-6",
-        className
+        "not-prose my-6 flex flex-wrap justify-center gap-6",
+        className,
       )}
     >
       {hasMerge ? (

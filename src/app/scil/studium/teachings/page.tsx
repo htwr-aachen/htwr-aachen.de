@@ -20,7 +20,7 @@ export default async function Page() {
   const folien = await getAllDocsFromDir(
     join(process.cwd(), "public", "content-assets", "buk", "Folien"),
     "/content-assets/buk/Folien",
-    true
+    true,
   );
   return (
     <div>
@@ -88,7 +88,7 @@ export default async function Page() {
             </ul>
           </div>
           <div className="my-8 lg:col-span-2">
-            <h1 className="mb-2 mt-4 font-sans text-4xl">
+            <h1 className="mt-4 mb-2 font-sans text-4xl">
               Erklärungen in ihrem eigenen Stil
             </h1>
 

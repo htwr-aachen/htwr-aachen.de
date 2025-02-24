@@ -36,7 +36,7 @@ const Main = ({
         <BannerContent>
           <BlogBannerContent />
         </BannerContent>
-        <div className={cn("m-0 w-full bg-rwth-bg", addPadding && "py-12")}>
+        <div className={cn("bg-rwth-bg m-0 w-full", addPadding && "py-12")}>
           <div className={`mx-auto w-full ${!fullWidth && "max-w-[980px]"}`}>
             {children}
           </div>

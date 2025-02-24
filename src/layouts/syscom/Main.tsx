@@ -23,7 +23,7 @@ export function Main(props: SYSCOMSProps) {
       </div>
       <footer className="lg:py-20">
         <InstituteSwitches institute={props.institute} />
-        <div className=" z-50 text-center text-sm">
+        <div className="z-50 text-center text-sm">
           Dies ist (leider) nicht die echte ComSys-Lehrstuhl Webseite.{" "}
           <Link href={"/impressum"}>Impressum </Link> &{" "}
           <Link href={"/datenschutz"}>Datenschutz</Link>

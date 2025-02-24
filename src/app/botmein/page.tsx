@@ -29,7 +29,7 @@ const TutorialPage: FC<PageProps> = (props) => {
         onClick={() => {
           props.setPage(IntroQuery);
         }}
-        className="absolute left-1 top-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
+        className="absolute top-1 left-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
       >
         Zurück
       </button>
@@ -93,7 +93,7 @@ const AutomatPage: FC<PageProps> = (props) => {
         onClick={() => {
           props.setPage(IntroQuery);
         }}
-        className="absolute left-1 top-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
+        className="absolute top-1 left-1 rounded bg-gray-200 px-2 py-1 transition-transform hover:scale-105"
       >
         Zurück
       </button>

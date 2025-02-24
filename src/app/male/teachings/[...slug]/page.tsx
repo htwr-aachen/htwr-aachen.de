@@ -8,7 +8,9 @@ import { getArticle } from "@/lib/articles";
 const subject: Subjects = "male";
 const subjectConfig = SubjectConfig[subject];
 
-export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
+export default async function Page(props: {
+  params: Promise<{ slug: string[] }>;
+}) {
   const params = await props.params;
   return (
     <div>
@@ -28,11 +30,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ slug: string[] }>;
-  }
-): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>;
+}): Promise<Metadata> {
   const params = await props.params;
   const { meta, url } = await getArticle(params.slug, subjectConfig);
 

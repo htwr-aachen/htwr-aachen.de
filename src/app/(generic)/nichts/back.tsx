@@ -7,7 +7,7 @@ export function BackButton() {
   return (
     <div className="flex items-center justify-center">
       <button
-        className="rounded bg-rwth-warn px-6 py-3 transition-colors hover:bg-rwth-warn2"
+        className="bg-rwth-warn hover:bg-rwth-warn2 rounded px-6 py-3 transition-colors"
         type="button"
         onClick={() => router.back()}
       >

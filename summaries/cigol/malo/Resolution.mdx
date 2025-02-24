@@ -19,11 +19,11 @@ $\Box$ bezeichnet die leere Klausel.
 
 - Die leere Klauselmenge ist **erfüllbar**
 
-Nun bilden wir Resolventen $Res(K) := K \cup \{C \mid C$ 
+Nun bilden wir Resolventen $Res(K) := K \cup \{C \mid C$
 Resolvente zweier Klauseln aus K $\}$
 
-Eine Resolvente ist $\{X_1, X_2\}, \{\lnot X_1, \lnot X_2\}$ folgt 
-z.B. $\{X_1, \lnot X_1\}$ wir gucken also immer nach $X$ ist einer und $\lnot X$ 
+Eine Resolvente ist $\{X_1, X_2\}, \{\lnot X_1, \lnot X_2\}$ folgt
+z.B. $\{X_1, \lnot X_1\}$ wir gucken also immer nach $X$ ist einer und $\lnot X$
 in einer anderen Klausel.
 
 Dann gilt $Res^0(K) = K, \quad Res^{n+1} = Res(Res^n(K))
@@ -40,7 +40,7 @@ Damit ist das Klakül:
 
 ## Sequenzkalkül
 
-Eine Sequenz $\Gamma \implies \Delta$ gilt wenn **jedes** Modell von $\Gamma$ 
+Eine Sequenz $\Gamma \implies \Delta$ gilt wenn **jedes** Modell von $\Gamma$
 **eine** oder mehrere der Formeln aus $\Delta$ erfüllt.
 
 Also $\bigwedge \Gamma \models \bigvee \Delta$
@@ -53,19 +53,17 @@ Und nun **Schlussregeln** (kommen nicht zum Schluss das sind Axiome):
 ![Schlussregeln](/summary-assets/cigol/malo/assets/as_schlussregeln.png)
 
 Und dann kan man das wie folgt anwenden (wohlgemerkt es ist bottom up also von
- unten nach oben): 
+unten nach oben):
 
 ![Sequenzkalkül](/summary-assets/cigol/malo/assets/as_seqkalkül.png)
 
 Die letzten beiden sind nach kurzem überlegen trivialerweise Axiome.
 
 Doch wenn bei einer Ableitung etwa $X \implies Y$ und $Y \implies X$ kommt,
- bildet das Sequenzkalkül eine Falsifizierende Interpretation (nur bei AL)
+bildet das Sequenzkalkül eine Falsifizierende Interpretation (nur bei AL)
 
 Pippi Langstrumpf gefällt vor allem:
 
 - Seq. ist korrekt und vollständig
 
 ## Aufgaben für Pippi Langstrumpf
-
-

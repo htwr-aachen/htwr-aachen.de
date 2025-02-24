@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -180,7 +180,7 @@
     @apply leading-relaxed;
   }
   a {
-    @apply text-rwth-accent hover:underline underline-offset-4;
+    @apply text-rwth-accent underline-offset-4 hover:underline;
   }
   a.no-b {
     @apply hover:no-underline;
@@ -188,7 +188,7 @@
 }
 
 .shiki {
-  @apply rounded-3xl hover:rounded-2xl transition-all shadow-md shadow-black/50 my-4 py-4;
+  @apply my-4 rounded-3xl py-4 shadow-md shadow-black/50 transition-all hover:rounded-2xl;
 }
 
 .shiki > code {

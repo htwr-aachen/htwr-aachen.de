@@ -17,7 +17,7 @@ export function getSubject(name: string): Subject | null {
  */
 export function findAssociatedSubjects(
   institute: Institutes,
-  solely = false
+  solely = false,
 ): Subjects[] {
   // mir ist bewusst das diese Methode der reinste Tod ist aber naja.
   // Ich will
@@ -25,7 +25,7 @@ export function findAssociatedSubjects(
     .filter(([_key, val]) =>
       (val.institutes as readonly string[])
         .filter((x) => (solely ? x.length <= 1 : true))
-        .includes(institute)
+        .includes(institute),
     )
     .map(([key, _val]) => key) as Subjects[];
 }

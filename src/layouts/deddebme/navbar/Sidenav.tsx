@@ -20,7 +20,7 @@ export function DeddebmeSidenav(props: DeddebmeSidenavProps) {
       </ul>
       <div>
         <button
-          className="mt-10 border-2 border-rwth-accent px-2 font-bold text-rwth-accent"
+          className="border-rwth-accent text-rwth-accent mt-10 border-2 px-2 font-bold"
           onClick={() => {
             alert("Mach PSP weiter");
           }}

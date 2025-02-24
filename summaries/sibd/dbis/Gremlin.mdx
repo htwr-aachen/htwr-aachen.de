@@ -1,13 +1,10 @@
 ---
 title: Gremlin
-description:  
+description:
 author: Jonas Schneider
 date: 2/08/2023
 order: 9
-tags:
-  [
-    Gremlin
-  ]
+tags: [Gremlin]
 ---
 
 > Bei dem Namen brauch ich keine Witze mehr
@@ -23,16 +20,17 @@ Basics: Alle Knoten ausgegeben: `g.V().toList()`
 Alle Kanten ausgegeben: `g.E().toList()`
 
 Steps:
+
 - sideEffekt Steps:
   - addV(label): fügt einen Knoten mit Label hinzu
   - property(key, value): fügt eine Property hinzu
   - addE(label).from(V()).property(key, value): fügt eine Kante mit Label und property hinzu
   - drop: löscht `g.V(2).fold().unfold().drop().iterate()` löscht knoten mit id 2
-- filter Steps: 
+- filter Steps:
   - `V, E`: filtert nach Knoten oder Kanten
   - `hasLabel(label) `| `has("name", label)`: filtert nach Label oder Property
   - `and_` | `or_` | `not_`: logische Operatoren `g.V().and_(hasLabel("person"), has("name", "Söder"))`
-  - `range_(start, end) | limit(n) | tail(n)`: limitiert die Anzahl der Ergebnisse | limitiert die Anzahl der ersten n | letzten n  
+  - `range_(start, end) | limit(n) | tail(n)`: limitiert die Anzahl der Ergebnisse | limitiert die Anzahl der ersten n | letzten n
 - flatMap Steps:
   - `out(label) | in(label) | both(label)`: gibt alle Knoten aus, die von Knoten ausgehen über Kante mit label (optional) | eingehen | ausgehen und eingehen
   - `outE(label) | inE(label) | bothE(label)`: gibt alle Kanten aus, die von Knoten ausgehen mit label(optional) | eingehen | ausgehen und eingehen
@@ -43,7 +41,7 @@ Steps:
   - `count()`: gibt die Anzahl der Ergebnisse aus
   - `min_() | max_() | mean() | sum_()`: gibt das Minimum | Maximum | Durchschnitt | Summe aus
   - `group, by(label)`: gruppiert die Ergebnisse nach label
-  - `fold | unfold`: sammelt die Ergebnisse in einer Liste aber ohne Traversal zu beenden | entpackt die Liste 
+  - `fold | unfold`: sammelt die Ergebnisse in einer Liste aber ohne Traversal zu beenden | entpackt die Liste
   - `order()`: sortiert die Ergebnisse aufsteigend lässt sich mit `by(label*, desc)` absteigend sortieren
   - `path()`: gibt den Pfad des Traversals aus. `g.V().out().out().values("name").path().toList() => [path[v[1], v[3], "Markus"], path[v[1], v[4], "Söder"]]`
   - `select | as_(label)` : wählt die Ergebnisse aus. `g.V().as_("a").out().as_("b").select("a", "b").toList() => [{a: v[1], b:v[3]}, { a: v[1], b: v[4]}]`
@@ -51,15 +49,15 @@ Steps:
   - `choose(Bedingung, trueTraversal, falseTraversal)`: führt je nachdem ob `Bedingung` true oder false ist den trueTraversal oder falseTraversal aus
   - `union`: führt mehrere Traversals aus / zusammen logischer weise
   - `repeat(Traversal), times(n) | until(Bedingung) repeat(Traversal)`: wiederholt das Traversal n mal | bis die Bedingung erfüllt ist Bsp: `g.V().repeat(out()).until(has("name", "Söder")).path().toList() => [path[v[1], v[3], "Markus"], path[v[1], v[4], "Söder"]]`
-  - 
+  -
 
 Terminal Steps:
+
 - toList(): Liste mit allen Elementen
 - toSet(): Menge mit allen Elementen
 - next(): das erste Ergebnis des Traversals: `g.V().next()` gibt den ersten Knoten zurück.
 - next(n): ersten n Ergbnisse
 - hasNext(): guckt ob es ergbnisse gibt
 - iterate(): führt das Traversal aus, gibt aber nichts zurück
-
 
 ![Gremlin](https://media.tenor.com/P6SnJsQZd-oAAAAC/gremlins-poster.gif)

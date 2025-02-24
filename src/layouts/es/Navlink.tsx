@@ -112,7 +112,7 @@ const Navlink: FC<NavlinkProps> = ({
                   <Link
                     href={link.href}
                     style={{ textDecoration: "none !important" }}
-                    className=" px-10 text-black no-underline transition-colors hover:text-blue-400"
+                    className="px-10 text-black no-underline transition-colors hover:text-blue-400"
                   >
                     {link.name}
                   </Link>

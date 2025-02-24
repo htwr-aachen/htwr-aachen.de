@@ -4,10 +4,18 @@ order: 8
 description: Faktorstrukturen, Herbrand Strukturen und der Vollständigkeitssatz. Da muss der große Blaue wohl helfen
 author: Jonas Schneider
 date: 17/08/2023
-tags: [FO-Sequenzkalkül, Vollständigkeitssatz, Kompaktheitssatz, Faktorstrukturen, Herbrand-Strukturen]
+tags:
+  [
+    FO-Sequenzkalkül,
+    Vollständigkeitssatz,
+    Kompaktheitssatz,
+    Faktorstrukturen,
+    Herbrand-Strukturen,
+  ]
 ---
 
 ## Sequenzkalkül
+
 Also ähnlich wie das Sequenzkalkül der AL nur mehr.
 
 Problem: freie Variablen die gabs in der AL ja nicht. Wir ersetzten alle freie Variablen durch "Konstanten" also aus $\psi(x_1, ..., x_n)$ wird zu $\psi(c_1, ... c_n)$
@@ -34,11 +42,11 @@ Eine Satzmenge $\Phi$ wo jeder Satz aus der Signatur ableitbar ist, heißt **ink
 
 Jetzt wirds blöde: Vollständigkeitssatz
 
-> $\Phi \models \psi$ gdw. $\Phi \vdash \psi$. <br/>
-> $\Phi$ ist genau dann konsistent, wenn $\Phi$ erfüllbar ist.
-## Kanonische Modelle und Herbrand 
+> $\Phi \models \psi$ gdw. $\Phi \vdash \psi$. <br/> > $\Phi$ ist genau dann konsistent, wenn $\Phi$ erfüllbar ist.
 
-Herbrand-Strukturen sind bissle irritierend. Sie besitzten genau die Elemente der Terme der Signatur. Vergesst also die Bedeutung hinter den Zeichen. 
+## Kanonische Modelle und Herbrand
+
+Herbrand-Strukturen sind bissle irritierend. Sie besitzten genau die Elemente der Terme der Signatur. Vergesst also die Bedeutung hinter den Zeichen.
 
 Genauer: Eine Herbrand-Struktur zu der Signatur $\tau$ (die min. ein Konstantensymbol erhält) ist eine $\tau$-Struktur $\mathfrak{H}$
 Was ist im Universum drin: Alle Symbole (Grundterme) also für $\tau = \{+, 1\}$ z.B. $\{1, +\}$
@@ -88,6 +96,7 @@ Wir müssen aber trotzdem noch Sachen zu $\Sigma$ hinzufügen damit das Problem 
 Hierfür
 
 > Eine Menge $\Sigma$ ist unter Substitution abgeschlossen, wenn für jede Formel $\psi(x)$ und jede Grundterme $t, t'$ gilt: <br/>
+>
 > 1. $\Sigma$ entählt $t=t$ <br/>
 > 2. Wenn $t=t'$ und $\psi(t) \in \Sigma$ dann auch $\psi(t') \in Sigma$
 
@@ -99,7 +108,7 @@ Dann nehmen wir die Faktorstruktur von der Herbrand-Struktur mit der Äquivalenz
 
 $\mathfrak{A}(\Sigma) := \mathfrak{H}(\Sigma) / \sim$
 
-Das heißt dann das  **kanonische Modell**
+Das heißt dann das **kanonische Modell**
 
 > Für jeden **atomaren** Satz $\psi \in FO(\tau)$ gilt: $\mathfrak{A}(\Sigma) \models \psi$ gdw. $\psi \in \Sigma$
 
@@ -113,20 +122,19 @@ Jetzt aber weiter zu den wichtigsten Sätzen der Vorlesung:
 
 Kompaktheitssatz der Prädikatenlogik:
 
-> $\Phi$ ist erfüllbar gdw. jede endliche Teilmenge von $\Phi$ erfüllbar ist. <br/>
-> $\Phi \models \psi$ gdw. eine endliche Teilmenge $\Phi_0 \subseteq \Phi$ mit $\Phi_0 \models \psi$ existiert.
+> $\Phi$ ist erfüllbar gdw. jede endliche Teilmenge von $\Phi$ erfüllbar ist. <br/> > $\Phi \models \psi$ gdw. eine endliche Teilmenge $\Phi_0 \subseteq \Phi$ mit $\Phi_0 \models \psi$ existiert.
 
 Und der zweite Löwenheim-Skolem:
 
 > LS $\uparrow$: Sei $\Phi \subseteq FO(\tau)$ <br/>
+>
 > 1. $\Phi$ besitzt beliebig große Elemente (also für jedes $n \in \mathbb{N}$ ex. $\mathfrak{A}$ mit $|\mathfrak{A}| = n$). Dann hat $\Phi$ auch ein unendlich großes Modell. <br/>
 > 2. Wenn $\Phi$ ein unendlich großes Modell besitzt. Dann gibt es zu jeder Menge $M$ ein Modell $\mathfrak{D} \models \Phi$ mit einem Universum das min. genauso Mächtig ist wie $M$.
 
 Zudem:
 
 > Sei $\mathfrak{A}$ eine unendliche Struktur. Dann gibt es ein $\mathfrak{B}$ mit $\mathfrak{A} \equiv \mathfrak{B}$, aber
->  $\mathfrak{A} \not\cong \mathfrak{B}$
-
+> $\mathfrak{A} \not\cong \mathfrak{B}$
 
 ## Nichtstandard-Modelle
 
@@ -134,5 +142,3 @@ Ein Nichtstandard-Modell ist elementar äquivalent, aber nicht isomorph. Dank Sk
 Es gibt ein abzählbares Nichtstandard-Modell der Arithmetik $\mathfrak{N} = (\mathbb{N}, +, \cdot, 0, 1)$
 
 Außer dem PCP ist die Prädikatenlogik damit durch.
-
-

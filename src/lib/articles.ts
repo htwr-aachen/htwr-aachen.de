@@ -38,7 +38,7 @@ export type ArticleContent = Pick<Article, "meta" | "slug" | "url" | "content">;
  */
 export async function getSurroundingArticles(
   slug: string[],
-  corpusConfig: CorpusConfig
+  corpusConfig: CorpusConfig,
 ): Promise<{ prev: ArticleMeta | undefined; next: ArticleMeta | undefined }> {
   const articles = await getArticlesMetadata(corpusConfig);
 
@@ -65,13 +65,13 @@ export async function getSurroundingArticles(
  */
 async function _getArticle(
   slug: string[],
-  corpusConfig: CorpusConfig
+  corpusConfig: CorpusConfig,
 ): Promise<Article> {
   const decodedSlug = slug.map((x) => decodeURIComponent(x));
 
   const { prev, next } = await getSurroundingArticles(
     decodedSlug,
-    corpusConfig
+    corpusConfig,
   );
 
   const stripedSlug = decodedSlug.join(path.sep).replace(/\.mdx\/$/, "");
@@ -92,7 +92,7 @@ async function _getArticle(
         .join(path.sep),
       path.basename(fp),
       corpusConfig,
-      stats
+      stats,
     );
     frontMatter.meta.images = getImages(parsedMatter.content);
 

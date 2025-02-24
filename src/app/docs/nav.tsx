@@ -24,14 +24,14 @@ export const DocsNav = (
             <li className="row-span-3">
               <NavigationMenuLink asChild>
                 <Link
-                  className="no-b flex size-full select-none flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden focus:shadow-md"
+                  className="no-b from-muted/50 to-muted flex size-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
                   href="/docs"
                 >
                   <HTWRIcon height={20} />
-                  <div className="mb-2 mt-4 text-lg font-medium">
+                  <div className="mt-4 mb-2 text-lg font-medium">
                     Introduction
                   </div>
-                  <p className="text-sm leading-tight text-muted-foreground">
+                  <p className="text-muted-foreground text-sm leading-tight">
                     Wie funktioniert HTWR? Wie kann ich es erweitern?
                   </p>
                 </Link>

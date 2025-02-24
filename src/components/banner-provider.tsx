@@ -32,7 +32,7 @@ export function BannerContent({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex h-24 flex-col items-center justify-center bg-rwth-warn lg:h-12 lg:flex-row xl:relative">
+    <div className="bg-rwth-warn flex h-24 flex-col items-center justify-center lg:h-12 lg:flex-row xl:relative">
       <div className="text-lg font-medium">{children}</div>
       <button
         className="min-h-10 bg-white/40 px-4 py-2 hover:bg-white/60 lg:h-4/5 xl:absolute xl:right-10"
@@ -77,7 +77,7 @@ export function BannerNotifyProvider({ children }: { children: ReactNode }) {
           PushNotifyName,
           JSON.stringify({
             time: new Date().toISOString(),
-          })
+          }),
         );
       } else {
         window.localStorage.removeItem(PushNotifyName);

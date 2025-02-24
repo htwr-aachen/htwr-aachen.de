@@ -33,7 +33,7 @@ export default function SkewedPanikzettelFrontpage({
             transformOrigin: "50% 15%",
             translateY: useTransform(scrollY, [0, FIXPOINT], ["-5%", "0%"]),
           }}
-          className={cn("z-0 drop-shadow-glow")}
+          className={cn("drop-shadow-glow z-0")}
         >
           <PanikzettelPageAnim>{children}</PanikzettelPageAnim>
         </motion.div>

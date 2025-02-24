@@ -12,10 +12,10 @@ export default function SummaryLayout(
     subjectConfig: Subject;
     next?: ArticleMeta;
     prev?: ArticleMeta;
-  } & HTMLAttributes<HTMLDivElement>
+  } & HTMLAttributes<HTMLDivElement>,
 ) {
   return (
-    (<article className="markdown line-numbers">
+    <article className="markdown line-numbers">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -60,6 +60,6 @@ export default function SummaryLayout(
           <></>
         )}
       </div>
-    </article>)
+    </article>
   );
 }

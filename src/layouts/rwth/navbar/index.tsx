@@ -21,14 +21,14 @@ export default function Navbar({
         <FacultiesRow logo={config.logo}></FacultiesRow>
         <MobileSidenav config={config} />
       </Sheet>
-      <div className="hidden bg-rwth-branding lg:block">
+      <div className="bg-rwth-branding hidden lg:block">
         <div className="mx-auto max-w-[980px]">
           <span
             style={{
               marginLeft: Math.min(toValue(config.logo.width, 224), 350),
               height: Math.min(toValue(config.logo.height, 110) - 40, 100),
             }}
-            className="block pl-5 pt-3 text-lg font-normal"
+            className="block pt-3 pl-5 text-lg font-normal"
           >
             {instituteConfig?.displayName ||
               instituteConfig?.fullName ||
@@ -36,7 +36,7 @@ export default function Navbar({
           </span>
         </div>
       </div>
-      <div className="nav-global hidden bg-rwth-branding lg:block">
+      <div className="nav-global bg-rwth-branding hidden lg:block">
         <div className="mx-auto w-full max-w-[980px]">
           <ul className="flex flex-row justify-end">
             {config.linkElements.map((linkElement, i) => {

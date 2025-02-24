@@ -29,7 +29,7 @@ export const FacultiesNavLink = (props: FacultiesNavLinkProps) => {
         data-tooltip-place={props.tooltipPlace}
         href={props.href}
         passHref
-        className="m-0  grid size-full grid-cols-[auto_1fr_auto] items-center px-4 py-2 text-sm font-medium text-white hover:border-b-0 hover:bg-white/10 lg:px-0"
+        className="m-0 grid size-full grid-cols-[auto_1fr_auto] items-center px-4 py-2 text-sm font-medium text-white hover:border-b-0 hover:bg-white/10 lg:px-0"
       >
         <div className="ml-2 block">
           <InternalLinkIcon className="mr-2 inline size-[13px]" />
@@ -41,7 +41,7 @@ export const FacultiesNavLink = (props: FacultiesNavLinkProps) => {
           )}
         </div>
 
-        <ChevronRight className="ml-auto mr-3 size-[13px] md:hidden" />
+        <ChevronRight className="mr-3 ml-auto size-[13px] md:hidden" />
       </Link>
     </li>
   );

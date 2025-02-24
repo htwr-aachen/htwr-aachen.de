@@ -18,7 +18,7 @@ export async function DocumentList({
   const collection = await includeLocalDocuments(
     path,
     urlJoin("/content-assets", path),
-    true
+    true,
   );
   return <BaseDocumentList docs={collection} {...props}></BaseDocumentList>;
 }

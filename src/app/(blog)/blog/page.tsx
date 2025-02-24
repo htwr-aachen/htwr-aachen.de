@@ -21,11 +21,11 @@ export default async function Page() {
           return (
             <li key={blog.meta.title}>
               <Link href={blog.url} className="text-muted-foreground">
-                <div className="my-6 grid w-full grid-cols-[1fr_auto] rounded-lg bg-muted px-6 py-4 text-lg text-muted-foreground">
-                  <h2 className="text-xl font-medium text-foreground">
+                <div className="bg-muted text-muted-foreground my-6 grid w-full grid-cols-[1fr_auto] rounded-lg px-6 py-4 text-lg">
+                  <h2 className="text-foreground text-xl font-medium">
                     {blog.meta.fullTitle || blog.meta.title}
                   </h2>
-                  <span className="no-b ml-auto mr-0">
+                  <span className="no-b mr-0 ml-auto">
                     {format(new Date(blog.meta.date), "dd.MM.yyyy")}
                   </span>
                 </div>

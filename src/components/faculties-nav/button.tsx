@@ -25,7 +25,7 @@ export function FacultiesButton({ asChild, ...props }: ButtonProps) {
         hasCloseButton={false}
         title="Fakultätsübersicht"
         side="top"
-        className="p-0 max-lg:inset-y-0 max-lg:right-0 max-lg:h-full  max-lg:w-[300px] max-lg:border-l max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right lg:inset-x-0 lg:top-0 lg:border-b lg:data-[state=closed]:slide-out-to-top lg:data-[state=open]:slide-in-from-top"
+        className="max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right lg:data-[state=closed]:slide-out-to-top lg:data-[state=open]:slide-in-from-top p-0 max-lg:inset-y-0 max-lg:right-0 max-lg:h-full max-lg:w-[300px] max-lg:border-l lg:inset-x-0 lg:top-0 lg:border-b"
       >
         <VisuallyHidden>
           <SheetTitle>Fakultätsübersicht</SheetTitle>

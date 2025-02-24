@@ -25,7 +25,7 @@ export default function DeddebmeLayout({
       <div className="mx-auto grid max-w-6xl antialiased md:grid-cols-[auto_1fr]">
         <DeddebmeSidenav config={navbar} />
 
-        <div className="px-5 ">{children}</div>
+        <div className="px-5">{children}</div>
       </div>
       <InstituteSwitches institute={institute} />
     </div>

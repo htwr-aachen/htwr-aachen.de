@@ -30,7 +30,7 @@ export const ProtectedDownloadFlow: FC = () => {
         {
           method: "GET",
           redirect: "follow",
-        }
+        },
       );
 
       if (res.ok) {
@@ -82,7 +82,7 @@ export const ProtectedDownloadFlow: FC = () => {
           <input
             id="captcha"
             type="checkbox"
-            className="size-4 rounded border-gray-300 bg-gray-100 text-rwth-accent checked:bg-blue-600 checked:ring-rwth-accent focus:ring-rwth-branding"
+            className="text-rwth-accent checked:ring-rwth-accent focus:ring-rwth-branding size-4 rounded border-gray-300 bg-gray-100 checked:bg-blue-600"
             onChange={(i) => {
               setIsCaptchaChecked(i.target.checked);
             }}
@@ -96,7 +96,7 @@ export const ProtectedDownloadFlow: FC = () => {
         </div>
       )}
       {stage === 1 && (
-        <div className="mb-24 mt-12 flex flex-col items-center">
+        <div className="mt-12 mb-24 flex flex-col items-center">
           <div className="my-6 text-center">
             <h2 className="mb-2 text-xl">
               Das Password muss jeder Student kennen.
@@ -127,7 +127,7 @@ export const ProtectedDownloadFlow: FC = () => {
         </div>
       )}
       <button
-        className="w-fit rounded bg-rwth-accent  px-16 py-2 text-rwth-branding"
+        className="bg-rwth-accent text-rwth-branding w-fit rounded px-16 py-2"
         onClick={() => {
           onClick();
         }}

@@ -32,7 +32,7 @@ export default async function SummaryList(props: SummaryListProps) {
                 {summary.meta.tags?.map((tag) => {
                   return (
                     <li key={tag}>
-                      <span className="mr-1 whitespace-nowrap rounded-md bg-secondary px-1 py-[2px] text-sm text-secondary-foreground opacity-50">
+                      <span className="bg-secondary text-secondary-foreground mr-1 rounded-md px-1 py-[2px] text-sm whitespace-nowrap opacity-50">
                         {tag}
                       </span>
                     </li>

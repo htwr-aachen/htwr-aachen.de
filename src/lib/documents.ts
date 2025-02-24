@@ -25,7 +25,7 @@ export type Document = {
 function documentFromDirent(
   dirent: Dirent,
   normalizedParentPath: string[],
-  config: { prefix: string; sort: boolean }
+  config: { prefix: string; sort: boolean },
 ): Document {
   return {
     url: urlJoin(config.prefix, ...normalizedParentPath, dirent.name),
@@ -40,7 +40,7 @@ const sorter = natsort({ insensitive: true });
 async function documentCollectionFromDir(
   path: string,
   config: { prefix: string; sort: boolean },
-  normalizedPath: string[] = []
+  normalizedPath: string[] = [],
 ): Promise<DocumentCollection> {
   try {
     const dirents = await readdir(path, {
@@ -65,7 +65,7 @@ async function documentCollectionFromDir(
           const category = await documentCollectionFromDir(
             join(path, dirent.name),
             config,
-            [...normalizedPath, dirent.name]
+            [...normalizedPath, dirent.name],
           );
 
           (await accumulatorPromise).categories.push(category);
@@ -74,7 +74,7 @@ async function documentCollectionFromDir(
 
         return accumulatorPromise;
       },
-      Promise.resolve(empty)
+      Promise.resolve(empty),
     );
     result.documents.sort((a, b) => sorter(a.name, b.name));
     result.name = normalizedPath.at(-1) || "";
@@ -92,7 +92,7 @@ async function documentCollectionFromDir(
 export async function includeLocalDocuments(
   path: string,
   urlPrefix?: string,
-  sorted = true
+  sorted = true,
 ): Promise<DocumentCollection> {
   // overwrite
   path = join(process.cwd(), "public", "content-assets", path);
@@ -109,13 +109,13 @@ export async function includeLocalDocuments(
  */
 export async function hasDocument(
   subject: Subjects,
-  relPath: string
+  relPath: string,
 ): Promise<[boolean, string, Stats | undefined]> {
   const path = join(SubjectConfig[subject].documentsPath, relPath);
   const url = urlJoin(
     "/content-assets",
     subject,
-    relPath.replaceAll(/\\/g, "/")
+    relPath.replaceAll(/\\/g, "/"),
   );
   try {
     const stats = await stat(path);
@@ -130,7 +130,7 @@ export async function hasDocument(
 export async function getAllDocsFromDir(
   dir: string,
   urlPrefix: string,
-  replaceWords = true
+  replaceWords = true,
 ): Promise<Document[]> {
   try {
     let docs: Document[] = [];
