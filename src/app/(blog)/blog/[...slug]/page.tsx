@@ -13,7 +13,8 @@ import { mdxOptions } from "@/lib/markdown";
 
 import { blogArticleConfig } from "../config";
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
+  const params = await props.params;
   const blog = await getArticle(params.slug, blogArticleConfig);
   return (
     <div>
@@ -50,11 +51,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug: string[] }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const { meta, url } = await getArticle(params.slug, blogArticleConfig);
 
   return {

@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-import { type FC, type ReactChild, type ReactNode, forwardRef } from "react";
+import { type FC, type ReactElement, type ReactNode, forwardRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import { cn } from "@/lib/utils";
@@ -158,20 +158,20 @@ const GalleryNextArrow = (
 
 const Gallery: FC<GalleryProps> = ({ children }) => {
   return (
-    <Carousel
-      renderArrowPrev={GalleryPrevArrow}
-      renderArrowNext={GalleryNextArrow}
-      infiniteLoop
-      className="w-full"
-      showIndicators={false}
-      swipeable={true}
-      autoPlay
-      interval={5000}
-      showThumbs={false}
-      dynamicHeight={false}
-    >
-      {children as ReactChild[]}
-    </Carousel>
+    (<Carousel
+        renderArrowPrev={GalleryPrevArrow}
+        renderArrowNext={GalleryNextArrow}
+        infiniteLoop
+        className="w-full"
+        showIndicators={false}
+        swipeable={true}
+        autoPlay
+        interval={5000}
+        showThumbs={false}
+        dynamicHeight={false}
+      >
+      {children as (ReactElement<any> | number | string)[]}
+    </Carousel>)
   );
 };
 

@@ -18,7 +18,7 @@ type NavlinkProps = {
   dropdownCallback?: (dropdownNumer: number) => void;
 };
 
-function useOutsideAlerter(ref: RefObject<HTMLElement>, callback: () => void) {
+function useOutsideAlerter(ref: RefObject<HTMLElement | null>, callback: () => void) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
