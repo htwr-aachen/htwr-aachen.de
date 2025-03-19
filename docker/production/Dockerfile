@@ -10,7 +10,7 @@ WORKDIR /app
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
-  corepack enable pnpm && pnpm install sharp && pnpm i 
+	corepack enable pnpm && pnpm install sharp && pnpm i 
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
@@ -42,6 +42,6 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+ENV HOSTNAME="::"
 
 CMD ["node", "server.js"]
