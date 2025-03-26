@@ -7,8 +7,6 @@ jobs:
   build-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
       - name: Docker Metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -31,11 +29,9 @@ jobs:
       - name: Build & Push
         uses: docker/build-push-action@v6
         with:
-          context: .
           push: "${{ github.event_name != 'pull_request'}}"
           tags: "${{ steps.meta.outputs.tags }}"
           labels: "${{ steps.meta.outputs.labels}}"
-          file: "docker/production/Dockerfile"
           platforms: linux/amd64,linux/arm64
     # - name: Deployment Hook
     #   uses: distributhor/workflow-webhook@v3
