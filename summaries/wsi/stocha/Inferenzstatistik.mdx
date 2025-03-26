@@ -38,10 +38,10 @@ Eine **Statistik** ist eine messbare Abbildung $T: \mathbb{R}^n \rightarrow \mat
 
 Wenn $T$ in den Parameterraum $\Theta$ abbildet, heißt sie **Schätzer**.
 
-Die **empirische Verteilungsfunktion** ist wie bereits gesagt: $\~{F}_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}_{(-\infty, x]}(X_i)$. Das ist einfach eine tolle Schreibweise um zu sagen:
+Die **empirische Verteilungsfunktion** ist wie bereits gesagt: $\tilde{F}_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}_{(-\infty, x]}(X_i)$. Das ist einfach eine tolle Schreibweise um zu sagen:
 Gegeben ein Wert $x$, wie viele Datewerte sind kleiner oder gleich $x$. Es ist einfach zählen, die Anzahl dann noch relativ zu Gesamtdatenmenge und fertig.
 
-Es gilt: $E(\~{F}_n(x)) = P(X_i \le x) = F(x), Var(\~{F}_n(x)) = \frac{F(x)(1-F(x))}{n}$. Zudem konvergiert $\~{F}_n(x)$ immer gegen $F(x)$.
+Es gilt: $E(\tilde{F}_n(x)) = P(X_i \le x) = F(x), Var(\tilde{F}_n(x)) = \frac{F(x)(1-F(x))}{n}$. Zudem konvergiert $\tilde{F}_n(x)$ immer gegen $F(x)$.
 
 ### Likelihood-Prinzip und Funktionen
 
