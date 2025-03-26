@@ -107,13 +107,13 @@ export async function getArticlesMetadata(
 
     metas = await Promise.all(
       files.map(async (file) => {
-        const fullFilePath = join(file.path, file.name);
+        const fullFilePath = join(file.parentPath, file.name);
         const content = await readFile(fullFilePath, "utf-8");
         const stats = await stat(fullFilePath);
 
         return parseFrontmatter(
           matter(content),
-          file.path,
+          file.parentPath,
           file.name,
           corpusConfig,
           stats,
