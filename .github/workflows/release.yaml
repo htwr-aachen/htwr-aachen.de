@@ -37,8 +37,6 @@ jobs:
           labels: "${{ steps.meta.outputs.labels}}"
           file: "docker/production/Dockerfile"
           platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
     # - name: Deployment Hook
     #   uses: distributhor/workflow-webhook@v3
     #   with:
