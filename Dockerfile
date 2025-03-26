@@ -1,27 +1,28 @@
 FROM --platform=$BUILDPLATFORM node:23-alpine AS base
 
-FROM base AS deps
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+FROM base AS builder
 
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml* ./
-RUN \
-	corepack enable pnpm && pnpm install sharp && pnpm i 
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# 2. Rebuild the source code only when needed
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+RUN pnpm install --frozen-lockfile
+
 COPY . .
 
-RUN npm run build
+RUN pnpm run build
 
 # 3. Production image, copy all the files and run next
 FROM base AS runner
-WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
 
 ENV NODE_ENV=production
 
@@ -29,13 +30,13 @@ RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 USER nextjs
 
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone /app/standalone
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static /app/standalone/.next/static
+COPY --from=builder /app/public /app/standalone/public
 
 EXPOSE 3000
 
 ENV PORT=3000
 ENV HOSTNAME="::"
 
-CMD ["node", "server.js"]
+CMD ["node", "/app/standalone/server.js"]

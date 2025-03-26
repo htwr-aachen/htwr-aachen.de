@@ -17,8 +17,8 @@ const Footer: FC<FooterProps> = ({ institute }) => {
     <footer className="inset-x-0 mx-auto h-[220px] w-full border-t-1 bg-[#333] py-12 text-white lg:max-w-(--breakpoint-xl)">
       <InstituteSwitches institute={institute} />
       <div className="py-12 text-center">
-        <Link href={"/updates"} className="text-white hover:border-b-1">
-          Updates
+        <Link href={"/blog"} className="text-white hover:border-b-1">
+          Blog
         </Link>
         {" & "}
         <button
