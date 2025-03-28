@@ -2,25 +2,26 @@
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import type { ImageProps } from "next/image";
-import Image from "next/image";
 import Link from "next/link";
 import { type FC, type ReactElement, type ReactNode, forwardRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import { cn } from "@/lib/utils";
+import ExportedImage, { ExportedImageProps } from "next-image-export-optimizer";
+import ArrowPrev from "@/public/assets/rwth/ArrowPrev.svg";
+import ArrowNext from "@/public/assets/rwth/ArrowNext.svg";
 
-function GalleryImage(props: ImageProps) {
+function GalleryImage(props: ExportedImageProps) {
   return (
     <div className="relative h-full w-auto overflow-hidden">
-      <Image
+      <ExportedImage
         {...props}
         className={cn(
           "absolute top-1/2 left-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
           props.className,
         )}
         alt={props.alt}
-      ></Image>
+      ></ExportedImage>
     </div>
   );
 }
@@ -115,11 +116,9 @@ const GalleryPrevArrow = (
         aria-label={label}
       >
         <div className="relative p-4">
-          <Image
-            src={"/assets/rwth/ArrowPrev.svg"}
-            alt="Arrow Next"
-            width={50}
-            height={50}
+          <ExportedImage
+            src={ArrowPrev}
+            alt="arrow left"
             className="h-[45px] w-45 lg:size-[75px]"
           />
         </div>
@@ -143,11 +142,9 @@ const GalleryNextArrow = (
         aria-label={label}
       >
         <div className="relative p-4">
-          <Image
-            src={"/assets/rwth/ArrowNext.svg"}
-            alt="Arrow Next"
-            width={50}
-            height={50}
+          <ExportedImage
+            src={ArrowNext}
+            alt="arrow right"
             className="h-[45px] w-45 lg:size-[75px]"
           />
         </div>

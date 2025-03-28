@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,12 +24,12 @@ export default function Page() {
             src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJpamF3aWF0MjJlbXozbDVxczI1YXpuZmw4MTM1OWZ6djhzd202NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dSetRSJcR3PGqkvjRg/giphy.gif"
             alt="wow gif"
           />
-          <Image
+          <ExportedImage
             src="/assets/syscom/wehrle.jpg"
             width={150}
             height={150}
             alt={"Prof. Dr.-Ing. Klaus Wehrle"}
-          ></Image>
+          />
           <span className="text-xs">
             Credit ©{" "}
             <Link href="https://www.comsys.rwth-aachen.de/team/klaus-wehrle">

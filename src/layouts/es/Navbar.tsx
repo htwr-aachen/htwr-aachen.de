@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 import { FacultiesButton } from "@/components/faculties-nav/button";
 
 import Navlink from "./Navlink";
+import ExportedImage from "next-image-export-optimizer";
+import MenuOpen from "@/public/assets/menu.svg";
+import MenuClose from "@/public/assets/close.svg";
 
 export default function ESNavbar() {
   const [navOpen, setNavOpen] = useState(false);
@@ -27,7 +29,7 @@ export default function ESNavbar() {
           Fakultäten & Institute
         </FacultiesButton>
         <Link href={"/es"}>
-          <Image
+          <ExportedImage
             src={"/assets/es/es.png"}
             width={276}
             height={70}
@@ -45,19 +47,17 @@ export default function ESNavbar() {
         }}
       >
         {!navOpen ? (
-          <Image
-            src={"/assets/menu.svg"}
-            height={32}
-            width={32}
+          <ExportedImage
+            src={MenuOpen}
             alt={"Open Navbar"}
-          ></Image>
+            className="size-8"
+          />
         ) : (
-          <Image
-            src={"/assets/close.svg"}
-            height={32}
-            width={32}
+          <ExportedImage
+            src={MenuClose}
             alt={"Close Navbar"}
-          ></Image>
+            className="size-8"
+          />
         )}
       </button>
       <div className="col-span-2 mr-2 flex justify-center justify-self-end lg:col-span-1 lg:mr-auto lg:block lg:justify-start">

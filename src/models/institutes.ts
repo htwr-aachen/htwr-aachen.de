@@ -5,7 +5,7 @@ export type Institute = {
   professor: string;
   fullName: string;
   href: string;
-  icon?: string;
+  icon: string;
   banner?: string;
   description?: string;
   displayName?: string;

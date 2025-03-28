@@ -1,8 +1,8 @@
-import type { ImageProps } from "next/image";
 import type { LinkProps } from "next/link";
 import type { ReactNode } from "react";
 
 import type { Institutes } from "@/config/institutes";
+import { ExportedImageProps } from "next-image-export-optimizer";
 
 export type InstituteLink = {
   name?: string;
@@ -28,7 +28,7 @@ export type NavbarLogo = {
   href: string;
   width?: number | `${number}` | undefined;
   height?: number | `${number}` | undefined;
-} & Omit<ImageProps, "ref" | "width" | "height">;
+} & Omit<ExportedImageProps, "ref" | "width" | "height">;
 
 export type NavbarConfig = {
   linkElements: LinkElement[];

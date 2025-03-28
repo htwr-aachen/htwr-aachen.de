@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,6 +7,7 @@ import { FacultiesButton } from "@/components/faculties-nav/button";
 import { useInstituteActive } from "@/hooks/layout";
 
 import { MenuButton } from "./MenuButton";
+import ExportedImage from "next-image-export-optimizer";
 
 export default function SYSCOMNavbar() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ export default function SYSCOMNavbar() {
             </button>
           </FacultiesButton>
           <Link href="/syscom" className="no-b">
-            <Image
+            <ExportedImage
               src={"/assets/syscom/syscom.png"}
               width={366}
               height={118}
@@ -39,7 +39,7 @@ export default function SYSCOMNavbar() {
               className="no-b asd"
               title="Zurück zur HTWR Hauptseite"
             >
-              <Image
+              <ExportedImage
                 src={"/assets/rwth/htwr.png"}
                 width={150}
                 height={41}

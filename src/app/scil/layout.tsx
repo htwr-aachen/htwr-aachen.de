@@ -17,28 +17,28 @@ export const metadata: Metadata = {
     {
       rel: "apple-touch-icon",
       sizes: "180x180",
-      url: "/assets/scil/favicon/apple-touch-icon.png",
+      url: "/assets/rwth/favicon/apple-touch-icon.png",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "32x32",
-      url: "/assets/scil/favicon/favicon-32x32.png",
+      url: "/assets/rwth/favicon/favicon-32x32.png",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      url: "/assets/scil/favicon/favicon-16x16.png",
+      url: "/assets/rwth/favicon/favicon-16x16.png",
     },
     {
       rel: "mask-icon",
-      url: "/assets/scil/favicon/safari-pinned-tab.svg",
+      url: "/assets/rwth/favicon/safari-pinned-tab.svg",
       color: "#5bbad5",
     },
     {
       rel: "shortcut icon",
-      url: "/assets/scil/favicon/favicon.ico",
+      url: "/assets/rwth/favicon/favicon.ico",
     },
   ],
   appleWebApp: {
