@@ -3,6 +3,8 @@ import { generateBlogRSS } from "@/lib/blog";
 
 import { blogArticleConfig } from "../config";
 
+export const dynamic = 'force-static'
+
 export async function GET() {
   const articles = await getArticlesMetadata(blogArticleConfig);
   const rss = await generateBlogRSS(articles);
