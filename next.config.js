@@ -48,27 +48,37 @@ export default configuredBundleAnalyzer(
       },
       mdxRs: true,
     },
-    transpilePackages: ["next-mdx-remote"],
-    output: "standalone",
-    eslint: {
-      dirs: ["."],
+    transpilePackages: ["next-mdx-remote", "next-image-export-optimizer"],
+    output: "export",
+    images: {
+      loader: "custom",
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     },
+    env: {
+      nextImageExportOptimizer_imageFolderPath: "public",
+      nextImageExportOptimizer_exportFolderPath: "out",
+      nextImageExportOptimizer_quality: "75",
+      nextImageExportOptimizer_storePicturesInWEBP: "true",
+      nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
+      nextImageExportOptimizer_generateAndUseBlurImages: "true",
+      nextImageExportOptimizer_remoteImageCacheTTL: "0",
+    },
+    // eslint: {
+    //   dirs: ["."],
+    // },
     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-    poweredByHeader: false,
-    trailingSlash: true,
-    basePath: "",
-    // The starter code load resources from `public` folder with `router.basePath` in React components.
-    // So, the source code is "basePath-ready".
-    // You can remove `basePath` if you don't need it.
     reactStrictMode: true,
-    async rewrites() {
-      return [
-        {
-          // I want to have the htwr-aachen.de/panikzettel/{subject} route visible and we proxy the request to the api server
-          source: "/panikzettel/:path",
-          destination: "https://api.htwr-aachen.de/panikzettel/:path",
-        },
-      ];
-    },
+    //poweredByHeader: false,
+    //trailingSlash: true,
+    // async rewrites() {
+    //   return [
+    //     {
+    //       // I want to have the htwr-aachen.de/panikzettel/{subject} route visible and we proxy the request to the api server
+    //       source: "/panikzettel/:path",
+    //       destination: "https://api.htwr-aachen.de/panikzettel/:path",
+    //     },
+    //   ];
+    // },
   }),
 );

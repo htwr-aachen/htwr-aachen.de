@@ -34,11 +34,11 @@ export const DefaultDeddebmeNavbar: NavbarConfig = {
     },
     {
       name: "Tools",
-      href: "/nichts",
+      href: "/nichts?path=/deddebme/tools",
     },
     {
       name: "Lehrstuhl",
-      href: "/nichts",
+      href: "/nichts?path=/deddebme/lehrstuhl",
       links: [
         {
           name: "Kontakt",

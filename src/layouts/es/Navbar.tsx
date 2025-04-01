@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 import { FacultiesButton } from "@/components/faculties-nav/button";
 
 import Navlink from "./Navlink";
+import ExportedImage from "next-image-export-optimizer";
+import MenuOpen from "@/public/assets/menu.svg";
+import MenuClose from "@/public/assets/close.svg";
 
 export default function ESNavbar() {
   const [navOpen, setNavOpen] = useState(false);
@@ -27,12 +29,12 @@ export default function ESNavbar() {
           Fakultäten & Institute
         </FacultiesButton>
         <Link href={"/es"}>
-          <Image
+          <ExportedImage
             src={"/assets/es/es.png"}
             width={276}
             height={70}
             alt="ComSys Logo"
-            className="aspect-auto h-[70px] w-276"
+            className="aspect-auto h-[70px]"
           />
         </Link>
       </div>
@@ -45,19 +47,17 @@ export default function ESNavbar() {
         }}
       >
         {!navOpen ? (
-          <Image
-            src={"/assets/menu.svg"}
-            height={32}
-            width={32}
+          <ExportedImage
+            src={MenuOpen}
             alt={"Open Navbar"}
-          ></Image>
+            className="size-8"
+          />
         ) : (
-          <Image
-            src={"/assets/close.svg"}
-            height={32}
-            width={32}
+          <ExportedImage
+            src={MenuClose}
             alt={"Close Navbar"}
-          ></Image>
+            className="size-8"
+          />
         )}
       </button>
       <div className="col-span-2 mr-2 flex justify-center justify-self-end lg:col-span-1 lg:mr-auto lg:block lg:justify-start">
@@ -67,28 +67,28 @@ export default function ESNavbar() {
           }`}
         >
           <Navlink
-            display={{ name: "Essays", href: "/es/eassys" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Essays", href: "/es/essays" }}
+            links={[{ name: "Nichts", href: "/nichts?path=/essays" }]}
             isDroped={dropdownActive === 1}
             dropdownNumer={1}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "Research", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Research", href: "/es/research" }}
+            links={[{ name: "Nichts", href: "/nichts?path=/es/research" }]}
             isDroped={dropdownActive === 2}
             dropdownNumer={2}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "Publications", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Publications", href: "/es/publications" }}
+            links={[{ name: "Nichts", href: "/nichts/publications" }]}
             isDroped={dropdownActive === 3}
             dropdownNumer={3}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "⚠Teaching", href: "/es" }}
+            display={{ name: "⚠Teaching", href: "/es/studium" }}
             links={[
               { name: "Klausuren", href: "/es/studium/klausuren" },
               { name: "Aufgaben", href: "/es/studium/aufgaben" },
@@ -100,7 +100,7 @@ export default function ESNavbar() {
           />
           <Navlink
             display={{ name: "Projects", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            links={[{ name: "Nichts", href: "/nichts?path=/es/projects" }]}
             isDroped={dropdownActive === 5}
             dropdownNumer={5}
             dropdownCallback={dropdownCallback}

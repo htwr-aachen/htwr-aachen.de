@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
+import sufferingGif from "@/public/content-assets/deddebme/other/suffering-psp.gif";
 
 import SummaryList from "@/components/summaries/list";
 
@@ -15,12 +16,7 @@ export default async function Page() {
   return (
     <div>
       <h1>PSP</h1>
-      <Image
-        src="/content-assets/deddebme/other/suffering-psp.gif"
-        alt="POV: PSP"
-        width={200}
-        height={100}
-      />
+      <ExportedImage src={sufferingGif} alt="POV: PSP" />
       <SummaryList subject="psp" />
     </div>
   );

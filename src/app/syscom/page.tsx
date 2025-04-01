@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -13,23 +13,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div>
-      <h3>
-        Für DatKom lernt es sich bestimmt besser nach dem ihr das{" "}
-        <Link href={"/syscom/teaching"}>SysCom Teaching</Link> gesehen habt
-      </h3>
-
+      <h2 className="my-4 font-semibold">
+        Für DatKom lernt es sich bestimmt besser nach dem ihr die{" "}
+        <Link href={"/syscom/studium/teachings"}>SysCom Zusammenfassungen</Link>{" "}
+        gesehen habt
+      </h2>
       <div className="grid grid-cols-2">
         <div>
-          <img
-            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJpamF3aWF0MjJlbXozbDVxczI1YXpuZmw4MTM1OWZ6djhzd202NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dSetRSJcR3PGqkvjRg/giphy.gif"
-            alt="wow gif"
-          />
-          <Image
+          <ExportedImage
             src="/assets/syscom/wehrle.jpg"
             width={150}
             height={150}
             alt={"Prof. Dr.-Ing. Klaus Wehrle"}
-          ></Image>
+          />
           <span className="text-xs">
             Credit ©{" "}
             <Link href="https://www.comsys.rwth-aachen.de/team/klaus-wehrle">
@@ -37,15 +33,6 @@ export default function Page() {
             </Link>
           </span>
         </div>
-        <p>
-          Jetzt ist eh zu spät für DatKom, aber für SWT reicht die Zeit noch.{" "}
-          <Link href={"https://es.htwr-aachen.de"}>es.htwr-aachen.de</Link>{" "}
-          könnt ihr (gerne) mit helfen zu bauen :D
-        </p>
-
-        <h1 className="text-5xl font-semibold">
-          Aber erstmal für Datkom viel Erfolg oder viel Glück, je nachdem.🍀
-        </h1>
 
         <div className="grid items-center">
           <img
@@ -56,15 +43,13 @@ export default function Page() {
           />
         </div>
       </div>
-
-      <h1 className="my-6 text-center font-bold">
+      <p className="my-6 text-center font-bold">
         Okay aber ernsthaft,{" "}
         <Link className="underline" href={"/syscom/teaching"}>
           hier
         </Link>{" "}
         gibts was nettes.
-      </h1>
-
+      </p>
       <div>
         <h2 className="mb-3 text-center font-medium">
           Und den Vibe nicht vergessen!

@@ -25,7 +25,7 @@ export const navbar: NavbarConfig = {
       ],
     },
     {
-      name: "Kontak",
+      name: "Kontakt",
       href: "/contact",
     },
     {

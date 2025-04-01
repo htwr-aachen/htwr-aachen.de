@@ -1,5 +1,4 @@
 import { Menu } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -9,6 +8,7 @@ import type { NavbarLogo } from "@/models/layout";
 
 import { FacultiesButton } from "./faculties-button";
 import { Search } from "./search";
+import ExportedImage from "next-image-export-optimizer";
 
 export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
   return (
@@ -18,13 +18,13 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
           href={logo.href || "/"}
           className="no-b z-10 h-full overflow-y-visible"
         >
-          <Image
+          <ExportedImage
             {...logo}
             className={cn("max-w-[350px] overflow-clip bg-white")}
             alt={logo.alt}
             width={logo.width || 224}
             height={logo.width || 110}
-          ></Image>
+          ></ExportedImage>
         </Link>
         <FacultiesButton></FacultiesButton>
         <Search></Search>
@@ -34,12 +34,12 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
           href={logo.href || "/"}
           className="no-b relative z-10 h-full w-20"
         >
-          <Image
+          <ExportedImage
             className={cn("max-h-10 overflow-clip object-scale-down")}
             alt={logo.alt}
             src={logo.src}
             fill
-          ></Image>
+          ></ExportedImage>
         </Link>
         <div></div>
         <SheetTrigger asChild>

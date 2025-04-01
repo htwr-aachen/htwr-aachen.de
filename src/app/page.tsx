@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import type { FC } from "react";
 
 import {
@@ -13,6 +12,7 @@ import { RealInstituteConfig } from "@/config/institutes";
 import { Main } from "@/layouts/rwth/Main";
 import { findAssociatedSubjects } from "@/lib/subjects";
 import type { Institute } from "@/models/institutes";
+import ExportedImage from "next-image-export-optimizer";
 
 export const metadata: Metadata = {
   title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
@@ -121,9 +121,9 @@ const Index: FC = () => {
           {Object.values(RealInstituteConfig).map((institute: Institute) => {
             return (
               <PersonaElement href={institute.href} key={institute.name}>
-                <Image
+                <ExportedImage
                   className="relative mx-auto mb-2 size-[32px] brightness-0"
-                  src={institute.icon || "/assets/scil/scil_icon.svg"}
+                  src={institute.icon}
                   alt={institute.fullName}
                   width={32}
                   height={32}

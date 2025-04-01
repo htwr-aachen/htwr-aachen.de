@@ -16,11 +16,15 @@ export function SCILSchnellzugriff() {
       <Schnellzugrifflink href="/scil/studium/aufgaben" sub>
         Aufgaben
       </Schnellzugrifflink>
-      <Schnellzugrifflink href="/scil/studium/fragen" sub>
+      <Schnellzugrifflink href="/nichts?path=/scil/studium/fragen" sub>
         Fragen (bald)
       </Schnellzugrifflink>
-      <Schnellzugrifflink href="/scil/forschung">Forschung</Schnellzugrifflink>
-      <Schnellzugrifflink href="/scil/lehrstuhl">Lehrstuhl</Schnellzugrifflink>
+      <Schnellzugrifflink href="/nichts?path=/scil/forschung">
+        Forschung
+      </Schnellzugrifflink>
+      <Schnellzugrifflink href="/nichts?path=/scil/lehrstuhl">
+        Lehrstuhl
+      </Schnellzugrifflink>
     </Schnellzugriff>
   );
 }
