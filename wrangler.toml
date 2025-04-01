@@ -1,0 +1,3 @@
+[[r2_buckets]]
+binding = "CONTENT_ASSETS"
+bucket_name = "content-assets"

@@ -95,7 +95,7 @@ export async function includeLocalDocuments(
   sorted = true,
 ): Promise<DocumentCollection> {
   // overwrite
-  path = join(process.cwd(), "public", "content-assets", path);
+  path = join(process.cwd(), "content-assets", path);
   const documentCollection = await documentCollectionFromDir(path, {
     prefix: urlPrefix || "",
     sort: sorted,

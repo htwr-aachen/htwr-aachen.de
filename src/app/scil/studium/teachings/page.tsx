@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const folien = await getAllDocsFromDir(
-    join(process.cwd(), "public", "content-assets", "buk", "Folien"),
+    join(process.cwd(), "content-assets", "buk", "Folien"),
     "/content-assets/buk/Folien",
     true,
   );

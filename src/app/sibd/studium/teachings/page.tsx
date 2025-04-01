@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const folien = await getAllDocsFromDir(
-    join(process.cwd(), "public", "content-assets", "dbis", "Folien"),
+    join(process.cwd(), "content-assets", "dbis", "Folien"),
     "/content-assets/dbis/Folien",
     true,
   );

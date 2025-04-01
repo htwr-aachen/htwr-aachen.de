@@ -5,7 +5,7 @@ import urlJoin from "@/lib/url";
 import { BaseURL } from "./app";
 import { DefaultSummaryPath } from "./summary";
 
-const DefaultContentPath = join(process.cwd(), "public", "content-assets");
+const DefaultContentPath = join(process.cwd(), "content-assets");
 
 // !! cannot use typescript types here, because when using Record<*string*, Subject> or similar `keyof` would
 // choose string and not "buk"|"swt"|...

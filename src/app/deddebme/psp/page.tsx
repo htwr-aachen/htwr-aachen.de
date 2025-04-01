@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ExportedImage from "next-image-export-optimizer";
-import sufferingGif from "@/public/content-assets/deddebme/other/suffering-psp.gif";
+import sufferingGif from "@/content-assets/deddebme/other/suffering-psp.gif";
 
 import SummaryList from "@/components/summaries/list";
 

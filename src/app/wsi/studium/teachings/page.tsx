@@ -10,7 +10,7 @@ import { MaterialienSchnellzugriff } from "../../Schnellzugriff";
 
 async function getData() {
   const folien = getAllDocsFromDir(
-    join(process.cwd(), "public", "content-assets", "stocha", "Folien"),
+    join(process.cwd(), "content-assets", "stocha", "Folien"),
     "/content-assets/stocha/Folien",
     false,
   );
