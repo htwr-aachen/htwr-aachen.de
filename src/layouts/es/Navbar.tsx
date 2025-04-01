@@ -34,7 +34,7 @@ export default function ESNavbar() {
             width={276}
             height={70}
             alt="ComSys Logo"
-            className="aspect-auto h-[70px] w-276"
+            className="aspect-auto h-[70px]"
           />
         </Link>
       </div>
@@ -67,28 +67,28 @@ export default function ESNavbar() {
           }`}
         >
           <Navlink
-            display={{ name: "Essays", href: "/es/eassys" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Essays", href: "/es/essays" }}
+            links={[{ name: "Nichts", href: "/nichts?path=/essays" }]}
             isDroped={dropdownActive === 1}
             dropdownNumer={1}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "Research", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Research", href: "/es/research" }}
+            links={[{ name: "Nichts", href: "/nichts?path=/es/research" }]}
             isDroped={dropdownActive === 2}
             dropdownNumer={2}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "Publications", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            display={{ name: "Publications", href: "/es/publications" }}
+            links={[{ name: "Nichts", href: "/nichts/publications" }]}
             isDroped={dropdownActive === 3}
             dropdownNumer={3}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
-            display={{ name: "⚠Teaching", href: "/es" }}
+            display={{ name: "⚠Teaching", href: "/es/studium" }}
             links={[
               { name: "Klausuren", href: "/es/studium/klausuren" },
               { name: "Aufgaben", href: "/es/studium/aufgaben" },
@@ -100,7 +100,7 @@ export default function ESNavbar() {
           />
           <Navlink
             display={{ name: "Projects", href: "/es" }}
-            links={[{ name: "Nichts", href: "/es/nichts" }]}
+            links={[{ name: "Nichts", href: "/nichts?path=/es/projects" }]}
             isDroped={dropdownActive === 5}
             dropdownNumer={5}
             dropdownCallback={dropdownCallback}

@@ -60,7 +60,7 @@ export default function SYSCOMNavbar() {
               src="/assets/syscom/team.png"
               src_hover="/assets/syscom/team_hover.png"
               alt="Team Icon"
-              href="/syscom/team"
+              href="/nichts?path=/syscom/team"
               name="TEAM"
               isActive={isActive("team")}
             />
@@ -76,7 +76,7 @@ export default function SYSCOMNavbar() {
               src="/assets/syscom/research.png"
               src_hover="/assets/syscom/research_hover.png"
               alt="Research Icon"
-              href="/syscom/research"
+              href="/nichts?path=/syscom/research"
               name="RESEARCH"
               isActive={isActive("research")}
             />

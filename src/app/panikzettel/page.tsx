@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { APIURL } from "@/config/app";
-import urlJoin from "@/lib/url";
 import {
   type Panikzettel,
   APPLICATION_AREA_SUBJECT,
@@ -18,22 +16,7 @@ import SkewedPanikzettelFrontpage from "./page-anim/skewed-animation";
 import PanikzettelSearch from "./search";
 import PanikzettelSelection from "./selection";
 import PanikzettelTitleAnim from "./title";
-
-async function getData(): Promise<Panikzettel[]> {
-  const res = await fetch(urlJoin(APIURL, "/panikzettel"), {
-    next: {
-      revalidate: 60 * 15,
-    },
-  });
-  if (!res.ok) {
-    return [];
-  }
-  try {
-    return await res.json();
-  } catch (_err) {
-    return [];
-  }
-}
+import { getPanikzettelMetadata } from "@/lib/panikzettel";
 
 function filterPanikzettel(panikzettel: Panikzettel[], semester: number) {
   return panikzettel.filter((x) => {
@@ -48,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const panikzettel = await getData();
+  const panikzettel = await getPanikzettelMetadata();
 
   return (
     <div className={"w-screen"}>
@@ -56,27 +39,29 @@ export default async function Page() {
         <Info className="size-4" />
         <AlertTitle>Achtung! Fertig! Fork!</AlertTitle>
         <AlertDescription>
-          Dies ist weiterhin ein Fork des nun ungepflegten Repositories von{" "}
-          <a
-            className="no-b text-foreground inline underline"
-            href="https://panikzettel.philworld.de"
-          >
-            philworld.de
-          </a>
-          . Das neue Repository befindet sich{" "}
-          <a
-            className="no-b text-foreground underline"
-            href={PANIKZETTEL_REPO_URL}
-          >
-            hier
-          </a>
-          .<br /> Bei Fragen, Feedback und Beschwerden bitte an{" "}
-          <a
-            className="no-b text-foreground underline"
-            href={`mailto:${PANIKZETTEL_EMAIL}`}
-          >
-            {PANIKZETTEL_EMAIL}
-          </a>
+          <p>
+            Dies ist weiterhin ein Fork des nun ungepflegten Repositories von{" "}
+            <a
+              className="no-b text-foreground inline underline"
+              href="https://panikzettel.philworld.de"
+            >
+              philworld.de
+            </a>{" "}
+            Das neue Repository befindet sich{" "}
+            <a
+              className="no-b text-foreground underline"
+              href={PANIKZETTEL_REPO_URL}
+            >
+              hier.
+            </a>
+            <br /> Bei Fragen, Feedback und Beschwerden bitte an{" "}
+            <a
+              className="no-b text-foreground underline"
+              href={`mailto:${PANIKZETTEL_EMAIL}`}
+            >
+              {PANIKZETTEL_EMAIL}
+            </a>
+          </p>
         </AlertDescription>
       </Alert>
       <PanikzettelSearch panikzettel={panikzettel || []} />
@@ -123,17 +108,21 @@ export default async function Page() {
           <FileQuestion className="mr-2 size-5" />
           <AlertTitle>Mitmachen?!</AlertTitle>
           <AlertDescription>
-            Schau mal bei dem{" "}
-            <a href="https://git.rwth-aachen.de/jonas.max.schneider/panikzettel">
-              Repository
-            </a>{" "}
-            oder der <Link href="/docs/panikzettel">Dokumenation</Link> vorbei.
+            <p>
+              Schau mal bei dem{" "}
+              <a href="https://github.com/htwr-aacchen/panikzettel">
+                Repository
+              </a>{" "}
+              oder der <Link href="/docs/panikzettel">Dokumenation</Link>{" "}
+              vorbei.
+            </p>
           </AlertDescription>
         </Alert>
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold">
           Updates & Neuigkeiten
         </h2>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+          <li>Panikzettel kurzfristig nicht verfügbar. Ab ~Freitag wieder</li>
           <li>Neue UI</li>
         </ul>
       </div>

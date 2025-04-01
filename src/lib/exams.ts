@@ -24,8 +24,7 @@ export async function getExamMeta(subject: Subjects): Promise<Exam[]> {
       return [];
     }
 
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (_error) {
     return [];
   }

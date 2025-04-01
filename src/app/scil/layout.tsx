@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   },
   description: "SCIL Page for all your bukking needs",
   applicationName: "htwr-aachen",
-  manifest: "/assets/scil/favicon/site.webmanifest",
   icons: [
     {
       rel: "apple-touch-icon",

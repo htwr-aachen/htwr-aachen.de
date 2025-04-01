@@ -7,7 +7,7 @@ export default function CigolSideNav() {
         <ul className="py-6 pl-4">
           <li className="py-1 first:pt-0">
             <Link
-              href={"/nichts"}
+              href={"/nichts?path=/cigol/forschung"}
               className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               Forschung
@@ -21,14 +21,14 @@ export default function CigolSideNav() {
               ⚠Lehre
             </Link>
           </li>
-          <li className="py-1 first:pt-0">
-            <Link
-              href={"/cigol/studium/klausuren"}
-              className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
-            >
-              ⚠Klausuren
-            </Link>
-          </li>
+          {/* <li className="py-1 first:pt-0"> */}
+          {/*   <Link */}
+          {/*     href={"/cigol/studium/klausuren"} */}
+          {/*     className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0" */}
+          {/*   > */}
+          {/*     ⚠Klausuren */}
+          {/*   </Link> */}
+          {/* </li> */}
           <li className="py-1 first:pt-0">
             <Link
               href={"/cigol/studium/aufgaben"}
@@ -39,7 +39,7 @@ export default function CigolSideNav() {
           </li>
           <li className="py-1 first:pt-0">
             <Link
-              href={"/nichts"}
+              href={"/nichts?path=/cigol/studium/bücher"}
               className="text-opacity-60 hover:text-opacity-100 text-xl font-bold text-black hover:border-b-0"
             >
               Bücher

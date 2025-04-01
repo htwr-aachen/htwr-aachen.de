@@ -22,33 +22,26 @@ export const navbar: NavbarConfig = {
     },
     {
       name: "Forschung",
-      href: "/nichts",
+      href: "/nichts?path=/sibd/forschung",
       path: "/nichts",
       links: [
         {
           name: "All**Gemein**es",
-          href: "/nichts",
+          href: "/nichts?path=/sibd/forschung/allgemeines",
           path: "/nichts",
         },
         {
           name: "Publikationen",
-          href: "/nichts",
+          href: "/nichts?path=/sibd/forschung/publikationen",
           path: "/nichts",
         },
       ],
     },
     {
       name: "Der Lehrstuhl Gang",
-      href: "/nichts",
+      href: "/nichts?path=/sibd/lehrstuhl",
       path: "/nichts",
-      links: [
-        {
-          name: "AllGemein",
-          href: "/nichts",
-          path: "/nichts",
-        },
-        { name: "Kontakt", href: "/contact", path: "" },
-      ],
+      links: [{ name: "Kontakt", href: "/contact", path: "" }],
     },
   ],
   main: { name: "SIBD", href: "/sibd" },
