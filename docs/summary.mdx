@@ -5,12 +5,32 @@ author: Jonas Schneider
 
 # Zusammenfassungen
 
-Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht und euch die Dateistruktur anschaut, werdet ihr ungefähr volgendes auffinden:
+Wenn es das Institut/Lehrstuhl und das Fach bereits gibt könnt ihr den nächsten Abschnitt überspringen
+
+## Von 0 auf 100 
+
+### Institut erstellen
+
+Institute werden in `src/config/institutes.ts` konfiguriert. Folgt hier einfach den bisherigen Lehrstühlen.
+
+Nun könnt ihr das Template kopieren `src/app/_%institutename%` den Namen des Lehrstuhls ersetzten und !!! `_` entfernen !!!. Ändert nun noch umbedingt `config.ts` und insgesamt alles wo `CHANGE_ME`/`CHANGE ME` vorkommt. Folgt nun dem nächsten Abschnitt um euer neues Fach zu konfigurieren.
+
+### Fach hinzufügen
+
+Fächer werden in `src/config/subjects.ts` konfiguriert. Folgt hier ebenso den bisherigen Fächern. 
+
+Nun könnt ihr das Fach im Template (`src/app/_%institutename%/%subjectname%`) in euer Lehrstuhl kopieren, den Namen ändern und überall in dem Ordner nach `CHANGE ME` suchen. Somit sollte das ein minimal funktionierendes Fach herauskommen und die Zusammenfassungen korrekt vom summaries Ordner gelesen werden. Zur Not schreibt mich einfach an und ich kann euch bestimmt helfen, oder macht ein Pull-Request und fragt dort nach.
+
+Die neuen Seiten des Faches können natürlich nach belieben ausgeschmückt und erweitert werden.
+
+## Bereits bestehende Zusammenfassung bearbeiten
+
+Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht und euch die Dateistruktur anschaut, werdet ihr ungefähr folgendes auffinden:
 
 <div className="not-prose">
 
 ```
-src/
+/
 └── summaries/
     └── cigol/
         └── malo/
@@ -33,9 +53,9 @@ Alle Zusammenfassungen auf HTWR werden mittels `.mdx` Datei geschrieben. Im Grun
 bloß mit zusätzlichen features wie Javascript support und wichtiger für HTWR custom react component support.
 
 HTWR erkennt für bestehende Fächer automatisch neue Dateien im entsprechenden Fach Ordner.
-Die Sortierung ist Einleuchtend src -> summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
+Die Sortierung ist Einleuchtend summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
 
-HTWR unterstützt die GitHub Markdown syntax inclusive
+HTWR unterstützt die GitHub Markdownsyntax inclusive
 
 \`\`\`haskell \
 main = putStrLn "Hello, World!" \
@@ -47,9 +67,10 @@ wird zu
 main = putStrLn "Hello, World!"
 ```
 
-für Code-Highlighting und
+für Code-Highlighting
+
 \$ \sum\_\{k=1\}^n k = \frac\{n(n+1)\}\{2\} \$ wird zu $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
-für LaTex Mathe. Sobald es möglich wird möchte ich auch typst einbinden, habe dafür aber noch nichts gefunden.
+für LaTex Mathe. Sobald es möglich wird möchte ich auch typst einbinden, die sind aber gerade erst an einem HTML compile output dran.
 
 ## Die Frage des Lebens
 
@@ -58,3 +79,4 @@ Wie das Känguru aus Känguru-Chroniken bereits sagte:
 > Witzig oder nicht Witzig
 
 Eine Zusammenfassung ist für den Author ein leeres Gemälde. Sie sollte irgendwo Inhalt haben, aber Kreativität und Humor ist auch gerne gesehen. Es ist eher eine Frage der Zeit und des Einfallsreichtum des Erstellers.
+

@@ -16,7 +16,6 @@ export default function Page() {
   return (
     <div>
       <HeadLine>Cesti</HeadLine>
-      <p>It-security = German Software</p>
 
       <SubjectList subjects={subjects} />
     </div>

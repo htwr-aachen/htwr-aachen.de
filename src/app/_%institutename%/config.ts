@@ -7,19 +7,19 @@ export const subjects: Subjects[] = ["itsec"]; // CHANGE_ME
 
 export const navbar: NavbarConfig = {
   logo: {
-    src: "/assets/cesti/banner.svg",
-    alt: "CESTI Logo",
-    href: "/cesti",
+    src: "/assets/CHANGE_ME/banner.svg", // In public/assets/... muss nicht umbedingt svg sein.
+    alt: "CHANGE_ME",
+    href: "/CHANGE_ME",
     width: 380,
     height: 110,
   },
   main: {
-    name: "CESTI",
-    href: "/cesti",
+    name: "CHANGE_ME",
+    href: "/CHANGE_ME",
   },
   linkElements: [
     {
-      // Es lässt sich erweitern sollte es aber nicht umbedingt. Es machts simplerer...
+      // Es lässt sich erweitern...
       name: "%subjectname%",
       href: "/%institutename%/%subjectname%",
       links: [
