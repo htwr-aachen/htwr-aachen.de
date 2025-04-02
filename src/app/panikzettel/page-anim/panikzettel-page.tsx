@@ -2,16 +2,9 @@ import { format } from "date-fns";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
-
 export default function PanikzettelPage({ children }: { children: ReactNode }) {
   return (
-    <div
-      className={cn(
-        "md:auto h-full w-screen max-w-[100vw] rounded-t-lg bg-white md:min-h-[1020px] md:w-auto md:min-w-[750px]",
-        lmsans.variable,
-      )}
-    >
+    <div className="md:auto h-full w-screen max-w-[100vw] rounded-t-lg bg-white md:min-h-[1020px] md:w-auto md:min-w-[750px]">
       <div className="header grid justify-center gap-8 pt-20 text-center">
         <Link
           href="/panikzettel"
