@@ -14,31 +14,19 @@ export const navbar: NavbarConfig = {
   },
   linkElements: [
     {
-      name: "⚠Studium",
-      href: "/cesti/studium",
-      path: "/studium",
+      name: "⚠ IT-Sec",
+      href: "/cesti/itsec",
+      path: "/cesti/itsec",
       links: [
         {
-          name: "Zusammenfassungen",
-          href: "/cesti/studium/teachings",
+          name: "⚠ Zusammenfassungen",
+          href: "/cesti/itsec/summaries",
         },
         {
-          name: "Resourcen",
-          href: "/cesti/studium/resources",
-        },
-        {
-          name: "Klausuren",
-          href: "/cesti/studium/klausuren",
+          name: "⚠ Material",
+          href: "/cesti/itsec/materials",
         },
       ],
-    },
-    {
-      name: "Forschung",
-      href: "/cesti/studium",
-    },
-    {
-      name: "Das Lehr- und Forschungsgebiet",
-      href: "/nichts",
     },
   ],
 };

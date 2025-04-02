@@ -9,12 +9,7 @@ export const MaterialienSchnellzugriff: FC = () => {
   return (
     <div className="max-h-410">
       <Schnellzugriff title="Materialien">
-        <Schnellzugrifflink href="/cesti/studium//teachings">
-          Zusammenfassungen
-        </Schnellzugrifflink>
-        <Schnellzugrifflink href="/cesti/studium/material">
-          Material oder so
-        </Schnellzugrifflink>
+        <Schnellzugrifflink href="/cesti/itsec">IT-Sec</Schnellzugrifflink>
       </Schnellzugriff>
     </div>
   );

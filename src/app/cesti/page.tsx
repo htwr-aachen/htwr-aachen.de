@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 import { HeadLine } from "@/components/rwth/headline";
 
-import { MaterialienSchnellzugriff } from "./Schnellzugriff";
+import { SubjectList } from "@/components/subject-list";
+import { subjects } from "./config";
 
 export const metadata: Metadata = {
   description: "The chair for security or it but not both",
@@ -14,8 +15,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div>
-      <HeadLine>Wird gerade vorbereitet...</HeadLine>
-      <MaterialienSchnellzugriff />
+      <HeadLine>Cesti</HeadLine>
+      <p>It-security = German Software</p>
+
+      <SubjectList subjects={subjects} />
     </div>
   );
 }

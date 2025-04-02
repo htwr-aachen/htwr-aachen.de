@@ -71,7 +71,7 @@ export const SubjectConfig = {
     displayName: "IT-Sec",
     fullName: "IT-Security",
     articlesPath: join(DefaultSummaryPath, "cesti", "itsec"),
-    articlesURL: urlJoin(BaseURL, "/cesti/studium/teachings"),
+    articlesURL: urlJoin(BaseURL, "/cesti/itsec/summaries"),
     documentsPath: join(DefaultContentPath, "itsec"),
   },
   psp: {
