@@ -1,25 +1,8 @@
 import { format } from "date-fns";
-import localFont from "next/font/local";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
-
-const lmsans = localFont({
-  src: [
-    {
-      path: "./lmsans10-regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./lmsans10-bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-lmsans",
-});
 
 export default function PanikzettelPage({ children }: { children: ReactNode }) {
   return (
@@ -34,20 +17,20 @@ export default function PanikzettelPage({ children }: { children: ReactNode }) {
           href="/panikzettel"
           className="font-mono font-medium text-[#013220] underline"
         >
-          panikzettel.htwr-aachen.de
+          htwr-aachen.de/panikzettel
         </Link>
-        <h1 className="font-lmsans text-3xl font-bold text-black">
+        <h1 className="font-sans text-3xl font-bold text-black">
           Panikzettel Überblick
         </h1>
-        <span className="font-lmsans text-lg font-normal text-black">
+        <span className="font-sans text-lg font-normal text-black">
           Version 1 | {format(new Date(), "dd.MM.yyyy")}
         </span>
-        <span className="font-lmserif text-sm text-black">Jonas Schneider</span>
-        <span className="font-lmserif text-sm text-black">
+        <span className="font-serif text-sm text-black">Jonas Schneider</span>
+        <span className="font-serif text-sm text-black">
           🟢 neuer als 2 Jahre, 🟡 neuer als 4 Jahre, 🔴 vertrau Bruder
         </span>
       </div>
-      <div className="font-lmsans grid w-full gap-10 px-4 py-12 text-black md:mx-auto md:max-w-[calc((2*65ch)+2.5rem)] md:grid-cols-2 md:justify-evenly">
+      <div className="grid w-full gap-10 px-4 py-12 font-sans text-black md:mx-auto md:max-w-[calc((2*65ch)+2.5rem)] md:grid-cols-2 md:justify-evenly">
         {children}
       </div>
     </div>

@@ -1,57 +1,18 @@
 import "@/styles/global.css";
 import "@/styles/markdown.css";
-import "@fontsource-variable/hanken-grotesk";
 
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
-import localFont from "next/font/local";
 import type { FC } from "react";
 
 import { BannerNotifyProvider } from "@/components/banner-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppConfig, BaseURL } from "@/config/app";
-import { cn } from "@/lib/utils";
+import { hkGrotesk, inter, newsreader } from "./fonts";
 
 type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-// main typeface
-/* const hkGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-hk-grotesk",
-  display: "swap",
-}); */
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-roboto",
-});
-
-const lmserif = localFont({
-  src: [
-    {
-      path: "../../public/lmroman10-regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/lmroman10-bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-lmserif",
-});
 export const metadata: Metadata = {
   icons: [
     {
@@ -103,7 +64,11 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html suppressHydrationWarning lang={AppConfig.locale}>
+    <html
+      suppressHydrationWarning
+      lang={AppConfig.locale}
+      className={`${hkGrotesk.variable} ${inter.variable} ${newsreader.variable} ${hkGrotesk.className}`}
+    >
       <head>
         <link
           rel="stylesheet"
@@ -112,11 +77,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           crossOrigin="anonymous"
         />
       </head>
-      <body
-        className={cn(
-          `bg-background min-h-screen font-sans antialiased ${inter.variable} ${roboto.variable} ${lmserif.variable}`,
-        )}
-      >
+      <body className="bg-background min-h-screen font-sans antialiased">
         <BannerNotifyProvider>
           <ThemeProvider
             attribute="class"
