@@ -1,6 +1,7 @@
 name = "htwr-aachen"
 pages_build_output_dir = "./out"
 compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
 
 [[r2_buckets]]
 binding = "CONTENT_ASSETS"
