@@ -1,0 +1,43 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "htwr-aachen",
+	"compatibility_date": "2025-04-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			// The service should match the "name" of your worker
+			"service": "htwr-aachen"
+		}
+	],
+	"r2_buckets": [
+		//Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
+		{
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "htwr-inc-cache"
+		},
+		{
+			"binding": "CONTENT_ASSETS",
+			"bucket_name": "content-assets"
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "NEXT_CACHE_DO_QUEUE",
+				"class_name": "DOQueueHandler"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": ["DOQueueHandler"]
+		}
+	]
+}

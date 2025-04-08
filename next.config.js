@@ -49,7 +49,7 @@ export default configuredBundleAnalyzer(
       mdxRs: true,
     },
     transpilePackages: ["next-mdx-remote", "next-image-export-optimizer"],
-    output: "export",
+    //output: "export",
     images: {
       loader: "custom",
       imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

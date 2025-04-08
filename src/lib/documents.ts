@@ -7,6 +7,148 @@ import { type Subjects, SubjectConfig } from "@/config/subjects";
 
 import { renameDocument } from "./documents/renamer";
 import urlJoin from "./url";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
+export const R2_DELIMITER = "/";
+
+export function documentFromR2Object(
+  object: R2Object,
+  basePath: string,
+  config: { prefix: string },
+): Document {
+  const pathParts = object.key.substring(basePath.length).split(R2_DELIMITER);
+  const name = pathParts[pathParts.length - 1];
+  return {
+    url: urlJoin(config.prefix, object.key),
+    name: name,
+    year: object.uploaded.getFullYear(),
+    authors: "",
+  };
+}
+
+/**
+ * Recursively builds a DocumentCollection from R2 objects
+ */
+function buildDocumentCollection(
+  objects: R2Object[],
+  basePath: string,
+  currentPath: string,
+  config: { prefix: string },
+): DocumentCollection {
+  // Initialize the result
+  const result: DocumentCollection = {
+    name: currentPath.split("/").filter(Boolean).pop() || "",
+    categories: [],
+    documents: [],
+  };
+
+  // Keep track of processed paths to avoid duplicates
+  const processedPaths = new Set<string>();
+
+  const fullCurrentPath = basePath + currentPath;
+  for (const object of objects) {
+    if (!object.key.startsWith(fullCurrentPath)) {
+      continue;
+    }
+
+    const relativePath = object.key.substring(fullCurrentPath.length);
+
+    if (!relativePath) {
+      continue;
+    }
+
+    // Check if this is a file directly in the current directory
+    if (!relativePath.includes("/")) {
+      result.documents.push(documentFromR2Object(object, basePath, config));
+      continue;
+    }
+
+    const subdir = relativePath.split("/")[0];
+    const subdirPath = currentPath + subdir + "/";
+    if (processedPaths.has(subdirPath)) {
+      continue;
+    }
+
+    // Mark as processed
+    processedPaths.add(subdirPath);
+
+    const subdirObjects = objects.filter((obj) =>
+      obj.key.startsWith(fullCurrentPath + subdir + "/"),
+    );
+
+    // Recursively build the subcollection
+    const subcollection = buildDocumentCollection(
+      subdirObjects,
+      basePath,
+      subdirPath,
+      config,
+    );
+
+    result.categories.push(subcollection);
+  }
+
+  return result;
+}
+
+/**
+ * Lists all documents under a path in an R2 bucket and returns them as a DocumentCollection
+ * @param path - The path to the documents in the R2 bucket
+ * @param urlPrefix - Optional prefix to add to document URLs
+ * @returns A DocumentCollection containing all documents and subdirectories
+ */
+export async function listR2Documents(
+  path: string,
+  urlPrefix: string = "",
+): Promise<DocumentCollection> {
+  const normalizedPath = path.endsWith("/") ? path : `${path}/`;
+
+  // List all objects under the path
+  const objects: R2Object[] = [];
+  let cursor: string | undefined = undefined;
+  const contentAssets = getCloudflareContext().env.CONTENT_ASSETS;
+
+  do {
+    const result = await contentAssets.list({
+      prefix: normalizedPath,
+      cursor,
+      delimiter: "", // No delimiter to get all nested files
+    });
+
+    objects.push(...result.objects);
+    //@ts-expect-error: `cursor` is defined in the documentation so it should exists if there are more to read
+    cursor = result.cursor;
+  } while (cursor);
+
+  // Build the document collection
+  return buildDocumentCollection(objects, normalizedPath, "", {
+    prefix: urlPrefix,
+  });
+}
+
+/**
+ * Checks if a specific document exists in the R2 bucket
+ * @param path - The full path to the document
+ * @returns A tuple with [exists, url, metadata]
+ */
+export async function hasR2Document(
+  path: string,
+  urlPrefix: string = "",
+): Promise<[boolean, string, R2Object | undefined]> {
+  const contentAssets = getCloudflareContext().env.CONTENT_ASSETS;
+  try {
+    const object = await contentAssets.head(path);
+    const url = `${urlPrefix}${path}`;
+
+    if (object === null) {
+      return [false, url, undefined];
+    }
+
+    return [true, url, object];
+  } catch {
+    const url = `${urlPrefix}${path}`;
+    return [false, url, undefined];
+  }
+}
 
 // NEW IMPL
 export type DocumentCollection = {

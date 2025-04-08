@@ -1,4 +1,6 @@
 .env
+.wrangler
+.open-next
 
 #sitemap
 public/sitemap-*.xml
