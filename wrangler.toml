@@ -1,4 +1,4 @@
-name = "htwr-aachen"
+name = "htwr-aachen-de"
 pages_build_output_dir = "./out"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
