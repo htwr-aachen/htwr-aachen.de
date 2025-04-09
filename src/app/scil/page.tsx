@@ -5,9 +5,8 @@ import { Gallery, GalleryLabel } from "@/components/rwth/gallery";
 import { HeadLine } from "@/components/rwth/headline";
 
 import { SCILSchnellzugriff } from "./schnellzugriff";
-import ExportedImage from "next-image-export-optimizer";
-import SCILBanner from "@/public/assets/scil/banner.png";
 import MartinaGrohe from "@/public/assets/scil/martina_grohe.jpg";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   description: "Jetzt wird gebuked",
@@ -25,24 +24,24 @@ const SCIL: FC = () => {
 
       <Gallery>
         <div className="relative">
-          <ExportedImage
-            src={SCILBanner}
+          <img
+            src="/assets/scil/banner.png"
             alt="SCIL Banner"
             className="block size-auto max-h-[500px] object-contain"
-            width={700}
-            height={500}
+            width={800}
+            height={600}
           />
           <GalleryLabel headline="Aktuelle Forschung" url="/scil/studium">
             Jetzt wird gebukked
           </GalleryLabel>
         </div>
         <div className="relative">
-          <ExportedImage
+          <Image
             src={MartinaGrohe}
             alt="Martina Grohe"
             className="block size-auto max-h-[500px] object-contain"
-            width={300}
-            height={500}
+            width={400}
+            height={600}
           />
           <GalleryLabel
             headline="Ja Martina, i lern doch schon für BUK"

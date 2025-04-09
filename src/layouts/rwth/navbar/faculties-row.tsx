@@ -8,7 +8,6 @@ import type { NavbarLogo } from "@/models/layout";
 
 import { FacultiesButton } from "./faculties-button";
 import { Search } from "./search";
-import ExportedImage from "next-image-export-optimizer";
 
 export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
   return (
@@ -18,13 +17,13 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
           href={logo.href || "/"}
           className="no-b z-10 h-full overflow-y-visible"
         >
-          <ExportedImage
+          <img
             {...logo}
             className={cn("max-w-[350px] overflow-clip bg-white")}
-            alt={logo.alt}
+            alt={logo.alt || ""}
             width={logo.width || 224}
-            height={logo.width || 110}
-          ></ExportedImage>
+            height={logo.height || 110}
+          />
         </Link>
         <FacultiesButton></FacultiesButton>
         <Search></Search>
@@ -34,12 +33,11 @@ export function FacultiesRow({ logo }: { logo: NavbarLogo }) {
           href={logo.href || "/"}
           className="no-b relative z-10 h-full w-20"
         >
-          <ExportedImage
+          <img
             className={cn("max-h-10 overflow-clip object-scale-down")}
             alt={logo.alt}
             src={logo.src}
-            fill
-          ></ExportedImage>
+          />
         </Link>
         <div></div>
         <SheetTrigger asChild>

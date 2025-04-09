@@ -92,9 +92,6 @@ importers:
       next:
         specifier: 15.2.4
         version: 15.2.4(@babel/core@7.26.10)(@playwright/test@1.47.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.85.0)
-      next-image-export-optimizer:
-        specifier: ^1.18.0
-        version: 1.18.0(next@15.2.4(@babel/core@7.26.10)(@playwright/test@1.47.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.85.0))(react@19.1.0)
       next-mdx-remote:
         specifier: ^5.0.0
         version: 5.0.0(@types/react@19.1.0)(acorn@8.14.1)(react@19.1.0)
@@ -5288,14 +5285,6 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-
-  next-image-export-optimizer@1.18.0:
-    resolution: {integrity: sha512-8yJO2QzBYMx2E1Lr67gWX3uqWbLZfBa7SwPjPjko4ki81SsJjsNeV7MID7VCcQ99aJW4mLgrWWRHCFNXF7gzlA==}
-    engines: {node: '>=16.0.0'}
-    hasBin: true
-    peerDependencies:
-      next: ^14.2.18 || ^15.0.3
-      react: ^18.2.0 || ^19.0.0-0
 
   next-mdx-remote@5.0.0:
     resolution: {integrity: sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==}
@@ -13535,13 +13524,6 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-image-export-optimizer@1.18.0(next@15.2.4(@babel/core@7.26.10)(@playwright/test@1.47.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.85.0))(react@19.1.0):
-    dependencies:
-      next: 15.2.4(@babel/core@7.26.10)(@playwright/test@1.47.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.85.0)
-      react: 19.1.0
-      sharp: 0.33.5
-      typescript: 5.8.3
-
   next-mdx-remote@5.0.0(@types/react@19.1.0)(acorn@8.14.1)(react@19.1.0):
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -14335,6 +14317,7 @@ snapshots:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
+    optional: true
 
   sharp@0.34.1:
     dependencies:

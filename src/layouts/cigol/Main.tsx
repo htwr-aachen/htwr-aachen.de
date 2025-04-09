@@ -8,7 +8,7 @@ import { useInstituteConfig } from "@/hooks/useInstituteConfig";
 import type { LayoutProps } from "@/models/layout";
 
 import CigolSideNav from "./sidenav";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 
 export type CIGOLMainProps = LayoutProps;
 
@@ -28,7 +28,7 @@ const Main = (props: CIGOLMainProps) => {
             href={"/cigol"}
             className="grid justify-center hover:border-b-0"
           >
-            <ExportedImage
+            <Image
               src="/assets/cigol/logo.png"
               alt="Logo"
               width={88}
@@ -49,7 +49,7 @@ const Main = (props: CIGOLMainProps) => {
               </button>
             </FacultiesButton>
             <Link href={"/"} title="Zurück zur HTWR Hauptseite">
-              <ExportedImage
+              <Image
                 src="/assets/cigol/logo-htwr.png"
                 alt="Logo"
                 width={200}

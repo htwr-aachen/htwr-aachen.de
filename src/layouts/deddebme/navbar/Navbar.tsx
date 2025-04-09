@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { FacultiesButton } from "@/components/faculties-nav/button";
 import { type NavbarConfig, toValue } from "@/models/layout";
-import ExportedImage from "next-image-export-optimizer";
 
 type DeddebmeNavbarProps = {
   config: NavbarConfig;
@@ -28,7 +27,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
 
         <div className="flex w-full justify-end pt-5">
           <Link href={props.config.logo.href || "/"} className="no-b">
-            <ExportedImage
+            <img
               alt={props.config.logo.alt}
               src={props.config.logo.src}
               width={props.config.logo.width}
@@ -39,7 +38,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
             className={`h-[${props.config.logo.height}px] bg-rwth-accent mx-4 w-1`}
           />
           <Link href="/" className="no-b">
-            <ExportedImage
+            <img
               alt="RWTH LOGO"
               src="/assets/rwth/banner.svg"
               height={props.config.logo.height}

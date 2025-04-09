@@ -29,7 +29,7 @@ const SolutionCalculator: FC<SolutionCalculatorProps> = (props) => {
     } catch (_error) {
       return "Fehler gebe bitte alle Variablen ein";
     }
-  }, [inputVars]);
+  }, [props, inputVars]);
 
   return (
     <InputContext.Provider value={[inputVars, setInputVars]}>

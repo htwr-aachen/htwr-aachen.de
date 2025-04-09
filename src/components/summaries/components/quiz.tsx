@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type Zitat = {
   text: string;
@@ -21,34 +21,38 @@ export default function ZitateQuiz({
     zitat || null,
   );
 
-  let deepCopy: Zitat[] = [];
+  // Store deepCopy in a ref so it persists between renders
+  const deepCopyRef = useRef<Zitat[]>([]);
 
   // shuffle using Fisher-Yates
-  function shuffleQuotes() {
-    let i = deepCopy.length;
+  const shuffleQuotes = useCallback(() => {
+    let i = deepCopyRef.current.length;
     let randI: number;
     while (i !== 0) {
       randI = Math.floor(Math.random() * i);
       i--;
-      [deepCopy[i], deepCopy[randI]] = [deepCopy[randI], deepCopy[i]];
+      [deepCopyRef.current[i], deepCopyRef.current[randI]] = [
+        deepCopyRef.current[randI],
+        deepCopyRef.current[i],
+      ];
     }
-    return deepCopy;
-  }
+    return deepCopyRef.current;
+  }, []);
 
-  const reset = () => {
-    if (deepCopy.length === 0) {
-      deepCopy = [...zitatList];
+  const reset = useCallback(() => {
+    if (deepCopyRef.current.length === 0) {
+      deepCopyRef.current = [...zitatList];
       shuffleQuotes();
     }
-    const nextZitat = deepCopy.pop();
+    const nextZitat = deepCopyRef.current.pop();
     setInternalZitat(nextZitat || null);
     setResolved(null);
-  };
+  }, [zitatList, shuffleQuotes]);
 
   useEffect(() => {
     if (zitat) return;
     reset();
-  }, [zitat]);
+  }, [reset, zitat]);
 
   return (
     <div className="relative my-4 grid grid-rows-3 rounded-2xl bg-linear-to-tl from-black to-blue-900 px-4 py-2 text-white lg:px-10 lg:pt-8">

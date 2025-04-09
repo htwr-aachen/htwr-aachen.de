@@ -12,7 +12,7 @@ import { RealInstituteConfig } from "@/config/institutes";
 import { Main } from "@/layouts/rwth/Main";
 import { findAssociatedSubjects } from "@/lib/subjects";
 import type { Institute } from "@/models/institutes";
-import ExportedImage from "next-image-export-optimizer";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
@@ -121,7 +121,7 @@ const Index: FC = () => {
           {Object.values(RealInstituteConfig).map((institute: Institute) => {
             return (
               <PersonaElement href={institute.href} key={institute.name}>
-                <ExportedImage
+                <Image
                   className="relative mx-auto mb-2 size-[32px] brightness-0"
                   src={institute.icon}
                   alt={institute.fullName}
