@@ -12,13 +12,10 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import type { Panikzettel } from "@/models/panikzettel";
+import { usePanikzettel } from "./context";
 
-export default function PanikzettelSearch({
-  panikzettel,
-}: {
-  panikzettel: Panikzettel[];
-}) {
+export default function PanikzettelSearch() {
+  const { panikzettel } = usePanikzettel();
   const [open, setOpen] = useState(false);
 
   const runCommand = useCallback((command: () => unknown) => {

@@ -14,11 +14,12 @@ export const PanikzettelNav = (
   <NavigationMenu color="neutral-200" className="">
     <NavigationMenuList>
       <NavigationMenuItem>
-        <Link href="/" legacyBehavior passHref>
-          <NavigationMenuLink className={invertedNavigationMenuTriggerStyle()}>
-            Zurück zu HTWR
-          </NavigationMenuLink>
-        </Link>
+        <NavigationMenuLink
+          asChild
+          className={invertedNavigationMenuTriggerStyle()}
+        >
+          <Link href="/">Zurück zu HTWR</Link>
+        </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
