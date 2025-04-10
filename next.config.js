@@ -43,10 +43,10 @@ const configuredBundleAnalyzer = withBundleAnalyzer({
 export default configuredBundleAnalyzer(
   withMDX({
     experimental: {
-      turbo: {
-        resolveExtensions: [".tsx", ".ts", ".jsx", ".js"],
-      },
       mdxRs: true,
+    },
+    turbopack: {
+      resolveExtensions: [".tsx", ".ts", ".jsx", ".js", ".mdx"],
     },
     transpilePackages: ["next-mdx-remote", "next-image-export-optimizer"],
     output: "export",
