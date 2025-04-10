@@ -6,3 +6,10 @@ compatibility_flags = ["nodejs_compat"]
 [[r2_buckets]]
 binding = "CONTENT_ASSETS"
 bucket_name = "content-assets"
+
+[build]
+command = "pnpm run build"
+output_directory = "./out"
+
+[vars]
+NODE_VERSION = "23.11.0"
