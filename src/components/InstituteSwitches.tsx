@@ -38,12 +38,12 @@ const InstituteSwitch: FC<InstituteSwitchProps> = ({ url, name, right }) => {
 export { InstituteSwitch };
 
 const InstituteSwitches: FC<InstituteSwitchesProps> = ({
-  links,
+  links: linksProp,
   institute,
 }) => {
   const processedLinks = useMemo(() => {
-    if (links) {
-      return links;
+    if (linksProp) {
+      return linksProp;
     }
 
     if (!institute || institute === "htwr") {
@@ -52,7 +52,7 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
 
     const prev = getPrevInstitute(institute);
     const next = getNextInstitute(institute);
-    links = [
+    return [
       {
         name: InstituteConfig[prev].name,
         url: InstituteConfig[prev].href,
@@ -62,9 +62,7 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
         url: InstituteConfig[next].href,
       },
     ];
-
-    return links;
-  }, [institute, links]);
+  }, [institute, linksProp]);
 
   return (
     <div className="pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:fixed lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">

@@ -39,7 +39,7 @@ export function useInstituteSearch(
 
       setCurrent(results);
     },
-    [institutes],
+    [initial],
   );
 
   return [current, search];
