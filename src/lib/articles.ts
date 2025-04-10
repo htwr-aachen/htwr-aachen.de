@@ -34,7 +34,7 @@ export type ArticleContent = Pick<Article, "meta" | "slug" | "url" | "content">;
 /**
  * @param slug - the slug of article to get the surroundings to (e.g. test, [apidocs,roll])
  * @param corpusConfig - the configuration of the corpus. Where do I find the files
- * @returns the previous and next article metadata. undefined if either does extist or the current article could not be found.
+ * @returns the previous and next article metadata. undefined if either does exist or the current article could not be found.
  */
 export async function getSurroundingArticles(
   slug: string[],
@@ -92,7 +92,7 @@ async function _getArticle(
         .join(path.sep),
       path.basename(fp),
       corpusConfig,
-      stats,
+      stats.mtime,
     );
     frontMatter.meta.images = getImages(parsedMatter.content);
 
