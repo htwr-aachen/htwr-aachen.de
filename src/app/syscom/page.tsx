@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export default function Page() {
       </h2>
       <div className="grid grid-cols-2">
         <div>
-          <ExportedImage
+          <img
             src="/assets/syscom/wehrle.jpg"
             width={150}
             height={150}

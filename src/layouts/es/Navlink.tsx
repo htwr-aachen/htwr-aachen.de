@@ -13,9 +13,9 @@ export type LinkType = {
 type NavlinkProps = {
   display: LinkType;
   links?: LinkType[];
-  isDroped?: boolean;
-  dropdownNumer?: number;
-  dropdownCallback?: (_dropdownNumer: number) => void;
+  isDropped?: boolean;
+  dropdownNumber?: number;
+  dropdownCallback?: (_dropdownNumber: number) => void;
 };
 
 function useOutsideAlerter(
@@ -37,14 +37,14 @@ function useOutsideAlerter(
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [callback, ref]);
 }
 
 const Navlink: FC<NavlinkProps> = ({
   links,
   display,
-  isDroped,
-  dropdownNumer,
+  isDropped,
+  dropdownNumber,
   dropdownCallback,
 }) => {
   const pathname = usePathname();
@@ -52,11 +52,11 @@ const Navlink: FC<NavlinkProps> = ({
 
   const [isDropdown, setIsDropdown] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const [dropdownActive, setDropdownActive] = useState(isDroped);
+  const [dropdownActive, setDropdownActive] = useState(isDropped);
 
   useOutsideAlerter(ref, () => {
     if (dropdownActive && dropdownCallback) {
-      dropdownCallback(dropdownNumer || 0);
+      dropdownCallback(dropdownNumber || 0);
     }
   });
 
@@ -68,11 +68,11 @@ const Navlink: FC<NavlinkProps> = ({
         setIsActive(pathname?.startsWith(display.href) || false);
       }
     }
-  }, [links, pathname]);
+  }, [display.href, links, pathname]);
 
   useEffect(() => {
-    setDropdownActive(isDroped);
-  }, [isDroped]);
+    setDropdownActive(isDropped);
+  }, [isDropped]);
 
   return (
     <li className="p-[.5rem 1rem] my-2 mr-4 text-right text-base text-black lg:my-0 lg:text-center">
@@ -93,7 +93,7 @@ const Navlink: FC<NavlinkProps> = ({
             className={"after-icon transition-colors hover:text-blue-400"}
             onClick={() => {
               setIsActive((x) => !x);
-              if (dropdownCallback) dropdownCallback(dropdownNumer || 0);
+              if (dropdownCallback) dropdownCallback(dropdownNumber || 0);
               else setDropdownActive((x) => !x);
             }}
           >

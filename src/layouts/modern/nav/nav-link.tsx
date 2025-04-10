@@ -7,7 +7,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 const ListLinkItem = React.forwardRef<
-  React.ElementRef<typeof Link>,
+  React.ComponentRef<typeof Link>,
   React.ComponentPropsWithoutRef<typeof Link>
 >(({ className, title, children, ...props }, ref) => {
   return (
@@ -33,11 +33,11 @@ const ListLinkItem = React.forwardRef<
 ListLinkItem.displayName = "ListLinkItem";
 
 const NavLink = React.forwardRef<
-  React.ElementRef<typeof Link>,
+  React.ComponentRef<typeof Link>,
   React.ComponentPropsWithoutRef<typeof Link>
 >(({ href, className, children, ...props }, ref) => {
   return (
-    <Link href={href} legacyBehavior passHref ref={ref} {...props}>
+    <Link href={href} passHref ref={ref} {...props}>
       <NavigationMenuLink
         className={cn("no-b hover:[&>a]:no-underline", className)}
       >

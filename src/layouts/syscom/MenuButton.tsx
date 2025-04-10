@@ -1,4 +1,3 @@
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -26,7 +25,7 @@ const MenuButton = (props: IMenuButtonProps) => {
     >
       <Link href={props.href} title={props.name}>
         {isHovering ? (
-          <ExportedImage
+          <img
             src={props.src_hover ? props.src_hover : props.src}
             alt={props.alt}
             width={64}
@@ -34,7 +33,7 @@ const MenuButton = (props: IMenuButtonProps) => {
             className="aspect-square"
           />
         ) : (
-          <ExportedImage
+          <img
             src={props.src}
             alt={props.alt}
             width={64}

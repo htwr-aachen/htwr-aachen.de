@@ -6,17 +6,14 @@ import { useState } from "react";
 import { FacultiesButton } from "@/components/faculties-nav/button";
 
 import Navlink from "./Navlink";
-import ExportedImage from "next-image-export-optimizer";
-import MenuOpen from "@/public/assets/menu.svg";
-import MenuClose from "@/public/assets/close.svg";
 
 export default function ESNavbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
-  const dropdownCallback = (dropdownNumer: number) => {
-    if (dropdownActive === dropdownNumer) setDropdownActive(-1);
-    else setDropdownActive(dropdownNumer);
+  const dropdownCallback = (dropdownNumber: number) => {
+    if (dropdownActive === dropdownNumber) setDropdownActive(-1);
+    else setDropdownActive(dropdownNumber);
   };
 
   return (
@@ -29,11 +26,11 @@ export default function ESNavbar() {
           Fakultäten & Institute
         </FacultiesButton>
         <Link href={"/es"}>
-          <ExportedImage
+          <img
             src={"/assets/es/es.png"}
             width={276}
             height={70}
-            alt="ComSys Logo"
+            alt="ES Banner"
             className="aspect-auto h-[70px]"
           />
         </Link>
@@ -47,14 +44,10 @@ export default function ESNavbar() {
         }}
       >
         {!navOpen ? (
-          <ExportedImage
-            src={MenuOpen}
-            alt={"Open Navbar"}
-            className="size-8"
-          />
+          <img src="/assets/menu.svg" alt={"Open Navbar"} className="size-8" />
         ) : (
-          <ExportedImage
-            src={MenuClose}
+          <img
+            src="/assets/close.svg"
             alt={"Close Navbar"}
             className="size-8"
           />
@@ -69,22 +62,22 @@ export default function ESNavbar() {
           <Navlink
             display={{ name: "Essays", href: "/es/essays" }}
             links={[{ name: "Nichts", href: "/nichts?path=/essays" }]}
-            isDroped={dropdownActive === 1}
-            dropdownNumer={1}
+            isDropped={dropdownActive === 1}
+            dropdownNumber={1}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
             display={{ name: "Research", href: "/es/research" }}
             links={[{ name: "Nichts", href: "/nichts?path=/es/research" }]}
-            isDroped={dropdownActive === 2}
-            dropdownNumer={2}
+            isDropped={dropdownActive === 2}
+            dropdownNumber={2}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
             display={{ name: "Publications", href: "/es/publications" }}
             links={[{ name: "Nichts", href: "/nichts/publications" }]}
-            isDroped={dropdownActive === 3}
-            dropdownNumer={3}
+            isDropped={dropdownActive === 3}
+            dropdownNumber={3}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
@@ -94,15 +87,15 @@ export default function ESNavbar() {
               { name: "Aufgaben", href: "/es/studium/aufgaben" },
               { name: "Zusammenfassungen", href: "/es/studium/teachings" },
             ]}
-            isDroped={dropdownActive === 4}
-            dropdownNumer={4}
+            isDropped={dropdownActive === 4}
+            dropdownNumber={4}
             dropdownCallback={dropdownCallback}
           />
           <Navlink
             display={{ name: "Projects", href: "/es" }}
             links={[{ name: "Nichts", href: "/nichts?path=/es/projects" }]}
-            isDroped={dropdownActive === 5}
-            dropdownNumer={5}
+            isDropped={dropdownActive === 5}
+            dropdownNumber={5}
             dropdownCallback={dropdownCallback}
           />
           <Navlink display={{ name: "Jobs", href: "/jobs" }} />
@@ -112,8 +105,8 @@ export default function ESNavbar() {
               { name: "About us", href: "/contact" },
               { name: "Contact", href: "/contact" },
             ]}
-            isDroped={dropdownActive === 6}
-            dropdownNumer={6}
+            isDropped={dropdownActive === 6}
+            dropdownNumber={6}
             dropdownCallback={dropdownCallback}
           />
         </ul>

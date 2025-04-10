@@ -8,8 +8,6 @@ import { Carousel } from "react-responsive-carousel";
 
 import { cn } from "@/lib/utils";
 import ExportedImage, { ExportedImageProps } from "next-image-export-optimizer";
-import ArrowPrev from "@/public/assets/rwth/ArrowPrev.svg";
-import ArrowNext from "@/public/assets/rwth/ArrowNext.svg";
 
 function GalleryImage(props: ExportedImageProps) {
   return (
@@ -116,8 +114,8 @@ const GalleryPrevArrow = (
         aria-label={label}
       >
         <div className="relative p-4">
-          <ExportedImage
-            src={ArrowPrev}
+          <img
+            src="/assets/rwth/ArrowPrev.svg"
             alt="arrow left"
             className="h-[45px] w-45 lg:size-[75px]"
           />
@@ -142,8 +140,8 @@ const GalleryNextArrow = (
         aria-label={label}
       >
         <div className="relative p-4">
-          <ExportedImage
-            src={ArrowNext}
+          <img
+            src="/assets/rwth/ArrowNext.svg"
             alt="arrow right"
             className="h-[45px] w-45 lg:size-[75px]"
           />
