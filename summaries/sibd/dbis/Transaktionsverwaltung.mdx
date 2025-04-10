@@ -37,10 +37,12 @@ Probleme wie bei Bus:
   - Änderungen von einer Transaktion werden von einer anderen Überschrieben
     Beispiel: `r_1(x) r_2(x) w_2(x) c_2 w_1(x) c_1`
 - Dirty Read
+
   - Daten die von einer noch nicht abgeschlossenen Transaktion verändert wurden sind `Dirty Data`
     Es könnte z.B. passieren, dass Prozess 1 seine Transaktionen abbricht, aber Prozess 2 auf den Daten rechnet.
 
     Beispiel: `r_1(x) w_1(x) r_2(x) a_1 w_2(x)`
+
 - Phantom
 
 Trotzdem wollen wir nicht seriell arbeiten. Also Scheduling mit Read / Write Locks

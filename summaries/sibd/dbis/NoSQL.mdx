@@ -50,7 +50,6 @@ tags: [XML, Graphdatenbanken]
 
 > Leider gehen mermaid diagramme noch nicht in einer experimentellen version von mdx-remote...
 
-
 - Ressourcen sind: URI, Blank Nodes (URI: Uniform Resource Identifier bsp: `urn:example:animal:ferret:nose`)
 - Eigenschaften sind: URI die eine Eigenschaft beschreibt
 - Werte sind: URI, Blank Nodes, Literale (Strings interpretiert mit Datentyp `"123"^^http//www.w3.org/2001/XMLSchema#int`)
@@ -68,6 +67,7 @@ Ein Abfrage besteht aus folgendem:
 - Namespaces (Prefixe)
   - `@prefix ex: <http://example.com/resources/>`
 - Abfrage Typ
+
   - `SELECT`, `ASK`, `CONSTRUCT`, `DESCRIBE`
   - `SELECT ?x | * FROM ...`: FROM ist optional da es nur die durchsuchten Graphen angibt(sonst default Graph)
   - `ASK`: Ergebnis ist Wahrheitswert
@@ -92,7 +92,7 @@ Somit ergibt sich eine Abfrage wie folgt:
     wbsp:John foaf:knows ?friend .
     ?friend foaf:firstname ?friendname .
   }
-````
+```
 
 Weiteres:
 

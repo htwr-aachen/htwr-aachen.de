@@ -14,7 +14,7 @@ export default function SummaryLayout(
     prev?: ArticleMeta;
   } & HTMLAttributes<HTMLDivElement>,
 ) {
-  const { children, meta, subjectConfig, next, prev, ...divProps} = props
+  const { children, meta, subjectConfig, next, prev, ...divProps } = props;
   return (
     <article className="markdown line-numbers">
       <script
@@ -38,9 +38,7 @@ export default function SummaryLayout(
         {prev != null ? (
           <>
             | Vorheriges:{" "}
-            <Link
-              href={`${subjectConfig.articlesURL}/${prev?.slug}`}
-            >
+            <Link href={`${subjectConfig.articlesURL}/${prev?.slug}`}>
               {prev?.meta.title}
             </Link>{" "}
           </>
@@ -50,9 +48,7 @@ export default function SummaryLayout(
         {next != null ? (
           <>
             | Nächstes:{" "}
-            <Link
-              href={`${subjectConfig.articlesURL}/${next?.slug}`}
-            >
+            <Link href={`${subjectConfig.articlesURL}/${next?.slug}`}>
               {next?.meta.title}
             </Link>{" "}
           </>

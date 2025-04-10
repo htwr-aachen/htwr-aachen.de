@@ -30,7 +30,7 @@ Dabei gibt es 3 Arten von Optimierungen:
     9. Selektion kann mit Vereinigung und Schnitt vertauscht werden
     10. Projektion kann **nur mit Vereinigung** vertauscht werden
     11. Selektion und Kreuzprodukt können zu einem Join zusammengefasst werden, wenns passt
-    12-15. Irrelevanter Kram / Selbstverständlich
+        12-15. Irrelevanter Kram / Selbstverständlich
 - Kostenbasierte Optimierung
   - Reihenfolge von Selektionen und Projektionen sind regelbasiert
   - Reihenfolge von Joins und Kreuzprodukten sind kostenbasiert
@@ -57,9 +57,13 @@ Dabei gibt es 3 Arten von Optimierungen:
     - Hash-Join: Statt sequenzieller Suche wird hash-suche verwendet. Performance: **gut**
 
 Weitere Optimierungen:
+
 - Indexstrukturen
   - Daten sind nach Schlüssel sortiert
   - Sekundäre Indizes sind weitere Indizes über andere Attribute.
   - => B-Bäume googled wenn ihr es vergessen habt
 - Sekundäre Indizes sind listen, die auf die Speicheradressen der Tupel verweisen (bzw. auf den Schlüssel). Optimierungen unter anderem R-Bäume
+
+```
+
 ```
