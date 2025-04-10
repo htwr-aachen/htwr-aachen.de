@@ -1,5 +1,4 @@
 import { compareDesc } from "date-fns";
-import type { Stats } from "fs";
 import { readdir, readFile, stat } from "fs/promises";
 import type { GrayMatterFile } from "gray-matter";
 import matter from "gray-matter";
@@ -37,7 +36,7 @@ export function parseFrontmatter(
   basePath: string,
   fileName: string,
   corpusConfig: CorpusConfig,
-  fileStat: Stats,
+  mtime: Date,
 ): ArticleMeta {
   const { data } = matterFile;
   const frontMatter: ArticleMeta = {
@@ -46,7 +45,7 @@ export function parseFrontmatter(
     meta: {
       title: data.title || "--Unbennant--",
       fullTitle: data.fullTitle || data.title || "--Unbennant--",
-      date: data.date || fileStat.mtime.toISOString(),
+      date: data.date || mtime.toISOString(),
       tags: data.tags || [],
       order: parseInt(data.order, 10) || -1,
       authors: [
@@ -116,7 +115,7 @@ export async function getArticlesMetadata(
           file.parentPath,
           file.name,
           corpusConfig,
-          stats,
+          stats.mtime,
         );
       }),
     );

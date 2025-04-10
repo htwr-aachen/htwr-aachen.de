@@ -42,10 +42,16 @@ describe("parseFrontmatter", () => {
       orig: "",
     };
 
-    const actual = parseFrontmatter(grayMatter, "/basePath", "testFile.mdx", {
-      articlesURL: "/testURL",
-      articlesPath: "/basePath",
-    });
+    const actual = parseFrontmatter(
+      grayMatter,
+      "/basePath",
+      "testFile.mdx",
+      {
+        articlesURL: "/testURL",
+        articlesPath: "/basePath",
+      },
+      new Date(),
+    );
 
     expect(actual).toStrictEqual(correctDataExpected);
   });
