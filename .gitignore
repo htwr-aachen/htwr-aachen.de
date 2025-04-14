@@ -85,6 +85,7 @@ typings/
 # Next.js build output
 .next
 out
+nextImageExportOptimizer
 
 # Nuxt.js build / generate output
 .nuxt
