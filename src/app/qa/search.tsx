@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function FAQSearch() {
+export default function QASearch() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {

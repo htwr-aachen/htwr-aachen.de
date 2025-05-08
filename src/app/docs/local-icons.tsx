@@ -170,7 +170,7 @@ export function CustomAnim() {
   <h1>Hier ein paar Ideen die einer machen könnte</h1>
   <ul>
     <li>Eine Memepage</li>
-    <li>Ein FAQ für Studiumsfragen</li>
+    <li>Eine Link Seite</li>
   </ul>
         `}
 			</code>

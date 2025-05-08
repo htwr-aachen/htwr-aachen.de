@@ -15,6 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "../ui/input";
+import { toast } from "sonner";
+import { PostAnswer, QANewAnswerDTO } from "@/lib/qa";
+import { subMonths } from "date-fns/subMonths";
 
 const formSchema = z.object({
   answer: z
@@ -22,16 +25,15 @@ const formSchema = z.object({
     .min(2, {
       message: "Antworten sollten schon Inhalt haben!",
     })
-    .max(5000, {
+    .max(4096, {
       message: "Fragen sollten auch nicht sooo viel Inhalt haben!",
     }),
-  knowledgeDate: z.date(),
   monthCount: z.number().nonnegative({
     message: "Na na na sowas machen wir aber nicht. Positiv bleiben!",
   }),
 });
 
-export function AnswerForm() {
+export function AnswerForm({ questionID }: { questionID: number }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,9 +42,31 @@ export function AnswerForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    toast.message("Ich versuche es mal");
+
+    const knownSince = subMonths(new Date(), values.monthCount);
+    const answer: QANewAnswerDTO = {
+      answer: values.answer,
+      question_id: questionID,
+      known_since: knownSince.toIsoString(),
+    };
+
+    try {
+      const submitted = PostAnswer(answer);
+      toast.promise(submitted, {
+        loading: "Antwort wird erstellt...",
+        success: (a) => {
+          return `Antwort ${a.id} wurde erfolgreich erstellt und vorgeschlagen`;
+        },
+        error: (err) => {
+          return `Antwort konnte nicht erstellt werden ${err?.msg || ""}`;
+        },
+      });
+    } catch (err) {
+      console.log("Antwort konnte nicht erstellt werden", err);
+    }
+  };
 
   return (
     <Form {...form}>

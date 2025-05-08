@@ -18,9 +18,9 @@ export const DefaultNavbar: NavbarConfig = {
 			path: "/bingo",
 		},
 		{
-			name: "FAQ",
-			href: "/faq",
-			path: "/faq",
+			name: "Q&A (StudiencenterV2)",
+			href: "/qa",
+			path: "/qa",
 		},
 		{
 			name: "Mithelfen",

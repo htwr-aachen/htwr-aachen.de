@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AppConfig, BaseURL } from "@/config/app";
 import { hkGrotesk, inter, newsreader } from "./fonts";
 import "../styles/cms.css";
+import { Toaster } from "@/components/ui/sonner";
 import GeneralLayout from "@/layouts/general";
 
 type RootLayoutProps = {
@@ -88,6 +89,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
 						disableTransitionOnChange
 					>
 						<GeneralLayout>{children}</GeneralLayout>
+						<Toaster visibleToasts={3} theme="dark" richColors />
 					</ThemeProvider>
 				</BannerNotifyProvider>
 			</body>

@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 
 import Modern from "@/layouts/modern/layout";
 
-import { BlogNav } from "./nav";
+import { QANav } from "./nav";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - faq@HTWR",
-    default: "faq@HTWR",
+    template: "%s - qa@HTWR",
+    default: "qa@HTWR",
   },
 };
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Modern nav={BlogNav} name="faq" prefix="faq">
+    <Modern nav={QANav} name="qa" prefix="qa">
       {children}
     </Modern>
   );

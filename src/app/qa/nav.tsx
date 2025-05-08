@@ -10,12 +10,12 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
-export const BlogNav = (
+export const QANav = (
   <NavigationMenu color="neutral-200">
     <NavigationMenuList>
       <NavigationMenuItem className="mr-4">
         <NavigationMenuLink asChild>
-          <Link href="/faq" className="text-foreground">
+          <Link href="/qa" className="text-foreground">
             Übersicht
           </Link>
         </NavigationMenuLink>
