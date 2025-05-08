@@ -13,9 +13,9 @@ export const DefaultNavbar: NavbarConfig = {
       path: "/panikzettel",
     },
     {
-      name: "FAQ",
-      href: "/faq",
-      path: "/faq",
+      name: "Q&A (StudiencenterV2)",
+      href: "/qa",
+      path: "/qa",
     },
     {
       name: "Mithelfen",

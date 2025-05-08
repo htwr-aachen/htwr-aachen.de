@@ -8,6 +8,7 @@ import { BannerNotifyProvider } from "@/components/banner-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppConfig, BaseURL } from "@/config/app";
 import { hkGrotesk, inter, newsreader } from "./fonts";
+import { Toaster } from "@/components/ui/sonner";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -85,7 +86,10 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
             enableSystem={false}
             disableTransitionOnChange
           >
-            <div className="min-h-screen">{children}</div>
+            <div className="min-h-screen">
+              {children}
+              <Toaster visibleToasts={3} theme="dark" richColors />
+            </div>
           </ThemeProvider>
         </BannerNotifyProvider>
       </body>

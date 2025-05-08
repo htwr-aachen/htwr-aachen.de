@@ -15,6 +15,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { PostQuestion, QANewQuestionDTO } from "@/lib/qa";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   question: z
@@ -42,9 +44,27 @@ export function NewQuestionForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const question: QANewQuestionDTO = {
+      title: values.question,
+      description: values.description,
+    };
+
+    try {
+      const submitted = PostQuestion(question);
+      toast.promise(submitted, {
+        loading: "Frage wird erstellt...",
+        success: (q) => {
+          return `Frage ${q.id} wurde erfolgreich erstellt und vorgeschlagen`;
+        },
+        error: (err) => {
+          return `Frage konnte nicht erstellt werden ${err?.msg || ""}`;
+        },
+      });
+    } catch (err) {
+      console.log("Frage konnte nicht erstellt werden", err);
+    }
+  };
 
   return (
     <Form {...form}>

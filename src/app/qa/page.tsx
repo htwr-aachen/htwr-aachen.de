@@ -10,42 +10,47 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import FAQSearch from "./search";
-import { FAQQuestion } from "@/models/faq";
-import FAQQuestionEntry from "@/components/faq/question-entry";
+import QASearch from "./search";
+import { QAQuestion } from "@/models/qa";
+import QAQuestionEntry from "@/components/qa/question-entry";
 
-const TestUnansweredQuestion: FAQQuestion = {
+const TestUnansweredQuestion: QAQuestion = {
   id: 1,
-  answered: false,
   title:
     "Was geht den hier ab? Was passiert wenn dieser titel doch etwas länger wird",
   description:
     "Ein bisschen Markdown ist auch erlaubt<br/><ul><li>das muss ich probieren</li></ul>wow",
+  createdAt: new Date(),
 };
-const TestAnsweredQuestion: FAQQuestion = {
+const TestAnsweredQuestion: QAQuestion = {
   id: 2,
-  answered: true,
   title:
     "Was geht den hier ab? Was passiert wenn dieser titel doch etwas länger wird",
   description:
     "<h1>ist auch gestattet?</h1><br/><ul><li>das muss ich probieren</li></ul>wow",
-  answer:
-    "<h1>ist auch gestattet?</h1><br/><ul><li>das muss ich probieren</li></ul>wow",
+  createdAt: new Date(),
+  answer: {
+    id: 2,
+    answer:
+      "<h1>ist auch gestattet?</h1><br/><ul><li>das muss ich probieren</li></ul>wow",
+    createdAt: new Date(),
+    known_since: new Date(),
+  },
 };
 
 export default async function Page() {
   return (
     <div className="mx-auto min-h-screen max-w-prose px-4 lg:px-0">
       <h1 className="my-6 scroll-m-20 font-sans text-4xl font-bold lg:text-5xl">
-        HTWR-FAQ
+        HTWR-Q&amp;A
       </h1>
       <p className="my-6 leading-7">
-        Haben Sie fragen über das Informatikstudium? Kann ihnen Niemand helfen
-        und das ZPA ghostet Sie bereits <a href="#footnote-1">[1]</a>?
+        Hast du fragen über dein Informatikstudium? Kann dir Niemand helfen und
+        das ZPA ghostet dich bereits <a href="#footnote-1">[1]</a>?
         <br />
         Ich habe/hatte das gleiche Problem also warum nicht einander helfen?
-        Hier können ganz einfach, ohne Einlogen oder sonstigem, neue Fragen
-        gestellt und Antworten eingereicht werden.
+        Hier können ganz einfach, ohne Einlogen oder sonstigem Quatsch, neue
+        Fragen gestellt und Antworten eingereicht werden.
       </p>
       <Alert className="my-4">
         <TriangleAlert className="size-4" />
@@ -79,20 +84,20 @@ export default async function Page() {
           </DrawerContent>
         </Drawer>
       </div>
-      <FAQSearch />
+      <QASearch />
 
       <div className="my-8">
         <h2 id="unanswered" className="text-2xl font-bold">
           Unbeantwortete Fragen
         </h2>
-        <FAQQuestionEntry question={TestUnansweredQuestion} />
+        <QAQuestionEntry question={TestUnansweredQuestion} />
       </div>
 
       <div className="my-8">
         <h2 id="answered" className="text-2xl font-bold">
           Beantwortete Fragen
         </h2>
-        <FAQQuestionEntry question={TestAnsweredQuestion} />
+        <QAQuestionEntry question={TestAnsweredQuestion} />
       </div>
 
       <p id="footnote-1" className="italic">

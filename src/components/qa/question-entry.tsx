@@ -1,5 +1,5 @@
 "use client";
-import { FAQQuestion } from "@/models/faq";
+import { QAQuestion } from "@/models/qa";
 import clsx from "clsx";
 import { useState } from "react";
 import {
@@ -27,15 +27,15 @@ import { AnswerForm } from "./answer-form";
 
 const BASE_URL = "http://localhost:3000";
 
-export default function FAQQuestionEntry({
+export default function QAQuestionEntry({
   question,
   showAnswerDefault = true,
 }: {
-  question: FAQQuestion;
+  question: QAQuestion;
   showAnswerDefault?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState<boolean>(showAnswerDefault);
-  const COPY_URL = `${BASE_URL}/faq#${question.id}`;
+  const COPY_URL = `${BASE_URL}/qa#${question.id}`;
 
   const onCopyLink = () => {
     navigator.clipboard.writeText(COPY_URL);
@@ -45,7 +45,7 @@ export default function FAQQuestionEntry({
     <div
       className={clsx(
         "text-foreground my-4 rounded-lg border px-4 py-3",
-        question.answered ? "border-green-600" : "",
+        question.answer ? "border-green-600" : "",
       )}
     >
       <TooltipProvider>
@@ -70,7 +70,7 @@ export default function FAQQuestionEntry({
                   Copy {COPY_URL} to the clipboard
                 </TooltipContent>
               </Tooltip>
-              {question.answered && (
+              {question.answer && (
                 <CollapsibleTrigger asChild>
                   <Button variant="outline">
                     Antwort {isOpen ? "verstecken" : "zeigen"}
@@ -85,7 +85,7 @@ export default function FAQQuestionEntry({
               dangerouslySetInnerHTML={{ __html: question.description || "" }}
             />
           </div>
-          {!question.answered ? (
+          {!question.answer ? (
             <Drawer>
               <Tooltip>
                 <DrawerTrigger asChild className="w-full">
@@ -124,7 +124,7 @@ export default function FAQQuestionEntry({
                 <div className="prose text-foreground prose-headings:text-foreground prose-headings:text-sm mb-6 text-sm">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: question.answer || "",
+                      __html: question?.answer?.answer || "",
                     }}
                   />
                 </div>
