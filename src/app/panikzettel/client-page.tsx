@@ -19,6 +19,14 @@ function filterPanikzettel(panikzettel: Panikzettel[], semester: number) {
   });
 }
 
+function filterOthers(panikzettel: Panikzettel) {
+  return !(
+    panikzettel.type === COMPULSORY_SUBJECT ||
+    panikzettel.type === COMPULSORY_ELECTIVE_SUBJECT ||
+    panikzettel.type === APPLICATION_AREA_SUBJECT
+  );
+}
+
 export const metadata: Metadata = {
   title: "Panikzettel",
   description:
@@ -56,6 +64,13 @@ export default function Page() {
                 (x) => x.type === APPLICATION_AREA_SUBJECT,
               )}
             />
+            <hr className="border border-dashed border-black/50 bg-none md:col-span-2" />
+            <div className="col-span-2">
+              <PanikzettelSelection
+                title="Sonstiges"
+                selection={panikzettel.filter((x) => filterOthers(x))}
+              />
+            </div>
           </PanikzettelPage>
         </SkewedPanikzettelFrontpage>
       </div>
