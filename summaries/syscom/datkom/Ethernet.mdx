@@ -6,14 +6,7 @@ order: 1
 author: Jonas Schneider
 ---
 
-<iframe
-  src="https://giphy.com/embed/5aY2MOdRZ2y8kQfIHH"
-  width="480"
-  height="270"
-  frameBorder="0"
-  className="giphy-embed"
-  allowFullScreen
-></iframe>
+![WLAN-Kabel](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGl4bWd6cHQzN3hvcTJoaTBwc3Q3em9mb2pqb3Jlanp0eHI5NWptNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5aY2MOdRZ2y8kQfIHH/giphy.gif)
 $\uparrow$
 
 WLAN KABEL
@@ -56,14 +49,12 @@ Es besteht also aus den Folgenden Teilen:
 
 Anders als praktisch alle anderen Protokolle hiernach ist, das Ethernet auch erkennbar machen muss, wann ein Paket zuende ist. Hierfür gibt es den Ethernet TAIL
 
-Hierfür kommmt zuerst das PAD-Feld, welches auch unteranderem das Frame padded bis es minimal 64 Byte hat. Hier ist natürlich wichtig das z.b. Bit-Stuffing verwendet wird, damit man das PAD-Feld erkennen kann.
+Hierfür kommt zuerst das PAD-Feld, welches auch unteranderem das Frame padded bis es minimal 64 Byte hat. Hier ist natürlich wichtig das z.b. Bit-Stuffing verwendet wird, damit man das PAD-Feld erkennen kann.
 
-<p className="small">
-  (PSSS: Bit-Stuffing war das mit dem ersteten von dem Pattern(z.b. 0111 =>
+  (PSSS: Bit-Stuffing war das mit dem erstem von dem Pattern(z.b. 0111 =>
   01101) und dem Rückwandeln danach
-</p>
 
-Und dann gibt es noch das Frame-Check-Sequence[FCS](CRC Check) also eine Prüfsumme mit [Cyclic-Redundency-Check](https://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung)
+Und dann gibt es noch das Frame-Check-Sequence[FCS](CRC Check) also eine Prüfsumme mit [Cyclic-Redundancy-Check](https://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung)
 
 Viel mehr gibt es zu Ethernet eigentlich auch nicht zu wissen außer natürlich das besondere Thema des [Medienzugriff](/syscom/studium/teachings/halt-haltmaldeinefressebitte)
 

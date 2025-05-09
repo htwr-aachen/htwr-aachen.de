@@ -111,3 +111,42 @@ export function BaseDocumentList({
     </Collapsible.Root>
   );
 }
+
+/**
+ * A more basic document list that does not include collapsible or headings
+ */
+export function BasicBaseDocumentList(props: { docs: DocumentCollection }) {
+  const renderDocumentItems = (
+    collection: DocumentCollection,
+    parentPath: string = "",
+  ): ReactNode[] => {
+    let itemsToRender: ReactNode[] = [];
+    const currentPath = parentPath
+      ? `${parentPath} / ${collection.name}`
+      : collection.name;
+
+    collection.documents.forEach((doc) => {
+      const docName = currentPath ? `${currentPath} / ${doc.name}` : doc.name;
+      itemsToRender.push(
+        <li key={parentPath + doc.url + doc.name} className="mt-2">
+          {" "}
+          <Download className="mr-2 inline size-4"></Download>
+          <Link passHref href={doc.url}>
+            {docName}
+          </Link>
+        </li>,
+      );
+    });
+
+    collection.categories.forEach((category) => {
+      itemsToRender = itemsToRender.concat(
+        renderDocumentItems(category, currentPath),
+      );
+    });
+
+    return itemsToRender;
+  };
+
+  const allDocumentItems = renderDocumentItems(props.docs, "");
+  return <ul className="my-6 ml-6 [&>li]:mt-2">{allDocumentItems}</ul>;
+}

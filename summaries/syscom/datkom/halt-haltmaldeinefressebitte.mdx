@@ -9,18 +9,11 @@
 ## Verbindungstypen
 
 Zunächst mal sind die Verbindungstypen wichtig.
-Es gitb:
+Es gibt:
 
 - Bus
 
-  <iframe
-    src="https://giphy.com/embed/NktFjqntkZQbe"
-    width="100%"
-    height="269"
-    frameBorder="0"
-    className="giphy-embed custom-aspect"
-    allowFullScreen
-  ></iframe>
+![Bus](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzg5dHI0cTM2ZWd6emR6ejl2NWtzem93aWcydnFqOXZtbW95aXJuZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CEyKnXJ02b0qI/giphy.gif)
 
 - Ring
 - LANs/MANs, Ethernet (Sachen verbunden mit switches und so)
@@ -38,7 +31,7 @@ Es lernt die Adressen der Stationen und Puffert für jeden Port (Somit trennt es
 
 Alle nachfolgenden Protokolle und Methoden sind dafür da um Kollisionen auf dem Medium (z.B. dem Kabel) zu verhindern.
 
-Polling entscheidet ein zentraler Verwalter wer senden darf. Bei Bloothooth ist das z.B. der Master, er gibt jedem Gerät ein Zeitslot. USB verwendet auch Polling
+Polling entscheidet ein zentraler Verwalter wer senden darf. Bei Bluethooth ist das z.B. der Master, er gibt jedem Gerät ein Zeitslot. USB verwendet auch Polling
 
 ## Token Ring
 
@@ -47,14 +40,7 @@ Wenn sie den Token hat, darf sie senden. Wenn sie fertig ist, gibt sie den Token
 
 Nachrichten werden von allen im Ring empfangen und **immer** weitergeleitet [na gut bis auf dem Sender]. Wenn man der Empfänger ist muss man die empfangenden Nachrichten einfach kopieren und fertig
 
-<iframe
-  src="https://giphy.com/embed/YcFOfbeTcHtVS"
-  width="480"
-  height="270"
-  frameBorder="0"
-  className="giphy-embed"
-  allowFullScreen
-></iframe>
+~[Rooom](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHMydHRpN2I0dzdkank5ajY2NThlMjQ0azdoczBiazBza2FwZWVsZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YcFOfbeTcHtVS/giphy.gif)
 
 ### Zeitverhalten
 
@@ -64,21 +50,14 @@ Jeder sendet wann er will. Empfänger schickt Bestätigung, bei korrekten Daten.
 
 Deswegen liegt hier die analytische Effizienz bei 18%.
 
-<iframe
-  src="https://giphy.com/embed/LZQsVAzgB6sE0"
-  width="480"
-  height="320"
-  frameBorder="0"
-  className="giphy-embed"
-  allowFullScreen
-></iframe>
+![Nope](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNiZWd0MHkyMjg2ZTl2NHV3NmdpMHJzb2Y5a2tyczlyZ3YxOG1udCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LZQsVAzgB6sE0/giphy.gif)
 
 ## CSMA/CD
 
 Weil ALOHA so scheiße ist, wurde CSMA/CD (Carrier Sense Multiple Access mit Collision Detection) entwickelt.
-Hier wird vor dem Senden geprüft, ob die Leitung überhaupt frei ist.
-Dann hört man sich während des Sendens selber zu und prüft ob es Überlagerungen (Spannungsspitzen wenn 5V + 5V zusammentreffen) gibt.
-Falls ja sendet man das Jamming signal, somit wissen alle das es zu einer Überlagerungen kam.
+Hier wird vor dem Senden geprüft, ob die Leitung überhaupt frei ist 🤯.
+Dann hört man sich während des Sendens selber zu und prüft ob es Überlagerungen (z.B. Spannungsspitzen wenn 5V + 5V zusammentreffen) gibt.
+Falls ja sendet man ein Jamming-Signal, somit wissen alle das es zu einer Überlagerungen kam.
 
 Ethernet benutzt CSMA/CD
 
