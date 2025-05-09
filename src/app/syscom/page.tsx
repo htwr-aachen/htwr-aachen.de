@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="prose mx-auto text-black lg:max-w-[100ch]">
+    <div className="prose mx-auto px-2 text-black lg:max-w-[100ch] lg:px-0">
       <Content />
     </div>
   );
