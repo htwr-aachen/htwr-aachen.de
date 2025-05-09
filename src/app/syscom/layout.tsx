@@ -1,7 +1,7 @@
+import SysComLayout from "@/layouts/syscom/layout";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-
-import { Main } from "@/layouts/syscom/Main";
+import { navbar } from "./config";
 
 export const metadata: Metadata = {
   title: {
@@ -42,5 +42,9 @@ export const viewport: Viewport = {
 };
 
 export default function Layout(props: { children: ReactNode }) {
-  return <Main institute="syscom">{props.children}</Main>;
+  return (
+    <SysComLayout institute="syscom" prefix="syscom" nav={navbar}>
+      {props.children}
+    </SysComLayout>
+  );
 }

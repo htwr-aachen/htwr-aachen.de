@@ -128,8 +128,8 @@ const Index: FC = () => {
                   width={32}
                   height={32}
                 />
-                {institute?.displayName || institute.name} /{" "}
-                {findAssociatedSubjects(institute.name)}
+                {institute?.displayName || institute.name} / <br />
+                {findAssociatedSubjects(institute.name).join(", ")}
               </PersonaElement>
             );
           })}
