@@ -8,7 +8,7 @@ import { useContext } from "react";
 export function SysComFooter(props: { institute: Institutes }) {
   const { setShow } = useContext(BannerNotifyContext);
   return (
-    <footer className="mt-8 flex w-full items-center justify-center border-t-1 bg-white pt-16 pb-16 text-black">
+    <footer className="mt-8 flex w-full items-center justify-center border-t-1 border-t-black/50 bg-white pt-16 pb-16 text-black">
       <InstituteSwitches institute={props.institute} />
       <div className="text-center">
         <Link href={"/blog"} className="text-inherit hover:border-b-1">
