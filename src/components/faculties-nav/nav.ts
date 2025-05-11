@@ -85,6 +85,13 @@ export const FacultiesNavContent: {
     heading: "Tools & Mehr",
     links: [
       {
+        href: "/bingo",
+        path: "/",
+        content: "Vorlesungs-Bingo",
+        name: "Vorlesungs-Bingo",
+        tooltip: "Das Vorlesungs-Bingo ist zurück!",
+      },
+      {
         href: "/lernräume",
         path: "/lernräume",
         content: "Lernräume (TODO)",

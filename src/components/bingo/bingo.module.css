@@ -1,0 +1,21 @@
+.wrapper {
+  max-width: 100vw;
+  overflow-x: scroll;
+}
+
+.field {
+  display: grid;
+  width: 500px;
+  height: 500px;
+}
+
+.tile {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile:hover {
+  cursor: pointer;
+}
