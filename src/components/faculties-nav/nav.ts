@@ -99,7 +99,7 @@ export const FacultiesNavContent: {
         tooltip: "Warum wurde das noch nicht öffentlich gemacht?",
       },
       {
-        href: "httsp://bit.ly/getmeoutofrwth",
+        href: "https://bit.ly/getmeoutofrwth",
         path: "/",
         content: "Exmatrikulieren",
         name: "Exmatrikulieren",

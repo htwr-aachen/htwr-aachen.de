@@ -17,7 +17,7 @@ const Impressum: FC = () => {
         <h1>Impressum</h1>
 
         <Alert>
-          <AlertTitle>🤔 Tatsächlich Interesant</AlertTitle>
+          <AlertTitle>🤔 Tatsächlich Interessant</AlertTitle>
           <AlertDescription>
             Da ich hiermit kein Finanziellen Absichten verfolge und auch keine
             Gewinne erziele (mit Werbung oder sonstigem) bräuchte ich vermutlich
