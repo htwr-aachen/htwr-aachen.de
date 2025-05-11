@@ -89,7 +89,7 @@ export const FacultiesNavContent: {
         path: "/",
         content: "Vorlesungs-Bingo",
         name: "Vorlesungs-Bingo",
-        tooltip: "Das Vorlesungs-Bingo ist zurück!",
+        tooltip: "Hier ist das HTWR Vorlesungs-Bingo!",
       },
       {
         href: "/lernräume",
