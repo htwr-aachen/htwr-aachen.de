@@ -7,9 +7,9 @@ export default async function Page() {
         HTWR Bingo
       </h1>
       <p className="my-6 leading-7">
-        Das Vorlesungs-Bingo ist zurück! Du kannst es während der Vorlesung
+        Hier ist das HTWR Vorlesungs-Bingo! Du kannst es während der Vorlesung
         alleine oder am besten direkt zusammen mit Kommolitonen spielen. Falls jemand fragt, es
-        hilft einem (mal mehr mal weniger) dabei mehr auf das Gesagte zu achten und vieeel besser
+        hilft einem dabei auf das Gesagte zu achten und vieeel besser
         zuzuhören. &#9757;&#65039;&#x1F60C;
       </p>
       <p className="my-6 leading-7">

@@ -2,136 +2,8 @@
 
 import { useState } from "react";
 import styles from "./bingo.module.css";
-
-type Bingo = {
-  id: string;
-  name: string;
-  words: string[];
-};
-
-// You can add subjects here. Just have at least size * size (normally 16) words :)
-const bingos: Bingo[] = [
-  {
-    id: "swt",
-    name: "SWT",
-    words: [
-      "BMW",
-      "VW",
-      "Unternehmen",
-      "RWTH",
-      "Software",
-      "Kosten",
-      "Engineering",
-      "Arbeit",
-      "Forschung",
-      "Kooperation",
-      "Apple",
-      "Informatik",
-      "Wirtschaft",
-      "Klausur",
-      "Produkt",
-      "Fehler",
-      "Fahrzeug",
-      "Qualität",
-      "Programmieren",
-      "Analyse",
-      "Entwurf",
-      "Implementierung",
-      "Test",
-      "Deployment",
-      "Evolution",
-      "Modell",
-      "Integration",
-      "Wartung",
-      "Wasserfall",
-      "Phase",
-      "Scrum",
-      "Agil",
-      "Definition",
-      "Anforderung",
-      "Kommunikation",
-      "Standard",
-      "Diagramm",
-      "Prozess",
-      "Geschäft",
-      "Aktivität",
-      "Aktion",
-      "Kunde",
-      "System",
-      "Use-Case",
-      "Akteur",
-      "Prototyp",
-      "Methode",
-      "Klasse",
-      "Beziehung",
-      "Management",
-      "Objekt",
-      "Pfeil",
-      "Ereignis",
-      "Rolle",
-      "Problem",
-      "Lösung",
-      "Beispiel",
-      "Muster",
-      "Nutzer",
-      "Zukunft",
-      "Java",
-      "Projekt",
-      "Cloud",
-    ],
-  },
-  {
-    id: "progra",
-    name: "Progra",
-    words: [
-      "Haskell",
-      "Java",
-      "Prolog",
-      "Succ Nats",
-      "Grammatik",
-      "Syntax",
-      "Programm",
-      "Methode",
-      "String",
-      "Ausdruck",
-      "Anweisung",
-      "Datentyp",
-      "Schleife",
-      "if",
-      "switch",
-      "while",
-      "do",
-      "for",
-      "main",
-      "Bedingung",
-      "Verifikation",
-      "Hoare-Kalkül",
-      "Regel",
-      "terminiert",
-      "foreach",
-      "Objekt",
-      "Klasse",
-      "Deklaration",
-      "objektorientiert",
-      "break",
-      "continue",
-      "return",
-      "Parameter",
-      "private",
-      "public",
-      "Konstruktor",
-      "Integer",
-      "int",
-      "float",
-      "double",
-      "char",
-      "Liste",
-      "Array",
-      "Klausur",
-      "Beispiel",
-    ],
-  },
-];
+import { bingos } from "@/config/bingo"
+import { cn } from "@/lib/utils"
 
 export default function Bingo() {
   const [subject, setSubject] = useState<string | null>(null);
@@ -212,9 +84,7 @@ export default function Bingo() {
             {gridValues.map((_, index) => (
               <button
                 key={index}
-                className={`${styles.tile} ${
-                  gridValues[index] ? "bg-blue-500" : "bg-stone-800"
-                }`}
+                className={cn(styles.tile, gridValues[index] ? "bg-blue-500" : "bg-stone-800")}
                 onClick={() => handleClick(index)}
               >
                 {gridText[index]}
