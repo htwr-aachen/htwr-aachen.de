@@ -85,6 +85,13 @@ export const FacultiesNavContent: {
     heading: "Tools & Mehr",
     links: [
       {
+        href: "/bingo",
+        path: "/",
+        content: "Vorlesungs-Bingo",
+        name: "Vorlesungs-Bingo",
+        tooltip: "Hier ist das HTWR Vorlesungs-Bingo!",
+      },
+      {
         href: "/lernräume",
         path: "/lernräume",
         content: "Lernräume (TODO)",
