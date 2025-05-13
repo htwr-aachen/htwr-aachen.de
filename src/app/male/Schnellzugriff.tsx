@@ -2,19 +2,19 @@ import type { FC } from "react";
 
 import {
   Schnellzugriff,
-  Schnellzugrifflink,
+  SchnellzugriffLink,
 } from "@/components/rwth/schnellzugriff";
 
 export const MaterialienSchnellzugriff: FC = () => {
   return (
     <div className="max-h-410">
       <Schnellzugriff title="Materialien">
-        <Schnellzugrifflink href="/male/teachings">
+        <SchnellzugriffLink href="/male/teachings">
           Zusammenfassungen
-        </Schnellzugrifflink>
-        <Schnellzugrifflink href="/male/material">
+        </SchnellzugriffLink>
+        <SchnellzugriffLink href="/male/material">
           Material oder so
-        </Schnellzugrifflink>
+        </SchnellzugriffLink>
       </Schnellzugriff>
     </div>
   );

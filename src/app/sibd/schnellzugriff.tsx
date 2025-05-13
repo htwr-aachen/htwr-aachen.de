@@ -2,26 +2,26 @@ import type { FC } from "react";
 
 import {
   Schnellzugriff,
-  Schnellzugrifflink,
+  SchnellzugriffLink,
 } from "@/components/rwth/schnellzugriff";
 
 export const SIBDSchnellzugriff: FC = () => {
   return (
     <div className="max-h-410">
       <Schnellzugriff title="Materialien">
-        <Schnellzugrifflink href="/sibd/studium">Studium</Schnellzugrifflink>
-        <Schnellzugrifflink href="/sibd/studium/klausuren">
+        <SchnellzugriffLink href="/sibd/studium">Studium</SchnellzugriffLink>
+        <SchnellzugriffLink href="/sibd/studium/klausuren">
           Klausuren
-        </Schnellzugrifflink>
-        <Schnellzugrifflink href="/sibd/studium/teachings">
+        </SchnellzugriffLink>
+        <SchnellzugriffLink href="/sibd/studium/teachings">
           Zusammenfassungen
-        </Schnellzugrifflink>
-        <Schnellzugrifflink href="/sibd/studium/aufgaben">
+        </SchnellzugriffLink>
+        <SchnellzugriffLink href="/sibd/studium/aufgaben">
           Aufgaben
-        </Schnellzugrifflink>
-        <Schnellzugrifflink href="/sibd/scheduler">
+        </SchnellzugriffLink>
+        <SchnellzugriffLink href="/sibd/scheduler">
           Scheduler Recovery Solver
-        </Schnellzugrifflink>
+        </SchnellzugriffLink>
       </Schnellzugriff>
     </div>
   );

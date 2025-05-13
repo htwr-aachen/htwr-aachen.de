@@ -9,6 +9,7 @@ import {
 } from "./components/documents/list";
 import ExamsInfo from "./components/exams/info";
 import SummaryList from "./components/summaries/list";
+import { Schnellzugriff, SchnellzugriffLink } from "./components/rwth/schnellzugriff";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -20,5 +21,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     BasicSubjectDocumentList,
     SummaryList,
     ExamsInfo,
+		Schnellzugriff,
+		SchnellzugriffLink,
   };
 }
