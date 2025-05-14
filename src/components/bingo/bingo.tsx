@@ -85,7 +85,6 @@ export default function Bingo() {
                 key={index}
                 className={cn(
                   "flex aspect-square items-center justify-center border-1 border-black hover:cursor-pointer",
-                  styles.tile,
                   gridValues[index] ? "bg-blue-500" : "bg-stone-800",
                 )}
                 onClick={() => handleClick(index)}
