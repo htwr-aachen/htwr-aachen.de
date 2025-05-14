@@ -29,18 +29,18 @@ const Index: FC = () => {
       <Gallery>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/other/bluecard-extended.jpg"}
-            alt="Bluecard??"
-            width={900}
-            height={600}
-          ></GalleryImage>
-          <GalleryLabel headline="Ich kann das alles nichtmehr">
-            Warum zwei Farben? Warum alles?
+            src="/assets/other/landing/bingo.jpg"
+            alt="Bingo"
+            width={600}
+            height={400}
+          />
+          <GalleryLabel headline="Vorlesungsbingo" url="/bingo">
+            Es ist jetzt da 🤯
           </GalleryLabel>
         </GalleryItem>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/rwth/gallery/star.png"}
+            src={"/assets/other/landing/star.png"}
             alt="GitHub Stars 👉️👈️?"
             width={600}
             height={400}
@@ -59,41 +59,35 @@ const Index: FC = () => {
         </GalleryItem>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/rwth/gallery/exzelenz.jpg"}
-            alt="SCIL Banner"
-            width={700}
-            height={500}
-          ></GalleryImage>
-          <GalleryLabel headline="Exzellenzuniversität" url="/scil/studium">
-            Reduziert eure Erwartungen...
-          </GalleryLabel>
-        </GalleryItem>
-        <GalleryItem>
-          <GalleryImage
-            src={"/assets/rwth/gallery/htwr_zentrum_informatik.png"}
+            src={"/assets/other/landing/htwr_zentrum_informatik.png"}
             alt="HTWR Zentrum Informatik"
             width={300}
             height={500}
           ></GalleryImage>
-          <GalleryLabel headline="Realität" url="/scil/studium">
+          <GalleryLabel headline="Realität" url="/">
             Jeden Tag leiden mehr und mehr Studenten unter den Höllischen Qualen
             des Informatikzentrums
           </GalleryLabel>
         </GalleryItem>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/rwth/gallery/karman.jpeg"}
+            src={"/assets/other/landing/karman.jpeg"}
             alt="Erlösungstor"
             width={700}
             height={500}
           ></GalleryImage>
-          <GalleryLabel headline="WARUM?" url="/scil/studium">
+          <GalleryLabel
+            headline="WARUM?"
+            externalUrls={[
+              { url: "https://bit.ly/getmeoutofrwth", text: "Machs nicht" },
+            ]}
+          >
             Warum sieht das Ende so gut aus?
           </GalleryLabel>
         </GalleryItem>
         <GalleryItem>
           <GalleryImage
-            src={"/assets/other/moodle-loading.png"}
+            src={"/assets/other/landing/moodle-loading.png"}
             alt="Einen Moment bitte"
             width={1920}
             height={975}
