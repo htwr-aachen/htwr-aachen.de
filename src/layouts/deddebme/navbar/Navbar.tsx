@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { FacultiesButton } from "@/components/faculties-nav/button";
+import { StyledFacultiesButton } from "@/components/faculties-nav/button";
 import { type NavbarConfig, toValue } from "@/models/layout";
 
 type DeddebmeNavbarProps = {
@@ -13,16 +13,11 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
   return (
     <div>
       <nav className="mx-auto mb-4 grid max-w-6xl grid-cols-2 items-center justify-items-center">
-        <div className="pt-4 text-center">
+        <div className="flex flex-row items-center pt-4 text-center">
           <span className="text-rwth-accen mr-4 content-center text-center font-semibold">
             Professor Dr.-Ing. Stefan Kowalewski
           </span>
-          <FacultiesButton
-            type="button"
-            className="bg-accent hover:bg-accent/75 mx-auto mr-3 rounded px-2 py-1 text-stone-50"
-          >
-            Fakultäten & Institute
-          </FacultiesButton>
+          <StyledFacultiesButton className="bg-accent hover:bg-accent/75 mx-auto mr-3 rounded px-2 py-1 text-stone-50" />
         </div>
 
         <div className="flex w-full justify-end pt-5">

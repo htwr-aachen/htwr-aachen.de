@@ -1,7 +1,11 @@
 "use client";
+import {
+  FacultiesButton,
+  StyledFacultiesButton,
+} from "@/components/faculties-nav/button";
 import { NavbarConfig } from "@/models/layout";
 import clsx from "clsx";
-import { Menu, Moon, Search } from "lucide-react";
+import { CircleChevronDown, Menu, Moon, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,7 +14,7 @@ export function SysComNav(props: { config: NavbarConfig }) {
 
   return (
     <div className="bg-rwth-bg relative flex h-[75px] items-center justify-center lg:h-[100px]">
-      <div className="grid w-full grid-cols-[auto_1fr_auto_auto] items-center lg:max-w-7xl lg:grid-cols-[auto_1fr_auto_auto] lg:content-between">
+      <div className="grid w-full grid-cols-[auto_1fr_auto] items-center lg:max-w-7xl lg:grid-cols-[auto_1fr_auto_auto] lg:content-between">
         <button
           className="hover mr-6 ml-4 cursor-pointer rounded px-2 py-1 lg:hidden"
           onClick={() => setOpen((x) => !x)}
@@ -18,6 +22,7 @@ export function SysComNav(props: { config: NavbarConfig }) {
           <Menu className="size-4 text-black" />
         </button>
         <div className="flex flex-row items-center text-[#34495E]">
+          <StyledFacultiesButton className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white max-lg:hidden" />
           <Link href="/syscom">
             <svg
               width="100%"
@@ -73,12 +78,15 @@ export function SysComNav(props: { config: NavbarConfig }) {
             })}
           </ul>
         </div>
-        <span className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
-          <Search className="size-4" />
-        </span>
-        <span className="hover:bg-rwth-accent text-[] mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
-          <Moon className="size-4" />
-        </span>
+        <div className="flex flex-row items-center">
+          <StyledFacultiesButton className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white lg:hidden" />
+          <span className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
+            <Search className="size-4" />
+          </span>
+          <span className="hover:bg-rwth-accent text-[] mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
+            <Moon className="size-4" />
+          </span>
+        </div>
       </div>
       <div
         className={clsx(

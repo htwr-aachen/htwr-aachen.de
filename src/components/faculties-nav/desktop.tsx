@@ -5,7 +5,6 @@ import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 import { findAssociatedSubjects } from "@/lib/subjects";
 
 import { SheetClose } from "../ui/sheet";
-import FacultiesBreadcrumb from "./breadcrumb";
 import { FacultiesNavHeading } from "./heading";
 import { FacultiesNavContent } from "./nav";
 import { FacultiesNavLink } from "./nav-link";
@@ -20,9 +19,8 @@ export function FacultiesDesktopNav() {
       className={`bg-rwth-accent relative hidden overflow-hidden px-32 text-white lg:block`}
     >
       <div className="relative hidden grid-rows-[auto_1fr] lg:grid">
-        <div className="grid grid-cols-[1fr_auto] border-b-4 border-white/10 py-6">
-          <FacultiesBreadcrumb />
-          <SheetClose className="right-0 rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100">
+        <div className="border-b-4 border-white/10 py-6">
+          <SheetClose className="right-0 w-auto rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100">
             Schliessen
           </SheetClose>
         </div>

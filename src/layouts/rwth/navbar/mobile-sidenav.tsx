@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 import { SheetContent } from "@/components/ui/sheet";
@@ -5,10 +6,20 @@ import type { NavbarConfig } from "@/models/layout";
 
 import { FacultiesButton } from "./faculties-button";
 import { SidenavButton } from "./mobile-nav-link";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { DialogTitle } from "@/components/ui/dialog";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 export default function MobileSidenav({ config }: { config: NavbarConfig }) {
   return (
-    <SheetContent className="w-[300px] max-w-full bg-white p-0 text-black">
+    <SheetContent
+      className="w-[300px] max-w-full bg-white p-0 text-black"
+      aria-description="Menu for the current sub site"
+    >
+      <VisuallyHidden>
+        <DialogTitle>Subsite Menu</DialogTitle>
+        <DialogDescription>Menu for the current subsite</DialogDescription>
+      </VisuallyHidden>
       <div className="w-full bg-white">
         <div className="w-full p-2">
           <input
@@ -17,7 +28,6 @@ export default function MobileSidenav({ config }: { config: NavbarConfig }) {
             placeholder="Suche (hättest du gerne)"
           />
         </div>
-        <FacultiesButton />
         <Link
           href="/"
           className="bg-rwth-accent block w-full border-t-1 border-dotted px-4 py-3 font-light text-white hover:border-b-0 hover:border-white"

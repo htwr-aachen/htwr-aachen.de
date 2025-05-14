@@ -13,6 +13,11 @@ export const DefaultNavbar: NavbarConfig = {
       path: "/panikzettel",
     },
     {
+      name: "Bingo",
+      href: "/bingo",
+      path: "/bingo",
+    },
+    {
       name: "Mithelfen",
       href: "/docs",
       path: "/docs",

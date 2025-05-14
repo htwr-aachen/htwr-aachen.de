@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { FacultiesButton } from "@/components/faculties-nav/button";
+import { StyledFacultiesButton } from "@/components/faculties-nav/button";
 import InstituteSwitches from "@/components/InstituteSwitches";
 import { useInstituteConfig } from "@/hooks/useInstituteConfig";
 import type { LayoutProps } from "@/models/layout";
@@ -43,11 +43,7 @@ const Main = (props: CIGOLMainProps) => {
             </span>
           </div>
           <div className="flex">
-            <FacultiesButton asChild>
-              <button className="m-2 my-auto h-min rounded bg-gray-200 px-2 py-1 hover:bg-gray-300">
-                Fakultäten & Institute
-              </button>
-            </FacultiesButton>
+            <StyledFacultiesButton className="m-2 my-auto h-min rounded bg-gray-200 px-2 py-1 hover:bg-gray-300" />
             <Link href={"/"} title="Zurück zur HTWR Hauptseite">
               <ExportedImage
                 src="/assets/cigol/logo-htwr.png"

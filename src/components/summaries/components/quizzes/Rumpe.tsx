@@ -11,7 +11,7 @@ const Zitate: Zitat[] = [
   },
   { text: "Ich glaube das ist falsch", isTrue: false },
   { text: "Ich glaube das ist richtig", isTrue: true },
-  { text: "Eine promotion lohnt sich immer", isTrue: false },
+  { text: "Eine Promotion lohnt sich immer", isTrue: false },
   {
     text: "Darf ich sie nochmal dran erinnern, mir Fragen zu stellen",
     isTrue: true,

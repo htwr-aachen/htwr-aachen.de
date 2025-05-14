@@ -1,12 +1,16 @@
 "use client";
 
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentProps, ComponentPropsWithoutRef } from "react";
 
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { FacultiesDesktopNav } from "./desktop";
 import { FacultiesMobileNav } from "./mobile";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Slot } from "@radix-ui/react-slot";
+import { DialogDescription } from "../ui/dialog";
+import { FacultiesSheetContent } from "./sheet";
+import { CircleChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type AsChildProps<DefaultElementProps> =
   | ({ asChild?: false } & DefaultElementProps)
@@ -21,18 +25,28 @@ export function FacultiesButton({ asChild, ...props }: ButtonProps) {
       <SheetTrigger asChild title="Fakultätsübersicht">
         <Component {...props} />
       </SheetTrigger>
-      <SheetContent
-        hasCloseButton={false}
-        title="Fakultätsübersicht"
-        side="top"
-        className="max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right lg:data-[state=closed]:slide-out-to-top lg:data-[state=open]:slide-in-from-top p-0 max-lg:inset-y-0 max-lg:right-0 max-lg:h-full max-lg:w-[300px] max-lg:border-l lg:inset-x-0 lg:top-0 lg:border-b"
-      >
+      <FacultiesSheetContent title="Fakultätsübersicht">
         <VisuallyHidden>
           <SheetTitle>Fakultätsübersicht</SheetTitle>
+          <DialogDescription></DialogDescription>
         </VisuallyHidden>
         <FacultiesDesktopNav />
         <FacultiesMobileNav />
-      </SheetContent>
+      </FacultiesSheetContent>
     </Sheet>
+  );
+}
+
+export function StyledFacultiesButton({
+  className,
+  ...props
+}: ComponentProps<"button">) {
+  return (
+    <FacultiesButton
+      className={cn("flex flex-row items-center", className)}
+      {...props}
+    >
+      Menü <CircleChevronDown className="ml-2 size-4" />
+    </FacultiesButton>
   );
 }
