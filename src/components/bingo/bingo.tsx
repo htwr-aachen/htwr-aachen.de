@@ -1,12 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { bingos } from "@/config/bingo";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import { CheckIsWinning } from "./winning-checks";
+import { BingoWinningAnim } from "./bingo-winning-anim";
 
 export default function Bingo() {
   const [subject, setSubject] = useState<string | null>(null);
   const [size, setSize] = useState<number>(3);
+  const [winning, setWinning] = useState(false);
+  const [hasWonOnce, setHasWonOnce] = useState(false);
+
+  // reset animation
+  useEffect(() => {
+    if (winning) {
+      setHasWonOnce(true);
+      const timer = setTimeout(() => {
+        setWinning(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+    return () => {};
+  }, [winning]);
 
   const totalCells = size * size;
   const [gridValues, setGridValues] = useState<boolean[]>(
@@ -20,6 +37,10 @@ export default function Bingo() {
     const newValues = [...gridValues];
     newValues[index] = !newValues[index];
     setGridValues(newValues);
+    if (!hasWonOnce && CheckIsWinning(newValues, size, index)) {
+      setWinning(true);
+      console.log("Won");
+    }
   };
 
   const gridStyle = {
@@ -30,6 +51,8 @@ export default function Bingo() {
   const calculateWords = (newSize: number, newSubject: string | null) => {
     const newTotalCells = newSize * newSize;
     setGridValues(Array(newTotalCells).fill(false));
+    setWinning(false);
+    setHasWonOnce(false);
 
     const collection = bingos.find((b) => b.id === newSubject)?.words;
 
@@ -78,19 +101,31 @@ export default function Bingo() {
     <div className="flex justify-center p-2">
       <div className="w-full">
         <h1 className="mb-2 text-center text-xl font-bold">{currentName}</h1>
-        <div className="overflow-x-auto">
+        <div className="relative overflow-x-auto">
+          <BingoWinningAnim winning={winning} />
           <div className="grid h-full w-full" style={gridStyle}>
             {gridValues.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 className={cn(
                   "flex aspect-square items-center justify-center border-1 border-black hover:cursor-pointer",
                   gridValues[index] ? "bg-blue-500" : "bg-stone-800",
                 )}
                 onClick={() => handleClick(index)}
+                animate={
+                  CheckIsWinning(gridValues, size, index)
+                    ? {
+                        scale: [1, 1.2, 1],
+                        opacity: [1, 0.8, 1],
+                      }
+                    : {
+                        scale: 1,
+                        opacity: 1,
+                      }
+                }
               >
                 {gridText[index]}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -106,10 +141,7 @@ export default function Bingo() {
           <button
             className="bg-muted text-muted-foreground cursor-pointer rounded-lg px-6 py-4 text-lg"
             onClick={() => {
-              let newSize = 2;
-              if (size < 5) {
-                newSize = size + 1;
-              }
+              const newSize = Math.min(2, size + (1 % 5));
               setSize(newSize);
               calculateWords(newSize, subject);
             }}
