@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./bingo.module.css";
-import { bingos } from "@/config/bingo"
-import { cn } from "@/lib/utils"
+import { bingos } from "@/config/bingo";
+import { cn } from "@/lib/utils";
 
 export default function Bingo() {
   const [subject, setSubject] = useState<string | null>(null);
@@ -77,14 +76,18 @@ export default function Bingo() {
     </div>
   ) : (
     <div className="flex justify-center p-2">
-      <div>
+      <div className="w-full">
         <h1 className="mb-2 text-center text-xl font-bold">{currentName}</h1>
-        <div className={styles.wrapper}>
-          <div className={styles.field} style={gridStyle}>
+        <div className="overflow-x-auto">
+          <div className="grid h-full w-full" style={gridStyle}>
             {gridValues.map((_, index) => (
               <button
                 key={index}
-                className={cn(styles.tile, gridValues[index] ? "bg-blue-500" : "bg-stone-800")}
+                className={cn(
+                  "flex aspect-square items-center justify-center border-1 border-black hover:cursor-pointer",
+                  styles.tile,
+                  gridValues[index] ? "bg-blue-500" : "bg-stone-800",
+                )}
                 onClick={() => handleClick(index)}
               >
                 {gridText[index]}
@@ -123,7 +126,7 @@ export default function Bingo() {
               calculateWords(size, subject);
             }}
           >
-            <h2 className="text-foreground">Neue Worte</h2>
+            bingo <h2 className="text-foreground">Neue Worte</h2>
           </button>
         </div>
       </div>
