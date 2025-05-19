@@ -162,6 +162,13 @@ export const bingos: Bingo[] = [
 			"Random",
 			"Exactly",
 			"Normalized",
+			"Measurement",
+			"Product",
+			"Addition",
+			"Multiple",
+			"Circuit",
+			"Hatshuu", // er war krank die letzten male
+			"Nonsense",
 		],
 	}
 ];

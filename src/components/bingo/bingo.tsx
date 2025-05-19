@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { bingos } from "@/config/bingo";
+
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { CheckIsWinning } from "./winning-checks";
@@ -9,7 +10,7 @@ import { BingoWinningAnim } from "./bingo-winning-anim";
 
 export default function Bingo() {
   const [subject, setSubject] = useState<string | null>(null);
-  const [size, setSize] = useState<number>(3);
+  const [size, setSize] = useState<number>(4);
   const [winning, setWinning] = useState(false);
   const [hasWonOnce, setHasWonOnce] = useState(false);
 
@@ -108,7 +109,7 @@ export default function Bingo() {
               <motion.button
                 key={index}
                 className={cn(
-                  "flex aspect-square items-center justify-center border-1 border-black hover:cursor-pointer",
+                  "flex aspect-square text-sm items-center justify-center border-1 border-black hover:cursor-pointer",
                   gridValues[index] ? "bg-blue-500" : "bg-stone-800",
                 )}
                 onClick={() => handleClick(index)}
@@ -141,7 +142,7 @@ export default function Bingo() {
           <button
             className="bg-muted text-muted-foreground cursor-pointer rounded-lg px-6 py-4 text-lg"
             onClick={() => {
-              const newSize = Math.max(2, (size + 1) % 5);
+							const newSize = (size - 1 % 4) + 2; // anonymer mathematiker
               setSize(newSize);
               calculateWords(newSize, subject);
             }}
