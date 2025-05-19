@@ -142,7 +142,7 @@ export default function Bingo() {
           <button
             className="bg-muted text-muted-foreground cursor-pointer rounded-lg px-6 py-4 text-lg"
             onClick={() => {
-							const newSize = (size - 1 % 4) + 2; // anonymer mathematiker
+							const newSize = ((size - 1) % 4) + 2; // anonymer mathematiker
               setSize(newSize);
               calculateWords(newSize, subject);
             }}
