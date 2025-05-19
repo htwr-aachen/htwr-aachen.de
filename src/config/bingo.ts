@@ -156,6 +156,12 @@ export const bingos: Bingo[] = [
 			"Measure",
 			"Wire",
 			"XOR",
+			"Boring",
+			"Bit",
+			"CNot",
+			"Random",
+			"Exactly",
+			"Normalized",
 		],
 	}
 ];

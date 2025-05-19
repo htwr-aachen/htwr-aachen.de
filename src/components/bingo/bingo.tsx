@@ -141,14 +141,12 @@ export default function Bingo() {
           <button
             className="bg-muted text-muted-foreground cursor-pointer rounded-lg px-6 py-4 text-lg"
             onClick={() => {
-              const newSize = Math.min(2, size + (1 % 5));
+              const newSize = Math.max(2, (size + 1) % 5);
               setSize(newSize);
               calculateWords(newSize, subject);
             }}
           >
-            <h2 className="text-foreground">
               {size}x{size}
-            </h2>
           </button>
 
           <button
