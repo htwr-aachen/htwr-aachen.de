@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import type { FC } from "react";
 
-import { Gallery, GalleryLabel } from "@/components/rwth/gallery";
+import {
+  Gallery,
+  GalleryImage,
+  GalleryItem,
+  GalleryLabel,
+} from "@/components/rwth/gallery";
 import { HeadLine } from "@/components/rwth/headline";
 
 import { SCILSchnellzugriff } from "./schnellzugriff";
@@ -24,8 +29,8 @@ const SCIL: FC = () => {
       </HeadLine>
 
       <Gallery>
-        <div className="relative">
-          <ExportedImage
+        <GalleryItem>
+          <GalleryImage
             src={SCILBanner}
             alt="SCIL Banner"
             className="block size-auto max-h-[500px] object-contain"
@@ -35,9 +40,9 @@ const SCIL: FC = () => {
           <GalleryLabel headline="Aktuelle Forschung" url="/scil/studium">
             Jetzt wird gebukked
           </GalleryLabel>
-        </div>
-        <div className="relative">
-          <ExportedImage
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src={MartinaGrohe}
             alt="Martina Grohe"
             className="block size-auto max-h-[500px] object-contain"
@@ -51,7 +56,7 @@ const SCIL: FC = () => {
             Aber natürlich mit den tollen Hilfen von htwr-aachen.de, was auch
             sonst.
           </GalleryLabel>
-        </div>
+        </GalleryItem>
       </Gallery>
 
       <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px] lg:grid-rows-1">

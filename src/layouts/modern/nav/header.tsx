@@ -13,7 +13,7 @@ export function Header(props: {
   prefix: string;
 }) {
   return (
-    <header className="bg-background/[0.6] text-foreground sticky top-0 z-50 grid h-36 w-full grid-rows-2 gap-6 border-b border-neutral-200 px-16 py-6 backdrop-blur-xs md:h-20 md:grid-cols-[1fr_auto] md:grid-rows-1 dark:border-white/[0.1]">
+    <header className="bg-background/[0.6] text-foreground sticky top-0 z-50 grid h-36 w-full grid-rows-2 gap-6 overflow-x-hidden border-b border-neutral-200 px-16 py-6 backdrop-blur-xs md:h-20 md:grid-cols-[1fr_auto] md:grid-rows-1 dark:border-white/[0.1]">
       <div className="flex flex-row items-center text-neutral-100">
         <Link href="/">
           <HTWRIcon height={30}></HTWRIcon>

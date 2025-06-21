@@ -12,15 +12,15 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import AutoHeight from "embla-carousel-auto-height";
 import { CMSILink, CMSLink } from "./link";
 import React from "react";
 
 export function GalleryItem({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
-      role="img"
       className={cn(
-        "grid h-[450px] grid-cols-[auto_1fr] overflow-hidden lg:h-[650px]",
+        "block h-full max-h-[650px] overflow-hidden lg:grid lg:h-[650px] lg:grid-cols-[auto_minmax(33%,1fr)]",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ export function GalleryImage({ className, alt, ...props }: ExportedImageProps) {
   return (
     <ExportedImage
       className={cn(
-        "block h-[450px] w-auto object-cover lg:h-[650px]",
+        "mx-auto block max-h-[350px] min-h-32 w-auto object-contain lg:h-[650px] lg:max-h-[650px]",
         className,
       )}
       alt={alt}
@@ -58,7 +58,7 @@ export function GalleryLabel({
   externalUrls,
 }: GalleryLabelProps) {
   return (
-    <div className="bg-cms-accent-light w-full items-center justify-center">
+    <div className="bg-cms-accent-light h-full w-full items-center justify-center">
       <div className="px-12 py-6">
         <h3 className="mb-6 text-4xl font-light">{headline}</h3>
         <p className="mb-12 text-left text-xl font-normal">{children}</p>
@@ -115,6 +115,7 @@ export function Gallery({ children }: { children: ReactNode[] }) {
         Autoplay({
           delay: 5000,
         }),
+        AutoHeight(),
       ]}
     >
       <div className="relative">

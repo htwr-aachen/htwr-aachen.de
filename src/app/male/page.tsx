@@ -25,8 +25,8 @@ export default function IndexPage() {
           <GalleryImage
             src={"/assets/male/closed-frequent-itemsets.png"}
             alt="closed frequent itemsets are closed and frequent"
-            width={700}
-            height={200}
+            width={300}
+            height={50}
           ></GalleryImage>
           <GalleryLabel headline="Danke Wil" url="/male">
             Tja

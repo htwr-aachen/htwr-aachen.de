@@ -17,7 +17,7 @@ export default function SummaryLayout(
 ) {
   const { children, meta, subjectConfig, next, prev, ...divProps } = props;
   return (
-    <article className="markdown line-numbers mx-auto w-[100ch]">
+    <article className="markdown line-numbers mx-auto max-w-[100ch] overflow-hidden text-pretty">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

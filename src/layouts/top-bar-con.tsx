@@ -18,3 +18,12 @@ export function TopBarCond({ children }: { children: ReactNode }) {
     </div>
   );
 }
+export function TopBarBannerContainer({ children }: { children: ReactNode }) {
+  const { show, setShow } = useContext(BannerNotifyContext);
+
+  if (!show) {
+    return <></>;
+  }
+
+  return <>{children}</>;
+}

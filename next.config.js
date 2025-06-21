@@ -4,16 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
-import { bundledLanguages, createHighlighter } from "shiki";
-
-export const highlighter = await createHighlighter({
-  themes: [
-    import("shiki/themes/github-dark.mjs"),
-    import("shiki/themes/github-light.mjs"),
-  ],
-  langs: Object.keys(bundledLanguages),
-});
+import rehypeShiki from "@shikijs/rehype";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -22,8 +13,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       rehypeKatex,
       [
-        rehypeShikiFromHighlighter,
-        highlighter,
+        rehypeShiki,
         {
           themes: {
             light: "github-dark",

@@ -1,4 +1,4 @@
-import rehypeShikiFromHighlighter from "@shikijs/rehype/core";
+import rehypeShiki from "@shikijs/rehype";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
@@ -6,7 +6,11 @@ import remarkMath from "remark-math";
 // @ts-expect-error i dont know why the type is bugged :/
 import rehypeFigure from "@microflash/rehype-figure";
 
-import { highlighter } from "./highlighting";
+import {
+  highlighter,
+  highlighterConfig,
+  untypedHighlighterConfig,
+} from "./highlighting";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mdxOptions: any = {
@@ -18,14 +22,8 @@ export const mdxOptions: any = {
       rehypeKatex,
       [
         // @ts-expect-ignore
-        rehypeShikiFromHighlighter,
-        highlighter,
-        {
-          themes: {
-            light: "github-dark",
-            dark: "github-light",
-          },
-        },
+        rehypeShiki,
+        untypedHighlighterConfig,
       ],
     ],
     format: "mdx",
