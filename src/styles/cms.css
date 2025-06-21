@@ -1,0 +1,104 @@
+.cms a {
+  color: inherit;
+}
+
+.cms-interactive-top {
+  position: relative;
+}
+
+.cms-interactive-top:is(
+    :hover,
+    :active,
+    :focus-visible,
+    [aria-expanded="true"]
+  )::before {
+  transform: scaleX(1);
+}
+
+.cms-interactive-top::before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  height: 3px;
+  top: 0px;
+  transform-origin: left;
+  transform: scaleX(0);
+  background-color: black;
+  transition: transform 350ms ease-out;
+}
+
+.cms a:not(.no-b):not(.no-i),
+.cms-interactive-bottom {
+  position: relative;
+  line-height: 1.5;
+  @apply hover:no-underline;
+}
+
+.cms
+  a:not(.no-b):not(.no-i):is(
+    :hover,
+    :active,
+    :focus-visible,
+    [aria-expanded="true"]
+  )::after,
+.cms-interactive-bottom:is(
+    :hover,
+    :active,
+    :focus-visible,
+    [aria-expanded="true"]
+  )::after {
+  transform: scaleX(1);
+}
+
+.cms-interactive-bottom::after,
+.cms a:not(.no-b):not(.no-i)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  height: 3px;
+  bottom: 3px;
+  transform-origin: left;
+  transform: scaleX(0);
+  background-color: black;
+  transition: transform 350ms ease-out;
+}
+
+.cms .dark .cms-interactive-bottom::after,
+.cms .dark a::after {
+  background-color: white !important;
+}
+
+.cms-button {
+  --btn-spacer-shadow: clamp(
+    -10px,
+    calc(-8px - 2 * var(--screen-width-quotient)),
+    -8px
+  );
+  --btn-spacer-margin: calc(var(--btn-spacer-shadow) * -1);
+
+  color: currentColor;
+  background-color: var(--color-cms-bg);
+  box-shadow:
+    var(--btn-spacer-shadow) var(--btn-spacer-shadow) 0 -2px var(--color-cms-bg),
+    var(--btn-spacer-shadow) var(--btn-spacer-shadow) 0 0
+      var(--color-cms-accent);
+
+  padding: var(--spacer-2xs) var(--spacer-s);
+  text-align: center;
+  border: 1px solid var(--color-cms-bg-text);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cms-button:is(:hover, :active, :focus-visible, [aria-expanded="true"]) {
+  border: 1px solid var(--color-cms-accent);
+  background-color: var(--color-cms-accent);
+  box-shadow:
+    var(--btn-spacer-shadow) var(--btn-spacer-shadow) 0 -2px var(--color-cms-bg),
+    var(--btn-spacer-shadow) var(--btn-spacer-shadow) 0 0
+      var(--color-cms-bg-text);
+}

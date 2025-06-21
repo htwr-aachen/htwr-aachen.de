@@ -24,9 +24,4 @@ export const DefaultNavbar: NavbarConfig = {
     },
   ],
   main: { name: "HTWR", href: "/" },
-  logo: {
-    src: "/assets/rwth/htwr_banner.png",
-    alt: "HTWR Logo",
-    href: "/",
-  },
 };

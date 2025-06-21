@@ -14,6 +14,8 @@ import { findAssociatedSubjects } from "@/lib/subjects";
 import type { Institute } from "@/models/institutes";
 import ExportedImage from "next-image-export-optimizer";
 
+import "../styles/cms.css";
+
 export const metadata: Metadata = {
   title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
   description:

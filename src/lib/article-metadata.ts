@@ -66,7 +66,7 @@ export function parseFrontmatter(
     frontMatter.meta.fullTitle = subpath.join(path.sep);
   }
 
-  frontMatter.slug = [...subpath, fileName.replace(/\.mdx$/, "")];
+  frontMatter.slug = [...subpath, fileName.replace(/\.mdx?$/, "")];
   frontMatter.url = urlJoin(corpusConfig.articlesURL, ...frontMatter.slug);
   return frontMatter;
 }

@@ -6,7 +6,6 @@ import { getArticlesMetadata } from "@/lib/article-metadata";
 import { getArticle } from "@/lib/articles";
 import ISOOSI from "@/components/summaries/components/isoosi";
 
-// CHANGE_ME: Nothing more to do if subject is configured correctly under /src/config/subjects.ts
 const subject: Subjects = "datkom";
 const subjectConfig = SubjectConfig[subject];
 

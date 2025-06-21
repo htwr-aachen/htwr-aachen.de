@@ -64,21 +64,7 @@ export default configuredBundleAnalyzer(
       nextImageExportOptimizer_generateAndUseBlurImages: "true",
       nextImageExportOptimizer_remoteImageCacheTTL: "0",
     },
-    // eslint: {
-    //   dirs: ["."],
-    // },
     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
     reactStrictMode: true,
-    //poweredByHeader: false,
-    //trailingSlash: true,
-    // async rewrites() {
-    //   return [
-    //     {
-    //       // I want to have the htwr-aachen.de/panikzettel/{subject} route visible and we proxy the request to the api server
-    //       source: "/panikzettel/:path",
-    //       destination: "https://api.htwr-aachen.de/panikzettel/:path",
-    //     },
-    //   ];
-    // },
   }),
 );

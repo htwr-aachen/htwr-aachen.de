@@ -2,6 +2,6 @@
 
 import type { ReactNode } from "react";
 
-export default function NavMenu(props: { nav: ReactNode }) {
+export default function NavContainer(props: { nav: ReactNode }) {
   return <>{props.nav}</>;
 }

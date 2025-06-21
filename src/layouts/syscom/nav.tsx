@@ -1,11 +1,7 @@
 "use client";
-import {
-  FacultiesButton,
-  StyledFacultiesButton,
-} from "@/components/faculties-nav/button";
 import { NavbarConfig } from "@/models/layout";
 import clsx from "clsx";
-import { CircleChevronDown, Menu, Moon, Search } from "lucide-react";
+import { Menu, Moon, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,8 +17,7 @@ export function SysComNav(props: { config: NavbarConfig }) {
         >
           <Menu className="size-4 text-black" />
         </button>
-        <div className="flex flex-row items-center text-[#34495E]">
-          <StyledFacultiesButton className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white max-lg:hidden" />
+        <div className="flex flex-row items-center text-[#34495E] lg:pl-4">
           <Link href="/syscom">
             <svg
               width="100%"
@@ -79,7 +74,6 @@ export function SysComNav(props: { config: NavbarConfig }) {
           </ul>
         </div>
         <div className="flex flex-row items-center">
-          <StyledFacultiesButton className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white lg:hidden" />
           <span className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
             <Search className="size-4" />
           </span>

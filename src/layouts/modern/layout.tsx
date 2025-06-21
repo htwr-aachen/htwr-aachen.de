@@ -9,9 +9,9 @@ const Modern = (props: {
   nav: ReactNode;
 }) => {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background">
       <Header name={props.name} prefix={props.prefix} nav={props.nav} />
-      <div className="pt-40 md:pt-24">{props.children}</div>
+      <div className="py-20">{props.children}</div>
     </div>
   );
 };

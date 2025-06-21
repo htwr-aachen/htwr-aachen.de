@@ -46,7 +46,7 @@ export const navbar: NavbarConfig = {
   ],
   main: { name: "SIBD", href: "/sibd" },
   logo: {
-    src: "/assets/sibd/sibd.png",
+    src: "/assets/sibd/sibd_cropped.png",
     alt: "SIBD Logo",
     href: "/sibd",
     width: 387,

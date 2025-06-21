@@ -228,4 +228,24 @@
 .markdown .centerImg {
   margin-left: auto;
   margin-right: auto;
+  border-radius: 1rem;
+}
+
+.markdown figure {
+  width: auto;
+  max-width: 100%;
+  padding: 3rem 0;
+}
+.markdown figure .centerImg {
+  margin: 0 auto;
+  border-radius: 1rem;
+  width: auto;
+  height: auto;
+  display: block;
+  min-width: 300px;
+}
+
+.markdown figure figcaption {
+  text-align: center;
+  margin-top: 1rem;
 }

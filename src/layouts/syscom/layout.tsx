@@ -2,9 +2,6 @@ import type { ReactNode } from "react";
 import { SysComNav } from "./nav";
 import { NavbarConfig } from "@/models/layout";
 import { Institutes } from "@/config/institutes";
-import { SysComFooter } from "./footer";
-import { BannerContent } from "@/components/banner-provider";
-import { BlogBannerContent } from "@/components/banner";
 
 const SysComLayout = (props: {
   children: ReactNode;
@@ -13,15 +10,9 @@ const SysComLayout = (props: {
   nav: NavbarConfig;
 }) => {
   return (
-    <div className="bg-rwth-branding light min-h-screen text-black">
+    <div className="bg-rwth-branding light text-black">
       <SysComNav config={props.nav} />
-      <BannerContent>
-        <BlogBannerContent />
-      </BannerContent>
-      <div className="pt-40 md:pt-24 lg:min-h-[calc(100vh-310px)]">
-        {props.children}
-      </div>
-      <SysComFooter institute={props.institute} />
+      <div className="py-24">{props.children}</div>
     </div>
   );
 };

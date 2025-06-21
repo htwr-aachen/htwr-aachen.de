@@ -16,6 +16,18 @@
   --drop-shadow-glow:
     0 0px 20px rgba(255, 255, 255, 0.35), 0 0px 65px rgba(255, 255, 255, 0.2);
 
+  --color-cms-accent: #8ebae5;
+  --color-cms-accent-text: #000000;
+  --color-cms-accent-light: #e8f1fa;
+  --color-cms-accent-light-text: #000000;
+  --color-cms-branding: #00549f;
+  --color-cms-branding-text: #ffffff;
+  --color-cms-bg: #ffffff;
+  --color-cms-bg-text: #000000;
+  --color-cms-body-bg: #e7e7e7;
+  --color-cms-warn: #ffef58;
+  --color-cms-warn-text: #ffffff;
+
   --color-rwth-branding: #f7f7f7;
   --color-rwth-accent: #00549f;
   --color-rwth-warn: #ffef58;
@@ -136,6 +148,115 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+    --screen-width-quotient: calc((100vw - 320px) / 1600);
+
+    --step5-font-size: clamp(
+      32.2px,
+      calc(32.2px + 59.4 * var(--screen-width-quotient)),
+      91.6px
+    );
+    --step5-line-height: clamp(
+      36px,
+      calc(36px + 66 * var(--screen-width-quotient)),
+      102px
+    );
+    --step4-font-size: clamp(
+      28px,
+      calc(28px + 40.8 * var(--screen-width-quotient)),
+      68.8px
+    );
+    --step4-line-height: clamp(
+      32px,
+      calc(32px + 44 * var(--screen-width-quotient)),
+      76px
+    );
+    --step3-font-size: clamp(
+      24.3px,
+      calc(24.3px + 27.5 * var(--screen-width-quotient)),
+      51.8px
+    );
+    --step3-line-height: clamp(
+      30px,
+      calc(30px + 30 * var(--screen-width-quotient)),
+      60px
+    );
+    --step2-font-size: clamp(
+      21.2px,
+      calc(21.2px + 17.7 * var(--screen-width-quotient)),
+      38.9px
+    );
+    --step2-line-height: clamp(
+      28px,
+      calc(28px + 20 * var(--screen-width-quotient)),
+      48px
+    );
+    --step1-font-size: clamp(
+      18.4px,
+      calc(18.4px + 10.9 * var(--screen-width-quotient)),
+      29.3px
+    );
+    --step1-line-height: clamp(
+      25px,
+      calc(25px + 14 * var(--screen-width-quotient)),
+      39px
+    );
+    --step0-font-size: clamp(
+      16px,
+      calc(16px + 6 * var(--screen-width-quotient)),
+      22px
+    );
+    --step0-line-height: clamp(
+      22px,
+      calc(22px + 10 * var(--screen-width-quotient)),
+      32px
+    );
+    --step-1-font-size: clamp(
+      13.9px,
+      calc(13.9px + 2.6 * var(--screen-width-quotient)),
+      16.5px
+    );
+    --step-1-line-height: clamp(
+      20px,
+      calc(20px + 4 * var(--screen-width-quotient)),
+      24px
+    );
+
+    --spacer-3xs: clamp(4px, calc(4px + 2 * var(--screen-width-quotient)), 6px);
+    --spacer-2xs: clamp(
+      8px,
+      calc(8px + 4 * var(--screen-width-quotient)),
+      12px
+    );
+    --spacer-xs: clamp(
+      12px,
+      calc(12px + 6 * var(--screen-width-quotient)),
+      18px
+    );
+    --spacer-s: clamp(
+      16px,
+      calc(16px + 6 * var(--screen-width-quotient)),
+      22px
+    );
+    --spacer-m: clamp(
+      22px,
+      calc(22px + 10 * var(--screen-width-quotient)),
+      32px
+    );
+    --spacer-l: clamp(
+      26px,
+      calc(26px + 22 * var(--screen-width-quotient)),
+      48px
+    );
+    --spacer-xl: clamp(
+      35px,
+      calc(35px + 45 * var(--screen-width-quotient)),
+      80px
+    );
+    --spacer-2xl: clamp(
+      60px,
+      calc(60px + 80 * var(--screen-width-quotient)),
+      140px
+    );
   }
 
   .dark {

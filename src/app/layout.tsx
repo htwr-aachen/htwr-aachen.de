@@ -8,6 +8,8 @@ import { BannerNotifyProvider } from "@/components/banner-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppConfig, BaseURL } from "@/config/app";
 import { hkGrotesk, inter, newsreader } from "./fonts";
+import "../styles/cms.css";
+import GeneralLayout from "@/layouts/general";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -85,7 +87,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
             enableSystem={false}
             disableTransitionOnChange
           >
-            <div className="min-h-screen">{children}</div>
+            <GeneralLayout>{children}</GeneralLayout>
           </ThemeProvider>
         </BannerNotifyProvider>
       </body>

@@ -9,6 +9,7 @@ import { deepEqual } from "@/utils/array";
 import { InvalidCorpusConfig } from "../models/corpus";
 import { getArticlesMetadata, parseFrontmatter } from "./article-metadata";
 import { getImages } from "./markdown";
+import { Stats } from "fs";
 
 export type Article = {
   slug: string[];
@@ -68,34 +69,61 @@ async function _getArticle(
   corpusConfig: CorpusConfig,
 ): Promise<Article> {
   const decodedSlug = slug.map((x) => decodeURIComponent(x));
-
   const { prev, next } = await getSurroundingArticles(
     decodedSlug,
     corpusConfig,
   );
+  const stripedSlug = decodedSlug.join(path.sep).replace(/\.mdx?\/$/, "");
 
-  const stripedSlug = decodedSlug.join(path.sep).replace(/\.mdx\/$/, "");
-  const fp = join(corpusConfig.articlesPath, `${stripedSlug}.mdx`);
+  // Try both .mdx and .md extensions
+  const extensions = [".mdx", ".md"];
+  let fp: string;
+  let content: string | undefined = undefined;
+  let stats: Stats | undefined = undefined;
+
+  for (const ext of extensions) {
+    fp = join(corpusConfig.articlesPath, `${stripedSlug}${ext}`);
+    try {
+      await access(fp);
+      content = await readFile(fp, "utf-8");
+      stats = await stat(fp);
+      break; // Found the file, exit the loop
+    } catch (error) {
+      // Continue to next extension if file not found
+      if (
+        error instanceof Error &&
+        (<{ code: unknown }>(<unknown>error)).code === "ENOENT"
+      ) {
+        continue;
+      } else {
+        // Re-throw non-ENOENT errors
+        throw new InvalidCorpusConfig("unexpected error", String(error));
+      }
+    }
+  }
+
+  // If we get here and content is undefined, no file was found
+  if (!content || !stats) {
+    throw new InvalidCorpusConfig(
+      "path error",
+      new Error(`No .md or .mdx file found for slug: ${stripedSlug}`),
+    );
+  }
 
   try {
-    await access(fp);
-    const content = await readFile(fp, "utf-8");
-    const stats = await stat(fp);
-
     const parsedMatter = matter(content);
     const frontMatter = parseFrontmatter(
       parsedMatter,
-      fp
+      fp!
         .split(path.sep)
         .slice(0, -1)
         .filter((x) => x !== "")
         .join(path.sep),
-      path.basename(fp),
+      path.basename(fp!),
       corpusConfig,
       stats.mtime,
     );
     frontMatter.meta.images = getImages(parsedMatter.content);
-
     return {
       meta: frontMatter.meta,
       url: frontMatter.url,
@@ -105,14 +133,7 @@ async function _getArticle(
       next,
     };
   } catch (error: unknown) {
-    if (
-      error instanceof Error &&
-      (<{ code: unknown }>(<unknown>error)).code === "ENOENT"
-    ) {
-      throw new InvalidCorpusConfig("path error", error);
-    } else {
-      throw new InvalidCorpusConfig("unexpected error", String(error));
-    }
+    throw new InvalidCorpusConfig("unexpected error", String(error));
   }
 }
 

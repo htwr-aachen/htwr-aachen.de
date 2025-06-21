@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ComponentProps,
   type ReactNode,
   createContext,
   useContext,
@@ -32,15 +33,35 @@ export function BannerContent({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="bg-rwth-warn flex h-24 flex-col items-center justify-center lg:h-12 lg:flex-row xl:relative">
+    <div className="col-span-2 grid h-16 w-full grid-cols-[1fr_auto] items-center justify-center">
       <div className="text-lg font-medium">{children}</div>
       <button
-        className="min-h-10 bg-white/40 px-4 py-2 hover:bg-white/60 lg:h-4/5 xl:absolute xl:right-10"
+        className="bg-cms-accent h-auto p-0"
         onClick={() => setShow(false)}
       >
         Nerv nicht
       </button>
     </div>
+  );
+}
+
+export function BannerClose({
+  onClick,
+  children,
+  ...props
+}: ComponentProps<"button">) {
+  const { show, setShow } = useContext(BannerNotifyContext);
+
+  return (
+    <button
+      onClick={(e) => {
+        setShow(false);
+        if (onClick) onClick(e);
+      }}
+      {...props}
+    >
+      {children}
+    </button>
   );
 }
 

@@ -32,7 +32,7 @@ export type NavbarLogo = {
 export type NavbarConfig = {
   linkElements: LinkElement[];
   main: NavbarLink;
-  logo: NavbarLogo;
+  logo?: NavbarLogo;
 };
 
 export function toValue(
