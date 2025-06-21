@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import { StyledFacultiesButton } from "@/components/faculties-nav/button";
-
 import Navlink from "./Navlink";
 
 export default function ESNavbar() {
@@ -22,7 +20,6 @@ export default function ESNavbar() {
       className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
     >
       <div className="ml-8 flex flex-wrap items-center justify-center lg:mr-16 lg:ml-auto lg:justify-self-end">
-        <StyledFacultiesButton className="mr-3 flex flex-row items-center rounded bg-gray-200 px-2 py-1 hover:bg-gray-300" />
         <Link href={"/es"}>
           <img
             src={"/assets/es/es.png"}

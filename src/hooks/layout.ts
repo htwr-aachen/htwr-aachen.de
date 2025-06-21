@@ -1,16 +1,24 @@
+import { InstituteConfig, Institutes } from "@/config/institutes";
 import { usePathname } from "next/navigation";
 
-export const useInstituteActive = (instituteName: string = "") => {
+export const useActiveInstitute = (): Institutes => {
   const pathname = usePathname();
 
-  return (path: string = "/") => {
-    if (pathname == null) {
-      return instituteName === "";
-    }
+  if (!pathname) {
+    return "htwr";
+  }
 
-    if (instituteName === "") {
-      return pathname.startsWith(`/${path}`);
-    }
-    return pathname.startsWith(`/${instituteName}/${path}`);
-  };
+  const pathSegments = pathname.split("/").filter(Boolean);
+
+  if (pathSegments.length === 0) {
+    return "htwr";
+  }
+
+  const firstSegment = pathSegments[0];
+
+  if (firstSegment in InstituteConfig) {
+    return firstSegment as Institutes;
+  }
+
+  return "htwr";
 };

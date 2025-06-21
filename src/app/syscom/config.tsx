@@ -4,7 +4,7 @@ import type { NavbarConfig } from "@/models/layout";
 import { CloudAlert, Home, Network, Wifi } from "lucide-react";
 
 export const institute: Institutes = "syscom"; // CHANGE_ME
-export const subjects: Subjects[] = ["datkom"]; // CHANGE_ME
+export const subjects: Subjects[] = ["datkom", "mit"];
 
 export const navbar: NavbarConfig = {
   logo: {

@@ -34,7 +34,9 @@ export async function BasicDocumentList({
     urlJoin("/content-assets", path),
     true,
   );
-  return <BasicBaseDocumentList docs={collection}></BasicBaseDocumentList>;
+  return (
+    <BasicBaseDocumentList docs={collection} {...props}></BasicBaseDocumentList>
+  );
 }
 
 /**

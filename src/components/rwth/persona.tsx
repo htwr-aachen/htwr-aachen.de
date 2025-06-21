@@ -18,13 +18,10 @@ export const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
   );
 };
 
-type PersonaProps = {
-  children: ReactNode;
-};
-export const Persona: FC<PersonaProps> = ({ children }) => {
+export function Persona({ children }: { children: ReactNode }) {
   return (
-    <ul className="bg-rwth-warn flex min-h-[115px] flex-wrap items-center justify-center px-2">
+    <ul className="bg-cms-accent-light text-cms-accent-light-text flex min-h-[115px] flex-wrap items-center justify-center px-2">
       {children}
     </ul>
   );
-};
+}

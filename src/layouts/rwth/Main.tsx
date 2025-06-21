@@ -1,10 +1,7 @@
 import { DefaultNavbar } from "@/app/navbar";
-import { BlogBannerContent } from "@/components/banner";
-import { BannerContent } from "@/components/banner-provider";
 import { cn } from "@/lib/utils";
 
 import type { LayoutProps, NavbarConfig } from "../../models/layout";
-import Footer from "./Footer";
 import Navbar from "./navbar";
 
 type RWTHProps = {
@@ -30,18 +27,14 @@ const Main = ({
   children,
 }: MainProps) => {
   return (
-    <div className={`${institute} relative bg-[#e5e5e5] text-black`}>
-      <div className="min-h-screen w-full max-w-(--breakpoint-xl) lg:mx-auto">
+    <div className={`${institute} cms relative bg-[#e5e5e5] text-black`}>
+      <div className="w-full lg:mx-auto">
         <Navbar config={navbar || DefaultNavbar} institute={institute} />
-        <BannerContent>
-          <BlogBannerContent />
-        </BannerContent>
         <div className={cn("bg-rwth-bg m-0 w-full", addPadding && "py-12")}>
           <div className={`mx-auto w-full ${!fullWidth && "max-w-[980px]"}`}>
             {children}
           </div>
         </div>
-        <Footer institute={institute} />
       </div>
     </div>
   );

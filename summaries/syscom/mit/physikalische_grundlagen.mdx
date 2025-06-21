@@ -1,0 +1,64 @@
+---
+title: Physikalische Grundlagen
+description: ---
+tags: [layer 0]
+order: 1
+author: Jonas Schneider
+---
+
+## Vorwort
+
+?> Hey ho! Hat dir meine Datkom zusammenfassung gefallen? Dann solls hier weiter gehen...
+
+Zunächst mal Props an Dirk der powered den ganzen scheiß komplett alleine durch. Kennt ihr andere Fächer die von einer einzigen Person gehalten, korrigiert und beaufsichtigt wird?
+Außerdem ist Dirk ja sogar eigentlich nur im Studiencenter aktiv.
+
+Nun hierzu. Ich werde alle Fachwörter (größtenteils _markiert_) auf Englisch schreiben klingt sonst komisch _Rahmen im Protokoll zur Konvergenz der physikalischen Schicht_.
+
+## Physikalische Grundlagen
+
+Wie übertragen wir Daten ohne physikalische Verbindung? _Elektromagentische Wellen_.
+
+Wir können verschiedene Größen variieren um Daten zu übertragen.
+
+![Magneto](/summary-assets/syscom/mit/wave-characteristics.png)
+
+| Zeichen | Name      | Bedeutung            | Einheit | Verwandheit |
+| ------- | --------- | -------------------- | ------- | ----------- |
+| $A$     | Amplitude | Stärk | k.P. ($V/m$ 🤓) | - |
+| $f$     | Frequenz | Wiederholungen pro Sek.| $Hz$ | - |
+| $T$ | Periodendauer | Zeit für eine Wiederholung | $s$ | $1/f$ |
+| $\varphi$ | Phase | Anfangsverschiebung | $rad$ | - |
+
+Da wir ja über _Elektromagentische Strahlung also Licht reden ist die Geschwindigkeit fix bei $c \approx 3 \times 10^8 m/s$ und somit gibt es eine Wellenlänge $\lambda = c/f = c \times T$. Ihr müsst das wissen, da oft die Wellenlänge angegeben wird.
+
+
+### _Signals_ & _Bandwidth_
+
+Wie genau wir nun bits mittels Wellencharakteristika $(A,f,\varphi)$ übertragen schauen wir sofort aber daraus entsteht ein _signal_ (es enthält irgendeine Information).
+
+Nun füren wir das zweite immens wichtige Fachwort ein _bandwidth_. _Bandwidth_ beschreibt ein bestimmten Frequenzbereich (z.B. $20MHz$). Wir brauchen immer einen Bereich da 1) wir nicht immer Perfekt eine Frequenz treffen und 2) _decomposition_ mittels Fouriertransformation Amplitudenänderung zu Frequenzbereichen führen.
+
+Nyquist sagt uns Signalrate $S$ (Parameterwechsel pro Sekunde) $S_{max} [Hz] = 2 * B [Hz]$ und wir brauchen auch eine bestimmte Menge Parameter um $m$ bits zu dekodieren: $$R_{max} [bit/s] = 2 * B [Hz] * \log_2(n) [bit]$$
+
+![Bre Nyquist](https://www.projectrhea.org/rhea/images/thumb/b/b4/Harry_Nyquist.jpg/180px-Harry_Nyquist.jpg)
+
+1. _Amplitude Shift Keying_ (ASK): Wähl die Amplitude $A_1$ und jede andere Amplitude wird als low bit gewertet (oder eine bestimmte low amplitude).
+    Doof nur das scheiße ist und einfach nicht möglich die Amplitude instant zu erhöhen.
+
+2. _Frequency Shift Keying_ (FSK): Ändere die Frequenz bei bit 1. Doof das wir noch mehr Bandwidth brauchen als bei ASK
+3. _Phase Shift Keying_ (PSK): Ich glaube selbsterklärend. Besser als ASK.
+4. Advanced FSK / _Minimum Shift Keying_ (MSK): Die gleiche Idee wie Manchester encoding. Jede Bit transition ist eine Frequenz und $f_2 = 2 \times f_1$.
+5. Binary PSK: $0$ Sinus. $1$ -Sinus.
+6. quaternary PSK: kodier 2 bits in 4 Phases.
+7. _Quadrature Amplitude Modulation_ (QAM): Mach Amplitude und Phase zusammen. $16-QAM$ (4 bits werden zu einem _signal_)
+
+Natürlich haben wir alle den gleichen Raum und hören deswegen zwangsweise bei anderen mit. Dieses _noise_ interferiert leider mit unseren schönen Wellen und manchmal nuked es sie auch einfach komplett. $\text{SNR} = S / N$ ist die Signal-to-noise ratio in dezibel $\text{SNR}_{\text{db}} = 10 \times \log_10(S/N)$.
+
+Und Shannon sagt dann mal wieder $R_{max} [bit/s] = B [Hz] \times log_2 (1 + S/N) [bit]$.
+
+$min(\text{Shannon}, \text{Nyquist})$ gibt uns dann das maximale was wir (definitiv nicht) rausholenkönnen.
+
+
+### [Antenne AC](https://www.antenneac.de/)
+

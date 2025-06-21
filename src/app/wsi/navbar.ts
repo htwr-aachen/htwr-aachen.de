@@ -50,7 +50,7 @@ export const navbar: NavbarConfig = {
   ],
   main: { name: "WSI", href: "/wsi" },
   logo: {
-    src: "/assets/wsi/wsi.jpg",
+    src: "/assets/wsi/wsi_cropped.jpg",
     alt: "WSI Logo",
     href: "/wsi",
     width: 387,

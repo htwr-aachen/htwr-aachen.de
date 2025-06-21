@@ -1,44 +1,45 @@
 "use client";
-
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-import Link from "next/link";
-import { type FC, type ReactElement, type ReactNode, forwardRef } from "react";
-import { Carousel } from "react-responsive-carousel";
+import { ComponentProps, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 import ExportedImage, { ExportedImageProps } from "next-image-export-optimizer";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { CMSILink, CMSLink } from "./link";
+import React from "react";
 
-function GalleryImage(props: ExportedImageProps) {
+export function GalleryItem({ className, ...props }: ComponentProps<"div">) {
   return (
-    <div className="relative h-full w-auto overflow-hidden">
-      <ExportedImage
-        {...props}
-        className={cn(
-          "absolute top-1/2 left-1/2 block w-auto -translate-x-1/2 -translate-y-1/2 object-fill",
-          props.className,
-        )}
-        alt={props.alt}
-      ></ExportedImage>
-    </div>
+    <div
+      role="img"
+      className={cn(
+        "grid h-[450px] grid-cols-[auto_1fr] overflow-hidden lg:h-[650px]",
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
-const GalleryItem = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    role="img"
-    className={cn(
-      "grid h-[450px] grid-rows-[1fr_auto] overflow-hidden lg:h-[650px]",
-      className,
-    )}
-    {...props}
-  />
-));
-GalleryItem.displayName = "GalleryItem";
+export function GalleryImage({ className, alt, ...props }: ExportedImageProps) {
+  return (
+    <ExportedImage
+      className={cn(
+        "block h-[450px] w-auto object-cover lg:h-[650px]",
+        className,
+      )}
+      alt={alt}
+      {...props}
+    ></ExportedImage>
+  );
+}
 
 type GalleryLabelProps = {
   children?: ReactNode;
@@ -50,124 +51,93 @@ type GalleryLabelProps = {
   }[];
 };
 
-const GalleryLabel: FC<GalleryLabelProps> = ({
+export function GalleryLabel({
   headline,
   children,
   url,
   externalUrls,
-}) => {
+}: GalleryLabelProps) {
   return (
-    <div className="bottom-0 z-10 w-full items-center justify-center lg:absolute lg:grid">
-      <div className="bg-rwth-accent grid w-full grid-rows-2 px-8 py-6 font-sans text-white lg:mb-6 lg:w-[750px] lg:grid-cols-[auto_1fr] lg:grid-rows-1">
-        <h2 className="pr-4 text-3xl font-medium lg:w-[300px]">{headline}</h2>
-        <div className="grid">
-          <p className="text-left text-sm font-normal">{children}</p>
-          {url ? (
-            <Link
+    <div className="bg-cms-accent-light w-full items-center justify-center">
+      <div className="px-12 py-6">
+        <h3 className="mb-6 text-4xl font-light">{headline}</h3>
+        <p className="mb-12 text-left text-xl font-normal">{children}</p>
+        <div className="flex flex-row gap-6">
+          {url && (
+            <CMSILink
               href={url}
-              className="mt-2 justify-self-end rounded bg-black px-3 py-1 text-white hover:border-b-0 hover:bg-white hover:text-black lg:justify-self-start"
+              className="cms-button no-b text-xl font-semibold"
             >
               Mehr <span className="ml-4">&gt;</span>
-            </Link>
-          ) : (
-            <></>
+            </CMSILink>
           )}
-          <span
-            className="justify-self-start"
-            style={{ marginTop: "10px", marginBottom: "-10px" }}
-          >
-            {externalUrls?.map(({ url: extUrl, text: extText }) => {
-              return (
-                <a
-                  key={extUrl}
-                  href={extUrl}
-                  className="mt-2 justify-self-end rounded bg-black px-3 py-1 text-white hover:border-b-0 hover:bg-white hover:text-black lg:justify-self-start"
-                  style={{ marginLeft: "10pt" }}
-                >
-                  {extText}
-                </a>
-              );
-            })}
-          </span>
+          {externalUrls?.map(({ url: extUrl, text: extText }) => {
+            return (
+              <CMSLink
+                key={extUrl}
+                href={extUrl}
+                className="cms-button no-b text-center text-xl font-semibold"
+              >
+                {extText}
+              </CMSLink>
+            );
+          })}
         </div>
       </div>
     </div>
   );
-};
+}
 
-type GalleryProps = {
-  children?: ReactNode;
-};
+export function Gallery({ children }: { children: ReactNode[] }) {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
-const GalleryPrevArrow = (
-  clickHandler: () => void,
-  hasPrev: boolean,
-  label: string,
-) => {
-  if (!hasPrev) return <></>;
-  return (
-    <div className="absolute grid h-full items-center justify-start">
-      <button
-        onClick={clickHandler}
-        className="hover:bg-rwth-accent/100 relative z-10 bg-black/50"
-        type="button"
-        aria-label={label}
-      >
-        <div className="relative p-4">
-          <img
-            src="/assets/rwth/ArrowPrev.svg"
-            alt="arrow left"
-            className="h-[45px] w-45 lg:size-[75px]"
-          />
-        </div>
-      </button>
-    </div>
-  );
-};
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
 
-const GalleryNextArrow = (
-  clickHandler: () => void,
-  hasNext: boolean,
-  label: string,
-) => {
-  if (!hasNext) return <></>;
-  return (
-    <div className="absolute top-0 right-0 grid h-full items-center justify-end">
-      <button
-        onClick={clickHandler}
-        className="hover:bg-rwth-accent/100 relative z-10 bg-black/50"
-        type="button"
-        aria-label={label}
-      >
-        <div className="relative p-4">
-          <img
-            src="/assets/rwth/ArrowNext.svg"
-            alt="arrow right"
-            className="h-[45px] w-45 lg:size-[75px]"
-          />
-        </div>
-      </button>
-    </div>
-  );
-};
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
 
-const Gallery: FC<GalleryProps> = ({ children }) => {
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
   return (
     <Carousel
-      renderArrowPrev={GalleryPrevArrow}
-      renderArrowNext={GalleryNextArrow}
-      infiniteLoop
-      className="w-full"
-      showIndicators={false}
-      swipeable={true}
-      autoPlay
-      interval={5000}
-      showThumbs={false}
-      dynamicHeight={false}
+      setApi={setApi}
+      opts={{
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 5000,
+        }),
+      ]}
     >
-      {children as (ReactElement<unknown> | number | string)[]}
+      <div className="relative">
+        <CarouselContent>
+          {children.map((x, i) => {
+            return <CarouselItem key={i}>{x}</CarouselItem>;
+          })}
+        </CarouselContent>
+        <CarouselPrevious className="bg-cms-bg text-cms-bg-text absolute left-12 z-20 size-12" />
+        <CarouselNext className="bg-cms-bg text-cms-bg-text absolute right-12 z-20 size-12" />
+
+        <div className="absolute right-12 bottom-6">
+          {[...Array(count)].map((_, index) => (
+            <button
+              key={index}
+              className={cn(
+                index + 1 == current ? "bg-cms-bg-text" : "bg-cms-accent",
+                "mx-3 h-[2px] w-6",
+              )}
+            ></button>
+          ))}
+        </div>
+      </div>
     </Carousel>
   );
-};
-
-export { Gallery, GalleryImage, GalleryItem, GalleryLabel };
+}

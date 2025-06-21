@@ -3,6 +3,8 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import remarkMath from "remark-math";
+// @ts-expect-error i dont know why the type is bugged :/
+import rehypeFigure from "@microflash/rehype-figure";
 
 import { highlighter } from "./highlighting";
 
@@ -11,6 +13,8 @@ export const mdxOptions: any = {
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm, remarkHint],
     rehypePlugins: [
+      // @ts-expect-ignore
+      rehypeFigure,
       rehypeKatex,
       [
         // @ts-expect-ignore

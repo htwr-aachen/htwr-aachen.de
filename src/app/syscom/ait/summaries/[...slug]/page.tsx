@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 
-import ISOOSI from "@/components/summaries/components/isoosi";
 import SummaryView from "@/components/summaries/view";
 import { type Subjects, SubjectConfig } from "@/config/subjects";
 import { getArticlesMetadata } from "@/lib/article-metadata";
 import { getArticle } from "@/lib/articles";
 
-const subject: Subjects = "datkom";
+const subject: Subjects = "ait";
 const subjectConfig = SubjectConfig[subject];
 
 export default async function Page(props: {
@@ -18,7 +17,6 @@ export default async function Page(props: {
       <SummaryView
         subjectConfig={subjectConfig}
         slug={params.slug}
-        components={{ ISOOSI }}
       ></SummaryView>
     </div>
   );

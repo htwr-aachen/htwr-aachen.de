@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export const PanikzettelNav = (
-  <NavigationMenu color="neutral-200" className="">
+  <NavigationMenu color="neutral-200">
     <NavigationMenuList>
       <NavigationMenuItem>
         <NavigationMenuLink
