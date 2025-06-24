@@ -30,7 +30,7 @@ Wir können verschiedene Größen variieren um Daten zu übertragen.
 | $T$ | Periodendauer | Zeit für eine Wiederholung | $s$ | $1/f$ |
 | $\varphi$ | Phase | Anfangsverschiebung | $rad$ | - |
 
-Da wir ja über _Elektromagentische Strahlung also Licht reden ist die Geschwindigkeit fix bei $c \approx 3 \times 10^8 m/s$ und somit gibt es eine Wellenlänge $\lambda = c/f = c \times T$. Ihr müsst das wissen, da oft die Wellenlänge angegeben wird.
+Da wir ja über _Elektromagentische Strahlung also Licht reden ist die Geschwindigkeit fix bei $c \approx 3 \cdot 10^8 m/s$ und somit gibt es eine Wellenlänge $\lambda = c/f = c \cdot T$. Ihr müsst das wissen, da oft die Wellenlänge angegeben wird.
 
 
 ### _Signals_ & _Bandwidth_
@@ -48,17 +48,99 @@ Nyquist sagt uns Signalrate $S$ (Parameterwechsel pro Sekunde) $S_{max} [Hz] = 2
 
 2. _Frequency Shift Keying_ (FSK): Ändere die Frequenz bei bit 1. Doof das wir noch mehr Bandwidth brauchen als bei ASK
 3. _Phase Shift Keying_ (PSK): Ich glaube selbsterklärend. Besser als ASK.
-4. Advanced FSK / _Minimum Shift Keying_ (MSK): Die gleiche Idee wie Manchester encoding. Jede Bit transition ist eine Frequenz und $f_2 = 2 \times f_1$.
+4. Advanced FSK / _Minimum Shift Keying_ (MSK): Die gleiche Idee wie Manchester encoding. Jede Bit transition ist eine Frequenz und $f_2 = 2 \cdot f_1$.
 5. Binary PSK: $0$ Sinus. $1$ -Sinus.
 6. quaternary PSK: kodier 2 bits in 4 Phases.
 7. _Quadrature Amplitude Modulation_ (QAM): Mach Amplitude und Phase zusammen. $16-QAM$ (4 bits werden zu einem _signal_)
 
-Natürlich haben wir alle den gleichen Raum und hören deswegen zwangsweise bei anderen mit. Dieses _noise_ interferiert leider mit unseren schönen Wellen und manchmal nuked es sie auch einfach komplett. $\text{SNR} = S / N$ ist die Signal-to-noise ratio in dezibel $\text{SNR}_{\text{db}} = 10 \times \log_10(S/N)$.
+Natürlich haben wir alle den gleichen Raum und hören deswegen zwangsweise bei anderen mit. Dieses _noise_ interferiert leider mit unseren schönen Wellen und manchmal nuked es sie auch einfach komplett. $\text{SNR} = S / N$ ist die Signal-to-noise ratio in dezibel $\text{SNR}_{\text{db}} = 10 \cdot \log_10(S/N)$.
 
-Und Shannon sagt dann mal wieder $R_{max} [bit/s] = B [Hz] \times log_2 (1 + S/N) [bit]$.
+Und Shannon sagt dann mal wieder $R_{max} [bit/s] = B [Hz] \cdot log_2 (1 + S/N) [bit]$.
 
 $min(\text{Shannon}, \text{Nyquist})$ gibt uns dann das maximale was wir (definitiv nicht) rausholenkönnen.
 
 
 ### [Antenne AC](https://www.antenneac.de/)
 
+Hier werden wir etwas skippen ist für uns glaube ich nicht sonderlich interessant. Wichtig ist die _ideal antenna_ von einem Punkt ausgehent *gleichverteilt* in jede Richtung sendend. Das ist wie immer physikalisch unmöglich, echte Antennen sind anders:
+
+1. _Simple Dipoles_: Stab in der Mitte um in herum ein Torus
+2. _Directed_: Hier versuchen wir in eine x,z,y Richtung zu ballern.
+3. anderes: gibt vieles. 
+
+Aber auch die sind nicht genau. Es gibt immer ein gewissen "leak" in alle Richtungen.
+
+Wenn wir mehrere Antennen nebeneinander mit $\lambda / 2$ Abstand zueinander, aber mit dem passender Kabellänge zum _transmitter_ installieren haben wir mittels _Beamforming_ nun einen stärkere _directed_ Antenne wo wir sogar teilweise die Richtung ohne Bewegung ändern können.
+
+
+Die Signale werden grob quadratisch zum Abstand vom Sender schwächer (ist ja logisch das Signal breitet sich ja im Raum aus). Genauer $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi d})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}}$. $d$ ist Distanz, $P$ Power. $G$ bedeuted Gain also Stärke im Vergleich zu der Idealen Antenne (muss ja Richtungsbezogen sein). Diese Rechnung ist aber noch viel zu optimistisch.
+
+Wir haben nämlich ein Grundlegendes Problemchen _multipath propagation_. Was geil im MPTCP und Quic ist, ist hier kacke da das Signal auf direktem Weg schneller ist als erst am Porsche 911er abzuprallen und dann zu mir. Dieser Zeitverlust ist aber eine Phasenverschiebung und kann damit einfach wenns doof läuft das nächste Signal meiner direkten Übertragung  ausradieren.
+
+![Thanos Snap](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXExbTZiM29lejY1MjV5bTkzZ3Zsd3Bwcmx1NThucHQybXV6ZzJwMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LOoaJ2lbqmduxOaZpS/giphy.gif)
+
+Oder es kann gut laufen und es wird besser oder ich bekomme einfach nur mehrere Kopien meines Signals, aber wir müssen alles erwarten :/.
+
+Lösungen:
+
+1. Erneut mehrere Antennen verwenden, die Interferenzen können ja nicht genau gleich sein, da die Wellen aus unterschiedlichen Richungen kommen. 
+
+### Multiplexing
+
+_Multiplexing_ wir senden mit verschieden Wellenparameter. Sodass nicht jeder mit dem gleichen Wellenparameter sendet.
+
+1. Frequency: Wir teilen das gesamte Spektrum in verschiedene channel ein. Statisch in der Spezifikationen beschriben
+
+	1.5. _Orthogonal Frequency Division Multiplexing (OFDM)_: teilt den Frequenzbereich auch ein aber in mehrere Überlappende Bereiche hier können wir dann die anderen multiplexing Sachen auch noch anwenden und bekommen ein halbwegs gute Verbindung aber auch nicht unnötigen Ineffizenzen.
+
+2. Time: Nur einer sendet Gleichzeitig (Einteilung in Timeslots). Frage: Wann senden wir?
+
+	![_is it my turn?_](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHI2cHlhYm5tdXlmNGlscW11d2Z3d2d6Nmt2ZWR6YWIxMzd2bm9qciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/54rv8mQZtZgyY/giphy.gif)
+	
+		Um zu koordinieren muss jeder eine genaue Uhrzeit haben. Zusätzlich am besten _guard_ times zwischen den Sendern für weniger Interferenzen und ungenaue Uhren.
+
+3. Code: wir senden alle gleichzeitig unterschiedliches $\text{daten} \oplus \text{einzigartigem code}$. Müssen dann aber herausfinden was eine Sender im gebrabel gesendet hat hierfür brauch er den Code vom Sender $(\text{empfangen} \oplus \text{code} = \text{daten})$.
+
+4. Space Multiplexing: Wir verwenden alles aber nur hier. Nächste _Cell_ verwenden wir z.B. eine anderen Frequenzbereich.
+
+## Codes
+
+Yippi es darf nie fehlen schöne gut coding algos. Das wichtigste ist _**Forward Error Correction**_ auf allem. _Bit Error Rate_ ist in jedem Fall verdammt kacke im Vergleich zu Kabeln. Wir brauchen gute _error correcting codes_. Hamming mit 1-bit fehlern reicht uns definitiv nicht!. Ich fokusier mich auf 2.
+
+- Block Codes. Aufteilung der Daten in blocks. 
+- Convolutional $(n,k,K)$-Codes. $n$-bit output $k$-bit input convoluded (📟 verrechnet) mit den vorherigen $K-1$ outputs.
+
+	```mermaid
+	graph LR
+			A[Input bits] --> B[un]
+			B --> C[un-1]
+			C --> D[un-2]
+
+			%% XOR-Kreise
+			XOR1((⊕)) -->|+ un| V1[v<sub>n1</sub> = un ⊕ un-1 ⊕ un-2]
+			XOR2((⊕)) -->|+ un| V2[v<sub>n2</sub> = un ⊕ un-2]
+
+			%% Verbindungen zu XOR
+			B --> XOR1
+			C --> XOR1
+			D --> XOR1
+
+			B --> XOR2
+			D --> XOR2
+	```
+
+	Bei $(2,1,3)$ sind die output $v_{n1} = u_{n-2} \oplus u_{n-1} \oplus u_n$ und $v_{n2} = u_{n-2} \oplus u_n$. Encodieren ist extremst schnell und unaufwendig mittels Shiftregister. Decodieren ist dafür ziemlich pain. Hierfür erstmal das Zustandsdiagram
+
+
+	![State Diagram](/summary-assets/syscom/mit/convolutional-state-diagram.png)
+
+	So ein Zustandsdiagram führen wir dann Zeitlich nacheinander auf zu einem _trellis_ Diagramm.
+
+	![Trellis Diagram](/summary-assets/syscom/mit/convolutional-trellis.png)
+
+	Oft nehmen wir an das wir bei 0 anfangen und auch wieder bei 0 aufhöhren müssen. Nun zum dekodieren können wir verschieden taktiken fahren. z.B. nehmen wir immer das nächst passende. Oder wir nutzen den _Viterbi_ algo:
+	Vergleiche die erhaltene mit allen !validen! Pfaden (heißt die müssen bei 0 enden). Nimm dann die Hammingdistanz und wähl den besten. Scheiße aufwändig auch in Klausur also lass mal lieber sein.
+- Turbo codes sind einfach nur ne Verbesserung von den gleichen Ideen die convolutional codes haben.
+
+
+> Nevertheless, CRC needed to check corrected frames on correctness
