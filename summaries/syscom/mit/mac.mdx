@@ -1,0 +1,69 @@
+---
+title: MAC Nuggets
+description: MAC Layer
+tags: [layer 1]
+order: 2
+author: Jonas Schneider
+---
+
+## Medium Access
+
+> Herrn Professor ich konnte die Dynexiteklausur leider nicht bewältigen, da mein Mitbewohner das Medium mit seinem Youtube Short Shitpost scrolls belegt hat.
+
+Tja passiert den besten
+
+
+## Schnee von Gestern (geschrieben bei 32º Innentemperatur)
+
+Ethernet hat das altbekannte Carrier Sense Multiple Access/Collision Detection (CSMA/CD) wo wir erst hören ob alles frei ist. Falls wer genau gleichzeitig mit uns anfängt machen wir einen backoff und jammen den Channel.
+
+## Hidden Station & Exposed Station Problem / 
+
+![Hidden Station Problem](/summary-assets/syscom/mit/hidden-station.png)
+
+Ähm ja C ist halt für A nicht Sichtbar (auch nicht Detektierbar) aber trotzdem gibt es halt bei B eine Kollision.
+
+![Exposed Station Problem](/summary-assets/syscom/mit/exposed-station.png)
+
+## Centralized
+
+Eine Station übernimmt die kontrolle und verteil Medium Access an andere
+
+### Contention-based
+ 
+In contention-based Techniken ist er der Klassiker, was wird schon Schieflaufen. Wir wollen nur das Risiko einer Collision veringern.
+
+#### Aloha
+
+Rawdawg die Nachricht wenn der Empfänger alles empfangen hat sendet er ein ACK auf das wir warten (mit timeout). Falls es nicht geklappt hat machen wir random backoff und warten einen zufälligen wert in einem Bereich.
+
+> Aloha in general is the problem. ~ Dirk
+
+Slotted Aloha ist etwas "besser" in dem der Start einer transmission mit einem Zeitslot seien muss.
+
+#### Busy Tone
+
+Wenn der Receiver eine transmission erhält sendet er auf z.B. einem anderen Channel ein Busy Tone welches jeder in Reichweite dann checken kann. Das ist _Receiver initiated BTMA_ klappt natürlich erst wenn der Empfänger verstanden hat, dass er der Empfänger ist.
+
+Bei _Busy Tone Multiple Access_ (BTMA) senden alle die gerade etwas empfangen den Busy Tone nicht nur der eigentlich Empfänger. Beides zusammen geht auch _Wireless Collision Detect_
+
+
+#### _Multiple Access with Collision Avoidance_
+
+- `RTS` _request to send_ package: Darf ich 👉👈
+- `CTS` _clear to send_ package: Ja ist frei
+
+Klappt halt nur wenn ich RTS und CTS mitbekomme. Geräte dürfen also nicht vernünftig schlafen.
+
+### Schedule-based
+
+In schedule-based MAC Techniken ist die Zeit halt aufgeteilt und kann fix oder dynamisch auf die Stationen aufgeteilt werden
+
+#### _Demand Assigned Multiple Access_ DAMA
+Ein sender reserviert hier ein timeslot. Der Rest kann dann wie Aloha laufen
+
+#### IEEE 802.15.4
+
+Keen bock was zu schreiben
+
+
