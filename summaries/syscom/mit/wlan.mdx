@@ -1,0 +1,131 @@
+---
+title: Gib mal WLAN Kabel
+description: 
+tags: []
+order: 3
+author: Jonas Schneider
+---
+
+Hier Tabelle lern du opfer:
+
+WIFI Netzwerke können entweder:
+1. Mehrere Access Points verbunden in einem Netzwerk sein.
+2. AD-Hoc wie meine Kamera sich als Access Point ausgibt um mit gefühlten 1kbit/s das unschärfste Bild jemals zu kopieren
+3. Mesh. Die Access Points verbinden sich untereinander
+
+WIFI spielt nur auf MAC / PHY Ebene ab und sollte vollkommen transparent sein (so wie halt immer).
+
+
+## Physical Layer
+
+1. Frequency Hopping FHSS: 
+2. Direct Sequence DSSS: Chipping (i.e. chipping xor data)
+3. Infrared: Nur für ad-hoc und selbst da kannte ich das nicht :/
+
+Gehen wir mal durch die Versionen durch (ich werde hier Sachen skippen ist safe nicht so relevant):
+1. 802.11b: DSSS mit adaptiver Modulation (angepasst an die _Signal-to-Noise ratio_). Max ~5.5M (theoretisch 11) bei 30m indoor. Bei 1 oder 2 Mbit werden 11bit Barker codes verwendet bei höhreren 8 bit CCK. Hier kommt es aber oft zu Channel interferenze bei den 13 Channels in DE. 2.5 GHz Bereich
+
+2. 802.11a: QFDM + 64-QAM kann höhere Datenraten bis zu 54Mbit aber niedrigere Reichweite. 5GHz Bereich.
+3. 802.11g: alles wie 802.11b nur statt DSSS nimmt man auch QFDM
+4. 802.11n: Bis zu 600Mbi und 70m-250m. Kompatibel mit allen vorigen und vereint somit 2.5 und 5GHz Bereich.
+	Was wurde gemacht? Kleinere Guard Spaces bei QFDM. Mehrere (4) Streams gleichzeitig mit 4 Antennen (nennt man MIMO). Optional breite Channels 40MHz.
+5. 802.11ac: Nur noch 5GHz bis zu 7 GBit. 8ter MIMO und 256-QAM.
+6. 802.11ax: 9.6 GBit/s. 1024-QAM. Mit kleinen Verbesserungen zum QFDM.
+7. 802.11be: 46 GBit/s. 4096-QAM. Optionale Breite Channel und weitere Verbessungen beim QFDM.
+8. 802.11bn: >100GBit/s? 8192-QAM. Kp.
+
+Medium Access:
+- CSMA/CA: CSMA with Collision Avoidance (nicht verwechseln mit CSMA/CD)
+
+Drei Strategien:
+1. CSMA/CA: DFWMAC-DCF CSMA/CA (standard). Distributed Coordination mit Carrier sensing, random backoff und ACKS wenns funktioniert hat. Must have
+
+PS. Das ist wirklich eine brutale Abkürzung.
+
+2. Einen RTS/CTS: Modus für ready and clear to send anfragen. Häufig Implementiert aber selten genutzt
+3. Polling für garantiertes Zeug: Selten implementiert
+
+Wir haben drei verschiedene Guard Space größen:
+1. Short Inter Frame Space (SIFS): $10/16\mu s$
+2. PIFS: ~$30\mu s$
+3. DIFS: ~$50\mu s$
+
+Damit können wir auch Packete priorisieren.
+
+Fürs CSMA/CA hören wir min. ein DIFS lang und senden dann. Falls wir was hören warten wir ein DIFS+random backoff und versuchen es nochmal.
+Der Backoff ist ein vielfaches von einem time slot. Falls bei einem Backoff jemand anderes bereits sendet, stoppen wir und fangen von neu an aber mit dem Restlichen timeslots als unser neues Backoff.
+
+![CSMA/CA](/summary-assets/syscom/mit/csmaca.png)
+
+Wie gesagt sende ich ein ACK wenn ich was erfolgreich empfangen habe, beim timeout denke ich direkt an eine Collision.
+
+![Got It](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RoMGo1ZDVuc3RtdGlpMzZveHMwdzVlZTNzdXU5bnc3bXcyNGx6cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syQ4KY566ul38mZioG/giphy.gif)
+
+Beim RTS/CTS kann ich Kollisionsfreiheit garantieren aber mit höherer Latenz. Das haben wir ja schonmal besprochen.
+
+![RTS-CTS](/summary-assets/syscom/mit/wifi-rts-cts.png)
+
+Das NAV hier bedeutet, das andere Stations das RTS und CTS mitbekommen haben und selber speichern wie lange das Medium reserviert ist. Fragmente erhalten hierbei nochmal neue Reservierungen, was die NAV(frag) erklärt. Die Fragmente ohne ACK werden sofort neuübertragen.
+
+
+Noch mehr Informationen .
+TODO: 
+
+## BITS & BYTES
+
+> Es wurde mehrfach gesagt, dass die einzelnen bits in den Headern wirklich niemanden juckt. 
+
+Wir müssen aber alles "kennen" damit wir nichts vergessen wenn wir z.B. die tatsächliche Datenrate ausrechnen sollen. Deswegen gehen wir das jetzt einfach einmal ganz durch.
+
+Starten bei der Physikalischem Header
+
+### FHSS Frame Format
+
+1. Synchronization
+2. konstanter Start Frame Delimiter (SFD)
+3. Payload Length + CRC length
+4. Data Rate Payload
+5. Header CRC
+
+### DSSS 
+
+1. Sync
+2. SFD
+3. Data rate 
+4. Reserved
+5. Payload Length
+6. Header CRC
+
+in 802.11b bleibt es eigentlich genau so nur das wir halt 
+
+### 802.11a
+Wir verschmelzen ein bisschen den nächsten Schritt mit dem hier
+
+!> Wichtig ist, dass die Synchronization + SFD immer in 1 Mbit/s übertragen wird. Egal ob ich danach mit 48GBit WIFI 7 baller.
+!> Der Rest des Header wird eigentlich auch immer in 1 Mbit übertragen, außer beim Optimierten Shot-Frame-Format von 802.11b (da mit 2bit)
+
+?> Warum? 
+
+Na weil wir diesen Physikalischem Header wirklich null plan haben von den Restlichen Headern. Wir wüssten also auch nicht, ob wir oder wer anderes Adressiert wurde. Deswegen setzten wir das als untere Grenze was jeder erreichen muss.
+
+### _Physical Layer Convergence Protocol_ (PLCP)
+
+Wir haben nun ja ganz verschieden Technologien auf der MAC-Ebene machen wir jetzt ein Header für alle WIFIs
+
+
+![PLCP Frame](/summary-assets/syscom/mit/plcp.png)
+
+- ACKS, CTS: (2 Frame Control) (2 Duration) (6 Rec. Addr) (4 CRC)
+- RTS: (2 Frame Control) (2 Duration) (6 Rec. Addr) (6 Trans. Addr) (4 CRC)
+
+Was sind die wichtigen Sachen:
+- Frame Control naja brauch man halt
+- Duration für RTS/CTS
+- Sequence Control 
+- CRC is klar
+- Bis zu 4 Addressen, für normallerweise immer Source, Destination und optional für BSSID oder receiver und transmitter. Welche wir angeben ist per `fromDS` `toDS` bits geregelt.
+
+## Management
+
+Informationen werden durch ein Beacon-Frame verteilt z.B. SSID
+Power Management kann durch Wake-up patterns geregelt werden.
