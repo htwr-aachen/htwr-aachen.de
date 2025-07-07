@@ -1,0 +1,56 @@
+---
+title: Multi-Hop Networks
+description: Routing
+tags: []
+order: 4
+author: Jonas Schneider
+---
+
+### Mobile Ad-Hoc Network (MANET)
+Verbesserungen des ad-hoc Netzwerks des 802.11
+
+### Wireless Mesh Network 
+Ein Netzwerk besteht nun auch noch aus statischen Geräten die das Backbone ausmachen.
+
+Hier nochmal die Basic routing
+
+- Distance Vector: Wir tauschen regelmäßig Nachbardaten, cost Daten und was wir alles Erreichen können aus
+- Link State: Hier tauschen wir nur Nachbarschaften aus.
+
+?> Aber was ist das Problem an denen?
+Naja ich verbinde mich ja mit sehr unterschiedlichen Routern wenn ich durch Info Zentrum stolziere. Dementsprechend wechselt auch die Kosten und die Erreichbarkeit ziemlich schnell. 
+
+Wir brauchen also ein Routing Protokoll das
+- Schnell konvergiert
+- Nicht viel Bandbreite braucht
+- Schon noch gute Ergebnisse liefert.
+Zudem
+- Sollte man jetzt auch keine Differentialgleichung lösen müssen (wenig cpu) und es sollte sich selbst organisieren.
+Metriken können wir auch anpassen zum Beispiel die _expected tranmission count_
+$EXT = \frac{1}{FDR \cdot RDR}$. _FDR_: Wahrscheinlichkeit das ein Packet das Ziel erreicht. _RDR_: Gleiche fürn Rückweg (kann ja unterschiedlich sein *hust*Hidden Station*hust*)
+
+Oder wir nehmen $EXT \cdot S/B$ für die Zeit eines Packetes bei Bandbreite $B$.
+
+Daraus bauen wir nun 4 Routing Protokolle
+
+### Dynamic Source Routing
+
+Wenn wir was senden wollen, senden wir vorher ein `RREQ` route request mit dem Ziel und ner ID. Das breitet sich dann im Netzwerk wie folgt aus indem man seine Addresse auf die Liste setzt und an alle weiter schickt. Wir merken uns alles ein bisschen damit wir in kein Loop kommen und das Ziel sendet eine `RREP` and den ersten, und der dann zum nächsten bis zu uns zurück.
+
+//TODO DSR gif
+
+Jaja ist immernoch nicht gut und es gibt noch paar weitere Verbesserungen wenn juckts. Es ist halt immernoch Flooding und das Dauert auch ein Weilchen
+
+### Ad-hoc On-demand Distance Vector routing (AODV)
+
+Hier machen wir das gleiche wie DSR aber wir merken uns auch noch ein kleines Routing Table und wir sagen ab und zu HELLO. Zudem ergänzen wir noch eine Sequence Number zu der RREQ und verhindern damit noch loops.
+
+### Optimized Link State Routing
+Wir optimieren indem wir link states nur noch von manchen nodes erlauben.
+Wir erschaffen sogenante multipoint-relays, die nun für mehrere Nodes zuständig sind. Hierbei sind alle 2-hop-entfernten Geräte auch mit diesem Relay verbunden.
+
+### Destination Sequenced Distance Vector Routing
+
+Gibbet auch noch.
+
+
