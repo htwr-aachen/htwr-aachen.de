@@ -1,0 +1,70 @@
+---
+title: Aldi Talk gib Netz
+description: 
+tags: [xG Networks]
+order: 5
+author: Jonas Schneider
+---
+
+Ach ja hier werden brutale Witze gerissen. Ich freu mich schon
+
+Wichtig zu wissen ist, dass er Mobilfunk vom alten Telefonnetz entstand.
+
+Fangen wir mit GSM (2G) an. Auch dies wurde für Audio übertragung mit 9.6 kBit entworfen. Verbunden wirst du über Cells, die in Wohnsiedlungen gerne 100-500m auseinander stehen und im Land bis zu 35km (schätzungsweise auch bis zu ∞ km).
+
+![POV Deutscher Mobilfunk](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvirtualstreets.org%2Fwp-content%2Fuploads%2FScreen-Shot-2023-06-08-at-10.43.09-AM-1024x648.png&f=1&nofb=1&ipt=6ecfd6003e3add837322e87c4a95e49dcd8413a46e0021a5436cf258cd664604)
+
+Man muss denen lasses auch wenn es scheiße langsam ist, Mobilität unterstützt es fantastisch. Woran liegt das? Hier kommt die Bomben slide von mit
+
+![GSM Architektur](/summary-assets/syscom/mit/gsm-architecture.png)
+
+!> Safe wir müssen so ein Bild ausfüllen
+
+Hier der wichtigste bums:
+
+![GSM Connection Flow](/summary-assets/syscom/mit/gsm-connection.png)
+
+
+Deine Daten sind im _Home Location Register_ gespeichert. Auch dazu ein ungenauer standort => _Mobile Switchting Center_ sind für eine bestimmte Region da die geben dann weiter an _BSC_ wo wirklich die kleinsten Standortänderungen gespeichert werden.
+Wenn du von einem Mobiltelefon den Telekom support anrufst musst du vom Mobilfunk ins standard Festnetz. Hierfür sind die _Gateway MSC_ zuständig. Genauso ins Ausland mit dem _ISC_.
+Wenn jetzt aber kein Mobilfunk von deinem Anbieter da ist, bekommst du trotzdem manchmal welches, oder wenn du Roaming anhast. Dies wird durch das _Visitor Location Register_ erledigt.
+
+## Extensions
+
+Wir müssen nun erstmal GSM fixen, da wir mit 9.6kbit. Mit Extensions HSCSD können wir 57kbit erreichen und mit EDGE 473kbit
+
+
+## Außerhalb Deutschlands...
+
+LTE:
+Nun machen wir nur noch packet switching. Wir haben auch wieder mehr Frequenzen.
+
+![LTE](/summary-assets/syscom/mit/lte-architecture.png)
+
+- MME: Authentication and IP Tunnels.	
+- eNode-B: Wireless Transmission, user management, mobility management.
+- SG: Gateway for ip traffic
+- PDN: Gateway to Internet
+- HSS: Corresponding to HLR
+
+Es ist jetzt nichtmehr ein Telefon netzwerk sondern für Packete bestimmt
+
+Technologisch benutzt es OFDMA (OFD Multiple Access)
+
+Unser 4G ist eigentlich LTE-Advanced, welches besser Antennen und besser Verbundungen unterstützt. Zusätzlich 1024 statt 256-QAM und Remote Radio Requirements (RRE) als Repeater für eNodeB.
+
+
+## 5G wollte die Welt revoluitionieren
+Und jetzt frage ich mich ob mich das juckt.
+
+Schon, aber 5G sollte auch für IoT-Geräte und Industrial Anwendungen gut sein und das ist es bestimmt auch. Wir ermöglichen deutlich höhere Datenraten und deutlich kleine Latenz.
+Wir haben nun 3 unterschiedliche Scenarien:
+
+1. Enhanced Mobile Broadband
+2. Massive Machine Type Communication: smart-city / smart-home (wer eine private 5G Antenne hat kann sich ja mal bei mir melden)
+3. Ultra-reliable and Low Latency Communication: industrial stuff
+
+Wir nutzen nun endgültig OFDMA mit viel MIMO und erreichen damit 10Gbit, Aldi Talk gibt mir davon 50Mbit top.
+
+Auch im Hintergrund hat sich was mit dem Next-Generation Core Network getan um z.B. edge-computing zu unterstützen aber ja ist weiterhin kompliziert.
+

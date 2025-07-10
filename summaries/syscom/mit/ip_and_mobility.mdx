@@ -1,0 +1,41 @@
+---
+title: Internet und Mobilität
+description: 
+tags: [HIP]
+order: 6
+author: Jonas Schneider
+---
+
+Ok was soll dieses Kapitel?
+
+Wir kümmern uns jetzt wie wir Mobilität im Internet machen. Es gibt verschiedene Klassen
+
+1. Intra-Cell Mobilität: Ja muss durch PHY gemacht werden
+2. Inter-cell Mobilität (gleiches Netzwerk): Hier können wir das Netzwerk es handlen lassen (z.B. LTE).
+3. Inter-Network Mobilität: Hier wechselt zwangsweise die IP-Addresse. 
+	Aber wieso sollte so ein Fall überhaupt auftreten? 
+	Ich sage das habt ihr jeden Tag in dem ihr im Info Zentrum sitzt und das WLAN nutzt. Eduroam klappt nicht also wechsel auf LTE. 
+	Dann wieder auf Eduroam weil du was herunterladen willst dann wieder zurück weils nicht klappt. Zack du bist in diesem Fall.
+
+	Das Internet unterstützt diesen Fall aber so 0. Vor allem da die Ip Addresse nicht nur die Identität als auch die Location beschreibt.
+
+## Mobile IP
+
+Ok Mobile Ip ist praktisch eine Umleitung von deinem Traffic zu deinem Zuhause und da weiß dein Router was deine tatsächliche Adresse ist und schickt es dir dann weiter. Jetzt folgt die Begrifserklärung
+
+1. Mobile Node (MN): logisch um das Gerät handelt
+2. Home Agent: Irgendwas was an ist Zuhause. Meistens dein Router
+3. Foreign Agent: Meistens der Router in dem Fremden Netzwerk. Das gibt die die Care-of Addresse
+4. Care-of Address: Die fremde ip adresse. Entweder der Router selber hört auf diese Adresse oder das Mobile Node (nennt sich dann co-located COA)
+5. Correspondent Node (CN): Mit wem du sprechen willst.
+
+Ok dann gehen wir mal durch. CN will zu dir eine Nachricht senden:
+
+1. CN sendet an diene Home-Addresse (also die IP die in deinem Heim Netz liegt)
+2. Der Home Agent greift das Packet auf und sieht das du dich nicht Zuhause befindest. Dann schickt es das Packet als IP-in-IP also als verpacktes Packet an die Care-of Address. 
+Der Aufbau ist um nochmal zu erläutern: | IP-CAO | IP-HA | ... 
+3. FA erkennt das es sich um eine COA handelt und entweder.
+	1. Entpackt es selber und schick das inner packet and dich
+	2. Schickt das gesamte packet and dich falls co-located CAO
+
+Das ganze klappt bei NAT so 0 da wir schon alleine keine CAO haben können
