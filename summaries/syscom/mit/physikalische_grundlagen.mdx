@@ -64,13 +64,13 @@ $min(\text{Shannon}, \text{Nyquist})$ gibt uns dann das maximale was wir (defini
 
 Hier werden wir etwas skippen ist für uns glaube ich nicht sonderlich interessant. Wichtig ist die _ideal antenna_ von einem Punkt ausgehent *gleichverteilt* in jede Richtung sendend. Das ist wie immer physikalisch unmöglich, echte Antennen sind anders:
 
-1. _Simple Dipoles_: Stab in der Mitte um in herum ein Torus
+1. _Simple Dipoles_: Stab in der Mitte um ihn herum ein Torus.
 2. _Directed_: Hier versuchen wir in eine x,z,y Richtung zu ballern.
 3. anderes: gibt vieles. 
 
 Aber auch die sind nicht genau. Es gibt immer ein gewissen "leak" in alle Richtungen.
 
-Wenn wir mehrere Antennen nebeneinander mit $\lambda / 2$ Abstand zueinander, aber mit dem passender Kabellänge zum _transmitter_ installieren haben wir mittels _Beamforming_ nun einen stärkere _directed_ Antenne wo wir sogar teilweise die Richtung ohne Bewegung ändern können.
+Wenn wir mehrere Antennen nebeneinander mit $\lambda / 2$ Abstand zueinander, aber mit der passenden Kabellänge zum _transmitter_ installieren haben wir mittels _Beamforming_ nun eine stärkere _directed_ Antenne wo wir sogar teilweise die Richtung ohne Bewegung ändern können.
 
 
 Die Signale werden grob quadratisch zum Abstand vom Sender schwächer (ist ja logisch das Signal breitet sich ja im Raum aus). Genauer $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi d})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}}$. $d$ ist Distanz, $P$ Power. $G$ bedeuted Gain also Stärke im Vergleich zu der Idealen Antenne (muss ja Richtungsbezogen sein). Diese Rechnung ist aber noch viel zu optimistisch.
