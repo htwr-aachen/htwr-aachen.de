@@ -101,12 +101,11 @@ in 802.11b bleibt es eigentlich genau so nur das wir halt
 ### 802.11a
 Wir verschmelzen ein bisschen den nächsten Schritt mit dem hier
 
-!> Wichtig ist, dass die Synchronization + SFD immer in 1 Mbit/s übertragen wird. Egal ob ich danach mit 48GBit WIFI 7 baller.
-!> Der Rest des Header wird eigentlich auch immer in 1 Mbit übertragen, außer beim Optimierten Shot-Frame-Format von 802.11b (da mit 2bit)
+!> Wichtig ist, dass die Synchronization + SFD immer in 1 Mbit/s übertragen wird. Egal ob ich danach mit 48GBit WIFI 7 baller. Der Rest des Header wird eigentlich auch immer in 1 Mbit übertragen, außer beim Optimierten Shot-Frame-Format von 802.11b (da mit 2bit)
 
 ?> Warum? 
 
-Na weil wir diesen Physikalischem Header wirklich null plan haben von den Restlichen Headern. Wir wüssten also auch nicht, ob wir oder wer anderes Adressiert wurde. Deswegen setzten wir das als untere Grenze was jeder erreichen muss.
+Na weil wir ohne diesen physikalischen Header wirklich null Plan haben von den restlichen Headern. Wir wüssten also auch nicht, ob wir oder wer anderes adressiert wurde. Deswegen setzten wir das als untere Grenze was jeder erreichen muss.
 
 ### _Physical Layer Convergence Protocol_ (PLCP)
 
@@ -123,7 +122,7 @@ Was sind die wichtigen Sachen:
 - Duration für RTS/CTS
 - Sequence Control 
 - CRC is klar
-- Bis zu 4 Addressen, für normallerweise immer Source, Destination und optional für BSSID oder receiver und transmitter. Welche wir angeben ist per `fromDS` `toDS` bits geregelt.
+- Bis zu 4 Addressen, für normalerweise immer Source, Destination und optional für BSSID oder receiver und transmitter. Welche wir angeben ist per `fromDS` `toDS` bits geregelt.
 
 ## Management
 
