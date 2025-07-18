@@ -9,10 +9,10 @@ export const MaterialienSchnellzugriff: FC = () => {
   return (
     <div className="max-h-410">
       <Schnellzugriff title="Materialien">
-        <SchnellzugriffLink href="/male/teachings">
+        <SchnellzugriffLink href="/male/male/summaries">
           Zusammenfassungen
         </SchnellzugriffLink>
-        <SchnellzugriffLink href="/male/material">
+        <SchnellzugriffLink href="/male/male/materials">
           Material oder so
         </SchnellzugriffLink>
       </Schnellzugriff>

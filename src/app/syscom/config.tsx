@@ -9,6 +9,7 @@ export const subjects: Subjects[] = ["datkom", "mit"];
 export const navbar: NavbarConfig = {
   logo: {
     href: "/assets/syscom/syscom_icon.svg",
+    alt: "SysCom Logo",
   },
   main: {
     href: "/syscom",

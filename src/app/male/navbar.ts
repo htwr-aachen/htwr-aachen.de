@@ -3,13 +3,13 @@ import type { NavbarConfig } from "@/models/layout";
 export const navbar: NavbarConfig = {
   linkElements: [
     {
-      name: "⚠Zusammenfassungen (vielleicht)",
-      href: "/nichts",
+      name: "Zusammenfassungen",
+      href: "/male/male/summaries",
     },
     {
       name: "Material",
-      href: "/male/material",
-      path: "/male/material",
+      href: "/male/male/materials",
+      path: "/male/male/materials",
     },
   ],
   main: { name: "MaLe", href: "/male" },

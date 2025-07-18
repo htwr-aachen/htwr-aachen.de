@@ -7,7 +7,7 @@ type HeadLineProps = {
 
 const HeadLine: FC<HeadLineProps> = ({ title, children }) => {
   return (
-    <h1 className="mb-6 border-b-4 border-black pb-6 font-sans text-4xl font-normal lg:text-[3.5rem]">
+    <h1 className="mb-6 pb-6 font-sans text-4xl font-bold lg:text-5xl">
       {title} {children}
     </h1>
   );

@@ -6,11 +6,7 @@ import remarkMath from "remark-math";
 // @ts-expect-error i dont know why the type is bugged :/
 import rehypeFigure from "@microflash/rehype-figure";
 
-import {
-  highlighter,
-  highlighterConfig,
-  untypedHighlighterConfig,
-} from "./highlighting";
+import { untypedHighlighterConfig } from "./highlighting";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mdxOptions: any = {

@@ -172,7 +172,7 @@ const Datenschutz: FC = () => {
         <p>
           Telefon: +4915731086384
           <br />
-          E-Mail: jonas.max.schneider@gmail.com
+          E-Mail: contact@htwr-aachen.de
         </p>
         <p>
           Verantwortliche Stelle ist die nat&uuml;rliche oder juristische

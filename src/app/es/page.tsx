@@ -32,10 +32,8 @@ const index: FC = () => {
         <div className="mt-5 grid items-start justify-center md:mt-0 md:items-center">
           <p className="h-min text-center align-middle">
             &quot;Habe ich euch eigentlich schonmal von{" "}
-            <Link href="/es/studium/klausuren">Klausuren</Link>,{" "}
-            <Link href={"/es/studium/teachings"}>dummen Zusammenfassungen</Link>{" "}
-            und <Link href="/es/studium/aufgaben">Aufgaben</Link>{" "}
-            erzählt...&quot;
+            <Link href={"/es/swt/summaries"}>dummen Zusammenfassungen</Link> und{" "}
+            <Link href="/es/swt/materials">Aufgaben</Link> erzählt...&quot;
           </p>
         </div>
       </div>

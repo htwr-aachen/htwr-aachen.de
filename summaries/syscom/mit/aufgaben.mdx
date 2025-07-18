@@ -1,0 +1,82 @@
+---
+title: Nach Verständnis kommen Aufgaben
+description: 
+tags: [HIP]
+order: 6
+author: Jonas Schneider
+---
+
+Ich gehe hier größtenteils die Aufgaben der Arbeitsblätter durch und schreibe bisschen was wie die zu lösen sind:
+
+## 1
+
+### 1.1a)
+An sich einfach. Wir bekommen bestimmt eine Bitfolge in der Klausur 
+
+BPSK: Falls ihr ein Diagram bekomt guckt auf die Phasenverschiebung (I). Wenn die 0 bei der positiven Seite steht, dann ist es eine Sinus welle also
+fängt bei 0 and geht nach oben, dann unten und dann wieder 0. Falls die 0 auf der negativen Seite ist die Welle invertiert, also geht erst runter dann hoch. Die Slides sagen 0: sine, 1: inverted aber das Arbeitsblatt macht es genau anders herum... Also bissle aufpassen
+
+QPSK: Hier wird es ein bisschen komplizierter
+
+![QPSK](/summary-assets/syscom/mit/qpsk.png)
+
+Da wo du Punkte sind fangt ihr an und macht dann eine Welle bis ihr wieder angekommen seid. Sagen wir 01 Dann nehmt ihr den Punkt oben links und geht in entgegen dem Uhrzeiger. Also runter dann wieder hoch bis zum max und dann ein kleines Stück runter. 
+
+
+QAM: Ok noch eine Stufe komplizierter, jetzt ändern wir auch die Amplitude. Vom Prinzip aber ähnlich zu QPSK. Guckt wo ihr anfangt und dann geht mit dieser Amplitude den Kreis herum. Mehr als 16 werden wir nicht machen, kann man dann ja nichtmehr zeichnen
+
+ASK: Amplitude wechselt ist simple.
+FSK: Frequenz wechselt ist simple
+MSK: Bei Bitwechsel wechsel die Frequenz aber glatt.
+
+### 1.1b)
+
+Ok hier brauchen wir nun Nyquist. $R_{max} = 2 \cdot B \cdot ld(n)$ das $n=16$ in unserem Fall da wir ja 16 werte darstellen können. Nun stellen wir um $\frac{R_{max}}{2 \cdot ld(16)} = ...$. Vergesst beim Rechnen nicht die Einheiten Bit/s, Hz und Bit.
+
+Das gibt uns die Channelgröße
+
+Das wird safe drankommen
+
+### 1.1c)
+
+Immer wenn wir was von Signal-to-Noise ratio lesen sollte wir direkt an Shannon denken
+
+$R_{max} [bit/s] = B [Hz] \cdot ld(1 + S/N)[bit]$ Auch simple wieder umstellen. Dann habt ihr jedoch nur S/N raus. Nun müsst ihr noch die dezibel berechnen mit $SNR = 10 \cdot log_10(S/N)$.
+
+Beachte $ld(1+S/N) = x$ ist umstellbar zu $2^{x} = 1 + S/N$. Aber das sollte ja wirklich klar sein.
+
+### 1.1
+
+Nehmt die Bandwidth aus c). Nun stellt Nyquist um, um die Modulation also $n$ zu erhalten. Wir runden das Ergebnissen natürlich zu einem Power of 2 nach oben. 
+
+
+> Wenn wir irgendwas mit bitrate oder bandwidth ausrechen sollen ist eigentlich immer nach Nyquist oder Shannon gefragt
+
+### 1.2a)
+
+Dafür haben wir $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi d})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}}$
+
+Wir haben gegeben $P_{\text{transmit}}, P_{\text{receive}}, G_r=G_t$.
+Zudem wissen wir die center Frequenz des Channels 1 von WIFI: $lambda$
+
+Nun nur noch nach d umstellen und Ergebnis ablesen.
+
+### 1.2b)
+
+Hierfür ist es gibt es die Realitätsformel $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}} \cdot \frac{1}{d^\alpha}$ welche es besser approximiert.
+
+### 1.2c)
+Unterschiedlichen wert einsetzten und vergleichen
+
+### 1.2d)
+In sehr niedrigen Frequenzen haben wir eine geringe datenrate wegen der niedrigen Bandwidth. Außerdem ist die Range so krass das wir alles hören und somit nichts höhren würden.
+
+Bei hohen haben wir extrem viel noise ein Blatt Papier schallert dein Signal ins Nirvana oder du Ionisierst deine Umgebund und gibst den Schwurblern recht.
+
+
+## 2
+
+### 2.1a)
+
+OK CDM ist das üblichste Mulitplexing. Bei TDM ist das Problem das bei mehr Nutzern immer größere Zeitabstände zwischen deinen Sendezeiten liegen. Es wird also für alle schlechter. Außerdem brauchen wir bei FDM gute Antennen und bei TDM Zeitsynchro.
+

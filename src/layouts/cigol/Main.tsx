@@ -4,15 +4,17 @@ import Link from "next/link";
 
 import InstituteSwitches from "@/components/InstituteSwitches";
 import { useInstituteConfig } from "@/hooks/useInstituteConfig";
-import type { LayoutProps } from "@/models/layout";
+import type { LayoutProps, NavbarConfig } from "@/models/layout";
 
-import CigolSideNav from "./sidenav";
+import CigolSideNav from "./Sidenav";
 import ExportedImage from "next-image-export-optimizer";
 
-export type CIGOLMainProps = LayoutProps;
+export type CIGOLMainProps = LayoutProps & {
+  navbar: NavbarConfig;
+};
 
-const Main = (props: CIGOLMainProps) => {
-  const config = useInstituteConfig(props.institute);
+const Main = ({ institute, navbar, children }: CIGOLMainProps) => {
+  const config = useInstituteConfig(institute);
   return (
     <div className="cigol relative min-h-screen bg-white text-black">
       <div>
@@ -68,11 +70,11 @@ const Main = (props: CIGOLMainProps) => {
           </div>
         </nav>
         <div className="page mt-6 grid grid-rows-[auto_1fr] font-sans lg:grid-cols-[auto_1fr] lg:grid-rows-1">
-          <CigolSideNav></CigolSideNav>
-          <div className="content bg-transparent">{props.children}</div>
+          <CigolSideNav navConfig={navbar} />
+          <div className="content bg-transparent">{children}</div>
         </div>
       </div>
-      <InstituteSwitches institute={props.institute} />
+      <InstituteSwitches institute={institute} />
     </div>
   );
 };

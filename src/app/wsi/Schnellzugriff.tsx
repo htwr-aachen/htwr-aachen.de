@@ -9,14 +9,11 @@ export const MaterialienSchnellzugriff: FC = () => {
   return (
     <div className="max-h-410">
       <Schnellzugriff title="Materialien">
-        <SchnellzugriffLink href="/wsi/studium">Studium</SchnellzugriffLink>
-        <SchnellzugriffLink href="/wsi/studium/klausuren">
-          Klausuren
-        </SchnellzugriffLink>
-        <SchnellzugriffLink href="/wsi/studium/teachings">
+        <SchnellzugriffLink href="/wsi/stocha">Stocha</SchnellzugriffLink>
+        <SchnellzugriffLink href="/wsi/stocha/summaries">
           Zusammenfassungen
         </SchnellzugriffLink>
-        <SchnellzugriffLink href="/wsi/studium/aufgaben">
+        <SchnellzugriffLink href="/wsi/stocha/materials">
           Aufgaben
         </SchnellzugriffLink>
       </Schnellzugriff>

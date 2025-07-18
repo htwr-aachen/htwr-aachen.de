@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 
 import { MaterialienSchnellzugriff } from "./Schnellzugriff";
+import Content from "./content.mdx";
 
 export const metadata: Metadata = {
-  description: "Stocha content",
+  description: "Stocha - Mathe nur schlechter",
   alternates: {
     canonical: "/wsi",
   },
 };
 
-export default function IndexPage() {
+export default function Page() {
   return (
     <div>
-      <h1 className="mb-8 text-2xl">
-        Ich bin zu faul um mich von der WSI Webseite zu &quot;inspirieren&quot;
-        somit gibt es jetzt das Standard HTWR Layout :)
-      </h1>
+      <div className="prose mx-auto px-2 text-black lg:max-w-[100ch] lg:px-0">
+        <Content />
+      </div>
 
       <MaterialienSchnellzugriff />
     </div>

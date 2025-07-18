@@ -54,7 +54,7 @@ export const RealInstituteConfig = {
     banner: "/assets/cigol/logo.svg",
     description: "Informationsche Grundlagen der Mathematik",
     fullName: "Informationsche Grundlagen der Mathematik",
-    professor: "Grädel",
+    professor: "Grädel/Grohe",
   },
   cesti: {
     name: "cesti",

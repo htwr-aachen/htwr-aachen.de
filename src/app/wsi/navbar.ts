@@ -3,49 +3,37 @@ import type { NavbarConfig } from "@/models/layout";
 export const navbar: NavbarConfig = {
   linkElements: [
     {
-      name: "⚠Studium",
-      href: "/wsi/studium",
-      path: "/studium",
+      name: "WSI Home",
+      href: "/wsi",
+      path: "/wsi",
+      links: [],
+    },
+    {
+      name: "Stocha",
+      href: "/wsi/stocha",
+      path: "/wsi/stocha",
       links: [
         {
           name: "Klausuren",
-          href: "/wsi/studium/klausuren",
+          href: "/wsi/stocha/exams",
           path: "studium/klausuren",
         },
         {
           name: "Aufgaben",
-          href: "/wsi/studium/aufgaben",
-          path: "studium/aufgaben",
+          href: "/wsi/stocha/materials",
+          path: "/wsi/stocha/materials",
         },
         {
           name: "Zusammenfassungen",
-          href: "/wsi/studium/teachings",
-          path: "studium/teachings",
-        },
-      ],
-    },
-    {
-      name: "Forschung",
-      href: "/nichts?path=/wsi/forschung",
-      path: "/nichts",
-      links: [
-        {
-          name: "All**Gemein**es",
-          href: "/nichts?path=/wsi/forschung/allgemeines",
-          path: "/nichts",
-        },
-        {
-          name: "Publikationen",
-          href: "/nichts?path=/wsi/forschung/publikationen",
-          path: "/nichts",
+          href: "/wsi/stocha/summaries",
+          path: "/wsi/stocha/summaries",
         },
       ],
     },
     {
       name: "Die Lehrstuhl Gang",
-      href: "/nichts?path=/wsi/lehrstuhl",
-      path: "/nichts",
-      links: [{ name: "Kontakt", href: "/contact", path: "" }],
+      href: "/contact",
+      path: "/contact",
     },
   ],
   main: { name: "WSI", href: "/wsi" },

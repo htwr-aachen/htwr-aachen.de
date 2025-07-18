@@ -17,7 +17,7 @@ export const SubjectConfig = {
     displayName: "BuK",
     fullName: "Berechenbarkeit und Komplexität",
     articlesPath: join(DefaultSummaryPath, "scil", "buk"),
-    articlesURL: urlJoin(BaseURL, "/scil/studium/teachings"),
+    articlesURL: urlJoin(BaseURL, "/scil/buk/summaries"),
     documentsPath: join(DefaultContentPath, "buk"),
   },
   swt: {
@@ -26,7 +26,7 @@ export const SubjectConfig = {
     displayName: "SWT",
     fullName: "Softwaretechnik",
     articlesPath: join(DefaultSummaryPath, "es", "swt"),
-    articlesURL: urlJoin(BaseURL, "/es/studium/teachings"),
+    articlesURL: urlJoin(BaseURL, "/es/swt/summaries"),
     documentsPath: join(DefaultContentPath, "swt"),
   },
   dbis: {
@@ -71,16 +71,16 @@ export const SubjectConfig = {
     displayName: "Stocha",
     fullName: "Stochastik",
     articlesPath: join(DefaultSummaryPath, "wsi", "stocha"),
-    articlesURL: urlJoin(BaseURL, "/wsi/studium/teachings"),
+    articlesURL: urlJoin(BaseURL, "/wsi/stocha/summaries"),
     documentsPath: join(DefaultContentPath, "stocha"),
   },
   malo: {
-    institutes: ["cigol"],
+    institutes: ["cigol", "scil"],
     name: "malo",
     displayName: "Malo",
     fullName: "Mathematische Logik",
     articlesPath: join(DefaultSummaryPath, "cigol", "malo"),
-    articlesURL: urlJoin(BaseURL, "/cigol/studium/teachings"),
+    articlesURL: urlJoin(BaseURL, "/cigol/malo/summaries"),
     documentsPath: join(DefaultContentPath, "malo"),
   },
   itsec: {
@@ -107,7 +107,7 @@ export const SubjectConfig = {
     displayName: "MaLe",
     fullName: "Elements of Machine Learning and Data Science",
     articlesPath: join(DefaultSummaryPath, "male", "male"),
-    articlesURL: urlJoin(BaseURL, "/male/teachings"),
+    articlesURL: urlJoin(BaseURL, "/male/male/summaries"),
     documentsPath: join(DefaultContentPath, "male"),
   },
 } as const;

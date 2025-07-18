@@ -3,49 +3,43 @@ import type { NavbarConfig } from "@/models/layout";
 export const navbar: NavbarConfig = {
   linkElements: [
     {
-      name: "⚠Studium",
-      href: "/scil/studium",
-      path: "/studium",
+      name: "SCIL Home",
+      href: "/scil",
+      path: "/scil",
+    },
+    {
+      name: "BuK",
+      href: "/scil/buk",
+      path: "/scil/buk",
       links: [
         {
-          name: "Klausuren",
-          href: "/scil/studium/klausuren",
-          path: "studium/klausuren",
+          name: "Zusammenfassungen",
+          href: "/scil/buk/summaries",
+          path: "/scil/buk/teachings",
         },
         {
           name: "Aufgaben",
-          href: "/scil/studium/aufgaben",
-          path: "studium/aufgaben",
-        },
-        {
-          name: "Zusammenfassungen",
-          href: "/scil/studium/teachings",
-          path: "studium/teachings",
+          href: "/scil/buk/materials",
+          path: "/scil/buk/materials",
         },
       ],
     },
     {
-      name: "Forschung",
-      href: "/nichts?path=/scil/forschung",
-      path: "/nichts",
+      name: "MALO",
+      href: "/cigol",
+      path: "/cigol",
       links: [
         {
-          name: "All**Gemein**es",
-          href: "/nichts?path=/scil/forschung/allgemeines",
-          path: "/nichts",
+          name: "Zusammenfassungen",
+          href: "/cigol/malo/summaries",
+          path: "/cigol/malo/summaries",
         },
         {
-          name: "Publikationen",
-          href: "/nichts?path=/scil/forschung/publikationen",
-          path: "/nichts",
+          name: "Aufgaben",
+          href: "/cigol/malo/materials",
+          path: "/cigol/malo/materials",
         },
       ],
-    },
-    {
-      name: "Der Lehrstuhl Gang",
-      href: "/nichts?path=/scil/lehrstuhl",
-      path: "/nichts",
-      links: [{ name: "Kontakt", href: "/contact", path: "" }],
     },
   ],
   main: { name: "SCIL", href: "/scil" },

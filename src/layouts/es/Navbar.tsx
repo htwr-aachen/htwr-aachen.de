@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 import Navlink from "./Navlink";
+import { NavbarConfig } from "@/models/layout";
 
-export default function ESNavbar() {
+export default function ESNavbar({ navbar }: { navbar: NavbarConfig }) {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(-1);
 
@@ -54,56 +55,16 @@ export default function ESNavbar() {
             navOpen ? "flex" : "hidden"
           }`}
         >
-          <Navlink
-            display={{ name: "Essays", href: "/es/essays" }}
-            links={[{ name: "Nichts", href: "/nichts?path=/essays" }]}
-            isDropped={dropdownActive === 1}
-            dropdownNumber={1}
-            dropdownCallback={dropdownCallback}
-          />
-          <Navlink
-            display={{ name: "Research", href: "/es/research" }}
-            links={[{ name: "Nichts", href: "/nichts?path=/es/research" }]}
-            isDropped={dropdownActive === 2}
-            dropdownNumber={2}
-            dropdownCallback={dropdownCallback}
-          />
-          <Navlink
-            display={{ name: "Publications", href: "/es/publications" }}
-            links={[{ name: "Nichts", href: "/nichts/publications" }]}
-            isDropped={dropdownActive === 3}
-            dropdownNumber={3}
-            dropdownCallback={dropdownCallback}
-          />
-          <Navlink
-            display={{ name: "⚠Teaching", href: "/es/studium" }}
-            links={[
-              { name: "Klausuren", href: "/es/studium/klausuren" },
-              { name: "Aufgaben", href: "/es/studium/aufgaben" },
-              { name: "Zusammenfassungen", href: "/es/studium/teachings" },
-            ]}
-            isDropped={dropdownActive === 4}
-            dropdownNumber={4}
-            dropdownCallback={dropdownCallback}
-          />
-          <Navlink
-            display={{ name: "Projects", href: "/es" }}
-            links={[{ name: "Nichts", href: "/nichts?path=/es/projects" }]}
-            isDropped={dropdownActive === 5}
-            dropdownNumber={5}
-            dropdownCallback={dropdownCallback}
-          />
-          <Navlink display={{ name: "Jobs", href: "/jobs" }} />
-          <Navlink
-            display={{ name: "About us", href: "/es" }}
-            links={[
-              { name: "About us", href: "/contact" },
-              { name: "Contact", href: "/contact" },
-            ]}
-            isDropped={dropdownActive === 6}
-            dropdownNumber={6}
-            dropdownCallback={dropdownCallback}
-          />
+          {navbar.linkElements.map((link, i) => (
+            <Navlink
+              key={link.name + link.path}
+              display={{ name: link.name, href: link.href.toString() }}
+              links={link.links}
+              isDropped={dropdownActive === i}
+              dropdownNumber={i}
+              dropdownCallback={dropdownCallback}
+            />
+          ))}
         </ul>
       </div>
     </nav>

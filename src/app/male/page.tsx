@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Content from "./content.mdx";
 
 import {
   Gallery,
@@ -46,21 +46,9 @@ export default function IndexPage() {
         </GalleryItem>
       </Gallery>
 
-      <h1>
-        MaLe ausgesprochen <i>ˈmalə</i> (Also wie Malle)
-      </h1>
-
-      <p className="mb-8 text-lg">
-        Das jetzt doof mit dem neuen Fach. Viel anbieten kann ich hier auch
-        nicht. Ich weiß auch gar nicht ob ich eine Zusammenfassung schreibe, da
-        ich ja schon am{" "}
-        <a href="https://panikzettel.htwr-aachen.de">Panikzettel</a> arbeite.
-        Falls wer also Lust auf Zusammenfassung schreiben hat. Einfach einen
-        Fork machen und unter /teachings/male/[name] Markdown schreiben :)
-      </p>
-
-      <Link href="/panikzettel">Panikzettel</Link>
-
+      <div className="prose mx-auto px-2 py-12 text-black lg:max-w-[100ch] lg:px-0">
+        <Content />
+      </div>
       <MaterialienSchnellzugriff />
     </div>
   );

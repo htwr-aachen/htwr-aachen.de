@@ -2,9 +2,8 @@
 
 import { Feed } from "feed";
 
-import { blogArticleConfig } from "@/app/(blog)/blog/config";
-
 import { type ArticleMeta, getArticle } from "./articles";
+import { blogArticleConfig } from "@/app/blog/config";
 
 export async function generateBlogRSS(
   articles: ArticleMeta[],

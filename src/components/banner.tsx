@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { blogArticleConfig } from "@/app/(blog)/blog/config";
 import { getArticlesMetadata } from "@/lib/article-metadata";
 import { LinkIcon } from "lucide-react";
+import { blogArticleConfig } from "@/app/blog/config";
 
 /**
  * A component to render the latest blog post as a link. Mostly used for the BannerNotify

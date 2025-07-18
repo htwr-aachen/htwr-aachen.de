@@ -110,24 +110,7 @@ Yippi es darf nie fehlen schöne gut coding algos. Das wichtigste ist _**Forward
 - Block Codes. Aufteilung der Daten in blocks. 
 - Convolutional $(n,k,K)$-Codes. $n$-bit output $k$-bit input convoluded (📟 verrechnet) mit den vorherigen $K-1$ outputs.
 
-	```mermaid
-	graph LR
-			A[Input bits] --> B[un]
-			B --> C[un-1]
-			C --> D[un-2]
-
-			%% XOR-Kreise
-			XOR1((⊕)) -->|+ un| V1[v<sub>n1</sub> = un ⊕ un-1 ⊕ un-2]
-			XOR2((⊕)) -->|+ un| V2[v<sub>n2</sub> = un ⊕ un-2]
-
-			%% Verbindungen zu XOR
-			B --> XOR1
-			C --> XOR1
-			D --> XOR1
-
-			B --> XOR2
-			D --> XOR2
-	```
+![Convolutional Code](/summary-assets/syscom/mit/convolutional-code.png)
 
 	Bei $(2,1,3)$ sind die output $v_{n1} = u_{n-2} \oplus u_{n-1} \oplus u_n$ und $v_{n2} = u_{n-2} \oplus u_n$. Encodieren ist extremst schnell und unaufwendig mittels Shiftregister. Decodieren ist dafür ziemlich pain. Hierfür erstmal das Zustandsdiagram
 

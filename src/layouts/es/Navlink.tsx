@@ -1,18 +1,14 @@
 "use client";
 
+import { LinkElement } from "@/models/layout";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 
-export type LinkType = {
-  href: string;
-  name: string;
-};
-
 type NavlinkProps = {
-  display: LinkType;
-  links?: LinkType[];
+  display: LinkElement;
+  links?: LinkElement[];
   isDropped?: boolean;
   dropdownNumber?: number;
   dropdownCallback?: (_dropdownNumber: number) => void;
@@ -65,7 +61,7 @@ const Navlink: FC<NavlinkProps> = ({
       setIsDropdown(links.length > 0);
 
       if (links.length === 0) {
-        setIsActive(pathname?.startsWith(display.href) || false);
+        setIsActive(pathname?.startsWith(display.href.toString()) || false);
       }
     }
   }, [display.href, links, pathname]);
@@ -75,7 +71,7 @@ const Navlink: FC<NavlinkProps> = ({
   }, [isDropped]);
 
   return (
-    <li className="p-[.5rem 1rem] my-2 mr-4 text-right text-base text-black lg:my-0 lg:text-center">
+    <li className="p-[.5rem 1rem] my-2 mr-4 cursor-pointer text-right text-base text-black lg:my-0 lg:text-center">
       {!isDropdown ? (
         <Link
           href={display.href || "/es"}
@@ -90,7 +86,9 @@ const Navlink: FC<NavlinkProps> = ({
           <button
             ref={ref}
             type="button"
-            className={"after-icon transition-colors hover:text-blue-400"}
+            className={
+              "after-icon cursor-pointer transition-colors hover:text-blue-400"
+            }
             onClick={() => {
               setIsActive((x) => !x);
               if (dropdownCallback) dropdownCallback(dropdownNumber || 0);

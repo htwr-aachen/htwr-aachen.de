@@ -29,20 +29,24 @@ export function LinkCard({
   children?: ReactNode;
 } & ComponentPropsWithoutRef<"a">) {
   return (
-    <a
-      className={cn(
-        props.className,
-        "no-b bg-rwth-accent hover:bg-muted/75 block min-h-56 w-60 rounded-xl p-6 text-white",
-      )}
-      {...props}
-    >
-      <Link className="mr-2 inline size-5" />
-      <h3 className="inline-block text-2xl font-bold">{title}</h3>
-      <span className="text-muted-foreground block pb-4 text-sm">
-        {description}
-      </span>
-      {children}
-    </a>
+    <div className="bg-cms-branding text-cms-branding-text hover:bg-cms-branding/75 rounded-xl">
+      <a
+        className={cn(
+          props.className,
+          "no-b block min-h-56 w-60 p-6 text-inherit",
+        )}
+        {...props}
+      >
+        <Link className="mr-2 inline size-5 text-inherit" />
+        <h3 className="inline-block text-2xl font-bold text-inherit">
+          {title}
+        </h3>
+        <span className="text-cms-branding-text/75 block pb-4 text-sm">
+          {description}
+        </span>
+        {children}
+      </a>
+    </div>
   );
 }
 

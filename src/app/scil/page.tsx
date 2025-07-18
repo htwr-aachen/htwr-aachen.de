@@ -9,10 +9,11 @@ import {
 } from "@/components/rwth/gallery";
 import { HeadLine } from "@/components/rwth/headline";
 
-import { SCILSchnellzugriff } from "./schnellzugriff";
-import ExportedImage from "next-image-export-optimizer";
+import Content from "./content.mdx";
 import SCILBanner from "@/public/assets/scil/banner.png";
 import MartinaGrohe from "@/public/assets/scil/martina_grohe.jpg";
+import { SubjectList } from "@/components/subject-list";
+import { subjects } from "./config";
 
 export const metadata: Metadata = {
   description: "Jetzt wird gebuked",
@@ -25,7 +26,7 @@ const SCIL: FC = () => {
   return (
     <div>
       <HeadLine>
-        Viel Glück an die BuK Zweitschreiber. Es wird <b>gottlos</b>
+        Es wird <b>gottlos</b>
       </HeadLine>
 
       <Gallery>
@@ -58,11 +59,10 @@ const SCIL: FC = () => {
           </GalleryLabel>
         </GalleryItem>
       </Gallery>
-
-      <div className="grid grid-rows-2 lg:grid-cols-[1fr_350px] lg:grid-rows-1">
-        <div></div>
-        <SCILSchnellzugriff />
+      <div className="prose mx-auto px-2 py-12 text-black lg:max-w-[100ch] lg:px-0">
+        <Content />
       </div>
+      <SubjectList subjects={subjects} />
     </div>
   );
 };

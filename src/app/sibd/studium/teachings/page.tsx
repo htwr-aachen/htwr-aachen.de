@@ -140,10 +140,10 @@ export default async function Page() {
               ):{" "}
               <a
                 target={"_blank"}
-                href="mailto:jonas.max.schneider@gmail.com"
+                href="mailto:feedback@htwr-aachen.de"
                 rel="noreferrer"
               >
-                jonas.max.schneider@gmail.com
+                feedback@htwr-aachen.de
               </a>{" "}
               oder Discord:{" "}
               <a
