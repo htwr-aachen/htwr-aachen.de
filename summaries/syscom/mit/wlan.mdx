@@ -13,7 +13,7 @@ So ich gehe hier mal durch wie man im normalfall operieren würde. Also optimier
 ![Ich wie ich den Infrarotmodus im Ad-Hoc Netzwerk beim originalem 802.11 nutze](/summary-assets/syscom/mit/infrared.jpg)
 
 Story:
-Du hast eine alte 802.11b Fritzbox $S_0$ gefunden, schaltest sie ein und verbindest drei Geräte $S_1, S_2, S_3$. Wenn du diese Fritzbox nun anschließt hat du ein WIFI Netwerk im Infastructure Modus erschaffen (wohl nur mit einem Access Point), Herzlichen Glückwunsch.
+Du hast eine alte 802.11b Fritz-Box $S_0$ gefunden, schaltest sie ein und verbindest drei Geräte $S_1, S_2, S_3$. Wenn du diese Fritz-Box nun anschließt hat du ein WIFI Netzwerk im Infastructure Modus erschaffen (wohl nur mit einem Access Point), Herzlichen Glückwunsch.
 
 Jetzt möchte dein Handy gerne eine Nachricht also ein IP-Packet senden. Wie üblich haben wir neue Header und Trailer in Reihenfolge nacheinander.
 
@@ -22,14 +22,14 @@ Jetzt möchte dein Handy gerne eine Nachricht also ein IP-Packet senden. Wie üb
 
 ![PLCP Aufbau](/summary-assets/syscom/mit/plcp.png)
 
-	Was sehen wir: 4 Addressen, einen Trailer und ne Menge Flags. Das PLCP ist der Mac Header für alle WIFI-Arten egal ob 802.11a b oder was auch immer eduroam verwendet, es entählt also ein paar optionale Features die nicht umbedingt genutzt werden müssen. In unserem Fall brauchen wir nur die Addressen 1,2,3. Wir wählen das Flag `toDS` (Distribution System). Die erste Addresse enthält die BSSID, dann unsere MAC und dann MAC von der Fritzbox. 
+	Was sehen wir: 4 Adressen, einen Trailer und ne Menge Flags. Das PLCP ist der Mac Header für alle WIFI-Arten egal ob 802.11a b oder was auch immer Eduroam verwendet, es enthält also ein paar optionale Features die nicht unbedingt genutzt werden müssen. In unserem Fall brauchen wir nur die Adressen 1,2,3. Wir wählen das Flag `toDS` (Distribution System). Die erste Adresse enthält die BSSID, dann unsere MAC und dann MAC von der Fritz-Box. 
 
 3. 24 Byte: Physical Header. Dieser unterscheidet sich von 
 
 ![Phy Header](/summary-assets/syscom/mit/wifi-phy.png)
 
 	Hier übertragen wir zunächst ne Menge fixe Bitpattern um Zitat "Synchronization, gain setting, energy detection, frequency offset
-compensation" zu verstehen. Dann noch paar andere Sachen (wie gesagt Header Einzelheiten sind unnötig). Wichtig ist die Geschwindigkeit von 1 MBit/s. Wir regeln diesen Header runter, da wir ohne ihn nichts verstehen können. Wir müssen also gewährleisten, dass selbst deine extrem susse Alibaba Smart Energy Steckdose $S_3$ alles vom Header versteht. Weil der Header so wichtig ist, gibts dann auch noch ein CRC Header Fehlercheck.
+compensation" zu verstehen. Dann noch paar andere Sachen (wie gesagt Header Einzelheiten sind unnötig). Wichtig ist die Geschwindigkeit von 1 MBit/s. Wir regeln diesen Header runter, da wir ohne ihn nichts verstehen können. Wir müssen also gewährleisten, dass selbst deine extrem susse Alibaba Smart Energy Steckdose $S_3$ alles vom Header versteht. Weil der Header so wichtig ist, gibt's dann auch noch ein CRC Header Fehlercheck.
 
 
 So jetzt haben wir unser vollständiges Packet jetzt kommen die interessanten Sachen.
@@ -38,29 +38,29 @@ So jetzt haben wir unser vollständiges Packet jetzt kommen die interessanten Sa
 
 Guard Times / Inter Frame Spaces für eine Priorisierung von z.B. ACKs. 
 - SIFS: $10 \mu s$
-- ... nicht wichtig
+- ... Nicht wichtig
 - DIFS: $50 \mu s$
 
 Wir wollen nun also senden... 
-Ich mache das hier möglichst penibel damit man es versteht. Um die Klausur zu bestehen braucht man es nicht umbedingt verstehen, aber ich wills (keine Garantie, dass das hier 100% korrekt ist).
+Ich mache das hier möglichst penibel damit man es versteht. Um die Klausur zu bestehen braucht man es nicht unbedingt verstehen, aber ich wills (keine Garantie, dass das hier 100% korrekt ist).
 
 Gehen wir die Fälle durch:
-1. Wir haben gerade gesendet (In diesem Moment kam das ACK). Jetzt müssen wir ein DIFS warten und suchen uns einen neuen random backoff aus. Hierfür nehmen wir uns eine Zufallszahl $n \sim \text{Uniform}(\{1, 2, \ldots, 31\})$ und warten dann $n \cdot 9/20 \mu s$. Die Logik hier hinter ist, das es eine bestimmte Anzahl von $9/20 \mu s$ slots gibt von denen wir auswählen (die Anzahl kann sich bei hohem Traffic aufkommen auf bis zu 1023 erhöhen, aber rechnet einfach mit 31). Wenn wir während des DIFS und des backoffs nichts gehört haben können wir senden. Was falls doch? kommt gleich
-2. Gerade sendet irgendwer. Jetzt wartest du bis das ACK kam. Dann wieder ein DIFS warten und random backoff. Falls du noch ein backoff zeitraum übrig hast (wie das zustande kommt kommt gleich) nutze das, sonst suche dir wie bei 1. ein neues aus. Genauso wie bei 1 gilt, wenn während der ganzen Zeit niemand sendet, sende (erst wenn dein Backoff fertig ist).
+1. Wir haben gerade gesendet (In diesem Moment kam das ACK). Jetzt müssen wir ein DIFS warten und suchen uns einen neuen random Backoff aus. Hierfür nehmen wir uns eine Zufallszahl $n \sim \text{Uniform}(\{1, 2, \ldots, 31\})$ und warten dann $n \cdot 9/20 \mu s$. Die Logik hier hinter ist, das es eine bestimmte Anzahl von $9/20 \mu s$ slots gibt von denen wir auswählen (die Anzahl kann sich bei hohem Traffic aufkommen auf bis zu 1023 erhöhen, aber rechnet einfach mit 31). Wenn wir während des DIFS und des Backoffs nichts gehört haben können wir senden. Was falls doch? Kommt gleich
+2. Gerade sendet irgendwer. Jetzt wartest du bis das ACK kam. Dann wieder ein DIFS warten und random Backoff. Falls du noch ein Backoff zeitraum übrig hast (wie das zustande kommt kommt gleich) nutze das, sonst suche dir wie bei 1. ein neues aus. Genauso wie bei 1 gilt, wenn während der ganzen Zeit niemand sendet, sende (erst wenn dein Backoff fertig ist).
 3. Niemand sendet gerade. Dann ein DIFS warten und falls immer noch leer, sende. (Hier brauchen wir kein Backoff (also glaube ich))
-4. Wir senden gerade aber das ACK kommt nicht an. Wir gehen von einer Kollision aus und gehen zu Fall 1. für eine retransmission.
+4. Wir senden gerade aber das ACK kommt nicht an. Wir gehen von einer Kollision aus und gehen zu Fall 1. für eine Retransmission.
 
-Ok aber was wenn mir jemand beim warten dazwischen kreuzt. Egal ob beim DIFS oder beim backoff, merken wir uns den Rest unserer Backoff slots. Beim DIFS also der ganze (haben ja noch nicht angefangen backoff zu warten), falls wir schon 5 von 15 slots gewartet haben, merken wir uns 10. Dann warten wir bis die Übertragung des anderen zuende ist, also das ACK kommt und gehen dann zu Fall 2. Hier warten wir dann immer die Restliche zeit ab, es sei denn wir werden wieder gestört. Und so weiter und so weiter. 
+Ok, aber was wenn mir jemand beim warten dazwischen kreuzt. Egal ob beim DIFS oder beim Backoff, merken wir uns den Rest unserer Backoff slots. Beim DIFS also der ganze (haben ja noch nicht angefangen Backoff zu warten), falls wir schon 5 von 15 slots gewartet haben, merken wir uns 10. Dann warten wir bis die Übertragung des anderen zuende ist, also das ACK kommt und gehen dann zu Fall 2. Hier warten wir dann immer die Restliche zeit ab, es sei denn wir werden wieder gestört. Und so weiter und so weiter. 
 
-Um die Frage direkt zu beantworten warum müssen wir in den Fällen 1 und 4 ein backoff machen? Wir wollen eine gewisse fairness gewährleisten. Damit wir nicht durchgehend senden, suchen wir uns nach einem senden immer einen backoff aus. Auch für retransmissions, damit wir nicht sofort wieder kollidieren. 
-Für die anderen Fälle gilt die intuition, dass das Backoff mit der zeit abnimmt und wir deswegen irgendwann senden können, da die gerade gesendet haben ja zufällig einen vermutlich höheres backoff wählen.
+Um die Frage direkt zu beantworten warum müssen wir in den Fällen 1 und 4 ein Backoff machen? Wir wollen eine gewisse fairness gewährleisten. Damit wir nicht durchgehend senden, suchen wir uns nach einem senden immer einen Backoff aus. Auch für Retransmissions, damit wir nicht sofort wieder kollidieren. 
+Für die anderen Fälle gilt die intuition, dass das Backoff mit der zeit abnimmt und wir deswegen irgendwann senden können, da die gerade gesendet haben ja zufällig einen vermutlich höheres Backoff wählen.
 
 
-Wie läuft das mit dem ACKs? Wir senden unsere Daten, dann kommt ein SIFS ($10 \mu s$) und dann das ACK, ist der PHY header und 14 zusätliche Byte. Steht zwar nicht auf den Folien, aber in der Übung werden alle Bytes mit max 1 MBit/s in 802.11b übertragen.
+Wie läuft das mit dem ACKs? Wir senden unsere Daten, dann kommt ein SIFS ($10 \mu s$) und dann das ACK, ist der PHY header und 14 zusätzliche Byte. Steht zwar nicht auf den Folien, aber in der Übung werden alle Bytes mit max 1 MBit/s in 802.11b übertragen.
 
 ![Got It](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RoMGo1ZDVuc3RtdGlpMzZveHMwdzVlZTNzdXU5bnc3bXcyNGx6cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syQ4KY566ul38mZioG/giphy.gif)
 
-Die Berechnung wie lange ein Frame braucht ist also im Durchschnitt (wegen Backoff)
+Die Berechnung wie lange ein Frame braucht ist also im Durchschnitt (wegen dem Backoff)
 
 $DIFS [\mu s] + 31/2 \cdot \text{Backoff Slot Time} [\mu s] + 24 \cdot \frac{8 [Bit/Byte]}{1 [MBit/s]} + \text{Packetlänge} \cdot \frac{8 [Bit/Byte]}{\textit{Datenrate} [MBit/s]} + SIFS [\mu s] + (24+14) \cdot \frac{8 [Bit/Byte]}{1 [MBit/s]}$
 
@@ -68,18 +68,18 @@ Das war jetzt WIFI mit dem Standard CSMA/CA.
 
 ### CTS / RTS
 
-Wir haben jetzt bock zu experimentieren und machen deswegen MACA. Es gibt jetzt zusätzlich zum ACK die beiden Request/Clear to Send. RTS sind 20 Byte und CTS sind wie ACKs 14 Byte zusätzlich zum 24 Byte PHY. Auch die werden denke ich mit 1 Mbit/s bei 802.11b übertragen. Gehen wir auch hier kurz durch. Das ganze Backoff gedöhns ist gleich. Aber nachdem wir ein DIFS und unser Backoff gewartet haben machen wir ein RTS. Dann warten wir ein SIFS bekommen dann hoffentlich ein SIFS (falls nein kommt gleich) und könenn nach einem weiteren SIFS daten senden dann kommt ein SIFS später wieder das ACK.
+Wir haben jetzt bock zu experimentieren und machen deswegen MACA. Es gibt jetzt zusätzlich zum ACK die beiden Request/Clear to Send. RTS sind 20 Byte und CTS sind wie ACKs 14 Byte zusätzlich zum 24 Byte PHY. Auch die werden denke ich mit 1 Mbit/s bei 802.11b übertragen. Gehen wir auch hier kurz durch. Das ganze Backoff gedöns ist gleich. Aber nachdem wir ein DIFS und unser Backoff gewartet haben machen wir ein RTS. Dann warten wir ein SIFS bekommen dann hoffentlich ein SIFS (falls nein kommt gleich) und können nach einem weiteren SIFS, Daten senden dann kommt ein SIFS später wieder das ACK.
 
-Wir können die schlechte Effizienz von MACA verbessern, indem wir es ermöglichen beim Datentransfer direkt noch etwas zu reservieren. Dann sieht das so aus. (contention = backoff)
+Wir können die schlechte Effizienz von MACA verbessern, indem wir es ermöglichen beim Datentransfer direkt noch etwas zu reservieren. Dann sieht das so aus. (contention = Backoff)
 
 ![RTS-CTS](/summary-assets/syscom/mit/wifi-rts-cts.png)
 
-Falls wir kein CTS bekommen haben wissen wir vom hidden station problem. Alle anderen Stations bekommen unsere RTS und CTS mit und können auch das exposed station problem erkennen und warten bis die Zeit die wir requested und bekommen haben im RTS/CTS um ist. Wer was angefragt und bekommen hat speichert jede Station im _Network Allocation Vector_. Damit weis jede Station ziemlich gut bis wann das Medium belegt ist. Muss danach nur noch ein DIFS warten und ein Backoff (oder den restlichen). So sollten nur noch bei RTS/CTS kollisienen entstehen.
+Falls wir kein CTS bekommen haben wissen wir vom hidden station problem. Alle anderen Stations bekommen unsere RTS und CTS mit und können auch das exposed station problem erkennen und warten bis die Zeit die wir requested und bekommen haben im RTS/CTS um ist. Wer was angefragt und bekommen hat speichert jede Station im _Network Allocation Vector_. Damit weis jede Station ziemlich gut bis wann das Medium belegt ist. Muss danach nur noch ein DIFS warten und ein Backoff (oder den restlichen). So sollten nur noch bei RTS/CTS Kollisionen entstehen.
 
 ### Beacons
 
 Der Access Point $S_0$ sendet in regelmäßigen abständen Beacons aus. Wir halten uns aber ans Medium Access und warten bis das Medium frei ist! 
-Der Beacon enthält Informationen wie z.B. SSID (Der WIFI name den du in der Fritzbox einstellt) und anderes gedöhns. Es kann aber auch für Power Management genutzt werden. Wir wissen das diese Beacons in halbwegs regelmäßigen Abständen aber nicht zu oft  kommen. Unsere Steckdose kann also nun sagen:
+Der Beacon enthält Informationen wie z.B. SSID (Der WIFI name den du in der Fritz-Box einstellt) und anderes gedöns. Es kann aber auch für Power Management genutzt werden. Wir wissen das diese Beacons in halbwegs regelmäßigen Abständen aber nicht zu oft  kommen. Unsere Steckdose kann also nun sagen:
 
 ![Kannst du meine Sachen behalten bis zum nächsten Beacon?](/summary-assets/syscom/mit/uwu_emoji.png)
 

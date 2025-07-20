@@ -8,12 +8,12 @@ author: Jonas Schneider
 
 ## Vorwort
 
-?> Hey ho! Hat dir meine Datkom zusammenfassung gefallen? Dann solls hier weiter gehen...
+?> Hey ho! Hat dir meine DatKom zusammenfassung gefallen? Dann soll's hier weiter gehen...
 
 Zunächst mal Props an Dirk der powered den ganzen scheiß komplett alleine durch. Kennt ihr andere Fächer die von einer einzigen Person gehalten, korrigiert und beaufsichtigt wird?
 Außerdem ist Dirk ja sogar eigentlich nur im Studiencenter aktiv.
 
-Nun hierzu. Ich werde alle Fachwörter (größtenteils _markiert_) auf Englisch schreiben klingt sonst komisch _Rahmen im Protokoll zur Konvergenz der physikalischen Schicht_.
+Nun hierzu. Ich werde alle Fachwörter (manchmal _markiert_) auf Englisch schreiben klingt sonst komisch z.B. _Rahmen im Protokoll zur Konvergenz der physikalischen Schicht_.
 
 ## Physikalische Grundlagen
 
@@ -37,7 +37,7 @@ Da wir ja über _Elektromagentische Strahlung also Licht reden ist die Geschwind
 
 Wie genau wir nun bits mittels Wellencharakteristika $(A,f,\varphi)$ übertragen schauen wir sofort aber daraus entsteht ein _signal_ (es enthält irgendeine Information).
 
-Nun füren wir das zweite immens wichtige Fachwort ein _bandwidth_. _Bandwidth_ beschreibt ein bestimmten Frequenzbereich (z.B. $20MHz$). Wir brauchen immer einen Bereich da 1) wir nicht immer Perfekt eine Frequenz treffen und 2) _decomposition_ mittels Fouriertransformation Amplitudenänderung zu Frequenzbereichen führen.
+Nun führen wir das zweite immens wichtige Fachwort ein _bandwidth_. _Bandwidth_ beschreibt ein bestimmten Frequenzbereich (z.B. $20MHz$). Wir brauchen immer einen Bereich da 1) wir nicht immer Perfekt eine Frequenz treffen und 2) _decomposition_ mittels Fouriertransformation Amplitudenänderung zu Frequenzbereichen führen.
 
 Nyquist sagt uns Signalrate $S$ (Parameterwechsel pro Sekunde) $S_{max} [Hz] = 2 * B [Hz]$ und wir brauchen auch eine bestimmte Menge Parameter um $m$ bits zu dekodieren: $$R_{max} [bit/s] = 2 * B [Hz] * \log_2(n) [bit]$$
 
@@ -50,10 +50,10 @@ Nyquist sagt uns Signalrate $S$ (Parameterwechsel pro Sekunde) $S_{max} [Hz] = 2
 3. _Phase Shift Keying_ (PSK): Ich glaube selbsterklärend. Besser als ASK.
 4. Advanced FSK / _Minimum Shift Keying_ (MSK): Die gleiche Idee wie Manchester encoding. Jede Bit transition ist eine Frequenz und $f_2 = 2 \cdot f_1$.
 5. Binary PSK: $0$ Sinus. $1$ -Sinus.
-6. quaternary PSK: kodier 2 bits in 4 Phases.
+6. Quaternary PSK: Kodier 2 bits in 4 Phases.
 7. _Quadrature Amplitude Modulation_ (QAM): Mach Amplitude und Phase zusammen. $16-QAM$ (4 bits werden zu einem _signal_)
 
-Natürlich haben wir alle den gleichen Raum und hören deswegen zwangsweise bei anderen mit. Dieses _noise_ interferiert leider mit unseren schönen Wellen und manchmal nuked es sie auch einfach komplett. $\text{SNR} = S / N$ ist die Signal-to-noise ratio in dezibel $\text{SNR}_{\text{db}} = 10 \cdot \log_{10}(S/N)$.
+Natürlich haben wir alle den gleichen Raum und hören deswegen zwangsweise bei anderen mit. Dieses _noise_ interferiert leider mit unseren schönen Wellen und manchmal nuked es sie auch einfach komplett. $\text{SNR} = S / N$ ist die Signal-to-noise ratio in Dezibel $\text{SNR}_{\text{db}} = 10 \cdot \log_{10}(S/N)$.
 
 Und Shannon sagt dann mal wieder $R_{max} [bit/s] = B [Hz] \cdot log_2 (1 + S/N) [bit]$.
 
@@ -66,24 +66,24 @@ Hier werden wir etwas skippen ist für uns glaube ich nicht sonderlich interessa
 
 1. _Simple Dipoles_: Stab in der Mitte um ihn herum ein Torus.
 2. _Directed_: Hier versuchen wir in eine x,z,y Richtung zu ballern.
-3. anderes: gibt vieles. 
+3. Anderes: gibt vieles. 
 
 Aber auch die sind nicht genau. Es gibt immer ein gewissen "leak" in alle Richtungen.
 
 Wenn wir mehrere Antennen nebeneinander mit $\lambda / 2$ Abstand zueinander, aber mit der passenden Kabellänge zum _transmitter_ installieren haben wir mittels _Beamforming_ nun eine stärkere _directed_ Antenne wo wir sogar teilweise die Richtung ohne Bewegung ändern können.
 
 
-Die Signale werden grob quadratisch zum Abstand vom Sender schwächer (ist ja logisch das Signal breitet sich ja im Raum aus). Genauer $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi d})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}}$. $d$ ist Distanz, $P$ Power. $G$ bedeuted Gain also Stärke im Vergleich zu der Idealen Antenne (muss ja Richtungsbezogen sein). Diese Rechnung ist aber noch viel zu optimistisch.
+Die Signale werden grob quadratisch zum Abstand vom Sender schwächer (ist ja logisch das Signal breitet sich ja im Raum aus). Genauer $P_{\text{receive}} = P_{\text{transmit}} \cdot (\frac{\lambda}{4 \pi d})^2 \cdot G_{\text{receive}} \cdot G_{\text{transmit}}$. $d$ ist Distanz, $P$ Power. $G$ bedeutet Gain also Stärke im Vergleich zu der Idealen Antenne (muss ja Richtungsbezogen sein). Diese Rechnung ist aber noch viel zu optimistisch.
 
-Wir haben nämlich ein Grundlegendes Problemchen _multipath propagation_. Was geil im MPTCP und Quic ist, ist hier kacke da das Signal auf direktem Weg schneller ist als erst am Porsche 911er abzuprallen und dann zu mir. Dieser Zeitverlust ist aber eine Phasenverschiebung und kann damit einfach wenns doof läuft das nächste Signal meiner direkten Übertragung  ausradieren.
+Wir haben nämlich ein Grundlegendes Problemchen _Multipath Propagation_. Was geil im MPTCP und Quic ist, ist hier kacke da das Signal auf direktem Weg schneller ist als erst am Porsche 911er abzuprallen und dann zu mir. Dieser Zeitverlust ist aber eine Phasenverschiebung und kann damit einfach wenn's doof läuft das nächste Signal meiner direkten Übertragung  ausradieren.
 
 ![Thanos Snap](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXExbTZiM29lejY1MjV5bTkzZ3Zsd3Bwcmx1NThucHQybXV6ZzJwMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LOoaJ2lbqmduxOaZpS/giphy.gif)
 
-Oder es kann gut laufen und es wird besser oder ich bekomme einfach nur mehrere Kopien meines Signals, aber wir müssen alles erwarten :/.
+Oder es kann gut laufen und es wird besser, oder ich bekomme einfach nur mehrere Kopien meines Signals, aber wir müssen alles erwarten :/.
 
 Lösungen:
 
-1. Erneut mehrere Antennen verwenden, die Interferenzen können ja nicht genau gleich sein, da die Wellen aus unterschiedlichen Richungen kommen. 
+1. Erneut mehrere Antennen verwenden, die Interferenzen können ja nicht genau gleich sein, da die Wellen aus unterschiedlichen Richtung kommen. 
 
 ### Multiplexing
 
@@ -91,7 +91,7 @@ _Multiplexing_ wir senden mit verschieden Wellenparameter. Sodass nicht jeder mi
 
 1. Frequency: Wir teilen das gesamte Spektrum in verschiedene channel ein. Statisch in der Spezifikationen beschrieben
 
-	1.5. _Orthogonal Frequency Division Multiplexing (OFDM)_: teilt den Frequenzbereich auch ein aber in mehrere Überlappende Bereiche hier können wir dann die anderen multiplexing Sachen auch noch anwenden und bekommen eine halbwegs gute Verbindung aber auch nicht unnötige Ineffizenzen.
+	1.5. _Orthogonal Frequency Division Multiplexing (OFDM)_: teilt den Frequenzbereich auch ein aber in mehrere Überlappende Bereiche hier können wir dann die anderen multiplexing Sachen auch noch anwenden und bekommen eine halbwegs gute Verbindung aber auch nicht unnötige Ineffizienzen.
 
 2. Time: Nur einer sendet Gleichzeitig (Einteilung in Timeslots). Frage: Wann senden wir?
 
@@ -99,9 +99,9 @@ _Multiplexing_ wir senden mit verschieden Wellenparameter. Sodass nicht jeder mi
 	
 		Um zu koordinieren muss jeder eine genaue Uhrzeit haben. Zusätzlich am besten _guard_ times zwischen den Sendern für weniger Interferenzen und ungenaue Uhren.
 
-3. Code: wir senden alle gleichzeitig unterschiedliches $\text{daten} \oplus \text{einzigartigem code}$. Müssen dann aber herausfinden was eine Sender im gebrabel gesendet hat hierfür brauch er den Code vom Sender $(\text{empfangen} \oplus \text{code} = \text{daten})$.
+3. Code: wir senden alle gleichzeitig unterschiedliches $\text{Daten} \oplus \text{einzigartigem code}$. Müssen dann aber herausfinden was eine Sender im gebrabbel gesendet hat hierfür brauch er den Code vom Sender $(\text{Empfangen} \oplus \text{code} = \text{Daten})$.
 
-4. Space Multiplexing: Wir verwenden alles aber nur hier. Nächste _Cell_ verwenden wir z.B. eine anderen Frequenzbereich.
+4. Space Multiplexing: Wir verwenden alles aber nur hier. Nächste _Cell_ verwenden wir z.B. einen anderen Frequenzbereich.
 
 ## Codes
 
