@@ -1,6 +1,11 @@
 "use client";
 
-import type { ComponentProps, ComponentPropsWithoutRef } from "react";
+import {
+  ComponentProps,
+  type ComponentPropsWithoutRef,
+  useEffect,
+  useState,
+} from "react";
 
 import { Sheet, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { FacultiesDesktopNav } from "./desktop";
@@ -11,6 +16,7 @@ import { DialogDescription } from "../ui/dialog";
 import { FacultiesSheetContent } from "./sheet";
 import { CircleChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 type AsChildProps<DefaultElementProps> =
   | ({ asChild?: false } & DefaultElementProps)
@@ -20,8 +26,14 @@ type ButtonProps = AsChildProps<ComponentPropsWithoutRef<"button">>;
 
 export function FacultiesButton({ asChild, ...props }: ButtonProps) {
   const Component = asChild ? Slot : "button";
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={(x) => setOpen(x)}>
       <SheetTrigger asChild title="Fakultätsübersicht">
         <Component {...props} />
       </SheetTrigger>
