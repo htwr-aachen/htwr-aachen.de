@@ -52,6 +52,15 @@ export default function Footer() {
                 Benachrichtigungen aktivieren
               </button>
             </FooterListItem>
+            <FooterListItem>
+              <a
+                href={"https://rwth.cool"}
+                referrerPolicy="origin"
+                className="no-b text-inherit"
+              >
+                rwth.cool
+              </a>
+            </FooterListItem>
           </FooterList>
         </div>
         <div>
