@@ -31,6 +31,18 @@ const Index: FC = () => {
       <Gallery>
         <GalleryItem>
           <GalleryImage
+            src="/other/blog/06/bearbeiten-rwth-cool.png"
+            alt="Bearbeiten & rwth.cool"
+            width={900}
+            height={650}
+          />
+          <GalleryLabel headline="Easy Bearbeiten" url="/blog/06">
+            Siehe im Footer - Diese Seite bearbeiten - 🤯 & rwth.cool als RWTH
+            Link Collection
+          </GalleryLabel>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage
             src="/assets/other/landing/bingo.jpg"
             alt="Bingo"
             width={600}

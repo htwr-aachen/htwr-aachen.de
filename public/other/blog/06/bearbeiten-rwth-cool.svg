@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="900"
+   height="650"
+   viewBox="0 0 238.12499 171.97917"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient12">
+      <stop
+         style="stop-color:#f6f6f6;stop-opacity:1;"
+         offset="0"
+         id="stop13" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#0039b4;stop-opacity:1;"
+         offset="0.76948386"
+         id="stop6" />
+      <stop
+         style="stop-color:#004ff9;stop-opacity:1;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2">
+      <stop
+         style="stop-color:#fec163;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+      <stop
+         style="stop-color:#de4313;stop-opacity:1;"
+         offset="1"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2"
+       id="linearGradient3"
+       x1="47.503654"
+       y1="15.878508"
+       x2="183.44983"
+       y2="79.271248"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87230586,0,0,0.56651198,18.331469,30.952606)" />
+    <linearGradient
+       xlink:href="#linearGradient5"
+       id="linearGradient4"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87230586,0,0,0.56651198,18.331468,86.504543)"
+       x1="54.040337"
+       y1="4.5566487"
+       x2="176.91313"
+       y2="90.593109" />
+    <linearGradient
+       xlink:href="#linearGradient12"
+       id="linearGradient14"
+       x1="19.387344"
+       y1="152.99669"
+       x2="217.67931"
+       y2="19.247065"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.79375,-0.26458333)" />
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient14);fill-opacity:1;stroke-width:0.264583"
+       id="rect6"
+       width="239.183"
+       height="172.24376"
+       x="-0.26458329"
+       y="-0.26458332"
+       rx="0" />
+    <rect
+       style="fill:url(#linearGradient3);stroke-width:0.185995"
+       id="rect1"
+       width="130.84587"
+       height="28.3256"
+       x="53.639565"
+       y="43.741547"
+       rx="4.3615294" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ee450b;fill-opacity:1;stroke-width:0.264583"
+       x="77.296494"
+       y="62.835285"
+       id="text3"><tspan
+         id="tspan3"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:16.9333px;font-family:'Hanken Grotesk';-inkscape-font-specification:'Hanken Grotesk Semi-Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="77.296494"
+         y="62.835285">Bearbeiten</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+       x="113.11891"
+       y="91.177521"
+       id="text3-2"><tspan
+         id="tspan3-0"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:16.9333px;font-family:'Hanken Grotesk';-inkscape-font-specification:'Hanken Grotesk Semi-Bold';fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         x="113.11891"
+         y="91.177521">&amp;</tspan></text>
+    <rect
+       style="fill:url(#linearGradient4);stroke-width:0.185995"
+       id="rect1-0"
+       width="130.84587"
+       height="28.3256"
+       x="53.639565"
+       y="99.293472"
+       rx="4.3615294" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ee450b;fill-opacity:1;stroke-width:0.264583"
+       x="82.537361"
+       y="118.38721"
+       id="text3-3"><tspan
+         id="tspan3-6"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:16.9333px;font-family:'Hanken Grotesk';-inkscape-font-specification:'Hanken Grotesk Semi-Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="82.537361"
+         y="118.38721">rwth.cool</tspan></text>
+  </g>
+</svg>
