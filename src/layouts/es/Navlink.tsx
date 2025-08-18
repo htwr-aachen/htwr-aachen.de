@@ -44,7 +44,7 @@ const Navlink: FC<NavlinkProps> = ({
   dropdownCallback,
 }) => {
   const pathname = usePathname();
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const [isDropdown, setIsDropdown] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -82,9 +82,8 @@ const Navlink: FC<NavlinkProps> = ({
           {display.name}
         </Link>
       ) : (
-        <div>
+        <div ref={ref}>
           <button
-            ref={ref}
             type="button"
             className={
               "after-icon cursor-pointer transition-colors hover:text-blue-400"
@@ -109,7 +108,6 @@ const Navlink: FC<NavlinkProps> = ({
                 <li key={index} className="py-1 no-underline">
                   <Link
                     href={link.href}
-                    style={{ textDecoration: "none !important" }}
                     className="px-10 text-black no-underline transition-colors hover:text-blue-400"
                   >
                     {link.name}
