@@ -5,6 +5,7 @@ import type { ArticleMeta } from "@/lib/articles";
 import { getJSONLD } from "@/lib/articles";
 import type { Subject } from "@/models/subject";
 import { cn } from "@/lib/utils";
+import { EditSummary } from "./edit-button";
 
 export default function SummaryLayout(
   props: {
@@ -17,7 +18,7 @@ export default function SummaryLayout(
 ) {
   const { children, meta, subjectConfig, next, prev, ...divProps } = props;
   return (
-    <article className="markdown line-numbers mx-auto max-w-[75ch] overflow-hidden text-pretty">
+    <article className="markdown line-numbers mx-auto max-w-[100ch] overflow-hidden text-pretty">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -25,9 +26,12 @@ export default function SummaryLayout(
         }}
       />
       <div className="mb-6">
-        <h1 className="inline text-2xl font-bold">{meta.meta.title}</h1>
-        <span className="mx-3 inline">|</span>
-        <Link href={subjectConfig.articlesURL}>Back to Overview</Link>
+        <h1 className="mb-3 w-full text-2xl font-bold">{meta.meta.title}</h1>
+        <div className="flex items-center justify-self-end">
+          <Link href={subjectConfig.articlesURL}>Zurück</Link>
+          <span className="mx-3 inline">|</span>
+          <EditSummary />
+        </div>
       </div>
       <div
         className={cn("wrapper mb-6 py-3", divProps.className)}
@@ -36,10 +40,13 @@ export default function SummaryLayout(
         {children}
       </div>
       <div>
-        <Link href={subjectConfig.articlesURL}>Back to Overview</Link>{" "}
+        <Link href={subjectConfig.articlesURL}>Zurück</Link>
+        <span className="mx-3 inline">|</span>
+        <EditSummary />
         {prev && (
           <>
-            | Vorheriges:{" "}
+            <span className="mx-3 inline">|</span>
+            Vorheriges:{" "}
             <Link href={`${subjectConfig.articlesURL}/${prev?.slug}`}>
               {prev?.meta.title}
             </Link>{" "}
@@ -47,7 +54,8 @@ export default function SummaryLayout(
         )}
         {next && (
           <>
-            | Nächstes:{" "}
+            <span className="mx-3 inline">|</span>
+            Nächstes:{" "}
             <Link href={`${subjectConfig.articlesURL}/${next?.slug}`}>
               {next?.meta.title}
             </Link>{" "}

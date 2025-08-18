@@ -10,6 +10,7 @@ import { Institute } from "@/models/institutes";
 import { findAssociatedSubjects } from "@/lib/subjects";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { useActiveInstitute } from "@/hooks/layout";
+import { useEditPageLink } from "@/lib/sources";
 
 function FooterList({ children }: { children: ReactNode }) {
   return (
@@ -26,6 +27,7 @@ function FooterHeading({ children }: { children: ReactNode }) {
 }
 
 export default function Footer() {
+  const editPageLink = useEditPageLink();
   const { setShow } = useContext(BannerNotifyContext);
   const institute = useActiveInstitute();
   return (
@@ -67,7 +69,7 @@ export default function Footer() {
           <FooterHeading>Mithelfen</FooterHeading>
           <FooterList>
             <FooterListItem>
-              <span>Diese Seite bearbeiten</span>
+              <a href={editPageLink.toString()}>Diese Seite bearbeiten</a>
             </FooterListItem>
             <FooterListItem>
               <a
