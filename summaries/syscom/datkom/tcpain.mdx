@@ -34,10 +34,7 @@ Socket = IP + Port Identifiziert also eine bestimmte Anwendung auf einem bestimm
 
 ### Back to Header
 
-<div className="center">
-  ![bisschen
-  aufmunterung](https://media.tenor.com/bF9dtMBndV8AAAAC/king-of-the-hill-hank.gif)
-</div>
+![bisschen aufmunterung](https://media.tenor.com/bF9dtMBndV8AAAAC/king-of-the-hill-hank.gif)
 
 - **Source Port** [2 Byte] und **Destination Port** [2 Byte]: sind die Ports, die die Datenströme identifizieren (klar)
 - **Sequence Number** (_SEQ-NO_) [4 Byte]: ist die Nummer des ersten Byte dieses TCP--Paket oder die Initalisierungsnummer beim Verbindungsaufbau.
@@ -114,9 +111,7 @@ Es sind mehrere Themen zu besprechen:
   Hier gibt es das **SILLY-WINDOW-SYNDROM**. Wenn [B] sagt _WIN_=0, da er überlastet ist, dann ein Byte ausliest und _WIN_=1 mit vorherigen _ACK-NO_ an [A] sendet, schickt [A] ein Byte und [B] setzt wieder _WIN_=0. Das ist ziemlich ineffizent.
   Die Lösung ist das man einfach wartet bis Buffer halb leer ist (Clarks Solution) oder bis der Sender ein _MSS_ senden kann (Nagle's Algorithmus).
 
-  <div className="center">
-    ![silly girl](https://media.tenor.com/pSbKXoPcQFYAAAAM/wonka-tell-me.gif)
-  </div>
+  ![silly girl](https://media.tenor.com/pSbKXoPcQFYAAAAM/wonka-tell-me.gif)
 
 - Stausituationen:
   Wenn mehr leude senden, als das Netzwerk verarbeiten kann, dann kommt es zu verworfenen Paketen, diese werden von TCP erkannt, da TCP auf das Ausbleiben eines ACKS ein Time-Out hat.
@@ -132,9 +127,7 @@ Zusätzlich zu dem Sendefenster, gibt es noch das Congestion Window (_cwnd_). Da
 
 Aber statt das Auto zu reparieren wenn die Kupplung abgefahren ist, kann auch einfach besser Autofahren $\Rightarrow$ TCP kann auch langsamer fahren und macht somit Congestion Avoidance.
 
-<div className="center">
-  ![tcp-slow-start](/summary-assets/syscom/tcp-slow-start.png)
-</div>
+![tcp-slow-start](/summary-assets/syscom/tcp-slow-start.png)
 
 Das ist zwar viel, aber im Prinzip tastet es sich von 1 _MSS_ zu 2 _MSS_ zu 4 _MSS_ usw. vor, bis _ssthresh_ erreicht ist. dann erhöht man _cwnd_ um 1 _MSS_ pro RTT (Round Trip Time) (linear).
 
@@ -161,10 +154,7 @@ Der average Durchsatz $R_{avg} = \frac{\#packets \cdot MSS}{\#rounds \cdot RTT} 
 
 Zum schluss noch was dummes aber schnelles: UDP.
 
-<div className="center">
-  ![Forrest
-  Running](https://media.tenor.com/fP8tlr2kTzQAAAAC/forrest-gump-running.gif)
-</div>
+![Forrest Running](https://media.tenor.com/fP8tlr2kTzQAAAAC/forrest-gump-running.gif)
 
 Hier gibt es die Felder:
 
