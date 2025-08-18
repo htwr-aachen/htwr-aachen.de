@@ -15,6 +15,12 @@ type FacultiesNavLinkProps = {
   tooltipPlace?: "top" | "bottom" | "left" | "right";
 };
 
+function subElementConcat(
+  subElement: ReactNode | Array<string>,
+): string | ReactNode {
+  return Array.isArray(subElement) ? subElement.join(" | ") : subElement;
+}
+
 export const FacultiesNavLink = (props: FacultiesNavLinkProps) => {
   const id = useId();
   return (
@@ -36,7 +42,7 @@ export const FacultiesNavLink = (props: FacultiesNavLinkProps) => {
           {props.children}
           {props.subElement && (
             <span className="block font-sans text-sm font-light text-white lg:mb-3">
-              {props.subElement}
+              {subElementConcat(props.subElement)}
             </span>
           )}
         </div>
