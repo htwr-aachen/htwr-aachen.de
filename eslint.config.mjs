@@ -40,7 +40,7 @@ export default [
     },
   },
   {
-    ignores: [".next/*"],
+    ignores: [".next/*", "out/*"],
   },
   {
     plugins: {

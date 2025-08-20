@@ -1,19 +1,14 @@
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import createMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-import remarkHint from "remark-hint";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import rehypeShiki from "@shikijs/rehype";
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkMath, remarkGfm, remarkHint],
+    remarkPlugins: ["remark-math", "remark-gfm", "remark-hint"],
     rehypePlugins: [
-      rehypeKatex,
+      "rehype-katex",
       [
-        rehypeShiki,
+        "@shikijs/rehype",
         {
           themes: {
             light: "github-dark",
@@ -32,12 +27,7 @@ const configuredBundleAnalyzer = withBundleAnalyzer({
 
 export default configuredBundleAnalyzer(
   withMDX({
-    experimental: {
-      mdxRs: true,
-    },
-    turbopack: {
-      resolveExtensions: [".tsx", ".ts", ".jsx", ".js", ".mdx"],
-    },
+    experimental: {},
     transpilePackages: ["next-mdx-remote", "next-image-export-optimizer"],
     output: "export",
     images: {
