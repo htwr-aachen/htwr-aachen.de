@@ -4,47 +4,47 @@ import type { ImgHTMLAttributes, ReactNode } from "react";
 import type { Institutes } from "@/config/institutes";
 
 export type InstituteLink = {
-  name?: string;
-  url?: string;
+	name?: string;
+	url?: string;
 };
 
 export type LayoutProps = {
-  children?: ReactNode;
-  institute: Institutes;
+	children?: ReactNode;
+	institute: Institutes;
 };
 
 export type NavbarLink = {
-  name: string;
-  path?: string;
-  children?: ReactNode;
+	name: string;
+	path?: string;
+	children?: ReactNode;
 } & LinkProps;
 
 export type LinkElement = NavbarLink & {
-  links?: LinkElement[];
+	links?: LinkElement[];
 };
 
 export type NavbarLogo = {
-  href: string;
-  width?: number | `${number}` | undefined;
-  height?: number | `${number}` | undefined;
+	href: string;
+	width?: number | `${number}` | undefined;
+	height?: number | `${number}` | undefined;
 } & Omit<ImgHTMLAttributes<HTMLImageElement>, "ref" | "width" | "height">;
 
 export type NavbarConfig = {
-  linkElements: LinkElement[];
-  main: NavbarLink;
-  logo?: NavbarLogo;
+	linkElements: LinkElement[];
+	main: NavbarLink;
+	logo?: NavbarLogo;
 };
 
 export function toValue(
-  input: number | `${number}` | undefined,
-  defaultValue = 0,
+	input: number | `${number}` | undefined,
+	defaultValue = 0,
 ) {
-  switch (typeof input) {
-    case "number":
-      return input;
-    case "string":
-      return parseInt(input, 10);
-    default:
-      return defaultValue;
-  }
+	switch (typeof input) {
+		case "number":
+			return input;
+		case "string":
+			return parseInt(input, 10);
+		default:
+			return defaultValue;
+	}
 }

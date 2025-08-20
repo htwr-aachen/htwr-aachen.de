@@ -6,18 +6,18 @@ import { Main } from "@/layouts/rwth/Main";
 import { BackButton } from "./back";
 
 export const metadata: Metadata = {
-  title: "Nichts",
-  description: "wirklich nichts (SEO bedingt)",
-  alternates: {
-    canonical: "/nichts",
-  },
+	title: "Nichts",
+	description: "wirklich nichts (SEO bedingt)",
+	alternates: {
+		canonical: "/nichts",
+	},
 };
 
 export default function Page() {
-  return (
-    <Main institute="htwr">
-      <HeadLine>SEO Placeholder.</HeadLine>
-      <BackButton />
-    </Main>
-  );
+	return (
+		<Main institute="htwr">
+			<HeadLine>SEO Placeholder.</HeadLine>
+			<BackButton />
+		</Main>
+	);
 }

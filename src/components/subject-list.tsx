@@ -1,10 +1,10 @@
 "use client";
 
+import type { UrlObject } from "node:url";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { UrlObject } from "url";
 
-import { type Subjects, SubjectConfig } from "@/config/subjects";
+import { SubjectConfig, type Subjects } from "@/config/subjects";
 import urlJoin from "@/lib/url";
 import type { Subject } from "@/models/subject";
 
@@ -14,35 +14,35 @@ import type { Subject } from "@/models/subject";
  * @param props.overwritePaths - a Subject(Key)-Url(Value) mapping to overwrite the URL on selection
  */
 export function SubjectList({
-  subjects,
-  overwritePaths,
+	subjects,
+	overwritePaths,
 }: {
-  subjects: Subjects[];
-  overwritePaths?: Record<Subjects, string | UrlObject>;
+	subjects: Subjects[];
+	overwritePaths?: Record<Subjects, string | UrlObject>;
 }) {
-  const pathname = usePathname();
-  return (
-    <div>
-      <p>Fächer zur Auswahl:</p>
-      <ul className="ml-6 list-disc [&>li]:my-6">
-        {subjects.map((name) => {
-          const config: Subject = SubjectConfig[name];
-          return (
-            <li key={name}>
-              <Link
-                // Check if subject url is overwritten
-                href={
-                  overwritePaths && name in overwritePaths
-                    ? overwritePaths[name]
-                    : urlJoin(pathname, name)
-                }
-              >
-                {config.displayName || config.fullName || config.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+	const pathname = usePathname();
+	return (
+		<div>
+			<p>Fächer zur Auswahl:</p>
+			<ul className="ml-6 list-disc [&>li]:my-6">
+				{subjects.map((name) => {
+					const config: Subject = SubjectConfig[name];
+					return (
+						<li key={name}>
+							<Link
+								// Check if subject url is overwritten
+								href={
+									overwritePaths && name in overwritePaths
+										? overwritePaths[name]
+										: urlJoin(pathname, name)
+								}
+							>
+								{config.displayName || config.fullName || config.name}
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
 }

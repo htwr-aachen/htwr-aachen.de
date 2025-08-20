@@ -7,24 +7,24 @@ import { Main } from "@/layouts/rwth/Main";
 import { ProtectedDownloadFlow } from "./protected-download";
 
 export const metadata: Metadata = {
-  title: "StudiCaptcha",
-  alternates: {
-    canonical: "/protected/download",
-  },
-  robots: "noindex",
-  description:
-    "A smart captcha to proof that you are realy a propper RWTH computer scientist",
+	title: "StudiCaptcha",
+	alternates: {
+		canonical: "/protected/download",
+	},
+	robots: "noindex",
+	description:
+		"A smart captcha to proof that you are realy a propper RWTH computer scientist",
 };
 
 export default function Page() {
-  return (
-    <Main institute="htwr">
-      <div className="">
-        <HeadLine>Captcha: Bist Du Ein Student?</HeadLine>
-        <Suspense fallback={<span>Loading...</span>}>
-          <ProtectedDownloadFlow />
-        </Suspense>
-      </div>
-    </Main>
-  );
+	return (
+		<Main institute="htwr">
+			<div className="">
+				<HeadLine>Captcha: Bist Du Ein Student?</HeadLine>
+				<Suspense fallback={<span>Loading...</span>}>
+					<ProtectedDownloadFlow />
+				</Suspense>
+			</div>
+		</Main>
+	);
 }

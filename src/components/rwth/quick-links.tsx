@@ -1,15 +1,15 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 export function QuickLinks({
-  children,
-  title,
+	children,
+	title,
 }: {
-  title: string;
-  children: ReactNode;
+	title: string;
+	children: ReactNode;
 }) {
-  return (
-    <nav>
-      <h3>{title}</h3>
-      <ul>{children}</ul>
-    </nav>
-  );
+	return (
+		<nav>
+			<h3>{title}</h3>
+			<ul>{children}</ul>
+		</nav>
+	);
 }

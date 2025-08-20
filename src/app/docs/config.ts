@@ -5,6 +5,6 @@ import urlJoin from "@/lib/url";
 import type { CorpusConfig } from "@/models/corpus";
 
 export const docsArticleConfig: CorpusConfig = {
-  articlesURL: urlJoin(BaseURL, "/docs"),
-  articlesPath: join(process.cwd(), "docs"),
+	articlesURL: urlJoin(BaseURL, "/docs"),
+	articlesPath: join(process.cwd(), "docs"),
 };

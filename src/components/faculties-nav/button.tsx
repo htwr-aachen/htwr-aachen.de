@@ -1,64 +1,63 @@
 "use client";
 
+import { Slot } from "@radix-ui/react-slot";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { CircleChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
 import {
-  ComponentProps,
-  type ComponentPropsWithoutRef,
-  useEffect,
-  useState,
+	type ComponentProps,
+	type ComponentPropsWithoutRef,
+	useEffect,
+	useState,
 } from "react";
-
+import { cn } from "@/lib/utils";
+import { DialogDescription } from "../ui/dialog";
 import { Sheet, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { FacultiesDesktopNav } from "./desktop";
 import { FacultiesMobileNav } from "./mobile";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Slot } from "@radix-ui/react-slot";
-import { DialogDescription } from "../ui/dialog";
 import { FacultiesSheetContent } from "./sheet";
-import { CircleChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 
 type AsChildProps<DefaultElementProps> =
-  | ({ asChild?: false } & DefaultElementProps)
-  | { asChild: true; children: React.ReactNode };
+	| ({ asChild?: false } & DefaultElementProps)
+	| { asChild: true; children: React.ReactNode };
 
 type ButtonProps = AsChildProps<ComponentPropsWithoutRef<"button">>;
 
 export function FacultiesButton({ asChild, ...props }: ButtonProps) {
-  const Component = asChild ? Slot : "button";
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+	const Component = asChild ? Slot : "button";
+	const [open, setOpen] = useState(false);
+	const _pathname = usePathname();
+	useEffect(() => {
+		setOpen(false);
+	}, []);
 
-  return (
-    <Sheet open={open} onOpenChange={(x) => setOpen(x)}>
-      <SheetTrigger asChild title="Fakultätsübersicht">
-        <Component {...props} />
-      </SheetTrigger>
-      <FacultiesSheetContent title="Fakultätsübersicht">
-        <VisuallyHidden>
-          <SheetTitle>Fakultätsübersicht</SheetTitle>
-          <DialogDescription></DialogDescription>
-        </VisuallyHidden>
-        <FacultiesDesktopNav />
-        <FacultiesMobileNav />
-      </FacultiesSheetContent>
-    </Sheet>
-  );
+	return (
+		<Sheet open={open} onOpenChange={(x) => setOpen(x)}>
+			<SheetTrigger asChild title="Fakultätsübersicht">
+				<Component {...props} />
+			</SheetTrigger>
+			<FacultiesSheetContent title="Fakultätsübersicht">
+				<VisuallyHidden>
+					<SheetTitle>Fakultätsübersicht</SheetTitle>
+					<DialogDescription></DialogDescription>
+				</VisuallyHidden>
+				<FacultiesDesktopNav />
+				<FacultiesMobileNav />
+			</FacultiesSheetContent>
+		</Sheet>
+	);
 }
 
 export function StyledFacultiesButton({
-  className,
-  ...props
+	className,
+	...props
 }: ComponentProps<"button">) {
-  return (
-    <FacultiesButton
-      className={cn("flex flex-row items-center", className)}
-      {...props}
-    >
-      Menü <CircleChevronDown className="ml-2 size-4" />
-    </FacultiesButton>
-  );
+	return (
+		<FacultiesButton
+			className={cn("flex flex-row items-center", className)}
+			{...props}
+		>
+			Menü <CircleChevronDown className="ml-2 size-4" />
+		</FacultiesButton>
+	);
 }

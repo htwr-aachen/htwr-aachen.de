@@ -4,10 +4,10 @@ import { SubjectConfig } from "@/config/subjects";
 import type { Subject } from "@/models/subject";
 
 export function getSubject(name: string): Subject | null {
-  if (!(name in SubjectConfig)) {
-    return null;
-  }
-  return SubjectConfig[name as Subjects];
+	if (!(name in SubjectConfig)) {
+		return null;
+	}
+	return SubjectConfig[name as Subjects];
 }
 
 /**
@@ -16,16 +16,16 @@ export function getSubject(name: string): Subject | null {
  * @returns the subjects
  */
 export function findAssociatedSubjects(
-  institute: Institutes,
-  solely = false,
+	institute: Institutes,
+	solely = false,
 ): Subjects[] {
-  // mir ist bewusst das diese Methode der reinste Tod ist aber naja.
-  // Ich will
-  return Object.entries(SubjectConfig)
-    .filter(([_key, val]) =>
-      (val.institutes as readonly string[])
-        .filter((x) => (solely ? x.length <= 1 : true))
-        .includes(institute),
-    )
-    .map(([key, _val]) => key) as Subjects[];
+	// mir ist bewusst das diese Methode der reinste Tod ist aber naja.
+	// Ich will
+	return Object.entries(SubjectConfig)
+		.filter(([_key, val]) =>
+			(val.institutes as readonly string[])
+				.filter((x) => (solely ? x.length <= 1 : true))
+				.includes(institute),
+		)
+		.map(([key, _val]) => key) as Subjects[];
 }

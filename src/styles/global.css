@@ -1,102 +1,101 @@
 @import "tailwindcss";
-@plugin '@tailwindcss/typography';
 @import "tw-animate-css";
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-*: initial;
-  --font-mono: monospace;
-  --font-roboto: var(--font-roboto), sans-serif;
-  --font-sans:
-    var(--font-hanken_grotesk), var(--font-inter), var(--font-roboto),
-    sans-serif;
-  --font-serif: var(--font-newsreader), serif;
+	--font-mono: monospace;
+	--font-roboto: var(--font-roboto), sans-serif;
+	--font-sans:
+		var(--font-hanken_grotesk), var(--font-inter), var(--font-roboto),
+		sans-serif;
+	--font-serif: var(--font-newsreader), serif;
 
-  --drop-shadow-glow:
-    0 0px 20px rgba(255, 255, 255, 0.35), 0 0px 65px rgba(255, 255, 255, 0.2);
+	--drop-shadow-glow:
+		0 0px 20px rgba(255, 255, 255, 0.35), 0 0px 65px rgba(255, 255, 255, 0.2);
 
-  --color-cms-accent: #8ebae5;
-  --color-cms-accent-text: #000000;
-  --color-cms-accent-light: #e8f1fa;
-  --color-cms-accent-light-text: #000000;
-  --color-cms-branding: #00549f;
-  --color-cms-branding-text: #ffffff;
-  --color-cms-bg: #ffffff;
-  --color-cms-bg-text: #000000;
-  --color-cms-body-bg: #e7e7e7;
-  --color-cms-warn: #ffef58;
-  --color-cms-warn-text: #ffffff;
+	--color-cms-accent: #8ebae5;
+	--color-cms-accent-text: #000000;
+	--color-cms-accent-light: #e8f1fa;
+	--color-cms-accent-light-text: #000000;
+	--color-cms-branding: #00549f;
+	--color-cms-branding-text: #ffffff;
+	--color-cms-bg: #ffffff;
+	--color-cms-bg-text: #000000;
+	--color-cms-body-bg: #e7e7e7;
+	--color-cms-warn: #ffef58;
+	--color-cms-warn-text: #ffffff;
 
-  --color-rwth-branding: #f7f7f7;
-  --color-rwth-accent: #00549f;
-  --color-rwth-warn: #ffef58;
-  --color-rwth-warn2: #ffffa7;
-  --color-rwth-bg: #fff;
+	--color-rwth-branding: #f7f7f7;
+	--color-rwth-accent: #00549f;
+	--color-rwth-warn: #ffef58;
+	--color-rwth-warn2: #ffffa7;
+	--color-rwth-bg: #fff;
 
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
+	--color-border: hsl(var(--border));
+	--color-input: hsl(var(--input));
+	--color-ring: hsl(var(--ring));
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
 
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
+	--color-primary: hsl(var(--primary));
+	--color-primary-foreground: hsl(var(--primary-foreground));
 
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
+	--color-secondary: hsl(var(--secondary));
+	--color-secondary-foreground: hsl(var(--secondary-foreground));
 
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
+	--color-destructive: hsl(var(--destructive));
+	--color-destructive-foreground: hsl(var(--destructive-foreground));
 
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
 
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
+	--color-accent: hsl(var(--accent));
+	--color-accent-foreground: hsl(var(--accent-foreground));
 
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
+	--color-popover: hsl(var(--popover));
+	--color-popover-foreground: hsl(var(--popover-foreground));
 
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
+	--color-card: hsl(var(--card));
+	--color-card-foreground: hsl(var(--card-foreground));
 
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
 
-  --border-width-1: 1px;
+	--border-width-1: 1px;
 
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
 
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
+	@keyframes accordion-down {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--radix-accordion-content-height);
+		}
+	}
+	@keyframes accordion-up {
+		from {
+			height: var(--radix-accordion-content-height);
+		}
+		to {
+			height: 0;
+		}
+	}
 }
 
 @utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)) {
-    max-width: none;
-  }
-  @media (width >= 1400px) {
-    max-width: 1400px;
-  }
+	margin-inline: auto;
+	padding-inline: 2rem;
+	@media (width >= --theme(--breakpoint-sm)) {
+		max-width: none;
+	}
+	@media (width >= 1400px) {
+		max-width: 1400px;
+	}
 }
 
 /*
@@ -108,224 +107,216 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 0 0% 3.9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 3.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 3.9%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+		--primary: 0 0% 9%;
+		--primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+		--secondary: 0 0% 96.1%;
+		--secondary-foreground: 0 0% 9%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+		--muted: 0 0% 96.1%;
+		--muted-foreground: 0 0% 45.1%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+		--accent: 0 0% 96.1%;
+		--accent-foreground: 0 0% 9%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+		--border: 0 0% 89.8%;
+		--input: 0 0% 89.8%;
+		--ring: 0 0% 3.9%;
 
-    --radius: 0.5rem;
-    --screen-width-quotient: calc((100vw - 320px) / 1600);
+		--radius: 0.5rem;
+		--screen-width-quotient: calc((100vw - 320px) / 1600);
 
-    --step5-font-size: clamp(
-      32.2px,
-      calc(32.2px + 59.4 * var(--screen-width-quotient)),
-      91.6px
-    );
-    --step5-line-height: clamp(
-      36px,
-      calc(36px + 66 * var(--screen-width-quotient)),
-      102px
-    );
-    --step4-font-size: clamp(
-      28px,
-      calc(28px + 40.8 * var(--screen-width-quotient)),
-      68.8px
-    );
-    --step4-line-height: clamp(
-      32px,
-      calc(32px + 44 * var(--screen-width-quotient)),
-      76px
-    );
-    --step3-font-size: clamp(
-      24.3px,
-      calc(24.3px + 27.5 * var(--screen-width-quotient)),
-      51.8px
-    );
-    --step3-line-height: clamp(
-      30px,
-      calc(30px + 30 * var(--screen-width-quotient)),
-      60px
-    );
-    --step2-font-size: clamp(
-      21.2px,
-      calc(21.2px + 17.7 * var(--screen-width-quotient)),
-      38.9px
-    );
-    --step2-line-height: clamp(
-      28px,
-      calc(28px + 20 * var(--screen-width-quotient)),
-      48px
-    );
-    --step1-font-size: clamp(
-      18.4px,
-      calc(18.4px + 10.9 * var(--screen-width-quotient)),
-      29.3px
-    );
-    --step1-line-height: clamp(
-      25px,
-      calc(25px + 14 * var(--screen-width-quotient)),
-      39px
-    );
-    --step0-font-size: clamp(
-      16px,
-      calc(16px + 6 * var(--screen-width-quotient)),
-      22px
-    );
-    --step0-line-height: clamp(
-      22px,
-      calc(22px + 10 * var(--screen-width-quotient)),
-      32px
-    );
-    --step-1-font-size: clamp(
-      13.9px,
-      calc(13.9px + 2.6 * var(--screen-width-quotient)),
-      16.5px
-    );
-    --step-1-line-height: clamp(
-      20px,
-      calc(20px + 4 * var(--screen-width-quotient)),
-      24px
-    );
+		--step5-font-size: clamp(
+			32.2px,
+			calc(32.2px + 59.4 * var(--screen-width-quotient)),
+			91.6px
+		);
+		--step5-line-height: clamp(
+			36px,
+			calc(36px + 66 * var(--screen-width-quotient)),
+			102px
+		);
+		--step4-font-size: clamp(
+			28px,
+			calc(28px + 40.8 * var(--screen-width-quotient)),
+			68.8px
+		);
+		--step4-line-height: clamp(
+			32px,
+			calc(32px + 44 * var(--screen-width-quotient)),
+			76px
+		);
+		--step3-font-size: clamp(
+			24.3px,
+			calc(24.3px + 27.5 * var(--screen-width-quotient)),
+			51.8px
+		);
+		--step3-line-height: clamp(
+			30px,
+			calc(30px + 30 * var(--screen-width-quotient)),
+			60px
+		);
+		--step2-font-size: clamp(
+			21.2px,
+			calc(21.2px + 17.7 * var(--screen-width-quotient)),
+			38.9px
+		);
+		--step2-line-height: clamp(
+			28px,
+			calc(28px + 20 * var(--screen-width-quotient)),
+			48px
+		);
+		--step1-font-size: clamp(
+			18.4px,
+			calc(18.4px + 10.9 * var(--screen-width-quotient)),
+			29.3px
+		);
+		--step1-line-height: clamp(
+			25px,
+			calc(25px + 14 * var(--screen-width-quotient)),
+			39px
+		);
+		--step0-font-size: clamp(
+			16px,
+			calc(16px + 6 * var(--screen-width-quotient)),
+			22px
+		);
+		--step0-line-height: clamp(
+			22px,
+			calc(22px + 10 * var(--screen-width-quotient)),
+			32px
+		);
+		--step-1-font-size: clamp(
+			13.9px,
+			calc(13.9px + 2.6 * var(--screen-width-quotient)),
+			16.5px
+		);
+		--step-1-line-height: clamp(
+			20px,
+			calc(20px + 4 * var(--screen-width-quotient)),
+			24px
+		);
 
-    --spacer-3xs: clamp(4px, calc(4px + 2 * var(--screen-width-quotient)), 6px);
-    --spacer-2xs: clamp(
-      8px,
-      calc(8px + 4 * var(--screen-width-quotient)),
-      12px
-    );
-    --spacer-xs: clamp(
-      12px,
-      calc(12px + 6 * var(--screen-width-quotient)),
-      18px
-    );
-    --spacer-s: clamp(
-      16px,
-      calc(16px + 6 * var(--screen-width-quotient)),
-      22px
-    );
-    --spacer-m: clamp(
-      22px,
-      calc(22px + 10 * var(--screen-width-quotient)),
-      32px
-    );
-    --spacer-l: clamp(
-      26px,
-      calc(26px + 22 * var(--screen-width-quotient)),
-      48px
-    );
-    --spacer-xl: clamp(
-      35px,
-      calc(35px + 45 * var(--screen-width-quotient)),
-      80px
-    );
-    --spacer-2xl: clamp(
-      60px,
-      calc(60px + 80 * var(--screen-width-quotient)),
-      140px
-    );
-  }
+		--spacer-3xs: clamp(4px, calc(4px + 2 * var(--screen-width-quotient)), 6px);
+		--spacer-2xs: clamp(8px, calc(8px + 4 * var(--screen-width-quotient)), 12px);
+		--spacer-xs: clamp(
+			12px,
+			calc(12px + 6 * var(--screen-width-quotient)),
+			18px
+		);
+		--spacer-s: clamp(16px, calc(16px + 6 * var(--screen-width-quotient)), 22px);
+		--spacer-m: clamp(
+			22px,
+			calc(22px + 10 * var(--screen-width-quotient)),
+			32px
+		);
+		--spacer-l: clamp(
+			26px,
+			calc(26px + 22 * var(--screen-width-quotient)),
+			48px
+		);
+		--spacer-xl: clamp(
+			35px,
+			calc(35px + 45 * var(--screen-width-quotient)),
+			80px
+		);
+		--spacer-2xl: clamp(
+			60px,
+			calc(60px + 80 * var(--screen-width-quotient)),
+			140px
+		);
+	}
 
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+	.dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
 
-    --card: 0 0% 2.5%;
-    --card-foreground: 0 0% 98%;
+		--card: 0 0% 2.5%;
+		--card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+		--popover: 0 0% 3.9%;
+		--popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 0 0% 9%;
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+		--secondary: 0 0% 14.9%;
+		--secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+		--muted: 0 0% 14.9%;
+		--muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+		--accent: 0 0% 14.9%;
+		--accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-  }
+		--border: 0 0% 14.9%;
+		--input: 0 0% 14.9%;
+		--ring: 0 0% 83.1%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  p {
-    @apply leading-relaxed;
-  }
-  a {
-    @apply text-rwth-accent underline-offset-4 hover:underline;
-  }
-  a.no-b {
-    @apply hover:no-underline;
-  }
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+	p {
+		@apply leading-relaxed;
+	}
+	a {
+		@apply text-rwth-accent underline-offset-4 hover:underline;
+	}
+	a.no-b {
+		@apply hover:no-underline;
+	}
 }
 
 .shiki {
-  @apply my-4 rounded-3xl py-4 shadow-md shadow-black/50 transition-all hover:rounded-2xl;
+	@apply my-4 rounded-3xl py-4 shadow-md shadow-black/50 transition-all hover:rounded-2xl;
 }
 
 .shiki > code {
-  counter-reset: step;
-  counter-increment: step 0;
-  padding: 0;
+	counter-reset: step;
+	counter-increment: step 0;
+	padding: 0;
 }
 
 .shiki > code .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 1rem;
-  margin-right: 1.5rem;
-  display: inline-block;
-  text-align: right;
-  color: rgba(115, 138, 148, 0.4);
+	content: counter(step);
+	counter-increment: step;
+	width: 1rem;
+	margin-right: 1.5rem;
+	display: inline-block;
+	text-align: right;
+	color: rgba(115, 138, 148, 0.4);
 }
 
 /*
@@ -333,10 +324,10 @@
 */
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }

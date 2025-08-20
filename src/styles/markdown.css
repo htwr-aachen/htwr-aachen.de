@@ -1,76 +1,76 @@
 .markdown h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  scroll-margin-top: 5rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	scroll-margin-top: 5rem;
+	font-weight: 600;
+	letter-spacing: -0.025em;
 }
 
 @media (min-width: 1024px) {
-  .markdown h1 {
-    font-size: 3rem;
-    line-height: 1;
-  }
+	.markdown h1 {
+		font-size: 3rem;
+		line-height: 1;
+	}
 }
 
 .markdown h2 {
-  margin-top: 2.5rem;
-  scroll-margin-top: 5rem;
-  border-bottom-width: 1px;
-  padding-bottom: 0.5rem;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  transition-property:
-    color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+	margin-top: 2.5rem;
+	scroll-margin-top: 5rem;
+	border-bottom-width: 1px;
+	padding-bottom: 0.5rem;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	font-weight: 500;
+	letter-spacing: -0.025em;
+	transition-property:
+		color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
 }
 
 .markdown h2:first-child {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .markdown h3 {
-  margin-top: 2rem;
-  scroll-margin-top: 5rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
+	margin-top: 2rem;
+	scroll-margin-top: 5rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 500;
+	letter-spacing: -0.025em;
 }
 
 .markdown p {
-  line-height: 1.75rem;
+	line-height: 1.75rem;
 }
 
 .markdown p:not(:first-child) {
-  margin-top: 1.5rem;
+	margin-top: 1.5rem;
 }
 
 .markdown ul,
 .markdown ol {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-left: 1.5rem;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	margin-left: 1.5rem;
 }
 
 .markdown ul {
-  list-style-type: disc;
+	list-style-type: disc;
 }
 
 .markdown ol {
-  list-style-type: decimal;
+	list-style-type: decimal;
 }
 
 .markdown ul > li,
 .markdown ol > li {
-  margin-top: 0.5rem;
+	margin-top: 0.5rem;
 }
 
 .markdown pre {
-  overflow-x: auto;
+	overflow-x: auto;
 }
 
 /**
@@ -79,180 +79,174 @@
  * 2. Always fill the visible space in .code-highlight.
  */
 .markdown .code-highlight {
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
+	float: left; /* 1 */
+	min-width: 100%; /* 2 */
 }
 
 .markdown .code-line {
-  display: block;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: -16px;
-  margin-right: -16px;
-  border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
+	display: block;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-left: -16px;
+	margin-right: -16px;
+	border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
 }
 
 .markdown .code-line.inserted {
-  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+	background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
 }
 
 .markdown .code-line.deleted {
-  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+	background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
 }
 
 .markdown .highlight-line {
-  margin-left: -16px;
-  margin-right: -16px;
-  background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
-  border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
+	margin-left: -16px;
+	margin-right: -16px;
+	background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
+	border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
 }
 
 .markdown .line-number::before {
-  display: inline-block;
-  width: 1rem;
-  text-align: right;
-  margin-right: 16px;
-  margin-left: -8px;
-  color: rgb(156, 163, 175); /* Line number color */
-  content: attr(line);
+	display: inline-block;
+	width: 1rem;
+	text-align: right;
+	margin-right: 16px;
+	margin-left: -8px;
+	color: rgb(156, 163, 175); /* Line number color */
+	content: attr(line);
 }
 
 .markdown iframe {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16/9;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 16 / 9;
 }
 
 .markdown iframe.custom-aspect {
-  width: 100%;
-  height: unset;
-  aspect-ratio: unset;
+	width: 100%;
+	height: unset;
+	aspect-ratio: unset;
 }
 
 .markdown .hint.tip {
-  background-color: rgb(22, 163, 74);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-color: rgb(34, 197, 94);
-  color: white;
+	background-color: rgb(22, 163, 74);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	border-color: rgb(34, 197, 94);
+	color: white;
 }
 
 .markdown .hint.warn {
-  background-color: rgb(253, 224, 71);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-color: rgb(234, 179, 8);
+	background-color: rgb(253, 224, 71);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	border-color: rgb(234, 179, 8);
 }
 
 .markdown .hint.error {
-  background-color: rgb(220, 38, 38);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-color: rgb(185, 28, 28);
-  color: white;
+	background-color: rgb(220, 38, 38);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	border-color: rgb(185, 28, 28);
+	color: white;
 }
 
 .markdown blockquote {
-  background-color: rgb(209, 213, 219);
-  padding-left: 1rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-color: rgb(107, 114, 128);
+	background-color: rgb(209, 213, 219);
+	padding-left: 1rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	border-color: rgb(107, 114, 128);
 }
 
 .markdown thead {
-  display: table-header-group;
-  vertical-align: middle;
+	display: table-header-group;
+	vertical-align: middle;
 }
 
 .markdown thead th,
 .markdown thead td {
-  font-family: sans-serif;
-  font-weight: 500;
+	font-family: sans-serif;
+	font-weight: 500;
 }
 
 .markdown tr {
-  border-color: #586069;
-  border-top: 1px solid #d1d5da;
-}
-
-.markdown th,
-.markdown td {
-  border: 1px solid #d1d5da;
-  padding: 0.4em 0.8em;
+	border-color: #586069;
+	border-top: 1px solid #d1d5da;
 }
 
 .markdown tbody {
-  display: table-row-group;
-  vertical-align: middle;
+	display: table-row-group;
+	vertical-align: middle;
 }
 
 .markdown tbody tr {
-  font-size: 1rem;
-  font-family: "Times New Roman", serif;
+	font-size: 1rem;
+	font-family: "Times New Roman", serif;
 }
 
 .markdown .center {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .markdown li code,
 .markdown p code {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  border-radius: 0.25rem;
-  background-color: rgba(0, 150, 190, 0.1);
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.25rem;
+	background-color: rgba(0, 150, 190, 0.1);
 }
 
 .markdown svg {
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 
 .markdown .centerImg {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 1rem;
 }
 
 .markdown figure {
-  width: auto;
-  max-width: 100%;
-  padding: 3rem 0;
+	width: auto;
+	max-width: 100%;
+	padding: 3rem 0;
 }
 .markdown figure .centerImg {
-  margin: 0 auto;
-  border-radius: 1rem;
-  width: auto;
-  height: auto;
-  display: block;
-  min-width: 300px;
+	margin: 0 auto;
+	border-radius: 1rem;
+	width: auto;
+	height: auto;
+	display: block;
+	min-width: 300px;
 }
 
 .markdown figure figcaption {
-  text-align: center;
-  margin-top: 1rem;
+	text-align: center;
+	margin-top: 1rem;
 }
