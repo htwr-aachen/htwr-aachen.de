@@ -5,7 +5,7 @@ import { ReactNode, useContext } from "react";
 import { cn } from "@/lib/utils";
 
 export function TopBarCond({ children }: { children: ReactNode }) {
-  const { show, setShow } = useContext(BannerNotifyContext);
+  const { show } = useContext(BannerNotifyContext);
 
   return (
     <div
@@ -19,7 +19,7 @@ export function TopBarCond({ children }: { children: ReactNode }) {
   );
 }
 export function TopBarBannerContainer({ children }: { children: ReactNode }) {
-  const { show, setShow } = useContext(BannerNotifyContext);
+  const { show } = useContext(BannerNotifyContext);
 
   if (!show) {
     return <></>;

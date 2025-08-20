@@ -50,7 +50,7 @@ export function BannerClose({
   children,
   ...props
 }: ComponentProps<"button">) {
-  const { show, setShow } = useContext(BannerNotifyContext);
+  const { setShow } = useContext(BannerNotifyContext);
 
   return (
     <button
