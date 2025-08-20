@@ -6,18 +6,18 @@ import { SubjectList } from "@/components/subject-list";
 import { subjects } from "./config";
 
 export const metadata: Metadata = {
-  description: "The chair for security or it but not both",
-  alternates: {
-    canonical: "/cesti",
-  },
+	description: "The chair for security or it but not both",
+	alternates: {
+		canonical: "/cesti",
+	},
 };
 
 export default function Page() {
-  return (
-    <div>
-      <HeadLine>Cesti</HeadLine>
+	return (
+		<div>
+			<HeadLine>Cesti</HeadLine>
 
-      <SubjectList subjects={subjects} />
-    </div>
-  );
+			<SubjectList subjects={subjects} />
+		</div>
+	);
 }

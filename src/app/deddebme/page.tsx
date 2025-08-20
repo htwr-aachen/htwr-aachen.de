@@ -4,21 +4,21 @@ import Code from "@/components/ui/code";
 import { subjects } from "./config";
 
 export default function Page() {
-  return (
-    <div>
-      <h1>Deddebme / Embedded</h1>
+	return (
+		<div>
+			<h1>Deddebme / Embedded</h1>
 
-      <Code
-        code={`#include<stdio.h>
+			<Code
+				code={`#include<stdio.h>
 
 int main() {
   printf("Hello World\\n");
   return 0;
 }`}
-        language="c"
-      />
+				language="c"
+			/>
 
-      <SubjectList subjects={subjects} />
-    </div>
-  );
+			<SubjectList subjects={subjects} />
+		</div>
+	);
 }

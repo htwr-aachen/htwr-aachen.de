@@ -4,39 +4,41 @@ import type { Subjects } from "@/config/subjects";
 import { SubjectConfig } from "@/config/subjects";
 import { includeLocalDocuments } from "@/lib/documents";
 import urlJoin from "@/lib/url";
-
-import { BaseDocumentListProps, BasicBaseDocumentList } from "./list-ui";
-import { BaseDocumentList } from "./list-ui";
+import {
+	BaseDocumentList,
+	type BaseDocumentListProps,
+	BasicBaseDocumentList,
+} from "./list-ui";
 
 /**
  * A component to include local documents from this next server
  */
 export async function DocumentList({
-  path,
-  ...props
+	path,
+	...props
 }: { path: string } & BaseDocumentListProps) {
-  const collection = await includeLocalDocuments(
-    path,
-    urlJoin("/content-assets", path),
-    true,
-  );
-  return <BaseDocumentList docs={collection} {...props}></BaseDocumentList>;
+	const collection = await includeLocalDocuments(
+		path,
+		urlJoin("/content-assets", path),
+		true,
+	);
+	return <BaseDocumentList docs={collection} {...props}></BaseDocumentList>;
 }
 /**
  * A basic variant of the component to include local documents from this next server. This will come without headings & tree items
  */
 export async function BasicDocumentList({
-  path,
-  ...props
+	path,
+	...props
 }: { path: string } & BaseDocumentListProps) {
-  const collection = await includeLocalDocuments(
-    path,
-    urlJoin("/content-assets", path),
-    true,
-  );
-  return (
-    <BasicBaseDocumentList docs={collection} {...props}></BasicBaseDocumentList>
-  );
+	const collection = await includeLocalDocuments(
+		path,
+		urlJoin("/content-assets", path),
+		true,
+	);
+	return (
+		<BasicBaseDocumentList docs={collection} {...props}></BasicBaseDocumentList>
+	);
 }
 
 /**
@@ -45,19 +47,19 @@ export async function BasicDocumentList({
  * @param props.subpath - join/append this to the root dir of the path
  */
 export async function SubjectDocumentList({
-  subject,
-  subpath = "",
-  ...props
+	subject,
+	subpath = "",
+	...props
 }: {
-  subject: Subjects;
-  subpath?: string;
+	subject: Subjects;
+	subpath?: string;
 } & BaseDocumentListProps) {
-  return (
-    <DocumentList
-      path={join(SubjectConfig[subject].name, subpath)}
-      {...props}
-    ></DocumentList>
-  );
+	return (
+		<DocumentList
+			path={join(SubjectConfig[subject].name, subpath)}
+			{...props}
+		></DocumentList>
+	);
 }
 
 /**
@@ -66,17 +68,17 @@ export async function SubjectDocumentList({
  * @param props.subpath - join/append this to the root dir of the path
  */
 export async function BasicSubjectDocumentList({
-  subject,
-  subpath = "",
-  ...props
+	subject,
+	subpath = "",
+	...props
 }: {
-  subject: Subjects;
-  subpath?: string;
+	subject: Subjects;
+	subpath?: string;
 } & BaseDocumentListProps) {
-  return (
-    <BasicDocumentList
-      path={join(SubjectConfig[subject].name, subpath)}
-      {...props}
-    ></BasicDocumentList>
-  );
+	return (
+		<BasicDocumentList
+			path={join(SubjectConfig[subject].name, subpath)}
+			{...props}
+		></BasicDocumentList>
+	);
 }

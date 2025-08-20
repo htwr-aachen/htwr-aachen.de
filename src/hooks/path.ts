@@ -10,11 +10,11 @@ import { usePathname } from "next/navigation";
  * @returns {bool} The result. `true` -> the address /prefix/{...}. `false` otherwise
  */
 export function useIsActive(prefix: string): boolean {
-  if (prefix === "") prefix = "/";
+	if (prefix === "") prefix = "/";
 
-  const pathname = usePathname();
+	const pathname = usePathname();
 
-  // check if the prefix holds
+	// check if the prefix holds
 
-  return pathname.startsWith(prefix);
+	return pathname.startsWith(prefix);
 }

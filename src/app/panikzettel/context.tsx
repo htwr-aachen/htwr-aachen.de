@@ -1,44 +1,44 @@
 "use client";
 
-import { getPanikzettelMetadata } from "@/lib/panikzettel";
-import { Panikzettel } from "@/models/panikzettel";
 import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
+	createContext,
+	type Dispatch,
+	type ReactNode,
+	type SetStateAction,
+	useContext,
+	useEffect,
+	useState,
 } from "react";
+import { getPanikzettelMetadata } from "@/lib/panikzettel";
+import type { Panikzettel } from "@/models/panikzettel";
 
 type PanikzettelContextType = {
-  panikzettel: Panikzettel[];
-  setPanikzettel: Dispatch<SetStateAction<Panikzettel[]>>;
+	panikzettel: Panikzettel[];
+	setPanikzettel: Dispatch<SetStateAction<Panikzettel[]>>;
 };
 
 const PanikzettelContext = createContext<PanikzettelContextType | undefined>(
-  undefined,
+	undefined,
 );
 
 export function PanikzettelProvider({ children }: { children: ReactNode }) {
-  const [panikzettel, setPanikzettel] = useState<Panikzettel[]>([]);
+	const [panikzettel, setPanikzettel] = useState<Panikzettel[]>([]);
 
-  useEffect(() => {
-    getPanikzettelMetadata().then((data) => setPanikzettel(data));
-  }, []);
+	useEffect(() => {
+		getPanikzettelMetadata().then((data) => setPanikzettel(data));
+	}, []);
 
-  return (
-    <PanikzettelContext.Provider value={{ panikzettel, setPanikzettel }}>
-      {children}
-    </PanikzettelContext.Provider>
-  );
+	return (
+		<PanikzettelContext.Provider value={{ panikzettel, setPanikzettel }}>
+			{children}
+		</PanikzettelContext.Provider>
+	);
 }
 
 export function usePanikzettel() {
-  const context = useContext(PanikzettelContext);
-  if (!context) {
-    throw new Error("usePanikzettel must be used within a PanikzettelProvider");
-  }
-  return context;
+	const context = useContext(PanikzettelContext);
+	if (!context) {
+		throw new Error("usePanikzettel must be used within a PanikzettelProvider");
+	}
+	return context;
 }

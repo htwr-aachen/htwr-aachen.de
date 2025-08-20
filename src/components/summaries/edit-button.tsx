@@ -3,7 +3,7 @@
 import { useEditPageLink } from "@/lib/sources";
 
 export function EditSummary() {
-  const editLink = useEditPageLink();
+	const editLink = useEditPageLink();
 
-  return <a href={editLink.toString()}>Bearbeiten</a>;
+	return <a href={editLink.toString()}>Bearbeiten</a>;
 }

@@ -6,12 +6,12 @@ import { blogArticleConfig } from "../config";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const articles = await getArticlesMetadata(blogArticleConfig);
-  const rss = await generateBlogRSS(articles);
+	const articles = await getArticlesMetadata(blogArticleConfig);
+	const rss = await generateBlogRSS(articles);
 
-  return new Response(rss, {
-    headers: {
-      "Content-Type": "application/rss+xml",
-    },
-  });
+	return new Response(rss, {
+		headers: {
+			"Content-Type": "application/rss+xml",
+		},
+	});
 }

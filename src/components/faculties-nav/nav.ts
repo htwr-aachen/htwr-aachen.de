@@ -7,111 +7,111 @@ import type { ReactNode } from "react";
  * A type for declaring a valid nav link for the faculties navigation
  */
 export type FacultiesNavLink = {
-  /**
-   * The actual content to be displayed primarily
-   */
-  content: ReactNode;
+	/**
+	 * The actual content to be displayed primarily
+	 */
+	content: ReactNode;
 
-  /**
-   * The content of the lower priority "description"
-   */
-  subcontent?: ReactNode;
+	/**
+	 * The content of the lower priority "description"
+	 */
+	subcontent?: ReactNode;
 
-  /**
-   * Tooltip information (Easter eggs)
-   */
-  tooltip?: string;
+	/**
+	 * Tooltip information (Easter eggs)
+	 */
+	tooltip?: string;
 
-  /**
-   * The link href
-   */
-  href: string;
+	/**
+	 * The link href
+	 */
+	href: string;
 
-  /**
-   * A prefix to enable highlighting the current subpage & breadcrumbs
-   */
-  path?: string;
+	/**
+	 * A prefix to enable highlighting the current subpage & breadcrumbs
+	 */
+	path?: string;
 
-  /**
-   *needed for react component keys and is actually nice to have
-   */
-  name: string;
+	/**
+	 *needed for react component keys and is actually nice to have
+	 */
+	name: string;
 };
 
 export type FacultiesNavBlock = {
-  heading: ReactNode;
-  links: FacultiesNavLink[];
+	heading: ReactNode;
+	links: FacultiesNavLink[];
 };
 
 // here we define a unified faculties navbar except chairs which can be searched for and are therefore dynamic
 export const FacultiesNavContent: {
-  left: FacultiesNavBlock;
-  right: FacultiesNavBlock;
+	left: FacultiesNavBlock;
+	right: FacultiesNavBlock;
 } = {
-  left: {
-    heading: "HTWR",
-    links: [
-      {
-        href: "/",
-        path: "/",
-        content: "Hautpseite",
-        name: "Hautpseite",
-        tooltip: "Zurück zur Hauptseite",
-      },
-      {
-        href: "/panikzettel",
-        path: "/panikzettel",
-        content: "Panikzettel",
-        name: "Panikzettel",
-        tooltip: "Gute zusammenfassungen zum halben Preis",
-      },
-      {
-        href: "/docs",
-        path: "/docs",
-        content: "Docs",
-        name: "docs",
-        tooltip: "Dokumentation fürs Mitarbeiten",
-      },
-      {
-        href: "/blog",
-        path: "/blog",
-        content: "Blog",
-        name: "blog",
-        tooltip: "Immer auf dem Stand der Dinge bleiben",
-      },
-    ],
-  },
-  right: {
-    heading: "Tools & Mehr",
-    links: [
-      {
-        href: "/bingo",
-        path: "/",
-        content: "Vorlesungs-Bingo",
-        name: "Vorlesungs-Bingo",
-        tooltip: "Hier ist das HTWR Vorlesungs-Bingo!",
-      },
-      {
-        href: "/lernräume",
-        path: "/lernräume",
-        content: "Lernräume (TODO)",
-        name: "Lernräume (TODO)",
-        tooltip: "Sollte vielleicht mal gemacht/verlinkt werden",
-      },
-      {
-        href: "/botmein",
-        path: "/botmein",
-        content: "Hochschulsport (WIP)",
-        name: "Hochschulsport (WIP)",
-        tooltip: "Warum wurde das noch nicht öffentlich gemacht?",
-      },
-      {
-        href: "https://bit.ly/getmeoutofrwth",
-        path: "/",
-        content: "Exmatrikulieren",
-        name: "Exmatrikulieren",
-        tooltip: "Das digitale Karmantor",
-      },
-    ],
-  },
+	left: {
+		heading: "HTWR",
+		links: [
+			{
+				href: "/",
+				path: "/",
+				content: "Hautpseite",
+				name: "Hautpseite",
+				tooltip: "Zurück zur Hauptseite",
+			},
+			{
+				href: "/panikzettel",
+				path: "/panikzettel",
+				content: "Panikzettel",
+				name: "Panikzettel",
+				tooltip: "Gute zusammenfassungen zum halben Preis",
+			},
+			{
+				href: "/docs",
+				path: "/docs",
+				content: "Docs",
+				name: "docs",
+				tooltip: "Dokumentation fürs Mitarbeiten",
+			},
+			{
+				href: "/blog",
+				path: "/blog",
+				content: "Blog",
+				name: "blog",
+				tooltip: "Immer auf dem Stand der Dinge bleiben",
+			},
+		],
+	},
+	right: {
+		heading: "Tools & Mehr",
+		links: [
+			{
+				href: "/bingo",
+				path: "/",
+				content: "Vorlesungs-Bingo",
+				name: "Vorlesungs-Bingo",
+				tooltip: "Hier ist das HTWR Vorlesungs-Bingo!",
+			},
+			{
+				href: "/lernräume",
+				path: "/lernräume",
+				content: "Lernräume (TODO)",
+				name: "Lernräume (TODO)",
+				tooltip: "Sollte vielleicht mal gemacht/verlinkt werden",
+			},
+			{
+				href: "/botmein",
+				path: "/botmein",
+				content: "Hochschulsport (WIP)",
+				name: "Hochschulsport (WIP)",
+				tooltip: "Warum wurde das noch nicht öffentlich gemacht?",
+			},
+			{
+				href: "https://bit.ly/getmeoutofrwth",
+				path: "/",
+				content: "Exmatrikulieren",
+				name: "Exmatrikulieren",
+				tooltip: "Das digitale Karmantor",
+			},
+		],
+	},
 };

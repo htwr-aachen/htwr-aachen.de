@@ -8,12 +8,12 @@ import { getArticle } from "./articles";
  * Thrown when a configuration for an unknown subject is requested
  */
 export class UnknownSubjectError extends Error {
-  subject: string;
+	subject: string;
 
-  constructor(name: string) {
-    super(`unknown subject ${name}`);
-    this.subject = name;
-  }
+	constructor(name: string) {
+		super(`unknown subject ${name}`);
+		this.subject = name;
+	}
 }
 
 /**
@@ -25,12 +25,12 @@ export class UnknownSubjectError extends Error {
  * @throws {InvalidCorpusConfig} - if the path was invalid
  */
 export async function getSummary(slug: string[], subject: Subjects) {
-  const subjectConfig = SubjectConfig[subject];
-  if (!subjectConfig) {
-    throw new UnknownSubjectError(subject);
-  }
+	const subjectConfig = SubjectConfig[subject];
+	if (!subjectConfig) {
+		throw new UnknownSubjectError(subject);
+	}
 
-  return getArticle(slug, subjectConfig);
+	return getArticle(slug, subjectConfig);
 }
 
 /**
@@ -42,8 +42,8 @@ export async function getSummary(slug: string[], subject: Subjects) {
  * @throws {InvalidCorpusConfig} - if the path was invalid
  */
 export async function getSummariesMetadata(subject: Subjects) {
-  if (!SubjectConfig[subject]) {
-    throw UnknownSubjectError;
-  }
-  return getArticlesMetadata(SubjectConfig[subject]);
+	if (!SubjectConfig[subject]) {
+		throw UnknownSubjectError;
+	}
+	return getArticlesMetadata(SubjectConfig[subject]);
 }

@@ -5,5 +5,5 @@ export const GITHUB_SUMMARIES = "/tree/master/summaries";
 export const SOURCE_REWRITE_MAP: Record<string, string> = {};
 
 export const SOURCE_REWRITE_MAP_SORTED = Object.keys(SOURCE_REWRITE_MAP).sort(
-  (a, b) => b.length - a.length,
+	(a, b) => b.length - a.length,
 );

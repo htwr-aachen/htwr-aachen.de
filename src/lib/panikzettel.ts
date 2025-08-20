@@ -5,24 +5,24 @@ import type { Panikzettel } from "@/models/panikzettel";
 import urlJoin from "./url";
 
 export async function getPanikzettelMetadata(): Promise<Panikzettel[]> {
-  try {
-    const res = await fetch(urlJoin(APIURL, "/panikzettel"), {
-      next: {
-        revalidate: 60 * 15,
-      },
-    });
-    if (!res.ok) {
-      return [];
-    }
-    return await res.json();
-  } catch (_err) {
-    return [];
-  }
+	try {
+		const res = await fetch(urlJoin(APIURL, "/panikzettel"), {
+			next: {
+				revalidate: 60 * 15,
+			},
+		});
+		if (!res.ok) {
+			return [];
+		}
+		return await res.json();
+	} catch (_err) {
+		return [];
+	}
 }
 
 export async function hasPanikzettel(subject: Subjects): Promise<boolean> {
-  return (
-    (await getPanikzettelMetadata()).find((x) => x.shortname === subject) !==
-    undefined
-  );
+	return (
+		(await getPanikzettelMetadata()).find((x) => x.shortname === subject) !==
+		undefined
+	);
 }

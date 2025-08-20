@@ -11,22 +11,22 @@ const opacityValues = [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3];
  * @returns the rendered comp
  */
 export function SummaryListDate({ date }: { date: string }) {
-  const [opacity, setOpacity] = useState(0.65);
+	const [opacity, setOpacity] = useState(0.65);
 
-  useEffect(() => {
-    if (date === "") return;
-    const dateParsed = new Date(date);
-    const now = new Date();
-    const diff = differenceInDays(now, dateParsed);
-    // calculate opacity from difference of days
-    setOpacity(opacityValues[diff] || 0.3);
-  }, [date]);
+	useEffect(() => {
+		if (date === "") return;
+		const dateParsed = new Date(date);
+		const now = new Date();
+		const diff = differenceInDays(now, dateParsed);
+		// calculate opacity from difference of days
+		setOpacity(opacityValues[diff] || 0.3);
+	}, [date]);
 
-  return date === "" ? (
-    <></>
-  ) : (
-    <span className="mr-2 text-sm" style={{ opacity }}>
-      Aktualisiert: {date}
-    </span>
-  );
+	return (
+		date !== "" && (
+			<span className="mr-2 text-sm" style={{ opacity }}>
+				Aktualisiert: {date}
+			</span>
+		)
+	);
 }

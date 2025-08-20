@@ -1,13 +1,13 @@
+import type { UrlObject } from "node:url";
 import Link from "next/link";
-import type { UrlObject } from "url";
 
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import urlJoin from "@/lib/url";
 
@@ -20,41 +20,41 @@ import urlJoin from "@/lib/url";
  * @returns the constructed path
  */
 export function getURLUntil(
-  slug: string[],
-  n: number,
-  baseURL: string,
+	slug: string[],
+	n: number,
+	baseURL: string,
 ): string {
-  if (n < 0) {
-    return urlJoin(baseURL, ...slug.slice(0, n));
-  }
-  return urlJoin(baseURL, ...slug.slice(0, n + 1));
+	if (n < 0) {
+		return urlJoin(baseURL, ...slug.slice(0, n));
+	}
+	return urlJoin(baseURL, ...slug.slice(0, n + 1));
 }
 
 function DocsBreadcrumbItem({
-  pathElement,
-  last = false,
-  href,
+	pathElement,
+	last = false,
+	href,
 }: {
-  pathElement: string;
-  last?: boolean;
-  href: string | UrlObject;
+	pathElement: string;
+	last?: boolean;
+	href: string | UrlObject;
 }) {
-  return (
-    <>
-      <BreadcrumbItem key={pathElement}>
-        {last ? (
-          <BreadcrumbPage>{pathElement}</BreadcrumbPage>
-        ) : (
-          <BreadcrumbLink asChild>
-            <Link href={href} className="text-foreground">
-              {pathElement}
-            </Link>
-          </BreadcrumbLink>
-        )}
-      </BreadcrumbItem>
-      {!last && <BreadcrumbSeparator />}
-    </>
-  );
+	return (
+		<>
+			<BreadcrumbItem key={pathElement}>
+				{last ? (
+					<BreadcrumbPage>{pathElement}</BreadcrumbPage>
+				) : (
+					<BreadcrumbLink asChild>
+						<Link href={href} className="text-foreground">
+							{pathElement}
+						</Link>
+					</BreadcrumbLink>
+				)}
+			</BreadcrumbItem>
+			{!last && <BreadcrumbSeparator />}
+		</>
+	);
 }
 
 /**
@@ -64,33 +64,33 @@ function DocsBreadcrumbItem({
  * @param props.baseURL - the root URL to stop
  */
 export function DocsBreadcrumb({
-  slug,
-  baseURL,
+	slug,
+	baseURL,
 }: {
-  slug: string[];
-  baseURL: string;
+	slug: string[];
+	baseURL: string;
 }) {
-  return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/docs" className="text-foreground">
-              docs
-            </Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        {slug.length > 0 &&
-          slug.map((pathElement, i) => (
-            <DocsBreadcrumbItem
-              key={pathElement}
-              pathElement={pathElement}
-              href={getURLUntil(slug, i, baseURL)}
-              last={i === slug.length - 1}
-            />
-          ))}
-      </BreadcrumbList>
-    </Breadcrumb>
-  );
+	return (
+		<Breadcrumb>
+			<BreadcrumbList>
+				<BreadcrumbItem>
+					<BreadcrumbLink asChild>
+						<Link href="/docs" className="text-foreground">
+							docs
+						</Link>
+					</BreadcrumbLink>
+				</BreadcrumbItem>
+				<BreadcrumbSeparator />
+				{slug.length > 0 &&
+					slug.map((pathElement, i) => (
+						<DocsBreadcrumbItem
+							key={pathElement}
+							pathElement={pathElement}
+							href={getURLUntil(slug, i, baseURL)}
+							last={i === slug.length - 1}
+						/>
+					))}
+			</BreadcrumbList>
+		</Breadcrumb>
+	);
 }

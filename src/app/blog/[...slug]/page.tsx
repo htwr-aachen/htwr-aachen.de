@@ -14,79 +14,79 @@ import { mdxOptions } from "@/lib/markdown";
 import { blogArticleConfig } from "../config";
 
 export default async function Page(props: {
-  params: Promise<{ slug: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }) {
-  const params = await props.params;
-  const blog = await getArticle(params.slug, blogArticleConfig);
-  return (
-    <div>
-      <Suspense
-        fallback={
-          <LoaderIcon className="absolute top-0 left-0 m-auto animate-spin"></LoaderIcon>
-        }
-      >
-        <div className="mx-auto flex max-w-prose flex-row items-center py-5">
-          <Button asChild className="mr-4">
-            <Link href={getURLUntil(params.slug, -1, "/blog")}>
-              <ChevronLeft className="mr-2 size-4" />
-              Zurück
-            </Link>
-          </Button>
-        </div>
-        <div className="prose bg-muted dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none mx-auto max-w-prose rounded-lg px-4 py-7">
-          <MDXRemote
-            source={blog.content}
-            options={mdxOptions}
-            components={{ Alert, AlertTitle, AlertDescription, Info }}
-          />
-        </div>
-      </Suspense>
-    </div>
-  );
+	const params = await props.params;
+	const blog = await getArticle(params.slug, blogArticleConfig);
+	return (
+		<div>
+			<Suspense
+				fallback={
+					<LoaderIcon className="absolute top-0 left-0 m-auto animate-spin"></LoaderIcon>
+				}
+			>
+				<div className="mx-auto flex max-w-prose flex-row items-center py-5">
+					<Button asChild className="mr-4">
+						<Link href={getURLUntil(params.slug, -1, "/blog")}>
+							<ChevronLeft className="mr-2 size-4" />
+							Zurück
+						</Link>
+					</Button>
+				</div>
+				<div className="prose bg-muted dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none mx-auto max-w-prose rounded-lg px-4 py-7">
+					<MDXRemote
+						source={blog.content}
+						options={mdxOptions}
+						components={{ Alert, AlertTitle, AlertDescription, Info }}
+					/>
+				</div>
+			</Suspense>
+		</div>
+	);
 }
 
 export async function generateStaticParams() {
-  const teachings = await getArticlesMetadata(blogArticleConfig);
+	const teachings = await getArticlesMetadata(blogArticleConfig);
 
-  return teachings.map((t) => ({
-    slug: t.slug,
-  }));
+	return teachings.map((t) => ({
+		slug: t.slug,
+	}));
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ slug: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
-  const params = await props.params;
-  const { meta, url } = await getArticle(params.slug, blogArticleConfig);
+	const params = await props.params;
+	const { meta, url } = await getArticle(params.slug, blogArticleConfig);
 
-  return {
-    title: meta.fullTitle,
-    description: meta.description,
-    twitter: {
-      title: meta.fullTitle,
-      description: meta.description,
-      images:
-        meta.images?.map((image) => ({
-          url: image.src,
-        })) || [],
-      card: "summary",
-    },
-    authors: meta.authors?.map((x) => ({ name: x })) || "",
-    openGraph: {
-      type: "article",
-      title: meta.fullTitle || "",
-      authors:
-        typeof meta.authors === "string" ? [meta.authors] : meta.authors || [],
-      publishedTime: meta.date,
-      siteName: "htwr-aachen",
-      url,
-      images:
-        meta.images?.map((image) => ({
-          url: image.src,
-        })) || [],
-    },
-    alternates: {
-      canonical: url,
-    },
-  };
+	return {
+		title: meta.fullTitle,
+		description: meta.description,
+		twitter: {
+			title: meta.fullTitle,
+			description: meta.description,
+			images:
+				meta.images?.map((image) => ({
+					url: image.src,
+				})) || [],
+			card: "summary",
+		},
+		authors: meta.authors?.map((x) => ({ name: x })) || "",
+		openGraph: {
+			type: "article",
+			title: meta.fullTitle || "",
+			authors:
+				typeof meta.authors === "string" ? [meta.authors] : meta.authors || [],
+			publishedTime: meta.date,
+			siteName: "htwr-aachen",
+			url,
+			images:
+				meta.images?.map((image) => ({
+					url: image.src,
+				})) || [],
+		},
+		alternates: {
+			canonical: url,
+		},
+	};
 }
