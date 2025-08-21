@@ -20,6 +20,9 @@
 			"react": "recommended"
 		},
 		"rules": {
+			"style": {
+				"useNodejsImportProtocol": "off"
+			},
 			"suspicious": {
 				"noUnknownAtRules": "off"
 			},

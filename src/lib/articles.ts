@@ -1,7 +1,7 @@
 import type { Stats } from "fs";
 import { access, readFile, stat } from "fs/promises";
-import path, { join } from "path";
 import matter from "gray-matter";
+import path, { join } from "path";
 import { cache } from "react";
 import type { CorpusConfig } from "@/models/corpus";
 import { deepEqual } from "@/utils/array";

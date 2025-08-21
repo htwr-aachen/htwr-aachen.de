@@ -1,6 +1,6 @@
-import { join } from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { join } from "path";
 import BasicSubjectInfo from "@/components/documents/basic-subject-info";
 import { HeadLine } from "@/components/rwth/headline";
 import SummaryList from "@/components/summaries/list";

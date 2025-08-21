@@ -1,31 +1,42 @@
-/// here we generate a rss feed for the /blog
-
-import { Feed } from "feed";
+import { Feed, type FeedOptions } from "feed";
 import { blogArticleConfig } from "@/app/blog/config";
+import { AppContactEmail, BaseURL } from "@/config/app";
+import type { CorpusConfig } from "@/models/corpus";
 import { type ArticleMeta, getArticle } from "./articles";
+import urlJoin from "./url";
 
 export async function generateBlogRSS(
 	articles: ArticleMeta[],
 ): Promise<string> {
-	const feed = new Feed({
+	const options: FeedOptions = {
 		title: "HTWR Blog",
 		description: "Neuerungen rund um HTWR",
-		id: "https://htwr-aachen.de/blog",
-		link: "https://htwr-aachen.de/blog",
-		image: "https://htwr-aachen.de/assets/rwth/htwr-banner.png",
-		favicon: "https://htwr-aachen.de/android-chrome-192x192.png",
+		id: urlJoin(BaseURL, "/blog"),
+		link: urlJoin(BaseURL, "/blog"),
+		image: urlJoin(BaseURL, "/assets/rwth/htwr-banner.png"),
+		favicon: urlJoin(BaseURL, "/android-chrome-192x192.png"),
 		author: {
 			name: "HTWR-Team/jonsch",
-			email: "contact@htwr-aachen.de",
-			link: "https://htwr-aachen.de/contact",
+			email: AppContactEmail,
+			link: urlJoin(BaseURL, "/contact"),
 		},
 		copyright: "htwr-aachen.de",
 		language: "de",
-	});
+	};
+
+	return generateRSS(options, articles, blogArticleConfig);
+}
+
+export async function generateRSS(
+	feedOptions: FeedOptions,
+	articles: ArticleMeta[],
+	articleConfig: CorpusConfig,
+) {
+	const feed = new Feed(feedOptions);
 
 	for (const article of articles) {
 		// we want to add things in order so we must use synchronous awaiting here
-		const { content } = await getArticle(article.slug, blogArticleConfig);
+		const { content } = await getArticle(article.slug, articleConfig);
 		feed.addItem({
 			title: article.meta.fullTitle || article.meta.title || "Empty",
 			id: article.url,
@@ -37,7 +48,7 @@ export async function generateBlogRSS(
 			}),
 			content,
 			contributor: article.meta.authors.map((x) => {
-				return { name: x, link: "", email: "contact@htwr-aachen.de" };
+				return { name: x, link: "", email: AppContactEmail };
 			}),
 		});
 	}

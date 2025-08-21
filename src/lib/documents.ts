@@ -1,7 +1,7 @@
 import type { Dirent, Stats } from "fs";
 import { readdir, stat } from "fs/promises";
-import { join } from "path";
 import natsort from "natsort";
+import { join } from "path";
 
 import { SubjectConfig, type Subjects } from "@/config/subjects";
 
