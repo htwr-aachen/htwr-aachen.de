@@ -1,8 +1,8 @@
 import { format } from "date-fns";
+import { Info } from "lucide-react";
 import Link from "next/link";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { getArticlesMetadata } from "@/lib/article-metadata";
-
 import { blogArticleConfig } from "./config";
 
 export default async function Page() {
@@ -16,6 +16,15 @@ export default async function Page() {
 				Hier gibt es Informationen rund um HTWR. Um geplante Aktionen, neue
 				Inhalte oder auch Memes.
 			</p>
+			<Alert className="mt-12">
+				<Info className="size-4" />
+				<AlertTitle>RSS-Feed</AlertTitle>
+				<AlertDescription>
+					Um aktuell zu bleiben, könnt Ihr auch gerne mein{" "}
+					<Link href="/blog/rss">RSS-Feed</Link> unter{" "}
+					<code>https://htwr-aachen.de/blog/rss</code> nutzen.
+				</AlertDescription>
+			</Alert>
 			<ul>
 				{blogs.map((blog) => {
 					return (

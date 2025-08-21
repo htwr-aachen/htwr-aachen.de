@@ -5,6 +5,8 @@ export const AppConfig = {
 	locale: "de",
 };
 
+export const AppContactEmail = "contact@htwr-aachen.de";
+
 export const BaseURL =
 	process.env.NODE_ENV === "production"
 		? "https://htwr-aachen.de"

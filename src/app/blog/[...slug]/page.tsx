@@ -32,6 +32,9 @@ export default async function Page(props: {
 							Zurück
 						</Link>
 					</Button>
+					<Link className="text-inherit" href={"/blog/rss"}>
+						RSS
+					</Link>
 				</div>
 				<div className="prose bg-muted dark:prose-invert prose-code:rounded prose-code:bg-secondary prose-code:px-2 prose-code:py-1 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none mx-auto max-w-prose rounded-lg px-4 py-7">
 					<MDXRemote

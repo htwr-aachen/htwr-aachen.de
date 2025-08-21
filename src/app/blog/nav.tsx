@@ -13,9 +13,16 @@ import {
 export const BlogNav = (
 	<NavigationMenu color="neutral-200">
 		<NavigationMenuList>
-			<NavigationMenuItem className="mr-4">
+			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
-					<Link href="/blog" className="text-foreground">
+					<Link href="/blog/rss" className="text-foreground mr-6">
+						RSS-Feed
+					</Link>
+				</NavigationMenuLink>
+			</NavigationMenuItem>
+			<NavigationMenuItem>
+				<NavigationMenuLink asChild>
+					<Link href="/blog" className="text-foreground mr-6">
 						Übersicht
 					</Link>
 				</NavigationMenuLink>

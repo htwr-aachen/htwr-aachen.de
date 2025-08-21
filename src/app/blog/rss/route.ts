@@ -1,6 +1,5 @@
 import { getArticlesMetadata } from "@/lib/article-metadata";
-import { generateBlogRSS } from "@/lib/blog";
-
+import { generateBlogRSS } from "@/lib/rss";
 import { blogArticleConfig } from "../config";
 
 export const dynamic = "force-static";
