@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<Modern nav={BlogNav} name="blog" prefix="blog">
+		<Modern nav={<BlogNav />} name="blog" prefix="blog">
 			{children}
 		</Modern>
 	);

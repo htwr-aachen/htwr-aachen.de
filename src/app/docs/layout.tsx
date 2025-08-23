@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<Modern nav={DocsNav} name="docs" prefix="docs">
+		<Modern nav={<DocsNav />} name="docs" prefix="docs">
 			{children}
 		</Modern>
 	);

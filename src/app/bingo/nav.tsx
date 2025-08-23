@@ -10,17 +10,19 @@ import {
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
-export const BingoNav = (
-	<NavigationMenu color="neutral-200">
-		<NavigationMenuList>
-			<NavigationMenuItem>
-				<NavigationMenuLink
-					asChild
-					className={invertedNavigationMenuTriggerStyle()}
-				>
-					<Link href="/">Zurück zu HTWR</Link>
-				</NavigationMenuLink>
-			</NavigationMenuItem>
-		</NavigationMenuList>
-	</NavigationMenu>
-);
+export function BingoNav() {
+	return (
+		<NavigationMenu color="neutral-200">
+			<NavigationMenuList>
+				<NavigationMenuItem>
+					<NavigationMenuLink
+						asChild
+						className={invertedNavigationMenuTriggerStyle()}
+					>
+						<Link href="/">Zurück zu HTWR</Link>
+					</NavigationMenuLink>
+				</NavigationMenuItem>
+			</NavigationMenuList>
+		</NavigationMenu>
+	);
+}

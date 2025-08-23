@@ -6,7 +6,7 @@ import { PanikzettelNav } from "./nav";
 
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
-		<Modern nav={PanikzettelNav} name="panikzettel" prefix="panikzettel">
+		<Modern nav={<PanikzettelNav />} name="panikzettel" prefix="panikzettel">
 			{children}
 		</Modern>
 	);
