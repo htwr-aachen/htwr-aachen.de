@@ -2,9 +2,15 @@
 import rehypeFigure from "@microflash/rehype-figure";
 import rehypeShiki from "@shikijs/rehype";
 import type { SerializeOptions } from "node_modules/next-mdx-remote/dist/types";
+import rehypeDocument from "rehype-document";
 import rehypeKatex from "rehype-katex";
+import rehypeSlug from "rehype-slug";
+import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
 import { untypedHighlighterConfig } from "./highlighting";
 import customRemarkHint from "./remark";
 
@@ -12,6 +18,7 @@ export const mdxOptions: SerializeOptions = {
 	mdxOptions: {
 		remarkPlugins: [remarkMath, remarkGfm, customRemarkHint],
 		rehypePlugins: [
+			rehypeSlug,
 			rehypeFigure,
 			rehypeKatex,
 			[
@@ -44,4 +51,22 @@ export function getImages(content: string): { alt: string; src: string }[] {
 	}
 
 	return images;
+}
+
+export async function serializeToHTML(
+	content: string,
+	title: string,
+): Promise<string> {
+	const file = await unified()
+		.use(remarkParse)
+		.use(remarkMath)
+		.use(remarkGfm)
+		.use(remarkRehype)
+		.use(rehypeFigure)
+		.use(rehypeShiki, untypedHighlighterConfig)
+		.use(rehypeSlug)
+		.use(rehypeDocument, { title })
+		.use(rehypeStringify)
+		.process(content);
+	return String(file);
 }

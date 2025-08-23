@@ -3,6 +3,7 @@ import { blogArticleConfig } from "@/app/blog/config";
 import { AppContactEmail, BaseURL } from "@/config/app";
 import type { CorpusConfig } from "@/models/corpus";
 import { type ArticleMeta, getArticle } from "./articles";
+import { serializeToHTML } from "./markdown";
 import urlJoin from "./url";
 
 export async function generateBlogRSS(
@@ -36,9 +37,14 @@ export async function generateRSS(
 
 	for (const article of articles) {
 		// we want to add things in order so we must use synchronous awaiting here
-		const { content } = await getArticle(article.slug, articleConfig);
+		const { content: contentSrc } = await getArticle(
+			article.slug,
+			articleConfig,
+		);
+		const title = article.meta.fullTitle || article.meta.title || "Empty";
+
 		feed.addItem({
-			title: article.meta.fullTitle || article.meta.title || "Empty",
+			title,
 			id: article.url,
 			link: article.url,
 			description: article.meta.description,
@@ -46,7 +52,7 @@ export async function generateRSS(
 			category: article.meta.tags?.map((x) => {
 				return { name: x, term: x };
 			}),
-			content,
+			content: await serializeToHTML(contentSrc, title),
 			contributor: article.meta.authors.map((x) => {
 				return { name: x, link: "", email: AppContactEmail };
 			}),
