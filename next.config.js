@@ -6,6 +6,7 @@ const withMDX = createMDX({
 	options: {
 		remarkPlugins: ["remark-math", "remark-gfm", "remark-hint"],
 		rehypePlugins: [
+			"rehype-slug",
 			"rehype-katex",
 			[
 				"@shikijs/rehype",
@@ -28,7 +29,7 @@ const configuredBundleAnalyzer = withBundleAnalyzer({
 export default configuredBundleAnalyzer(
 	withMDX({
 		experimental: {},
-		transpilePackages: ["next-mdx-remote", "next-image-export-optimizer"],
+		transpilePackages: ["next-image-export-optimizer"],
 		output: "export",
 		images: {
 			loader: "custom",
