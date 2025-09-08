@@ -1,5 +1,8 @@
 .deddebme h1 {
-	color: var(--rwth-accent, #00bcd4); /* Assuming rwth-accent is a custom property */
+	color: var(
+		--rwth-accent,
+		#00bcd4
+	); /* Assuming rwth-accent is a custom property */
 	font-size: 1.5rem;
 	margin-bottom: 0.5rem;
 	font-weight: 700;

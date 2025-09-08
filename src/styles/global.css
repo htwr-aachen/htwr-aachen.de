@@ -221,13 +221,21 @@
 		);
 
 		--spacer-3xs: clamp(4px, calc(4px + 2 * var(--screen-width-quotient)), 6px);
-		--spacer-2xs: clamp(8px, calc(8px + 4 * var(--screen-width-quotient)), 12px);
+		--spacer-2xs: clamp(
+			8px,
+			calc(8px + 4 * var(--screen-width-quotient)),
+			12px
+		);
 		--spacer-xs: clamp(
 			12px,
 			calc(12px + 6 * var(--screen-width-quotient)),
 			18px
 		);
-		--spacer-s: clamp(16px, calc(16px + 6 * var(--screen-width-quotient)), 22px);
+		--spacer-s: clamp(
+			16px,
+			calc(16px + 6 * var(--screen-width-quotient)),
+			22px
+		);
 		--spacer-m: clamp(
 			22px,
 			calc(22px + 10 * var(--screen-width-quotient)),
