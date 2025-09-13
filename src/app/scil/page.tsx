@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { FC } from "react";
-
 import {
 	Gallery,
 	GalleryImage,
@@ -61,7 +61,14 @@ const SCIL: FC = () => {
 			<div className="prose mx-auto px-2 py-12 text-black lg:max-w-[100ch] lg:px-0">
 				<Content />
 			</div>
-			<SubjectList subjects={subjects} />
+			<ul className="ml-6 list-disc [&>li]:my-6">
+				<li>
+					<Link href="/scil/buk">BuK</Link>
+				</li>
+				<li>
+					<Link href="/cigol/malo">Malo</Link>
+				</li>
+			</ul>
 		</div>
 	);
 };
