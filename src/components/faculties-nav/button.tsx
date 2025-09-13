@@ -26,10 +26,10 @@ type ButtonProps = AsChildProps<ComponentPropsWithoutRef<"button">>;
 export function FacultiesButton({ asChild, ...props }: ButtonProps) {
 	const Component = asChild ? Slot : "button";
 	const [open, setOpen] = useState(false);
-	const _pathname = usePathname();
+	const pathname = usePathname();
 	useEffect(() => {
 		setOpen(false);
-	}, []);
+	}, [pathname]);
 
 	return (
 		<Sheet open={open} onOpenChange={(x) => setOpen(x)}>

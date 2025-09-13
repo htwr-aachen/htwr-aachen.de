@@ -16,10 +16,10 @@ export default function Navbar({
 	institute: Institutes;
 }) {
 	const [open, setOpen] = useState(false);
-	const _pathname = usePathname();
+	const pathname = usePathname();
 	useEffect(() => {
 		setOpen(false);
-	}, []);
+	}, [pathname]);
 
 	return (
 		<nav className="bg-cms-bg text-cms-bg-text relative w-full border-b-1 border-black">
