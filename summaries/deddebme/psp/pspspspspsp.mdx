@@ -13,15 +13,15 @@ tags: [PSP, Versuch 0, ATmega 644]
 - Die Aufgaben können deutlich länger dauern als man denkt
   - Frühzeitig anfangen!!!
   - Auch wenn es 3 mal mit einem Tag Zeit geklappt hat, kann einem ein kleiner Bug die Abgabe versauen
-- Die Funktionen die laut Dokument zu implementieren sind bitte implementieren (Das wird kontrolliert (die Funktion darf nicht leer sein, darf aber noch bugs verursachen))
+- Die Funktionen, die laut Dokument zu implementieren sind, bitte implementieren (Das wird kontrolliert (die Funktion darf nicht leer sein, darf aber noch bugs verursachen))
 - Die Gruppentermine dauern 3:30 Stunden
   - Eure Nachbefragung findet statt, nachdem alle Testtasks abgenommen wurden
-  - Wenn die Nachbefragung bis $15$ minuten vor Ende nicht stattfand, gibt es einen Fehlversuch
-  - Wenn zu viele erst nach 3 Stunden für die nachbefragung fertig sind, können nicht alle Zeitlich nachbefragt werden
+  - Wenn die Nachbefragung bis $15$ Minuten vor Ende nicht stattfand, gibt es einen Fehlversuch
+  - Wenn zu viele erst nach 3 Stunden für die Nachbefragung fertig sind, können nicht alle zeitlich nachbefragt werden
   - $\Rightarrow$ Am besten schon mit fertigem Code zum Termin kommen
-- Die Nachbefragungen werden in der Reihenfolge gemacht in der ihr mit allen Testtasks fertig seit
+- Die Nachbefragungen werden in der Reihenfolge gemacht, in der ihr mit allen Testtasks fertig seid
   - Wenn Team 1 zuerst alle fertig hat und dann Team 8, sind diese auch zuerst dran
-- Nach der Nachbefragung, dürft ihr erst gehen wenn ihr die Präsenzaufgaben fertig habt (oder nach Ablauf der Zeit)
+- Nach der Nachbefragung, dürft ihr erst gehen, wenn ihr die Präsenzaufgaben fertig habt (oder nach Ablauf der Zeit)
 
 # Allgemein
 
@@ -34,19 +34,19 @@ An welchen Ports die Geräte genau angeschlossen sind, kann der Tabelle ganz unt
 
 # Wie lese/schreibe ich an die ports?
 
-Zum lesen und schreiben muss man erst über das entsprechende Data-Direction-Register (DDRA, DDRB, DDRC, DDRD) festlegen welche Operation man ausführen will. Lesen entspricht in dem Fall einer $0$ während man zum schreiben eine $1$ setzen muss.
+Zum Lesen und Schreiben muss man erst über das entsprechende Data-Direction-Register (DDRA, DDRB, DDRC, DDRD) festlegen, welche Operation man ausführen will. Lesen entspricht in dem Fall einer $0$, während man zum Schreiben eine $1$ setzen muss.
 
 Wie setzt man aber eigentlich einzelne Bits?
-Es gibt drei Operationen mit denen man einfach einzelne Bits setzen kann, **ohne** dass sich die anderen Bits auch ändern.
+Es gibt drei Operationen, mit denen man einfach einzelne Bits setzen kann, **ohne** dass sich die anderen Bits auch ändern.
 
 ```c
 uint8_t a = 0b11001100;
 uint8_t res = 0;
-// setzte das MSB (most significant bit (das Bit ganz links))
+// setze das MSB (most significant bit (das Bit ganz links))
 // und das LSB (least significant bit (das Bit ganz rechts)) auf 0
-// und weise das ergebnis der Variabel res zu
+// und weise das Ergebnis der Variable res zu
 
-// nulle bits mit bitweisem UND (In C: "&")
+// Nulle Bits mit bitweisem UND (In C: "&")
 res = a & 0b01111110; // res ist jetzt 0b01001100
 
 // Wenn jetzt das MSB wieder auf 1 gesetzt werden soll,
@@ -59,7 +59,7 @@ res |= 0b10000000; // res ist jetzt 0b11001100
 // dann kann man das bitweise Exklusiv-Oder benutzen (In C: "^")
 res ^= 0b01010101; // res ist jetzt 0b10011001
 
-// Soll die gesammte Zahl geflippt werden, kann man bitweise negieren
+// Soll die gesamte Zahl geflippt werden, kann man bitweise negieren
 // In C macht das der "~" Operator
 res = ~res; // res ist jetzt 0b01100110
 ```
@@ -68,26 +68,26 @@ Neben diesen Operationen gibt es auch noch die bitweisen shifts.
 
 ```c
 uint8_t res = 0b00000001;
-// Schifte res um 3 nach links
+// schiebe res um 3 nach links
 res = res << 3; // res ist jetzt 0b00001000
 
 res = 0b00110011;
-// shifte res um 2 nach rechts
+// schiebe res um 2 nach rechts
 res = res >> 2; // res ist jetzt 0b00001100
 ```
 
-Bei den shifts ist zu beachten, dass alle bits, welche aus der Zahl "rausfallen", verschwinden.
+Bei den shifts ist zu beachten, dass alle Bits, welche aus der Zahl "rausfallen", verschwinden.
 
 ## Bitweise Operationen: Zusammenfassung
 
 | Name         | Operator |    Anwendung    | Ergebnis                                               |
 | :----------- | :------: | :-------------: | :----------------------------------------------------- |
-| und          |   `&`    | `res = a & b;`  | Wenn beide bits $1$ sind: $1$, sonst $0$               |
-| oder         |   `\|`   | `res = a \| b;` | Wenn **mindestens** ein bit $1$ ist: $1$, sonst $0$    |
-| xor          |   `^`    | `res = a ^ b;`  | Wenn **nur** ein bit $1$ ist, $1$: sonst $0$           |
+| und          |   `&`    | `res = a & b;`  | Wenn beide Bits $1$ sind: $1$, sonst $0$               |
+| oder         |   `\|`   | `res = a \| b;` | Wenn **mindestens** ein Bit $1$ ist: $1$, sonst $0$    |
+| xor          |   `^`    | `res = a ^ b;`  | Wenn **nur** ein Bit $1$ ist, $1$: sonst $0$           |
 | negation     |   `~`    |   `res = ~a;`   | Jede $1$ wird $0$ und jede $0$ wird $1$                |
-| shift links  |   `<<`   | `res = a << b;` | Verschiebe jedes Bit in `a` um `b` stellen nach links  |
-| shift rechts |   `>>`   | `res = a >> b;` | Verschiebe jedes Bit in `a` um `b` stellen nach rechts |
+| shift links  |   `<<`   | `res = a << b;` | Verschiebe jedes Bit in `a` um `b` Stellen nach links  |
+| shift rechts |   `>>`   | `res = a >> b;` | Verschiebe jedes Bit in `a` um `b` Stellen nach rechts |
 
 ## lesen?
 
@@ -95,40 +95,40 @@ Zum lesen muss man nicht nur das `DDR` auf $0$ setzen, sondern auch einen sogena
 Warum das so ist, steht in der Präsentation zu Versuch $0$ (Sonst fragt gerne die PSP-Hiwis).
 Setzen kann man das über das entsprechende `PORT` Register in dem man die entsprechenden Bits setzt.
 Wenn das alles getan ist, kann man über das entsprechende `PIN` Register den Wert einlesen.
-**Achtung**: buttons beispielsweise, sind active-low, also $1$ wenn sie nicht gedrückt sind und $0$ wenn sie gedrückt sind.
+**Achtung**: Buttons beispielsweise, sind active-low, also $1$ wenn sie nicht gedrückt sind und $0$ wenn sie gedrückt sind.
 
-### Beispiel buttons
+### Beispiel Buttons
 
 ```c
-// Zwei buttons sind an PORT-A angeschlossen, einer an Pin-0 und einer an Pin-4
-// Die Methode soll in den ersten zwei bits den Status der buttons wiedergeben,
+// Zwei Buttons sind an PORT-A angeschlossen, einer an Pin-0 und einer an Pin-4
+// Die Methode soll in den ersten zwei Bits den Status der Buttons wiedergeben,
 // wobei 1 pressed und 0 not-pressed darstellt
-// Die implementation ist nur ein Beispiel und lässt sich stark verkleinern bzw. vereinfachen
+// Die Implementierung ist nur ein Beispiel und lässt sich stark verkleinern bzw. vereinfachen
 uint8_t buttons_get(void)
 {
   // Zuerst müssen DDR und PORT initialisiert werden.
   // Das sollte man besser nur einmal,
   // in einer button_init Methode oder so machen,
   // aber für unser Beispiel geht das auch so
-  DDRA  &= 0b11110110; // Setze bits in DDR auf 0
-  PORTA |= 0b00001001; // Setze pull-up widerstände
-  uint8_t first_button  = (PINA >> 2) & 0b00000010; // Speichere den Status des ersten button in first_button
-  uint8_t second_button = PINA & 0b00000001; // Speichere den anderen button
-  return (first_button | second_button) ^ 0b00000011; // kombiniere beide Werte und flippe die wichtigen bits
+  DDRA  &= 0b11110110; // Setze Bits in DDR auf 0
+  PORTA |= 0b00001001; // Setze Pull-up-Widerstände
+  uint8_t first_button  = (PINA >> 2) & 0b00000010; // Speichere den Status des ersten Button in first_button
+  uint8_t second_button = PINA & 0b00000001; // Speichere den anderen Button
+  return (first_button | second_button) ^ 0b00000011; // kombiniere beide Werte und flippe die wichtigen Bits
 }
 ```
 
 ## Schreiben
 
-Beim schreiben ist eigentlich nur das DDR wichtig, da man sonst nichts weiteres einstellen muss.
+Beim Schreiben ist eigentlich nur das DDR wichtig, da man sonst nichts weiteres einstellen muss.
 
 ```c
-// Als beispiel schreibt diese Methode einfach nur die
-// ersten 4 bits vom übergebenen Wert auf Port-C
+// Als Beispiel schreibt diese Methode einfach nur die
+// ersten 4 Bits vom übergebenen Wert auf Port-C
 void write_port_c(uint8_t val)
 {
   // Die initialisierung sollte auch in diesem Fall nur einmal gemacht werden
-  DDRC |= 0b00001111; // setze die unteren 4 bits auf 1 (also Ausgang)
-  PORTC = (PORTC & 0b11110000) | (val & 0b00001111); // schreibe die unteren 4 bits ohne die oberen zu ändern
+  DDRC |= 0b00001111; // setze die unteren 4 Bits auf 1 (also Ausgang)
+  PORTC = (PORTC & 0b11110000) | (val & 0b00001111); // schreibe die unteren 4 Bits ohne die oberen zu ändern
 }
 ```
