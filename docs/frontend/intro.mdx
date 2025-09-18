@@ -1,23 +1,24 @@
 # Einführung HTWR Frontend Dev
 
-Alle sagen es sei einfach, aber es ist _einfach_ nur (unnötig) kompliziert. Aber es macht Spaß, man kann wenigstens sehen was man erschafft.
+Alle sagen es sei einfach, aber es ist _einfach_ nur (unnötig) kompliziert. Aber es macht Spaß, man kann wenigstens sehen, was man erschafft.
 
 [HTWR-aachen.de](/) nutzt [`React`](https://react.dev) und [`Nextjs`](https://nextjs.org) als Bibliothek und Framework.
-Ich werde hier keine so gute Einführung in die beiden Sachen geben können wie sie selber, deswegen guckt da mal vorbei.
+Ich werde hier keine so gute Einführung in die beiden Sachen geben können wie sie selber, deswegen schaut da mal vorbei.
 
-HTWR ist in verschiedene Lehrstühle/Institute (`inistitues`) aufgegliedert ähnlich wie es die Informatik auch ist.
+HTWR ist in verschiedene Lehrstühle/Institute (`institutes`) aufgegliedert, ähnlich wie es die Informatik auch ist.
 
 <Alert>
   <Info className="mr-2 size-5" />
   <AlertTitle>Lehrstühle vs Institute</AlertTitle>
   <AlertDescription>
-    Tatsächlich sind Institute ein oder mehrere Lehrstühle die sich zusammen
-    getan haben. Ein Lehrstuhl ist einfach nur die Stelle eines Professors.
+    Tatsächlich sind Institute ein oder mehrere Lehrstühle, die sich
+    zusammengetan haben. Ein Lehrstuhl ist einfach nur die Stelle eines
+    Professors.
   </AlertDescription>
 </Alert>
 
-Die Institute unterrichten dann mehrere Fächer (`subjects`) die dann bei HTWR aufgearbeitet werden.
-Jedoch, können Fächer auch von mehreren Instituten zusammen gemacht sein.
+Die Institute unterrichten dann mehrere Fächer (`subjects`), die dann bei HTWR aufgearbeitet werden.
+Jedoch können Fächer auch von mehreren Instituten zusammen gemacht sein.
 
 Also ergibt sich so ein Modell
 
@@ -44,33 +45,33 @@ export type Subject = {
 
 ## Grundlagen
 
-HTWR benutzt den halbwegs neuen _App Router_ von Nextjs, dass bedeutet in `/src/app` werden alle URL Pfade als Order definiert.
-In jedem Order befindet sich dann eine `page.tsx` Datei, die die Seite rendert.
+HTWR benutzt den halbwegs neuen _App Router_ von Nextjs, das bedeutet, in `/src/app` werden alle URL-Pfade als Ordner definiert.
+In jedem Ordner befindet sich dann eine `page.tsx` Datei, die die Seite rendert.
 
 <Alert>
   <Info className="mr-2 size-5" />
   <AlertTitle>Server vs Client Component</AlertTitle>
   <AlertDescription>
-    Die Seite ist im normalfall ein Server Component, kann aber, falls
-    Interaktion gewünscht ist (z.B. durch `useState`) in ein Client Component
+    Die Seite ist im Normalfall eine Server-Component, kann aber, falls
+    Interaktion gewünscht ist (z.B. durch `useState`) in eine Client-Component
     verwandelt werden. Lest euch die [Next
     Dokumentation](https://nextjs.org/docs/app/building-your-application/rendering)
     durch.
   </AlertDescription>
 </Alert>
 
-Das Seite wird dann in an der stelle von `{children}` in einem Layout eingefügt, das dann wiederum im `{children}` eines höheren Layouts eingefügt wird bis zum root `/src/app/layout.tsx`.
+Die Seite wird dann an der Stelle von `{children}` in einem Layout eingefügt, das dann wiederum im `{children}` eines höheren Layouts eingefügt wird bis zum root `/src/app/layout.tsx`.
 
-`[subject], [...slug]` sind dynamische Pfade, die (alle) pattern matching (mit `...` rekursiv) nutzten und den erkannten Wert als Parameter an die darunterliegenden Seiten weitergibt.
+`[subject], [...slug]` sind dynamische Pfade, die (alle) pattern matching (mit `...` rekursiv) nutzen und den erkannten Wert als Parameter an die darunterliegenden Seiten weitergeben.
 
 So können dynamisch die Zusammenfassungen aus dem Dateiordner gezogen werden und dann mit nur einem `page.tsx` alle gerendert werden.
 
-Viele weiter Informationen lassen sich sehr gut bei Bedarf in der [Next Dokumentation](https://nextjs.org/docs) (Achtet darauf **App Router** links oben ausgewählt zu haben).
+Viele weitere Informationen lassen sich sehr gut bei Bedarf in der [Next Dokumentation](https://nextjs.org/docs) (Achtet darauf **App Router** links oben ausgewählt zu haben).
 
 ### Layouts
 
 Das _root layout_ ist absichtlich sehr schlicht.
-Es beinhaltet nur die Schriftarten und Metadaten Headers der Webseite, sowie eine Grundlegende (simplifiziert)
+Es beinhaltet nur die Schriftarten und Metadaten-Header der Webseite, sowie eine Grundlegende (simplifizierte)
 
 ```html
 <html>
@@ -81,7 +82,7 @@ Es beinhaltet nur die Schriftarten und Metadaten Headers der Webseite, sowie ein
 </html>
 ```
 
-Denn jedes Institute hat sein eigenes Layout `/src/layouts`.
-Viele benutzten aber das RWTH CMS System, welches als Component `src/layouts/rwth` zur Verfügung steht.
-Hier lässt sich das Logo und die Navigationsleiste (und die Mobile Navigation) konfigurieren.
+Denn jedes Institut hat sein eigenes Layout `/src/layouts`.
+Viele benutzen aber das RWTH-CMS-System, welches als Component `src/layouts/rwth` zur Verfügung steht.
+Hier lässt sich das Logo und die Navigationsleiste (und die mobile Navigation) konfigurieren.
 Embedded/Deddebme, SE/ES, Logic/Cigol und ComSys/SysCom haben eigene Layouts.

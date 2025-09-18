@@ -5,7 +5,7 @@ author: Jonas Schneider
 
 # Zusammenfassungen
 
-Wenn es das Institut/Lehrstuhl und das Fach bereits gibt könnt ihr den nächsten Abschnitt überspringen
+Wenn es das Institut/Lehrstuhl und das Fach bereits gibt, könnt ihr den nächsten Abschnitt überspringen
 
 ## Von 0 auf 100
 
@@ -13,19 +13,19 @@ Wenn es das Institut/Lehrstuhl und das Fach bereits gibt könnt ihr den nächste
 
 Institute werden in `src/config/institutes.ts` konfiguriert. Folgt hier einfach den bisherigen Lehrstühlen.
 
-Nun könnt ihr das Template kopieren `src/app/_%institutename%` den Namen des Lehrstuhls ersetzten und !!! `_` entfernen !!!. Ändert nun noch umbedingt `config.ts` und insgesamt alles wo `CHANGE_ME`/`CHANGE ME` vorkommt. Folgt nun dem nächsten Abschnitt um euer neues Fach zu konfigurieren.
+Nun könnt ihr das Template kopieren `src/app/_%institutename%`, den Namen des Lehrstuhls ersetzen und !!! `_` entfernen !!!. Ändert nun noch unbedingt `config.ts` und insgesamt alles, wo `CHANGE_ME`/`CHANGE ME` vorkommt. Folgt nun dem nächsten Abschnitt, um euer neues Fach zu konfigurieren.
 
 ### Fach hinzufügen
 
 Fächer werden in `src/config/subjects.ts` konfiguriert. Folgt hier ebenso den bisherigen Fächern.
 
-Nun könnt ihr das Fach im Template (`src/app/_%institutename%/%subjectname%`) in euer Lehrstuhl kopieren, den Namen ändern und überall in dem Ordner nach `CHANGE ME` suchen. Somit sollte das ein minimal funktionierendes Fach herauskommen und die Zusammenfassungen korrekt vom summaries Ordner gelesen werden. Zur Not schreibt mich einfach an und ich kann euch bestimmt helfen, oder macht ein Pull-Request und fragt dort nach.
+Nun könnt ihr das Fach im Template (`src/app/_%institutename%/%subjectname%`) in euren Lehrstuhl kopieren, den Namen ändern und überall in dem Ordner nach `CHANGE ME` suchen. Somit sollte dabei ein minimal funktionierendes Fach herauskommen und die Zusammenfassungen korrekt vom Summaries-Ordner gelesen werden. Zur Not schreibt mich einfach an und ich kann euch bestimmt helfen, oder macht einen Pull-Request und fragt dort nach.
 
-Die neuen Seiten des Faches können natürlich nach belieben ausgeschmückt und erweitert werden.
+Die neuen Seiten des Fachs können natürlich nach Belieben ausgeschmückt und erweitert werden.
 
 ## Bereits bestehende Zusammenfassung bearbeiten
 
-Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht und euch die Dateistruktur anschaut, werdet ihr ungefähr folgendes auffinden:
+Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht und euch die Dateistruktur anschaut, werdet ihr ungefähr Folgendes auffinden:
 
 <div className="not-prose">
 
@@ -49,13 +49,13 @@ Wenn ihr zu dem [Repository](https://github.com/htwr-aachen/htwr-aachen.de) geht
 
 ### Markdown & Co
 
-Alle Zusammenfassungen auf HTWR werden mittels `.mdx` Datei geschrieben. Im Grunde einfach `Markdown` wie ihr es aus z.B. Obsidian kennt,
-bloß mit zusätzlichen features wie Javascript support und wichtiger für HTWR custom react component support.
+Alle Zusammenfassungen auf HTWR werden mittels `.mdx` Datei geschrieben. Im Grunde einfach `Markdown`, wie ihr es aus z.B. Obsidian kennt,
+bloß mit zusätzlichen Features wie JavaScript-Support und wichtiger für HTWR Custom-React-Component-Support.
 
-HTWR erkennt für bestehende Fächer automatisch neue Dateien im entsprechenden Fach Ordner.
-Die Sortierung ist Einleuchtend summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
+HTWR erkennt für bestehende Fächer automatisch neue Dateien im entsprechenden Fachordner.
+Die Sortierung ist einleuchtend: summaries -> ( (umgekehrter) Lehrstuhlname ) -> ( Fachname ) -> (\*.mdx )
 
-HTWR unterstützt die GitHub Markdownsyntax inclusive
+HTWR unterstützt die GitHub-Markdown-Syntax inklusive
 
 \`\`\`haskell \
 main = putStrLn "Hello, World!" \
@@ -70,12 +70,12 @@ main = putStrLn "Hello, World!"
 für Code-Highlighting
 
 \$ \sum\_\{k=1\}^n k = \frac\{n(n+1)\}\{2\} \$ wird zu $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
-für LaTex Mathe. Sobald es möglich wird möchte ich auch typst einbinden, die sind aber gerade erst an einem HTML compile output dran.
+für LaTeX-Mathe. Sobald es möglich wird, möchte ich auch Typst einbinden, die sind aber gerade erst an einem HTML-Compile-Output dran.
 
 ## Die Frage des Lebens
 
 Wie das Känguru aus Känguru-Chroniken bereits sagte:
 
-> Witzig oder nicht Witzig
+> Witzig oder nicht witzig
 
-Eine Zusammenfassung ist für den Author ein leeres Gemälde. Sie sollte irgendwo Inhalt haben, aber Kreativität und Humor ist auch gerne gesehen. Es ist eher eine Frage der Zeit und des Einfallsreichtum des Erstellers.
+Eine Zusammenfassung ist für den Autor ein leeres Gemälde. Sie sollte irgendwo Inhalt haben, aber Kreativität und Humor sind auch gerne gesehen. Es ist eher eine Frage der Zeit und des Einfallsreichtums des Erstellers.

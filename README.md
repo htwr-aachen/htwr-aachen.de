@@ -6,17 +6,17 @@ Mittlerweile gibts da auch ein paar dumm formulierte Notizen, Zusammenfassungen 
 
 ## Development
 
-Um das Problem 'Abeerr wie läss ich mir das jetzt auf meine PC laufe...'
+Um das Problem 'Aber wie lass ich das jetzt auf meinem PC laufen...'
 
 Du brauchst:
 
-- `nodejs` nehm einfach das neuste oder die neuste LTS sollte beides klappen.
+- `nodejs` nimm einfach das neuste oder die neuste LTS sollte beides klappen.
 
-- `pnpm` oder zur Not `npm` geht bestimmt auch noch. Ich nutz einfach `pnpm` das klappt :-
+- `pnpm` oder zur Not `npm` geht bestimmt auch noch. Ich nutze einfach `pnpm` das klappt :-
 
-- `git` ist natürlich Pflicht. MEINE GÜTE LERNT ES EINFACH ist nich so schwer und lohnt sich
+- `git` ist natürlich Pflicht. MEINE GÜTE LERNT ES EINFACH ist nicht so schwer und lohnt sich
 
-Also um das ganz nun laufen zu lassen, sind vier Befehle nötig:
+Also um das Ganze nun laufen zu lassen, sind vier Befehle nötig:
 
 ```bash
 pnpm install
@@ -28,7 +28,7 @@ installiert die Dependencies und Bibliotheken
 pnpm dev
 ```
 
-öffnet einen development server bei [http://localhost:3000](http://localhost:3000), dieser aktualisiert automatisch bei react component Änderungen, allerdings nicht bei Markdown Änderungen, da müsster selber `STRG+R` drücken.
+öffnet einen development server bei [http://localhost:3000](http://localhost:3000), dieser aktualisiert automatisch bei react component Änderungen, allerdings nicht bei Markdown Änderungen, da müsst ihr selber `STRG+R` drücken.
 
 Falls ihr dann Änderungen gemacht habt, die ihr online sehen wollt, müsst ihr sie auf einem neuen branch-commiten, da Master erst von mir freigegeben werden muss (aus Gründen).
 
@@ -54,7 +54,7 @@ Zum Schluss noch
 git push
 ```
 
-und online ein Pull-Reqeust des neuen Branches auf master. Falls ich ihn annehme, wird er dann automatisch durch continous itegration and delivery online gestellt.
+und online ein Pull-Request des neuen Branches auf master. Falls ich ihn annehme, wird er dann automatisch durch continuous integration and delivery online gestellt.
 
 ## Star History
 
