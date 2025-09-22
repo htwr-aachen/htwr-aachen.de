@@ -1,28 +1,28 @@
 ---
-title: Der Flare von statische Webseiten
+title: Das Flair statischer Webseiten
 date: 2025-04-03
 ---
 
 > HTWR ist wieder eine `Statische Webseite`
 
-Wer sich ein bisschen mit Web-Tech[^1] auskennt, wird dies ein Begriff sein.
+Wer sich ein bisschen mit Web-Tech[^1] auskennt, dem wird dies ein Begriff sein.
 
-HTWR wurde zunächst auf Vercel gehostet. Das ist echt leicht und bietet viele Vorteile, aber leider können dort kostenlos nur GitHub-Personal-Accounts und keine "Organisationen" wie [htwr-aachen](https://github.com/htwr-aachen) erstellt werden.
+HTWR wurde zunächst auf Vercel gehostet. Das ist echt einfach und bietet viele Vorteile, aber leider können dort kostenlos nur GitHub-Personal-Accounts und keine "Organisationen" wie [htwr-aachen](https://github.com/htwr-aachen) erstellt werden.
 
-Also habe ich sie vor circa einem Jahr auf meinen eigenen Kubernetes-Cluster verlegt, als [`standalone`](https://nextjs.org/docs/pages/api-reference/config/next-config-js/output) Output in einem Container.
+Also habe ich sie vor ca. einem Jahr auf meinen eigenen Kubernetes-Cluster verlegt, als [`standalone`](https://nextjs.org/docs/pages/api-reference/config/next-config-js/output) Output in einem Container.
 
 Nun, das ist nicht unbedingt optimal für eine Webseite, die größtenteils aus statischen Inhalten besteht. Zudem waren die "Content-Assets", also jegliche Materialien, unglücklicherweise in das Docker-Image eingebettet – das bedeutete eine Größe von ~600 MB. Will man nicht.
 
 Naja, nun habe ich alles umgestellt und die letzten überflüssigen dynamischen Teile der Webseite gelöscht, womit sie nun wieder schön einfach als statische HTML-, CSS- und ein bisschen JavaScript-Dateien in einer Cloudflare Page landen[^2]. Die Content-Assets sind separat in einem Cloudflare R2-Bucket gespeichert.
 
-Ich bin also faktisch wieder in den 2000er Jahren angekommen – nur dass jetzt der HTML-Code von React als Server-Side Component vorgerendert wird.
+Ich bin also faktisch wieder in den 2000er Jahren angekommen – nur dass jetzt der HTML-Code von React als Server-Side-Component vorgerendert wird.
 
-Falls ich doch wieder dynamische Sachen brauche, die nicht Client-Side passieren können, werde ich auf Cloudflare Worker wechseln, aber erst mal reicht das so.
+Falls ich doch wieder dynamische Sachen brauche, die nicht clientseitig passieren können, werde ich auf Cloudflare Worker wechseln, aber erst mal reicht das so.
 
-Hier noch ein random GIF:
+Hier noch ein Random-GIF:
 
 ![gruseliges naveo gif](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmR5YW9yc2VvbzhsbHJrYWp2cWhwdXgyMzhrcW9kNnZseGJkemgzYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yV4X3a155PW8mR5rlO/giphy.gif)
 
-[^1]: ps. Fehlt noch als Fach wenn jemand Lust hat :)
+[^1]: PS: Fehlt noch als Fach, wenn jemand Lust hat :)
 
-[^2]: Panikzettel werden bald erstmal weiterhin über mein backend gedownloaded, schon um Metadaten zu haben und tracken zu können was wie of angefragt wird
+[^2]: Panikzettel werden bald erstmal weiterhin über mein Backend heruntergeladen, schon um Metadaten zu haben und tracken zu können, was wie oft angefragt wird
