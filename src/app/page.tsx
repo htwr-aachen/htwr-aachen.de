@@ -18,7 +18,7 @@ import "../styles/cms.css";
 export const metadata: Metadata = {
 	title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
 	description:
-		"HTWR Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... ",
+		"HTWR-Aachen ist hier die wahre Exzellenzuniversität. Wir helfen wo der Doppelgänger versagt... ",
 	alternates: {
 		canonical: "/",
 	},
@@ -54,12 +54,12 @@ const Index: FC = () => {
 				<GalleryItem>
 					<GalleryImage
 						src={"/assets/other/landing/star.png"}
-						alt="GitHub Stars 👉️👈️?"
+						alt="GitHub Stars 👉👈?"
 						width={600}
 						height={400}
 					></GalleryImage>
 					<GalleryLabel
-						headline="GitHub Stars 👉️👈️?"
+						headline="GitHub Stars 👉👈?"
 						externalUrls={[
 							{
 								url: "https://github.com/jonsch318/htwr-aachen.de",

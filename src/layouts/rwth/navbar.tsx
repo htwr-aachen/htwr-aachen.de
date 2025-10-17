@@ -17,6 +17,7 @@ export default function Navbar({
 }) {
 	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Effect should run on pathname change
 	useEffect(() => {
 		setOpen(false);
 	}, [pathname]);

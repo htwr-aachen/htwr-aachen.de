@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OrganizationJsonLd } from "next-seo";
 import type { FC } from "react";
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Main } from "@/layouts/rwth/Main";
 
@@ -16,26 +16,34 @@ const Impressum: FC = () => {
 			<div className="prose">
 				<h1>Impressum</h1>
 
+				<OrganizationJsonLd
+					name="HTWR-Aachen"
+					url="https://htwr-aachen.de"
+					logo="https://htwr-aachen.de/assets/rwth/htwr.png"
+					description="HTWR-Aachen ist eine Seite gefühlt mit Informationen, Panikzettel, Zusammenfassungen und Spielen für das Studium an der RWTH (die Hauptziehlgruppe sind jedoch Informatiker / FsMPI). Wir helfen wo unser Doppelgänger versagt... "
+					sameAs={["https://rwth.cool"]}
+					contactPoint={{
+						"@type": "ContactPoint",
+						email: "contact@htwr-aachen.de",
+					}}
+					email="contact@htwr-aachen.de"
+					image="https://htwr-aachen.de/assets/rwth/htwr.png"
+					type="Organization"
+				/>
+
 				<Alert>
 					<AlertTitle>🤔 Tatsächlich Interessant</AlertTitle>
 					<AlertDescription>
-						Da ich hiermit kein Finanziellen Absichten verfolge und auch keine
-						Gewinne erziele (mit Werbung oder sonstigem) bräuchte ich vermutlich
-						kein Impressum. Andererseits erreiche ich mittlerweile einenen
-						&quot;bedeutsamen Personenkreis&quot; weswegen ich vielleicht doch
-						wieder eins bräuchte... (und habe eventuell
+						Da ich hiermit keine finanziellen Absichten verfolge und auch keinen
+						Umsatz erziele (mit Werbung, oder sonstigem), bräuchte ich
+						vermutlich kein Impressum. Andererseits erreiche ich mittlerweile
+						einenen &quot;bedeutsamen Personenkreis&quot; weswegen ich
+						vielleicht doch wieder eins bräuchte... (und habe eventuell
 						redaktionellen/journalistischen Inhalt)
 					</AlertDescription>
 				</Alert>
 
 				<h2>Angaben gem&auml;&szlig; &sect; 5 TMG (Warum brauche ich das??)</h2>
-				<p>
-					Jonas Max Schneider
-					<br />
-					Mostardstr. 22
-					<br />
-					52062 Aachen
-				</p>
 
 				<h2>Kontakt</h2>
 				<p>

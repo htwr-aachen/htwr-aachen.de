@@ -140,24 +140,3 @@ async function _getArticle(
  * @param corpusConfig - the configuration of the associated corpus. Where do I find the files
  */
 export const getArticle = cache(_getArticle);
-
-/**
- * encodes all relevant metadatas a json ld
- * @param meta - the metadata to be encoded in the JSON LD
- * @returns the json ld
- */
-export function getJSONLD(meta: ArticleMeta) {
-	return {
-		"@context": "https://schema.org",
-		"@type": "Article",
-		url: meta.url,
-		name: meta.meta.title,
-		datePublished: meta.meta.date || "",
-		authorName: meta.meta.authors || "",
-		publisherName: "HTWR Aachen",
-		publisherLogo: "https://www.htwr-aachen.de/assets/rwth/htwr.png",
-		title: meta.meta.title || "",
-		description: meta.meta.description || "",
-		images: meta.meta.images.map((x) => x.src) || [],
-	};
-}

@@ -8,10 +8,8 @@ import {
 	GalleryLabel,
 } from "@/components/rwth/gallery";
 import { HeadLine } from "@/components/rwth/headline";
-import { SubjectList } from "@/components/subject-list";
 import SCILBanner from "@/public/assets/scil/banner.png";
 import MartinaGrohe from "@/public/assets/scil/martina_grohe.jpg";
-import { subjects } from "./config";
 import Content from "./content.mdx";
 
 export const metadata: Metadata = {

@@ -27,6 +27,7 @@ export function FacultiesButton({ asChild, ...props }: ButtonProps) {
 	const Component = asChild ? Slot : "button";
 	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Effect should run on pathname change
 	useEffect(() => {
 		setOpen(false);
 	}, [pathname]);
