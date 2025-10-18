@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AppConfig, BaseURL } from "@/config/app";
 import { hkGrotesk, inter, newsreader } from "./fonts";
 import "../styles/cms.css";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import GeneralLayout from "@/layouts/general";
 
@@ -81,17 +82,19 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
 				/>
 			</head>
 			<body className="bg-background min-h-screen font-sans antialiased">
-				<BannerNotifyProvider>
-					<ThemeProvider
-						attribute="class"
-						defaultTheme="dark"
-						enableSystem={false}
-						disableTransitionOnChange
-					>
-						<GeneralLayout>{children}</GeneralLayout>
-						<Toaster visibleToasts={3} theme="dark" richColors />
-					</ThemeProvider>
-				</BannerNotifyProvider>
+				<TooltipProvider>
+					<BannerNotifyProvider>
+						<ThemeProvider
+							attribute="class"
+							defaultTheme="dark"
+							enableSystem={false}
+							disableTransitionOnChange
+						>
+							<GeneralLayout>{children}</GeneralLayout>
+							<Toaster visibleToasts={3} theme="dark" richColors />
+						</ThemeProvider>
+					</BannerNotifyProvider>
+				</TooltipProvider>
 			</body>
 		</html>
 	);
