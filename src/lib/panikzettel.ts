@@ -6,7 +6,7 @@ import urlJoin from "./url";
 
 export async function getPanikzettelMetadata(): Promise<Panikzettel[]> {
 	try {
-		const res = await fetch(urlJoin(APIURL, "/panikzettel"), {
+		const res = await fetch(urlJoin(APIURL, "/api/panikzettel"), {
 			next: {
 				revalidate: 60 * 15,
 			},
