@@ -47,7 +47,6 @@ export async function PostQuestion(
 	const result = await fetch(`${QAAPI}/questions`, {
 		method: "POST",
 		body: JSON.stringify(question),
-		credentials: "include",
 	});
 
 	if (!result.ok) {
@@ -65,7 +64,6 @@ export async function PostAnswer(
 	const result = await fetch(`${QAAPI}/questions/${questionId}/answers`, {
 		method: "POST",
 		body: JSON.stringify(answer),
-		credentials: "include",
 	});
 
 	if (!result.ok) {
@@ -94,7 +92,6 @@ export async function GetQuestions(
 		`${QAAPI}/questions?answered=${answered}&last-priority=${lastPriority}&last-id=${lastId}&limit=${limit}`,
 		{
 			method: "GET",
-			credentials: "include",
 		},
 	);
 

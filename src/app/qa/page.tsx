@@ -13,7 +13,7 @@ import {
 	DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useQAQuestions } from "@/hooks/useQAQuestions";
-import { NewQuestionForm } from "./new-question";
+import { NewQuestionDrawer, NewQuestionForm } from "./new-question";
 import QASearch from "./search";
 
 export default function Page() {
@@ -47,27 +47,7 @@ export default function Page() {
 			</Alert>
 
 			<div className="my-4">
-				<Drawer repositionInputs={false}>
-					<DrawerTrigger asChild>
-						<Button className="w-full cursor-pointer">
-							Neue Frage stellen
-						</Button>
-					</DrawerTrigger>
-					<DrawerContent>
-						<div className="mx-auto mb-8 w-full max-w-lg px-4 lg:px-0">
-							<DrawerHeader className="w-full px-0 py-8">
-								<DrawerTitle className="text-lg">
-									Neue Frage stellen
-								</DrawerTitle>
-								<DrawerDescription>
-									Bitte stelle sicher, das sich diese oder eine ähnliche Frage
-									noch nicht im Sortiment befindet.
-								</DrawerDescription>
-							</DrawerHeader>
-							<NewQuestionForm />
-						</div>
-					</DrawerContent>
-				</Drawer>
+				<NewQuestionDrawer />
 			</div>
 			<QASearch />
 

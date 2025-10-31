@@ -10,16 +10,8 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "../ui/collapsible";
-import {
-	Drawer,
-	DrawerContent,
-	DrawerDescription,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "../ui/drawer";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { AnswerForm } from "./answer-form";
+import { AnswerDrawer } from "./answer-form";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -79,35 +71,7 @@ export default function QAQuestionEntry({
 					/>
 				</div>
 				{!question.answer ? (
-					<Drawer>
-						<Tooltip>
-							<DrawerTrigger asChild className="w-full">
-								<TooltipTrigger asChild>
-									<Button
-										className="my-3 w-full cursor-pointer"
-										variant="outline"
-									>
-										Ich habe die Antwort!
-									</Button>
-								</TooltipTrigger>
-							</DrawerTrigger>
-							<TooltipContent>Du solltest dir schon sicher sein</TooltipContent>
-						</Tooltip>
-						<DrawerContent>
-							<div className="mx-auto mb-8 w-full max-w-lg px-4 lg:px-0">
-								<DrawerHeader className="w-full px-0 py-8">
-									<DrawerTitle className="text-lg">
-										Ich weiß die Antwort
-									</DrawerTitle>
-									<DrawerDescription>
-										Bitte sage woher du die Antwort und seit wann du die Antwort
-										kennst (damit wir aktuell bevorzugen können)
-									</DrawerDescription>
-								</DrawerHeader>
-								<AnswerForm questionID={question.id} />
-							</div>
-						</DrawerContent>
-					</Drawer>
+					<AnswerDrawer questionID={question.id} />
 				) : (
 					<div className="mt-6">
 						<CollapsibleContent>

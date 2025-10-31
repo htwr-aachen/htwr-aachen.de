@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { subMonths } from "date-fns/subMonths";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -16,8 +17,17 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { PostAnswer, QANewAnswerDTO } from "@/lib/qa";
+import { PostAnswer, QAAnswerDTO, QANewAnswerDTO } from "@/lib/qa";
+import {
+	Drawer,
+	DrawerContent,
+	DrawerDescription,
+	DrawerHeader,
+	DrawerTitle,
+	DrawerTrigger,
+} from "../ui/drawer";
 import { Input } from "../ui/input";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const formSchema = z.object({
 	answer: z
@@ -33,7 +43,52 @@ const formSchema = z.object({
 	}),
 });
 
-export function AnswerForm({ questionID }: { questionID: number }) {
+export function AnswerDrawer({ questionID }: { questionID: number }) {
+	const [open, setOpen] = useState(false);
+	return (
+		<Drawer
+			open={open}
+			onOpenChange={(newOpen) => {
+				setOpen(newOpen);
+			}}
+		>
+			<Tooltip>
+				<DrawerTrigger asChild className="w-full">
+					<TooltipTrigger asChild>
+						<Button className="my-3 w-full cursor-pointer" variant="outline">
+							Ich habe die Antwort!
+						</Button>
+					</TooltipTrigger>
+				</DrawerTrigger>
+				<TooltipContent>Du solltest dir schon sicher sein</TooltipContent>
+			</Tooltip>
+			<DrawerContent>
+				<div className="mx-auto mb-8 w-full max-w-lg px-4 lg:px-0">
+					<DrawerHeader className="w-full px-0 py-8">
+						<DrawerTitle className="text-lg">Ich weiß die Antwort</DrawerTitle>
+						<DrawerDescription>
+							Bitte sage woher und seit wann du die Antwort kennst
+						</DrawerDescription>
+					</DrawerHeader>
+					<AnswerForm
+						questionID={questionID}
+						onSuccessfulSubmit={(_new) => {
+							setOpen(false);
+						}}
+					/>
+				</div>
+			</DrawerContent>
+		</Drawer>
+	);
+}
+
+export function AnswerForm({
+	questionID,
+	onSuccessfulSubmit,
+}: {
+	questionID: number;
+	onSuccessfulSubmit?: (answer: QAAnswerDTO) => void;
+}) {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -62,6 +117,11 @@ export function AnswerForm({ questionID }: { questionID: number }) {
 					return `Antwort konnte nicht erstellt werden ${err?.msg || ""}`;
 				},
 			});
+			if (onSuccessfulSubmit) {
+				submitted.then((created) => {
+					onSuccessfulSubmit(created);
+				});
+			}
 		} catch (err) {
 			console.log("Antwort konnte nicht erstellt werden", err);
 		}
@@ -105,6 +165,10 @@ export function AnswerForm({ questionID }: { questionID: number }) {
 								<FormLabel>{field.value == 1 ? "Monat" : "Monaten"}</FormLabel>
 							</div>
 							<FormMessage />
+							<FormDescription>
+								Wir zeigen die erste Anwort nach manueller Sortierung und
+								Antwortaktualität.
+							</FormDescription>
 						</FormItem>
 					)}
 				/>
