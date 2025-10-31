@@ -33,6 +33,7 @@ export const FacultiesNavLink = (props: FacultiesNavLinkProps) => {
 				data-tooltip-id={id}
 				data-tooltip-content={props.tooltipContent}
 				data-tooltip-place={props.tooltipPlace}
+				title={props.tooltipContent}
 				href={props.href}
 				passHref
 				className="m-0 grid size-full grid-cols-[auto_1fr_auto] items-center px-4 py-2 text-sm font-medium text-white hover:border-b-0 hover:bg-white/10 lg:px-0"

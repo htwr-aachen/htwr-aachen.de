@@ -34,10 +34,10 @@ export function FacultiesButton({ asChild, ...props }: ButtonProps) {
 
 	return (
 		<Sheet open={open} onOpenChange={(x) => setOpen(x)}>
-			<SheetTrigger asChild title="Fakultätsübersicht">
+			<SheetTrigger asChild title="QuickAccess">
 				<Component {...props} />
 			</SheetTrigger>
-			<FacultiesSheetContent title="Fakultätsübersicht">
+			<FacultiesSheetContent>
 				<VisuallyHidden>
 					<SheetTitle>Fakultätsübersicht</SheetTitle>
 					<DialogDescription></DialogDescription>

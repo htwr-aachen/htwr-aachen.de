@@ -66,6 +66,13 @@ export const FacultiesNavContent: {
 				tooltip: "Gute zusammenfassungen zum halben Preis",
 			},
 			{
+				href: "/qa",
+				path: "/qa",
+				content: "Q&A",
+				name: "Q&A",
+				tooltip: "Fragen über Fragen mit ein paar Antworten",
+			},
+			{
 				href: "/docs",
 				path: "/docs",
 				content: "Docs",
