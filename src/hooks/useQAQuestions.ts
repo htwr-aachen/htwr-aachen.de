@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { GetQuestions, QA_QUESTIONS_LIMIT } from "@/lib/qa";
 import type { QAQuestion } from "@/models/qa";
 
@@ -41,11 +41,10 @@ export function useQAQuestions({
 	const [error, setError] = useState<Error | null>(null);
 	const [hasMore, setHasMore] = useState(true);
 	const [offset, setOffset] = useState<Offset>(INITIAL_OFFSET);
+	const hasLoadedInitial = useRef(false);
 
 	const fetchQuestions = useCallback(
 		async (currentOffset: Offset, isRefresh: boolean = false) => {
-			if (loading) return;
-
 			setLoading(true);
 			setError(null);
 
@@ -81,7 +80,7 @@ export function useQAQuestions({
 				setLoading(false);
 			}
 		},
-		[answered, initialLimit, loading],
+		[answered, initialLimit],
 	);
 
 	const loadMore = useCallback(async () => {
@@ -94,14 +93,16 @@ export function useQAQuestions({
 		setQuestions([]);
 		setOffset(INITIAL_OFFSET);
 		setHasMore(true);
+		hasLoadedInitial.current = false;
 		await fetchQuestions(INITIAL_OFFSET, true);
 	}, [fetchQuestions]);
 
 	useEffect(() => {
-		if (autoLoad && questions.length === 0) {
+		if (autoLoad && !hasLoadedInitial.current) {
+			hasLoadedInitial.current = true;
 			fetchQuestions(INITIAL_OFFSET, true);
 		}
-	}, [autoLoad, questions.length, fetchQuestions]);
+	}, [autoLoad, fetchQuestions]);
 
 	return {
 		questions,
