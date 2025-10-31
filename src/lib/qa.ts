@@ -1,6 +1,7 @@
+import { APIURL } from "@/config/app";
 import type { QAQuestion } from "@/models/qa";
 
-export const QAAPI = "http://localhost:8080/api/qa";
+export const QAAPI = `${APIURL}/api/qa`;
 export const QA_QUESTIONS_LIMIT = 50;
 
 export interface QANewQuestionDTO {
