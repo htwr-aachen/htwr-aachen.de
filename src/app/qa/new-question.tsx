@@ -39,8 +39,8 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { PostQuestion, QANewQuestionDTO, QAQuestionDTO } from "@/lib/qa";
-import { QAQuestion } from "@/models/qa";
+import { PostQuestion, type QANewQuestionDTO } from "@/lib/qa";
+import type { QAQuestion } from "@/models/qa";
 
 const formSchema = z.object({
 	question: z

@@ -4,16 +4,8 @@ import { TriangleAlert } from "lucide-react";
 import QAQuestionEntry from "@/components/qa/question-entry";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import {
-	Drawer,
-	DrawerContent,
-	DrawerDescription,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@/components/ui/drawer";
 import { useQAQuestions } from "@/hooks/useQAQuestions";
-import { NewQuestionDrawer, NewQuestionForm } from "./new-question";
+import { NewQuestionDrawer } from "./new-question";
 import QASearch from "./search";
 
 export default function Page() {

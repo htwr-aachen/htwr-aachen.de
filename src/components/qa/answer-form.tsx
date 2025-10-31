@@ -17,7 +17,7 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { PostAnswer, QAAnswerDTO, QANewAnswerDTO } from "@/lib/qa";
+import { PostAnswer, type QAAnswerDTO, type QANewAnswerDTO } from "@/lib/qa";
 import {
 	Drawer,
 	DrawerContent,
@@ -82,7 +82,7 @@ export function AnswerDrawer({ questionID }: { questionID: number }) {
 	);
 }
 
-export function AnswerForm({
+function AnswerForm({
 	questionID,
 	onSuccessfulSubmit,
 }: {
@@ -162,7 +162,7 @@ export function AnswerForm({
 										/>
 									</FormControl>
 								</div>
-								<FormLabel>{field.value == 1 ? "Monat" : "Monaten"}</FormLabel>
+								<FormLabel>{field.value === 1 ? "Monat" : "Monaten"}</FormLabel>
 							</div>
 							<FormMessage />
 							<FormDescription>

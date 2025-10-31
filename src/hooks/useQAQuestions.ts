@@ -1,12 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { GetQuestions, QA_QUESTIONS_LIMIT } from "@/lib/qa";
-import { QAQuestion } from "@/models/qa";
-
-interface UseQAQuestionsOptions {
-	answered: boolean;
-	initialLimit?: number;
-	autoLoad?: boolean;
-}
+import type { QAQuestion } from "@/models/qa";
 
 const MAX_OFFSET = 2147483647;
 
@@ -107,7 +101,7 @@ export function useQAQuestions({
 		if (autoLoad && questions.length === 0) {
 			fetchQuestions(INITIAL_OFFSET, true);
 		}
-	}, [autoLoad, answered]);
+	}, [autoLoad, questions.length, fetchQuestions]);
 
 	return {
 		questions,

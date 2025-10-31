@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { Link } from "lucide-react";
 import { useState } from "react";
-import { QAQuestion } from "@/models/qa";
+import type { QAQuestion } from "@/models/qa";
 import { Button } from "../ui/button";
 import {
 	Collapsible,
@@ -65,6 +65,7 @@ export default function QAQuestionEntry({
 					</div>
 				</div>
 				<hr className="my-3" />
+				{/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: content is sanitized on the backend */}
 				<div className="prose text-foreground prose-headings:text-foreground prose-headings:text-sm my-2 text-sm">
 					<div
 						dangerouslySetInnerHTML={{ __html: question.description || "" }}
@@ -86,6 +87,7 @@ export default function QAQuestionEntry({
 						</CollapsibleContent>
 					</div>
 				)}
+				{/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: content is sanitized on the backend */}
 			</Collapsible>
 		</div>
 	);
