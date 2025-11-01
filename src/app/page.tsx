@@ -129,7 +129,7 @@ const Index: FC = () => {
 						return (
 							<PersonaElement href={institute.href} key={institute.name}>
 								<ExportedImage
-									className="relative mx-auto mb-2 size-[32px] brightness-0"
+									className="relative mx-auto mb-2 size-8 brightness-0"
 									src={institute.icon}
 									alt={institute.fullName}
 									width={32}
