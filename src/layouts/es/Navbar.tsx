@@ -18,7 +18,7 @@ export default function ESNavbar({ navbar }: { navbar: NavbarConfig }) {
 	return (
 		<nav
 			id="navbar"
-			className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b-1 border-gray-400 py-4 lg:grid-cols-2 lg:grid-rows-none"
+			className="navbar grid grid-cols-[1fr_auto] grid-rows-[1fr_auto] items-center border-b border-border py-4 lg:grid-cols-2 lg:grid-rows-none"
 		>
 			<div className="ml-8 flex flex-wrap items-center justify-center lg:mr-16 lg:ml-auto lg:justify-self-end">
 				<Link href={"/es"}>
@@ -58,7 +58,11 @@ export default function ESNavbar({ navbar }: { navbar: NavbarConfig }) {
 					{navbar.linkElements.map((link, i) => (
 						<Navlink
 							key={link.name + link.path}
-							display={{ name: link.name, href: link.href.toString() }}
+							display={{
+								name: link.name,
+								href: link.href.toString(),
+								path: link.path,
+							}}
 							links={link.links}
 							isDropped={dropdownActive === i}
 							dropdownNumber={i}

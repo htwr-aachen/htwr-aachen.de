@@ -28,7 +28,7 @@ export default function PanikzettelPageAnim({
 				width: scrollPosition < WIDTH_SCALE_POINT ? widthMotionValue : "100vw",
 			}}
 			className={cn(
-				"md:auto h-full min-h-[1020px] w-screen max-w-[100vw] rounded-lg bg-white md:w-[750px] md:min-w-[750px]",
+				"md:auto h-full min-h-[1020px] w-screen max-w-[100vw] rounded-lg md:w-[750px] md:min-w-[750px]",
 			)}
 		>
 			{children}

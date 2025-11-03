@@ -7,9 +7,9 @@ type PersonaElementProps = {
 };
 export const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
 	return (
-		<li className="h-[115px]">
+		<li className="h-[115px] hover:bg-background/75">
 			<Link
-				className="grid h-full items-center justify-center px-2 py-5 text-center text-sm text-black hover:border-b-0 hover:bg-white/75 lg:px-5 lg:text-base"
+				className="grid h-full items-center justify-center px-2 py-5 text-center text-sm hover:border-b-0 lg:px-5 lg:text-base"
 				href={href}
 			>
 				<div>{children}</div>
@@ -20,7 +20,7 @@ export const PersonaElement: FC<PersonaElementProps> = ({ children, href }) => {
 
 export function Persona({ children }: { children: ReactNode }) {
 	return (
-		<ul className="bg-cms-accent-light text-cms-accent-light-text flex min-h-[115px] flex-wrap items-center justify-center px-2">
+		<ul className="bg-secondary text-secondary-foreground flex min-h-[115px] flex-wrap items-center justify-center px-2">
 			{children}
 		</ul>
 	);

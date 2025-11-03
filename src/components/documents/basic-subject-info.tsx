@@ -29,7 +29,7 @@ export function LinkCard({
 	children?: ReactNode;
 } & ComponentPropsWithoutRef<"a">) {
 	return (
-		<div className="bg-cms-branding text-cms-branding-text hover:bg-cms-branding/75 rounded-xl">
+		<div className="bg-secondary text-secondary-foreground hover:bg-primary/75 rounded-xl">
 			<a
 				className={cn(
 					props.className,
@@ -41,9 +41,7 @@ export function LinkCard({
 				<h3 className="inline-block text-2xl font-bold text-inherit">
 					{title}
 				</h3>
-				<span className="text-cms-branding-text/75 block pb-4 text-sm">
-					{description}
-				</span>
+				<span className="text-accent block pb-4 text-sm">{description}</span>
 				{children}
 			</a>
 		</div>

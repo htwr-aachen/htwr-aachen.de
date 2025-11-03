@@ -1,94 +1,126 @@
 "use client";
 
-import clsx from "clsx";
-import { Link } from "lucide-react";
-import { useState } from "react";
+import { DialogDescription } from "@radix-ui/react-dialog";
+import {
+	Link,
+	MessageCircleQuestionMark,
+	MessageCircleReply,
+} from "lucide-react";
+import { BaseURL } from "@/config/app";
+import { cn } from "@/lib/utils";
 import type { QAQuestion } from "@/models/qa";
 import { Button } from "../ui/button";
 import {
-	Collapsible,
-	CollapsibleContent,
-	CollapsibleTrigger,
-} from "../ui/collapsible";
+	Dialog,
+	DialogContent,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "../ui/dialog";
+import {
+	Item,
+	ItemActions,
+	ItemContent,
+	ItemDescription,
+	ItemTitle,
+} from "../ui/item";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { AnswerDrawer } from "./answer-form";
-
-const BASE_URL = "http://localhost:3000";
+import { AnswerEntry } from "./answer-entry";
+import { NewAnswerButton } from "./answer-form";
+import { Deletion } from "./deletion";
 
 export default function QAQuestionEntry({
 	question,
-	showAnswerDefault = true,
 }: {
 	question: QAQuestion;
-	showAnswerDefault?: boolean;
 }) {
-	const [isOpen, setIsOpen] = useState<boolean>(showAnswerDefault);
-	const COPY_URL = `${BASE_URL}/qa#${question.id}`;
+	const COPY_URL = `${BaseURL}/qa/${question.id}`;
 
 	const onCopyLink = () => {
 		navigator.clipboard.writeText(COPY_URL);
 	};
 
 	return (
-		<div
-			className={clsx(
-				"text-foreground my-4 rounded-lg border px-4 py-3",
-				question.answer ? "border-green-600" : "",
-			)}
-		>
-			<Collapsible open={isOpen} onOpenChange={setIsOpen}>
-				<div className="my-4 grid grid-rows-2 lg:grid-cols-[1fr_auto] lg:grid-rows-1">
-					<h3 id={question.id.toString()} className="text-lg font-semibold">
-						{question.id.toString()}: {question.title}
-					</h3>
-					<div className="flex flex-row gap-1">
+		<Dialog>
+			<DialogTrigger className="cursor-pointer" asChild>
+				<Item
+					variant="muted"
+					className={cn(
+						"text-foreground my-4 rounded-lg border px-4 py-3 bg-accent grid grid-cols-[1fr_auto]",
+						question.answers ? "border-green-600" : "",
+					)}
+				>
+					<ItemContent className="max-w-prose">
+						<ItemTitle id={question.id.toString()}>
+							{question.id.toString()}: {question.title}
+						</ItemTitle>
+						<ItemDescription className="line-clamp-1 truncate max-w-full">
+							{question.description}
+						</ItemDescription>
+					</ItemContent>
+					<ItemActions>
+						<Deletion
+							type="question"
+							id={question.id}
+							count={question.deletion_requests_count}
+						/>
 						<Tooltip>
 							<TooltipTrigger asChild>
 								<Button
 									variant="outline"
-									size="icon"
-									onClick={onCopyLink}
+									size="icon-sm"
+									onClick={(ev) => {
+										ev.stopPropagation();
+										onCopyLink();
+									}}
 									className="cursor-pointer"
 								>
-									<Link className="size-4" />
+									<Link />
 								</Button>
 							</TooltipTrigger>
-							<TooltipContent>Copy {COPY_URL} to the clipboard</TooltipContent>
+							<TooltipContent>Kopiere {COPY_URL} ins Clipboard</TooltipContent>
 						</Tooltip>
-						{question.answer && (
-							<CollapsibleTrigger asChild>
-								<Button variant="outline">
-									Antwort {isOpen ? "verstecken" : "zeigen"}
-								</Button>
-							</CollapsibleTrigger>
-						)}
-					</div>
-				</div>
-				<hr className="my-3" />
+					</ItemActions>
+				</Item>
+			</DialogTrigger>
+			<DialogContent className="sm:max-w-max">
+				<DialogHeader>
+					<DialogTitle>
+						{question.id.toString()}: {question.title}
+					</DialogTitle>
+					<DialogDescription></DialogDescription>
+				</DialogHeader>
 				{/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: content is sanitized on the backend */}
-				<div className="prose text-foreground prose-headings:text-foreground prose-headings:text-sm my-2 text-sm">
-					<div
-						dangerouslySetInnerHTML={{ __html: question.description || "" }}
-					/>
-				</div>
-				{!question.answer ? (
-					<AnswerDrawer questionID={question.id} />
-				) : (
-					<div className="mt-6">
-						<CollapsibleContent>
-							<hr className="mt-3 mb-6" />
-							<div className="prose text-foreground prose-headings:text-foreground prose-headings:text-sm mb-6 text-sm">
-								<div
-									dangerouslySetInnerHTML={{
-										__html: question?.answer?.answer || "",
-									}}
-								/>
-							</div>
-						</CollapsibleContent>
+				<div className="text-muted-foreground prose max-w-[100ch]">
+					<div>
+						<MessageCircleQuestionMark className="size-4 mb-1" />
+						<div
+							dangerouslySetInnerHTML={{ __html: question.description || "" }}
+						/>
 					</div>
-				)}
-				{/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: content is sanitized on the backend */}
-			</Collapsible>
-		</div>
+					{/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: content is sanitized on the backend */}
+					{question.answers && (
+						<>
+							<hr className="my-6 not-prose" />
+							<MessageCircleReply className="size-4 mb-1" />
+							{question.answers.map((answer) => {
+								return (
+									<AnswerEntry
+										questionId={question.id}
+										answer={answer}
+										key={`answer-${answer.id}`}
+									></AnswerEntry>
+								);
+							})}
+						</>
+					)}
+				</div>
+				<DialogFooter className="sm:w-full pt-3">
+					<Button>Weitere Laden</Button>
+					<NewAnswerButton questionId={question.id}></NewAnswerButton>
+				</DialogFooter>
+			</DialogContent>
+		</Dialog>
 	);
 }

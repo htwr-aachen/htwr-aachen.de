@@ -3,7 +3,8 @@
 import { RealInstituteConfig } from "@/config/institutes";
 import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 import { findAssociatedSubjects } from "@/lib/subjects";
-
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { SheetClose } from "../ui/sheet";
 import { FacultiesNavHeading } from "./heading";
 import { FacultiesNavContent } from "./nav";
@@ -15,17 +16,17 @@ export function FacultiesDesktopNav() {
 	);
 
 	return (
-		<div
-			className={`bg-rwth-accent relative hidden overflow-hidden px-32 text-white lg:block`}
-		>
+		<div className="cms bg-accent text-accent-foreground relative hidden overflow-hidden px-32 lg:block">
 			<div className="relative hidden grid-rows-[auto_1fr] lg:grid">
-				<div className="border-b-4 border-white/10 py-6">
-					<SheetClose className="right-0 w-auto rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100">
-						Schliessen
+				<div className="border-b border-border py-6">
+					<SheetClose asChild>
+						<Button variant="default" size="sm" className="cursor-pointer">
+							Schliessen
+						</Button>
 					</SheetClose>
 				</div>
 				<div className="grid grid-cols-[1fr_2fr_1fr] py-4">
-					<div className="border-r-1 border-white/10 pr-4">
+					<div className="border-r border-border pr-4">
 						<FacultiesNavHeading>
 							{FacultiesNavContent.left.heading}
 						</FacultiesNavHeading>
@@ -61,21 +62,21 @@ export function FacultiesDesktopNav() {
 								);
 							})}
 						</ul>
-						<div className="col-span-2 grid grid-cols-2 border-t-4 border-white/10 pt-6 pb-2">
+						<div className="col-span-2 grid grid-cols-2 border-t-4 border-border pt-6 pb-2">
 							<FacultiesNavHeading>Institut suchen</FacultiesNavHeading>
 							<div className="grid items-center justify-center">
-								<input
-									className="rounded bg-white/10 px-2 py-1 text-sm"
+								<Input
+									className="bg-primary text-primary-foreground px-2 py-2 text-sm"
 									placeholder="Search"
 									onInput={(e) => {
 										searchInstitutes(e.currentTarget.value);
 									}}
-								></input>
+								></Input>
 							</div>
 						</div>
 					</div>
 
-					<div className="border-l-1 border-white/10 pl-4">
+					<div className="border-l border-border pl-4">
 						<FacultiesNavHeading>
 							{FacultiesNavContent.right.heading}
 						</FacultiesNavHeading>

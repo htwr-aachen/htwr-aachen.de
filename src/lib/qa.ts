@@ -1,8 +1,9 @@
 import { APIURL } from "@/config/app";
-import type { QAQuestion } from "@/models/qa";
+import type { QAAnswer, QAQuestion } from "@/models/qa";
 
 export const QAAPI = `${APIURL}/api/qa`;
 export const QA_QUESTIONS_LIMIT = 50;
+export const QA_MAX_OFFSET_ID = 2147483647;
 
 export interface QANewQuestionDTO {
 	title: string;
@@ -36,6 +37,15 @@ export interface QAAnswerDTO {
 export interface QAGetQuestionsQueryDTORes {
 	questions: QAQuestionDTO[];
 }
+
+export interface QAGetAnswersQueryDTORes {
+	answers: QAAnswerDTO[];
+}
+
+export type Offset = {
+	id: number;
+	priority: number;
+};
 
 /**
  * Create a new question
@@ -85,12 +95,11 @@ export async function PostAnswer(
  */
 export async function GetQuestions(
 	answered: boolean,
-	lastPriority: number,
-	lastId: number,
+	offset: Offset,
 	limit: number = QA_QUESTIONS_LIMIT,
 ): Promise<QAQuestion[]> {
 	const result = await fetch(
-		`${QAAPI}/questions?answered=${answered}&last-priority=${lastPriority}&last-id=${lastId}&limit=${limit}`,
+		`${QAAPI}/questions?answered=${answered}&last-priority=${offset.priority}&last-id=${offset.id}&limit=${limit}`,
 		{
 			method: "GET",
 		},
@@ -98,9 +107,7 @@ export async function GetQuestions(
 
 	if (!result.ok) {
 		//TODO: decode error message
-		throw new Error(
-			`could not retrieve unanswered questions: ${result.status}`,
-		);
+		throw new Error(`could not retrieve questions: ${result.status}`);
 	}
 	const jsonRes = (await result.json()) as QAGetQuestionsQueryDTORes;
 
@@ -115,18 +122,97 @@ export async function GetQuestions(
 		};
 
 		if (q.answer) {
-			question.answer = {
-				id: q.answer.id,
-				answer: q.answer.answer,
-				known_since: new Date(q.answer.known_since),
-				createdAt: new Date(q.answer.created_at),
-				priority: q.answer.priority,
-				deletion_requests_count: q.answer.deletion_requests_count || 0,
-			};
+			question.answers = [
+				{
+					id: q.answer.id,
+					answer: q.answer.answer,
+					known_since: new Date(q.answer.known_since),
+					createdAt: new Date(q.answer.created_at),
+					priority: q.answer.priority,
+					deletion_requests_count: q.answer.deletion_requests_count || 0,
+				},
+			];
 		}
 
 		return question;
 	});
 
 	return qaQuestions;
+}
+
+export async function GetAnswersOfQuestion(
+	questionId: number,
+	offset: Offset,
+	limit: number,
+): Promise<QAAnswer[]> {
+	const url = new URL(`${QAAPI}/questions/${questionId}/answers`);
+	url.searchParams.append("last-priority", offset.priority.toString());
+	url.searchParams.append("last-id", offset.id.toString());
+	url.searchParams.append("limit", limit.toString());
+
+	const result = await fetch(url, {
+		method: "GET",
+	});
+
+	if (!result.ok) {
+		throw new Error(
+			`could not retrieve answers for question ${questionId}: ${result.status}`,
+		);
+	}
+
+	const jsonRes = (await result.json()) as QAGetAnswersQueryDTORes;
+
+	const answers: QAAnswer[] = jsonRes?.answers?.map((a) => {
+		var answer: QAAnswer = {
+			id: a.id,
+			answer: a.answer,
+			known_since: new Date(a.known_since),
+			createdAt: new Date(a.created_at),
+			priority: a.priority,
+			deletion_requests_count: a.deletion_requests_count || 0,
+		};
+
+		return answer;
+	});
+
+	return answers;
+}
+
+export async function RequestQuestionDeletion(
+	id: number,
+	reason: string,
+): Promise<void> {
+	const url = new URL(`${QAAPI}/questions/${id}`);
+	url.searchParams.append("reason", reason);
+
+	const result = await fetch(url, {
+		method: "DELETE",
+	});
+
+	if (!result.ok) {
+		throw new Error(
+			`could not request deletion for question ${id}: ${result.status}`,
+		);
+	}
+
+	return;
+}
+export async function RequestAnswerDeletion(
+	id: number,
+	reason: string,
+): Promise<void> {
+	const url = new URL(`${QAAPI}/answers/${id}`);
+	url.searchParams.append("reason", reason);
+
+	const result = await fetch(url, {
+		method: "DELETE",
+	});
+
+	if (!result.ok) {
+		throw new Error(
+			`could not request deletion for answer ${id}: ${result.status}`,
+		);
+	}
+
+	return;
 }

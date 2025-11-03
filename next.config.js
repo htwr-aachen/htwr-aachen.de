@@ -29,6 +29,7 @@ const configuredBundleAnalyzer = withBundleAnalyzer({
 export default configuredBundleAnalyzer(
 	withMDX({
 		experimental: {},
+		reactCompiler: true,
 		transpilePackages: ["next-image-export-optimizer"],
 		output: "export",
 		images: {

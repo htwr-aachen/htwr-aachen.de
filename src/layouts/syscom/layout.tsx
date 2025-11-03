@@ -10,7 +10,7 @@ const SysComLayout = (props: {
 	nav: NavbarConfig;
 }) => {
 	return (
-		<div className="bg-rwth-branding light text-black">
+		<div className="theme-syscom bg-muted text-muted-foreground">
 			<SysComNav config={props.nav} />
 			<div className="py-24">{props.children}</div>
 		</div>

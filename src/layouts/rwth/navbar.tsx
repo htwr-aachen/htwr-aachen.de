@@ -23,7 +23,7 @@ export default function Navbar({
 	}, [pathname]);
 
 	return (
-		<nav className="bg-cms-bg text-cms-bg-text relative w-full border-b-1 border-black">
+		<nav className="bg-background text-foreground relative w-full border-b border-foreground">
 			<NavbarContent
 				institute={institute}
 				config={config}
@@ -38,9 +38,9 @@ export default function Navbar({
 							className="cursor-pointer"
 							onClick={() => setOpen(true)}
 						>
-							<Menu className="size-8 lg:size-12"></Menu>
+							<Menu className="size-6 lg:size-8"></Menu>
 						</button>
-						<Search className="size-8 cursor-not-allowed lg:size-10"></Search>
+						<Search className="size-6 cursor-not-allowed lg:size-8"></Search>
 					</div>
 					<div className="flex flex-row gap-x-4 justify-self-end">
 						{config.logo && (
@@ -52,7 +52,7 @@ export default function Navbar({
 										className="h-14 w-auto object-scale-down"
 									/>
 								</Link>
-								<span className="bg-cms-branding w-[2px]"></span>
+								<span className="bg-accent w-0.5"></span>
 							</>
 						)}
 						<Link href="/" className="no-b">

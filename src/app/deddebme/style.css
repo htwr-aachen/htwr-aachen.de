@@ -1,6 +1,6 @@
 .deddebme h1 {
 	color: var(
-		--rwth-accent,
+		--accent-foreground,
 		#00bcd4
 	); /* Assuming rwth-accent is a custom property */
 	font-size: 1.5rem;
@@ -8,20 +8,20 @@
 	font-weight: 700;
 	padding-left: 0.5rem;
 	border-bottom-width: 1px;
-	border-bottom-color: var(--rwth-accent, #00bcd4);
+	border-bottom-color: var(--accent, #00bcd4);
 	border-left-width: 5px;
 	border-left-color: #fb923c; /* orange-400 color */
 }
 
 .deddebme h2 {
-	color: var(--rwth-accent, #00bcd4);
+	color: var(--accent-foreground, #00bcd4);
 	font-size: 1.125rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
 }
 
 .deddebme h3 {
-	color: var(--rwth-accent, #00bcd4);
+	color: var(--accent-foreground, #00bcd4);
 	font-size: 1.125rem;
 	font-weight: 600;
 }

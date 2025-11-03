@@ -20,7 +20,7 @@ export default async function SummaryList(props: SummaryListProps) {
 					<li key={slug} className="my-2 grid lg:grid-cols-[auto_1fr]">
 						<div className="grid items-center">
 							<Link
-								className="grid items-center justify-center rounded bg-[#eee] px-2 py-1 hover:border-b-0 hover:bg-[#ddd]"
+								className="grid items-center justify-center rounded bg-muted px-2 py-1 hover:border-b-0 hover:bg-muted/50 no-b"
 								href={summary.url}
 							>
 								{summary.meta.title}
@@ -32,7 +32,7 @@ export default async function SummaryList(props: SummaryListProps) {
 								{summary.meta.tags?.map((tag) => {
 									return (
 										<li key={tag}>
-											<span className="bg-secondary text-secondary-foreground mr-1 rounded-md px-1 py-[2px] text-sm whitespace-nowrap opacity-50">
+											<span className="bg-secondary text-secondary-foreground mr-1 rounded-md px-1 py-0.5 text-sm whitespace-nowrap opacity-50">
 												{tag}
 											</span>
 										</li>

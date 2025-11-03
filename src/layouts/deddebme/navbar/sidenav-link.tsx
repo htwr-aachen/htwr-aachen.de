@@ -8,7 +8,7 @@ function variants(level: number): ClassValue {
 	switch (level) {
 		case 0:
 		case 1:
-			return "no-b block w-full border-l-4 border-rwth-warn bg-rwth-accent/95 px-3 py-1 text-white";
+			return "no-b block w-full border-l-4 border-warning bg-accent/95 px-3 py-1";
 		default:
 			return "";
 	}

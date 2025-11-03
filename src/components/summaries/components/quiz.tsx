@@ -55,7 +55,7 @@ export default function ZitateQuiz({
 	}, [reset, zitat]);
 
 	return (
-		<div className="relative my-4 grid grid-rows-3 rounded-2xl bg-linear-to-tl from-black to-blue-900 px-4 py-2 text-white lg:px-10 lg:pt-8">
+		<div className="relative my-4 grid grid-rows-3 rounded-2xl bg-linear-to-tl from-accent/75 to-accent px-4 py-2 text-accent-foreground lg:px-10 lg:pt-8">
 			<div className="flex items-center justify-center text-center">
 				<span className="mr-4 text-4xl">?</span>
 				<span className="mr-4 align-middle">
@@ -65,7 +65,6 @@ export default function ZitateQuiz({
 			</div>
 			<div className="text-center text-2xl">
 				&quot;{internalZitat?.text}&quot;
-				<hr className="mt-2 bg-none opacity-40"></hr>
 			</div>
 			<div className="grid w-full items-center">
 				{resolved === null ? (
@@ -80,7 +79,7 @@ export default function ZitateQuiz({
 						<button
 							type="button"
 							onClick={() => setResolved(false)}
-							className="rounded-lg bg-red-600 py-2 transition-colors hover:bg-red-700"
+							className="rounded-lg bg-red-500 py-2 transition-colors hover:bg-red-600"
 						>
 							Nein
 						</button>
@@ -95,18 +94,16 @@ export default function ZitateQuiz({
 						<button
 							type="button"
 							onClick={() => reset()}
-							className="absolute right-4 rounded-md bg-blue-900 px-2 py-1 transition-colors hover:bg-black lg:bottom-2"
+							className="absolute right-4 rounded-md bg-primary px-2 py-1 transition-colors hover:bg-accent/75 lg:bottom-2"
 						>
 							Nochmal :D
 						</button>
 					</>
 				)}
 			</div>
-			<span className="pointer-events-none my-2 opacity-25 lg:my-4">
+			<span className="my-2 opacity-50 lg:my-4">
 				*eventuell sind ein paar Zitate frei erfunden. Sendet mir mehr:{" "}
-				<a href="mailto:zitate@htwr-aachen.de" className="text-white">
-					zitate@htwr-aachen.de
-				</a>
+				<a href="mailto:zitate@htwr-aachen.de">zitate@htwr-aachen.de</a>
 			</span>
 		</div>
 	);

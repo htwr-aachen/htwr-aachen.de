@@ -8,7 +8,7 @@ type ESLayoutProps = LayoutProps & {
 
 export function Main(props: ESLayoutProps) {
 	return (
-		<div className="es bg-white text-black">
+		<div className="es bg-background text-foreground">
 			<ESNavbar navbar={props.navbar} />
 
 			<div className="container mx-auto max-w-[1000px] px-8 py-12 lg:px-0">

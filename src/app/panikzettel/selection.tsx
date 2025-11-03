@@ -32,9 +32,9 @@ export default function PanikzettelSelection({
 	title: string;
 }) {
 	return (
-		<div className="w-full rounded-lg border border-black/30">
+		<div className="w-full rounded-lg border border-border dark:border-background/50">
 			<h3 className="p-4 text-lg font-bold">{title}</h3>
-			<hr className="border-black/30" />
+			<hr className="border-border/50 dark:border-background/50" />
 			<ul className="my-6 ml-6 list-disc px-4 pb-4 [&>li]:mt-2">
 				{selection
 					.sort((x, y) => x.name.localeCompare(y.name))

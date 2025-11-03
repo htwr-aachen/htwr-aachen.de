@@ -155,7 +155,7 @@ export function NavbarContent({
 						duration: 0.25,
 						ease: "easeOut",
 					}}
-					className="bg-cms-bg-text text-cms-bg dark top-16 z-50 w-screen overflow-hidden py-3"
+					className="bg-foreground text-background dark top-16 z-50 w-screen overflow-hidden py-3"
 				>
 					<div className="grid grid-cols-2 px-12 py-4">
 						<button
@@ -165,12 +165,12 @@ export function NavbarContent({
 								setOpen(false);
 							}}
 						>
-							<X className="size-12"></X>
+							<X className="size-6 lg:size-8"></X>
 						</button>
 						<Link
 							href={InstituteConfig[institute].href}
 							scroll={false}
-							className="cms-interactive-bottom no-b after:bg-cms-bg justify-self-end text-xl text-inherit"
+							className="cms-interactive-bottom no-b after:bg-background justify-self-end text-xl text-inherit"
 						>
 							{InstituteConfig[institute].fullName}
 						</Link>

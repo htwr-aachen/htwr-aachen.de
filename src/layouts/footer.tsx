@@ -30,11 +30,11 @@ export default function Footer() {
 	const { setShow } = useContext(BannerNotifyContext);
 	const institute = useActiveInstitute();
 	return (
-		<footer className="bg-cms-bg text-cms-bg-text cms px-12 pb-12">
-			<div className="border-b-1 border-black py-20">
+		<footer className="bg-background text-foreground cms px-12 pb-12">
+			<div className="border-b border-black py-20">
 				<InstituteSwitches institute={institute} />
 			</div>
-			<div className="grid grid-cols-1 gap-x-3 gap-y-12 border-t-1 py-12 md:grid-cols-2 xl:grid-cols-4">
+			<div className="grid grid-cols-1 gap-x-3 gap-y-12 border-t py-12 md:grid-cols-2 xl:grid-cols-4">
 				<div>
 					<FooterHeading>HTWR</FooterHeading>
 					<FooterList>

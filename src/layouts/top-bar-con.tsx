@@ -11,7 +11,7 @@ export function TopBarCond({ children }: { children: ReactNode }) {
 		<div
 			className={cn(
 				show ? "h-32" : "h-16",
-				"bg-cms-accent-light text-cms-accent-light-text cms grid w-full grid-cols-2 flex-row items-center justify-center gap-x-6 px-6 text-xl md:h-16 md:grid-cols-[auto_auto_1fr]",
+				"cms bg-secondary text-secondary-foreground grid w-full grid-cols-2 flex-row items-center justify-center gap-x-6 px-6 text-xl md:h-16 md:grid-cols-[auto_auto_1fr]",
 			)}
 		>
 			{children}

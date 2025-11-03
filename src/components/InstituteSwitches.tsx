@@ -27,7 +27,7 @@ const InstituteSwitch: FC<InstituteSwitchProps> = ({ url, name, right }) => {
 		>
 			<Link
 				href={url || "/"}
-				className="bg-cms-bg-text text-cms-bg pointer-events-auto block rounded-md px-3 py-2 transition-transform hover:scale-105 hover:border-b-0"
+				className="pointer-events-auto block rounded-md px-3 py-2 transition-transform hover:scale-105 hover:border-b-0"
 			>
 				{!right ? "<" : ""} Zur {name} Website {right ? ">" : ""}
 			</Link>
@@ -68,7 +68,7 @@ const InstituteSwitches: FC<InstituteSwitchesProps> = ({
 	}, [institute, linksProp]);
 
 	return (
-		<div className="text-cms-bg pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:sticky lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
+		<div className="pointer-events-none left-0 grid w-full grid-cols-1 grid-rows-2 lg:sticky lg:bottom-10 lg:grid-cols-2 lg:grid-rows-1 lg:px-4">
 			{processedLinks?.[0]?.url && (
 				<InstituteSwitch {...processedLinks[0]} right={false} />
 			)}

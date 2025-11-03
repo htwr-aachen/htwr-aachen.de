@@ -2,7 +2,7 @@ export type QAQuestion = {
 	id: number;
 	title: string;
 	description?: string;
-	answer?: QAAnswer;
+	answers?: QAAnswer[];
 	createdAt: Date;
 	priority: number;
 	deletion_requests_count: number;

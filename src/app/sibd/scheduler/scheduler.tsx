@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { HeadLine } from "@/components/rwth/headline";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { parseSchedule, rcAcaStCheck, visualizeSchedule } from "./scheduling";
 
 export default function SchedulerPage() {
@@ -43,6 +45,7 @@ export default function SchedulerPage() {
 				{/** biome-ignore lint/performance/noImgElement: gif */}
 				<img
 					src="https://media.tenor.com/P6GVbSgbRSwAAAAC/winking-wink.gif"
+					className="w-12 inline"
 					alt="zwinckender Smiley"
 				></img>
 			</span>
@@ -53,28 +56,28 @@ export default function SchedulerPage() {
 					w2(x)r1(z)w3(y)w2(y)r2(z)c2r3(y)r1(x)r3(z)r3(x)w1(x)c1c3 und man
 					müsste angeben ob der Scheduler RC,ACA, ST ist? Dann wäre die Lösung:
 				</p>
-				<form className="mt-10 flex w-full" onSubmit={handleSubmit}>
-					<input
+				<form className="mt-10 flex w-full gap-3" onSubmit={handleSubmit}>
+					<Input
 						name="scheduler"
 						type="text"
-						className="w-full rounded bg-gray-300 p-2 text-black placeholder:text-black/50"
 						placeholder="w2(x) r1(z) w3(y) w2(y) r2(z) c2 r3(y) r1(x) r3(z) r3(x) w1(x) c1 c3"
 						onChange={(e) => {
 							setScheduler(e.target.value || "");
 						}}
 					/>
-					<button
+					<Button
+						variant="destructive"
 						type="submit"
-						className="bg-rwth-warn/75 hover:bg-rwth-warn ml-2 rounded px-10"
+						className="cursor-pointer"
 					>
 						Lösen
-					</button>
+					</Button>
 				</form>
 
 				{result && (
 					<>
 						<h2 className="mt-8 text-2xl underline">Lösung:</h2>
-						<p className="bg-rwth-accent mt-8 rounded px-4 py-3 font-mono whitespace-pre-wrap text-white">
+						<p className="bg-primary text-primary-foreground mt-8 rounded px-4 py-3 font-mono whitespace-pre-wrap">
 							{result}
 						</p>
 					</>

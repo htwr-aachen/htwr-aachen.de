@@ -24,21 +24,18 @@ export default async function Page() {
 						<p>
 							Dies ist weiterhin ein Fork des nun ungepflegten Repositories von{" "}
 							<a
-								className="no-b text-foreground inline underline"
+								className="no-b inline underline"
 								href="https://panikzettel.philworld.de"
 							>
 								philworld.de
 							</a>{" "}
 							Das neue Repository befindet sich{" "}
-							<a
-								className="no-b text-foreground underline"
-								href={PANIKZETTEL_REPO_URL}
-							>
+							<a className="no-b underline" href={PANIKZETTEL_REPO_URL}>
 								hier.
 							</a>
 							<br /> Bei Fragen, Feedback und Beschwerden bitte an{" "}
 							<a
-								className="no-b text-foreground underline"
+								className="no-b underline"
 								href={`mailto:${PANIKZETTEL_EMAIL}`}
 							>
 								{PANIKZETTEL_EMAIL}
@@ -51,7 +48,7 @@ export default async function Page() {
 				<svg
 					role="img"
 					aria-label="Document with Questionmark"
-					className="h-[150px] w-screen -translate-y-7 fill-white"
+					className="h-[150px] w-screen fill-muted dark:fill-foreground"
 					preserveAspectRatio="none"
 					viewBox="0 0 1920 350"
 				>

@@ -8,6 +8,7 @@ import {
 	useEffect,
 	useState,
 } from "react";
+import { Button } from "./ui/button";
 
 /** A react context to control whether to show the notify banner or not */
 export const BannerNotifyContext = createContext({
@@ -33,13 +34,13 @@ export function BannerContent({ children }: { children: ReactNode }) {
 	return (
 		<div className="col-span-2 grid h-16 w-full grid-cols-[1fr_auto] items-center justify-center">
 			<div className="text-lg font-medium">{children}</div>
-			<button
+			<Button
 				type="button"
-				className="bg-cms-accent h-auto p-0"
+				className="bg-primary text-primary-foreground h-auto p-0"
 				onClick={() => setShow(false)}
 			>
 				Nerv nicht
-			</button>
+			</Button>
 		</div>
 	);
 }
@@ -48,11 +49,12 @@ export function BannerClose({
 	onClick,
 	children,
 	...props
-}: ComponentProps<"button">) {
+}: ComponentProps<typeof Button>) {
 	const { setShow } = useContext(BannerNotifyContext);
 
 	return (
-		<button
+		<Button
+			type="button"
 			onClick={(e) => {
 				setShow(false);
 				if (onClick) onClick(e);
@@ -60,7 +62,7 @@ export function BannerClose({
 			{...props}
 		>
 			{children}
-		</button>
+		</Button>
 	);
 }
 

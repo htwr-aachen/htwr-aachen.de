@@ -3,7 +3,7 @@
 import { RealInstituteConfig } from "@/config/institutes";
 import { useInstituteSearch } from "@/hooks/useInstituteSearch";
 import { findAssociatedSubjects } from "@/lib/subjects";
-
+import { Button } from "../ui/button";
 import { SheetClose } from "../ui/sheet";
 import { FacultiesNavHeading } from "./heading";
 import { FacultiesNavContent } from "./nav";
@@ -14,16 +14,18 @@ export function FacultiesMobileNav() {
 		Object.values(RealInstituteConfig),
 	);
 	return (
-		<div className="bg-cms-branding text-cms-branding-text p-0 lg:hidden">
+		<div className="cms bg-accent text-accent-foreground p-0 lg:hidden">
 			<div className="grid grid-cols-[auto_1fr] items-center">
-				<div className="border-y-1 border-dotted border-white/10 p-3">
-					<SheetClose className="rounded bg-white/10 px-2 py-1 text-sm hover:bg-black/100">
-						Zurück
+				<div className="p-3">
+					<SheetClose asChild>
+						<Button variant="default" size="sm" className="cursor-pointer">
+							Schliessen
+						</Button>
 					</SheetClose>
 				</div>
 				<div className="w-full px-3 py-2">
 					<input
-						className="w-full rounded bg-white/10 px-2 py-1 text-sm"
+						className="w-full rounded-md bg-primary text-foreground px-2 py-2 text-sm"
 						placeholder="Search"
 						onInput={(e) => {
 							searchInstitutes(e.currentTarget.value);
@@ -31,7 +33,7 @@ export function FacultiesMobileNav() {
 					></input>
 				</div>
 			</div>
-			<div className="border-r-1 border-white/10">
+			<div className="border-r border-border">
 				<FacultiesNavHeading>
 					{FacultiesNavContent.left.heading}
 				</FacultiesNavHeading>
@@ -49,7 +51,7 @@ export function FacultiesMobileNav() {
 					))}
 				</ul>
 			</div>
-			<div className="border-l-1 border-white/10">
+			<div className="border-l border-border">
 				<FacultiesNavHeading>
 					{FacultiesNavContent.right.heading}
 				</FacultiesNavHeading>

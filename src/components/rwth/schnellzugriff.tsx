@@ -25,7 +25,7 @@ const SchnellzugriffLink: FC<SchnellzugrifflinkProps> = ({
 	return (
 		<li
 			className={
-				"border-t-1 border-dotted border-[#555] font-normal text-black last:border-b-1 hover:bg-[#e5e1be]"
+				"border-t border-dotted border-[#555] font-normal text-black last:border-b hover:bg-[#e5e1be]"
 			}
 		>
 			{sub ? (
@@ -46,10 +46,8 @@ type SchnellzugriffProps = {
 
 const Schnellzugriff: FC<SchnellzugriffProps> = ({ children, title }) => {
 	return (
-		<div className="bg-rwth-warn2 min-h-[410px]">
-			<h2 className="bg-rwth-warn py-4 text-center text-xl font-semibold">
-				{title}
-			</h2>
+		<div className="bg-destructive text-destructive-foreground min-h-[410px]">
+			<h2 className="py-4 text-center text-xl font-semibold">{title}</h2>
 			<ul className="mx-0 my-3 list-none! pr-3 pl-4">{children}</ul>
 		</div>
 	);

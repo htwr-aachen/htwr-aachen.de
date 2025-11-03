@@ -9,24 +9,24 @@ export function SysComNav(props: { config: NavbarConfig }) {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<div className="bg-rwth-bg relative flex h-[75px] items-center justify-center lg:h-[100px]">
+		<div className="bg-background text-foreground relative flex h-[75px] items-center justify-center lg:h-[100px] text-[#34495E]">
 			<div className="grid w-full grid-cols-[auto_1fr_auto] items-center lg:max-w-7xl lg:grid-cols-[auto_1fr_auto_auto] lg:content-between">
 				<button
 					type="button"
 					className="hover mr-6 ml-4 cursor-pointer rounded px-2 py-1 lg:hidden"
 					onClick={() => setOpen((x) => !x)}
 				>
-					<Menu className="size-4 text-black" />
+					<Menu className="size-4" />
 				</button>
-				<div className="flex flex-row items-center text-[#34495E] lg:pl-4">
-					<Link href="/syscom">
+				<div className="flex flex-row items-center   lg:pl-4">
+					<Link href="/syscom" className="no-b">
 						<svg
 							width="100%"
 							height="100%"
 							viewBox="0 0 128 128"
 							version="1.1"
 							xmlns="http://www.w3.org/2000/svg"
-							className="fill-rwth-accent font-[Arial, sans-serif] w-12 text-5xl font-bold"
+							className="fill-accent font-[Arial, sans-serif] w-12 text-5xl font-bold"
 						>
 							<title>Syscom Logo</title>
 							<g>
@@ -50,8 +50,8 @@ export function SysComNav(props: { config: NavbarConfig }) {
 							</g>
 						</svg>
 					</Link>
-					<div className="bg-rwth-accent mx-3 h-12 w-[1px]"></div>
-					<Link href="/">
+					<div className="bg-primary mx-3 h-12 w-px"></div>
+					<Link href="/" className="no-b">
 						{/** biome-ignore lint/performance/noImgElement: this is a svg */}
 						<img
 							src="/assets/rwth/banner.svg"
@@ -60,15 +60,15 @@ export function SysComNav(props: { config: NavbarConfig }) {
 						/>
 					</Link>
 				</div>
-				<div className="hidden w-full justify-end text-[#34495E] lg:flex">
+				<div className="hidden w-full justify-end lg:flex">
 					<ul className="inline-flex h-12 flex-row items-center justify-items-end">
 						{props.config.linkElements.map((link) => {
 							return (
 								<li
 									key={link.name}
-									className="hover:bg-rwth-accent mx-2 rounded px-2 py-1 text-inherit hover:text-white"
+									className="hover:bg-accent hover:text-accent-foreground mx-2 rounded px-2 py-1"
 								>
-									<Link {...link} className="text-inherit no-underline">
+									<Link {...link} className="no-b">
 										{link.children}
 									</Link>
 								</li>
@@ -77,17 +77,17 @@ export function SysComNav(props: { config: NavbarConfig }) {
 					</ul>
 				</div>
 				<div className="flex flex-row items-center">
-					<span className="hover:bg-rwth-accent mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
+					<span className="hover:bg-accent hover:text-accent-foreground mx-2 flex h-8 items-center rounded px-2 py-1">
 						<Search className="size-4" />
 					</span>
-					<span className="hover:bg-rwth-accent text-[] mx-2 flex h-8 items-center rounded px-2 py-1 text-[#34495E] hover:text-white">
+					<span className="hover:bg-accent hover:text-accent-foreground mx-2 flex h-8 items-center rounded px-2 py-1">
 						<Moon className="size-4" />
 					</span>
 				</div>
 			</div>
 			<div
 				className={clsx(
-					"absolute top-[75px] left-0 z-50 w-full justify-end bg-white text-[#34495E]",
+					"absolute top-[75px] left-0 z-50 w-full justify-end bg-background text-[#34495E]",
 					open ? "block" : "hidden",
 				)}
 			>
@@ -99,10 +99,7 @@ export function SysComNav(props: { config: NavbarConfig }) {
 									key={link.name}
 									className="w-full rounded px-4 py-3 text-inherit"
 								>
-									<Link
-										{...link}
-										className="block w-full text-inherit no-underline"
-									>
+									<Link {...link} className="block w-full text-inherit no-b">
 										{link.children}
 									</Link>
 								</li>

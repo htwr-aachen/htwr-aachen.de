@@ -58,7 +58,7 @@ export function GalleryLabel({
 	externalUrls,
 }: GalleryLabelProps) {
 	return (
-		<div className="bg-cms-accent-light h-full w-full items-center justify-center">
+		<div className="bg-secondary text-secondary-foreground h-full w-full items-center justify-center">
 			<div className="px-12 py-6">
 				<h3 className="mb-6 text-4xl font-light">{headline}</h3>
 				<p className="mb-12 text-left text-xl font-normal">{children}</p>
@@ -124,8 +124,8 @@ export function Gallery({ children }: { children: ReactNode[] }) {
 						return <CarouselItem key={x + i.toString()}>{x}</CarouselItem>;
 					})}
 				</CarouselContent>
-				<CarouselPrevious className="bg-cms-bg text-cms-bg-text absolute left-12 z-20 size-12" />
-				<CarouselNext className="bg-cms-bg text-cms-bg-text absolute right-12 z-20 size-12" />
+				<CarouselPrevious className="bg-background text-foreground absolute left-12 z-20 size-12" />
+				<CarouselNext className="bg-background text-foreground absolute right-12 z-20 size-12" />
 
 				<div className="absolute right-12 bottom-6">
 					{[...Array(count)].map((link, index) => (
@@ -133,8 +133,8 @@ export function Gallery({ children }: { children: ReactNode[] }) {
 							type="button"
 							key={link + index.toString()}
 							className={cn(
-								index + 1 === current ? "bg-cms-bg-text" : "bg-cms-accent",
-								"mx-3 h-[2px] w-6",
+								index + 1 === current ? "bg-foreground" : "bg-accent",
+								"mx-3 h-0.5 w-6",
 							)}
 						></button>
 					))}

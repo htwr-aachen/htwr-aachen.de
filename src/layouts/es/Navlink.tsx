@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import type { LinkElement } from "@/models/layout";
 
 type NavlinkProps = {
@@ -57,27 +58,37 @@ const Navlink: FC<NavlinkProps> = ({
 	});
 
 	useEffect(() => {
+		if (display.path) {
+			console.log(
+				"PATHNAME: ",
+				pathname,
+				" LINK ",
+				display,
+				" active ",
+				pathname?.startsWith(display.path),
+			);
+			setIsActive(pathname?.startsWith(display.path) || false);
+		}
 		if (links) {
 			setIsDropdown(links.length > 0);
-
-			if (links.length === 0) {
-				setIsActive(pathname?.startsWith(display.href.toString()) || false);
-			}
 		}
-	}, [display.href, links, pathname]);
+	}, [display, links, pathname]);
 
 	useEffect(() => {
 		setDropdownActive(isDropped);
 	}, [isDropped]);
 
 	return (
-		<li className="p-[.5rem 1rem] my-2 mr-4 cursor-pointer text-right text-base text-black lg:my-0 lg:text-center">
+		<li className="p-[.5rem 1rem] my-2 mr-4 cursor-pointer text-right text-base text-foreground lg:my-0 lg:text-center">
 			{!isDropdown ? (
 				<Link
 					href={display.href || "/es"}
-					className={`transition-colors hover:text-blue-400 ${
-						isActive ? "font-bold text-blue-500" : "font-normal text-black"
-					}`}
+					className={cn(
+						"transition-colors hover:text-accent",
+						isActive
+							? "font-bold text-accent/50"
+							: "font-normal text-foreground",
+					)}
 				>
 					{display.name}
 				</Link>
@@ -85,9 +96,12 @@ const Navlink: FC<NavlinkProps> = ({
 				<div ref={ref}>
 					<button
 						type="button"
-						className={
-							"after-icon cursor-pointer transition-colors hover:text-blue-400"
-						}
+						className={cn(
+							"after-icon cursor-pointer transition-colors hover:text-accent",
+							isActive
+								? "font-bold text-accent/50"
+								: "font-normal text-foreground",
+						)}
 						onClick={() => {
 							setIsActive((x) => !x);
 							if (dropdownCallback) dropdownCallback(dropdownNumber || 0);
@@ -99,7 +113,7 @@ const Navlink: FC<NavlinkProps> = ({
 					<div
 						className={
 							dropdownActive
-								? "visible absolute right-2 rounded-md rounded-tl-none border-1 border-black/50 bg-white lg:right-auto"
+								? "visible absolute right-2 rounded-md rounded-tl-none border border-border bg-background lg:right-auto"
 								: "visible hidden"
 						}
 					>
@@ -108,7 +122,12 @@ const Navlink: FC<NavlinkProps> = ({
 								<li key={link + index.toString()} className="py-1 no-underline">
 									<Link
 										href={link.href}
-										className="px-10 text-black no-underline transition-colors hover:text-blue-400"
+										className={cn(
+											"px-10 text-foreground no-underline transition-colors hover:text-accent",
+											link.path && pathname.startsWith(link.path)
+												? "text-accent/50"
+												: "",
+										)}
 									>
 										{link.name}
 									</Link>

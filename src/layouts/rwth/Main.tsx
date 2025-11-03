@@ -27,10 +27,10 @@ const Main = ({
 	children,
 }: MainProps) => {
 	return (
-		<div className={`${institute} cms relative bg-[#e5e5e5] text-black`}>
+		<div className={`${institute} cms relative bg-background text-foreground`}>
 			<div className="w-full lg:mx-auto">
 				<Navbar config={navbar || DefaultNavbar} institute={institute} />
-				<div className={cn("bg-rwth-bg m-0 w-full", addPadding && "py-12")}>
+				<div className={cn(" m-0 w-full", addPadding && "py-12")}>
 					<div className={cn("mx-auto w-full", !fullWidth && "max-w-[100ch]")}>
 						{children}
 					</div>

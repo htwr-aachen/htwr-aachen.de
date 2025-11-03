@@ -14,7 +14,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
 		<div>
 			<nav className="mx-auto mb-4 grid max-w-6xl grid-cols-2 items-center justify-items-center">
 				<div className="flex flex-row items-center pt-4 text-center">
-					<span className="text-rwth-accen mr-4 content-center text-center font-semibold">
+					<span className="mr-4 content-center text-center font-semibold">
 						Professor Dr.-Ing. Stefan Kowalewski
 					</span>
 				</div>
@@ -29,7 +29,7 @@ export default function DeddebmeNavbar(props: DeddebmeNavbarProps) {
 						/>
 					</Link>
 					<div
-						className={`h-[${props.config?.logo?.height}px] bg-rwth-accent mx-4 w-1`}
+						className={`h-[${props.config?.logo?.height}px] bg-accent mx-4 w-1`}
 					/>
 					<Link href="/" className="no-b">
 						<img

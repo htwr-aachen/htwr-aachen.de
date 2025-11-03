@@ -86,8 +86,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
 					<BannerNotifyProvider>
 						<ThemeProvider
 							attribute="class"
-							defaultTheme="dark"
-							enableSystem={false}
+							enableSystem={true}
 							disableTransitionOnChange
 						>
 							<GeneralLayout>{children}</GeneralLayout>

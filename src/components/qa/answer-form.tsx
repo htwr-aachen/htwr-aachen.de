@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { subMonths } from "date-fns/subMonths";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -82,12 +82,47 @@ export function AnswerDrawer({ questionID }: { questionID: number }) {
 	);
 }
 
+export function NewAnswerButton({ questionId }: { questionId: number }) {
+	const [open, setOpen] = useState(false);
+	const formRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (open && formRef.current) {
+			// Find the first focusable element in the form
+			const focusableElement = formRef.current.querySelector<HTMLElement>(
+				'input, textarea, select, button, [tabindex]:not([tabindex="-1"])',
+			);
+			focusableElement?.focus();
+		}
+	}, [open]);
+	return (
+		<div className="w-full flex flex-col-reverse items-center sm:flex-row">
+			{!open && (
+				<Button className="justify-self-end" onClick={() => setOpen(true)}>
+					Antwort Hinzufügen
+				</Button>
+			)}
+			{open && (
+				<div className="w-3/4 mx-auto" ref={formRef}>
+					<AnswerForm
+						onSuccessfulSubmit={() => setOpen(false)}
+						onCancel={() => setOpen(false)}
+						questionID={questionId}
+					/>
+				</div>
+			)}
+		</div>
+	);
+}
+
 function AnswerForm({
 	questionID,
 	onSuccessfulSubmit,
+	onCancel,
 }: {
 	questionID: number;
 	onSuccessfulSubmit?: (answer: QAAnswerDTO) => void;
+	onCancel?: () => void;
 }) {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -98,8 +133,6 @@ function AnswerForm({
 	});
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		toast.message("Ich versuche es mal");
-
 		const knownSince = subMonths(new Date(), values.monthCount);
 		const answer: QANewAnswerDTO = {
 			answer: values.answer,
@@ -114,7 +147,7 @@ function AnswerForm({
 					return `Antwort ${a.id} wurde erfolgreich erstellt und vorgeschlagen`;
 				},
 				error: (err) => {
-					return `Antwort konnte nicht erstellt werden ${err?.msg || ""}`;
+					return `Antwort konnte nicht erstellt werden ${err?.msg}`;
 				},
 			});
 			if (onSuccessfulSubmit) {
@@ -173,9 +206,21 @@ function AnswerForm({
 					)}
 				/>
 
-				<Button id="submit" type="submit" className="w-full cursor-pointer">
-					Antwort abgeben
-				</Button>
+				<div className="grid grid-cols-2 gap-6">
+					<Button
+						variant="outline"
+						type="reset"
+						className="w-full cursor-pointer"
+						onClick={() => {
+							if (onCancel) onCancel();
+						}}
+					>
+						Cancel
+					</Button>
+					<Button id="submit" type="submit" className="w-full cursor-pointer">
+						Antwort abgeben
+					</Button>
+				</div>
 			</form>
 		</Form>
 	);

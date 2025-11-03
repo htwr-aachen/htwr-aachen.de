@@ -26,7 +26,7 @@
 		"allowJs": false,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"noEmit": true,
 		"isolatedModules": true,
 		"incremental": true,
@@ -52,7 +52,8 @@
 		"**/*.tsx",
 		"./jest.setup.ts",
 		".next/types/**/*.ts",
-		"src/lib/markdown.ts"
+		"src/lib/markdown.ts",
+		".next/dev/types/**/*.ts"
 	],
 	"mdx": {
 		"plugins": ["remark-math", "remark-gfm", "remark-hint"]

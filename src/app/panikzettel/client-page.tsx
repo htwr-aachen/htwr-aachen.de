@@ -50,7 +50,7 @@ export default function Page() {
 								/>
 							);
 						})}
-						<hr className="border border-dashed border-black/50 bg-none md:col-span-2" />
+						<hr className="border border-dashed  border-border dark:border-background/50 bg-none md:col-span-2" />
 						<PanikzettelSelection
 							title="Wahlpflichfächer"
 							selection={panikzettel.filter(
@@ -63,7 +63,7 @@ export default function Page() {
 								(x) => x.type === APPLICATION_AREA_SUBJECT,
 							)}
 						/>
-						<hr className="border border-dashed border-black/50 bg-none md:col-span-2" />
+						<hr className="border border-dashed border-border dark:border-background/50 bg-none md:col-span-2" />
 						<div className="col-span-2">
 							<PanikzettelSelection
 								title="Sonstiges"

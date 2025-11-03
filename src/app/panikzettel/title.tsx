@@ -28,7 +28,7 @@ export default function PanikzettelTitleAnim() {
 		},
 	};
 	return (
-		<motion.h1 className="drop-shadow-glow z-10 text-center text-6xl font-bold md:my-24 md:mt-16 md:text-9xl md:leading-[10rem]">
+		<motion.h1 className="drop-shadow-glow z-10 text-center text-6xl font-bold md:my-24 md:mt-16 md:text-9xl md:leading-40">
 			<motion.span initial="initial" animate="flicker" variants={textVariants}>
 				Panik?
 			</motion.span>

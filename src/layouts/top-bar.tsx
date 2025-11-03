@@ -18,7 +18,10 @@ export function TopBar() {
 				<div className="col-span-2 grid w-full grid-cols-[auto_1fr_auto] items-center gap-x-3 overflow-hidden overflow-ellipsis md:col-span-1 md:grid-cols-[1fr_auto_auto] md:justify-self-end">
 					<div></div>
 					<BlogBannerContent />
-					<BannerClose className="bg-cms-accent/50 text-cms-accent-text h-fit max-h-16 w-32 cursor-pointer rounded px-3 py-2">
+					<BannerClose
+						variant="outline"
+						className="cursor-pointer dark:hover:bg-accent"
+					>
 						Nerv nicht
 					</BannerClose>
 				</div>
