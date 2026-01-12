@@ -21,8 +21,10 @@ export async function getPanikzettelMetadata(): Promise<Panikzettel[]> {
 }
 
 export async function hasPanikzettel(subject: Subjects): Promise<boolean> {
-	return (
-		(await getPanikzettelMetadata()).find((x) => x.shortname === subject) !==
-		undefined
-	);
+	const meta = await getPanikzettelMetadata();
+	if (!meta || !meta.length) {
+		return false;
+	}
+
+	return meta.find((x) => x.shortname === subject) !== undefined;
 }

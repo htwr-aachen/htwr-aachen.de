@@ -5,11 +5,11 @@ import type {
 	HTMLAttributes,
 	ReactNode,
 } from "react";
-
 import type { Subjects } from "@/config/subjects";
 import { hasDocument } from "@/lib/documents";
 import { getPanikzettelMetadata } from "@/lib/panikzettel";
 import { cn } from "@/lib/utils";
+import type { Panikzettel } from "@/models/panikzettel";
 
 /**
  * A Link UI component to show a link as a card with a title and desc.
@@ -65,9 +65,14 @@ export default async function BasicSubjectInfo({
 	subject: Subjects;
 	children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>) {
-	const panikzettel = (await getPanikzettelMetadata()).find(
-		(x) => x.shortname === subject || x.url.endsWith(`${subject}.pdf`),
-	);
+	let panikzettel: Panikzettel | null = null;
+	const meta = await getPanikzettelMetadata();
+	if (meta?.length) {
+		panikzettel =
+			meta.filter(
+				(x) => x.shortname === subject || x.url.endsWith(`${subject}.pdf`),
+			)[0] || null;
+	}
 
 	const [hasMerge, mergeUrl, mergeMeta] = await hasDocument(
 		subject,
@@ -92,7 +97,7 @@ export default async function BasicSubjectInfo({
 					{format(mergeMeta?.mtime || new Date(), "dd.MM.yyyy")}
 				</LinkCard>
 			)}
-			{panikzettel !== undefined && (
+			{panikzettel !== null && (
 				<LinkCard title="Panikzettel" href={panikzettel.url}>
 					Schon Panik?
 				</LinkCard>
