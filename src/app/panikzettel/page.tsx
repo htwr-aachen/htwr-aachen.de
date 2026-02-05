@@ -69,14 +69,6 @@ export default async function Page() {
 							</p>
 						</AlertDescription>
 					</Alert>
-					<h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold">
-						Updates & Neuigkeiten
-					</h2>
-					<ul className="my-6 ml-6 list-disc [&>li]:mt-2">
-						<li>Panikzettel sind back</li>
-						<li>Panikzettel kurzfristig nicht verfügbar. Ab ~Freitag wieder</li>
-						<li>Neue UI</li>
-					</ul>
 				</div>
 			</div>
 		</PanikzettelProvider>
