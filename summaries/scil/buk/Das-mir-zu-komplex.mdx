@@ -56,23 +56,21 @@ Der Name ist Programm... Aber nehmen wir mal wieder VERTEX_COVER:
 
 Wir brauchen irgendein NP-schweres Problem, welches von welchem wir dann polynomiell reduzieren (Wir reduzieren immer bei NP-schwer)
 
-Hier nehmen wir einfach mal das CLIQUE Problem... Wir versuchen also CLIQUE $\le_p$ VERTEX_COVER zu zeigen.
+Hier nehmen wir einfach mal das CLIQUE Problem, also ob ein vollständig verbundener Teilgraph bestimmter Größe existiert. Wir versuchen also CLIQUE $\le_p$ VERTEX_COVER zu zeigen.
 
 <Spoiler>
 
-x> Ich gucke hier morgen nochmal drüber, aber ich glaube das ist so nicht ganz richtig aber gibt trotzdem schonmal ein Einblick.
-
 Wir haben eine Instanz von Clique heißt eine Graphen $G=(V,E)$ und eine Zahl $k \in \mathbb{N}$.
 
-Nun nehmen wir unsere Funktion $f$, $f((G,k))= (G', k')$ mit $G'=(V, ((V \times V) \setminus E \{ (v,v) \mid v \in V \})$ und $k'= |V| - k$.
+Nun nehmen wir unsere Funktion $f$, $f((G,k))= (G', k')$ mit $G'=(V, \{(v, w) \mid v, w \in V; v\neq w; (v, w) \not\in E\})$ und $k'= |V| - k$.
 
 Was passiert hier?... Wir nehmen uns den Graphen $G$ und bauen uns daraus einen neuen Graphen mit den Gleichen Knoten, der alle Kanten invertiert heißt überall wo vorher eine Kante war ist jetzt keine und überall wo keine war ist jetzt eine.
 
-Warum hilft uns dass?... Remember wir müssen unsere korrekte CLIQUE Instanz auf eine korrekte VERTEX COVER Instanz schicken... Wir finden auf unserem neuen Graphen jetzt eine VERTEX Cover, also ein Knotenmenge, wo alle Kanten mindestens ein Ende mit einem Knoten aus $D$ verbunden ist, weil
+Warum hilft uns dass?... Remember wir müssen unsere korrekte CLIQUE Instanz auf eine korrekte VERTEX COVER Instanz schicken... Wir finden auf unserem Komplementgraphen $G'$ jetzt eine VERTEX Cover, also ein Knotenmenge, wo alle Kanten mindestens ein Ende mit einem Knoten aus $D$ verbunden ist. Das heißt alle Knoten, die nicht in $D$ sind, haben im neuen Graphen keine Kanten untereinander, aber dann natürlich im ursprünglichen. $V\D$ ist in $G$ also eine Clique mit mindestens $|V|-k$ Knoten.
 
 Auch hier ist wieder wichtig zu sagen, dass das offensichtlich polynomiell ist.
 
-Und die Korrektheit zu zeigen:
+Und die Korrektheit zu zeigen (maybe in der Klausur noch mehr begründen):
 
 $(G, k) \in CLIQUE \iff \exists D \subseteq V: |D| \ge k: \forall v,w \in D (v \neq w \implies (v,w) \in E) \iff \exists D' \subseteq V: |D'| \le k': \forall v,w \in D (v \neq w \implies (v,w) \notin E') \iff (G', |V|-k) \in VC$
 
