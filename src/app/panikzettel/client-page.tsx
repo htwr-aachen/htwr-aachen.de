@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import {
 	APPLICATION_AREA_SUBJECT,
 	COMPULSORY_ELECTIVE_SUBJECT,
@@ -26,11 +25,6 @@ function filterOthers(panikzettel: Panikzettel) {
 	);
 }
 
-export const metadata: Metadata = {
-	title: "Panikzettel",
-	description:
-		"Die neue ultimative Panikzettelsammlung. Ein erweiterter weiterhin gepflegter Klon der originalen Seite",
-};
 
 export default function Page() {
 	const { panikzettel } = usePanikzettel();

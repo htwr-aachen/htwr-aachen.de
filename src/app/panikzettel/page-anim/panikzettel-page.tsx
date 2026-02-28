@@ -13,7 +13,7 @@ export default function PanikzettelPage({ children }: { children: ReactNode }) {
 					htwr-aachen.de/panikzettel
 				</Link>
 				<h1 className="font-sans text-3xl font-bold ">Panikzettel Überblick</h1>
-				<span className="font-sans text-lg font-normal ">
+				<span suppressHydrationWarning className="font-sans text-lg font-normal ">
 					Version 1 | {format(new Date(), "dd.MM.yyyy")}
 				</span>
 				<span className="font-serif text-sm ">Jonas Schneider</span>

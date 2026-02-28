@@ -43,15 +43,16 @@ export default function PanikzettelSelection({
 						const dateParts = x.date?.split(".") || ["a", "b", "c'"];
 
 						// Rearrange the date parts to "YYYY-MM-DD"
-						const formattedDateString = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+						const formattedDateString = `${dateParts[2]?.trim()}-${dateParts[1]?.trim()}-${dateParts[0]?.trim()}`;
 
 						const date = x.date ? new Date(formattedDateString) : undefined;
+						const isValidDate = date && !Number.isNaN(date.getTime());
 						return (
 							<li key={x.name}>
 								<Link href={x.url}>{x.name}</Link>
-								<span className="ml-2 text-sm text-stone-600">
-									{UpToDatenessIndicator(date)}{" "}
-									{date
+								<span suppressHydrationWarning className="ml-2 text-sm text-stone-600">
+									{UpToDatenessIndicator(isValidDate ? date : undefined)}{" "}
+									{isValidDate
 										? format(date, "MMMM yyyy", { locale: de })
 										: "nicht bekannt"}
 								</span>
