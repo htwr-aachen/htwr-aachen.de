@@ -23,14 +23,16 @@ const PanikzettelContext = createContext<PanikzettelContextType | undefined>(
 
 export function PanikzettelProvider({ children }: { children: ReactNode }) {
 	const [panikzettel, setPanikzettel] = useState<Panikzettel[]>([]);
+	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
+		setIsHydrated(true);
 		getPanikzettelMetadata().then((data) => setPanikzettel(data));
 	}, []);
 
 	return (
 		<PanikzettelContext.Provider value={{ panikzettel, setPanikzettel }}>
-			{children}
+			{isHydrated && children}
 		</PanikzettelContext.Provider>
 	);
 }

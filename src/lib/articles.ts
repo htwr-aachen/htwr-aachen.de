@@ -80,7 +80,8 @@ async function _getArticle(
 	let stats: Stats | undefined;
 
 	for (const ext of extensions) {
-		fp = join(corpusConfig.articlesPath, `${stripedSlug}${ext}`);
+		const fileName = stripedSlug + ext;
+		fp = join(corpusConfig.articlesPath, fileName);
 		try {
 			await access(fp);
 			content = await readFile(fp, "utf-8");

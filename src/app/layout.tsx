@@ -80,6 +80,10 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
 					integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
 					crossOrigin="anonymous"
 				/>
+				<meta
+					name="format-detection"
+					content="telephone=no, date=no, email=no, address=no"
+				/>
 			</head>
 			<body className="bg-background min-h-screen font-sans antialiased">
 				<TooltipProvider>
