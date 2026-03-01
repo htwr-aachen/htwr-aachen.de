@@ -1,0 +1,47 @@
+---
+title: Mein Apple Moment bei Panikzetteln
+date: 2026-03-01
+---
+
+Ich besitze ein iPad 🆒.
+
+Nun habe ich gestern mal selber meine Dienste genutzt und wollte einen Panikzettel von meiner Website downloaden, aber nein, die Webseite lädt net. Schön, dass mir das jetzt auffällt, muss wohl schon länger so sein...
+
+Die [/panikzettel](/panikzettel)-Seite ist ja nur die meistbesuchte Seite auf htwr, also kein Problemchen. Jedenfalls probiere ich's auf dem (Android) Handy und dort klappt's, na toll, irgendeine WebKit-Scheiße.
+
+Kurzes Intermezzo:
+
+---
+
+Browser sind ja notorisch große und komplexe Softwareprojekte.
+Alle größeren kann man aufteilen in $\ge 2$ Teile.
+
+1. JavaScript-Engine (V8 - Chrome, SpiderMonkey - Firefox, JavaScriptCore - Safari): Das sind die Interpreter/JIT für euer JavaScript.
+
+2. Browser-Engine / Rendering-Engine (Blink - Chrome, Gecko - Firefox, WebKit - Safari): Die layouten und (rendern, naja so halb) die Webseite. Sie nehmen also die empfangenen HTML- und CSS-Inhalte (ebenfalls die durch JavaScript errechneten) und layouten alles korrekt.
+
+Apple, wie Apple halt so ist, schreibt es vor (seit 2024 nicht mehr in der EU), dass alle Web-Sachen auf iOS/iPadOS, also Safari aber auch Chrome und integrierte "WebViews", die WebKit-Engine nutzen müssen, um über den App Store vertrieben werden zu dürfen. Heißt: Egal, ob du Safari oder Chrome nutzt, es ist alles Hähnchen! [^1]
+
+Weil die Layout-Engines aber alle mal mehr und mal weniger spec-compliant sind, kann es manchmal vorkommen, dass manche Fehler bei der einen auftreten, bei der anderen aber nicht, so wie halt dieses Mal.
+
+---
+
+Okay, dann probiere ich mal, das zu beheben.Google (Noto Color Emoji 16.0)
+1. Problem: Alleine die Browser auf meinem iPad nutzen WebKit (Gnome Web nutzt übrigens auch WebKit, dort verhält es sich aber aus irgendwelchen Gründen anders, warum auch immer).
+2. Viel Erfolg, auf einem nicht gejailbreakten iPad auch nur irgendeine Art von Entwickleroptionen oder Debug-Konsole zu bekommen, ohne einen Mac.
+
+Ja richtig, nur Apple-Geräte funktionieren nicht, aber um herauszufinden, was falsch läuft, braucht man einen Mac 💀. Ich kaufe mir bei Gott keinen Mac und mein iPad jailbreaken war früher auch irgendwie einfacher als jetzt.
+
+Es gibt einfach keine Debug-Optionen. Da bist du einfach am Arsch, wenn du nur ein iPhone oder iPad hast. Mir war das schon bewusst für native Apps & Programme, aber dass es so schlimm ist, selbst Webseiten faktisch nicht für Apple-Geräte machen zu können...
+
+Ich meine, es wäre ja okay, würde WebKit super funktionieren, aber es ist schon länger bekannt für so manche Auslegung bei Spezifikationen. Soweit ich weiß wird es besser aber [web platform tests](https://wpt.fyi/results/?label=experimental&label=master&aligned) scheinen immernoch eher Eindeutig.
+
+Chrome erlaubt natürlich auch keine [Debug-Sachen](https://developer.chrome.com/blog/debugging-chrome-on-ios/), da sie ja auch gezwungen sind, WebKit zu nutzen. Ich schätze mal das Web debugging ist ziemlich integriert mit der Layout Engine und für zwei Engines ist der Aufwand zu hoch. Sie nutzen also auch das Safari-Debugging.
+
+Ich habe es dann so gelöst, einen Freund mit Mac zu fragen, mir einen Screenshot der Konsole zu schicken 💀.
+
+=> Es war natürlich ein React Hydration Issue mit Timestamps, wie immer bei diesem Scheiß, und jetzt klappt alles vernünftig.
+
+Falls doch nochmal irgendwas bei HTWR nicht funktioniert, schreibt mir gerne an [heyho@htwr-aachen.de](mailto:heyho@htwr-aachen.de) oder bei Fragen oder auch einfach mal so mir egal.
+
+[^1]: https://die-kaenguru-chroniken.fandom.com/wiki/T%C3%BCtensuppen-Totalitarismus
