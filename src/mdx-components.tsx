@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import BasicSubjectInfo from "./components/documents/basic-subject-info";
 import {
 	BasicDocumentList,
@@ -26,5 +26,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		ExamsInfo,
 		Schnellzugriff,
 		SchnellzugriffLink,
+		Alert,
+		AlertDescription,
+		AlertTitle,
 	};
 }

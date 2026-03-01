@@ -14,6 +14,7 @@ import { findAssociatedSubjects } from "@/lib/subjects";
 import type { Institute } from "@/models/institutes";
 
 import "../styles/cms.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: "HTWR Aachen - Die beste Hilfe für ihren Doppelgänger",
@@ -30,14 +31,22 @@ const Index: FC = () => {
 			<Gallery>
 				<GalleryItem>
 					<GalleryImage
-						src="/other/blog/06/bearbeiten-rwth-cool.png"
-						alt="Bearbeiten & rwth.cool"
+						src="/other/blog/07/frontpage.png"
+						alt="Apple Moment"
 						width={900}
 						height={650}
 					/>
-					<GalleryLabel headline="Easy Bearbeiten" url="/blog/06">
-						Siehe im Footer - Diese Seite bearbeiten - 🤯 & rwth.cool als RWTH
-						Link Collection
+					<GalleryLabel headline="Mein Apple Moment" url="/blog/07">
+						Apple macht es manchmal jedem schwer, vorallem wenn man nicht nur
+						Apple besitzt. Ein klassischer Dev-Rant. Bald gibts wieder RWTH
+						content bestimmt... <br /> Bitte schickt mir mal Sachen:{" "}
+						<Link
+							href="/contact"
+							className="text-accent
+            "
+						>
+							schreib mir einfach 💌
+						</Link>
 					</GalleryLabel>
 				</GalleryItem>
 				<GalleryItem>

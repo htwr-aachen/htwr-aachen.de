@@ -105,6 +105,11 @@ export default function Footer() {
 					<FooterHeading>Rechtliches Gedöns</FooterHeading>
 					<FooterList>
 						<FooterListItem>
+							<Link href={"/contact"} className="no-b text-inherit">
+								Schreib mir / Kontakt 💌
+							</Link>{" "}
+						</FooterListItem>
+						<FooterListItem>
 							<Link href={"/impressum"} className="no-b text-inherit">
 								Impressum
 							</Link>{" "}
