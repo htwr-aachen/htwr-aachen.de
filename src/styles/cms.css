@@ -3,11 +3,11 @@
 }
 
 .cms-interactive-top:is(
-		:hover,
-		:active,
-		:focus-visible,
-		[aria-expanded="true"]
-	)::before {
+	:hover,
+	:active,
+	:focus-visible,
+	[aria-expanded="true"]
+)::before {
 	transform: scaleX(1);
 }
 
@@ -40,11 +40,11 @@
 		[aria-expanded="true"]
 	)::after,
 .cms-interactive-bottom:is(
-		:hover,
-		:active,
-		:focus-visible,
-		[aria-expanded="true"]
-	)::after {
+	:hover,
+	:active,
+	:focus-visible,
+	[aria-expanded="true"]
+)::after {
 	transform: scaleX(1);
 }
 

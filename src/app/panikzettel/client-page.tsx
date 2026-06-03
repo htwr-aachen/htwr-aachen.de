@@ -25,7 +25,6 @@ function filterOthers(panikzettel: Panikzettel) {
 	);
 }
 
-
 export default function Page() {
 	const { panikzettel } = usePanikzettel();
 

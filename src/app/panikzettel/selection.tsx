@@ -50,7 +50,10 @@ export default function PanikzettelSelection({
 						return (
 							<li key={x.name}>
 								<Link href={x.url}>{x.name}</Link>
-								<span suppressHydrationWarning className="ml-2 text-sm text-stone-600">
+								<span
+									suppressHydrationWarning
+									className="ml-2 text-sm text-stone-600"
+								>
 									{UpToDatenessIndicator(isValidDate ? date : undefined)}{" "}
 									{isValidDate
 										? format(date, "MMMM yyyy", { locale: de })
