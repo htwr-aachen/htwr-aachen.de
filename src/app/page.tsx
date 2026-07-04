@@ -134,6 +134,16 @@ const Index: FC = () => {
 			</Gallery>
 			<div>
 				<Persona>
+					<PersonaElement href="/panikzettel">
+							<ExportedImage
+								className="relative mx-auto mb-2 size-8"
+								src="/assets/Noto_Emoji_15_1fae8.svg"
+								alt="shaking head emoji"
+								width={32}
+								height={32}
+							/>
+						Panikzettel
+					</PersonaElement>
 					{Object.values(RealInstituteConfig).map((institute: Institute) => {
 						return (
 							<PersonaElement href={institute.href} key={institute.name}>
