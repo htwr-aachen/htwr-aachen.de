@@ -113,7 +113,7 @@ export const FacultiesNavContent: {
 				tooltip: "Warum wurde das noch nicht öffentlich gemacht?",
 			},
 			{
-				href: "https://bit.ly/getmeoutofrwth",
+				href: "https://paperless.rwth-aachen.de/application/exmatrikulation",
 				path: "/",
 				content: "Exmatrikulieren",
 				name: "Exmatrikulieren",
