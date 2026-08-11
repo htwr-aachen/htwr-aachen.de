@@ -1,3 +1,10 @@
+export type PanikzettelDownloadStats = {
+  semester: number,
+  last_30_days: number,
+  last_14_days: number,
+  last_7_days: number,
+};
+
 export type Panikzettel = {
 	name: string;
 	type:
@@ -11,6 +18,7 @@ export type Panikzettel = {
 	semester?: number;
 	shortname?: string;
 	date?: string;
+  downloads?: PanikzettelDownloadStats;
 };
 
 export const COMPULSORY_SUBJECT = "compulsory";

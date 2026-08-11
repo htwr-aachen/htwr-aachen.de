@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { Download } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -19,10 +20,14 @@ export default function PanikzettelPage({ children }: { children: ReactNode }) {
 				>
 					Version 1 | {format(new Date(), "dd.MM.yyyy")}
 				</span>
-				<span className="font-serif text-sm ">Jonas Schneider</span>
-				<span className="font-serif text-sm ">
-					🟢 neuer als 2 Jahre, 🟡 neuer als 4 Jahre, 🔴 vertrau Bruder
-				</span>
+				<span className="font-serif text-sm">Jonas Schneider</span>
+        <div className="flex flex-row gap-2 items-center flex-wrap justify-center">
+          <span className="font-serif text-sm">
+            🟢 neuer als 2 Jahre, 🟡 neuer als 4 Jahre, 🔴 vertrau Bruder,</span>
+          <span className="font-serif text-sm flex flex-row gap-1 items-baseline-last">
+            <Download className="size-4"/> Downloads in (diesem Semester), (30 Tagen), (7 Tagen)
+          </span>
+        </div>
 			</div>
 			<div className="flex w-full flex-col gap-10 px-4 py-12 font-sans md:mx-auto md:grid md:max-w-[calc((2*65ch)+2.5rem)] md:grid-cols-2 md:justify-evenly">
 				{children}
